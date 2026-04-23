@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" fill="currentColor" aria-labelledby="davil-title">
+  <title id="davil-title">DAVIL — Vedi · Integra · Eleva</title>
+  <g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-10">
+    <text x="20" y="240" font-size="260">DAVIL</text>
+  </g>
+  <!-- Eye overlay inside the D counter -->
+  <g transform="translate(118,138)">
+    <circle cx="0" cy="0" r="30" fill="var(--bg,#ffffff)" stroke="currentColor" stroke-width="0"/>
+    <circle cx="0" cy="0" r="8" fill="currentColor"/>
+  </g>
+  <!-- Tagline -->
+  <g font-family="'Space Grotesk','Inter',sans-serif" font-weight="500" font-size="32" letter-spacing="18">
+    <text x="22" y="320">VEDI</text>
+    <text x="232" y="320">·</text>
+    <text x="282" y="320">INTEGRA</text>
+    <text x="612" y="320">·</text>
+    <text x="662" y="320">ELEVA</text>
+  </g>
+</svg>
