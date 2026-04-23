@@ -1,0 +1,14 @@
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+dist/
+*.log
+.env
+.env.local
+.cache/
+
+# Working material — not for public repo
+input-davil/
+DA-FARE-INSIEME.md
+.claude/settings.local.json

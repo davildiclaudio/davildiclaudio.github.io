@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a1a28"/>
+      <stop offset="50%" stop-color="#0f0f18"/>
+      <stop offset="100%" stop-color="#08080d"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#2d2de0" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#2d2de0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1.2" fill="#5e5efb" opacity=".35"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+  <circle cx="800" cy="450" r="500" fill="url(#glow)"/>
+
+  <!-- constellation nodes -->
+  <g fill="#ffffff" opacity=".85">
+    <circle cx="480" cy="320" r="4"/>
+    <circle cx="720" cy="260" r="3"/>
+    <circle cx="900" cy="380" r="5"/>
+    <circle cx="1100" cy="300" r="3"/>
+    <circle cx="1180" cy="500" r="4"/>
+    <circle cx="950" cy="580" r="3"/>
+    <circle cx="700" cy="640" r="4"/>
+    <circle cx="520" cy="560" r="3"/>
+    <circle cx="380" cy="480" r="4"/>
+    <circle cx="820" cy="450" r="6" fill="#5e5efb"/>
+  </g>
+
+  <!-- connecting lines -->
+  <g stroke="#5e5efb" stroke-width="0.8" fill="none" opacity=".35">
+    <path d="M480 320 L720 260 L900 380 L820 450 L700 640 L520 560 L380 480 L480 320"/>
+    <path d="M820 450 L1100 300 L1180 500 L950 580 L820 450"/>
+    <path d="M900 380 L820 450"/>
+    <path d="M820 450 L700 640"/>
+  </g>
+
+  <!-- faint wordmark -->
+  <text x="800" y="835" text-anchor="middle"
+        font-family="Space Grotesk, sans-serif"
+        font-size="13" letter-spacing="12"
+        fill="#ffffff" opacity=".25">
+    DAVIL · CONSCIOUSNESS MAP
+  </text>
+</svg>

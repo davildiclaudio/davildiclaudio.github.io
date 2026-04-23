@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/content/
+
+Sitemap: https://davil-life-leadership-coaching.it/sitemap.xml
