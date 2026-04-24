@@ -307,12 +307,13 @@ section{padding:clamp(100px,14vh,180px) var(--pad);position:relative;max-width:v
 
 /* ---------- Transurfing ---------- */
 .transurfing{position:relative;background:var(--bg)}
+.transurfing{--ts-x:0vw}
 .transurfing::before{
-  content:"TRANSURFING";position:absolute;top:80px;right:-20px;
+  content:"TRANSURFING · TRANSURFING";position:absolute;top:60px;right:-20px;
   font-family:var(--ff-display);font-weight:300;font-style:italic;
-  font-size:clamp(100px,18vw,300px);letter-spacing:-.045em;line-height:1;
-  color:rgba(242,239,233,.025);pointer-events:none;user-select:none;z-index:0;
-  white-space:nowrap;
+  font-size:clamp(120px,22vw,360px);letter-spacing:-.05em;line-height:1;
+  color:rgba(242,239,233,.035);pointer-events:none;user-select:none;z-index:0;
+  white-space:nowrap;transform:translateX(var(--ts-x));will-change:transform;
 }
 .transurfing-lead{max-width:68ch;font-size:clamp(16px,1.3vw,19px);color:var(--ink-soft);margin:0 0 72px;line-height:1.75;position:relative}
 .transurfing-lead em{color:var(--gold)}

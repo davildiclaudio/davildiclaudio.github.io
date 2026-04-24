@@ -180,17 +180,19 @@
       gsap.ticker.lagSmoothing(0);
     }
 
+    /* ===== CINEMATIC REVEALS — amplified GTA-VI style ===== */
     $$('[data-reveal]').forEach(el => {
       gsap.fromTo(el,
-        { opacity: 0, y: 28 },
+        { opacity: 0, y: 90, scale: 0.96, filter: 'blur(8px)' },
         {
-          opacity: 1, y: 0, duration: 1, ease: 'expo.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+          opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+          duration: 1.6, ease: 'power4.out',
+          scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
         }
       );
     });
 
-    /* Split headings into words and stagger */
+    /* Split headings into words and stagger with bigger travel */
     $$('[data-split-words]').forEach(h => {
       const wrapWords = (node) => {
         if (node.nodeType === Node.TEXT_NODE) {
@@ -217,53 +219,130 @@
       };
       wrapWords(h);
       const inners = h.querySelectorAll('.w > span');
-      gsap.set(inners, { yPercent: 110 });
+      gsap.set(inners, { yPercent: 120, rotate: 4 });
       gsap.to(inners, {
-        yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.045,
+        yPercent: 0, rotate: 0, duration: 1.4, ease: 'power4.out', stagger: 0.07,
         scrollTrigger: { trigger: h, start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
 
-    /* Parallax visuals */
+    /* Strong parallax on visuals (fibonacci) */
     $$('[data-parallax]').forEach(el => {
       gsap.to(el, {
-        yPercent: -16,
+        yPercent: -40, rotation: 12,
         ease: 'none',
-        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 1 }
       });
     });
 
-    /* Orbs drift in hero */
-    gsap.to('.orb-1', { xPercent: 18, yPercent: 12, duration: 22, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    gsap.to('.orb-2', { xPercent: -14, yPercent: -18, duration: 26, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    /* Orbs drift with bigger motion */
+    gsap.to('.orb-1', { xPercent: 30, yPercent: 25, duration: 16, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.orb-2', { xPercent: -25, yPercent: -30, duration: 20, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
-    /* Hero parallax on scroll */
-    gsap.to('.hero-bg', {
-      yPercent: 20,
-      ease: 'none',
+    /* Hero: strong cinematic parallax + scale-in on scroll */
+    gsap.to('.orb-1, .orb-2', {
+      yPercent: 60, ease: 'none',
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
     gsap.to('.hero-inner', {
-      yPercent: 8,
-      opacity: 0.3,
+      yPercent: 25, scale: 0.92, opacity: 0.15,
       ease: 'none',
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
     });
 
-    /* Pillar icon drift on scroll */
+    /* TRANSURFING giant background text — horizontal parallax */
+    const tsSection = $('#transurfing');
+    if (tsSection) {
+      gsap.fromTo(tsSection, { '--ts-x': '0vw' }, {
+        '--ts-x': '-30vw', ease: 'none',
+        scrollTrigger: { trigger: tsSection, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      });
+    }
+
+    /* Pillar icon drift on scroll (amplified) */
     $$('.pillar-icon img').forEach(img => {
-      gsap.to(img, {
-        rotate: 8, y: -6,
-        scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
+      gsap.fromTo(img,
+        { rotate: -15, scale: 0.85 },
+        { rotate: 15, scale: 1.05,
+          scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+        }
+      );
+    });
+
+    /* Pillars: scale-in stagger on scroll */
+    $$('.pillar').forEach((p, i) => {
+      gsap.fromTo(p,
+        { opacity: 0, y: 120, scale: 0.88 },
+        { opacity: 1, y: 0, scale: 1, duration: 1.3, ease: 'power4.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: '.pillars', start: 'top 80%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    /* TS-cards: stagger scale-in */
+    $$('.ts-card').forEach((c, i) => {
+      gsap.fromTo(c,
+        { opacity: 0, y: 100, scale: 0.9 },
+        { opacity: 1, y: 0, scale: 1, duration: 1.3, ease: 'power4.out',
+          delay: (i % 3) * 0.1,
+          scrollTrigger: { trigger: c, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    /* Servizio rows: slide in from left */
+    $$('.servizio').forEach(s => {
+      gsap.fromTo(s,
+        { opacity: 0, x: -60, filter: 'blur(6px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.4, ease: 'power4.out',
+          scrollTrigger: { trigger: s, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    /* Section labels slide-in + number counter pulse */
+    $$('.section-label').forEach(label => {
+      gsap.from(label, {
+        opacity: 0, x: -80, duration: 1.2, ease: 'power4.out',
+        scrollTrigger: { trigger: label, start: 'top 92%' }
+      });
+      const num = label.querySelector('span');
+      if (num) gsap.from(num, {
+        scale: 0.3, opacity: 0, duration: 1.1, ease: 'back.out(2)', delay: .1,
+        scrollTrigger: { trigger: label, start: 'top 92%' }
       });
     });
 
-    /* Section labels slide in */
-    $$('.section-label').forEach(label => {
-      gsap.from(label, {
-        opacity: 0, x: -30, duration: 0.9, ease: 'expo.out',
-        scrollTrigger: { trigger: label, start: 'top 90%' }
+    /* Marquee velocity on scroll */
+    const mTrack = $('.marquee-track');
+    if (mTrack) {
+      gsap.to(mTrack, {
+        x: '-=400', ease: 'none',
+        scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: 1 }
       });
+    }
+
+    /* Slideshow stage entrance */
+    const stage = $('.slideshow-stage');
+    if (stage) {
+      gsap.fromTo(stage,
+        { scale: 0.85, opacity: 0, y: 120 },
+        { scale: 1, opacity: 1, y: 0, duration: 1.8, ease: 'power4.out',
+          scrollTrigger: { trigger: stage, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    }
+
+    /* Contatto cards: scale-in stagger */
+    $$('.contatto-card').forEach((c, i) => {
+      gsap.fromTo(c,
+        { opacity: 0, scale: 0.9, y: 40 },
+        { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: 'power4.out',
+          delay: i * 0.1,
+          scrollTrigger: { trigger: '.contatti-grid', start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
     });
   } else {
     $$('[data-reveal]').forEach(el => el.classList.add('is-in'));
