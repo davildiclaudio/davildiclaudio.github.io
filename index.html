@@ -5,23 +5,902 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#09090b" />
 <meta name="color-scheme" content="dark" />
+
+<title>DAVIL — Mental Coach · Transurfing · Psicosintesi</title>
+<meta name="description" content="Mental coach e ricercatore della coscienza. Psicosintesi di Assagioli + Reality Transurfing di Zeland. Percorsi 1:1, gruppo, mentoring e specializzazione dipendenze. Roma · Online." />
+<meta name="keywords" content="mental coach roma, life coaching, transurfing, zeland, assagioli, psicosintesi, jung, dispenza, lipton, liberazione dipendenze, ars realis, davil" />
+<meta name="author" content="Davil Di Claudio" />
 <meta name="robots" content="noindex, nofollow" />
-<title>DAVIL</title>
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- V2 overrides: text-only, no images -->
 <style>
-  html,body{margin:0;height:100%;background:#09090b;color:#f2efe9;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-  body{display:grid;place-items:center;padding:24px}
-  .wrap{text-align:center;max-width:520px;opacity:.92}
-  h1{font-weight:300;letter-spacing:.3em;font-size:clamp(20px,3vw,28px);margin:0 0 18px}
-  p{color:#8d8a84;font-size:14px;line-height:1.7;margin:0 0 6px;letter-spacing:.02em}
-  a{color:#f2efe9;text-decoration:none;border-bottom:1px solid rgba(242,239,233,.3);transition:border-color .3s}
-  a:hover{border-color:#f2efe9}
+  /* Loader wordmark replaces <img> */
+  .loader-mark-text{
+    font-family:var(--ff-display,'Fraunces',serif);
+    font-weight:500;
+    letter-spacing:.22em;
+    font-size:clamp(28px,4vw,44px);
+    color:var(--ink);
+    opacity:0;
+    animation:loaderIn .9s var(--ease) both;
+  }
+  /* Nav logo as wordmark */
+  .nav-logo-text{
+    font-family:var(--ff-display,'Fraunces',serif);
+    font-weight:500;
+    letter-spacing:.28em;
+    font-size:16px;
+    color:var(--ink);
+    text-transform:uppercase;
+  }
+  /* Hero without image */
+  .hero-bg-clean{
+    position:absolute;inset:0;overflow:hidden;pointer-events:none;
+    background:
+      radial-gradient(900px 600px at 20% 0%, rgba(109,138,247,.12), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(176,139,255,.10), transparent 55%),
+      radial-gradient(500px 400px at 50% 40%, rgba(224,99,119,.06), transparent 60%);
+  }
+  .hero-bg-clean::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.015) 1px, transparent 1px);
+    background-size:3px 3px;
+    mix-blend-mode:overlay;opacity:.6;
+  }
+  /* Giant type tokens */
+  .mega{
+    font-family:var(--ff-display);
+    font-weight:300;
+    line-height:.92;
+    letter-spacing:-.02em;
+    font-size:clamp(46px,9vw,148px);
+    color:var(--ink);
+  }
+  .mega em{font-style:italic;color:var(--gold);font-weight:300}
+
+  /* Manifesto — three lines rauno-style */
+  .manifesto{
+    padding:clamp(80px,14vh,200px) var(--pad);
+    text-align:center;
+    position:relative;
+  }
+  .manifesto .m-line{
+    font-family:var(--ff-display);
+    font-weight:300;
+    font-size:clamp(28px,4.8vw,72px);
+    line-height:1.1;
+    letter-spacing:-.01em;
+    margin:0 auto;
+    max-width:18ch;
+  }
+  .manifesto .m-line + .m-line{margin-top:.25em}
+  .manifesto .m-line em{color:var(--gold)}
+
+  /* Section generic */
+  .sect{padding:clamp(70px,11vh,160px) var(--pad);max-width:var(--max);margin:0 auto;position:relative}
+  .sect-eyebrow{
+    font-family:var(--ff-sans);font-weight:500;font-size:11px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--ink-soft);margin-bottom:24px;
+  }
+  .sect-h{
+    font-family:var(--ff-display);font-weight:300;line-height:1.03;letter-spacing:-.015em;
+    font-size:clamp(34px,6vw,92px);margin:0 0 42px;color:var(--ink);
+  }
+  .sect-h em{color:var(--gold)}
+  .sect-lead{
+    font-family:var(--ff-display);font-weight:300;font-style:italic;color:var(--ink-soft);
+    font-size:clamp(18px,1.7vw,26px);max-width:60ch;line-height:1.5;margin:0 0 48px;
+  }
+
+  /* The crack / text blocks */
+  .prose{max-width:62ch;font-size:clamp(16px,1.05vw,19px);line-height:1.75;color:var(--ink-soft)}
+  .prose p + p{margin-top:1.1em}
+  .prose strong{color:var(--ink)}
+
+  /* Method — 3 assi */
+  .assi{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+  @media(max-width:900px){.assi{grid-template-columns:1fr}}
+  .asse{padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);transition:border-color .3s var(--ease)}
+  .asse:hover{border-color:var(--border-hover)}
+  .asse-num{font-family:var(--ff-sans);font-size:12px;color:var(--ink-dim);letter-spacing:.2em}
+  .asse-title{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2vw,30px);margin:14px 0 10px}
+  .asse-tag{font-family:var(--ff-display);font-style:italic;color:var(--gold);font-size:14px;margin-bottom:18px}
+  .asse-body{font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
+  .asse-tools{margin-top:22px;padding-top:22px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-dim);letter-spacing:.04em}
+
+  /* Pilastri — four tradizioni */
+  .pilastri{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin-top:40px}
+  @media(max-width:900px){.pilastri{grid-template-columns:1fr;gap:32px}}
+  .pilastro{padding:44px 40px;border:1px solid var(--border);border-radius:var(--radius);transition:transform .6s var(--ease),border-color .4s}
+  .pilastro:hover{transform:translateY(-4px);border-color:var(--border-hover)}
+  .pilastro .p-num{font-family:var(--ff-sans);font-size:12px;color:var(--ink-dim);letter-spacing:.2em}
+  .pilastro .p-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:10px 0 18px}
+  .pilastro .p-h{font-family:var(--ff-display);font-weight:300;font-size:clamp(24px,2.3vw,38px);line-height:1.15;margin:0 0 22px}
+  .pilastro .p-body{font-size:15px;line-height:1.7;color:var(--ink-soft)}
+  .pilastro .p-body strong{color:var(--ink)}
+  .pilastro .p-concetti{margin-top:24px;padding-top:22px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-dim);letter-spacing:.02em}
+
+  /* Per chi / per chi non */
+  .forwho{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:28px}
+  @media(max-width:800px){.forwho{grid-template-columns:1fr;gap:48px}}
+  .forwho h3{font-family:var(--ff-display);font-weight:400;font-size:28px;margin:0 0 22px}
+  .forwho h3.neg{color:var(--red)}
+  .forwho ul{list-style:none;padding:0;margin:0}
+  .forwho li{padding:14px 0;border-bottom:1px solid var(--border);font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+  .forwho li:last-child{border:0}
+  .forwho li strong{color:var(--ink)}
+
+  /* Servizi list */
+  .servizi-list{list-style:none;padding:0;margin:32px 0 0}
+  .servizio{
+    display:grid;grid-template-columns:90px 1fr auto;gap:32px;align-items:baseline;
+    padding:36px 0;border-top:1px solid var(--border);
+  }
+  .servizio:last-child{border-bottom:1px solid var(--border)}
+  .s-index{font-family:var(--ff-sans);font-size:13px;color:var(--ink-dim);letter-spacing:.2em}
+  .s-body h3{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2vw,32px);margin:0 0 10px}
+  .s-body p{font-size:15px;line-height:1.7;color:var(--ink-soft);margin:0 0 12px;max-width:60ch}
+  .s-struttura{font-size:13.5px;color:var(--ink-dim);line-height:1.7;margin-top:12px}
+  .s-meta{font-family:var(--ff-sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  @media(max-width:700px){.servizio{grid-template-columns:1fr;gap:12px}.s-meta{margin-top:8px}}
+
+  /* Dipendenze — landing within landing */
+  .dip-section{
+    background:
+      radial-gradient(600px 400px at 80% 20%, rgba(224,99,119,.06), transparent 60%),
+      radial-gradient(500px 400px at 10% 90%, rgba(176,139,255,.05), transparent 60%);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:clamp(100px,14vh,200px) var(--pad);
+    position:relative;
+  }
+  .dip-inner{max-width:var(--max);margin:0 auto}
+  .dip-pre{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.5vw,22px);max-width:52ch;margin:0 0 28px;line-height:1.55}
+  .piani{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:40px 0}
+  @media(max-width:900px){.piani{grid-template-columns:1fr}}
+  .piano{padding:32px 28px;border:1px solid var(--border);border-radius:var(--radius)}
+  .piano-num{font-family:var(--ff-sans);font-size:11px;color:var(--red);letter-spacing:.26em;text-transform:uppercase}
+  .piano-title{font-family:var(--ff-display);font-weight:400;font-size:24px;margin:10px 0 4px}
+  .piano-sub{font-family:var(--ff-display);font-style:italic;color:var(--gold);font-size:14px;margin-bottom:18px}
+  .piano-body{font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
+  .dip-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 40px;margin-top:18px;list-style:none;padding:0}
+  @media(max-width:700px){.dip-list{grid-template-columns:1fr}}
+  .dip-list li{padding:14px 0;border-bottom:1px solid var(--border);font-size:15px;color:var(--ink-soft)}
+  .dip-list li strong{color:var(--ink);font-weight:600}
+
+  /* Storia — 5 capitoli */
+  .storia-list{margin-top:40px;padding:0;list-style:none}
+  .storia-cap{
+    padding:50px 0;border-top:1px solid var(--border);
+    display:grid;grid-template-columns:120px 1fr;gap:40px;align-items:baseline;
+  }
+  .storia-cap:last-child{border-bottom:1px solid var(--border)}
+  .storia-cap .cap-num{font-family:var(--ff-sans);font-size:12px;color:var(--ink-dim);letter-spacing:.22em}
+  .storia-cap .cap-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.2vw,34px);margin:0 0 18px;line-height:1.2}
+  .storia-cap .cap-body{font-size:16px;line-height:1.75;color:var(--ink-soft);max-width:58ch}
+  @media(max-width:700px){.storia-cap{grid-template-columns:1fr;gap:14px}}
+
+  /* Libri / risorse — two column card */
+  .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px}
+  @media(max-width:900px){.cards-2{grid-template-columns:1fr}}
+  .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+  @media(max-width:1100px){.cards-3{grid-template-columns:1fr;gap:32px}}
+  .rcard{
+    padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius);
+    display:flex;flex-direction:column;gap:16px;min-height:280px;
+    transition:transform .5s var(--ease),border-color .3s;
+    background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+  }
+  .rcard:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+  .rcard .r-meta{font-family:var(--ff-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .rcard h3{font-family:var(--ff-display);font-weight:400;font-size:clamp(24px,2.2vw,36px);margin:0;line-height:1.15}
+  .rcard .r-sub{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:16px}
+  .rcard p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin:0}
+  .rcard ul{list-style:none;padding:0;margin:0;font-size:14px;color:var(--ink-soft)}
+  .rcard ul li{padding:6px 0;border-bottom:1px dotted var(--border-soft)}
+  .rcard ul li:last-child{border:0}
+  .rcard ul li strong{color:var(--ink);font-weight:600}
+  .rcard .cta-inline{margin-top:auto;font-family:var(--ff-sans);font-size:13px;letter-spacing:.04em;color:var(--gold);border-bottom:1px dotted var(--gold);align-self:flex-start;padding-bottom:2px;display:inline-block;cursor:pointer}
+  .rcard .cta-inline:hover{color:var(--gold-soft)}
+
+  /* Email gate form */
+  .gate{
+    display:flex;gap:12px;align-items:stretch;margin-top:18px;flex-wrap:wrap;
+  }
+  .gate input[type=email]{
+    flex:1;min-width:200px;padding:14px 18px;background:rgba(255,255,255,.03);
+    border:1px solid var(--border);border-radius:12px;color:var(--ink);
+    font-family:var(--ff-sans);font-size:14px;outline:none;transition:border-color .2s;
+  }
+  .gate input[type=email]:focus{border-color:var(--gold)}
+  .gate button{
+    padding:14px 20px;background:var(--ink);color:var(--bg);border-radius:12px;
+    font-family:var(--ff-sans);font-size:13px;font-weight:500;letter-spacing:.04em;
+    cursor:pointer;transition:background .2s;
+  }
+  .gate button:hover{background:var(--gold)}
+  .gate-note{margin-top:12px;font-size:12px;color:var(--ink-dim);line-height:1.5}
+
+  /* Soon badge */
+  .badge-soon{
+    display:inline-block;padding:3px 10px;border-radius:999px;
+    border:1px solid var(--gold);color:var(--gold);
+    font-family:var(--ff-sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  }
+
+  /* FAQ */
+  .faq details{
+    padding:24px 0;border-top:1px solid var(--border);
+  }
+  .faq details:last-of-type{border-bottom:1px solid var(--border)}
+  .faq summary{
+    font-family:var(--ff-display);font-size:clamp(18px,1.7vw,24px);
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;
+    color:var(--ink);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--ff-sans);font-weight:300;color:var(--gold);transition:transform .3s}
+  .faq details[open] summary::after{content:"−"}
+  .faq .faq-answer{margin-top:16px;font-size:15px;line-height:1.75;color:var(--ink-soft);max-width:62ch}
+
+  /* CTA finale */
+  .cta-final{
+    padding:clamp(100px,16vh,220px) var(--pad);
+    text-align:center;
+    background:radial-gradient(900px 500px at 50% 0%, rgba(212,168,100,.06), transparent 70%);
+  }
+  .cta-final .cta-h{
+    font-family:var(--ff-display);font-weight:300;font-size:clamp(30px,5vw,72px);
+    line-height:1.08;letter-spacing:-.015em;margin:0 auto 36px;max-width:18ch;
+  }
+  .cta-final em{color:var(--gold)}
+  .btn-primary{
+    display:inline-block;padding:18px 32px;background:var(--ink);color:var(--bg);
+    font-family:var(--ff-sans);font-size:14px;font-weight:500;letter-spacing:.08em;
+    border-radius:999px;text-transform:uppercase;transition:all .25s var(--ease);
+  }
+  .btn-primary:hover{background:var(--gold);transform:translateY(-2px)}
+
+  /* Contatti */
+  .contatti-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  @media(max-width:900px){.contatti-grid{grid-template-columns:1fr}}
+  .contatto-card{
+    display:flex;flex-direction:column;gap:10px;
+    padding:28px 26px;border:1px solid var(--border);border-radius:var(--radius);
+    transition:all .3s;
+  }
+  .contatto-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+  .c-label{font-family:var(--ff-sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
+  .c-value{font-family:var(--ff-display);font-size:22px;color:var(--ink)}
+  .c-arrow{margin-top:auto;font-size:18px;color:var(--gold);align-self:flex-end}
+
+  /* Footer */
+  .footer-v2{
+    padding:60px var(--pad) 40px;
+    border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+    font-size:12px;color:var(--ink-dim);letter-spacing:.04em;
+  }
+  .footer-v2 .footer-mark{font-family:var(--ff-display);font-size:16px;color:var(--ink);letter-spacing:.2em}
+
+  /* Section rule */
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--border-hover),transparent);margin:0 var(--pad)}
+
+  /* Quote */
+  .quote-big{
+    font-family:var(--ff-display);font-style:italic;font-weight:300;
+    font-size:clamp(22px,2.6vw,38px);line-height:1.35;color:var(--ink);
+    max-width:32ch;margin:0 0 60px;padding-left:24px;border-left:2px solid var(--gold);
+  }
+
+  /* Hide old slideshow/image hooks if any override arrives */
+  .hero-image,.hero-bg picture,.loader-mark img{display:none !important}
 </style>
+
+<!-- JSON-LD Schema.org — aggiornato per v2 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://davil-life-leadership-coaching.it/#business",
+  "name": "Davil Di Claudio — Mental Coaching",
+  "description": "Mental coaching che integra Psicosintesi di Assagioli, Reality Transurfing di Zeland, psicologia analitica e neuroscienze della coscienza.",
+  "url": "https://davil-life-leadership-coaching.it/",
+  "founder": {"@type":"Person","name":"Davil Di Claudio"},
+  "address": {"@type":"PostalAddress","addressLocality":"Roma","addressCountry":"IT"},
+  "areaServed":[{"@type":"Country","name":"Italia"},{"@type":"Place","name":"Online"}],
+  "contactPoint":{"@type":"ContactPoint","telephone":"+39-352-057-2683","contactType":"customer service","availableLanguage":["Italian","English"]},
+  "sameAs":["https://it.trustpilot.com/review/davil-life-leadership-coaching.it","https://wa.me/393520572683"],
+  "serviceType":["Life Coaching","Mental Coaching","Business Mentoring","Dream Interpretation","Addiction Coaching"]
+}
+</script>
 </head>
 <body>
-  <div class="wrap">
-    <h1>D A V I L</h1>
-    <p>In preparazione.</p>
-    <p>Per informazioni: <a href="mailto:davildiclaudio@gmail.com">davildiclaudio@gmail.com</a></p>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark loader-mark-text">DAVIL</div>
+    <div class="loader-bar"><span></span></div>
   </div>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- WhatsApp floating action button -->
+<a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20informazioni" class="wa-fab" target="_blank" rel="noopener" aria-label="Scrivimi su WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+    <path fill="currentColor" d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.3 31.6l8.1-2.1c2.2 1.2 4.7 1.8 7.3 1.8h.3c8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.3c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5C4 20.8 3.3 18.4 3.3 16 3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.3.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5s-1.4 1.3-1.4 3.3 1.5 3.8 1.7 4.1c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/>
+  </svg>
+  <span class="wa-label">Scrivimi</span>
+</a>
+
+<!-- Nav -->
+<header class="nav">
+  <a href="#top" class="nav-logo" aria-label="Davil home">
+    <span class="nav-logo-text">DAVIL</span>
+  </a>
+  <nav class="nav-menu">
+    <a href="#manifesto" data-link>Manifesto</a>
+    <a href="#metodo" data-link>Metodo</a>
+    <a href="#pilastri" data-link>Pilastri</a>
+    <a href="#percorsi" data-link>Percorsi</a>
+    <a href="#dipendenze" data-link>Dipendenze</a>
+    <a href="#storia" data-link>Storia</a>
+    <a href="#risorse" data-link>Risorse</a>
+    <a href="#faq" data-link>FAQ</a>
+    <a href="#contatti" data-link class="cta">Contatti</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<main id="top">
+
+  <!-- ============================ -->
+  <!-- 01 · HERO                    -->
+  <!-- ============================ -->
+  <section class="hero hero-brand">
+    <div class="hero-bg hero-bg-clean">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="hero-inner">
+      <p class="eyebrow" data-reveal>· Life Leadership &amp; Coaching ·</p>
+      <h1 class="hero-title mega">
+        <span class="line">Non hai bisogno</span>
+        <span class="line">di cambiare <em>vita.</em></span>
+        <span class="line">Devi smettere di vivere</span>
+        <span class="line">quella <em>di qualcun altro.</em></span>
+      </h1>
+      <p class="hero-sub" data-reveal style="max-width:56ch;margin-top:32px;font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.5vw,22px);line-height:1.55">
+        Mental Coach e ricercatore della coscienza. Aiuto imprenditori, professionisti e persone in transizione profonda a riprendere il comando della propria realtà — con la stessa serietà con cui un chirurgo apre un torace.
+      </p>
+      <div class="hero-ctas" data-reveal style="display:flex;gap:16px;margin-top:40px;flex-wrap:wrap">
+        <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20iniziare%20il%20percorso" class="btn-primary" target="_blank" rel="noopener">Inizia il cammino</a>
+        <a href="#storia" class="btn-primary" style="background:transparent;color:var(--ink);border:1px solid var(--border-hover)">Leggi la mia storia</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 02 · MANIFESTO               -->
+  <!-- ============================ -->
+  <section id="manifesto" class="manifesto">
+    <p class="m-line" data-reveal>La realtà non è una linea. <em>È un campo.</em></p>
+    <p class="m-line" data-reveal>Tu non devi forzarla. <em>Devi sintonizzarti.</em></p>
+    <p class="m-line" data-reveal>Tutto il resto di questo sito serve a insegnarti <em>come.</em></p>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============================ -->
+  <!-- 03 · LA CREPA                -->
+  <!-- ============================ -->
+  <section class="sect">
+    <div class="section-label" data-reveal><span>03</span> La crepa</div>
+    <h2 class="sect-h" data-split-words>Probabilmente sei <em>arrivato qui così.</em></h2>
+    <div class="prose" data-reveal>
+      <p>Hai costruito qualcosa che funziona — una carriera, un business, una relazione, una facciata — e dall'esterno non c'è niente da dire.</p>
+      <p><strong>Dall'interno c'è una crepa che non chiude.</strong></p>
+      <p>Hai già letto i libri. Hai provato la meditazione, il digiuno, la terapia, magari la psichedelica. Qualcuno ti ha promesso il salto di coscienza in sette giorni. Qualcun altro ti ha venduto un corso da diecimila euro e un attestato.</p>
+      <p>Niente di tutto questo è stato inutile. Niente di tutto questo è stato sufficiente.</p>
+      <p>Il motivo è semplice: nessuno ti ha insegnato a <strong>integrare</strong>. A tenere insieme la parte di te che legge Jung e la parte che firma contratti. La parte che cerca il Sé e la parte che deve pagare le bollette. La parte che sa e la parte che non riesce.</p>
+      <p>Io lavoro esattamente lì. <strong>Nel punto in cui le due metà si parlano.</strong></p>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 04 · CHI È DAVIL (breve)     -->
+  <!-- ============================ -->
+  <section id="chi-sono" class="sect">
+    <div class="section-label" data-reveal><span>04</span> Chi sono</div>
+    <h2 class="sect-h" data-split-words>Davil Di Claudio.<br/><em>Mental coach. Networker. Atleta.</em></h2>
+    <p class="quote-big" data-reveal>«Ho guidato 3.000 venditori, fatturato milioni, toccato il fondo, e poi ricominciato.»</p>
+    <div class="prose" data-reveal>
+      <p>Roma. Studio psicologia per mestiere, vivo il Transurfing come pratica quotidiana, mi alleno in corsa, nuoto e ciclismo perché il corpo è il primo ambiente di coscienza che abitiamo.</p>
+      <p>Nato a Civitavecchia nel 1996. Prima tuta da meccanico, poi contratti di luce e gas porta a porta, poi network marketing internazionale con sede a Dubai. A 26 anni avevo tutto quello che sembra contare e niente di quello che conta davvero. <strong>Ho smontato tutto e ho ricominciato da dentro.</strong></p>
+      <p>Oggi sono un Mental Coach in formazione accademica di psicologia — approccio integrato (cognitivo-comportamentale, dinamico, psicoanalitico, umanistico, strategico). Nella pratica uso come strumenti operativi la <strong>Psicosintesi di Assagioli</strong> e il <strong>Transurfing di Zeland</strong>. Ho scritto due libri, "Io posso farcela" e "PNL Esoterica".</p>
+      <p>Lavoro solo con chi è pronto a fare sul serio.</p>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 05 · IL METODO — 3 ASSI      -->
+  <!-- ============================ -->
+  <section id="metodo" class="sect">
+    <div class="section-label" data-reveal><span>05</span> Il metodo</div>
+    <h2 class="sect-h" data-split-words>Non motivazione. <em>Ingegneria della coscienza.</em></h2>
+    <p class="sect-lead" data-reveal>Ogni percorso che guido si muove su tre assi simultanei. Saltarne uno significa costruire su sabbia.</p>
+
+    <div class="assi">
+      <div class="asse" data-reveal>
+        <div class="asse-num">ASSE 01</div>
+        <div class="asse-title">Psicologia</div>
+        <div class="asse-tag">Guarisci il passato prima di provare a spostare il futuro.</div>
+        <div class="asse-body">Strumenti della psicologia clinica contemporanea — psicoanalisi, cognitivo-comportamentale, umanistica, Psicosintesi — per lavorare su ciò che ogni coach motivazionale finge non esista: le <strong>ferite non integrate</strong>, le subpersonalità che si fanno la guerra, i copioni familiari che ripeti senza saperlo. Finché il bambino dentro di te decide, l'adulto fuori può solo subire.</div>
+        <div class="asse-tools">disidentificazione · subpersonalità · inconscio · atto di volontà · costellazioni familiari</div>
+      </div>
+
+      <div class="asse" data-reveal>
+        <div class="asse-num">ASSE 02</div>
+        <div class="asse-title">Transurfing</div>
+        <div class="asse-tag">Smetti di forzare la realtà. Imparala a scegliere.</div>
+        <div class="asse-body">Il Transurfing di Vadim Zeland è la mappa più precisa che conosco per capire perché <strong>più ti sforzi, meno ottieni</strong>. Invece di cambiare il mondo, impari a sintonizzarti su un pezzo di mondo dove quella versione di te già esiste. Non è pensiero positivo. È l'opposto: fine del tentativo, inizio della selezione.</div>
+        <div class="asse-tools">spazio delle varianti · pendoli · importanza · intenzione esterna · specchio</div>
+      </div>
+
+      <div class="asse" data-reveal>
+        <div class="asse-num">ASSE 03</div>
+        <div class="asse-title">Campo energetico</div>
+        <div class="asse-tag">La realtà risponde a ciò che sei, non a ciò che speri.</div>
+        <div class="asse-body">Il corpo, il sistema nervoso, la coerenza cuore-cervello, l'ambiente fisico e relazionale: <strong>un unico campo</strong> che emani in ogni istante. È il piano in cui <strong>Joe Dispenza</strong> colloca il suo lavoro di neuro-rewiring meditativo e <strong>Bruce Lipton</strong> la sua biologia delle credenze: il punto in cui la mente smette di essere metafora e diventa biochimica.</div>
+        <div class="asse-tools">respiro coerente · coerenza cardiaca · meditazione neuro-plastica · epigenetica · ambiente mentale</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 06 · I 4 PILASTRI            -->
+  <!-- ============================ -->
+  <section id="pilastri" class="sect">
+    <div class="section-label" data-reveal><span>06</span> I pilastri di pensiero</div>
+    <h2 class="sect-h" data-split-words>Quattro tradizioni. <em>Un unico linguaggio operativo.</em></h2>
+    <p class="sect-lead" data-reveal>Non mischio le fonti per snobismo culturale. Le mischio perché, sul tavolo operativo di un percorso reale, ognuna di loro risolve qualcosa che le altre non vedono.</p>
+
+    <div class="pilastri">
+      <div class="pilastro" data-reveal>
+        <div class="p-num">01 — PILASTRO</div>
+        <div class="p-eyebrow">La cartografia interiore</div>
+        <h3 class="p-h">Psicosintesi <em>—</em> Roberto Assagioli</h3>
+        <div class="p-body"><p><strong>Non sei una cosa sola.</strong> E questo è il punto di partenza. Psichiatra veneziano, contemporaneo e poi critico di Freud: la sua mappa della psiche — l'ovoide, le subpersonalità, l'Io come centro di coscienza e volontà, il Sé transpersonale — dopo cent'anni regge ancora ogni prova clinica.</p>
+        <p>Nel mio metodo è <strong>lo strumento di lavoro quotidiano</strong>: così trasformiamo conflitti endopsichici in energia, disidentifichiamo il pensiero compulsivo, ricostruiamo un atto di volontà che non sia muscolo teso ma direzione chiara.</p></div>
+        <div class="p-concetti">Io osservatore · subpersonalità · inconscio superiore · atto di volontà · sintesi degli opposti</div>
+      </div>
+
+      <div class="pilastro" data-reveal>
+        <div class="p-num">02 — PILASTRO</div>
+        <div class="p-eyebrow">La meccanica della realtà</div>
+        <h3 class="p-h">Transurfing <em>—</em> Vadim Zeland</h3>
+        <div class="p-body"><p><strong>La vita non si cambia. Si sceglie.</strong> Ventitré libri in ventun anni, un'unica intuizione: la realtà non è una linea, è un campo — lo <em>spazio delle varianti</em> — e tu non la costruisci, la selezioni.</p>
+        <p>Tre leggi pratiche che uso con ogni cliente: ciò a cui dai troppa importanza lo perdi; i <strong>pendoli</strong> (ideologie, social, gruppi, paure ereditate) si nutrono della tua attenzione; lo specchio della realtà non anticipa — riflette dopo.</p></div>
+        <div class="p-concetti">spazio delle varianti · pendoli · importanza · intenzione esterna · frailer · specchio</div>
+      </div>
+
+      <div class="pilastro" data-reveal>
+        <div class="p-num">03 — PILASTRO</div>
+        <div class="p-eyebrow">Il mio contributo originale</div>
+        <h3 class="p-h">PNL Esoterica <em>—</em> il metodo integrato</h3>
+        <div class="p-body"><p><em>Programmare il magico chaos del mondo con le parole e non solo.</em> È il titolo del mio secondo libro e la mia sintesi personale. La PNL classica è potente ma cieca sul livello archetipico. L'esoterismo è profondo ma scivoloso sul piano operativo.</p>
+        <p>Il mio lavoro: far dialogare i due piani. <strong>La parola come tecnologia psichica</strong> da un lato, <strong>gli archetipi come diagnostica</strong> dall'altro — Arconti, Eggregore, Pendoli, Guardiano della Soglia.</p></div>
+        <div class="p-concetti">Punto Zero · Nigredo · Albedo · Rubedo · archetipi junghiani · neuroni specchio · memetica</div>
+      </div>
+
+      <div class="pilastro" data-reveal>
+        <div class="p-num">04 — PILASTRO</div>
+        <div class="p-eyebrow">La grammatica del campo</div>
+        <h3 class="p-h">Leggi universali <em>—</em> risonanza, karma, vibrazione</h3>
+        <div class="p-body"><p>Legge della Risonanza, del Riflesso, del Vuoto, della Compensazione, di Causa-Effetto, della Vibrazione, del Karma, dell'Amore, della Conoscenza. Non sono dogmi. Sono <strong>regolarità</strong> osservabili.</p>
+        <p><strong>Bruce Lipton</strong> ha mostrato che le credenze modulano l'espressione genetica più della genetica stessa (epigenetica). <strong>Joe Dispenza</strong> ha documentato con EEG, HRV e risonanza magnetica funzionale come la meditazione ripetuta produca cambiamenti cerebrali misurabili in settimane. Quello che le tradizioni dicono da millenni — <em>ciò che pensi diventa carne</em> — la biologia lo sta semplicemente confermando.</p></div>
+        <div class="p-concetti">risonanza · vibrazione · epigenetica (Lipton) · neuroplasticità meditativa (Dispenza) · karma · vuoto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 07 · PER CHI / PER CHI NON   -->
+  <!-- ============================ -->
+  <section class="sect">
+    <div class="section-label" data-reveal><span>07</span> Per chi</div>
+    <h2 class="sect-h" data-split-words>Non lavoro con tutti. <em>Con intenzione.</em></h2>
+
+    <div class="forwho">
+      <div data-reveal>
+        <h3>Per chi lavoro</h3>
+        <ul>
+          <li><strong>Imprenditori e professionisti</strong> che hanno costruito qualcosa e sentono che il costo interno sta superando il rendimento esterno.</li>
+          <li><strong>Persone in transizione profonda</strong>: separazione, lutto, crollo di identità, risveglio spirituale non richiesto.</li>
+          <li><strong>Leader di rete, manager, creator</strong> con responsabilità su altri, che sentono di non reggersi più su sé stessi.</li>
+          <li><strong>Chi ha già fatto terapia</strong>, ha capito molte cose, e vuole passare dalla comprensione alla trasformazione.</li>
+          <li><strong>Chi ha letto Jung, Assagioli o Zeland</strong> e vuole qualcuno con cui farci qualcosa.</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <h3 class="neg">Per chi non lavoro</h3>
+        <ul>
+          <li>Chi cerca motivazione, hype, quote da mettere su Instagram.</li>
+          <li>Chi vuole un guru che decida per lui.</li>
+          <li>Chi non è disposto a rivedere la propria storia familiare.</li>
+          <li>Chi crede che tre sessioni bastino a cambiare quindici anni di copioni.</li>
+          <li>Chi cerca risultati senza esporsi, certezze senza verità.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 08 · PERCORSI                -->
+  <!-- ============================ -->
+  <section id="percorsi" class="sect">
+    <div class="section-label" data-reveal><span>08</span> Percorsi</div>
+    <h2 class="sect-h" data-split-words>Percorsi su misura <em>per chi è pronto.</em></h2>
+
+    <ul class="servizi-list">
+      <li class="servizio" data-reveal>
+        <div class="s-index">01</div>
+        <div class="s-body">
+          <h3>Sessione di Esplorazione</h3>
+          <p>Un primo incontro gratuito di trenta minuti per capire se c'è terreno comune. Nessun pitch. Nessuna vendita obbligata. Solo onestà e chiarezza. Alla fine ti dico cosa farei se fossi al tuo posto — anche se significa non lavorare insieme.</p>
+        </div>
+        <div class="s-meta">Gratuita · 30 min</div>
+      </li>
+
+      <li class="servizio" data-reveal>
+        <div class="s-index">02</div>
+        <div class="s-body">
+          <h3>1:1 Leadership Coaching</h3>
+          <p>Un percorso individuale a ciclo trimestrale. Sessioni settimanali per riallineare <strong>visione, energia e azione</strong>. Dodici settimane sono il tempo minimo perché qualcosa cambi davvero nei circuiti neurali, nelle abitudini, nel campo che emani.</p>
+          <div class="s-struttura">Sessione zero di analisi · 12 sessioni settimanali da 60-75 min · protocollo operativo rivisto ogni 30 giorni · canale diretto fra le sessioni.</div>
+        </div>
+        <div class="s-meta">Individuale · 12 settimane</div>
+      </li>
+
+      <li class="servizio" data-reveal>
+        <div class="s-index">03</div>
+        <div class="s-body">
+          <h3>Mentoring Networker &amp; Imprenditori Digitali</h3>
+          <p>Dedicato a chi costruisce un business di network marketing o di consulenza digitale. Posizionamento, disciplina interiore, gestione dell'energia, strategia di lungo termine. Uso la stessa struttura che mi ha permesso di superare i <strong>500.000 € di guadagni nel network</strong> — non come un caso fortunato ma come un protocollo replicabile.</p>
+          <div class="s-struttura">Positioning e voce di brand · ritmi e disciplina atletica applicati al business · gestione energetica della rete · strategia medio-lungo termine senza hype.</div>
+        </div>
+        <div class="s-meta">1:1 · Business</div>
+      </li>
+
+      <li class="servizio" data-reveal>
+        <div class="s-index">04</div>
+        <div class="s-body">
+          <h3>Percorsi Evolutivi di Gruppo</h3>
+          <p>Laboratori esperienziali dove il cambiamento è <strong>moltiplicato dal campo del gruppo</strong>. Teoria, pratica meditativa e strumenti di integrazione quotidiana. Piccoli numeri per garantire profondità: massimo otto persone per ciclo.</p>
+          <div class="s-struttura">Cicli intensivi (weekend + follow-up online) con materiali scritti, esercizi guidati e gruppo privato di integrazione.</div>
+        </div>
+        <div class="s-meta">Gruppo · 6–8 persone</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 09 · DIPENDENZE              -->
+  <!-- ============================ -->
+  <section id="dipendenze" class="dip-section">
+    <div class="dip-inner">
+      <div class="section-label" data-reveal><span>09</span> Percorso libertà</div>
+      <h2 class="sect-h" data-split-words>Smettere è l'ultimo passo, <em>non il primo.</em></h2>
+      <p class="dip-pre" data-reveal>Fumo. Alcol. Droghe leggere e pesanti. Porno. Slot machine. Lo smartphone che controlli quaranta volte all'ora. I social che apri appena ti svegli, prima ancora di guardare in faccia tua moglie o tuo figlio.</p>
+
+      <div class="prose" data-reveal style="max-width:68ch">
+        <p>Le chiamano dipendenze. Sono molto di più: sono <strong>pendoli energetici</strong> che si nutrono della tua attenzione e ti restituiscono una microdose di sollievo per non sentire ciò che dovresti sentire.</p>
+        <p>Per anni anche io ho usato sigarette e droghe per addormentare una rabbia che non sapevo nominare. So di cosa parlo dal di dentro, non dal manuale.</p>
+        <p>Le diete, gli sforzi di volontà, le app di meditazione e perfino la psicoterapia spesso falliscono con le dipendenze per una ragione sola: lavorano sul <strong>sintomo</strong>, non sulla <strong>chimica del campo</strong>.</p>
+        <p><strong>Bruce Lipton</strong> la chiama <em>programmazione subconscia</em>. <strong>Joe Dispenza</strong> la chiama <em>l'abitudine di essere te stesso</em>. I nomi cambiano. Il meccanismo no.</p>
+      </div>
+
+      <div class="piani">
+        <div class="piano" data-reveal>
+          <div class="piano-num">PIANO 01</div>
+          <div class="piano-title">Psicologico</div>
+          <div class="piano-sub">Cosa non vuoi sentire?</div>
+          <div class="piano-body">Ogni dipendenza copre un'emozione. Identifichiamo la subpersonalità che cerca anestesia e il dolore originario che sta evitando. Senza questo passaggio, sostituirai una sostanza con un'altra.</div>
+        </div>
+        <div class="piano" data-reveal>
+          <div class="piano-num">PIANO 02</div>
+          <div class="piano-title">Energetico</div>
+          <div class="piano-sub">Tagliare l'alimentazione al pendolo.</div>
+          <div class="piano-body">Si toglie ossigeno alla frequenza che ti tiene legato: ambiente, persone, orari, segnali. Non è evitare le tentazioni: è disconnetterti dalla rete di alimentazione del pendolo, con precisione chirurgica.</div>
+        </div>
+        <div class="piano" data-reveal>
+          <div class="piano-num">PIANO 03</div>
+          <div class="piano-title">Biologico</div>
+          <div class="piano-sub">Riprogrammare la cellula.</div>
+          <div class="piano-body">Il corpo ha imparato la dipendenza a livello cellulare e chimico. Respiro coerente, esposizione controllata, supporto nutrizionale e — dove serve — medico esterno. Non sostituisco il medico, lo affianco.</div>
+        </div>
+      </div>
+
+      <h3 style="font-family:var(--ff-display);font-weight:400;font-size:22px;margin:40px 0 10px" data-reveal>Lavoro specificamente su</h3>
+      <ul class="dip-list">
+        <li data-reveal><strong>Fumo</strong> — sigarette, tabacco sciolto, vape</li>
+        <li data-reveal><strong>Alcol</strong> — uso ricorrente, anche "sociale"</li>
+        <li data-reveal><strong>Droghe</strong> — cannabis, cocaina, MDMA, ketamina</li>
+        <li data-reveal><strong>Porno e masturbazione compulsiva</strong> — perdita di funzionalità relazionale</li>
+        <li data-reveal><strong>Smartphone e social media</strong> — scroll compulsivo, FOMO cronica</li>
+        <li data-reveal><strong>Gioco d'azzardo e trading compulsivo</strong></li>
+        <li data-reveal><strong>Zucchero e food compulsion</strong> — dinamiche sovrapponibili a quelle di una sostanza</li>
+      </ul>
+
+      <div class="prose" data-reveal style="max-width:62ch;margin-top:36px">
+        <p><strong>Quando indirizzo altrove:</strong> se la tua dipendenza è in fase acuta e richiede detossificazione medica (alcolismo avanzato, oppioidi, benzodiazepine senza supervisione), non lavoro da solo. Ti indirizzo a un servizio specialistico e, se vuoi, ti accompagno in parallelo sul piano psicologico ed energetico.</p>
+      </div>
+
+      <div data-reveal style="margin-top:44px;padding:40px;border:1px solid var(--gold);border-radius:var(--radius);background:rgba(212,168,100,.04)">
+        <div class="s-meta" style="color:var(--gold)">Formato</div>
+        <h3 style="font-family:var(--ff-display);font-weight:400;font-size:28px;margin:14px 0 10px">Percorso individuale di 90 giorni</h3>
+        <p style="color:var(--ink-soft);font-size:15.5px;line-height:1.7;margin:0">Sessioni settimanali 1-a-1 in video · check-in giornaliero nelle prime due settimane · protocollo operativo personalizzato. <br/>È il blocco più intenso che offro. Non è per chiunque. <em>È per chi ha deciso.</em></p>
+        <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20sono%20interessato%20al%20percorso%20libert%C3%A0" class="btn-primary" style="margin-top:28px" target="_blank" rel="noopener">Prenota la chiamata di valutazione</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 10 · LA STORIA               -->
+  <!-- ============================ -->
+  <section id="storia" class="sect">
+    <div class="section-label" data-reveal><span>10</span> La storia</div>
+    <h2 class="sect-h" data-split-words>Come <em>ci sono arrivato.</em></h2>
+    <p class="quote-big" data-reveal>«Mia madre voleva chiamarmi Devil. La gente mormorava, e lei ha cambiato una lettera. Eppure l'inferno l'ho attraversato lo stesso. E da lì sono risorto.»</p>
+
+    <ol class="storia-list">
+      <li class="storia-cap" data-reveal>
+        <div class="cap-num">CAPITOLO I</div>
+        <div>
+          <h3 class="cap-h">Civitavecchia, l'inizio senza padre</h3>
+          <p class="cap-body">Sono nato nel 1996 da una madre di quattordici anni. Mio padre è stato un'assenza strutturale: l'ho incontrato poche volte, una birra in vita mia, un silenzio che ho passato anni a riempire con rumore. Ho imparato presto a vendere me stesso, perché non avevo altro da vendere.</p>
+        </div>
+      </li>
+      <li class="storia-cap" data-reveal>
+        <div class="cap-num">CAPITOLO II</div>
+        <div>
+          <h3 class="cap-h">La fabbrica e il primo porta a porta</h3>
+          <p class="cap-body">Perito meccanico, poi cinque anni in una fabbrica di Tarquinia. Nove ore al giorno a odiare un macchinario. La sera, compagnie sbagliate e droghe per addormentare la frustrazione. Il primo porta a porta di contratti luce e gas è arrivato come un respiro. Lì ho scoperto che le persone non mi spaventavano. E che avere in mano una conversazione era un potere.</p>
+        </div>
+      </li>
+      <li class="storia-cap" data-reveal>
+        <div class="cap-num">CAPITOLO III</div>
+        <div>
+          <h3 class="cap-h">Dubai, i milioni, il crollo</h3>
+          <p class="cap-body">Lyconet, poi Jeunesse, poi educazione finanziaria. Network manager, trasferimento a Dubai, una rete commerciale cresciuta a 3.000 persone attive. Sei milioni di dollari fatturati in un anno. Proposta di matrimonio davanti a 15.000 persone a una donna che non mi voleva sposare. Avevo vinto. Stavo piangendo nella macchina dei miei sogni mentre facevo shopping compulsivo. Non era depressione clinica. Era qualcosa di più antico: l'anima che presenta il conto.</p>
+        </div>
+      </li>
+      <li class="storia-cap" data-reveal>
+        <div class="cap-num">CAPITOLO IV</div>
+        <div>
+          <h3 class="cap-h">La notte buia, la spiaggia, la voce</h3>
+          <p class="cap-body">Sono tornato in Italia, ho mollato tutto. In una spiaggia, un pomeriggio che non dimenticherò, ho sentito — dentro, non fuori — una voce androgina chiedermi se volevo i poteri di un dio. Può essere stato un delirio. Può essere stata la ghiandola pineale. Può essere stato Jung che chiamava l'archetipo del Saggio. Non mi interessa il nome. Da quel giorno ho studiato quattro anni per capire cosa era successo.</p>
+        </div>
+      </li>
+      <li class="storia-cap" data-reveal>
+        <div class="cap-num">CAPITOLO V</div>
+        <div>
+          <h3 class="cap-h">Oggi</h3>
+          <p class="cap-body">Oggi aiuto altre persone a non perdere quindici anni come li ho persi io. Studio psicologia, continuo a scrivere, lavoro con meno clienti ma più a fondo. Non prometto di renderti felice. Ti insegno a smettere di vivere una vita altrui. Quello che ci fai, con una vita finalmente tua, è affar tuo.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 11 · I DUE LIBRI             -->
+  <!-- ============================ -->
+  <section id="libri" class="sect">
+    <div class="section-label" data-reveal><span>11</span> I libri</div>
+    <h2 class="sect-h" data-split-words>Due libri. <em>Due lati della stessa medaglia.</em></h2>
+
+    <div class="cards-2">
+      <div class="rcard" data-reveal>
+        <div class="r-meta">Libro 01 · Autobiografia</div>
+        <h3>Io posso farcela</h3>
+        <div class="r-sub">Come crescono i semi del successo</div>
+        <p>La guerra con i propri demoni raccontata senza filtri — Civitavecchia, la fabbrica, Dubai, il crollo, il ritorno. Le leggi universali lette non come dogmi ma come <strong>ciò che ho dovuto imparare nella carne</strong> per tornare in superficie.</p>
+        <p><em>Per chi ha bisogno di una storia vera prima di fidarsi di una tecnica.</em></p>
+        <a href="#contatti" class="cta-inline">→ Leggi il primo capitolo gratis</a>
+      </div>
+
+      <div class="rcard" data-reveal>
+        <div class="r-meta">Libro 02 · Corpus teorico</div>
+        <h3>PNL Esoterica</h3>
+        <div class="r-sub">Programmare il magico chaos del mondo con le parole e non solo</div>
+        <p>Un intreccio di psicologia clinica, neuroscienze, gnosi antica, alchimia interiore, Transurfing e linguistica operativa. Scritto per il ricercatore serio — quello che vuole capire come funziona davvero la macchina.</p>
+        <p><em>Per chi ha già letto Jung, Assagioli, Zeland e vuole vederli lavorare insieme.</em></p>
+        <a href="#contatti" class="cta-inline">→ Scarica l'introduzione + indice</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 12 · RISORSE GRATUITE        -->
+  <!-- ============================ -->
+  <section id="risorse" class="sect">
+    <div class="section-label" data-reveal><span>12</span> Risorse gratuite</div>
+    <h2 class="sect-h" data-split-words>Inizia a lavorare <em>prima ancora di parlare con me.</em></h2>
+    <p class="sect-lead" data-reveal>Tre strumenti pensati per darti valore reale da subito. Non anticipazioni, non teaser: cose che puoi usare, leggere, praticare, da oggi pomeriggio.</p>
+
+    <div class="cards-3">
+      <!-- Ars Realis -->
+      <div class="rcard" data-reveal>
+        <div class="r-meta">01 · Community privata</div>
+        <h3>Ars Realis</h3>
+        <div class="r-sub">Studio del Reality Transurfing</div>
+        <p>Community italiana indipendente di <strong>studio e pratica</strong> del Reality Transurfing di Vadim Zeland. Non un gruppo Telegram di motivazione. Un <strong>laboratorio operativo</strong>.</p>
+        <ul>
+          <li><strong>52 settimane</strong> di percorso strutturato</li>
+          <li><strong>Tecniche a livelli</strong> — Base, Tecniche, Avanzate, Era Tafti</li>
+          <li><strong>Glossario</strong> con originali russi</li>
+          <li><strong>Diario personale</strong> privato</li>
+          <li><strong>Community indipendente</strong> — niente lignaggi</li>
+        </ul>
+        <form class="gate" onsubmit="event.preventDefault();this.querySelector('.gate-confirm').style.display='block';this.querySelector('input').value=''">
+          <input type="email" placeholder="La tua email" required />
+          <button type="submit">Voglio entrare</button>
+          <p class="gate-note gate-confirm" style="display:none;width:100%;color:var(--gold)">Controlla la posta entro pochi minuti. Se non arriva, guarda nello spam. Poi scrivimi su WhatsApp.</p>
+        </form>
+        <div class="gate-note" style="margin-top:4px">Lasci la mail, ricevi la <strong>password d'accesso</strong>. Nessuna carta, nessun pagamento.</div>
+      </div>
+
+      <!-- Interprete Sogni -->
+      <div class="rcard" data-reveal>
+        <div class="r-meta">02 · Tool interattivo <span class="badge-soon" style="margin-left:8px">In arrivo</span></div>
+        <h3>Interprete dei Sogni</h3>
+        <div class="r-sub">Framework junghiano</div>
+        <p>Un'applicazione web che raccoglie il sogno che racconti e restituisce una <strong>lettura stratificata</strong> — archetipica, simbolica, junghiana — da usare come punto di partenza per la tua riflessione personale.</p>
+        <p>Racconta un sogno che ti è rimasto addosso. Il tool cerca i simboli ricorrenti, li restituisce con la chiave junghiana classica, e lascia a te l'ultima parola.</p>
+        <p style="font-size:13px;color:var(--ink-dim);font-style:italic">Per un lavoro profondo considera un analista o un coaching dedicato. Questo tool apre la porta. Non è la casa.</p>
+        <a href="#contatti" class="cta-inline">→ Presto disponibile</a>
+      </div>
+
+      <!-- Psicosintesi PDF -->
+      <div class="rcard" data-reveal>
+        <div class="r-meta">03 · PDF gratuito</div>
+        <h3>Psicosintesi · Il compendio</h3>
+        <div class="r-sub">Il pensiero di Assagioli in un libro</div>
+        <p>Un compendio scritto in prima persona: il mio riassunto ordinato, narrativo, leggibile del patrimonio custodito in <em>psicoenergetica.it</em> — scritti di <strong>Roberto Assagioli</strong>, Viglienghi, Bartoli.</p>
+        <ul>
+          <li><strong>38 capitoli</strong>, 10 parti</li>
+          <li><strong>Glossario</strong> ragionato</li>
+          <li><strong>Bibliografia</strong> essenziale</li>
+        </ul>
+        <p><em>Se vuoi capire come lavoro, la Psicosintesi è il sistema operativo sotto il cofano — ti tocca capirla.</em></p>
+        <form class="gate" onsubmit="event.preventDefault();this.querySelector('.gate-confirm').style.display='block';this.querySelector('input').value=''">
+          <input type="email" placeholder="La tua email" required />
+          <button type="submit">Scarica il PDF</button>
+          <p class="gate-note gate-confirm" style="display:none;width:100%;color:var(--gold)">Controlla la posta. Il PDF arriva a breve.</p>
+        </form>
+      </div>
+    </div>
+
+    <p class="prose" data-reveal style="margin-top:48px;font-style:italic;font-family:var(--ff-display);color:var(--ink-soft);max-width:56ch;font-size:17px">
+      Queste tre risorse non sono esche. Sono <strong style="color:var(--gold)">il filtro</strong>: se ti sono utili, stiamo probabilmente cercando la stessa cosa. Se non ti toccano niente, significa che il mio percorso non fa per te — ed è perfetto così.
+    </p>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 13 · FAQ                     -->
+  <!-- ============================ -->
+  <section id="faq" class="sect faq">
+    <div class="section-label" data-reveal><span>13</span> FAQ</div>
+    <h2 class="sect-h" data-split-words>Domande <em>che tornano.</em></h2>
+
+    <div data-reveal>
+      <details>
+        <summary>Sei un terapeuta?</summary>
+        <div class="faq-answer">No. Sono un Mental Coach in formazione accademica in psicologia. Quando serve un terapeuta te lo dico e ti aiuto a trovarne uno bravo. Coaching e terapia sono due strumenti diversi, non sostituibili.</div>
+      </details>
+      <details>
+        <summary>Questo "Transurfing" è un'altra roba new-age?</summary>
+        <div class="faq-answer">È l'opposto. Zeland non promette nulla: ti toglie l'illusione che con abbastanza sforzo puoi forzare il mondo. Se cerchi la pillola magica, il Transurfing ti deluderà. Se sei stanco di promesse, ti darà sollievo.</div>
+      </details>
+      <details>
+        <summary>Quanto dura un percorso?</summary>
+        <div class="faq-answer">Il blocco minimo del 1:1 è di <strong>dodici settimane</strong> con sessioni settimanali. È il tempo minimo perché qualcosa cambi davvero nei circuiti neurali e nelle abitudini. I cambiamenti strutturali profondi richiedono più cicli trimestrali consecutivi.</div>
+      </details>
+      <details>
+        <summary>Lavori solo a Roma o anche online?</summary>
+        <div class="faq-answer">Sono basato a Roma ma il 70% dei percorsi 1:1 avviene online. Per il lavoro con aziende e team mi sposto in tutta Italia.</div>
+      </details>
+      <details>
+        <summary>Che garanzie dai?</summary>
+        <div class="faq-answer">Nessuna sul risultato — chiunque prometta altro ti sta mentendo. Una sola sulla relazione: dopo la prima sessione, se sentiamo entrambi che non siamo la persona giusta l'uno per l'altra, restituisco l'investimento per intero.</div>
+      </details>
+      <details>
+        <summary>Ho già fatto terapia. A cosa mi serve un coach?</summary>
+        <div class="faq-answer">La terapia guarisce il passato. Il coaching orienta il futuro. Sono due ali dello stesso volo. Se hai già fatto il lavoro sul passato, il mio ti torna utile sul qui-in-avanti.</div>
+      </details>
+      <details>
+        <summary>Posso liberarmi dal fumo/alcol/porno/smartphone davvero in 90 giorni?</summary>
+        <div class="faq-answer">Sì, se sono solo abitudini di superficie. Se sotto c'è trauma non elaborato, i 90 giorni servono a spezzare il loop e a mettere in sicurezza il sistema nervoso; il lavoro sulla radice può richiedere più tempo e lo decidiamo insieme. Non vendo miracoli da 21 giorni.</div>
+      </details>
+      <details>
+        <summary>Ho già provato con uno psicologo / un centro per le dipendenze. Perché dovrebbe funzionare con te?</summary>
+        <div class="faq-answer">Potrebbe non funzionare. Ma la maggior parte dei protocolli standard lavora solo sul piano psicologico o solo su quello comportamentale. Il mio lavora in simultanea su psiche, campo energetico e biologia, e prende sul serio l'idea — documentata da Lipton e Dispenza — che la dipendenza è un programma <em>cellulare</em> oltre che mentale.</div>
+      </details>
+      <details>
+        <summary>Cos'è Ars Realis e come ci si iscrive?</summary>
+        <div class="faq-answer">Community italiana indipendente di studio e pratica del Reality Transurfing di Zeland: 52 settimane di percorso, tecniche a livelli, glossario con originali russi, diario personale. Per entrare lasci la tua email: ricevi sulla casella la <strong>password d'accesso</strong>. Nessuna carta, nessun pagamento, nessuna telefonata commerciale.</div>
+      </details>
+      <details>
+        <summary>Devo credere a Jung o al Transurfing per lavorare con te?</summary>
+        <div class="faq-answer">No. Porta la tua scepsi, non la tua fede. Uso Jung, Assagioli, Zeland, Dispenza e Lipton come <em>strumenti</em>, non come dogmi. Se funzionano sulla tua realtà li teniamo. Se non funzionano li buttiamo e ne usiamo altri. L'obiettivo non è farti ideologo, è farti <strong>libero</strong>.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 14 · CTA FINALE              -->
+  <!-- ============================ -->
+  <section class="cta-final">
+    <h2 class="cta-h" data-split-words>Se sei arrivato fin qui, <em>una parte di te ha già deciso.</em></h2>
+    <p data-reveal style="font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.6vw,22px);max-width:54ch;margin:0 auto 48px;line-height:1.5">
+      L'altra vuole solo essere rassicurata. Prenota una chiamata. È gratis. Dura trenta minuti. Decidi dopo.
+    </p>
+    <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20prenotare%20la%20chiamata%20conoscitiva" class="btn-primary" data-reveal target="_blank" rel="noopener">Prenota la chiamata conoscitiva</a>
+  </section>
+
+  <!-- ============================ -->
+  <!-- Contatti                     -->
+  <!-- ============================ -->
+  <section id="contatti" class="sect">
+    <div class="section-label" data-reveal><span>—</span> Contatti</div>
+    <h2 class="sect-h" data-split-words>Dove mi <em>trovi.</em></h2>
+
+    <div class="contatti-grid">
+      <a href="https://wa.me/393520572683" class="contatto-card" data-reveal target="_blank" rel="noopener">
+        <span class="c-label">Canale principale</span>
+        <span class="c-value">WhatsApp</span>
+        <span style="color:var(--ink-soft);font-size:14px">+39 352 057 2683</span>
+        <span class="c-arrow">↗</span>
+      </a>
+      <a href="#" class="contatto-card" data-reveal>
+        <span class="c-label">Instagram</span>
+        <span class="c-value">@davil.coaching</span>
+        <span class="c-arrow">↗</span>
+      </a>
+      <a href="https://it.trustpilot.com/review/davil-life-leadership-coaching.it" class="contatto-card" data-reveal target="_blank" rel="noopener">
+        <span class="c-label">Recensioni verificate</span>
+        <span class="c-value">Trustpilot</span>
+        <span style="color:var(--ink-soft);font-size:14px">★★★★★</span>
+        <span class="c-arrow">↗</span>
+      </a>
+    </div>
+    <p data-reveal style="margin-top:40px;font-family:var(--ff-sans);color:var(--ink-dim);font-size:13px;letter-spacing:.04em">Roma, Italia · 70% dei percorsi 1:1 online · Aziende e team: in tutta Italia</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-v2">
+    <div class="footer-mark">DAVIL</div>
+    <div>© <span id="year"></span> Davil Di Claudio — Mental Coaching · P.IVA —</div>
+    <div><a href="#">Privacy</a> · <a href="#">Cookie</a></div>
+  </footer>
+
+</main>
+
+<!-- Engine -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
