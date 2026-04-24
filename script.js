@@ -101,15 +101,7 @@
       gsap.ticker.lagSmoothing(0);
     }
 
-    /* Hero title: staggered line reveal */
-    gsap.set('.hero-title .line > span', { y: '110%' });
-    gsap.to('.hero-title .line > span', {
-      y: '0%',
-      duration: 1.1,
-      ease: 'expo.out',
-      stagger: 0.12,
-      delay: 0.6,
-    });
+    /* Hero title: pure CSS animation (see style.css .hero-title .line > span) */
 
     /* Elements with data-reveal */
     $$('[data-reveal]').forEach(el => {
