@@ -1,5 +1,5 @@
 /* ===== DAVIL — Life Leadership & Coaching =====
-   JS: Lenis smooth scroll + GSAP reveal/split + custom cursor + micro-interactions
+   Lenis + GSAP ScrollTrigger · slideshow rauno-style · cinematic reveals
 ================================================= */
 (() => {
   'use strict';
@@ -14,20 +14,24 @@
 
   /* ---------- Loader ---------- */
   const loader = $('#loader');
+  const startHeroAnim = () => {
+    $$('.hero-title .line').forEach((line, i) => {
+      setTimeout(() => line.classList.add('is-animated'), 120 + i * 120);
+    });
+  };
   const hideLoader = () => {
     if (!loader) return;
-    setTimeout(() => loader.classList.add('hidden'), 1500);
-    setTimeout(() => loader.remove(), 2400);
+    setTimeout(() => { loader.classList.add('hidden'); startHeroAnim(); }, 900);
+    setTimeout(() => loader.remove(), 1800);
   };
   window.addEventListener('load', hideLoader);
-  // Safety: in caso di load lento
-  setTimeout(hideLoader, 3500);
+  setTimeout(hideLoader, 3200);
 
   /* ---------- Lenis smooth scroll ---------- */
   let lenis = null;
   if (window.Lenis && !prefersReducedMotion) {
     lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.15,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       smoothTouch: false,
@@ -46,7 +50,6 @@
       e.preventDefault();
       if (lenis) lenis.scrollTo(target, { offset: -60, duration: 1.4 });
       else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // chiudi menu mobile
       $('.nav-menu')?.classList.remove('open');
       $('.nav-toggle')?.classList.remove('open');
     });
@@ -84,44 +87,111 @@
       requestAnimationFrame(tick);
     };
     tick();
-    $$('a, button, [data-hover], .pillar, .ts-card, .principio, .servizio, .contatto-card').forEach(el => {
+    $$('a, button, [data-hover], .pillar, .ts-card, .servizio, .contatto-card, .slide-nav').forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
     });
+  }
+
+  /* ---------- Slideshow (rauno-style) ---------- */
+  const SLIDE_FILES = [
+    '001','002','003','004','005','006','009','010','011','012','013','014',
+    '015','016','017','018','019','020','027','030','031','034','035','040',
+    '041','042','048','049','050','051','052','065','071','073','074','075','076'
+  ];
+  const slideshow = $('#slideshow');
+  if (slideshow) {
+    const track = slideshow.querySelector('[data-slide-track]');
+    const prevBtn = slideshow.querySelector('[data-slide-prev]');
+    const nextBtn = slideshow.querySelector('[data-slide-next]');
+    const currentEl = $('[data-slide-current]');
+    const totalEl = $('[data-slide-total]');
+    const progressEl = $('[data-slide-progress]');
+
+    // Inject slides
+    SLIDE_FILES.forEach((n, i) => {
+      const s = document.createElement('div');
+      s.className = 'slide' + (i === 0 ? ' is-current' : '');
+      s.dataset.index = i;
+      const img = document.createElement('img');
+      img.alt = `Slide ${i + 1} — 7 Pilastri`;
+      img.loading = i < 2 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      img.src = encodeURI(`assets/content/slides-corsi/7 Pilatri .${n}.jpeg`);
+      s.appendChild(img);
+      track.appendChild(s);
+    });
+
+    const slides = $$('.slide', track);
+    let idx = 0;
+    const total = slides.length;
+    if (totalEl) totalEl.textContent = String(total).padStart(2, '0');
+
+    const pad = (n) => String(n + 1).padStart(2, '0');
+    const goTo = (n) => {
+      idx = ((n % total) + total) % total;
+      slides.forEach((s, i) => {
+        s.classList.toggle('is-current', i === idx);
+        s.classList.toggle('is-prev', i === (idx - 1 + total) % total);
+        s.classList.toggle('is-next', i === (idx + 1) % total);
+      });
+      if (currentEl) currentEl.textContent = pad(idx);
+      if (progressEl) progressEl.style.width = ((idx + 1) / total * 100) + '%';
+    };
+    goTo(0);
+
+    prevBtn?.addEventListener('click', () => goTo(idx - 1));
+    nextBtn?.addEventListener('click', () => goTo(idx + 1));
+
+    // Keyboard
+    const onKey = (e) => {
+      const rect = slideshow.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) return;
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(idx - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(idx + 1); }
+    };
+    window.addEventListener('keydown', onKey);
+
+    // Drag / swipe
+    let dragStart = null;
+    const onDown = (e) => { dragStart = (e.touches ? e.touches[0] : e).clientX; };
+    const onUp = (e) => {
+      if (dragStart === null) return;
+      const endX = (e.changedTouches ? e.changedTouches[0] : e).clientX;
+      const dx = endX - dragStart;
+      if (Math.abs(dx) > 50) goTo(dx < 0 ? idx + 1 : idx - 1);
+      dragStart = null;
+    };
+    slideshow.addEventListener('mousedown', onDown);
+    slideshow.addEventListener('mouseup', onUp);
+    slideshow.addEventListener('mouseleave', () => dragStart = null);
+    slideshow.addEventListener('touchstart', onDown, { passive: true });
+    slideshow.addEventListener('touchend', onUp);
   }
 
   /* ---------- GSAP animations ---------- */
   if (window.gsap) {
     if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
-    // Hook ScrollTrigger to Lenis
     if (lenis && window.ScrollTrigger) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
     }
 
-    /* Hero title: pure CSS animation (see style.css .hero-title .line > span) */
-
-    /* Elements with data-reveal */
     $$('[data-reveal]').forEach(el => {
       gsap.fromTo(el,
-        { opacity: 0, y: 24 },
+        { opacity: 0, y: 28 },
         {
-          opacity: 1, y: 0, duration: 0.9, ease: 'expo.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 88%',
-            toggleActions: 'play none none none'
-          }
+          opacity: 1, y: 0, duration: 1, ease: 'expo.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
         }
       );
     });
 
     /* Split headings into words and stagger */
     $$('[data-split-words]').forEach(h => {
-      const raw = h.innerHTML;
-      // preserve <br/>, <em>, etc by wrapping TEXT NODES only
       const wrapWords = (node) => {
         if (node.nodeType === Node.TEXT_NODE) {
           const frag = document.createDocumentFragment();
@@ -149,7 +219,7 @@
       const inners = h.querySelectorAll('.w > span');
       gsap.set(inners, { yPercent: 110 });
       gsap.to(inners, {
-        yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.04,
+        yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.045,
         scrollTrigger: { trigger: h, start: 'top 85%', toggleActions: 'play none none none' }
       });
     });
@@ -157,56 +227,47 @@
     /* Parallax visuals */
     $$('[data-parallax]').forEach(el => {
       gsap.to(el, {
-        yPercent: -12,
+        yPercent: -16,
         ease: 'none',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
+        scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
       });
     });
 
     /* Orbs drift in hero */
-    gsap.to('.orb-1', { xPercent: 20, yPercent: 15, duration: 18, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    gsap.to('.orb-2', { xPercent: -15, yPercent: -20, duration: 22, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.orb-1', { xPercent: 18, yPercent: 12, duration: 22, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.orb-2', { xPercent: -14, yPercent: -18, duration: 26, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
-    /* Pillar icon spin on scroll */
+    /* Hero parallax on scroll */
+    gsap.to('.hero-bg', {
+      yPercent: 20,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+    gsap.to('.hero-inner', {
+      yPercent: 8,
+      opacity: 0.3,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+    });
+
+    /* Pillar icon drift on scroll */
     $$('.pillar-icon img').forEach(img => {
       gsap.to(img, {
-        rotate: 12,
-        scrollTrigger: {
-          trigger: img,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
+        rotate: 8, y: -6,
+        scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: 1.4 }
       });
     });
 
     /* Section labels slide in */
     $$('.section-label').forEach(label => {
       gsap.from(label, {
-        opacity: 0, x: -30, duration: 0.8, ease: 'expo.out',
+        opacity: 0, x: -30, duration: 0.9, ease: 'expo.out',
         scrollTrigger: { trigger: label, start: 'top 90%' }
       });
     });
   } else {
-    // Fallback: show everything if GSAP fails to load
     $$('[data-reveal]').forEach(el => el.classList.add('is-in'));
   }
 
-  /* ---------- Image fallback: se il PNG manca, rimane il placeholder SVG di sfondo ---------- */
-  $$('.principio-img img').forEach(img => {
-    img.addEventListener('error', () => {
-      img.style.display = 'none'; // scopre lo sfondo SVG decorativo
-      const fig = img.closest('.principio-img');
-      if (fig) fig.classList.add('principio-img-placeholder');
-    });
-  });
-
-  /* Hero brand image fallback handled inline via onerror */
-
-  console.log('%c DAVIL ', 'background:#2d2de0;color:#fff;font-weight:900;padding:4px 10px;border-radius:4px', 'Trasforma la tua realtà, guida la tua vita.');
+  console.log('%c DAVIL ', 'background:#09090b;color:#f2efe9;font-weight:900;padding:4px 10px;border-radius:4px', 'Trasforma la tua realtà, guida la tua vita.');
 })();
