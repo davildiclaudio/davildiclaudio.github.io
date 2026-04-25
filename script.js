@@ -184,7 +184,7 @@
 
     // Autoplay (start when in view, pause out / on hover)
     let autoTimer = null;
-    const stepDelay = 3500;
+    const stepDelay = 2000;
     const startAuto = () => {
       if (autoTimer) clearTimeout(autoTimer);
       autoTimer = setTimeout(() => { goTo(idx + 1); startAuto(); }, stepDelay);
