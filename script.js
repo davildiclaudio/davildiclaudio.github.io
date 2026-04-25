@@ -30,12 +30,10 @@
   };
   const playMagicEntrance = () => {
     if (!loader || !window.gsap) { startHeroAnim(); loader?.remove(); return; }
-    const stars = loader.querySelector('.loader-stars');
     const orb = loader.querySelector('.loader-orb');
     const stage = loader.querySelector('.loader-stage');
     const logo = loader.querySelector('.loader-logo');
     const shine = loader.querySelector('.loader-shine');
-    const runes = loader.querySelectorAll('.loader-runes span');
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -44,48 +42,23 @@
       }
     });
 
-    // Stage 1: stars fade in
-    tl.to(stars, { opacity: 1, duration: 1.0, ease: 'power2.out' }, 0);
-    // Stage 2: orb glow rises
-    tl.to(orb, { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0.2);
-    tl.to(orb, { scale: 1.15, duration: 1.6, ease: 'sine.inOut' }, 1.4);
-    // Stage 3: logo materializes (mask sweep + scale + rotation reset + brightness from black to white)
+    // Stage 1: orb glow rises
+    tl.to(orb, { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0);
+    tl.to(orb, { scale: 1.12, duration: 1.6, ease: 'sine.inOut' }, 1.2);
+    // Stage 2: logo materializes con scale + opacity (no mask sweep, niente artefatti)
     tl.fromTo(logo,
-      {
-        opacity: 0,
-        scale: 1.18, rotateX: 8,
-        '-webkit-mask-image': 'linear-gradient(110deg, #000 -10%, #000 -10%, transparent -10%)'
-      },
-      {
-        opacity: 1,
-        scale: 1, rotateX: 0,
-        duration: 1.5, ease: 'power3.out',
-        onUpdate: function () {
-          const p = this.progress();
-          const start = -10 + p * 110; // sweeps mask from -10% to 100%
-          logo.style.webkitMaskImage = `linear-gradient(110deg, #000 ${start}%, #000 ${start}%, transparent ${start}%)`;
-          logo.style.maskImage = logo.style.webkitMaskImage;
-        }
-      }, 0.6);
-    // Stage 4: golden glow pulse on logo + drop shadow
-    tl.to(logo, {
-      filter: 'brightness(0) invert(1) drop-shadow(0 0 28px rgba(212,168,100,.6)) drop-shadow(0 0 60px rgba(212,168,100,.4))',
-      duration: 0.8, ease: 'power2.out'
-    }, 1.4);
-    // Stage 5: shine sweep
+      { opacity: 0, scale: 1.06, filter: 'brightness(0) invert(1) blur(8px)' },
+      { opacity: 1, scale: 1, filter: 'brightness(0) invert(1) blur(0px)',
+        duration: 1.4, ease: 'power3.out' }, 0.4);
+    // Stage 3: shine sweep elegante
     tl.fromTo(shine,
       { opacity: 0, x: '-60%' },
-      { opacity: 1, x: '120%', duration: 1.1, ease: 'power2.inOut' }, 1.6);
+      { opacity: 1, x: '120%', duration: 1.0, ease: 'power2.inOut' }, 1.6);
     tl.to(shine, { opacity: 0, duration: 0.3 }, 2.5);
-    // Stage 6: runes bloom around logo
-    tl.fromTo(runes,
-      { opacity: 0, scale: 0 },
-      { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)', stagger: { each: 0.04, from: 'random' } }, 1.8);
-    tl.to(runes, { scale: 1.6, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.02 }, 2.6);
-    // Stage 7: hold + start hero, then crossfade loader out
-    tl.add(() => startHeroAnim(), 2.9);
-    tl.to([stars, orb, logo, stage], { opacity: 0, duration: 0.9, ease: 'power2.in' }, 3.0);
-    tl.to(loader, { opacity: 0, duration: 0.7, ease: 'power2.in' }, 3.1);
+    // Stage 4: hold + start hero, then crossfade out
+    tl.add(() => startHeroAnim(), 2.6);
+    tl.to([orb, logo, stage], { opacity: 0, duration: 0.8, ease: 'power2.in' }, 2.7);
+    tl.to(loader, { opacity: 0, duration: 0.6, ease: 'power2.in' }, 2.9);
   };
 
   // Run the entrance once page is loaded — but no longer than 1.5s wait

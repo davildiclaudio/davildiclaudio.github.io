@@ -22,83 +22,41 @@
 
 <!-- V2 overrides: text-only, no images -->
 <style>
-  /* === LOADER · ingresso magico/mistico === */
+  /* === LOADER · ingresso pulito === */
   #loader.loader-magic{
     background:radial-gradient(ellipse at center, #0e0d12 0%, #050507 60%, #000 100%);
     overflow:hidden;
   }
-  /* starfield */
-  .loader-stars{
-    position:absolute;inset:-10%;opacity:0;
-    background-image:
-      radial-gradient(1px 1px at 14% 22%, rgba(255,255,255,.95), transparent 60%),
-      radial-gradient(1px 1px at 32% 8%,  rgba(255,255,255,.7),  transparent 60%),
-      radial-gradient(1.2px 1.2px at 78% 18%, rgba(255,235,200,.85), transparent 60%),
-      radial-gradient(1px 1px at 88% 62%, rgba(255,255,255,.7), transparent 60%),
-      radial-gradient(1px 1px at 12% 76%, rgba(255,255,255,.6), transparent 60%),
-      radial-gradient(1.4px 1.4px at 56% 42%, rgba(255,220,180,.9), transparent 60%),
-      radial-gradient(1px 1px at 28% 90%, rgba(255,255,255,.55), transparent 60%),
-      radial-gradient(1px 1px at 64% 84%, rgba(255,235,200,.8), transparent 60%),
-      radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,.7), transparent 60%),
-      radial-gradient(1.2px 1.2px at 48% 70%, rgba(255,255,255,.6), transparent 60%);
-    background-size:100% 100%;
-    animation:starsTwinkle 4s ease-in-out infinite alternate;
-  }
-  @keyframes starsTwinkle{0%{filter:brightness(.7)}100%{filter:brightness(1.3)}}
-
-  /* orb dietro al logo */
+  /* orb morbido dietro al logo */
   .loader-orb{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.4);
-    width:min(80vw,720px);height:min(80vw,720px);
+    width:min(85vw,820px);height:min(85vw,820px);
     border-radius:50%;
     background:
-      radial-gradient(circle at 50% 50%, rgba(212,168,100,.55) 0%, rgba(176,139,255,.18) 35%, transparent 65%);
-    filter:blur(60px);
-    opacity:0;mix-blend-mode:screen;
+      radial-gradient(circle at 50% 50%, rgba(232,200,122,.45) 0%, rgba(45,45,224,.16) 38%, transparent 70%);
+    filter:blur(70px);
+    opacity:0;mix-blend-mode:screen;will-change:transform,opacity;
   }
-
-  /* stage che ospita il logo */
+  /* stage logo */
   .loader-stage{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-    width:min(86vw,780px);
+    width:min(78vw,720px);
     aspect-ratio:1920/1080;
     display:grid;place-items:center;
-    perspective:1200px;
   }
   .loader-logo{
     width:100%;height:100%;object-fit:contain;
-    filter:brightness(0) invert(1) drop-shadow(0 0 0 rgba(212,168,100,0));
-    opacity:0;transform:scale(1.18) rotateX(8deg);
-    /* clip animation drives reveal */
-    -webkit-mask-image:linear-gradient(110deg, #000 0%, #000 0%, transparent 0%);
-    mask-image:linear-gradient(110deg, #000 0%, #000 0%, transparent 0%);
+    filter:brightness(0) invert(1);
+    opacity:0;transform:scale(1.06);
+    will-change:opacity,transform,filter;
   }
-  /* sweeping shine */
+  /* shine sweep più sottile */
   .loader-shine{
     position:absolute;inset:0;
-    background:linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255,235,200,.85) 50%, transparent 60%, transparent 100%);
+    background:linear-gradient(110deg, transparent 0%, transparent 42%, rgba(255,240,210,.7) 50%, transparent 58%, transparent 100%);
     mix-blend-mode:screen;
     opacity:0;pointer-events:none;
   }
-  /* runic dots circling */
-  .loader-runes{
-    position:absolute;inset:-8%;
-    display:grid;place-items:center;pointer-events:none;
-  }
-  .loader-runes span{
-    position:absolute;
-    width:6px;height:6px;border-radius:50%;background:var(--gold);
-    box-shadow:0 0 12px var(--gold), 0 0 24px rgba(212,168,100,.5);
-    opacity:0;
-  }
-  .loader-runes span:nth-child(1){top:0;left:50%}
-  .loader-runes span:nth-child(2){top:14%;left:84%}
-  .loader-runes span:nth-child(3){top:50%;left:100%}
-  .loader-runes span:nth-child(4){top:84%;left:84%}
-  .loader-runes span:nth-child(5){top:100%;left:50%}
-  .loader-runes span:nth-child(6){top:84%;left:14%}
-  .loader-runes span:nth-child(7){top:50%;left:0%}
-  .loader-runes span:nth-child(8){top:14%;left:14%}
 
   /* Nav logo as PNG wordmark (replaces text) */
   .nav-logo-img{
@@ -112,21 +70,24 @@
   .footer-mark img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.85;transition:opacity .3s}
   .footer-mark:hover img{opacity:1}
 
-  /* === BRAND palette estesa (blu logo + sfumature elettriche) === */
+  /* === BRAND palette estesa (oro champagne + blu elettrico) === */
   :root{
     --brand-electric:#2d2de0;     /* logo blue */
     --brand-light:#b4c5ff;        /* electric soft */
     --brand-glow:rgba(45,45,224,.45);
-    --gold-deep:#a87a35;
-    --gold-pale:#f5deb3;
+    /* Oro champagne · luminoso, classy, non senape */
+    --gold:#e8c87a;
+    --gold-soft:#f3d99a;
+    --gold-bright:#fff0c8;
   }
 
-  /* === GOLD pulsante · pieno + glow animato (compatibile con char/word split) === */
+  /* === GOLD champagne · colore pieno, glow morbido === */
   em{
     color:var(--gold);
-    text-shadow:0 0 14px rgba(212,168,100,.30);
+    /* singolo blur diffuso, niente layer multipli che creano artefatti */
+    text-shadow:0 0 22px rgba(232,200,122,.35);
   }
-  /* Pulse animato + leggera variazione di tono sui titoli grandi */
+  /* Pulse leggero sui grandi titoli */
   .mega em,
   .sect-h em,
   .m-line em,
@@ -137,28 +98,45 @@
   .piano-sub,
   .rcard .r-sub{
     color:var(--gold);
-    text-shadow:0 0 18px rgba(212,168,100,.35), 0 0 4px rgba(245,222,179,.5);
-    animation:goldPulse 4s ease-in-out infinite;
+    text-shadow:0 0 22px rgba(232,200,122,.40);
+    animation:goldPulse 5s ease-in-out infinite;
   }
-  /* Assicura colore oro anche sui figli prodotti dallo split */
+  /* Figli prodotti dallo split ereditano */
   .mega em .ch > span, .mega em .w > span,
   .sect-h em .ch > span, .sect-h em .w > span,
   .m-line em .ch > span, .m-line em .w > span,
   .cta-final em .ch > span, .cta-final em .w > span,
   .pilastro .p-h em .ch > span, .pilastro .p-h em .w > span,
   .quote-big em .ch > span, .quote-big em .w > span{
-    color:var(--gold);
+    color:inherit;
     text-shadow:inherit;
   }
   @keyframes goldPulse{
     0%,100%{
       color:var(--gold);
-      text-shadow:0 0 14px rgba(212,168,100,.30), 0 0 4px rgba(245,222,179,.4);
+      text-shadow:0 0 18px rgba(232,200,122,.35);
     }
     50%{
-      color:#f5deb3;
-      text-shadow:0 0 28px rgba(245,222,179,.65), 0 0 8px rgba(255,235,200,.45);
+      color:var(--gold-bright);
+      text-shadow:0 0 30px rgba(255,240,200,.55);
     }
+  }
+
+  /* === Fix wrapper · evita che descenders (g, p, y, q) vengano mozzati === */
+  .w{
+    padding-bottom:.18em !important;
+    margin-bottom:-.18em !important;
+  }
+  .ch{
+    padding-bottom:.10em !important;
+    margin-bottom:-.10em !important;
+  }
+  /* Hero-title: serve un po' più di room */
+  .hero-title .ch{padding-bottom:.14em;margin-bottom:-.14em}
+  /* Section h che usa rotazione: extra room per non clippare */
+  .sect-h .w,.mega .w,.m-line .w,.cta-final .cta-h .w{
+    padding-bottom:.22em !important;
+    margin-bottom:-.22em !important;
   }
 
   /* === BLUE accenti elettrici sparsi nel sito === */
@@ -561,16 +539,12 @@
 </head>
 <body>
 
-<!-- Loader · entrance magica/mistica -->
+<!-- Loader · ingresso pulito e magico -->
 <div id="loader" class="loader-magic">
-  <div class="loader-stars" aria-hidden="true"></div>
   <div class="loader-orb"></div>
   <div class="loader-stage">
     <img src="assets/logo/davil-bianco.png" alt="DAVIL" class="loader-logo" />
     <div class="loader-shine" aria-hidden="true"></div>
-    <div class="loader-runes" aria-hidden="true">
-      <span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span>
-    </div>
   </div>
 </div>
 
