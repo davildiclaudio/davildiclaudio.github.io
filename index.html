@@ -1701,8 +1701,120 @@
   "serviceType":["Life Coaching","Mental Coaching","Business Mentoring","Dream Interpretation","Addiction Coaching"]
 }
 </script>
+<style id="site-gate-css">
+  /* Site password gate · blocca tutto finché non si digita 11279336 */
+  html.gate-locked,html.gate-locked body{overflow:hidden!important;height:100vh!important}
+  html.gate-locked body > *:not(#site-gate){visibility:hidden!important;pointer-events:none!important}
+  #site-gate{
+    position:fixed;inset:0;z-index:99999;display:none;
+    align-items:center;justify-content:center;padding:24px;
+    background:radial-gradient(ellipse at top,#0e0628 0%,#05030f 60%,#020108 100%);
+    color:#ece6fb;font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  html.gate-locked #site-gate{display:flex}
+  #site-gate::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(700px 500px at 18% 15%,rgba(124,58,237,.30),transparent 60%),
+      radial-gradient(600px 460px at 84% 80%,rgba(236,72,153,.22),transparent 60%);
+    filter:blur(40px);
+  }
+  .sg-panel{
+    position:relative;max-width:440px;width:100%;
+    padding:44px 36px;border-radius:22px;
+    background:linear-gradient(135deg,rgba(30,20,60,.92),rgba(14,6,40,.92));
+    border:1px solid rgba(180,150,240,.30);
+    box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(124,58,237,.30);
+    text-align:center;
+    animation:sgPop .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes sgPop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+  .sg-eyebrow{font-size:10px;letter-spacing:.40em;text-transform:uppercase;color:#ec4899;margin-bottom:10px}
+  .sg-h{font-family:'Fraunces',serif;font-weight:300;font-size:34px;margin:0 0 6px;line-height:1.1;letter-spacing:-.01em}
+  .sg-h em{font-style:italic;color:#f4c95d}
+  .sg-sub{font-size:14px;color:#b8afd6;margin:0 0 26px;line-height:1.6}
+  .sg-form{display:flex;flex-direction:column;gap:14px}
+  .sg-form input{
+    padding:16px 18px;font-size:18px;letter-spacing:.30em;text-align:center;
+    background:rgba(20,14,50,.55);border:1px solid rgba(180,150,240,.20);
+    border-radius:12px;color:#ece6fb;font-family:inherit;outline:none;
+    transition:border-color .25s,box-shadow .25s;
+    -webkit-appearance:none;
+  }
+  .sg-form input::placeholder{letter-spacing:.04em;color:#7a708f;font-size:14px}
+  .sg-form input:focus{border-color:#ec4899;box-shadow:0 0 0 3px rgba(236,72,153,.20)}
+  .sg-form button{
+    padding:14px 24px;border-radius:999px;border:0;cursor:pointer;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;
+    font:inherit;font-size:13px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+    transition:transform .25s,box-shadow .35s;
+  }
+  .sg-form button:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(236,72,153,.40)}
+  .sg-status{font-size:13px;margin:8px 0 0;min-height:18px;color:#b8afd6}
+  .sg-status.err{color:#ec4899}
+  .sg-foot{font-size:12px;color:#7a708f;margin-top:22px;line-height:1.6}
+  .sg-foot a{color:#f4c95d;text-decoration:none}
+</style>
+<script>
+  // Gate check ASAP · prima del rendering del body
+  (function(){
+    var KEY = 'davil_site_access_v1';
+    var ok = false;
+    try { ok = localStorage.getItem(KEY) === 'granted'; } catch(e){}
+    if (!ok) document.documentElement.classList.add('gate-locked');
+  })();
+</script>
 </head>
 <body>
+
+<!-- Site password gate -->
+<div id="site-gate" role="dialog" aria-modal="true" aria-labelledby="sg-h">
+  <div class="sg-panel">
+    <div class="sg-eyebrow">· Area riservata ·</div>
+    <h1 class="sg-h" id="sg-h">Accesso <em>privato.</em></h1>
+    <p class="sg-sub">Questo sito è in beta, riservato. Inserisci la password per entrare.</p>
+    <form class="sg-form" id="sg-form" autocomplete="off">
+      <input type="password" id="sg-pw" inputmode="numeric" placeholder="••••••••" required autofocus/>
+      <button type="submit">Entra</button>
+      <p class="sg-status" id="sg-status"></p>
+    </form>
+    <p class="sg-foot">Non hai la password? <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20accedere%20al%20sito%20in%20beta" target="_blank" rel="noopener">Scrivimi su WhatsApp</a></p>
+  </div>
+</div>
+<script>
+  (function(){
+    var PW = '11279336';
+    var KEY = 'davil_site_access_v1';
+    var f = document.getElementById('sg-form');
+    var i = document.getElementById('sg-pw');
+    var s = document.getElementById('sg-status');
+    if (!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if ((i.value||'').trim() === PW) {
+        try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+        s.className = 'sg-status';
+        s.textContent = '✓ Accesso confermato.';
+        // log nel CRM
+        try {
+          var LK = 'davil_leads_v1';
+          var ls = JSON.parse(localStorage.getItem(LK) || '[]');
+          ls.push({ ts:new Date().toISOString(), name:'(site-gate)', email:'', phone:'', source:'site-access', code:'GATE-OK', ua:navigator.userAgent.substring(0,80) });
+          localStorage.setItem(LK, JSON.stringify(ls));
+        } catch(e){}
+        document.documentElement.classList.remove('gate-locked');
+        // forza un reflow / reload per evitare stati incoerenti
+        setTimeout(function(){ window.location.reload(); }, 250);
+      } else {
+        s.className = 'sg-status err';
+        s.textContent = '✗ Password non valida.';
+        i.value = '';
+        i.focus();
+      }
+    });
+  })();
+</script>
 
 <!-- Loader · ingresso mistico/sognatore -->
 <div id="loader" class="loader-magic">
