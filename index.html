@@ -701,7 +701,7 @@
   /* === Hero photo · "io bianco" verticale (crop 100px lati) === */
   .hero-photo{
     position:absolute;
-    top:50%;right:0vw;
+    top:44%;right:3vw;
     transform:translateY(-50%);
     width:clamp(280px,32vw,460px);
     aspect-ratio:2/3; /* portrait · taglia 100px lati 3000×3000 */
@@ -844,8 +844,9 @@
 
   /* === Storia · foto inline tra capitoli (mostra intera) === */
   .storia-inline-photo{
-    margin:60px auto;max-width:560px;
-    border:0;border-radius:14px;overflow:hidden;
+    margin:72px auto;max-width:880px;
+    border:0;border-radius:18px;overflow:hidden;
+    box-shadow:0 30px 70px -25px rgba(124,58,237,.45);
     transition:transform .7s var(--ease-smooth);
   }
   .storia-inline-photo img{width:100%;height:auto;display:block;object-fit:contain}
@@ -930,8 +931,8 @@
                linear-gradient(180deg,rgba(255,255,255,.012),transparent);
     box-shadow:0 30px 80px rgba(0,0,0,.4);
   }
-  .bn-vis{position:relative;overflow:hidden;background:transparent;aspect-ratio:16/9}
-  .bn-vis img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease-smooth)}
+  .bn-vis{position:relative;overflow:hidden;background:transparent;aspect-ratio:16/9;border-radius:18px}
+  .bn-vis img{width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;transition:transform 1.4s var(--ease-smooth)}
   .body-network:hover .bn-vis img{transform:scale(1.04);filter:saturate(1.1)}
   .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
   .bn-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand-light)}
@@ -1252,10 +1253,11 @@
     background:rgba(34,211,238,.08);
     box-shadow:0 0 20px rgba(34,211,238,.15);
   }
-  .book-waitlist{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .book-waitlist{margin-top:14px;display:flex;flex-direction:column;gap:10px;width:100%;max-width:100%}
   .book-waitlist input[type=email]{
     background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
     padding:12px 14px;color:var(--ink);font:inherit;font-size:14px;
+    width:100%;box-sizing:border-box;min-width:0;
   }
   .book-waitlist button{
     padding:12px 18px;border-radius:999px;border:0;
@@ -1263,6 +1265,7 @@
     color:#fff;font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;
     cursor:pointer;transition:transform .25s,box-shadow .35s;
     box-shadow:0 8px 24px rgba(34,211,238,.30);
+    width:100%;box-sizing:border-box;
   }
   .book-waitlist button:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(34,211,238,.50)}
   .book-waitlist .gate-check{font-size:11px;color:var(--ink-soft);line-height:1.5;display:flex;gap:8px}
@@ -1794,9 +1797,6 @@
       </a>
     </div>
   </div>
-  <button class="nav-login-btn" data-login-open aria-label="Accedi">
-    <span aria-hidden="true">⌬</span> <span class="nl-text">Accedi</span>
-  </button>
   <nav class="nav-menu">
     <a href="#manifesto" data-link>Manifesto</a>
     <a href="#metodo" data-link>Metodo</a>
@@ -1806,6 +1806,7 @@
     <a href="#storia" data-link>Storia</a>
     <a href="#risorse" data-link>Risorse</a>
     <a href="#faq" data-link>FAQ</a>
+    <button type="button" class="nav-login-btn" data-login-open aria-label="Accedi"><span aria-hidden="true">⌬</span> <span class="nl-text">Accedi</span></button>
     <a href="#contatti" data-link class="cta">Contatti</a>
   </nav>
   <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
@@ -2717,49 +2718,153 @@
     .login-status.ok{color:var(--gold)}
     .login-status.err{color:var(--magenta)}
     .login-hint{font-size:12.5px;color:var(--ink-dim);margin:18px 0 0;line-height:1.6;text-align:center}
+
+    /* Membri rooms */
+    .membri-locked{margin-top:32px;padding:38px 32px;border:1px dashed var(--border);border-radius:18px;text-align:center;background:rgba(20,14,50,.30)}
+    .ml-icon{font-size:42px;color:var(--gold);margin-bottom:10px;line-height:1}
+    .ml-text{font-size:15px;color:var(--ink-soft);margin:0 0 18px}
+    .ml-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .membri-rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:32px}
+    .room-card{
+      padding:30px 28px;border:1px solid var(--border);border-radius:18px;
+      background:linear-gradient(135deg,rgba(30,20,60,.55),rgba(20,14,50,.40))!important;
+      backdrop-filter:blur(14px) saturate(140%);
+      box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 40px -20px rgba(124,58,237,.30);
+      display:flex;flex-direction:column;gap:10px;transition:border-color .35s,box-shadow .35s,transform .35s;
+    }
+    .room-card:hover{border-color:rgba(236,90,160,.45);transform:translateY(-3px)}
+    .room-icon{font-size:30px;color:var(--gold);line-height:1}
+    .room-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--magenta)}
+    .room-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.4vw,28px);margin:2px 0 4px;color:var(--ink);line-height:1.2}
+    .room-h em{color:var(--gold)}
+    .room-body{font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin:0}
+    .room-list{margin:8px 0 0;padding-left:20px;font-size:13.5px;line-height:1.7;color:var(--ink-soft)}
+    .room-cta{margin-top:auto;align-self:flex-start;padding:11px 20px;font-size:12.5px}
+    @media(max-width:760px){.membri-rooms{grid-template-columns:1fr}}
+
+    .diary-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+    .diary-modal[hidden]{display:none}
   </style>
 
   <!-- ============================ -->
   <!-- 12·e · AREA MEMBRI           -->
   <!-- ============================ -->
   <section id="membri" class="sect membri-section">
-    <div class="section-label" data-reveal><span>12·c</span> Area Membri</div>
-    <h2 class="sect-h" data-split-words>Sei già <em>dentro?</em></h2>
-    <p class="sect-lead" data-reveal>
-      Spazio riservato a chi sta facendo un percorso 1:1, è in <em>Ars Realis</em> o ha già acquistato un programma. Materiali, registrazioni, esercizi guidati, calendar privato.
+    <div class="section-label" data-reveal><span>12·e</span> Area Membri</div>
+    <h2 class="sect-h" data-split-words>La <em>tua dashboard.</em></h2>
+    <p class="sect-lead" data-reveal data-membri-public>
+      Spazio riservato a chi è in percorso 1:1, in <em>Ars Realis</em> o ha completato la registrazione. Quattro stanze: materiale scaricabile, percorso 21-day challenge, diario personale, oracolo. <strong style="color:var(--gold)">Accedi</strong> con la tua password per sbloccare i contenuti.
+    </p>
+    <p class="sect-lead" data-reveal data-membri-private hidden>
+      <span style="color:var(--gold)">Bentornato.</span> Hai accesso completo alle quattro stanze: scarica i materiali, riprendi il percorso 21-day, scrivi nel diario, consulta l'oracolo.
     </p>
 
-    <div class="membri-grid" data-reveal>
-      <form class="membri-login" data-member-form>
-        <p class="membri-h">Accedi</p>
-        <label class="gate-row">
-          <span>Email</span>
-          <input type="email" name="member-email" required placeholder="la-tua-email@dominio.com" autocomplete="email"/>
-        </label>
-        <label class="gate-row">
-          <span>Codice</span>
-          <input type="password" name="member-code" required placeholder="codice ricevuto via email" autocomplete="current-password"/>
-        </label>
-        <label class="gate-check" style="font-size:11px">
-          <input type="checkbox" required/>
-          <span>Acconsento al trattamento dei dati per accedere all'area riservata · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
-        </label>
-        <button type="submit" class="btn-primary">Entra</button>
-        <p class="membri-help">Hai dimenticato il codice? <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20il%20codice%20di%20accesso%20area%20membri" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
-        <p class="gate-status" data-member-status></p>
-      </form>
+    <div class="membri-locked" data-reveal data-membri-public>
+      <div class="ml-icon" aria-hidden="true">⌬</div>
+      <p class="ml-text">Per entrare nelle quattro stanze devi essere registrato.</p>
+      <div class="ml-actions">
+        <button type="button" class="btn-primary" data-login-open>Accedi all'area</button>
+        <a href="#registrati" class="btn-primary" style="background:transparent;border:1px solid var(--border-hover);color:var(--ink)">Registrati</a>
+      </div>
+    </div>
 
-      <aside class="membri-info">
-        <p class="membri-h">Cosa trovi dentro</p>
-        <ul>
-          <li><strong>Registrazioni delle sessioni</strong> 1:1 e di gruppo</li>
-          <li><strong>Esercizi guidati</strong> in audio/video</li>
-          <li><strong>Materiali PDF</strong> (slide, mappe, schede operative)</li>
-          <li><strong>Calendar privato</strong> per prenotare le sessioni</li>
-          <li><strong>Diario</strong> personale e trentuno-day challenge</li>
+    <div class="membri-rooms" data-reveal data-membri-private hidden>
+      <article class="room-card">
+        <div class="room-icon" aria-hidden="true">▤</div>
+        <div class="room-tag">Stanza 01</div>
+        <h3 class="room-h">Materiale scaricabile.</h3>
+        <p class="room-body">PDF, audio MP3, slide delle masterclass, mappe operative. Tutto il materiale che ho preparato, da scaricare e tenere offline.</p>
+        <ul class="room-list">
+          <li>Workbook 21-day · Audio vocali · Slide</li>
+          <li>Compendi: Psicoenergetica · Transurfing · Schema Therapy</li>
+          <li>Schede operative dei 7 pilastri</li>
         </ul>
-        <p class="membri-soon">L'area sarà online a breve. Iscriviti alla <a href="#risorse" style="color:var(--gold)">community Ars Realis</a> per essere tra i primi.</p>
-      </aside>
+        <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20mi%20mandi%20il%20materiale%20scaricabile%20area%20membri" target="_blank" rel="noopener" class="btn-primary room-cta">Apri il vault →</a>
+      </article>
+
+      <article class="room-card">
+        <div class="room-icon" aria-hidden="true">⊕</div>
+        <div class="room-tag">Stanza 02</div>
+        <h3 class="room-h">21-day challenge.</h3>
+        <p class="room-body">Il percorso strutturato di 21 giorni — un audio, un workbook, un video al giorno. Costruito sui principi dell'apprendimento multi-canale: encoding uditivo + cinestetico + visivo.</p>
+        <ul class="room-list">
+          <li>Day 01 → 21 · una pratica al giorno</li>
+          <li>Tracking progresso + retention quiz</li>
+          <li>Debrief settimanale via WhatsApp</li>
+        </ul>
+        <a href="#academy" class="btn-primary room-cta">Scopri il protocollo →</a>
+      </article>
+
+      <article class="room-card">
+        <div class="room-icon" aria-hidden="true">✎</div>
+        <div class="room-tag">Stanza 03</div>
+        <h3 class="room-h">Diario personale.</h3>
+        <p class="room-body">Lo spazio privato dove tracci sogni, slide del Transurfing, insight dalle pratiche, intuizioni dell'oracolo. Salvato nel tuo browser, mai sui miei server.</p>
+        <ul class="room-list">
+          <li>Sezioni: sogni · slide · insight · ombra</li>
+          <li>Tag e ricerca full-text</li>
+          <li>Export JSON locale, zero cloud</li>
+        </ul>
+        <button type="button" class="btn-primary room-cta" data-diary-open>Apri il diario →</button>
+      </article>
+
+      <article class="room-card">
+        <div class="room-icon" aria-hidden="true">☉</div>
+        <div class="room-tag">Stanza 04</div>
+        <h3 class="room-h">Oracolo.</h3>
+        <p class="room-body">Un'estrazione al giorno. Non per "predire" — per <em>specchiare</em>. Domande aperte costruite sul corpus junghiano, sul Reality Transurfing e sui Tarocchi di Marsiglia letti in chiave archetipica.</p>
+        <ul class="room-list">
+          <li>Una carta · una domanda · una pratica</li>
+          <li>Storico estrazioni nel diario</li>
+          <li>Reading guidato · niente fortune-telling</li>
+        </ul>
+        <button type="button" class="btn-primary room-cta" data-oracle-draw>Estrai oggi →</button>
+      </article>
+    </div>
+
+    <!-- Mini Diary Modal -->
+    <div class="diary-modal" data-diary-modal hidden>
+      <div class="login-backdrop" data-diary-close></div>
+      <div class="login-panel" role="dialog" aria-modal="true" style="max-width:560px">
+        <button class="login-x" data-diary-close aria-label="Chiudi">×</button>
+        <div class="login-eyebrow">· Diario personale ·</div>
+        <h3 class="login-h" id="diary-h">Scrivi.</h3>
+        <p class="login-sub">Tutto resta nel tuo browser. Mai inviato.</p>
+        <form class="login-form" data-diary-form>
+          <label class="login-row">
+            <span>Sezione</span>
+            <select name="section" style="padding:13px 16px;background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;color:var(--ink);font:inherit;font-size:14.5px">
+              <option value="sogni">Sogni</option>
+              <option value="slide">Slide Transurfing</option>
+              <option value="insight">Insight</option>
+              <option value="ombra">Ombra</option>
+              <option value="oracolo">Oracolo</option>
+            </select>
+          </label>
+          <label class="login-row">
+            <span>Voce</span>
+            <textarea name="entry" required rows="6" style="padding:13px 16px;background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;color:var(--ink);font:inherit;font-size:14.5px;resize:vertical;min-height:120px" placeholder="Scrivi qui..."></textarea>
+          </label>
+          <button type="submit" class="btn-primary login-submit">Salva nel diario</button>
+          <p class="login-status" data-diary-status></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mini Oracle Modal -->
+    <div class="diary-modal" data-oracle-modal hidden>
+      <div class="login-backdrop" data-oracle-close></div>
+      <div class="login-panel" role="dialog" aria-modal="true" style="max-width:520px;text-align:center">
+        <button class="login-x" data-oracle-close aria-label="Chiudi">×</button>
+        <div class="login-eyebrow">· Oracolo del giorno ·</div>
+        <div data-oracle-card>
+          <div class="oracle-symbol" data-oracle-symbol style="font-size:60px;color:var(--gold);margin:18px 0;line-height:1">☉</div>
+          <h3 class="login-h" data-oracle-name style="margin-bottom:6px">Il Sole</h3>
+          <p class="login-sub" data-oracle-question style="font-style:italic;font-size:16px;line-height:1.55;color:var(--ink-soft);margin-bottom:18px">Cosa stai facendo per primo, anche quando nessuno ti guarda?</p>
+          <p style="font-size:13px;color:var(--ink-dim);line-height:1.6" data-oracle-practice>Pratica: scrivi una pagina di diario senza filtro su questa domanda.</p>
+        </div>
+        <button type="button" class="btn-primary" data-oracle-draw style="margin-top:22px">Estrai un'altra carta</button>
+      </div>
     </div>
   </section>
 

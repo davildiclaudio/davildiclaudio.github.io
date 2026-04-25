@@ -1276,5 +1276,90 @@
     });
   }
 
+  /* === Membri area · gating su sessione login === */
+  const refreshMembri = () => {
+    let logged = false;
+    try { logged = !!JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch(e){}
+    document.querySelectorAll('[data-membri-public]').forEach(el => el.hidden = logged);
+    document.querySelectorAll('[data-membri-private]').forEach(el => el.hidden = !logged);
+  };
+  refreshMembri();
+  // refresh after successful login
+  if (loginForm) {
+    loginForm.addEventListener('submit', () => setTimeout(refreshMembri, 1100));
+  }
+
+  /* === Diario modal === */
+  const DIARY_KEY = 'davil_diary_v1';
+  const diaryModal = document.querySelector('[data-diary-modal]');
+  const diaryForm  = document.querySelector('[data-diary-form]');
+  const diaryStatus = document.querySelector('[data-diary-status]');
+  const openDiary = () => { if (diaryModal) { diaryModal.hidden = false; document.body.style.overflow = 'hidden'; } };
+  const closeDiary = () => { if (diaryModal) { diaryModal.hidden = true; document.body.style.overflow = ''; if (diaryStatus){ diaryStatus.textContent=''; diaryStatus.className='login-status'; } } };
+  document.querySelectorAll('[data-diary-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openDiary(); }));
+  document.querySelectorAll('[data-diary-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeDiary(); }));
+  if (diaryForm) {
+    diaryForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(diaryForm);
+      const entry = { ts: new Date().toISOString(), section: fd.get('section'), text: (fd.get('entry')||'').toString().trim() };
+      let arr = [];
+      try { arr = JSON.parse(localStorage.getItem(DIARY_KEY) || '[]'); } catch(e){}
+      arr.push(entry);
+      try { localStorage.setItem(DIARY_KEY, JSON.stringify(arr)); } catch(e){}
+      diaryStatus.className = 'login-status ok';
+      diaryStatus.textContent = `✓ Salvato in [${entry.section}]. ${arr.length} voci totali.`;
+      diaryForm.querySelector('[name="entry"]').value = '';
+    });
+  }
+
+  /* === Oracolo · 22 arcani maggiori (Marsiglia · letti junghianamente) === */
+  const ORACLE = [
+    { s:'☉',  n:'Il Sole',         q:"Cosa stai facendo per primo, anche quando nessuno ti guarda?",                     p:"Scrivi una pagina di diario senza filtro su questa domanda." },
+    { s:'☽',  n:'La Luna',         q:"Quale paura ti sta ancora dirigendo nelle scelte di tutti i giorni?",              p:"Nominala. Scrivila. Domani rileggila e chiediti se è ancora vera." },
+    { s:'★',  n:'La Stella',       q:"Cosa speravi a 12 anni che hai dimenticato di sperare adesso?",                    p:"Recupera un sogno antico. Fai un piccolo passo concreto verso di esso." },
+    { s:'⊙',  n:'Il Mondo',        q:"Cosa stai integrando? Cosa ti manca per sentirti completo?",                       p:"Identifica una parte di te che hai lasciato fuori. Falla rientrare." },
+    { s:'∞',  n:'L\'Appeso',       q:"Quale sospensione stai vivendo che non vuoi accettare?",                           p:"Resta nell'attesa per 24h senza forzare. Osserva cosa emerge." },
+    { s:'⌬',  n:'L\'Eremita',      q:"Da dove ti aspetti che venga la risposta che già conosci?",                         p:"Spegni i contatti per 2h. Scrivi cosa ti dice il silenzio." },
+    { s:'☥',  n:'Il Bagatto',      q:"Quale strumento hai in mano che non stai ancora usando?",                          p:"Identifica una capacità latente. Mettila in pratica oggi." },
+    { s:'♔',  n:'L\'Imperatore',   q:"Dove ti serve struttura, dove invece flessibilità?",                                p:"Scegli un'area: più disciplina o più spontaneità. Sperimenta una settimana." },
+    { s:'♕',  n:'L\'Imperatrice',  q:"Cosa stai generando? E cosa stai nutrendo che non vuole nascere?",                  p:"Distingui il progetto vivo dal compito che ti pesa. Rilascia uno." },
+    { s:'⚖',  n:'La Giustizia',    q:"Dove sei in debito con te stesso? Dove sei in credito?",                            p:"Riequilibra una relazione personale o lavorativa con una conversazione vera." },
+    { s:'⚯',  n:'Gli Innamorati',  q:"Tra due strade, quale sceglie il bambino che eri? Quale sceglie l'adulto?",         p:"Onora entrambi. Trova il punto in cui possono coincidere." },
+    { s:'☠',  n:'La Morte',        q:"Cosa è già finito che ancora pretendi di tenere in vita?",                          p:"Nominalo. Scrivi la lettera di chiusura. Non serve spedirla." },
+    { s:'☉',  n:'Il Carro',        q:"Verso dove stai galoppando? E chi tiene davvero le redini?",                        p:"Definisci la direzione dei prossimi 90 giorni in una sola frase." },
+    { s:'⚔',  n:'La Forza',        q:"Quale parte selvaggia di te aspetta di essere domata con dolcezza?",                p:"Pratica oggi un atto di tenerezza verso te stesso, non di disciplina." },
+    { s:'⚗',  n:'La Temperanza',   q:"Cosa stai mescolando troppo in fretta? Cosa, troppo lentamente?",                   p:"Aggiusta un ritmo: rallenta una cosa, accelera un'altra." },
+    { s:'⚛',  n:'Il Diavolo',      q:"Quale catena ti dichiari obbligato a tenere — sapendo che potresti aprirla?",       p:"Una sola catena. Identificala. Inizia a smontarla con un'azione." },
+    { s:'☂',  n:'La Torre',        q:"Quale struttura sta crollando — e tu stai cercando di puntellare invece di lasciarla cadere?", p:"Lascia cadere. Quello che resta è il fondamento vero." },
+    { s:'❋',  n:'La Ruota',        q:"Cosa sta tornando nella tua vita per la terza, quarta volta?",                      p:"Cambia un parametro: stesso tema, risposta diversa." },
+    { s:'⚱',  n:'Il Giudizio',     q:"Quale chiamata stai fingendo di non sentire?",                                       p:"Rispondi oggi a un messaggio o a una vocazione che hai messo in pausa." },
+    { s:'☼',  n:'Il Matto',        q:"Quale salto stai rimandando perché 'non è il momento'?",                            p:"Fai oggi il primo gesto del salto. Anche piccolo." },
+    { s:'♆',  n:'La Papessa',      q:"Quale verità interiore conosci già ma fingi di dover ancora cercare?",              p:"Scrivila. È più semplice di quanto sembri." },
+    { s:'♅',  n:'Il Papa',         q:"A quale autorità esterna stai delegando ciò che dovresti decidere tu?",             p:"Riprenditi una decisione oggi. Anche minima." }
+  ];
+  const drawOracle = () => {
+    const card = ORACLE[Math.floor(Math.random() * ORACLE.length)];
+    const s = document.querySelector('[data-oracle-symbol]');
+    const n = document.querySelector('[data-oracle-name]');
+    const q = document.querySelector('[data-oracle-question]');
+    const p = document.querySelector('[data-oracle-practice]');
+    if (s) s.textContent = card.s;
+    if (n) n.textContent = card.n;
+    if (q) q.textContent = card.q;
+    if (p) p.textContent = `Pratica: ${card.p}`;
+    // log to diary
+    try {
+      const arr = JSON.parse(localStorage.getItem(DIARY_KEY) || '[]');
+      arr.push({ ts: new Date().toISOString(), section:'oracolo', text:`${card.n} — ${card.q}` });
+      localStorage.setItem(DIARY_KEY, JSON.stringify(arr));
+    } catch(e){}
+  };
+  const oracleModal = document.querySelector('[data-oracle-modal]');
+  const openOracle = () => { drawOracle(); if (oracleModal) { oracleModal.hidden = false; document.body.style.overflow = 'hidden'; } };
+  const closeOracle = () => { if (oracleModal) { oracleModal.hidden = true; document.body.style.overflow = ''; } };
+  document.querySelectorAll('[data-oracle-draw]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openOracle(); }));
+  document.querySelectorAll('[data-oracle-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeOracle(); }));
+
   console.log('%c DAVIL ', 'background:#09090b;color:#f2efe9;font-weight:900;padding:4px 10px;border-radius:4px', 'v2 motion engine attivo.');
 })();
