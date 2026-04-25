@@ -1369,6 +1369,32 @@
   #dream-modal::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
   #dream-modal::-webkit-scrollbar-thumb{background:rgba(236,72,153,.45);border-radius:4px}
 
+  /* === PERFORMANCE · anti-jitter + GPU compositing === */
+  .universe-bg{
+    transform:translate3d(0,0,0); /* forza GPU layer */
+    backface-visibility:hidden;
+  }
+  .hero-photo,.hero-photo img,.orb,.orb-1,.orb-2,
+  .pp-photo,.contatti-photo,.storia-inline-photo,.chi-portrait,
+  .servizio-photo,.card-visual,.p-visual,.bn-vis,.s-vis{
+    transform:translate3d(0,0,0);
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+  }
+  .hero-photo,.servizio-photo,.pp-photo,.contatti-photo,.storia-inline-photo,
+  .pilastro-with-visual .p-visual,.bn-vis,.strumento-card .s-vis,.card-visual{
+    will-change:transform;
+  }
+  /* contain rendering pulisce il flusso su sezioni isolate */
+  section,.sect,.dip-section,.body-network,.cta-final,.footer-v2{
+    contain:layout style;
+  }
+  /* anti-jitter: stop animation loops mentre l'utente non guarda */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+    .universe-bg{display:none}
+  }
+
   /* === MOBILE / HD OPTIMIZATIONS === */
   /* Tap targets ≥44px su mobile */
   @media(max-width:760px){

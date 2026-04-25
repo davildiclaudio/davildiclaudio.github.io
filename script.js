@@ -182,28 +182,20 @@
     };
     goTo(0);
 
-    // Autoplay · 1 secondo per transizione
+    // Autoplay · 0.7s costante anche durante scroll
     let autoTimer = null;
-    const stepDelay = 1000;
-    const lastBonus = 1000;
+    const stepDelay = 700;
     const startAuto = () => {
-      if (autoTimer) clearTimeout(autoTimer);
-      const delay = (idx === tot - 1) ? stepDelay + lastBonus : stepDelay;
-      autoTimer = setTimeout(() => { goTo(idx + 1); startAuto(); }, delay);
+      if (autoTimer) clearInterval(autoTimer);
+      autoTimer = setInterval(() => { goTo(idx + 1); }, stepDelay);
     };
-    const pauseAuto = () => { if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; } };
+    const pauseAuto = () => { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } };
 
-    if (window.IntersectionObserver) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) startAuto(); else pauseAuto(); });
-      }, { threshold: 0.35 });
-      io.observe(ls);
-    } else { startAuto(); }
+    // Avvia subito · gira sempre, anche fuori vista (visibility tab handled by browser)
+    startAuto();
 
     prevBtn?.addEventListener('click', () => { pauseAuto(); goTo(idx - 1); startAuto(); });
     nextBtn?.addEventListener('click', () => { pauseAuto(); goTo(idx + 1); startAuto(); });
-    ls.addEventListener('mouseenter', pauseAuto);
-    ls.addEventListener('mouseleave', startAuto);
 
     window.addEventListener('keydown', (e) => {
       const r = ls.getBoundingClientRect();
@@ -588,13 +580,14 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
 
   /* ---------- Universe in motion · Three.js cosmic refined === */
   const initThreeUniverse = () => {
-    if (prefersReducedMotion || isTouch || !window.THREE) return;
+    if (prefersReducedMotion || !window.THREE) return;
+    const isSmall = innerWidth < 900;       // mobile/tablet → meno particles
     const canvas = document.createElement('canvas');
     canvas.className = 'universe-bg';
     document.body.insertBefore(canvas, document.body.firstChild);
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isSmall, alpha: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isSmall ? 1.25 : 2));
     renderer.setSize(innerWidth, innerHeight);
 
     const scene = new THREE.Scene();
@@ -626,8 +619,8 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
       [0.925, 0.902, 0.984], // ink
     ];
 
-    // Layer 1 · stelle distanti molto piccole (8000 punti, mini)
-    const FAR = 8000;
+    // Layer 1 · stelle distanti molto piccole (responsive count)
+    const FAR = isSmall ? 2500 : 8000;
     const farPos = new Float32Array(FAR * 3);
     const farCol = new Float32Array(FAR * 3);
     for (let i = 0; i < FAR; i++) {
@@ -650,8 +643,8 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     }));
     scene.add(farPoints);
 
-    // Layer 2 · stelle medie più rade (2500)
-    const MID = 2500;
+    // Layer 2 · stelle medie più rade
+    const MID = isSmall ? 800 : 2500;
     const midPos = new Float32Array(MID * 3);
     const midCol = new Float32Array(MID * 3);
     for (let i = 0; i < MID; i++) {
@@ -674,8 +667,8 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     }));
     scene.add(midPoints);
 
-    // Layer 3 · stelle vicine luminose (rare, 250)
-    const NEAR = 250;
+    // Layer 3 · stelle vicine luminose
+    const NEAR = isSmall ? 80 : 250;
     const nearPos = new Float32Array(NEAR * 3);
     const nearCol = new Float32Array(NEAR * 3);
     for (let i = 0; i < NEAR; i++) {
@@ -741,7 +734,7 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     worldGroup.add(shellLines);
 
     /* === GRIGLIA / NETWORK di nodi varianti collegati === */
-    const NODE_COUNT = 80;
+    const NODE_COUNT = isSmall ? 32 : 80;
     const nodes = [];
     const nodePos = new Float32Array(NODE_COUNT * 3);
     const nodeCol = new Float32Array(NODE_COUNT * 3);
