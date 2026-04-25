@@ -379,16 +379,16 @@
     };
     resize();
     addEventListener('resize', resize);
-    const N = Math.min(110, Math.max(60, Math.floor(uw * uh / 18000)));
+    const N = Math.min(180, Math.max(100, Math.floor(uw * uh / 12000)));
     const stars = [];
     for (let i = 0; i < N; i++) {
       stars.push({
         x: Math.random() * uw, y: Math.random() * uh,
-        z: Math.random() * 0.8 + 0.2,         // depth (parallax weight)
-        r: Math.random() * 1.4 + 0.4,         // radius
-        vx: (Math.random() - 0.5) * 0.12,     // drift x
-        vy: (Math.random() - 0.5) * 0.12,     // drift y
-        hue: Math.random() < .25 ? 'gold' : (Math.random() < .35 ? 'blue' : 'ink'),
+        z: Math.random() * 0.8 + 0.2,
+        r: Math.random() * 2.4 + 0.6,         // più grandi
+        vx: (Math.random() - 0.5) * 0.15,
+        vy: (Math.random() - 0.5) * 0.15,
+        hue: 'ink',
         twinkle: Math.random() * Math.PI * 2,
       });
     }
@@ -410,22 +410,30 @@
       smx += (mx - smx) * 0.04;
       smy += (my - smy) * 0.04;
       uctx.clearRect(0, 0, uw, uh);
-      // nebula clouds underneath
-      const g1 = uctx.createRadialGradient(uw * 0.22, uh * 0.18, 0, uw * 0.22, uh * 0.18, uw * 0.6);
-      g1.addColorStop(0, 'rgba(124,58,237,0.16)');
-      g1.addColorStop(0.5, 'rgba(124,58,237,0.04)');
+      // nebula clouds underneath · boosted
+      const cycle = (t * 0.00005) % 1;
+      const offX = Math.sin(t * 0.0001) * uw * 0.06;
+      const offY = Math.cos(t * 0.00012) * uh * 0.06;
+      const g1 = uctx.createRadialGradient(uw * 0.22 + offX, uh * 0.18 + offY, 0, uw * 0.22 + offX, uh * 0.18 + offY, uw * 0.65);
+      g1.addColorStop(0, 'rgba(124,58,237,0.42)');
+      g1.addColorStop(0.4, 'rgba(124,58,237,0.10)');
       g1.addColorStop(1, 'rgba(0,0,0,0)');
       uctx.fillStyle = g1; uctx.fillRect(0, 0, uw, uh);
-      const g2 = uctx.createRadialGradient(uw * 0.85, uh * 0.85, 0, uw * 0.85, uh * 0.85, uw * 0.55);
-      g2.addColorStop(0, 'rgba(236,72,153,0.12)');
-      g2.addColorStop(0.55, 'rgba(236,72,153,0.025)');
+      const g2 = uctx.createRadialGradient(uw * 0.82 - offX, uh * 0.82 + offY, 0, uw * 0.82 - offX, uh * 0.82 + offY, uw * 0.6);
+      g2.addColorStop(0, 'rgba(236,72,153,0.32)');
+      g2.addColorStop(0.5, 'rgba(236,72,153,0.07)');
       g2.addColorStop(1, 'rgba(0,0,0,0)');
       uctx.fillStyle = g2; uctx.fillRect(0, 0, uw, uh);
-      const g3 = uctx.createRadialGradient(uw * 0.5, uh * 0.5, 0, uw * 0.5, uh * 0.5, uw * 0.7);
-      g3.addColorStop(0, 'rgba(34,211,238,0.06)');
-      g3.addColorStop(0.6, 'rgba(34,211,238,0.015)');
+      const g3 = uctx.createRadialGradient(uw * 0.55 + offY, uh * 0.45 - offX, 0, uw * 0.55 + offY, uh * 0.45 - offX, uw * 0.7);
+      g3.addColorStop(0, 'rgba(34,211,238,0.20)');
+      g3.addColorStop(0.55, 'rgba(34,211,238,0.04)');
       g3.addColorStop(1, 'rgba(0,0,0,0)');
       uctx.fillStyle = g3; uctx.fillRect(0, 0, uw, uh);
+      const g4 = uctx.createRadialGradient(uw * 0.15 + offY, uh * 0.85 - offY, 0, uw * 0.15 + offY, uh * 0.85 - offY, uw * 0.5);
+      g4.addColorStop(0, 'rgba(244,201,93,0.16)');
+      g4.addColorStop(0.5, 'rgba(244,201,93,0.03)');
+      g4.addColorStop(1, 'rgba(0,0,0,0)');
+      uctx.fillStyle = g4; uctx.fillRect(0, 0, uw, uh);
       // stars
       stars.forEach(s => {
         s.x += s.vx; s.y += s.vy; s.twinkle += 0.03;
@@ -435,9 +443,15 @@
         // wrap
         if (s.x < -10) s.x = uw + 10; else if (s.x > uw + 10) s.x = -10;
         if (s.y < -10) s.y = uh + 10; else if (s.y > uh + 10) s.y = -10;
-        const a = (0.25 + Math.sin(s.twinkle) * 0.18) * (0.4 + s.z * 0.6);
+        const a = (0.55 + Math.sin(s.twinkle) * 0.30) * (0.5 + s.z * 0.5);
+        // halo glow
         uctx.beginPath();
-        uctx.arc(px, py, s.r * (0.6 + s.z * 0.4), 0, Math.PI * 2);
+        uctx.arc(px, py, s.r * (1.2 + s.z * 0.6) * 2.5, 0, Math.PI * 2);
+        uctx.fillStyle = palette[s.hue] + (a * 0.18) + ')';
+        uctx.fill();
+        // core star
+        uctx.beginPath();
+        uctx.arc(px, py, s.r * (0.8 + s.z * 0.5), 0, Math.PI * 2);
         uctx.fillStyle = palette[s.hue] + a + ')';
         uctx.fill();
       });
