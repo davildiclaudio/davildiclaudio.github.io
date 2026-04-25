@@ -581,16 +581,24 @@
   .piano:hover .card-visual img{transform:scale(1.04);filter:saturate(1.1)}
 
   .section-banner{
-    width:100vw;margin-left:calc(50% - 50vw);
-    aspect-ratio:16/9;max-height:620px;overflow:hidden;
+    width:100vw;
+    margin:0 calc(50% - 50vw) 48px !important;
+    max-width:none;
+    overflow:hidden;
     border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-    margin-bottom:48px;position:relative;
+    background:#0a0820;
+    position:relative;
+    display:flex;align-items:center;justify-content:center;
+    padding:0;
   }
   .section-banner img{
-    width:100%;height:100%;object-fit:cover;display:block;
+    width:auto !important;height:auto !important;
+    max-width:100% !important;
+    object-fit:contain !important;display:block;
     transition:transform 8s ease-out;
     will-change:transform;
   }
+  .section-banner::after{display:none !important}
   .section-banner:hover img{transform:scale(1.06)}
   .section-banner::after{
     content:"";position:absolute;inset:0;
@@ -701,14 +709,9 @@
     z-index:0;pointer-events:none;
     opacity:1;
   }
-  /* Solleva tutto il contenuto sopra il canvas */
-  body > #loader,body > .nav,body > main,body > .footer-v2,body > .nav-logo-wrap,body > .wa-fab,body > .cursor-dot,body > .cursor-ring,body > .page-progress{
-    position:relative;z-index:1;
-  }
-  body > .nav,body > .nav-logo-wrap,body > .wa-fab,body > .cursor-dot,body > .cursor-ring,body > .page-progress,body > #loader{
-    position:fixed;
-  }
-  body > main,body > .footer-v2{position:relative}
+  /* Solo gli elementi statici (main/footer) hanno bisogno di z-index esplicito.
+     Gli elementi fixed (loader z9999, nav z100, cursor z9998, ecc.) mantengono i loro. */
+  main, .footer-v2{position:relative;z-index:1}
 
   /* === VITA · galleria foto sovrapposte === */
   .vita-section{padding:clamp(80px,11vh,140px) var(--pad);text-align:center;position:relative;overflow:hidden}

@@ -364,27 +364,38 @@
     });
   }
 
-  /* ---------- Universe in motion · Three.js cosmic scene (Ars-Realis style) === */
+  /* ---------- Universe in motion · Three.js cosmic refined === */
   const initThreeUniverse = () => {
     if (prefersReducedMotion || isTouch || !window.THREE) return;
     const canvas = document.createElement('canvas');
     canvas.className = 'universe-bg';
     document.body.insertBefore(canvas, document.body.firstChild);
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
     renderer.setSize(innerWidth, innerHeight);
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x05030f, 0.0012);
+    scene.fog = new THREE.FogExp2(0x05030f, 0.0008);
 
-    const camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.1, 2000);
+    const camera = new THREE.PerspectiveCamera(75, innerWidth / innerHeight, 0.1, 3000);
     camera.position.set(0, 0, 0);
 
-    // Particle stars
-    const COUNT = 3500;
-    const positions = new Float32Array(COUNT * 3);
-    const colors = new Float32Array(COUNT * 3);
+    // Soft circular sprite texture (no pixel-square)
+    const sprite = (() => {
+      const c = document.createElement('canvas');
+      c.width = c.height = 64;
+      const cx = c.getContext('2d');
+      const g = cx.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, 'rgba(255,255,255,1)');
+      g.addColorStop(0.25, 'rgba(255,255,255,.85)');
+      g.addColorStop(0.55, 'rgba(255,255,255,.25)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      cx.fillStyle = g;
+      cx.fillRect(0, 0, 64, 64);
+      return new THREE.CanvasTexture(c);
+    })();
+
     const palette = [
       [0.486, 0.227, 0.929], // violet
       [0.925, 0.282, 0.600], // magenta
@@ -392,51 +403,63 @@
       [0.957, 0.788, 0.365], // gold
       [0.925, 0.902, 0.984], // ink
     ];
-    for (let i = 0; i < COUNT; i++) {
-      // sphere distribution
-      const r = 200 + Math.random() * 800;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      positions[i*3]     = r * Math.sin(phi) * Math.cos(theta);
-      positions[i*3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      positions[i*3 + 2] = r * Math.cos(phi);
+
+    // Layer 1 · stelle distanti molto piccole (8000 punti, mini)
+    const FAR = 8000;
+    const farPos = new Float32Array(FAR * 3);
+    const farCol = new Float32Array(FAR * 3);
+    for (let i = 0; i < FAR; i++) {
+      const r = 600 + Math.random() * 1400;
+      const th = Math.random() * Math.PI * 2;
+      const ph = Math.acos(2 * Math.random() - 1);
+      farPos[i*3]     = r * Math.sin(ph) * Math.cos(th);
+      farPos[i*3 + 1] = r * Math.sin(ph) * Math.sin(th);
+      farPos[i*3 + 2] = r * Math.cos(ph);
       const c = palette[Math.floor(Math.random() * palette.length)];
-      colors[i*3] = c[0]; colors[i*3 + 1] = c[1]; colors[i*3 + 2] = c[2];
+      farCol[i*3] = c[0]; farCol[i*3 + 1] = c[1]; farCol[i*3 + 2] = c[2];
     }
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const points = new THREE.Points(geo, new THREE.PointsMaterial({
-      size: 3.5, vertexColors: true,
+    const farGeo = new THREE.BufferGeometry();
+    farGeo.setAttribute('position', new THREE.BufferAttribute(farPos, 3));
+    farGeo.setAttribute('color', new THREE.BufferAttribute(farCol, 3));
+    const farPoints = new THREE.Points(farGeo, new THREE.PointsMaterial({
+      size: 1.4, vertexColors: true, map: sprite, alphaMap: sprite,
       blending: THREE.AdditiveBlending, transparent: true,
-      opacity: 0.95, sizeAttenuation: true,
+      depthWrite: false, opacity: 0.95, sizeAttenuation: true,
     }));
-    scene.add(points);
+    scene.add(farPoints);
 
-    // Wireframe geometric shapes (cosmic structures)
-    const mkLines = (geom, color, opacity) => new THREE.LineSegments(
-      new THREE.EdgesGeometry(geom),
-      new THREE.LineBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending })
-    );
+    // Layer 2 · stelle medie più rade (2500)
+    const MID = 2500;
+    const midPos = new Float32Array(MID * 3);
+    const midCol = new Float32Array(MID * 3);
+    for (let i = 0; i < MID; i++) {
+      const r = 250 + Math.random() * 500;
+      const th = Math.random() * Math.PI * 2;
+      const ph = Math.acos(2 * Math.random() - 1);
+      midPos[i*3]     = r * Math.sin(ph) * Math.cos(th);
+      midPos[i*3 + 1] = r * Math.sin(ph) * Math.sin(th);
+      midPos[i*3 + 2] = r * Math.cos(ph);
+      const c = palette[Math.floor(Math.random() * palette.length)];
+      midCol[i*3] = c[0]; midCol[i*3 + 1] = c[1]; midCol[i*3 + 2] = c[2];
+    }
+    const midGeo = new THREE.BufferGeometry();
+    midGeo.setAttribute('position', new THREE.BufferAttribute(midPos, 3));
+    midGeo.setAttribute('color', new THREE.BufferAttribute(midCol, 3));
+    const midPoints = new THREE.Points(midGeo, new THREE.PointsMaterial({
+      size: 2.4, vertexColors: true, map: sprite, alphaMap: sprite,
+      blending: THREE.AdditiveBlending, transparent: true,
+      depthWrite: false, opacity: 0.95, sizeAttenuation: true,
+    }));
+    scene.add(midPoints);
 
-    const torus1 = mkLines(new THREE.TorusGeometry(120, 1.5, 8, 80), 0x7c3aed, 0.32);
-    torus1.position.set(-180, 90, -350); scene.add(torus1);
-    const ico = mkLines(new THREE.IcosahedronGeometry(80, 1), 0xec4899, 0.28);
-    ico.position.set(220, -120, -300); scene.add(ico);
-    const torus2 = mkLines(new THREE.TorusGeometry(70, 1, 6, 60), 0x22d3ee, 0.30);
-    torus2.position.set(40, 220, -450); scene.add(torus2);
-    const ico2 = mkLines(new THREE.IcosahedronGeometry(50, 0), 0xf4c95d, 0.30);
-    ico2.position.set(-100, -180, -200); scene.add(ico2);
-
-    // Inner faint particle cloud (closer to camera)
-    const NEAR = 600;
+    // Layer 3 · stelle vicine luminose (rare, 250)
+    const NEAR = 250;
     const nearPos = new Float32Array(NEAR * 3);
     const nearCol = new Float32Array(NEAR * 3);
     for (let i = 0; i < NEAR; i++) {
-      nearPos[i*3]     = (Math.random() - 0.5) * 600;
-      nearPos[i*3 + 1] = (Math.random() - 0.5) * 600;
-      nearPos[i*3 + 2] = -100 - Math.random() * 200;
+      nearPos[i*3]     = (Math.random() - 0.5) * 800;
+      nearPos[i*3 + 1] = (Math.random() - 0.5) * 800;
+      nearPos[i*3 + 2] = -50 - Math.random() * 250;
       const c = palette[Math.floor(Math.random() * palette.length)];
       nearCol[i*3] = c[0]; nearCol[i*3 + 1] = c[1]; nearCol[i*3 + 2] = c[2];
     }
@@ -444,16 +467,31 @@
     nearGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
     nearGeo.setAttribute('color', new THREE.BufferAttribute(nearCol, 3));
     const nearPoints = new THREE.Points(nearGeo, new THREE.PointsMaterial({
-      size: 6, vertexColors: true, blending: THREE.AdditiveBlending,
-      transparent: true, opacity: 0.6, sizeAttenuation: true,
+      size: 5, vertexColors: true, map: sprite, alphaMap: sprite,
+      blending: THREE.AdditiveBlending, transparent: true,
+      depthWrite: false, opacity: 0.85, sizeAttenuation: true,
     }));
     scene.add(nearPoints);
+
+    // Wireframe shapes (più sottili, lontani)
+    const mkLines = (geom, color, opacity) => new THREE.LineSegments(
+      new THREE.EdgesGeometry(geom),
+      new THREE.LineBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending })
+    );
+    const torus1 = mkLines(new THREE.TorusGeometry(140, 1.2, 8, 100), 0x7c3aed, 0.18);
+    torus1.position.set(-220, 110, -500); scene.add(torus1);
+    const ico = mkLines(new THREE.IcosahedronGeometry(95, 1), 0xec4899, 0.16);
+    ico.position.set(260, -150, -450); scene.add(ico);
+    const torus2 = mkLines(new THREE.TorusGeometry(80, 0.8, 6, 70), 0x22d3ee, 0.18);
+    torus2.position.set(50, 250, -600); scene.add(torus2);
+    const ico2 = mkLines(new THREE.IcosahedronGeometry(60, 0), 0xf4c95d, 0.20);
+    ico2.position.set(-130, -210, -380); scene.add(ico2);
 
     // Mouse parallax
     let mx = 0, my = 0, tx = 0, ty = 0;
     addEventListener('mousemove', (e) => {
-      tx = (e.clientX / innerWidth - 0.5) * 50;
-      ty = (e.clientY / innerHeight - 0.5) * 50;
+      tx = (e.clientX / innerWidth - 0.5) * 70;
+      ty = (e.clientY / innerHeight - 0.5) * 70;
     });
 
     const clock = new THREE.Clock();
@@ -462,10 +500,13 @@
       mx += (tx - mx) * 0.04;
       my += (ty - my) * 0.04;
 
-      points.rotation.x = t * 0.020;
-      points.rotation.y = t * 0.030;
-      nearPoints.rotation.x = t * -0.015;
-      nearPoints.rotation.y = t * 0.025;
+      // depth drift · come "fly through space" lento
+      farPoints.rotation.x = t * 0.012;
+      farPoints.rotation.y = t * 0.018;
+      midPoints.rotation.x = t * -0.020;
+      midPoints.rotation.y = t * 0.025;
+      nearPoints.rotation.x = t * 0.030;
+      nearPoints.rotation.y = t * -0.040;
 
       torus1.rotation.x = t * 0.18; torus1.rotation.y = t * 0.10;
       ico.rotation.x = t * -0.12; ico.rotation.y = t * 0.15;
@@ -474,6 +515,7 @@
 
       camera.position.x = mx;
       camera.position.y = -my;
+      camera.position.z = Math.sin(t * 0.05) * 30; // breathing depth
       camera.lookAt(0, 0, -200);
 
       renderer.render(scene, camera);
