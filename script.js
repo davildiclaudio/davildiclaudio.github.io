@@ -204,17 +204,28 @@
     if (el.dataset.split === 'done') return el.querySelectorAll('.ch > span');
     const walk = (node) => {
       if (node.nodeType === 3) {
+        const text = node.textContent;
         const frag = document.createDocumentFragment();
-        [...node.textContent].forEach(ch => {
-          if (ch === ' ') { frag.appendChild(document.createTextNode(' ')); return; }
-          const wrap = document.createElement('span');
-          wrap.className = 'ch';
-          wrap.style.cssText = 'display:inline-block;overflow:hidden;line-height:inherit;vertical-align:bottom';
-          const inner = document.createElement('span');
-          inner.style.cssText = 'display:inline-block;will-change:transform,opacity';
-          inner.textContent = ch;
-          wrap.appendChild(inner);
-          frag.appendChild(wrap);
+        // Spezza per parole (preservando whitespace), poi caratteri dentro la parola
+        text.split(/(\s+)/).forEach(token => {
+          if (/^\s+$/.test(token)) { frag.appendChild(document.createTextNode(token)); return; }
+          if (!token.length) return;
+          // Wrapper di parola: non si spezza mai a metà
+          const word = document.createElement('span');
+          word.className = 'word-wrap';
+          word.style.cssText = 'display:inline-block;white-space:nowrap;vertical-align:top';
+          [...token].forEach(ch => {
+            const wrap = document.createElement('span');
+            wrap.className = 'ch';
+            // padding verticale per non clippare accenti (È) né discendenti (g, q, p)
+            wrap.style.cssText = 'display:inline-block;overflow:hidden;line-height:inherit;vertical-align:top;padding:.18em 0;margin:-.18em 0';
+            const inner = document.createElement('span');
+            inner.style.cssText = 'display:inline-block;will-change:transform,opacity';
+            inner.textContent = ch;
+            wrap.appendChild(inner);
+            word.appendChild(wrap);
+          });
+          frag.appendChild(word);
         });
         node.parentNode.replaceChild(frag, node);
       } else if (node.nodeType === 1 && node.childNodes.length) {
