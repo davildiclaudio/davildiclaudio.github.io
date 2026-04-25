@@ -1012,6 +1012,7 @@
     const revDur = isMob ? 0.55 : 1.4;
     $$('[data-reveal]').forEach(el => {
       if (el.closest('.hero')) return; // hero handled above
+      if (el.classList.contains('m-line')) return; // manifesto handled separately
       gsap.fromTo(el,
         { opacity: 0, y: isMob ? 24 : 64, scale: isMob ? 1 : 0.98, filter: isMob ? 'none' : 'blur(6px)' },
         { opacity: 1, y: 0, scale: 1, filter: isMob ? 'none' : 'blur(0px)',
@@ -1063,13 +1064,26 @@
         }
       });
     } else if (mani && isMob) {
-      // Mobile · simple stagger reveal · niente pin
+      // Mobile · animazione opt-in: prima si abilita .animate (start state), poi IO aggiunge .is-visible
       const lines = $$('.m-line', mani);
-      gsap.fromTo(lines,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.6, stagger: 0.20, ease: 'power2.out',
-          scrollTrigger: { trigger: mani, start: 'top 88%', toggleActions: 'play none none none' } }
-      );
+      lines.forEach(l => {
+        l.removeAttribute('data-reveal');
+        l.removeAttribute('style');
+      });
+      // Step 1: arm the animation (lines diventano invisibili)
+      mani.classList.add('animate');
+      // Step 2: appena visibile, scatta la rivelazione
+      const reveal = () => mani.classList.add('is-visible');
+      // Reflow per assicurarsi che lo stato 0 sia applicato prima
+      void mani.offsetHeight;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { reveal(); io.disconnect(); } });
+      }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+      io.observe(mani);
+      // Safety net: se IO non scatta entro 2s ma siamo nella sezione, rivela
+      setTimeout(() => { if (!mani.classList.contains('is-visible') && mani.getBoundingClientRect().top < innerHeight) reveal(); }, 2000);
+      // Ultimate fallback: se dopo 4s ancora non animate, rimuovi .animate (frasi visibili snap)
+      setTimeout(() => { if (!mani.classList.contains('is-visible')) mani.classList.remove('animate'); }, 4000);
     }
 
     /* === Velocity-based skew on big headings === desktop only */

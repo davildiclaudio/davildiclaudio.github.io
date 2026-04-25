@@ -674,16 +674,18 @@
     aspect-ratio:16/9;
     margin-bottom:8px;
   }
-  @media(max-width:760px){
-    .pilastro-with-visual .p-visual{aspect-ratio:4/3}
-    .pilastro-with-visual .p-content{padding:28px 22px}
-  }
   .pilastro-with-visual .p-visual img{
-    width:100%;height:100%;object-fit:cover;display:block;
+    width:100%;height:100%;object-fit:contain;display:block;
     transition:transform 1.2s var(--ease-smooth);
   }
-  .pilastro-with-visual:hover .p-visual img{transform:scale(1.04)}
+  .pilastro-with-visual:hover .p-visual img{transform:scale(1.03)}
   .pilastro-with-visual .p-content{padding:36px 32px;display:flex;flex-direction:column;gap:14px}
+  @media(max-width:760px){
+    .pilastro-with-visual{padding:16px 16px 0}
+    .pilastro-with-visual .p-visual{aspect-ratio:16/10;border-radius:18px}
+    .pilastro-with-visual .p-visual img{object-fit:contain}
+    .pilastro-with-visual .p-content{padding:26px 20px}
+  }
 
   /* Chi sono · grid con portrait raddoppiato */
   .chi-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start;margin-top:24px}
@@ -1019,17 +1021,37 @@
   }
   .mega em{font-style:italic;color:var(--gold);font-weight:300}
 
+  /* Manifesto · mobile: visibilità garantita + animazione opt-in via class */
+  @media(max-width:760px){
+    .manifesto .m-line{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+    .manifesto.animate .m-line{
+      opacity:0!important;transform:translateY(28px)!important;
+      transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1)!important;
+    }
+    .manifesto.animate.is-visible .m-line{opacity:1!important;transform:none!important}
+    .manifesto.animate .m-line:nth-child(2){transition-delay:.30s}
+    .manifesto.animate .m-line:nth-child(3){transition-delay:.60s}
+  }
+
   /* Manifesto — three lines rauno-style + sfumatura nera in chiusura */
   .manifesto{
-    padding:clamp(80px,14vh,200px) var(--pad) calc(clamp(80px,14vh,200px) + 80px);
+    padding:clamp(80px,14vh,200px) var(--pad) calc(clamp(80px,14vh,200px) + 120px);
     text-align:center;
     position:relative;
+    isolation:isolate;
   }
+  /* Ombra rivolta verso il basso · sfuma il blocco verso la sezione successiva */
   .manifesto::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:200px;
-    background:linear-gradient(180deg, rgba(5,3,15,0) 0%, rgba(5,3,15,.65) 60%, rgba(5,3,15,.95) 100%);
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:340px;
+    background:linear-gradient(180deg,
+      rgba(5,3,15,0) 0%,
+      rgba(5,3,15,.30) 30%,
+      rgba(5,3,15,.70) 65%,
+      rgba(5,3,15,.96) 100%);
     pointer-events:none;
+    z-index:1;
   }
+  .manifesto .m-line{position:relative;z-index:2}
   .manifesto .m-line{
     font-family:var(--ff-display);
     font-weight:300;
@@ -1401,6 +1423,22 @@
   .ars-pw-label{margin:0 0 6px;font-family:var(--ff-sans);font-size:10px;letter-spacing:.30em;text-transform:uppercase;color:var(--ink-soft)}
   .ars-pw-code{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:36px;color:var(--gold);letter-spacing:.10em;margin:6px 0;text-shadow:0 0 24px rgba(244,201,93,.4);user-select:all;cursor:pointer}
   .ars-pw-note{margin:8px 0 0;font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
+  .ars-pw-cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    margin:14px auto 4px;padding:12px 22px;border-radius:999px;
+    font-family:var(--ff-sans);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    background:linear-gradient(135deg, rgba(244,201,93,.18), rgba(124,58,237,.18));
+    border:1px solid rgba(244,201,93,.55);
+    color:var(--gold);text-decoration:none;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    box-shadow:0 0 0 0 rgba(244,201,93,.35)
+  }
+  .ars-pw-cta:hover{
+    transform:translateY(-1px);
+    background:linear-gradient(135deg, rgba(244,201,93,.30), rgba(124,58,237,.25));
+    box-shadow:0 0 24px 0 rgba(244,201,93,.30)
+  }
+  .ars-pw-cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
   /* === Dream Interpreter · overlay full viewport + panel grande con scroll interno === */
   .dream-modal{
@@ -2501,6 +2539,7 @@
           <div class="ars-pw-reveal" data-ars-reveal hidden>
             <p class="ars-pw-label">Password d'accesso</p>
             <div class="ars-pw-code" data-ars-code>11279336</div>
+            <a href="https://davildiclaudio.github.io/Ars-Realis/" target="_blank" rel="noopener" class="ars-pw-cta">Entra in Ars Realis →</a>
             <p class="ars-pw-note">Conservala. <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20avuto%20la%20password%20Ars%20Realis%2C%20serve%20aiuto%20accesso" target="_blank" rel="noopener" style="color:var(--gold)">Scrivimi su WhatsApp</a> se hai problemi.</p>
           </div>
         </form>
@@ -2746,6 +2785,7 @@
           <div class="register-pw-reveal" data-register-reveal hidden>
             <p class="ars-pw-label">La tua password d'accesso</p>
             <div class="ars-pw-code" data-register-code>11279336</div>
+            <a href="https://davildiclaudio.github.io/Ars-Realis/" target="_blank" rel="noopener" class="ars-pw-cta">Entra in Ars Realis →</a>
             <p class="ars-pw-note">Conservala. <a href="#" data-login-open style="color:var(--gold)">Apri il login</a> per usarla subito.</p>
           </div>
         </form>
