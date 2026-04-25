@@ -22,55 +22,174 @@
 
 <!-- V2 overrides: text-only, no images -->
 <style>
-  /* === LOADER · ingresso pulito === */
+  /* === LOADER · ingresso mistico/sognatore === */
   #loader.loader-magic{
-    background:radial-gradient(ellipse at center, #0e0d12 0%, #050507 60%, #000 100%);
+    background:radial-gradient(ellipse at center, #0a0913 0%, #050409 70%, #000 100%);
     overflow:hidden;
   }
-  /* orb morbido dietro al logo */
-  .loader-orb{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.4);
-    width:min(85vw,820px);height:min(85vw,820px);
-    border-radius:50%;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(232,200,122,.45) 0%, rgba(45,45,224,.16) 38%, transparent 70%);
-    filter:blur(70px);
-    opacity:0;mix-blend-mode:screen;will-change:transform,opacity;
+  /* aurora che fluttua */
+  .loader-aurora{position:absolute;inset:-10%;opacity:0;will-change:opacity,transform;mix-blend-mode:screen;filter:blur(50px)}
+  .loader-aurora .aur{position:absolute;border-radius:50%;mix-blend-mode:screen}
+  .loader-aurora .a1{
+    width:80vw;height:80vw;left:-10vw;top:-20vw;
+    background:radial-gradient(circle, rgba(45,45,224,.35) 0%, transparent 65%);
+    animation:aurDrift 14s ease-in-out infinite alternate;
   }
+  .loader-aurora .a2{
+    width:60vw;height:60vw;right:-15vw;bottom:-10vw;
+    background:radial-gradient(circle, rgba(176,139,255,.30) 0%, transparent 65%);
+    animation:aurDrift 18s ease-in-out infinite alternate-reverse;
+  }
+  .loader-aurora .a3{
+    width:50vw;height:50vw;left:30vw;top:30vw;
+    background:radial-gradient(circle, rgba(232,200,122,.20) 0%, transparent 60%);
+    animation:aurDrift 22s ease-in-out infinite alternate;
+  }
+  @keyframes aurDrift{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(8vw,-6vw) scale(1.1)}
+    100%{transform:translate(-6vw,8vw) scale(0.95)}
+  }
+
+  /* concentriche · mandala */
+  .loader-rings{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+  .loader-rings .ring{
+    position:absolute;left:50%;top:50%;
+    width:120px;height:120px;border-radius:50%;
+    border:1px solid rgba(232,200,122,.45);
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 18px rgba(232,200,122,.18) inset, 0 0 32px rgba(45,45,224,.18);
+    opacity:0;will-change:width,height,opacity;
+  }
+
+  /* mist · particelle floattanti */
+  .loader-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .loader-particles .pt{
+    position:absolute;width:3px;height:3px;border-radius:50%;
+    background:rgba(232,200,122,.6);
+    box-shadow:0 0 8px rgba(232,200,122,.5);
+    opacity:0;
+  }
+
   /* stage logo */
   .loader-stage{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-    width:min(78vw,720px);
+    width:min(72vw,640px);
     aspect-ratio:1920/1080;
     display:grid;place-items:center;
   }
-  .loader-logo{
-    width:100%;height:100%;object-fit:contain;
-    filter:brightness(0) invert(1);
-    opacity:0;transform:scale(1.06);
-    will-change:opacity,transform,filter;
-  }
-  /* shine sweep più sottile */
-  .loader-shine{
-    position:absolute;inset:0;
-    background:linear-gradient(110deg, transparent 0%, transparent 42%, rgba(255,240,210,.7) 50%, transparent 58%, transparent 100%);
-    mix-blend-mode:screen;
-    opacity:0;pointer-events:none;
+  /* pulse di luce dietro al logo (alone caldo) */
+  .loader-pulse{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.4);
+    width:80%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,240,200,.55) 0%, rgba(232,200,122,.18) 35%, transparent 65%);
+    filter:blur(40px);opacity:0;mix-blend-mode:screen;will-change:transform,opacity;
   }
 
-  /* Nav logo as PNG wordmark (replaces text) */
-  .nav-logo-img{
-    height:62px;width:auto;display:block;
-    filter:brightness(0) invert(1);
-    transition:filter .25s var(--ease), transform .35s var(--ease);
+  /* === LOGO ORO · lingotto antico (mask + gradient metallico animato) === */
+  .nav-logo-gold,
+  .loader-logo-gold,
+  .footer-mark-img{
+    display:block;
+    background-image:
+      linear-gradient(135deg,
+        #4a3618 0%,
+        #8b6f2f 14%,
+        #c9a047 30%,
+        #f3d99a 46%,
+        #fff0c8 52%,
+        #f3d99a 58%,
+        #c9a047 72%,
+        #8b6f2f 86%,
+        #4a3618 100%);
+    background-size:220% 220%;
+    background-position:0% 0%;
+    -webkit-mask-image:url('assets/logo/davil-bianco.png');
+    mask-image:url('assets/logo/davil-bianco.png');
+    -webkit-mask-size:contain;mask-size:contain;
+    -webkit-mask-position:center;mask-position:center;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    filter:drop-shadow(0 4px 22px rgba(212,168,100,.35)) drop-shadow(0 0 8px rgba(212,168,100,.18));
+    animation:goldShimmerLogo 7s ease-in-out infinite alternate;
+    aspect-ratio:1920/1080;
   }
-  .nav.is-scrolled .nav-logo-img{height:48px}
+  @keyframes goldShimmerLogo{
+    0%{background-position:0% 0%;filter:drop-shadow(0 4px 22px rgba(212,168,100,.30)) drop-shadow(0 0 8px rgba(212,168,100,.15))}
+    50%{background-position:100% 50%;filter:drop-shadow(0 4px 28px rgba(255,235,180,.45)) drop-shadow(0 0 12px rgba(255,235,180,.30))}
+    100%{background-position:0% 100%;filter:drop-shadow(0 4px 22px rgba(212,168,100,.30)) drop-shadow(0 0 8px rgba(212,168,100,.15))}
+  }
+  .loader-logo-gold{width:100%;opacity:0;transform:scale(1.04);will-change:opacity,transform,background-position}
+  .nav-logo-img{width:280px;max-width:34vw}
+  .nav.is-scrolled .nav-logo-img{width:220px}
+  @media(max-width:820px){.nav-logo-img{width:200px}.nav.is-scrolled .nav-logo-img{width:160px}}
+  .footer-mark-img{width:200px}
+
+  /* === DROPDOWN sotto il logo === */
+  .nav-logo-wrap{position:relative;display:flex;align-items:center;gap:8px}
+  .logo-menu-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border-radius:50%;
+    background:rgba(255,255,255,.05);border:1px solid var(--border);
+    transition:background .25s var(--ease),border-color .25s,transform .25s;
+    cursor:none;
+  }
+  .logo-menu-btn:hover,
+  .nav-logo-wrap.open .logo-menu-btn{background:rgba(232,200,122,.15);border-color:rgba(232,200,122,.45)}
+  .logo-menu-btn .chev{
+    width:7px;height:7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+    transform:translateY(-2px) rotate(45deg);transition:transform .35s var(--ease);
+  }
+  .nav-logo-wrap.open .logo-menu-btn .chev{transform:translateY(2px) rotate(-135deg)}
+
+  .logo-menu{
+    position:absolute;top:calc(100% + 14px);left:0;
+    min-width:300px;
+    padding:14px;
+    background:rgba(9,9,11,.92);
+    backdrop-filter:saturate(160%) blur(18px);
+    -webkit-backdrop-filter:saturate(160%) blur(18px);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:0 24px 60px rgba(0,0,0,.65), 0 0 0 1px rgba(232,200,122,.08) inset;
+    opacity:0;visibility:hidden;
+    transform:translateY(-12px) scale(.98);
+    transform-origin:top left;
+    transition:opacity .35s var(--ease),visibility .35s,transform .45s var(--ease);
+    z-index:120;
+  }
+  .nav-logo-wrap.open .logo-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+  .dd-item{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 16px;border-radius:12px;
+    transition:background .25s var(--ease),transform .35s var(--ease);
+    color:var(--ink);
+  }
+  .dd-item + .dd-item{margin-top:4px}
+  .dd-item:hover{background:rgba(232,200,122,.07);transform:translateX(2px)}
+  .dd-icon{
+    flex:0 0 auto;width:32px;height:32px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, rgba(232,200,122,.15), rgba(45,45,224,.12));
+    border:1px solid rgba(232,200,122,.25);
+    color:var(--gold);font-size:15px;
+    font-family:var(--ff-display);
+  }
+  .dd-text{display:flex;flex-direction:column;gap:2px}
+  .dd-title{font-family:var(--ff-display);font-size:16px;color:var(--ink);font-weight:400}
+  .dd-sub{font-family:var(--ff-sans);font-size:11px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase}
+
+  @media(max-width:820px){
+    .logo-menu{
+      left:0;right:auto;
+      min-width:0;width:calc(100vw - 40px);max-width:340px;
+    }
+  }
+
+  /* Nav logo hover lift */
+  .nav-logo{display:flex;align-items:center}
   .nav-logo:hover .nav-logo-img{transform:translateY(-1px)}
-  @media(max-width:820px){.nav-logo-img{height:48px}.nav.is-scrolled .nav-logo-img{height:40px}}
-  /* Footer logo */
+  /* Footer logo wrapper */
   .footer-mark{display:inline-flex;align-items:center}
-  .footer-mark img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.85;transition:opacity .3s}
-  .footer-mark:hover img{opacity:1}
 
   /* === BRAND palette estesa (oro champagne + blu elettrico) === */
   :root{
@@ -541,12 +660,23 @@
 </head>
 <body>
 
-<!-- Loader · ingresso pulito e magico -->
+<!-- Loader · ingresso mistico/sognatore -->
 <div id="loader" class="loader-magic">
-  <div class="loader-orb"></div>
+  <div class="loader-aurora" aria-hidden="true">
+    <span class="aur a1"></span>
+    <span class="aur a2"></span>
+    <span class="aur a3"></span>
+  </div>
+  <div class="loader-rings" aria-hidden="true">
+    <span class="ring r1"></span>
+    <span class="ring r2"></span>
+    <span class="ring r3"></span>
+    <span class="ring r4"></span>
+  </div>
+  <div class="loader-particles" aria-hidden="true"></div>
   <div class="loader-stage">
-    <img src="assets/logo/davil-bianco.png" alt="DAVIL" class="loader-logo" />
-    <div class="loader-shine" aria-hidden="true"></div>
+    <span class="loader-logo loader-logo-gold" aria-label="DAVIL"></span>
+    <span class="loader-pulse" aria-hidden="true"></span>
   </div>
 </div>
 
@@ -564,9 +694,37 @@
 
 <!-- Nav -->
 <header class="nav">
-  <a href="#top" class="nav-logo" aria-label="Davil home">
-    <img src="assets/logo/davil-bianco.png" alt="DAVIL" class="nav-logo-img" />
-  </a>
+  <div class="nav-logo-wrap">
+    <a href="#top" class="nav-logo" aria-label="Davil home">
+      <span class="nav-logo-img nav-logo-gold" aria-hidden="true"></span>
+    </a>
+    <button class="logo-menu-btn" data-menu-toggle aria-haspopup="menu" aria-expanded="false" aria-label="Apri menu rapido">
+      <span class="chev"></span>
+    </button>
+    <div class="logo-menu" data-menu role="menu">
+      <a href="#risorse" class="dd-item" role="menuitem">
+        <span class="dd-icon" aria-hidden="true">⊙</span>
+        <span class="dd-text">
+          <span class="dd-title">Interprete dei sogni</span>
+          <span class="dd-sub">AI · framework junghiano</span>
+        </span>
+      </a>
+      <a href="#risorse" class="dd-item" role="menuitem">
+        <span class="dd-icon" aria-hidden="true">⌬</span>
+        <span class="dd-text">
+          <span class="dd-title">Ars Realis</span>
+          <span class="dd-sub">Community privata · 52 settimane</span>
+        </span>
+      </a>
+      <a href="#libri" class="dd-item" role="menuitem">
+        <span class="dd-icon" aria-hidden="true">𑁔</span>
+        <span class="dd-text">
+          <span class="dd-title">Libri scaricabili</span>
+          <span class="dd-sub">«Io posso farcela» · «PNL Esoterica»</span>
+        </span>
+      </a>
+    </div>
+  </div>
   <nav class="nav-menu">
     <a href="#manifesto" data-link>Manifesto</a>
     <a href="#metodo" data-link>Metodo</a>
@@ -1108,7 +1266,7 @@
 
   <!-- Footer -->
   <footer class="footer-v2">
-    <a href="#top" class="footer-mark"><img src="assets/logo/davil-bianco.png" alt="DAVIL" /></a>
+    <a href="#top" class="footer-mark"><span class="footer-mark-img nav-logo-gold" aria-label="DAVIL"></span></a>
     <div>© <span id="year"></span> Davil Di Claudio — Mental Coaching · P.IVA —</div>
     <div><a href="#">Privacy</a> · <a href="#">Cookie</a></div>
   </footer>

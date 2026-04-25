@@ -30,10 +30,27 @@
   };
   const playMagicEntrance = () => {
     if (!loader || !window.gsap) { startHeroAnim(); loader?.remove(); return; }
-    const orb = loader.querySelector('.loader-orb');
+    const aurora = loader.querySelector('.loader-aurora');
+    const rings = loader.querySelectorAll('.loader-rings .ring');
+    const partsContainer = loader.querySelector('.loader-particles');
     const stage = loader.querySelector('.loader-stage');
     const logo = loader.querySelector('.loader-logo');
-    const shine = loader.querySelector('.loader-shine');
+    const pulse = loader.querySelector('.loader-pulse');
+
+    // Inject 18 floating particles
+    const particles = [];
+    if (partsContainer) {
+      for (let i = 0; i < 18; i++) {
+        const p = document.createElement('span');
+        p.className = 'pt';
+        const x = 20 + Math.random() * 60; // 20%-80%
+        const y = 50 + Math.random() * 50; // start from middle-bottom
+        const size = 2 + Math.random() * 4;
+        p.style.cssText = `left:${x}%;top:${y}%;width:${size}px;height:${size}px`;
+        partsContainer.appendChild(p);
+        particles.push(p);
+      }
+    }
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -42,22 +59,47 @@
       }
     });
 
-    // Stage 1: orb glow rises
-    tl.to(orb, { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0);
-    tl.to(orb, { scale: 1.12, duration: 1.6, ease: 'sine.inOut' }, 1.2);
-    // Stage 2: logo materializza con opacity + scale leggera (niente filter blur che lascia halo)
+    // 1. Aurora fade in slow
+    tl.to(aurora, { opacity: 1, duration: 1.6, ease: 'power2.out' }, 0);
+
+    // 2. Pulse di luce dietro il logo (alone caldo che si gonfia)
+    tl.to(pulse, { opacity: 1, scale: 1.1, duration: 2.2, ease: 'power3.out' }, 0.3);
+    tl.to(pulse, { scale: 1.4, duration: 2, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 1.5);
+
+    // 3. Rings concentrici · mandala che si espande in onde
+    rings.forEach((r, i) => {
+      tl.fromTo(r,
+        { opacity: 0, width: 80, height: 80 },
+        { opacity: 0.6, width: 160, height: 160, duration: 0.4, ease: 'power2.out' },
+        0.6 + i * 0.18);
+      tl.to(r,
+        { width: 800, height: 800, opacity: 0, duration: 2.4, ease: 'power2.out' },
+        0.8 + i * 0.18);
+    });
+
+    // 4. Particle drift up + fade
+    particles.forEach((p, i) => {
+      tl.fromTo(p,
+        { opacity: 0, y: 0, scale: 0.4 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
+        1 + (i * 0.04));
+      tl.to(p,
+        { y: -120 - Math.random() * 80, opacity: 0, duration: 2.5 + Math.random() * 1.5, ease: 'sine.out' },
+        1.4 + (i * 0.04));
+    });
+
+    // 5. Logo materializza con scale + opacity (mistico, lento)
     tl.fromTo(logo,
-      { opacity: 0, scale: 1.04 },
-      { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0.4);
-    // Stage 3: shine sweep elegante
-    tl.fromTo(shine,
-      { opacity: 0, x: '-60%' },
-      { opacity: 1, x: '120%', duration: 1.0, ease: 'power2.inOut' }, 1.6);
-    tl.to(shine, { opacity: 0, duration: 0.3 }, 2.5);
-    // Stage 4: hold + start hero, then crossfade out
-    tl.add(() => startHeroAnim(), 2.6);
-    tl.to([orb, logo, stage], { opacity: 0, duration: 0.8, ease: 'power2.in' }, 2.7);
-    tl.to(loader, { opacity: 0, duration: 0.6, ease: 'power2.in' }, 2.9);
+      { opacity: 0, scale: 1.18, rotateZ: -2 },
+      { opacity: 1, scale: 1, rotateZ: 0, duration: 1.8, ease: 'power3.out' }, 1.2);
+
+    // 6. Logo respira sottile (breathing)
+    tl.to(logo, { scale: 1.02, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 2.6);
+
+    // 7. Hold + start hero anim, then crossfade out
+    tl.add(() => startHeroAnim(), 4.5);
+    tl.to([aurora, stage, pulse, partsContainer], { opacity: 0, duration: 1.0, ease: 'power2.in' }, 4.6);
+    tl.to(loader, { opacity: 0, duration: 0.8, ease: 'power2.in' }, 4.9);
   };
 
   // Run the entrance once page is loaded — but no longer than 1.5s wait
@@ -72,13 +114,31 @@
   setTimeout(tryPlayEntrance, 1500);
 
   // Safety net: if anything blocks the timeline (hidden tab, GSAP failure),
-  // force-hide the loader after 7s and start the hero
+  // force-hide the loader after 9s and start the hero
   setTimeout(() => {
     if (!loader || loader.classList.contains('hidden')) return;
     startHeroAnim();
     loader.classList.add('hidden');
     setTimeout(() => loader.remove(), 1100);
-  }, 7000);
+  }, 9000);
+
+  /* ---------- Logo dropdown menu ---------- */
+  const ddWrap = $('.nav-logo-wrap');
+  const ddBtn = $('[data-menu-toggle]');
+  if (ddWrap && ddBtn) {
+    const closeMenu = () => { ddWrap.classList.remove('open'); ddBtn.setAttribute('aria-expanded', 'false'); };
+    const toggleMenu = () => {
+      const open = ddWrap.classList.toggle('open');
+      ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    ddBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-logo-wrap')) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+    // Close after clicking an item
+    ddWrap.querySelectorAll('.dd-item').forEach(a => a.addEventListener('click', () => setTimeout(closeMenu, 100)));
+  }
 
   /* ---------- Lenis smooth scroll ---------- */
   let lenis = null;
