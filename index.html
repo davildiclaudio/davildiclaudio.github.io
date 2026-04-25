@@ -112,31 +112,158 @@
   .footer-mark img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.85;transition:opacity .3s}
   .footer-mark:hover img{opacity:1}
 
-  /* === GOLD shimmer per <em> dentro headings === */
+  /* === BRAND palette estesa (blu logo + sfumature elettriche) === */
+  :root{
+    --brand-electric:#2d2de0;     /* logo blue */
+    --brand-light:#b4c5ff;        /* electric soft */
+    --brand-glow:rgba(45,45,224,.45);
+    --gold-deep:#a87a35;
+    --gold-pale:#f5deb3;
+  }
+
+  /* === GOLD pulsante · pieno + glow animato (compatibile con char/word split) === */
+  em{
+    color:var(--gold);
+    text-shadow:0 0 14px rgba(212,168,100,.30);
+  }
+  /* Pulse animato + leggera variazione di tono sui titoli grandi */
   .mega em,
   .sect-h em,
   .m-line em,
   .cta-final em,
   .pilastro .p-h em,
-  .quote-big em{
+  .quote-big em,
+  .asse-tag,
+  .piano-sub,
+  .rcard .r-sub{
+    color:var(--gold);
+    text-shadow:0 0 18px rgba(212,168,100,.35), 0 0 4px rgba(245,222,179,.5);
+    animation:goldPulse 4s ease-in-out infinite;
+  }
+  /* Assicura colore oro anche sui figli prodotti dallo split */
+  .mega em .ch > span, .mega em .w > span,
+  .sect-h em .ch > span, .sect-h em .w > span,
+  .m-line em .ch > span, .m-line em .w > span,
+  .cta-final em .ch > span, .cta-final em .w > span,
+  .pilastro .p-h em .ch > span, .pilastro .p-h em .w > span,
+  .quote-big em .ch > span, .quote-big em .w > span{
+    color:var(--gold);
+    text-shadow:inherit;
+  }
+  @keyframes goldPulse{
+    0%,100%{
+      color:var(--gold);
+      text-shadow:0 0 14px rgba(212,168,100,.30), 0 0 4px rgba(245,222,179,.4);
+    }
+    50%{
+      color:#f5deb3;
+      text-shadow:0 0 28px rgba(245,222,179,.65), 0 0 8px rgba(255,235,200,.45);
+    }
+  }
+
+  /* === BLUE accenti elettrici sparsi nel sito === */
+  /* Eyebrow + section label numero diventano blu logo */
+  .eyebrow{color:var(--brand-light)}
+  .eyebrow::before{background:var(--brand-light)}
+  .section-label span{
     background:linear-gradient(100deg,
-      var(--gold) 0%,
-      #f5deb3 25%,
-      var(--gold-soft) 50%,
-      #f5deb3 75%,
-      var(--gold) 100%);
-    background-size:300% 100%;
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
-    color:transparent;
-    background-position:200% center;
-    animation:goldShimmer 6s linear infinite;
-    text-shadow:0 0 20px rgba(212,168,100,.18);
+      var(--brand-electric) 0%, var(--brand-light) 50%, var(--brand-electric) 100%);
+    background-size:200% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:var(--brand-light);
+    animation:blueShimmer 4.5s linear infinite;
+    font-weight:600;
+    text-shadow:0 0 14px rgba(180,197,255,.35);
   }
-  @keyframes goldShimmer{
-    to{background-position:-200% center}
+  @keyframes blueShimmer{to{background-position:-200% center}}
+
+  /* Numbers asse / pilastri / piani / capitoli / servizi → blu */
+  .asse-num,.cap-num,.s-index,.r-meta,.p-num{
+    color:var(--brand-light)!important;
+    text-shadow:0 0 8px rgba(180,197,255,.18);
   }
+  .piano-num{color:var(--brand-light)!important}
+
+  /* Hover stato blu sulle card */
+  .asse:hover,
+  .pilastro:hover,
+  .piano:hover,
+  .rcard:hover,
+  .contatto-card:hover{
+    border-color:rgba(180,197,255,.4);
+    box-shadow:0 18px 60px -20px var(--brand-glow), 0 0 0 1px rgba(45,45,224,.18) inset;
+  }
+
+  /* Servizio hover line con accent blu */
+  .servizio{position:relative}
+  .servizio::before{
+    content:"";position:absolute;left:0;top:-1px;height:1px;width:0;
+    background:linear-gradient(90deg, var(--brand-electric), var(--brand-light), transparent);
+    transition:width .8s var(--ease);
+  }
+  .servizio:hover::before{width:100%}
+
+  /* CTA secondario in blu elettrico */
+  .nav-menu .cta{
+    border-color:var(--brand-light);color:var(--brand-light);
+    box-shadow:0 0 0 1px rgba(45,45,224,.15) inset;
+  }
+  .nav-menu .cta:hover{
+    background:var(--brand-electric);color:var(--ink);border-color:var(--brand-electric);
+    box-shadow:0 0 24px rgba(45,45,224,.5);
+  }
+
+  /* Email gate input focus blu */
+  .gate input[type=email]:focus{
+    border-color:var(--brand-light);
+    box-shadow:0 0 0 3px rgba(45,45,224,.18);
+  }
+
+  /* FAQ chevron in blu */
+  .faq summary::after{color:var(--brand-light)!important}
+
+  /* Quote border-left con sfumatura oro→blu */
+  .quote-big{
+    border-image:linear-gradient(180deg, var(--gold) 0%, var(--brand-electric) 100%) 1 100%;
+    border-left:2px solid;
+  }
+
+  /* Hero CTA secondario: ghost blu */
+  .hero-ctas .btn-primary[style*="transparent"]{
+    border-color:var(--brand-light)!important;color:var(--brand-light)!important;
+  }
+  .hero-ctas .btn-primary[style*="transparent"]:hover{
+    background:var(--brand-electric)!important;color:var(--ink)!important;
+    border-color:var(--brand-electric)!important;
+  }
+
+  /* Hero gradient più ricco con tocco di blu logo */
+  .hero-bg-clean{
+    background:
+      radial-gradient(900px 600px at 20% 0%, rgba(45,45,224,.16), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(176,139,255,.10), transparent 55%),
+      radial-gradient(600px 500px at 50% 50%, rgba(180,197,255,.05), transparent 65%),
+      radial-gradient(500px 400px at 70% 30%, rgba(212,168,100,.06), transparent 60%) !important;
+  }
+
+  /* Page progress bar: gold → blue elettrico */
+  .page-progress > span{
+    background:linear-gradient(90deg, var(--gold), var(--brand-light), var(--brand-electric))!important;
+    box-shadow:0 0 12px rgba(45,45,224,.4);
+  }
+
+  /* Strong text: piccolo accent blue glow on hover within prose */
+  .prose strong{position:relative;transition:text-shadow .3s var(--ease)}
+  .prose:hover strong{text-shadow:0 0 12px rgba(180,197,255,.25)}
+
+  /* Section rule: gradient gold→blue */
+  .rule{
+    background:linear-gradient(90deg,transparent,var(--gold),var(--brand-electric),var(--gold),transparent)!important;
+    height:1px!important;
+  }
+
+  /* Cursor ring with blue tint when over interactive */
+  .cursor-ring.is-hover{border-color:var(--brand-light)!important;box-shadow:0 0 18px rgba(45,45,224,.4)}
 
   /* Dissolve / scramble effect classes */
   .ch.dissolve > span{
