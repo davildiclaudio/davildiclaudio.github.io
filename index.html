@@ -1021,11 +1021,16 @@
   }
   .mega em{font-style:italic;color:var(--gold);font-weight:300}
 
-  /* Manifesto — three lines rauno-style */
+  /* Manifesto — three lines rauno-style + sfumatura nera in chiusura */
   .manifesto{
-    padding:clamp(80px,14vh,200px) var(--pad);
+    padding:clamp(80px,14vh,200px) var(--pad) calc(clamp(80px,14vh,200px) + 80px);
     text-align:center;
     position:relative;
+  }
+  .manifesto::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:200px;
+    background:linear-gradient(180deg, rgba(5,3,15,0) 0%, rgba(5,3,15,.65) 60%, rgba(5,3,15,.95) 100%);
+    pointer-events:none;
   }
   .manifesto .m-line{
     font-family:var(--ff-display);
@@ -1144,11 +1149,17 @@
     margin-top:36px!important;
   }
 
-  /* Method — 3 assi */
-  .assi{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+  /* Method — 3 assi · allineati verticalmente + flex column */
+  .assi{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px;align-items:stretch}
   @media(max-width:900px){.assi{grid-template-columns:1fr}}
-  .asse{padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);transition:border-color .3s var(--ease)}
+  .asse{
+    padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius);
+    background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+    transition:border-color .3s var(--ease);
+    display:flex;flex-direction:column;
+  }
   .asse:hover{border-color:var(--border-hover)}
+  .asse-body{flex:1 1 auto}
   .asse-num{font-family:var(--ff-sans);font-size:12px;color:var(--ink-dim);letter-spacing:.2em}
   .asse-title{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2vw,30px);margin:14px 0 10px}
   .asse-tag{font-family:var(--ff-display);font-style:italic;color:var(--gold);font-size:14px;margin-bottom:18px}
@@ -1368,6 +1379,40 @@
   #dream-modal::-webkit-scrollbar{width:8px}
   #dream-modal::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
   #dream-modal::-webkit-scrollbar-thumb{background:rgba(236,72,153,.45);border-radius:4px}
+
+  /* === Disclaimer professionale === */
+  .disclaimer-section{
+    padding:clamp(60px,9vh,100px) var(--pad);
+    background:linear-gradient(180deg, rgba(20,14,50,.40), rgba(5,3,15,.8));
+    border-top:1px solid var(--border);
+  }
+  .disclaimer-inner{max-width:780px;margin:0 auto}
+  .disclaimer-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px}
+  .disclaimer-title{font-family:var(--ff-display);font-weight:300;font-size:clamp(24px,3.4vw,42px);line-height:1.1;letter-spacing:-.01em;margin:0 0 28px;color:var(--ink)}
+  .disclaimer-title em{color:var(--gold)}
+  .disclaimer-body p{color:var(--ink-soft);font-size:14.5px;line-height:1.75;margin:0 0 16px;max-width:64ch}
+  .disclaimer-body strong{color:var(--ink)}
+
+  /* === Consulenza specialistica === */
+  .consulenza-section{
+    background:radial-gradient(900px 500px at 30% 0%, rgba(34,211,238,.08), transparent 60%);
+  }
+  .consulenza-card{
+    margin-top:32px;display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;
+    padding:36px 40px;border:1px solid var(--border);border-radius:18px;
+    background:linear-gradient(135deg, rgba(34,211,238,.10), rgba(124,58,237,.06));
+    backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 30px 80px rgba(34,211,238,.20),0 0 0 1px rgba(34,211,238,.18) inset;
+  }
+  @media(max-width:760px){.consulenza-card{grid-template-columns:1fr;padding:28px}}
+  .consulenza-icon{
+    font-size:60px;color:var(--cosmic-cyan);
+    text-shadow:0 0 30px rgba(34,211,238,.5);
+    line-height:1;
+  }
+  .consulenza-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.4vw,32px);margin:0 0 12px;line-height:1.2}
+  .consulenza-text p{font-size:15px;line-height:1.7;color:var(--ink-soft);margin:0 0 20px;max-width:60ch}
+  .consulenza-cta{display:inline-flex !important;font-size:13px !important;padding:14px 26px !important}
 
   /* === PERFORMANCE · anti-jitter + GPU compositing === */
   .universe-bg{
@@ -2384,6 +2429,26 @@
   </section>
 
   <!-- ============================ -->
+  <!-- 12·d · CONSULENZA SPECIALISTICA -->
+  <!-- ============================ -->
+  <section id="consulenza" class="sect consulenza-section">
+    <div class="section-label" data-reveal><span>12·d</span> Consulenza specialistica</div>
+    <h2 class="sect-h" data-split-words>Sei un caso più complesso? <em>Inizia da un test.</em></h2>
+    <p class="sect-lead" data-reveal>
+      Se senti che il tuo nodo è particolare — dipendenze, trauma, transizione profonda, blocchi cronici — non parto da zero. Compili un breve test online di valutazione e io leggo il quadro prima della prima call. <em>Niente generalismi, niente perdite di tempo.</em>
+    </p>
+
+    <div class="consulenza-card" data-reveal>
+      <div class="consulenza-icon" aria-hidden="true">⊛</div>
+      <div class="consulenza-text">
+        <h3 class="consulenza-h">Test di pre-valutazione</h3>
+        <p>15-20 minuti. Domande su storia personale, area di lavoro, intensità del problema, eventuali percorsi precedenti. Le tue risposte arrivano direttamente a me — riservate, leggibili solo da Davil.</p>
+        <a href="test.html" class="btn-primary consulenza-cta">Compila il test →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ -->
   <!-- 13 · FAQ                     -->
   <!-- ============================ -->
   <section id="faq" class="sect faq">
@@ -2479,11 +2544,25 @@
     </div>
   </section>
 
+  <!-- DISCLAIMER LEGALE -->
+  <section class="disclaimer-section">
+    <div class="disclaimer-inner">
+      <p class="disclaimer-eyebrow">· Trasparenza professionale ·</p>
+      <h3 class="disclaimer-title">Cosa <em>sono</em> e cosa <em>non sono.</em></h3>
+      <div class="disclaimer-body">
+        <p>Sono un <strong>studente di psicologia</strong> in formazione accademica, <strong>non ancora laureato</strong>. Ho completato percorsi di mental coaching ad alto livello con i migliori formatori in Italia, tra cui Gianluca Liguori, e studio quotidianamente la Psicosintesi di Assagioli, il Reality Transurfing di Zeland, l'archetipica junghiana e le neuroscienze del comportamento.</p>
+        <p><strong>Non sono uno psicologo clinico, non sono uno psicoterapeuta, non sono un medico.</strong> Non diagnostico patologie, non prescrivo farmaci, non curo disturbi psicopatologici. Il mio lavoro è il mental coaching e l'accompagnamento evolutivo: lavoro su persone sane che vogliono evolvere, non su quadri clinici acuti.</p>
+        <p>Se stai vivendo un <strong>disturbo psicologico, una crisi acuta, ideazione suicidaria, dipendenza grave, sintomi psichiatrici</strong> o altre condizioni di natura medica o patologica — il mio percorso non fa per te. Rivolgiti a uno <strong>psicologo, psichiatra, medico di base</strong> o ai servizi di emergenza (118 · Telefono Amico 02 2327 2327).</p>
+        <p>Quando in sessione emergono segnali che richiedono un intervento clinico, te lo dico chiaramente e ti indirizzo a professionisti qualificati con cui collaboro.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer-v2">
     <a href="#top" class="footer-mark"><span class="footer-mark-img nav-logo-gold" aria-label="DAVIL"></span></a>
     <div>© <span id="year"></span> Davil Di Claudio — Mental Coaching · P.IVA —</div>
-    <div><a href="#">Privacy</a> · <a href="#">Cookie</a></div>
+    <div><a href="privacy.html">Privacy</a> · <a href="#">Cookie</a></div>
   </footer>
 
 </main>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#05030f" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Test di pre-valutazione · DAVIL</title>
+<meta name="description" content="Test di pre-valutazione per consulenza specialistica con Davil Di Claudio" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05030f;--bg-2:#0e0628;--ink:#ece6fb;--ink-soft:#b8afd6;--ink-dim:#7a708f;
+    --gold:#f4c95d;--violet:#7c3aed;--magenta:#ec4899;--cyan:#22d3ee;
+    --border:rgba(180,150,240,.16);--border-hover:rgba(236,90,160,.40);
+    --card:rgba(20,14,50,.55);
+    --ff-display:'Fraunces',serif;--ff-sans:'Space Grotesk',sans-serif;
+  }
+  *,::before,::after{box-sizing:border-box}
+  html,body{margin:0;background:radial-gradient(ellipse at top,#0e0628 0%,#05030f 60%,#020108 100%);color:var(--ink);font-family:var(--ff-sans);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold)}
+  em{font-style:italic;font-family:var(--ff-display);color:var(--gold)}
+  strong{color:var(--ink)}
+
+  .container{max-width:780px;margin:0 auto;padding:48px 28px 80px}
+  header{margin-bottom:48px}
+  .back{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--border);border-radius:999px;transition:all .25s;margin-bottom:32px}
+  .back:hover{color:var(--ink);border-color:var(--magenta)}
+  .meta{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);margin-bottom:18px}
+  h1{font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,7vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+  h1 em{color:var(--gold)}
+  .lead{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.6vw,21px);margin:0 0 24px;max-width:60ch;line-height:1.55}
+
+  /* Progress */
+  .progress{position:sticky;top:0;background:rgba(5,3,15,.75);backdrop-filter:blur(14px) saturate(140%);padding:14px 0;margin:0 -28px 32px;padding-left:28px;padding-right:28px;border-bottom:1px solid var(--border);z-index:10}
+  .progress-bar{height:3px;background:rgba(180,150,240,.12);border-radius:999px;overflow:hidden;position:relative}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--gold));width:0;transition:width .4s cubic-bezier(.25,.1,.25,1)}
+  .progress-meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+
+  /* Question card */
+  .q-card{padding:32px;border:1px solid var(--border);border-radius:18px;background:var(--card);backdrop-filter:blur(14px) saturate(140%);margin-bottom:24px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .q-num{font-family:var(--ff-sans);font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .q-text{font-family:var(--ff-display);font-weight:400;font-size:clamp(18px,2.4vw,26px);line-height:1.35;margin:0 0 22px;color:var(--ink)}
+  .q-help{font-size:13px;color:var(--ink-dim);margin:-12px 0 22px;font-style:italic}
+
+  /* Inputs */
+  .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .field label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .field input,.field textarea,.field select{
+    background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
+    padding:14px 16px;color:var(--ink);font:inherit;font-size:15px;width:100%;
+    transition:border-color .25s,box-shadow .25s;
+  }
+  .field textarea{min-height:120px;resize:vertical;line-height:1.6}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(236,72,153,.18)}
+  .field-help{font-size:12px;color:var(--ink-dim);margin-top:-2px}
+
+  /* Radio + Checkbox option list */
+  .opt-list{display:flex;flex-direction:column;gap:10px}
+  .opt{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all .25s;background:rgba(20,14,50,.30)}
+  .opt:hover{border-color:rgba(236,90,160,.40);background:rgba(124,58,237,.10)}
+  .opt input{accent-color:var(--magenta);margin-top:3px;flex-shrink:0}
+  .opt input:checked + span{color:var(--ink)}
+  .opt input:checked ~ *{color:var(--ink)}
+  .opt:has(input:checked){border-color:rgba(244,201,93,.55);background:rgba(244,201,93,.08);box-shadow:0 0 0 1px rgba(244,201,93,.25) inset}
+  .opt-text{flex:1;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+  .opt-text strong{display:block;color:var(--ink);margin-bottom:3px;font-size:14px}
+
+  /* Scale 1-10 */
+  .scale{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+  .scale label{flex:1;min-width:36px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:10px 4px;border:1px solid var(--border);border-radius:10px;transition:all .2s;background:rgba(20,14,50,.30)}
+  .scale label:hover{border-color:var(--magenta)}
+  .scale input{position:absolute;opacity:0;pointer-events:none}
+  .scale input:checked + .scale-num{color:var(--gold);font-size:22px}
+  .scale label:has(input:checked){border-color:var(--gold);background:rgba(244,201,93,.10)}
+  .scale-num{font-family:var(--ff-display);font-size:18px;color:var(--ink-soft);transition:color .2s,font-size .2s}
+  .scale-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-dim);letter-spacing:.04em}
+
+  /* Nav buttons */
+  .nav-btns{display:flex;justify-content:space-between;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .btn{padding:14px 26px;border-radius:999px;border:0;background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff;font:inherit;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(236,72,153,.40)}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--magenta)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+  /* Final consent */
+  .consent-card{padding:24px;border:1px solid var(--border);border-radius:14px;background:rgba(20,14,50,.40);margin-top:24px}
+  .consent-card label{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--ink-soft)}
+  .consent-card input{accent-color:var(--magenta);margin-top:3px}
+
+  /* Success / Error */
+  .alert{padding:24px;border-radius:14px;margin:20px 0}
+  .alert.ok{background:linear-gradient(135deg,rgba(244,201,93,.15),rgba(124,58,237,.10));border:1px solid rgba(244,201,93,.40);color:var(--gold)}
+  .alert.err{background:rgba(236,72,153,.10);border:1px solid rgba(236,72,153,.40);color:var(--magenta)}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <a href="/" class="back">← Torna al sito</a>
+  <p class="meta">· Test di pre-valutazione ·</p>
+  <h1>Prima della <em>prima call.</em></h1>
+  <p class="lead">15-20 minuti. Le tue risposte arrivano direttamente a Davil prima della sessione conoscitiva — niente generalismi, niente perdita di tempo. Tutto è riservato.</p>
+</header>
+
+<form id="testForm" autocomplete="on">
+  <div class="progress">
+    <div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+    <div class="progress-meta">
+      <span><strong id="qDone">0</strong>/<span id="qTot">0</span> completate</span>
+      <span id="pPct">0%</span>
+    </div>
+  </div>
+
+  <!-- ANAGRAFICA -->
+  <div class="q-card">
+    <div class="q-num">Sezione 1 · Anagrafica</div>
+    <div class="field">
+      <label for="firstName">Nome</label>
+      <input id="firstName" name="firstName" type="text" required autocomplete="given-name"/>
+    </div>
+    <div class="field">
+      <label for="lastName">Cognome</label>
+      <input id="lastName" name="lastName" type="text" required autocomplete="family-name"/>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email"/>
+    </div>
+    <div class="field">
+      <label for="phone">Numero di telefono</label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+39 ..."/>
+      <div class="field-help">Davil ti contatta a questo numero entro 48h dalla submission.</div>
+    </div>
+    <div class="field">
+      <label for="age">Età</label>
+      <input id="age" name="age" type="number" min="18" max="99" required/>
+    </div>
+    <div class="field">
+      <label for="city">Città di residenza</label>
+      <input id="city" name="city" type="text" required autocomplete="address-level2"/>
+    </div>
+  </div>
+
+  <!-- AREA DI INTERVENTO -->
+  <div class="q-card">
+    <div class="q-num">Sezione 2 · Area</div>
+    <p class="q-text">Su cosa vorresti lavorare? Seleziona <strong>una o più aree</strong>.</p>
+    <div class="opt-list">
+      <label class="opt"><input type="checkbox" name="area" value="dipendenza"/><span class="opt-text"><strong>Dipendenze</strong>fumo, alcol, sostanze, porno, gioco, smartphone, food</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="transizione"/><span class="opt-text"><strong>Transizione profonda</strong>separazione, lutto, crollo identitario, risveglio non richiesto</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="business"/><span class="opt-text"><strong>Business / Leadership</strong>imprenditori, network marketing, professionisti</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="ansia"/><span class="opt-text"><strong>Ansia / blocchi cronici</strong>(non condizioni cliniche acute)</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="relazioni"/><span class="opt-text"><strong>Relazioni</strong>copioni ricorrenti, partner, famiglia</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="visione"/><span class="opt-text"><strong>Visione / direzione</strong>ho costruito qualcosa, ma non so più dove sto andando</span></label>
+      <label class="opt"><input type="checkbox" name="area" value="altro"/><span class="opt-text"><strong>Altro</strong>(specifica nelle note in fondo)</span></label>
+    </div>
+  </div>
+
+  <!-- INTENSITÀ -->
+  <div class="q-card">
+    <div class="q-num">Sezione 3 · Intensità</div>
+    <p class="q-text">Da 1 a 10, quanto è <em>impattante</em> oggi questa difficoltà sulla tua vita quotidiana?</p>
+    <p class="q-help">1 = poco, 10 = sento che mi sta divorando.</p>
+    <div class="scale">
+      <label><input type="radio" name="intensity" value="1" required/><span class="scale-num">1</span></label>
+      <label><input type="radio" name="intensity" value="2"/><span class="scale-num">2</span></label>
+      <label><input type="radio" name="intensity" value="3"/><span class="scale-num">3</span></label>
+      <label><input type="radio" name="intensity" value="4"/><span class="scale-num">4</span></label>
+      <label><input type="radio" name="intensity" value="5"/><span class="scale-num">5</span></label>
+      <label><input type="radio" name="intensity" value="6"/><span class="scale-num">6</span></label>
+      <label><input type="radio" name="intensity" value="7"/><span class="scale-num">7</span></label>
+      <label><input type="radio" name="intensity" value="8"/><span class="scale-num">8</span></label>
+      <label><input type="radio" name="intensity" value="9"/><span class="scale-num">9</span></label>
+      <label><input type="radio" name="intensity" value="10"/><span class="scale-num">10</span></label>
+    </div>
+    <div class="scale-meta"><span>Lieve</span><span>Pervasivo</span></div>
+  </div>
+
+  <!-- DURATA -->
+  <div class="q-card">
+    <div class="q-num">Sezione 4 · Durata</div>
+    <p class="q-text">Da <em>quanto tempo</em> convivi con questa difficoltà?</p>
+    <div class="opt-list">
+      <label class="opt"><input type="radio" name="duration" value="<3m" required/><span class="opt-text">Meno di 3 mesi</span></label>
+      <label class="opt"><input type="radio" name="duration" value="3-12m"/><span class="opt-text">Da 3 a 12 mesi</span></label>
+      <label class="opt"><input type="radio" name="duration" value="1-3y"/><span class="opt-text">Da 1 a 3 anni</span></label>
+      <label class="opt"><input type="radio" name="duration" value="3-10y"/><span class="opt-text">Da 3 a 10 anni</span></label>
+      <label class="opt"><input type="radio" name="duration" value=">10y"/><span class="opt-text">Più di 10 anni · è una compagnia di vita</span></label>
+    </div>
+  </div>
+
+  <!-- PERCORSI PRECEDENTI -->
+  <div class="q-card">
+    <div class="q-num">Sezione 5 · Percorsi già fatti</div>
+    <p class="q-text">Hai già provato qualcosa? Seleziona <strong>tutto ciò che hai fatto</strong>.</p>
+    <div class="opt-list">
+      <label class="opt"><input type="checkbox" name="prev" value="psicoterapia"/><span class="opt-text"><strong>Psicoterapia</strong>(individuale o di gruppo)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="coaching"/><span class="opt-text"><strong>Coaching</strong>(con altri coach)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="meditazione"/><span class="opt-text"><strong>Meditazione</strong>(seria, almeno 1 anno)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="psichedelica"/><span class="opt-text"><strong>Esperienze psichedeliche</strong>(ayahuasca, funghi, MDMA terapeutico)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="farmaci"/><span class="opt-text"><strong>Farmaci</strong>(antidepressivi, ansiolitici)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="comunita"/><span class="opt-text"><strong>Comunità</strong>(AA, NA, gruppi di auto-aiuto)</span></label>
+      <label class="opt"><input type="checkbox" name="prev" value="nessuno"/><span class="opt-text"><strong>Niente</strong>· è la prima volta</span></label>
+    </div>
+  </div>
+
+  <!-- OBIETTIVO -->
+  <div class="q-card">
+    <div class="q-num">Sezione 6 · Obiettivo</div>
+    <p class="q-text">Cosa <em>vorresti ottenere</em> da un percorso con me, in 90 giorni?</p>
+    <div class="field">
+      <textarea name="goal" required placeholder="Scrivilo a parole tue. Più sei specifico, meglio è."></textarea>
+    </div>
+  </div>
+
+  <!-- RAGIONE PROFONDA -->
+  <div class="q-card">
+    <div class="q-num">Sezione 7 · Ragione profonda</div>
+    <p class="q-text">Perché <em>adesso</em>? Cosa è successo che ti ha fatto compilare questo test oggi e non sei mesi fa?</p>
+    <div class="field">
+      <textarea name="why_now" required placeholder="Una frase, un fatto, un'intuizione."></textarea>
+    </div>
+  </div>
+
+  <!-- DISPONIBILITÀ -->
+  <div class="q-card">
+    <div class="q-num">Sezione 8 · Disponibilità</div>
+    <p class="q-text">Quanto tempo a settimana puoi dedicare al percorso?</p>
+    <div class="opt-list">
+      <label class="opt"><input type="radio" name="time" value="meno-2h" required/><span class="opt-text">Meno di 2 ore · non è un buon momento</span></label>
+      <label class="opt"><input type="radio" name="time" value="2-4h"/><span class="opt-text">2-4 ore · sessione + esercizi base</span></label>
+      <label class="opt"><input type="radio" name="time" value="4-7h"/><span class="opt-text">4-7 ore · disposto a fare il lavoro</span></label>
+      <label class="opt"><input type="radio" name="time" value="piu-7h"/><span class="opt-text">Più di 7 ore · sono pronto a investire</span></label>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="q-card">
+    <div class="q-num">Sezione 9 · Budget</div>
+    <p class="q-text">Hai già un'idea di quanto sei disposto a investire per un percorso trimestrale (12 settimane)?</p>
+    <div class="opt-list">
+      <label class="opt"><input type="radio" name="budget" value="sotto-1500" required/><span class="opt-text">Sotto i 1.500 €</span></label>
+      <label class="opt"><input type="radio" name="budget" value="1500-3000"/><span class="opt-text">1.500 - 3.000 €</span></label>
+      <label class="opt"><input type="radio" name="budget" value="3000-5000"/><span class="opt-text">3.000 - 5.000 €</span></label>
+      <label class="opt"><input type="radio" name="budget" value="oltre-5000"/><span class="opt-text">Oltre i 5.000 €</span></label>
+      <label class="opt"><input type="radio" name="budget" value="ne-parliamo"/><span class="opt-text">Preferisco parlarne in chiamata</span></label>
+    </div>
+  </div>
+
+  <!-- NOTE LIBERE -->
+  <div class="q-card">
+    <div class="q-num">Sezione 10 · Note libere</div>
+    <p class="q-text">C'è qualcosa che vuoi dirmi prima della call?</p>
+    <div class="field">
+      <textarea name="notes" placeholder="Tutto quello che senti utile · non obbligatorio"></textarea>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER + CONSENT -->
+  <div class="consent-card">
+    <p style="font-size:13px;color:var(--ink-soft);margin:0 0 14px;line-height:1.6"><strong style="color:var(--gold)">Trasparenza:</strong> Davil è studente di psicologia, non psicologo né psicoterapeuta. Per disturbi clinici acuti rivolgersi a professionisti qualificati. Vedi <a href="privacy.html" target="_blank">privacy</a> e <a href="/#disclaimer" target="_blank">disclaimer</a> completo.</p>
+    <label>
+      <input type="checkbox" name="consent" required/>
+      <span>Acconsento al trattamento dei dati personali ai sensi del GDPR per ricevere la valutazione di Davil e per comunicazioni connesse al percorso. Sono consapevole che Davil non è un professionista sanitario e che, in presenza di patologie cliniche, mi rivolgerò a un professionista qualificato.</span>
+    </label>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="nav-btns">
+    <a href="/" class="btn ghost">← Annulla</a>
+    <button type="submit" class="btn" id="submitBtn">Invia il test a Davil →</button>
+  </div>
+
+  <div id="alertBox"></div>
+</form>
+
+</div>
+
+<script>
+const FORM = document.getElementById('testForm');
+const PF = document.getElementById('pf');
+const Q_DONE = document.getElementById('qDone');
+const Q_TOT = document.getElementById('qTot');
+const P_PCT = document.getElementById('pPct');
+const ALERT = document.getElementById('alertBox');
+const TESTS_KEY = 'davil_tests_v1';
+
+const trackProgress = () => {
+  // count required fields filled
+  const required = [...FORM.querySelectorAll('[required]')];
+  const totalGroups = new Set();
+  let done = 0;
+  required.forEach(el => {
+    if (el.type === 'radio' || el.type === 'checkbox') {
+      const name = el.name;
+      totalGroups.add(name);
+      if (FORM.querySelector(`[name="${name}"]:checked`)) totalGroups.add(name + '_done');
+    } else {
+      totalGroups.add('field_' + el.name);
+      if (el.value.trim()) totalGroups.add('field_' + el.name + '_done');
+    }
+  });
+  const groups = [...totalGroups].filter(k => !k.endsWith('_done'));
+  const doneGroups = [...totalGroups].filter(k => k.endsWith('_done')).length;
+  done = doneGroups;
+  const total = groups.length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+  Q_DONE.textContent = done;
+  Q_TOT.textContent = total;
+  P_PCT.textContent = pct + '%';
+  PF.style.width = pct + '%';
+};
+FORM.addEventListener('input', trackProgress);
+trackProgress();
+
+// Submit
+FORM.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const fd = new FormData(FORM);
+  const data = {};
+  for (const [k, v] of fd.entries()) {
+    if (data[k]) {
+      if (Array.isArray(data[k])) data[k].push(v);
+      else data[k] = [data[k], v];
+    } else data[k] = v;
+  }
+  const test = {
+    ts: new Date().toISOString(),
+    firstName: data.firstName || '',
+    lastName: data.lastName || '',
+    email: data.email || '',
+    phone: data.phone || '',
+    age: data.age || '',
+    city: data.city || '',
+    area: [].concat(data.area || []).join(', '),
+    intensity: data.intensity || '',
+    duration: data.duration || '',
+    prev: [].concat(data.prev || []).join(', '),
+    goal: data.goal || '',
+    why_now: data.why_now || '',
+    time: data.time || '',
+    budget: data.budget || '',
+    notes: data.notes || '',
+    ua: navigator.userAgent.substring(0, 100)
+  };
+
+  // Save
+  let tests = [];
+  try { tests = JSON.parse(localStorage.getItem(TESTS_KEY) || '[]'); } catch (e) {}
+  tests.push(test);
+  try { localStorage.setItem(TESTS_KEY, JSON.stringify(tests)); } catch (e) {}
+
+  // Also save to leads
+  const LEADS_KEY = 'davil_leads_v1';
+  let leads = [];
+  try { leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) {}
+  leads.push({
+    ts: test.ts,
+    name: `${test.firstName} ${test.lastName}`.trim(),
+    email: test.email,
+    phone: test.phone,
+    source: 'test-consulenza',
+    code: 'TEST-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+    ua: test.ua
+  });
+  try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch (e) {}
+
+  // EmailJS if configured
+  if (window.parent && window.parent.DAVIL_EMAIL?.enabled && window.emailjs) {
+    try {
+      await window.emailjs.send(window.parent.DAVIL_EMAIL.serviceId, window.parent.DAVIL_EMAIL.tplDavil, {
+        name: `${test.firstName} ${test.lastName}`,
+        email: test.email,
+        phone: test.phone,
+        source: 'test-consulenza',
+        code: 'TEST',
+        ts: test.ts,
+        notes: JSON.stringify(test, null, 2)
+      });
+    } catch (e) { /* fallback mailto sotto */ }
+  }
+
+  // Always offer mailto (so Davil receives the test in his email)
+  const subject = encodeURIComponent(`Test consulenza · ${test.firstName} ${test.lastName} · ${test.email}`);
+  const lines = [
+    `=== TEST DI PRE-VALUTAZIONE · DAVIL ===`,
+    ``,
+    `Data: ${new Date(test.ts).toLocaleString('it-IT')}`,
+    ``,
+    `--- ANAGRAFICA ---`,
+    `Nome: ${test.firstName}`,
+    `Cognome: ${test.lastName}`,
+    `Email: ${test.email}`,
+    `Telefono: ${test.phone}`,
+    `Età: ${test.age}`,
+    `Città: ${test.city}`,
+    ``,
+    `--- AREE ---`,
+    `${test.area}`,
+    ``,
+    `--- INTENSITÀ ---`,
+    `Scala 1-10: ${test.intensity}`,
+    ``,
+    `--- DURATA ---`,
+    `${test.duration}`,
+    ``,
+    `--- PERCORSI PRECEDENTI ---`,
+    `${test.prev}`,
+    ``,
+    `--- OBIETTIVO ---`,
+    `${test.goal}`,
+    ``,
+    `--- PERCHÉ ADESSO ---`,
+    `${test.why_now}`,
+    ``,
+    `--- DISPONIBILITÀ TEMPO ---`,
+    `${test.time}`,
+    ``,
+    `--- BUDGET ---`,
+    `${test.budget}`,
+    ``,
+    `--- NOTE LIBERE ---`,
+    `${test.notes || '(vuote)'}`,
+  ].join('\n');
+  const body = encodeURIComponent(lines);
+  const mailto = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
+
+  // Show success + open mailto
+  ALERT.innerHTML = `
+    <div class="alert ok">
+      <h3 style="margin:0 0 12px;font-family:var(--ff-display);font-weight:400;color:var(--gold)">Grazie ${test.firstName}.</h3>
+      <p style="margin:0 0 14px">Le tue risposte sono state registrate. Davil ti contatta entro 48h al numero <strong>${test.phone}</strong>.</p>
+      <p style="margin:0 0 14px;font-size:13px">Apriamo il tuo client email per inviare la copia della valutazione direttamente a Davil.</p>
+      <a href="${mailto}" class="btn">📧 Invia copia via email</a>
+      <a href="/" class="btn ghost" style="margin-left:10px">Torna al sito</a>
+    </div>`;
+  ALERT.scrollIntoView({ behavior: 'smooth' });
+  // Auto open mailto after short delay
+  setTimeout(() => { window.location.href = mailto; }, 800);
+});
+</script>
+</body>
+</html>

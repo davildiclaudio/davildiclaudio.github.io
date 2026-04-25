@@ -78,11 +78,15 @@
   <div class="actions">
     <button class="btn" id="exportCsv">Esporta CSV</button>
     <button class="btn ghost" id="reload">Ricarica</button>
+    <button class="btn ghost" id="tabLeads">Lead</button>
+    <button class="btn ghost" id="tabTests">Test consulenza</button>
+    <button class="btn" id="exportTests" style="background:linear-gradient(135deg,#22d3ee,#7c3aed)">Esporta Test (TXT)</button>
     <button class="danger" id="clearAll">Cancella tutti</button>
   </div>
 
   <div class="stats" id="stats"></div>
   <div id="tableWrap"></div>
+  <div id="testsWrap" hidden></div>
 </div>
 
 </div>
@@ -148,6 +152,77 @@ $('#clearAll').addEventListener('click', () => {
   if (!confirm('Cancellare TUTTI i lead salvati in questo browser? Operazione irreversibile.')) return;
   localStorage.removeItem(LEADS_KEY);
   render();
+});
+
+/* ===== TAB TESTS · pre-valutazione ===== */
+const TESTS_KEY = 'davil_tests_v1';
+const getTests = () => { try { return JSON.parse(localStorage.getItem(TESTS_KEY) || '[]'); } catch (e) { return []; } };
+function renderTests(){
+  const tests = getTests().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
+  const w = $('#testsWrap');
+  if (!tests.length) { w.innerHTML = '<div class="empty">Nessun test ancora compilato.</div>'; return; }
+  w.innerHTML = tests.map(t => {
+    const d = t.ts ? new Date(t.ts) : new Date();
+    const date = d.toLocaleDateString('it-IT') + ' · ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    return `
+    <div class="stat" style="margin-bottom:18px;padding:24px">
+      <div class="stat-label" style="margin-bottom:10px">${date}</div>
+      <h3 style="font-family:'Fraunces',serif;font-weight:300;font-size:28px;margin:0 0 12px;color:var(--ink)">
+        ${t.firstName||'—'} ${t.lastName||''}
+        <span style="font-size:14px;color:var(--gold);font-style:italic;margin-left:14px">intensità ${t.intensity}/10</span>
+      </h3>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:13px;color:var(--ink-soft);margin-bottom:14px">
+        <span style="color:var(--ink-dim)">Email</span><span style="color:var(--cyan)">${t.email||'—'}</span>
+        <span style="color:var(--ink-dim)">Tel</span><span style="color:var(--gold);font-family:ui-monospace">${t.phone||'—'}</span>
+        <span style="color:var(--ink-dim)">Età</span><span>${t.age||'—'}</span>
+        <span style="color:var(--ink-dim)">Città</span><span>${t.city||'—'}</span>
+        <span style="color:var(--ink-dim)">Area</span><span>${t.area||'—'}</span>
+        <span style="color:var(--ink-dim)">Durata</span><span>${t.duration||'—'}</span>
+        <span style="color:var(--ink-dim)">Percorsi</span><span>${t.prev||'—'}</span>
+        <span style="color:var(--ink-dim)">Tempo</span><span>${t.time||'—'}</span>
+        <span style="color:var(--ink-dim)">Budget</span><span style="color:var(--magenta)">${t.budget||'—'}</span>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:14px">
+        <p style="margin:0 0 10px"><strong style="color:var(--gold)">Obiettivo:</strong><br/>${(t.goal||'—').replace(/\n/g,'<br/>')}</p>
+        <p style="margin:0 0 10px"><strong style="color:var(--gold)">Perché adesso:</strong><br/>${(t.why_now||'—').replace(/\n/g,'<br/>')}</p>
+        ${t.notes ? `<p style="margin:0"><strong style="color:var(--gold)">Note:</strong><br/>${t.notes.replace(/\n/g,'<br/>')}</p>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+$('#tabLeads').addEventListener('click', () => { $('#tableWrap').hidden = false; $('#testsWrap').hidden = true; render(); });
+$('#tabTests').addEventListener('click', () => { $('#tableWrap').hidden = true; $('#testsWrap').hidden = false; renderTests(); });
+$('#exportTests').addEventListener('click', () => {
+  const tests = getTests();
+  if (!tests.length) return;
+  const text = tests.map(t => {
+    return `=== ${t.firstName} ${t.lastName} · ${new Date(t.ts).toLocaleString('it-IT')} ===
+Email: ${t.email}
+Tel: ${t.phone}
+Età: ${t.age} | Città: ${t.city}
+Area: ${t.area}
+Intensità: ${t.intensity}/10 | Durata: ${t.duration}
+Percorsi precedenti: ${t.prev}
+Tempo disponibile: ${t.time}
+Budget: ${t.budget}
+
+OBIETTIVO:
+${t.goal}
+
+PERCHÉ ADESSO:
+${t.why_now}
+
+NOTE:
+${t.notes||'(vuote)'}
+
+`;
+  }).join('\n----------\n\n');
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `davil-tests-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
 });
 </script>
 </body>
