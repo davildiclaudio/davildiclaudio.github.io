@@ -234,28 +234,10 @@
     let s = ''; for (let i = 0; i < 6; i++) s += c[Math.floor(Math.random() * c.length)];
     return s;
   };
-  const mailtoFallback = (lead) => {
-    const subj = encodeURIComponent(`Lead · ${lead.source} · ${lead.email}`);
-    const body = encodeURIComponent(
-`Nuovo lead dal sito davil:
-
-Nome:     ${lead.name || '—'}
-Email:    ${lead.email || '—'}
-Telefono: ${lead.phone || '—'}
-Source:   ${lead.source}
-Codice:   ${lead.code || '—'}
-Data:     ${new Date().toLocaleString('it-IT')}
-
-Risposta da copiare e mandare al lead:
----
-Ciao ${lead.name || ''},
-ecco il tuo accesso: ${lead.code || '(genera codice)'}
-Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
-— Davil
----`);
-    const to = (window.DAVIL_EMAIL && window.DAVIL_EMAIL.fromAddr) || 'davildiclaudio@gmail.com';
-    window.open(`mailto:${to}?subject=${subj}&body=${body}`, '_blank');
-  };
+  // Mailto fallback DISATTIVATO ovunque: solo il test Psicotrappole apre il client mail.
+  // I lead arrivano comunque nel CRM admin.html via localStorage davil_leads_v1
+  // e (se configurato) via EmailJS automatico.
+  const mailtoFallback = (_lead) => { /* no-op */ };
   const sendLeadEmails = async (lead) => {
     const cfg = window.DAVIL_EMAIL || {};
     // Se EmailJS configurato → invia automaticamente notifica + autoresponder
@@ -1290,20 +1272,7 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
       // Reveal password
       const reveal = document.querySelector('[data-register-reveal]');
       if (reveal) reveal.hidden = false;
-      // EmailJS optional
-      if (window.DAVIL_EMAIL?.enabled && window.emailjs) {
-        try { window.emailjs.send(window.DAVIL_EMAIL.serviceId, window.DAVIL_EMAIL.tplDavil, {
-          name, email, phone:'', source:'registrati-area', code:'REG', ts:new Date().toISOString(), notes:''
-        }); } catch(e){}
-      }
-      // Mailto fallback
-      const subject = encodeURIComponent(`Nuova registrazione · ${name}`);
-      const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nFonte: Area registrati\nData: ${new Date().toLocaleString('it-IT')}`);
-      // open mailto in background tab to inform Davil
-      const a = document.createElement('a');
-      a.href = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
-      a.target = '_blank';
-      a.click();
+      // No mailto — solo CRM. Email automatica attiva solo sul test Psicotrappole.
     });
   }
 
