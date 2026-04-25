@@ -674,6 +674,10 @@
     aspect-ratio:16/9;
     margin-bottom:8px;
   }
+  @media(max-width:760px){
+    .pilastro-with-visual .p-visual{aspect-ratio:4/3}
+    .pilastro-with-visual .p-content{padding:28px 22px}
+  }
   .pilastro-with-visual .p-visual img{
     width:100%;height:100%;object-fit:cover;display:block;
     transition:transform 1.2s var(--ease-smooth);
@@ -682,7 +686,7 @@
   .pilastro-with-visual .p-content{padding:36px 32px;display:flex;flex-direction:column;gap:14px}
 
   /* Chi sono · grid con portrait raddoppiato */
-  .chi-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;margin-top:24px}
+  .chi-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start;margin-top:24px}
   @media(max-width:900px){.chi-grid{grid-template-columns:1fr;gap:40px}}
   .chi-portrait{
     position:sticky;top:100px;
@@ -693,9 +697,13 @@
   .chi-portrait img{width:100%;height:auto;display:block}
   @media(min-width:1100px){
     .chi-portrait{
-      width:calc(100% + 80px);
-      margin-right:-80px;
+      width:calc(100% + 140px);
+      margin-right:-140px;
     }
+  }
+  @media(max-width:760px){
+    .chi-portrait{position:relative;top:auto;width:100%;margin:0 auto;max-width:560px}
+    .chi-portrait img{aspect-ratio:auto}
   }
 
   /* === Hero photo · "io bianco" verticale (crop 100px lati) === */
@@ -946,7 +954,7 @@
   .bn-stat strong{font-family:var(--ff-display);font-style:italic;font-size:32px;color:var(--gold);letter-spacing:0;text-transform:none;font-weight:400}
   @media(max-width:900px){
     .body-network{grid-template-columns:1fr}
-    .bn-vis{aspect-ratio:16/10;min-height:0}
+    .bn-vis{aspect-ratio:4/3;min-height:0}
     .bn-text{padding:36px 32px}
   }
 
@@ -1253,7 +1261,7 @@
     background:rgba(34,211,238,.08);
     box-shadow:0 0 20px rgba(34,211,238,.15);
   }
-  .book-waitlist{margin-top:14px;display:flex;flex-direction:column;gap:10px;width:100%;max-width:100%}
+  .book-waitlist.gate,form.book-waitlist{margin-top:14px;display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;gap:10px;width:100%;max-width:100%;align-items:stretch!important}
   .book-waitlist input[type=email]{
     background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
     padding:12px 14px;color:var(--ink);font:inherit;font-size:14px;
@@ -1759,9 +1767,12 @@
 <script>
   // Gate check ASAP · prima del rendering del body
   (function(){
-    var KEY = 'davil_site_access_v1';
+    // sessionStorage = chiede la password ogni nuova sessione (chiusura/riapertura browser)
+    var KEY = 'davil_site_access_v2';
+    // Pulisci vecchio token persistente per forzare prompt a tutti
+    try { localStorage.removeItem('davil_site_access_v1'); } catch(e){}
     var ok = false;
-    try { ok = localStorage.getItem(KEY) === 'granted'; } catch(e){}
+    try { ok = sessionStorage.getItem(KEY) === 'granted'; } catch(e){}
     if (!ok) document.documentElement.classList.add('gate-locked');
   })();
 </script>
@@ -1785,7 +1796,7 @@
 <script>
   (function(){
     var PW = '11279336';
-    var KEY = 'davil_site_access_v1';
+    var KEY = 'davil_site_access_v2';
     var f = document.getElementById('sg-form');
     var i = document.getElementById('sg-pw');
     var s = document.getElementById('sg-status');
@@ -1793,7 +1804,7 @@
     f.addEventListener('submit', function(e){
       e.preventDefault();
       if ((i.value||'').trim() === PW) {
-        try { localStorage.setItem(KEY, 'granted'); } catch(e){}
+        try { sessionStorage.setItem(KEY, 'granted'); } catch(e){}
         s.className = 'sg-status';
         s.textContent = '✓ Accesso confermato.';
         // log nel CRM
