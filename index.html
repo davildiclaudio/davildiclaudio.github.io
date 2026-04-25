@@ -347,11 +347,44 @@
     border-image:linear-gradient(180deg, var(--gold) 0%, var(--cosmic-magenta) 100%) 1 100%!important;
   }
 
-  /* === Foto sparse · zero bordo bianco · cornice cosmic sottile === */
+  /* === Foto sparse · zero bordo bianco · ombra blu cosmic === */
   .hero-photo,.pp-photo,.contatti-photo,.storia-inline-photo,.chi-portrait{
     border:0!important;
     border-radius:14px!important;
-    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(180,150,240,.12) inset!important;
+    box-shadow:
+      0 30px 80px rgba(45,45,224,.45),
+      0 12px 30px rgba(124,58,237,.35),
+      0 0 60px rgba(45,45,224,.20),
+      0 0 0 1px rgba(180,150,240,.20) inset !important;
+  }
+
+  /* Ombra blu su TUTTE le immagini di contenuto (banner, card, figure, etc.) */
+  .card-visual,
+  .pilastro-with-visual .p-visual,
+  .strumento-card .s-vis,
+  .bn-vis,
+  .section-banner,
+  .inline-figure,
+  .servizio-photo,
+  .podcast-frame,
+  .logo-slideshow-stage,
+  .ls-slide,
+  figure.section-banner img{
+    box-shadow:
+      0 24px 60px rgba(45,45,224,.40),
+      0 8px 20px rgba(124,58,237,.30),
+      0 0 50px rgba(45,45,224,.18) !important;
+  }
+  .servizio-photo:hover,
+  .pp-photo:hover,
+  .contatti-photo:hover,
+  .storia-inline-photo:hover,
+  .chi-portrait:hover{
+    box-shadow:
+      0 36px 100px rgba(45,45,224,.55),
+      0 16px 40px rgba(124,58,237,.40),
+      0 0 80px rgba(45,45,224,.30),
+      0 0 0 1px rgba(124,150,255,.40) inset !important;
   }
 
   /* === CTA block · WhatsApp riusabile === */
@@ -677,10 +710,19 @@
     filter:blur(50px);
     pointer-events:none;
   }
-  .hero-photo img{width:100%;height:100%;object-fit:contain;display:block}
+  .hero-photo img{
+    width:100%;height:100%;object-fit:contain;display:block;
+    /* blend mode "screen" toglie lo sfondo nero · resta solo la figura */
+    mix-blend-mode:screen;
+  }
+  @media(max-width:1024px){
+    .hero-photo{
+      width:clamp(280px,55vw,420px);right:2vw;
+    }
+  }
   @media(max-width:760px){
     .hero-photo{
-      position:relative;width:80%;max-width:340px;
+      position:relative;width:80%;max-width:380px;
       top:auto;right:auto;
       transform:none;margin:24px auto 0;
       animation:none;
@@ -691,6 +733,107 @@
   /* === Percorsi · layout single column (sidebar foto rimossa) === */
   .percorsi-layout{margin-top:32px}
   .percorsi-layout .servizi-list{margin-top:0}
+
+  /* === Masterclass gate · Transurfing === */
+  .masterclass-gate{
+    margin-top:32px;display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start;
+    background:linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.08));
+    border:1px solid rgba(180,150,240,.20);
+    border-radius:20px;padding:36px;
+    backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 30px 80px rgba(124,58,237,.20),0 0 0 1px rgba(124,58,237,.08) inset;
+  }
+  @media(max-width:900px){.masterclass-gate{grid-template-columns:1fr;gap:32px;padding:24px}}
+  .gate-form{display:flex;flex-direction:column;gap:18px}
+  .gate-row{display:flex;flex-direction:column;gap:6px}
+  .gate-row > span{font-family:var(--ff-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .gate-row input{
+    background:rgba(20,14,50,.55);border:1px solid rgba(180,150,240,.20);border-radius:10px;
+    padding:14px 16px;color:var(--ink);font:inherit;font-size:15px;
+    transition:border-color .25s,box-shadow .25s;
+  }
+  .gate-row input:focus{outline:0;border-color:rgba(236,90,160,.6);box-shadow:0 0 0 3px rgba(236,72,153,.15)}
+  .gate-check{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--ink-soft);line-height:1.5}
+  .gate-check input{accent-color:var(--cosmic-magenta);margin-top:3px}
+  .gate-submit{margin-top:8px;cursor:pointer}
+  .gate-status{font-size:13px;letter-spacing:.04em;color:var(--gold);margin:0;min-height:1em}
+  .gate-status.error{color:var(--crimson-bright)}
+
+  .masterclass-locked,.masterclass-video{
+    display:flex;flex-direction:column;justify-content:center;
+    border-radius:18px;overflow:hidden;
+  }
+  .masterclass-locked{
+    background:rgba(20,14,50,.45);border:1px solid rgba(180,150,240,.15);
+    aspect-ratio:16/9;align-items:center;text-align:center;padding:24px;
+  }
+  .masterclass-locked .lock-icon{font-size:48px;color:var(--gold);margin-bottom:14px;filter:drop-shadow(0 0 20px rgba(244,201,93,.6))}
+  .masterclass-locked .lock-text{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:16px;line-height:1.5;max-width:34ch;margin:0}
+
+  .masterclass-video[hidden]{display:none !important}
+  .masterclass-gate.is-unlocked .masterclass-locked{display:none}
+  .masterclass-gate.is-unlocked .masterclass-video{display:flex !important}
+  .masterclass-gate.is-unlocked .gate-form{opacity:.5;pointer-events:none}
+
+  /* === Membri Section === */
+  .membri-section{
+    background:radial-gradient(800px 400px at 80% 20%, rgba(34,211,238,.06), transparent 60%);
+  }
+  .membri-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:32px;align-items:start;
+  }
+  @media(max-width:800px){.membri-grid{grid-template-columns:1fr;gap:32px}}
+  .membri-login{
+    display:flex;flex-direction:column;gap:18px;
+    padding:36px;border-radius:18px;
+    background:linear-gradient(135deg, rgba(30,20,60,.55), rgba(20,14,50,.40));
+    border:1px solid rgba(180,150,240,.18);
+    backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 20px 40px -20px rgba(124,58,237,.25),0 0 0 1px rgba(124,58,237,.08) inset;
+  }
+  .membri-info{
+    padding:36px;border-radius:18px;
+    border:1px solid rgba(180,150,240,.12);
+    background:rgba(20,14,50,.30);
+  }
+  .membri-h{
+    font-family:var(--ff-display);font-style:italic;font-size:24px;color:var(--gold);margin:0 0 18px;
+  }
+  .membri-info ul{list-style:none;padding:0;margin:0}
+  .membri-info ul li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+  .membri-info ul li:last-child{border:0}
+  .membri-info ul li strong{color:var(--ink)}
+  .membri-soon{margin-top:20px;font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:14px;line-height:1.55}
+  .membri-help{font-size:12px;color:var(--ink-dim);margin:6px 0 0}
+
+  /* === Podcast embed in Storia === */
+  .podcast-embed-wrap{
+    margin:48px 0;display:flex;flex-direction:column;gap:16px;
+  }
+  .podcast-frame{
+    position:relative;aspect-ratio:16/9;
+    border-radius:18px;overflow:hidden;
+    background:#000;
+    border:1px solid rgba(180,150,240,.20);
+    box-shadow:
+      0 30px 80px rgba(0,0,0,.6),
+      0 0 0 1px rgba(124,58,237,.15) inset,
+      0 0 60px rgba(124,58,237,.20);
+  }
+  .podcast-frame iframe{
+    position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+  }
+  .podcast-cap{
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+    font-family:var(--ff-sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  .podcast-eyebrow{color:var(--ink-soft)}
+  .podcast-link-yt{
+    color:var(--gold);text-decoration:none;
+    border-bottom:1px dotted rgba(244,201,93,.5);
+    padding-bottom:2px;transition:color .3s,border-color .3s;
+  }
+  .podcast-link-yt:hover{color:var(--gold-bright);border-bottom-color:var(--gold-bright)}
 
   /* === Storia · foto inline tra capitoli (mostra intera) === */
   .storia-inline-photo{
@@ -1290,8 +1433,8 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
-    <figure class="hero-photo" data-reveal aria-hidden="true">
-      <img src="assets/photos/io-bianco.png" alt="" loading="lazy" decoding="async"/>
+    <figure class="hero-photo" aria-hidden="true">
+      <img src="assets/photos/io-bianco.png" alt="" loading="eager" decoding="async" fetchpriority="high"/>
     </figure>
     <div class="hero-inner">
       <p class="eyebrow" data-reveal>· Life Leadership &amp; Coaching ·</p>
@@ -1705,6 +1848,16 @@
     <h2 class="sect-h" data-split-words>Come <em>ci sono arrivato.</em></h2>
     <p class="quote-big" data-reveal>«Mia madre voleva chiamarmi Devil. La gente mormorava, e lei ha cambiato una lettera. Eppure l'inferno l'ho attraversato lo stesso. E da lì sono risorto.»</p>
 
+    <figure class="podcast-embed-wrap" data-reveal>
+      <div class="podcast-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/yyr1o4qnuc4?rel=0&amp;modestbranding=1" title="Davil — Podcast: la mia storia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <figcaption class="podcast-cap">
+        <span class="podcast-eyebrow">· Podcast · La mia storia in voce ·</span>
+        <a href="https://youtu.be/yyr1o4qnuc4?si=JymKKzbfHOIuysd0" target="_blank" rel="noopener" class="podcast-link-yt">Apri su YouTube ↗</a>
+      </figcaption>
+    </figure>
+
     <ol class="storia-list">
       <li class="storia-cap" data-reveal>
         <div class="cap-num">CAPITOLO I</div>
@@ -1850,6 +2003,98 @@
   </section>
 
   <!-- ============================ -->
+  <!-- 12·b · TRANSURFING GRATUITO  -->
+  <!-- ============================ -->
+  <section id="masterclass" class="sect">
+    <div class="section-label" data-reveal><span>12·b</span> Risorsa premium · gratuita</div>
+    <h2 class="sect-h" data-split-words>Due ore di <em>Transurfing</em> in regalo.</h2>
+    <p class="sect-lead" data-reveal>
+      Una <strong>masterclass completa</strong> sul Reality Transurfing di Vadim Zeland — pendoli, spazio delle varianti, intenzione esterna, importanza, slide. <em>Niente teaser, niente ritagli</em>: due ore intere, registrate per chi vuole capire <strong>davvero</strong> come funziona il modello.
+    </p>
+    <p class="sect-lead" data-reveal style="font-size:14px;letter-spacing:.04em">
+      In cambio: <strong>la tua email e il tuo numero</strong>. Per mandarti il link diretto e — se serve — risponderti via WhatsApp. Niente spam, niente liste vendute.
+    </p>
+
+    <div class="masterclass-gate" data-reveal data-gate>
+      <form class="gate-form" data-gate-form>
+        <label class="gate-row">
+          <span>Nome</span>
+          <input type="text" name="name" required placeholder="Come ti chiami" autocomplete="name"/>
+        </label>
+        <label class="gate-row">
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="la-tua-email@dominio.com" autocomplete="email"/>
+        </label>
+        <label class="gate-row">
+          <span>Telefono</span>
+          <input type="tel" name="phone" required placeholder="+39 ..." autocomplete="tel" pattern="[0-9 +\-]{6,}"/>
+        </label>
+        <label class="gate-check">
+          <input type="checkbox" required/>
+          <span>Acconsento al trattamento dei dati per ricevere il link e comunicazioni dirette da Davil. <a href="#" style="color:var(--gold);text-decoration:underline">Privacy</a></span>
+        </label>
+        <button type="submit" class="btn-primary gate-submit">Sblocca le 2 ore di Transurfing</button>
+        <p class="gate-status" data-gate-status></p>
+      </form>
+
+      <div class="masterclass-locked" data-gate-locked>
+        <div class="lock-icon" aria-hidden="true">⊙</div>
+        <p class="lock-text">Compila il form. Il video apparirà qui sotto e riceverai il link via email.</p>
+      </div>
+
+      <figure class="masterclass-video" data-gate-video hidden>
+        <div class="podcast-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/N2EF6s5qIzo?rel=0&amp;modestbranding=1" title="Davil — Masterclass Transurfing 2h" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <figcaption class="podcast-cap">
+          <span class="podcast-eyebrow">· Masterclass · 2h · Reality Transurfing ·</span>
+          <a href="https://youtu.be/N2EF6s5qIzo?si=8kbTL16a3mc1BBvm" target="_blank" rel="noopener" class="podcast-link-yt">Apri su YouTube ↗</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 12·c · AREA MEMBRI           -->
+  <!-- ============================ -->
+  <section id="membri" class="sect membri-section">
+    <div class="section-label" data-reveal><span>12·c</span> Area Membri</div>
+    <h2 class="sect-h" data-split-words>Sei già <em>dentro?</em></h2>
+    <p class="sect-lead" data-reveal>
+      Spazio riservato a chi sta facendo un percorso 1:1, è in <em>Ars Realis</em> o ha già acquistato un programma. Materiali, registrazioni, esercizi guidati, calendar privato.
+    </p>
+
+    <div class="membri-grid" data-reveal>
+      <form class="membri-login" data-member-form>
+        <p class="membri-h">Accedi</p>
+        <label class="gate-row">
+          <span>Email</span>
+          <input type="email" name="member-email" required placeholder="la-tua-email@dominio.com" autocomplete="email"/>
+        </label>
+        <label class="gate-row">
+          <span>Codice</span>
+          <input type="password" name="member-code" required placeholder="codice ricevuto via email" autocomplete="current-password"/>
+        </label>
+        <button type="submit" class="btn-primary">Entra</button>
+        <p class="membri-help">Hai dimenticato il codice? <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20il%20codice%20di%20accesso%20area%20membri" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
+        <p class="gate-status" data-member-status></p>
+      </form>
+
+      <aside class="membri-info">
+        <p class="membri-h">Cosa trovi dentro</p>
+        <ul>
+          <li><strong>Registrazioni delle sessioni</strong> 1:1 e di gruppo</li>
+          <li><strong>Esercizi guidati</strong> in audio/video</li>
+          <li><strong>Materiali PDF</strong> (slide, mappe, schede operative)</li>
+          <li><strong>Calendar privato</strong> per prenotare le sessioni</li>
+          <li><strong>Diario</strong> personale e trentuno-day challenge</li>
+        </ul>
+        <p class="membri-soon">L'area sarà online a breve. Iscriviti alla <a href="#risorse" style="color:var(--gold)">community Ars Realis</a> per essere tra i primi.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ -->
   <!-- 13 · FAQ                     -->
   <!-- ============================ -->
   <section id="faq" class="sect faq">
@@ -1927,9 +2172,9 @@
         <span style="color:var(--ink-soft);font-size:14px">+39 352 057 2683</span>
         <span class="c-arrow">↗</span>
       </a>
-      <a href="#" class="contatto-card" data-reveal>
+      <a href="https://www.instagram.com/davil_di_claudio/" class="contatto-card" data-reveal target="_blank" rel="noopener">
         <span class="c-label">Instagram</span>
-        <span class="c-value">@davil.coaching</span>
+        <span class="c-value">@davil_di_claudio</span>
         <span class="c-arrow">↗</span>
       </a>
       <a href="https://it.trustpilot.com/review/davil-life-leadership-coaching.it" class="contatto-card" data-reveal target="_blank" rel="noopener">

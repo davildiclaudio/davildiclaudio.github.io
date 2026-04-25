@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>DAVIL · CRM</title>
+<style>
+  :root{
+    --bg:#05030f;--ink:#ece6fb;--ink-soft:#b8afd6;--ink-dim:#7a708f;
+    --gold:#f4c95d;--violet:#7c3aed;--magenta:#ec4899;--cyan:#22d3ee;
+    --border:rgba(180,150,240,.16);--card:rgba(20,14,50,.45);
+  }
+  *,::before,::after{box-sizing:border-box}
+  html,body{margin:0;background:radial-gradient(ellipse at top,#0e0628 0%,#05030f 60%,#020108 100%);color:var(--ink);font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;min-height:100vh}
+  a{color:var(--gold)}
+  .container{max-width:1200px;margin:0 auto;padding:32px 24px}
+  header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+  h1{font-family:'Fraunces',serif;font-weight:300;font-size:36px;margin:0;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--gold)}
+  .badge{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--magenta);padding:6px 12px;border:1px solid var(--magenta);border-radius:999px}
+  .login-wrap{display:grid;place-items:center;min-height:80vh}
+  .login{padding:40px;border:1px solid var(--border);border-radius:16px;background:var(--card);backdrop-filter:blur(14px);width:min(420px,90%);box-shadow:0 30px 80px rgba(124,58,237,.20)}
+  .login h2{font-family:'Fraunces',serif;font-weight:300;font-size:24px;margin:0 0 18px}
+  .login p{color:var(--ink-soft);font-size:14px;line-height:1.6;margin:0 0 24px}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .field span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .field input{background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--ink);font:inherit}
+  .field input:focus{outline:0;border-color:var(--magenta)}
+  .btn{padding:14px 24px;background:linear-gradient(135deg,var(--violet) 0%,var(--magenta) 100%);color:#fff;border:0;border-radius:999px;font-family:inherit;font-size:13px;letter-spacing:.06em;font-weight:600;cursor:pointer;transition:transform .25s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--magenta)}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px}
+  .stat{padding:18px 20px;border:1px solid var(--border);border-radius:14px;background:var(--card);backdrop-filter:blur(12px)}
+  .stat-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
+  .stat-value{font-family:'Fraunces',serif;font-size:32px;color:var(--gold);margin-top:6px;font-weight:300}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  th,td{padding:12px 16px;text-align:left;font-size:13px;border-bottom:1px solid var(--border)}
+  th{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);background:rgba(124,58,237,.10)}
+  tr:hover td{background:rgba(124,58,237,.06)}
+  td.email{color:var(--cyan)}
+  td.phone{color:var(--gold);font-family:ui-monospace,monospace}
+  td.source{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--magenta)}
+  .empty{padding:48px;text-align:center;color:var(--ink-dim);font-style:italic}
+  .alert{padding:14px 18px;border-radius:10px;background:rgba(244,201,93,.10);border:1px solid rgba(244,201,93,.30);color:var(--gold);margin-bottom:20px;font-size:13px;line-height:1.5}
+  .danger{padding:6px 12px;background:transparent;border:1px solid rgba(236,72,153,.40);color:var(--magenta);border-radius:8px;cursor:pointer;font:inherit;font-size:12px}
+  .danger:hover{background:rgba(236,72,153,.15)}
+  @media(max-width:640px){table{font-size:11px}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div id="login" class="login-wrap">
+  <div class="login">
+    <h2>CRM · Davil</h2>
+    <p>Accesso riservato. Inserisci la password per visualizzare i lead raccolti dalla masterclass Transurfing e dall'area Membri.</p>
+    <form id="loginForm">
+      <div class="field"><span>Password</span><input type="password" id="loginPw" required autocomplete="current-password"/></div>
+      <button type="submit" class="btn">Entra</button>
+    </form>
+    <p style="margin-top:18px;font-size:11px;color:var(--ink-dim)">⚠ Demo: password lato client. Per uso serio collega un backend con auth reale.</p>
+  </div>
+</div>
+
+<div id="dashboard" hidden>
+  <header>
+    <h1>Lead <em>monitoring</em></h1>
+    <span class="badge" id="leadCount">0 LEAD</span>
+  </header>
+
+  <div class="alert">
+    <strong>Note:</strong> i lead sono salvati in <code>localStorage</code> del browser visitatore. Per raccoglierli centralmente, configura un backend (Web3Forms, Formspree, Make/Zapier) e imposta <code>window.LEAD_ENDPOINT</code> nel sito.
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="exportCsv">Esporta CSV</button>
+    <button class="btn ghost" id="reload">Ricarica</button>
+    <button class="danger" id="clearAll">Cancella tutti</button>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div id="tableWrap"></div>
+</div>
+
+</div>
+
+<script>
+const ADMIN_PW = 'davil-coscienza-2026'; // cambia qui
+const LEADS_KEY = 'davil_leads_v1';
+const $ = (s) => document.querySelector(s);
+
+const isAuthed = () => sessionStorage.getItem('davil_admin_ok') === '1';
+const showDashboard = () => { $('#login').hidden = true; $('#dashboard').hidden = false; render(); };
+
+if (isAuthed()) showDashboard();
+
+$('#loginForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if ($('#loginPw').value === ADMIN_PW) { sessionStorage.setItem('davil_admin_ok','1'); showDashboard(); }
+  else { $('#loginPw').value = ''; $('#loginPw').placeholder = 'Password errata'; }
+});
+
+const getLeads = () => { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) { return []; } };
+
+function render(){
+  const leads = getLeads().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
+  $('#leadCount').textContent = leads.length + ' LEAD';
+  // Stats
+  const bySource = {};
+  leads.forEach(l => { bySource[l.source||'?'] = (bySource[l.source||'?']||0) + 1; });
+  $('#stats').innerHTML = Object.entries(bySource).map(([s,n]) =>
+    `<div class="stat"><div class="stat-label">${s}</div><div class="stat-value">${n}</div></div>`
+  ).join('') + `<div class="stat"><div class="stat-label">Totale</div><div class="stat-value">${leads.length}</div></div>`;
+  // Table
+  if (!leads.length) {
+    $('#tableWrap').innerHTML = '<div class="empty">Nessun lead ancora. Saranno qui appena qualcuno compila il form della masterclass o dell\'area membri.</div>';
+    return;
+  }
+  $('#tableWrap').innerHTML = '<table><thead><tr><th>Data</th><th>Nome</th><th>Email</th><th>Telefono</th><th>Source</th></tr></thead><tbody>'
+    + leads.map(l => {
+      const d = l.ts ? new Date(l.ts) : new Date();
+      const date = d.toLocaleDateString('it-IT') + ' ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+      return `<tr><td>${date}</td><td>${l.name||'—'}</td><td class="email">${l.email||'—'}</td><td class="phone">${l.phone||'—'}</td><td class="source">${l.source||'—'}</td></tr>`;
+    }).join('') + '</tbody></table>';
+}
+
+$('#reload').addEventListener('click', render);
+
+$('#exportCsv').addEventListener('click', () => {
+  const leads = getLeads();
+  if (!leads.length) return;
+  const headers = ['ts','name','email','phone','source','ua'];
+  const csv = [headers.join(',')].concat(
+    leads.map(l => headers.map(h => `"${(l[h]||'').toString().replace(/"/g,'""')}"`).join(','))
+  ).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `davil-leads-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+$('#clearAll').addEventListener('click', () => {
+  if (!confirm('Cancellare TUTTI i lead salvati in questo browser? Operazione irreversibile.')) return;
+  localStorage.removeItem(LEADS_KEY);
+  render();
+});
+</script>
+</body>
+</html>

@@ -182,10 +182,10 @@
     };
     goTo(0);
 
-    // Autoplay (start when in view, pause out / on hover)
+    // Autoplay · 1 secondo per transizione
     let autoTimer = null;
-    const stepDelay = 2000;
-    const lastBonus = 2000; // ultima slide rimane 2s in più
+    const stepDelay = 1000;
+    const lastBonus = 1000;
     const startAuto = () => {
       if (autoTimer) clearTimeout(autoTimer);
       const delay = (idx === tot - 1) ? stepDelay + lastBonus : stepDelay;
@@ -229,6 +229,74 @@
     ls.addEventListener('touchend', onUp);
     });
   }
+
+  /* ---------- Lead capture · Masterclass Transurfing gate ---------- */
+  const gateForm = $('[data-gate-form]');
+  const gateWrap = $('[data-gate]');
+  const gateVideo = $('[data-gate-video]');
+  const gateLocked = $('[data-gate-locked]');
+  const gateStatus = $('[data-gate-status]');
+  const LEADS_KEY = 'davil_leads_v1';
+  const getLeads = () => { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) { return []; } };
+  const saveLead = (lead) => {
+    const leads = getLeads(); leads.push(lead);
+    try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch (e) {}
+  };
+  const checkAlreadyUnlocked = () => {
+    if (localStorage.getItem('davil_masterclass_unlocked') === '1') {
+      gateWrap?.classList.add('is-unlocked');
+      gateVideo?.removeAttribute('hidden');
+    }
+  };
+  checkAlreadyUnlocked();
+  gateForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(gateForm);
+    const lead = {
+      ts: new Date().toISOString(),
+      name: (fd.get('name') || '').toString().trim(),
+      email: (fd.get('email') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      source: 'masterclass-transurfing',
+      ua: navigator.userAgent.substring(0, 80)
+    };
+    if (!lead.email || !lead.phone || !lead.name) {
+      gateStatus.textContent = 'Compila tutti i campi.';
+      gateStatus.classList.add('error');
+      return;
+    }
+    saveLead(lead);
+    localStorage.setItem('davil_masterclass_unlocked', '1');
+    gateStatus.classList.remove('error');
+    gateStatus.textContent = 'Sbloccato. Il video è qui sotto.';
+    gateWrap.classList.add('is-unlocked');
+    gateVideo.removeAttribute('hidden');
+    // Optional: POST to backend (Web3Forms / Formspree). Configura URL a tuo piacere.
+    if (window.LEAD_ENDPOINT) {
+      fetch(window.LEAD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      }).catch(() => {});
+    }
+  });
+
+  /* ---------- Membri (placeholder) ---------- */
+  const memberForm = $('[data-member-form]');
+  const memberStatus = $('[data-member-status]');
+  memberForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    memberStatus.textContent = 'Area in costruzione · ti scrivo io appena è online.';
+    memberStatus.classList.remove('error');
+    // Track interest as lead too
+    const fd = new FormData(memberForm);
+    saveLead({
+      ts: new Date().toISOString(),
+      email: (fd.get('member-email') || '').toString().trim(),
+      source: 'membri-login-attempt',
+      ua: navigator.userAgent.substring(0, 80)
+    });
+  });
 
   /* ---------- Logo dropdown menu ---------- */
   const ddWrap = $('.nav-logo-wrap');
