@@ -230,18 +230,70 @@
     });
   }
 
-  /* ---------- Lead capture · Masterclass Transurfing gate ---------- */
-  const gateForm = $('[data-gate-form]');
-  const gateWrap = $('[data-gate]');
-  const gateVideo = $('[data-gate-video]');
-  const gateLocked = $('[data-gate-locked]');
-  const gateStatus = $('[data-gate-status]');
+  /* ---------- Lead capture + EMAIL ---------- */
   const LEADS_KEY = 'davil_leads_v1';
   const getLeads = () => { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) { return []; } };
   const saveLead = (lead) => {
     const leads = getLeads(); leads.push(lead);
     try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch (e) {}
   };
+  const genCode = () => {
+    const c = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+    let s = ''; for (let i = 0; i < 6; i++) s += c[Math.floor(Math.random() * c.length)];
+    return s;
+  };
+  const mailtoFallback = (lead) => {
+    const subj = encodeURIComponent(`Lead · ${lead.source} · ${lead.email}`);
+    const body = encodeURIComponent(
+`Nuovo lead dal sito davil:
+
+Nome:     ${lead.name || '—'}
+Email:    ${lead.email || '—'}
+Telefono: ${lead.phone || '—'}
+Source:   ${lead.source}
+Codice:   ${lead.code || '—'}
+Data:     ${new Date().toLocaleString('it-IT')}
+
+Risposta da copiare e mandare al lead:
+---
+Ciao ${lead.name || ''},
+ecco il tuo accesso: ${lead.code || '(genera codice)'}
+Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
+— Davil
+---`);
+    const to = (window.DAVIL_EMAIL && window.DAVIL_EMAIL.fromAddr) || 'davildiclaudio@gmail.com';
+    window.open(`mailto:${to}?subject=${subj}&body=${body}`, '_blank');
+  };
+  const sendLeadEmails = async (lead) => {
+    const cfg = window.DAVIL_EMAIL || {};
+    // Se EmailJS configurato → invia automaticamente notifica + autoresponder
+    if (cfg.enabled && window.emailjs && cfg.serviceId && cfg.tplDavil && cfg.tplUser) {
+      try {
+        await emailjs.send(cfg.serviceId, cfg.tplDavil, {
+          name: lead.name || '', email: lead.email || '', phone: lead.phone || '',
+          source: lead.source || '', code: lead.code || '', ts: lead.ts || ''
+        });
+        await emailjs.send(cfg.serviceId, cfg.tplUser, {
+          name: lead.name || '', email: lead.email || '', code: lead.code || '',
+          to_email: lead.email || '', source: lead.source || ''
+        });
+        return { ok: true, mode: 'emailjs' };
+      } catch (e) {
+        // fallback su mailto
+        mailtoFallback(lead);
+        return { ok: false, mode: 'mailto-fallback', err: String(e) };
+      }
+    }
+    // Default: mailto (apre il client email del visitatore — Davil deve replicare manualmente)
+    // Per Davil è meglio: notifica via mailto SOLO se siamo davil. Per il visitatore, salvataggio + alert.
+    return { ok: true, mode: 'localStorage-only' };
+  };
+
+  const gateForm = $('[data-gate-form]');
+  const gateWrap = $('[data-gate]');
+  const gateVideo = $('[data-gate-video]');
+  const gateLocked = $('[data-gate-locked]');
+  const gateStatus = $('[data-gate-status]');
   const checkAlreadyUnlocked = () => {
     if (localStorage.getItem('davil_masterclass_unlocked') === '1') {
       gateWrap?.classList.add('is-unlocked');
@@ -249,7 +301,7 @@
     }
   };
   checkAlreadyUnlocked();
-  gateForm?.addEventListener('submit', (e) => {
+  gateForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(gateForm);
     const lead = {
@@ -258,6 +310,7 @@
       email: (fd.get('email') || '').toString().trim(),
       phone: (fd.get('phone') || '').toString().trim(),
       source: 'masterclass-transurfing',
+      code: genCode(),
       ua: navigator.userAgent.substring(0, 80)
     };
     if (!lead.email || !lead.phone || !lead.name) {
@@ -268,33 +321,50 @@
     saveLead(lead);
     localStorage.setItem('davil_masterclass_unlocked', '1');
     gateStatus.classList.remove('error');
-    gateStatus.textContent = 'Sbloccato. Il video è qui sotto.';
+    gateStatus.textContent = 'Sbloccato. Il video è qui sotto, riceverai conferma via email.';
     gateWrap.classList.add('is-unlocked');
     gateVideo.removeAttribute('hidden');
-    // Optional: POST to backend (Web3Forms / Formspree). Configura URL a tuo piacere.
-    if (window.LEAD_ENDPOINT) {
-      fetch(window.LEAD_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(lead)
-      }).catch(() => {});
-    }
+    const r = await sendLeadEmails(lead);
+    if (r.mode === 'localStorage-only') mailtoFallback(lead);
   });
 
-  /* ---------- Membri (placeholder) ---------- */
+  /* ---------- Membri ---------- */
   const memberForm = $('[data-member-form]');
   const memberStatus = $('[data-member-status]');
-  memberForm?.addEventListener('submit', (e) => {
+  memberForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    memberStatus.textContent = 'Area in costruzione · ti scrivo io appena è online.';
-    memberStatus.classList.remove('error');
-    // Track interest as lead too
     const fd = new FormData(memberForm);
-    saveLead({
+    const lead = {
       ts: new Date().toISOString(),
       email: (fd.get('member-email') || '').toString().trim(),
       source: 'membri-login-attempt',
+      code: genCode(),
       ua: navigator.userAgent.substring(0, 80)
+    };
+    saveLead(lead);
+    memberStatus.textContent = 'Richiesta inviata. Davil ti contatta entro 24h.';
+    memberStatus.classList.remove('error');
+    const r = await sendLeadEmails(lead);
+    if (r.mode === 'localStorage-only') mailtoFallback(lead);
+  });
+
+  /* ---------- Ars Realis email gate (existing rcard form) ---------- */
+  $$('.rcard form.gate').forEach(f => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (f.querySelector('input[type=email]')?.value || '').trim();
+      if (!email) return;
+      const lead = {
+        ts: new Date().toISOString(), email,
+        source: 'ars-realis', code: genCode(),
+        ua: navigator.userAgent.substring(0, 80)
+      };
+      saveLead(lead);
+      const confirm = f.querySelector('.gate-confirm');
+      if (confirm) confirm.style.display = 'block';
+      f.querySelector('input[type=email]').value = '';
+      const r = await sendLeadEmails(lead);
+      if (r.mode === 'localStorage-only') mailtoFallback(lead);
     });
   });
 
@@ -555,6 +625,103 @@
     const ico2 = mkLines(new THREE.IcosahedronGeometry(60, 0), 0xf4c95d, 0.20);
     ico2.position.set(-130, -210, -380); scene.add(ico2);
 
+    /* === MONDO CENTRALE (sfera grande wireframe sub-divisa) === */
+    const worldGroup = new THREE.Group();
+    worldGroup.position.set(0, 0, -700);
+    scene.add(worldGroup);
+
+    const worldGeom = new THREE.IcosahedronGeometry(200, 4);
+    const worldEdges = new THREE.EdgesGeometry(worldGeom);
+    const worldLines = new THREE.LineSegments(
+      worldEdges,
+      new THREE.LineBasicMaterial({ color: 0x7c3aed, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending })
+    );
+    worldGroup.add(worldLines);
+
+    // Inner core glow (sfera interna)
+    const coreGeom = new THREE.IcosahedronGeometry(60, 2);
+    const coreEdges = new THREE.EdgesGeometry(coreGeom);
+    const coreLines = new THREE.LineSegments(
+      coreEdges,
+      new THREE.LineBasicMaterial({ color: 0xec4899, transparent: true, opacity: 0.50, blending: THREE.AdditiveBlending })
+    );
+    worldGroup.add(coreLines);
+
+    // Shell esterno (sfera ancora più grande, halo)
+    const shellGeom = new THREE.IcosahedronGeometry(280, 2);
+    const shellEdges = new THREE.EdgesGeometry(shellGeom);
+    const shellLines = new THREE.LineSegments(
+      shellEdges,
+      new THREE.LineBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0.10, blending: THREE.AdditiveBlending })
+    );
+    worldGroup.add(shellLines);
+
+    /* === GRIGLIA / NETWORK di nodi varianti collegati === */
+    const NODE_COUNT = 80;
+    const nodes = [];
+    const nodePos = new Float32Array(NODE_COUNT * 3);
+    const nodeCol = new Float32Array(NODE_COUNT * 3);
+    for (let i = 0; i < NODE_COUNT; i++) {
+      // disposti su una sfera intorno al mondo, raggio 350-450
+      const r = 350 + Math.random() * 100;
+      const th = Math.random() * Math.PI * 2;
+      const ph = Math.acos(2 * Math.random() - 1);
+      const x = r * Math.sin(ph) * Math.cos(th);
+      const y = r * Math.sin(ph) * Math.sin(th);
+      const z = r * Math.cos(ph);
+      nodes.push({ x, y, z });
+      nodePos[i*3] = x; nodePos[i*3+1] = y; nodePos[i*3+2] = z;
+      const c = palette[Math.floor(Math.random() * palette.length)];
+      nodeCol[i*3] = c[0]; nodeCol[i*3+1] = c[1]; nodeCol[i*3+2] = c[2];
+    }
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePos, 3));
+    nodeGeo.setAttribute('color', new THREE.BufferAttribute(nodeCol, 3));
+    const nodePoints = new THREE.Points(nodeGeo, new THREE.PointsMaterial({
+      size: 8, vertexColors: true, map: sprite, alphaMap: sprite,
+      blending: THREE.AdditiveBlending, transparent: true,
+      depthWrite: false, opacity: 1, sizeAttenuation: true,
+    }));
+    worldGroup.add(nodePoints);
+
+    // Connessioni tra nodi vicini (network)
+    const linkPos = [];
+    const linkCol = [];
+    for (let i = 0; i < NODE_COUNT; i++) {
+      for (let j = i + 1; j < NODE_COUNT; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+        const d2 = dx*dx + dy*dy + dz*dz;
+        if (d2 < 22000) {
+          linkPos.push(a.x, a.y, a.z, b.x, b.y, b.z);
+          // colore tra i due nodi (mix violet/cyan)
+          linkCol.push(0.486, 0.227, 0.929, 0.133, 0.827, 0.933);
+        }
+      }
+    }
+    const linkGeo = new THREE.BufferGeometry();
+    linkGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linkPos), 3));
+    linkGeo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(linkCol), 3));
+    const linkLines = new THREE.LineSegments(linkGeo, new THREE.LineBasicMaterial({
+      vertexColors: true, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending
+    }));
+    worldGroup.add(linkLines);
+
+    // Linee dai nodi al centro (raggi del network)
+    const rayPos = [];
+    for (let i = 0; i < NODE_COUNT; i++) {
+      if (Math.random() < 0.40) {
+        const a = nodes[i];
+        rayPos.push(a.x, a.y, a.z, 0, 0, 0);
+      }
+    }
+    const rayGeo = new THREE.BufferGeometry();
+    rayGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(rayPos), 3));
+    const rayLines = new THREE.LineSegments(rayGeo, new THREE.LineBasicMaterial({
+      color: 0xf4c95d, transparent: true, opacity: 0.10, blending: THREE.AdditiveBlending
+    }));
+    worldGroup.add(rayLines);
+
     // Mouse parallax
     let mx = 0, my = 0, tx = 0, ty = 0;
     addEventListener('mousemove', (e) => {
@@ -580,6 +747,17 @@
       ico.rotation.x = t * -0.12; ico.rotation.y = t * 0.15;
       torus2.rotation.x = t * 0.10; torus2.rotation.z = t * 0.18;
       ico2.rotation.x = t * 0.14; ico2.rotation.z = t * -0.10;
+
+      // Mondo centrale ruota lentamente con shell e core in controfase
+      worldGroup.rotation.y = t * 0.05;
+      worldLines.rotation.x = t * 0.04;
+      coreLines.rotation.y = t * -0.18;
+      coreLines.rotation.z = t * 0.10;
+      shellLines.rotation.y = t * -0.03;
+      shellLines.rotation.x = t * 0.02;
+      // pulse del core
+      const pulse = 1 + Math.sin(t * 0.8) * 0.10;
+      coreLines.scale.setScalar(pulse);
 
       camera.position.x = mx;
       camera.position.y = -my;

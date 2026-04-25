@@ -2201,6 +2201,27 @@
 
 <!-- Engine -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<!-- EmailJS · setup completamente automatico (vedi /admin.html#setup-email) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  /* === DAVIL · Email config ===
+     Per attivare email automatiche: 1. crea account su emailjs.com (free 200/mo)
+     2. connetti davildiclaudio@gmail.com come service. 3. crea due template:
+       - tpl_davil_notif (variabili: name,email,phone,source,code,ts) — destinatario te
+       - tpl_user_code (variabili: name,email,code) — destinatario {{email}} con risposta da davildiclaudio@gmail.com
+     4. copia public-key + service-id + template-ids qui sotto. */
+  window.DAVIL_EMAIL = {
+    enabled: false,                           // metti true dopo aver compilato
+    publicKey: 'YOUR_EMAILJS_PUBLIC_KEY',
+    serviceId: 'YOUR_EMAILJS_SERVICE_ID',
+    tplDavil: 'YOUR_TEMPLATE_DAVIL_NOTIF',
+    tplUser:  'YOUR_TEMPLATE_USER_CODE',
+    fromAddr: 'davildiclaudio@gmail.com',     // mostrata in mailto fallback
+  };
+  if (window.DAVIL_EMAIL.enabled && window.emailjs) {
+    emailjs.init({ publicKey: window.DAVIL_EMAIL.publicKey });
+  }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
