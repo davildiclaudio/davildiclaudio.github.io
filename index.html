@@ -651,13 +651,15 @@
     text-transform:uppercase;color:var(--ink-dim);border-top:1px solid var(--border);
   }
 
-  /* Pilastro con visual sopra · rettangolare 16:9 */
-  .pilastro-with-visual{display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden}
+  /* Pilastro con visual sopra · 16:9 angoli smussati + inset */
+  .pilastro-with-visual{display:flex;flex-direction:column;gap:0;padding:14px 14px 0;overflow:hidden}
   .pilastro-with-visual .p-visual{
     position:relative;overflow:hidden;
-    border-bottom:1px solid var(--border);
+    border:1px solid var(--border);
+    border-radius:16px;
     background:transparent;
     aspect-ratio:16/9;
+    margin-bottom:8px;
   }
   .pilastro-with-visual .p-visual img{
     width:100%;height:100%;object-fit:cover;display:block;
@@ -843,11 +845,12 @@
   }
   .storia-inline-photo img{width:100%;height:auto;display:block;object-fit:contain}
 
-  /* === Contatti foto · cutout senza crop === */
+  /* === Contatti foto · ingrandita === */
   .contatti-photo-wrap{
-    display:grid;grid-template-columns:1fr 280px;gap:60px;align-items:center;
+    display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;
     margin-bottom:48px;
   }
+  @media(max-width:1100px){.contatti-photo-wrap{grid-template-columns:1fr 360px;gap:40px}}
   @media(max-width:820px){.contatti-photo-wrap{grid-template-columns:1fr;gap:32px}}
   .contatti-photo{
     margin:0;border:0;border-radius:14px;overflow:hidden;
@@ -1219,6 +1222,19 @@
     background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
   }
   .rcard:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+  /* Featured card · spicca con doppio glow oro/violet */
+  .rcard.featured-card{
+    box-shadow:
+      0 24px 60px rgba(124,58,237,.30),
+      0 0 0 1px rgba(244,201,93,.30) inset,
+      0 0 60px rgba(244,201,93,.18) !important;
+  }
+  .rcard.featured-card::before{
+    content:"·  AI ATTIVO  ·";position:absolute;top:14px;right:14px;
+    font-family:var(--ff-sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);padding:4px 10px;border:1px solid rgba(244,201,93,.40);border-radius:999px;
+    background:rgba(244,201,93,.06);
+  }
   .rcard .r-meta{font-family:var(--ff-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
   .rcard h3{font-family:var(--ff-display);font-weight:400;font-size:clamp(24px,2.2vw,36px);margin:0;line-height:1.15}
   .rcard .r-sub{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:16px}
@@ -1386,14 +1402,21 @@
       <span class="chev"></span>
     </button>
     <div class="logo-menu" data-menu role="menu">
-      <a href="#risorse" class="dd-item" role="menuitem">
+      <a href="#masterclass" class="dd-item" role="menuitem">
+        <span class="dd-icon" aria-hidden="true">▸</span>
+        <span class="dd-text">
+          <span class="dd-title">2 ore Transurfing · GRATIS</span>
+          <span class="dd-sub">Masterclass completa di Vadim Zeland</span>
+        </span>
+      </a>
+      <a href="#risorsa-sogni" class="dd-item" role="menuitem" data-dream-open>
         <span class="dd-icon" aria-hidden="true">⊙</span>
         <span class="dd-text">
           <span class="dd-title">Interprete dei sogni</span>
           <span class="dd-sub">AI · framework junghiano</span>
         </span>
       </a>
-      <a href="#risorse" class="dd-item" role="menuitem">
+      <a href="#risorsa-arsrealis" class="dd-item" role="menuitem">
         <span class="dd-icon" aria-hidden="true">⌬</span>
         <span class="dd-text">
           <span class="dd-title">Ars Realis</span>
@@ -1405,6 +1428,13 @@
         <span class="dd-text">
           <span class="dd-title">Libri scaricabili</span>
           <span class="dd-sub">«Io posso farcela» · «PNL Esoterica»</span>
+        </span>
+      </a>
+      <a href="#membri" class="dd-item" role="menuitem">
+        <span class="dd-icon" aria-hidden="true">⎔</span>
+        <span class="dd-text">
+          <span class="dd-title">Area Membri</span>
+          <span class="dd-sub">Accesso riservato</span>
         </span>
       </a>
     </div>
@@ -1946,7 +1976,7 @@
 
     <div class="cards-3">
       <!-- Ars Realis -->
-      <div class="rcard" data-reveal>
+      <div class="rcard" id="risorsa-arsrealis" data-reveal>
         <div class="r-meta">01 · Community privata</div>
         <h3>Ars Realis</h3>
         <div class="r-sub">Studio del Reality Transurfing</div>
@@ -1967,14 +1997,16 @@
       </div>
 
       <!-- Interprete Sogni -->
-      <div class="rcard" data-reveal>
+      <div class="rcard featured-card" id="risorsa-sogni" data-reveal>
         <div class="r-meta">02 · Tool interattivo</div>
         <h3>Interprete dei Sogni</h3>
         <div class="r-sub">Framework junghiano · Claude Haiku 4.5</div>
         <p>Racconta un sogno. Ricevi una lettura <strong>stratificata</strong> — riformulazione, simboli, archetipi attivati, lettura compensatoria e prospettica, domande riflessive — basata sul corpus junghiano (Jung, Hillman, Neumann), sui metodi contemporanei (Johnson, von Franz, Bosnak, Aizenstat, Taylor) e sulle neuroscienze del sogno (Hobson, Solms).</p>
         <p>La tua API key Anthropic resta nel <strong>tuo browser</strong>. Il sogno non viene registrato.</p>
         <p style="font-size:13px;color:var(--ink-dim);font-style:italic">Per un lavoro profondo considera un analista o un coaching dedicato. Questo tool apre la porta. Non è la casa.</p>
-        <a href="#" class="cta-inline" data-dream-open>→ Apri l'interprete</a>
+        <a href="#" class="btn-primary" data-dream-open style="display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-size:13px;letter-spacing:.06em;font-weight:600;border-radius:999px;margin-top:auto">
+          <span aria-hidden="true">⊙</span> Apri l'Interprete dei Sogni
+        </a>
       </div>
 
       <!-- Psicosintesi PDF -->
