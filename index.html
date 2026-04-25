@@ -363,17 +363,30 @@
   .pilastro-with-visual .p-visual,
   .strumento-card .s-vis,
   .bn-vis,
-  .section-banner,
   .inline-figure,
   .servizio-photo,
   .podcast-frame,
   .logo-slideshow-stage,
-  .ls-slide,
-  figure.section-banner img{
+  .ls-slide{
     box-shadow:
       0 24px 60px rgba(45,45,224,.40),
       0 8px 20px rgba(124,58,237,.30),
       0 0 50px rgba(45,45,224,.18) !important;
+  }
+  /* Banner full-width (Dipendenze + Storia) · ombra estesa SOPRA e SOTTO */
+  .section-banner{
+    box-shadow:
+      0 -50px 120px -20px rgba(45,45,224,.50),
+      0  50px 120px -20px rgba(45,45,224,.50),
+      0 -20px 60px  -10px rgba(124,58,237,.40),
+      0  20px 60px  -10px rgba(124,58,237,.40),
+      0 0 160px rgba(45,45,224,.30),
+      0 0 80px rgba(236,72,153,.20) !important;
+    margin-top:32px !important;
+    margin-bottom:80px !important;
+  }
+  figure.section-banner img{
+    box-shadow:none !important;
   }
   .servizio-photo:hover,
   .pp-photo:hover,
