@@ -122,6 +122,112 @@
     setTimeout(() => loader.remove(), 1100);
   }, 9000);
 
+  /* ---------- Logo evolution slideshow (auto-detect files in folder) ---------- */
+  const ls = $('[data-logo-slideshow]');
+  if (ls) {
+    const track = ls.querySelector('[data-ls-track]');
+    const prevBtn = ls.querySelector('[data-ls-prev]');
+    const nextBtn = ls.querySelector('[data-ls-next]');
+    const currentEl = ls.querySelector('[data-ls-current]');
+    const totalEl = ls.querySelector('[data-ls-total]');
+    const progressEl = ls.querySelector('[data-ls-progress]');
+
+    // Auto-detect: try 01..30 with png/jpg/jpeg until 3 consecutive misses
+    const tryLoad = (path) => new Promise(res => {
+      const img = new Image(); img.onload = () => res({ ok: true, src: path }); img.onerror = () => res({ ok: false }); img.src = path;
+    });
+    const detectAndBuild = async () => {
+      const found = [];
+      let miss = 0;
+      for (let i = 1; i <= 30 && miss < 3; i++) {
+        const num = String(i).padStart(2, '0');
+        let hit = null;
+        for (const ext of ['png','jpeg','jpg']) {
+          const r = await tryLoad(`assets/logo-evolution/${num}.${ext}`);
+          if (r.ok) { hit = r.src; break; }
+        }
+        if (hit) { found.push(hit); miss = 0; } else { miss++; }
+      }
+      if (!found.length) {
+        // Hide section gracefully if no images yet
+        const sect = ls.closest('section');
+        if (sect) sect.style.display = 'none';
+        return [];
+      }
+      found.forEach((src, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'ls-slide' + (i === 0 ? ' is-current' : '');
+        const img = document.createElement('img');
+        img.alt = `Genesi del logo · stadio ${i + 1}`;
+        img.src = src;
+        img.loading = i < 2 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        slide.appendChild(img);
+        track.appendChild(slide);
+      });
+      return $$('.ls-slide', track);
+    };
+
+    detectAndBuild().then(slides => {
+      if (!slides.length) return;
+    let idx = 0;
+    const tot = slides.length;
+    if (totalEl) totalEl.textContent = String(tot).padStart(2, '0');
+    const pad = (n) => String(n + 1).padStart(2, '0');
+    const goTo = (n) => {
+      idx = ((n % tot) + tot) % tot;
+      slides.forEach((s, i) => s.classList.toggle('is-current', i === idx));
+      if (currentEl) currentEl.textContent = pad(idx);
+      if (progressEl) progressEl.style.width = ((idx + 1) / tot * 100) + '%';
+    };
+    goTo(0);
+
+    // Autoplay (start when in view, pause out / on hover)
+    let autoTimer = null;
+    const stepDelay = 3500;
+    const startAuto = () => {
+      if (autoTimer) clearTimeout(autoTimer);
+      autoTimer = setTimeout(() => { goTo(idx + 1); startAuto(); }, stepDelay);
+    };
+    const pauseAuto = () => { if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; } };
+
+    if (window.IntersectionObserver) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) startAuto(); else pauseAuto(); });
+      }, { threshold: 0.35 });
+      io.observe(ls);
+    } else { startAuto(); }
+
+    prevBtn?.addEventListener('click', () => { pauseAuto(); goTo(idx - 1); startAuto(); });
+    nextBtn?.addEventListener('click', () => { pauseAuto(); goTo(idx + 1); startAuto(); });
+    ls.addEventListener('mouseenter', pauseAuto);
+    ls.addEventListener('mouseleave', startAuto);
+
+    window.addEventListener('keydown', (e) => {
+      const r = ls.getBoundingClientRect();
+      if (r.top > window.innerHeight || r.bottom < 0) return;
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); pauseAuto(); goTo(idx - 1); startAuto(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); pauseAuto(); goTo(idx + 1); startAuto(); }
+    });
+
+    // drag / swipe
+    let dragX = null;
+    const onDown = (e) => { dragX = (e.touches ? e.touches[0] : e).clientX; };
+    const onUp = (e) => {
+      if (dragX === null) return;
+      const endX = (e.changedTouches ? e.changedTouches[0] : e).clientX;
+      const dx = endX - dragX;
+      if (Math.abs(dx) > 50) { pauseAuto(); goTo(idx + (dx < 0 ? 1 : -1)); startAuto(); }
+      dragX = null;
+    };
+    ls.addEventListener('mousedown', onDown);
+    ls.addEventListener('mouseup', onUp);
+    ls.addEventListener('mouseleave', () => dragX = null);
+    ls.addEventListener('touchstart', onDown, { passive: true });
+    ls.addEventListener('touchend', onUp);
+    });
+  }
+
   /* ---------- Logo dropdown menu ---------- */
   const ddWrap = $('.nav-logo-wrap');
   const ddBtn = $('[data-menu-toggle]');

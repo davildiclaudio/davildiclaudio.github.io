@@ -441,6 +441,70 @@
   .prose strong{color:var(--ink)}
   .prose em{font-family:var(--ff-display);font-style:italic;color:var(--gold)}
 
+  /* Genesi del logo · slideshow */
+  .genesi-section{padding-top:clamp(60px,9vh,120px);padding-bottom:clamp(60px,9vh,120px);text-align:center}
+  .genesi-section .sect-eyebrow{
+    font-family:var(--ff-sans);font-weight:500;font-size:11px;letter-spacing:.45em;text-transform:uppercase;
+    color:var(--brand-light);margin:0 0 22px;
+  }
+  .genesi-section .sect-h{margin-left:auto;margin-right:auto}
+  .genesi-section .sect-lead{margin-left:auto;margin-right:auto;text-align:center}
+  .genesi-section .sect-lead strong{color:var(--ink);font-style:normal;font-family:var(--ff-sans);letter-spacing:.04em;font-weight:500;font-size:.92em}
+  .logo-slideshow{
+    position:relative;margin:32px auto 0;max-width:1080px;
+  }
+  .logo-slideshow-stage{
+    position:relative;aspect-ratio:16/9;
+    background:#1a1cd0;
+    border:1px solid var(--border);border-radius:6px;
+    overflow:hidden;
+  }
+  .logo-slideshow-track{position:absolute;inset:0}
+  .ls-slide{
+    position:absolute;inset:0;
+    opacity:0;transform:scale(1.04);
+    transition:opacity .9s var(--ease-smooth), transform 1.6s var(--ease-smooth);
+    pointer-events:none;
+  }
+  .ls-slide.is-current{opacity:1;transform:scale(1);pointer-events:auto;z-index:2}
+  .ls-slide img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+
+  .ls-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(9,9,11,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border:1px solid rgba(232,200,122,.25);color:var(--ink);
+    font-size:18px;line-height:1;
+    display:inline-flex;align-items:center;justify-content:center;
+    z-index:4;cursor:none;
+    transition:background .3s var(--ease),border-color .3s,transform .3s var(--ease);
+  }
+  .ls-nav:hover{background:rgba(232,200,122,.18);border-color:rgba(232,200,122,.55)}
+  .ls-prev{left:18px}
+  .ls-next{right:18px}
+  .ls-prev:hover{transform:translateY(-50%) translateX(-3px)}
+  .ls-next:hover{transform:translateY(-50%) translateX(3px)}
+
+  .ls-meta{
+    position:absolute;bottom:18px;left:24px;right:24px;
+    display:flex;align-items:center;gap:24px;z-index:3;
+    font-size:12px;color:rgba(255,255,255,.85);
+    pointer-events:none;
+  }
+  .ls-counter{font-family:var(--ff-display);font-style:italic;letter-spacing:.1em;font-size:14px}
+  .ls-counter .sep{opacity:.5;margin:0 4px}
+  .ls-progress{flex:1;height:1px;background:rgba(255,255,255,.22);position:relative;overflow:hidden}
+  .ls-progress > span{
+    display:block;height:100%;width:0%;
+    background:linear-gradient(90deg, var(--gold), var(--brand-light));
+    transition:width .5s var(--ease-smooth);
+  }
+  @media(max-width:720px){
+    .ls-nav{width:42px;height:42px;font-size:14px}
+    .ls-prev{left:10px}.ls-next{right:10px}
+    .ls-meta{bottom:10px;left:14px;right:14px;gap:14px}
+  }
+
   /* Chi sono · tagline piccola sotto il nome */
   .chi-tag{
     font-family:var(--ff-sans);
@@ -802,6 +866,33 @@
     <p class="m-line" data-reveal>La realtà non è una linea. <em>È un campo.</em></p>
     <p class="m-line" data-reveal>Tu non devi forzarla. <em>Devi sintonizzarti.</em></p>
     <p class="m-line" data-reveal>Tutto il resto di questo sito serve a insegnarti <em>come.</em></p>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ============================ -->
+  <!-- GENESI DEL LOGO              -->
+  <!-- ============================ -->
+  <section id="genesi" class="sect genesi-section">
+    <p class="sect-eyebrow" data-reveal>· Genesi del logo ·</p>
+    <h2 class="sect-h" data-split-words>Tre simboli, <em>una proporzione.</em></h2>
+    <p class="sect-lead" data-reveal>
+      <strong>Visione · Equilibrio · Crescita.</strong>
+      Costruito sulla <em>proporzione del 7</em> — il numero che torna nei pilastri,
+      nei chakra, nei pianeti antichi, nelle note. Sotto, la genesi visiva.
+    </p>
+
+    <div class="logo-slideshow" data-logo-slideshow data-reveal>
+      <div class="logo-slideshow-stage">
+        <button class="ls-nav ls-prev" aria-label="Precedente" data-ls-prev>&larr;</button>
+        <div class="logo-slideshow-track" data-ls-track></div>
+        <button class="ls-nav ls-next" aria-label="Successiva" data-ls-next>&rarr;</button>
+        <div class="ls-meta">
+          <span class="ls-counter"><span data-ls-current>01</span> <span class="sep">·</span> <span data-ls-total>—</span></span>
+          <div class="ls-progress"><span data-ls-progress></span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="rule"></div>
