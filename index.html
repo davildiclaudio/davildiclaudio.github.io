@@ -439,6 +439,34 @@
   .prose{max-width:62ch;font-size:clamp(16px,1.05vw,19px);line-height:1.75;color:var(--ink-soft)}
   .prose p + p{margin-top:1.1em}
   .prose strong{color:var(--ink)}
+  .prose em{font-family:var(--ff-display);font-style:italic;color:var(--gold)}
+
+  /* Chi sono · tagline piccola sotto il nome */
+  .chi-tag{
+    font-family:var(--ff-sans);
+    font-size:clamp(11px,1vw,14px);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    max-width:64ch;
+    line-height:1.6;
+    margin:-24px 0 56px;
+  }
+  .chi-tag em{
+    font-family:var(--ff-display);
+    font-style:italic;
+    text-transform:none;
+    letter-spacing:0;
+    color:var(--gold);
+    font-size:1.05em;
+  }
+  .chi-signature{
+    font-family:var(--ff-display);
+    font-style:italic;
+    color:var(--gold);
+    font-size:24px;
+    margin-top:36px!important;
+  }
 
   /* Method — 3 assi */
   .assi{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
@@ -757,8 +785,8 @@
         <span class="line">Devi smettere di vivere</span>
         <span class="line">quella <em>di qualcun altro.</em></span>
       </h1>
-      <p class="hero-sub" data-reveal style="max-width:56ch;margin-top:32px;font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.5vw,22px);line-height:1.55">
-        Mental Coach e ricercatore della coscienza. Aiuto imprenditori, professionisti e persone in transizione profonda a riprendere il comando della propria realtà — con la stessa serietà con cui un chirurgo apre un torace.
+      <p class="hero-sub" data-reveal style="max-width:60ch;margin-top:32px;font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.5vw,22px);line-height:1.55">
+        Per chi ha già costruito qualcosa e sente che la struttura interna non regge più ciò che ha fuori. Imprenditori, professionisti, persone in transizione profonda. Niente motivazione, niente formule veloci — solo <em>la pazienza dell'orefice e la freddezza del chirurgo.</em>
       </p>
       <div class="hero-ctas" data-reveal style="display:flex;gap:16px;margin-top:40px;flex-wrap:wrap">
         <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20iniziare%20il%20percorso" class="btn-primary" target="_blank" rel="noopener">Inizia il cammino</a>
@@ -799,13 +827,16 @@
   <!-- ============================ -->
   <section id="chi-sono" class="sect">
     <div class="section-label" data-reveal><span>04</span> Chi sono</div>
-    <h2 class="sect-h" data-split-words>Davil Di Claudio.<br/><em>Ricercatore della coscienza. Studioso di psicologia. Mental coach di professione.</em></h2>
-    <p class="quote-big" data-reveal>«Ho guidato 3.000 venditori, fatturato milioni, toccato il fondo, e poi ricominciato.»</p>
+    <h2 class="sect-h" data-split-words>Davil Di Claudio.</h2>
+    <p class="chi-tag" data-reveal>Civitavecchia, 1996 · Roma, oggi · <em>Ricercatore della coscienza · Studioso di psicologia · Mental coach di professione</em></p>
+    <p class="quote-big" data-reveal>«A ventisei anni avevo tutto quello che sembra contare. A ventotto stavo piangendo nella macchina dei miei sogni mentre facevo shopping compulsivo. Era <em>l'anima che presentava il conto.</em>»</p>
     <div class="prose" data-reveal>
-      <p>Roma. Studio psicologia per mestiere, vivo il Transurfing come pratica quotidiana, mi alleno in corsa, nuoto e ciclismo perché il corpo è il primo ambiente di coscienza che abitiamo.</p>
-      <p>Nato a Civitavecchia nel 1996. Prima tuta da meccanico, poi contratti di luce e gas porta a porta, poi network marketing internazionale con sede a Dubai. A 26 anni avevo tutto quello che sembra contare e niente di quello che conta davvero. <strong>Ho smontato tutto e ho ricominciato da dentro.</strong></p>
-      <p>Oggi sono un Mental Coach in formazione accademica di psicologia — approccio integrato (cognitivo-comportamentale, dinamico, psicoanalitico, umanistico, strategico). Nella pratica uso come strumenti operativi la <strong>Psicosintesi di Assagioli</strong> e il <strong>Transurfing di Zeland</strong>. Ho scritto due libri, "Io posso farcela" e "PNL Esoterica".</p>
-      <p>Lavoro solo con chi è pronto a fare sul serio.</p>
+      <p>Tuta da meccanico prima dell'università. Porta a porta — luce e gas — quando ancora la gente apriva la porta. Reti commerciali in tre continenti, sede a Dubai. Sei milioni di dollari fatturati in un anno. Una proposta di matrimonio davanti a quindicimila persone, a una donna che non mi voleva sposare. <strong>Avevo vinto, secondo qualunque metro contemporaneo.</strong></p>
+      <p>Poi è arrivato il crollo che non si scrive su LinkedIn. Il tipo di crollo dopo cui non sei più la stessa persona — e di cui, oggi, ringrazio. Da quel passaggio è uscito tutto il resto.</p>
+      <p>Mi alleno tre volte alla settimana in corsa, nuoto, ciclismo. Non per estetica. Perché <em>il pensiero che non passa per il corpo non è pensiero, è ronzio.</em> Leggo Jung da prima dei dieci anni — non perché fossi precoce, ma perché era l'unico libro in casa col dorso rovinato dall'essere riletto. La Psicosintesi di <strong>Assagioli</strong> mi ha trovato a ventitré. Il Transurfing di <strong>Zeland</strong> a ventisei. Sono i due strumenti che apro ogni giorno in sessione.</p>
+      <p>Ho scritto <em>«Io posso farcela»</em> e <em>«PNL Esoterica»</em> perché certe cose, se non le scrivi, le perdi. Studio anche ciò che le università non insegnano — alchimia interiore, archetipi attivi, leggi del campo. Non per posa esoterica. Perché <strong>senza quel piano metà di ciò che vedo nei clienti non avrebbe spiegazione.</strong></p>
+      <p>Lavoro a tempo pieno e con poche persone alla volta. Non per arroganza. Per rispetto del tempo di tutti.</p>
+      <p class="chi-signature">— Davil</p>
     </div>
   </section>
 
