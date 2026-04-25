@@ -429,6 +429,34 @@
   }
   .chi-portrait img{width:100%;height:auto;display:block}
 
+  /* Body network · 37 trilioni di cellule */
+  .body-network-sect{padding:clamp(80px,12vh,160px) var(--pad)}
+  .body-network{
+    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    background:radial-gradient(800px 500px at 0% 50%, rgba(45,45,224,.10), transparent 60%),
+               linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+    box-shadow:0 30px 80px rgba(0,0,0,.4);
+  }
+  .bn-vis{position:relative;overflow:hidden;background:#0d0d10;min-height:420px}
+  .bn-vis img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-smooth);filter:saturate(.95)}
+  .body-network:hover .bn-vis img{transform:scale(1.04);filter:saturate(1.1)}
+  .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+  .bn-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand-light)}
+  .bn-title{font-family:var(--ff-display);font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0}
+  .bn-body{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0;max-width:48ch}
+  .bn-body strong{color:var(--ink)}
+  .bn-stat{
+    display:flex;gap:24px;align-items:baseline;padding-top:18px;margin-top:12px;border-top:1px solid var(--border);
+    font-family:var(--ff-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);
+  }
+  .bn-stat strong{font-family:var(--ff-display);font-style:italic;font-size:32px;color:var(--gold);letter-spacing:0;text-transform:none;font-weight:400}
+  @media(max-width:900px){
+    .body-network{grid-template-columns:1fr}
+    .bn-vis{aspect-ratio:16/10;min-height:0}
+    .bn-text{padding:36px 32px}
+  }
+
   /* Strumento dopo gli assi */
   .strumento-card{
     margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;
@@ -1066,6 +1094,27 @@
         <p class="s-body">Il primo strumento di diagnosi che apriamo insieme. Otto aree — corpo, lavoro, soldi, amore, famiglia, amici, evoluzione, divertimento — valutate da uno a dieci. Non per giudicarti. Per fotografare, in trenta minuti, dove sta perdendo aria la ruota della tua vita. Da qui parte il piano operativo dei tre assi.</p>
       </figcaption>
     </figure>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 05·b · IL CORPO COME NETWORK -->
+  <!-- ============================ -->
+  <section class="sect body-network-sect">
+    <div class="body-network" data-reveal>
+      <figure class="bn-vis">
+        <img src="assets/content-images/template-010.jpeg" alt="Il corpo come network · 37 trilioni di cellule" loading="lazy" decoding="async"/>
+      </figure>
+      <div class="bn-text">
+        <span class="bn-eyebrow">· Premessa biologica ·</span>
+        <h3 class="bn-title">Trentasette trilioni di cellule. <em>Un'unica orchestra.</em></h3>
+        <p class="bn-body">Non sei un solo soggetto. Sei un <strong>network interconnesso</strong> di organi, sistemi, microbioti, neuroni, ormoni, fasce, fluidi, archetipi e abitudini. Ogni cellula ascolta le altre. Ogni pensiero che ripeti diventa biologia.</p>
+        <p class="bn-body">Il lavoro che faccio non è "cambiare la mente". È <em>far performare in armonia e sinergia</em> tutte le parti di te — quelle che vedi e quelle che ti vivono dentro senza nome. Quando l'orchestra suona allineata, non devi più convincere la realtà di niente.</p>
+        <div class="bn-stat">
+          <span><strong>37 ×10¹²</strong></span>
+          <span>cellule sotto la stessa direzione</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ============================ -->
