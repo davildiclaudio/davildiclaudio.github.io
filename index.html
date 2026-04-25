@@ -1346,39 +1346,71 @@
   .ars-pw-code{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:36px;color:var(--gold);letter-spacing:.10em;margin:6px 0;text-shadow:0 0 24px rgba(244,201,93,.4);user-select:all;cursor:pointer}
   .ars-pw-note{margin:8px 0 0;font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
 
-  /* === Dream Interpreter Modal · ombra blu + fix bottom + pulsante invio sempre visibile === */
-  #dream-modal{
-    box-shadow:
-      0 50px 120px rgba(45,45,224,.55),
-      0 20px 60px rgba(124,58,237,.45),
-      0 0 100px rgba(45,45,224,.30),
-      0 0 0 1px rgba(180,150,240,.30) inset !important;
-    border-radius:20px !important;
+  /* === Dream Interpreter · overlay full viewport + panel grande con scroll interno === */
+  .dream-modal{
+    padding:24px 16px !important;
+    align-items:center !important;
+    background:rgba(5,3,15,.92) !important;
+    backdrop-filter:blur(20px);
+  }
+  .dream-panel{
+    width:100% !important;
+    max-width:920px !important;
     max-height:92vh !important;
     display:flex !important;
     flex-direction:column !important;
     overflow:hidden !important;
     padding:0 !important;
+    border-radius:20px !important;
+    background:rgba(20,14,50,.92) !important;
+    border:1px solid rgba(180,150,240,.25) !important;
+    box-shadow:
+      0 50px 120px rgba(45,45,224,.55),
+      0 20px 60px rgba(124,58,237,.45),
+      0 0 100px rgba(45,45,224,.30),
+      0 0 0 1px rgba(180,150,240,.30) inset !important;
     overscroll-behavior:contain;
   }
-  #dream-modal > *:not(#dream-actions):not(.dream-actions-bar){
-    overflow-y:auto;
-    -webkit-overflow-scrolling:touch;
-    flex:1 1 auto;
+  /* Header sticky in alto */
+  .dream-panel > h2,
+  .dream-panel > .dream-close,
+  .dream-panel > [id="dream-title"]{
+    position:sticky;top:0;z-index:5;
+    background:rgba(20,14,50,.92);backdrop-filter:blur(8px);
+    padding:24px 32px 14px;margin:0;border-bottom:1px solid rgba(180,150,240,.18);
   }
-  /* fallback: rendi scrollabile l'intero modale ma riserva spazio in fondo */
-  #dream-modal{padding:32px 32px 110px !important}
-  /* Pulsante invio FISSO a fondo modale */
-  #dream-go,#dream-modal button[type=submit],.dream-submit{
-    position:sticky !important;
-    bottom:0 !important;
-    margin-top:auto !important;
-    z-index:10 !important;
-    box-shadow:0 -10px 30px rgba(5,3,15,.85), 0 12px 30px rgba(124,58,237,.40) !important;
+  /* Corpo scrollabile */
+  .dream-panel > *:not(.dream-submit):not(button){
+    padding-left:32px;padding-right:32px;
   }
-  #dream-modal::-webkit-scrollbar{width:8px}
-  #dream-modal::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
-  #dream-modal::-webkit-scrollbar-thumb{background:rgba(236,72,153,.45);border-radius:4px}
+  .dream-panel{overflow-y:auto !important}
+  .dream-panel::-webkit-scrollbar{width:10px}
+  .dream-panel::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
+  .dream-panel::-webkit-scrollbar-thumb{background:rgba(236,72,153,.55);border-radius:5px}
+  /* Bottone invio sticky in basso */
+  .dream-panel #dream-go,
+  .dream-panel .dream-submit:not(.dream-submit-ghost){
+    position:sticky !important;bottom:0 !important;z-index:10;
+    margin:24px 32px 24px !important;
+    background:linear-gradient(135deg, var(--cosmic-violet), var(--cosmic-magenta)) !important;
+    color:#fff !important;
+    box-shadow:0 -16px 30px rgba(5,3,15,.92), 0 14px 40px rgba(236,72,153,.40) !important;
+    width:calc(100% - 64px) !important;
+  }
+  .dream-panel .dream-submit-ghost{margin:6px 32px !important;width:calc(100% - 64px) !important}
+  /* Mobile fullscreen */
+  @media(max-width:760px){
+    .dream-modal{padding:0 !important}
+    .dream-panel{
+      max-width:100% !important;
+      max-height:100vh !important;
+      border-radius:0 !important;
+      min-height:100vh;
+    }
+    .dream-panel > h2{padding:18px 20px 12px !important}
+    .dream-panel > *:not(.dream-submit):not(button){padding-left:20px !important;padding-right:20px !important}
+    .dream-panel #dream-go,.dream-panel .dream-submit{margin-left:20px !important;margin-right:20px !important;width:calc(100% - 40px) !important}
+  }
 
   /* === Disclaimer professionale === */
   .disclaimer-section{
