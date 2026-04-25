@@ -223,10 +223,11 @@
     --shadow-md:0 24px 60px rgba(0,0,0,.55);
     --shadow-lg:0 40px 100px rgba(0,0,0,.65);
   }
-  html,body{
+  html{
     background:radial-gradient(ellipse at top, #0e0628 0%, #05030f 60%, #020108 100%) !important;
     color:var(--ink) !important;
   }
+  body{background:transparent !important;color:var(--ink) !important}
   ::selection{background:var(--cosmic-magenta);color:var(--ink)}
   .cursor-dot{background:var(--ink)!important;mix-blend-mode:difference}
   .cursor-ring{border-color:rgba(236,90,160,.55)!important}
@@ -649,33 +650,43 @@
     }
   }
 
-  /* === Hero photo · "io bianco" cutout cosmic glow === */
+  /* === Hero photo · "io bianco" sovraimpressione affianco al titolo === */
   .hero-photo{
     position:absolute;
-    top:50%;right:4vw;
+    top:50%;right:0vw;
     transform:translateY(-50%);
-    width:clamp(280px,28vw,460px);
+    width:clamp(360px,42vw,640px);
     aspect-ratio:1/1;
     margin:0;
     border:0;background:transparent;
-    z-index:1;pointer-events:none;
+    z-index:2;pointer-events:none;
     filter:
-      drop-shadow(0 20px 40px rgba(124,58,237,.45))
-      drop-shadow(0 0 60px rgba(236,72,153,.30))
-      drop-shadow(0 8px 16px rgba(0,0,0,.5));
+      drop-shadow(0 20px 40px rgba(124,58,237,.55))
+      drop-shadow(0 0 80px rgba(236,72,153,.40))
+      drop-shadow(0 8px 20px rgba(0,0,0,.6));
     animation:heroPhotoFloat 6s ease-in-out infinite alternate;
+    mix-blend-mode:normal;
   }
   @keyframes heroPhotoFloat{
     0%{transform:translateY(-50%) translateX(0)}
-    100%{transform:translateY(calc(-50% - 12px)) translateX(-6px)}
+    100%{transform:translateY(calc(-50% - 14px)) translateX(-8px)}
   }
   .hero-photo::before{
-    content:"";position:absolute;inset:-15%;z-index:-1;
-    background:radial-gradient(circle at 50% 55%, rgba(124,58,237,.45) 0%, rgba(236,72,153,.25) 30%, transparent 70%);
-    filter:blur(40px);
+    content:"";position:absolute;inset:-20%;z-index:-1;
+    background:radial-gradient(circle at 50% 55%, rgba(124,58,237,.55) 0%, rgba(236,72,153,.30) 30%, transparent 70%);
+    filter:blur(50px);
+    pointer-events:none;
   }
   .hero-photo img{width:100%;height:100%;object-fit:contain;display:block}
-  @media(max-width:1024px){.hero-photo{display:none}}
+  @media(max-width:760px){
+    .hero-photo{
+      position:relative;width:80%;max-width:340px;
+      top:auto;right:auto;
+      transform:none;margin:24px auto 0;
+      animation:none;
+    }
+    @keyframes heroPhotoFloat{from{transform:none}to{transform:none}}
+  }
 
   /* === Percorsi · layout single column (sidebar foto rimossa) === */
   .percorsi-layout{margin-top:32px}
