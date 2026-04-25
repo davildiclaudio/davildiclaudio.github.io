@@ -374,6 +374,27 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     });
   });
 
+  /* ---------- Book waitlist (Io posso farcela / PNL Esoterica) ---------- */
+  $$('[data-book-form]').forEach(f => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (f.querySelector('input[type=email]')?.value || '').trim();
+      const book = f.dataset.book || 'libro';
+      if (!email) return;
+      const lead = {
+        ts: new Date().toISOString(), email,
+        source: `waitlist-${book}`, code: 'WAIT-' + genCode(),
+        ua: navigator.userAgent.substring(0, 80)
+      };
+      saveLead(lead);
+      const confirm = f.querySelector('.gate-confirm');
+      if (confirm) confirm.removeAttribute('hidden');
+      f.querySelector('input[type=email]').value = '';
+      const r = await sendLeadEmails(lead);
+      if (r.mode === 'localStorage-only') mailtoFallback(lead);
+    });
+  });
+
   /* ---------- Doppio PDF · Psicosintesi + Transurfing · timer 15min ---------- */
   const pdfCard = $('[data-pdf-card]');
   const pdfForm = $('[data-pdf-form]');

@@ -698,16 +698,17 @@
     }
   }
 
-  /* === Hero photo · "io bianco" sovraimpressione affianco al titolo === */
+  /* === Hero photo · "io bianco" verticale (crop 100px lati) === */
   .hero-photo{
     position:absolute;
     top:50%;right:0vw;
     transform:translateY(-50%);
-    width:clamp(360px,42vw,640px);
-    aspect-ratio:1/1;
+    width:clamp(280px,32vw,460px);
+    aspect-ratio:2/3; /* portrait · taglia 100px lati 3000×3000 */
     margin:0;
     border:0;background:transparent;
     z-index:2;pointer-events:none;
+    overflow:hidden;
     filter:
       drop-shadow(0 20px 40px rgba(124,58,237,.55))
       drop-shadow(0 0 80px rgba(236,72,153,.40))
@@ -726,8 +727,12 @@
     pointer-events:none;
   }
   .hero-photo img{
-    width:100%;height:100%;object-fit:contain;display:block;
-    /* PNG già trasparente · niente blend, figura nitida sopra al cosmico */
+    /* zoom orizzontale: 100px su 3000 = ~3.4% per lato → width 106.7% */
+    width:calc(100% + 12.5%);
+    height:100%;
+    object-fit:cover;object-position:center;display:block;
+    margin-left:-6.25%;
+    /* PNG trasparente · niente blend */
   }
   @media(max-width:1024px){
     .hero-photo{
@@ -1228,12 +1233,43 @@
   .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
   @media(max-width:1100px){.cards-3{grid-template-columns:1fr;gap:32px}}
   .rcard{
-    padding:36px 32px;border:1px solid var(--border);border-radius:var(--radius);
-    display:flex;flex-direction:column;gap:16px;min-height:280px;
+    padding:28px 26px;border:1px solid var(--border);border-radius:var(--radius);
+    display:flex;flex-direction:column;gap:12px;min-height:0;
     transition:transform .5s var(--ease),border-color .3s;
     background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
   }
+  .rcard h3{margin:4px 0}
+  .rcard ul{margin:6px 0 8px}
+  .rcard p{margin:4px 0}
   .rcard:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+  /* Coming soon books */
+  .book-soon{position:relative;padding-top:48px}
+  .soon-badge{
+    position:absolute;top:14px;left:14px;
+    font-family:var(--ff-sans);font-size:10px;letter-spacing:.30em;text-transform:uppercase;
+    color:var(--cosmic-cyan);padding:5px 12px;
+    border:1px solid rgba(34,211,238,.45);border-radius:999px;
+    background:rgba(34,211,238,.08);
+    box-shadow:0 0 20px rgba(34,211,238,.15);
+  }
+  .book-waitlist{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .book-waitlist input[type=email]{
+    background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
+    padding:12px 14px;color:var(--ink);font:inherit;font-size:14px;
+  }
+  .book-waitlist button{
+    padding:12px 18px;border-radius:999px;border:0;
+    background:linear-gradient(135deg, var(--cosmic-cyan) 0%, var(--cosmic-violet) 100%);
+    color:#fff;font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;
+    cursor:pointer;transition:transform .25s,box-shadow .35s;
+    box-shadow:0 8px 24px rgba(34,211,238,.30);
+  }
+  .book-waitlist button:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(34,211,238,.50)}
+  .book-waitlist .gate-check{font-size:11px;color:var(--ink-soft);line-height:1.5;display:flex;gap:8px}
+  .book-waitlist .gate-check input{accent-color:var(--cosmic-magenta)}
+  .book-waitlist .gate-confirm{margin:6px 0 0;font-size:12px;color:var(--gold);font-style:italic}
+  .book-waitlist .gate-confirm:not([hidden]){display:block}
+
   /* PDF timer + downloads + Ars Realis password reveal */
   .pdf-timer{
     display:flex;align-items:center;gap:14px;margin:18px 0;
@@ -1251,7 +1287,42 @@
   .pdf-timer-clock{font-family:'Fraunces',serif;font-style:italic;font-size:32px;color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums}
   .pdf-timer.expired{background:rgba(236,72,153,.10);border-color:rgba(236,90,160,.40);animation:none}
   .pdf-timer.expired .pdf-timer-clock{color:var(--crimson-bright);font-size:18px}
-  .pdf-downloads{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .pdf-downloads{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+  .pdf-pills-intro{
+    margin:0;font-family:var(--ff-display);font-style:italic;
+    color:var(--ink-soft);font-size:13px;text-align:center;
+  }
+  .pdf-pills-intro em{color:var(--gold)}
+  .pdf-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .pdf-pill{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:10px 16px 10px 12px;border-radius:999px;
+    background:linear-gradient(135deg, rgba(244,201,93,.18), rgba(124,58,237,.15));
+    border:1px solid rgba(244,201,93,.45);
+    color:var(--ink);text-decoration:none;
+    font-family:var(--ff-sans);font-size:11px;
+    transition:all .35s var(--ease);
+    box-shadow:0 6px 18px rgba(244,201,93,.18), 0 0 0 1px rgba(244,201,93,.20) inset;
+  }
+  .pdf-pill:hover{
+    transform:translateY(-2px);
+    background:linear-gradient(135deg, rgba(244,201,93,.32), rgba(236,72,153,.20));
+    border-color:rgba(244,201,93,.70);
+    box-shadow:0 12px 30px rgba(244,201,93,.30), 0 0 24px rgba(244,201,93,.20);
+  }
+  .pp-symbol{
+    width:32px;height:32px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle, rgba(244,201,93,.40), rgba(124,58,237,.20));
+    color:var(--gold);font-family:'Fraunces',serif;font-size:18px;
+    border:1px solid rgba(244,201,93,.50);
+    flex-shrink:0;
+  }
+  .pp-text{display:flex;flex-direction:column;gap:0;line-height:1.1}
+  .pp-tag{font-family:'Fraunces',serif;font-style:italic;font-size:9px;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+  .pp-name{font-family:'Fraunces',serif;font-weight:500;font-size:14px;color:var(--ink);letter-spacing:-.005em}
+  .pp-author{font-size:9px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;margin-top:1px}
+  .pdf-pill-2 .pp-symbol{background:radial-gradient(circle, rgba(34,211,238,.40), rgba(124,58,237,.20));color:var(--cosmic-cyan);border-color:rgba(34,211,238,.50)}
   .ars-pw-reveal{
     margin-top:14px;padding:18px;border-radius:14px;text-align:center;
     background:linear-gradient(135deg, rgba(124,58,237,.20), rgba(244,201,93,.10));
@@ -1264,7 +1335,7 @@
   .ars-pw-code{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:36px;color:var(--gold);letter-spacing:.10em;margin:6px 0;text-shadow:0 0 24px rgba(244,201,93,.4);user-select:all;cursor:pointer}
   .ars-pw-note{margin:8px 0 0;font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
 
-  /* === Dream Interpreter Modal · ombra blu + fix bottom === */
+  /* === Dream Interpreter Modal · ombra blu + fix bottom + pulsante invio sempre visibile === */
   #dream-modal{
     box-shadow:
       0 50px 120px rgba(45,45,224,.55),
@@ -1273,10 +1344,26 @@
       0 0 0 1px rgba(180,150,240,.30) inset !important;
     border-radius:20px !important;
     max-height:92vh !important;
-    overflow-y:auto !important;
-    padding-bottom:32px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+    padding:0 !important;
     overscroll-behavior:contain;
+  }
+  #dream-modal > *:not(#dream-actions):not(.dream-actions-bar){
+    overflow-y:auto;
     -webkit-overflow-scrolling:touch;
+    flex:1 1 auto;
+  }
+  /* fallback: rendi scrollabile l'intero modale ma riserva spazio in fondo */
+  #dream-modal{padding:32px 32px 110px !important}
+  /* Pulsante invio FISSO a fondo modale */
+  #dream-go,#dream-modal button[type=submit],.dream-submit{
+    position:sticky !important;
+    bottom:0 !important;
+    margin-top:auto !important;
+    z-index:10 !important;
+    box-shadow:0 -10px 30px rgba(5,3,15,.85), 0 12px 30px rgba(124,58,237,.40) !important;
   }
   #dream-modal::-webkit-scrollbar{width:8px}
   #dream-modal::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
@@ -2039,22 +2126,40 @@
     <h2 class="sect-h" data-split-words>Due libri. <em>Due lati della stessa medaglia.</em></h2>
 
     <div class="cards-2">
-      <div class="rcard" data-reveal>
+      <div class="rcard book-soon" data-reveal>
+        <span class="soon-badge">COMING SOON · presto in pubblicazione</span>
         <div class="r-meta">Libro 01 · Autobiografia</div>
         <h3>Io posso farcela</h3>
         <div class="r-sub">Come crescono i semi del successo</div>
         <p>La guerra con i propri demoni raccontata senza filtri — Civitavecchia, la fabbrica, Dubai, il crollo, il ritorno. Le leggi universali lette non come dogmi ma come <strong>ciò che ho dovuto imparare nella carne</strong> per tornare in superficie.</p>
         <p><em>Per chi ha bisogno di una storia vera prima di fidarsi di una tecnica.</em></p>
-        <a href="#contatti" class="cta-inline">→ Leggi il primo capitolo gratis</a>
+        <form class="gate book-waitlist" data-book-form data-book="io-posso-farcela">
+          <input type="email" name="email" placeholder="La tua email · lista d'attesa" required />
+          <button type="submit">Avvisami all'uscita</button>
+          <label class="gate-check">
+            <input type="checkbox" required/>
+            <span>Acconsento al trattamento dei dati personali per essere avvisato all'uscita del libro e per comunicazioni promozionali · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
+          <p class="gate-confirm" hidden>In lista. Ti scrivo non appena esce.</p>
+        </form>
       </div>
 
-      <div class="rcard" data-reveal>
+      <div class="rcard book-soon" data-reveal>
+        <span class="soon-badge">COMING SOON · presto in pubblicazione</span>
         <div class="r-meta">Libro 02 · Corpus teorico</div>
         <h3>PNL Esoterica</h3>
         <div class="r-sub">Programmare il magico chaos del mondo con le parole e non solo</div>
         <p>Un intreccio di psicologia clinica, neuroscienze, gnosi antica, alchimia interiore, Transurfing e linguistica operativa. Scritto per il ricercatore serio — quello che vuole capire come funziona davvero la macchina.</p>
         <p><em>Per chi ha già letto Jung, Assagioli, Zeland e vuole vederli lavorare insieme.</em></p>
-        <a href="#contatti" class="cta-inline">→ Scarica l'introduzione + indice</a>
+        <form class="gate book-waitlist" data-book-form data-book="pnl-esoterica">
+          <input type="email" name="email" placeholder="La tua email · lista d'attesa" required />
+          <button type="submit">Avvisami all'uscita</button>
+          <label class="gate-check">
+            <input type="checkbox" required/>
+            <span>Acconsento al trattamento dei dati personali per essere avvisato all'uscita del libro e per comunicazioni promozionali · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
+          <p class="gate-confirm" hidden>In lista. Ti scrivo non appena esce.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -2084,6 +2189,10 @@
         <form class="gate" data-ars-form>
           <input type="email" name="email" placeholder="La tua email" required />
           <button type="submit">Voglio entrare</button>
+          <label class="gate-check" style="margin-top:6px;font-size:11px">
+            <input type="checkbox" required/>
+            <span>Acconsento al trattamento dei dati per ricevere accesso e comunicazioni · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
           <div class="ars-pw-reveal" data-ars-reveal hidden>
             <p class="ars-pw-label">Password d'accesso</p>
             <div class="ars-pw-code" data-ars-code>11279336</div>
@@ -2125,11 +2234,24 @@
           <input type="text" name="name" placeholder="Il tuo nome" required style="margin-bottom:10px"/>
           <input type="email" name="email" placeholder="La tua email" required />
           <button type="submit" class="btn-wa-style">Voglio i due PDF gratis</button>
+          <label class="gate-check" style="margin-top:8px;font-size:11px">
+            <input type="checkbox" required/>
+            <span>Acconsento al trattamento dei dati per ricevere i PDF e comunicazioni promozionali · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
           <p class="gate-note" data-pdf-status></p>
         </form>
         <div class="pdf-downloads" data-pdf-downloads hidden>
-          <a href="assets/pdf/psicoenergetica-pensiero-sintesi.pdf" target="_blank" download class="btn-primary" style="margin-top:8px;display:inline-flex;gap:10px;font-size:13px;letter-spacing:.04em">📕 Scarica · Psicoenergetica (Assagioli)</a>
-          <a href="assets/pdf/transurfing-della-realta.pdf" target="_blank" download class="btn-primary" style="margin-top:8px;display:inline-flex;gap:10px;font-size:13px;letter-spacing:.04em;background:linear-gradient(135deg, #f4c95d 0%, #ec4899 100%) !important">📘 Scarica · Transurfing della Realtà</a>
+          <p class="pdf-pills-intro">Due pillole di <em>saggezza antica complementare</em></p>
+          <div class="pdf-pills">
+            <a href="assets/pdf/psicoenergetica-pensiero-sintesi.pdf" target="_blank" download class="pdf-pill pdf-pill-1">
+              <span class="pp-symbol" aria-hidden="true">⚭</span>
+              <span class="pp-text"><span class="pp-tag">I</span><span class="pp-name">Psicoenergetica</span><span class="pp-author">Assagioli</span></span>
+            </a>
+            <a href="assets/pdf/transurfing-della-realta.pdf" target="_blank" download class="pdf-pill pdf-pill-2">
+              <span class="pp-symbol" aria-hidden="true">∞</span>
+              <span class="pp-text"><span class="pp-tag">II</span><span class="pp-name">Transurfing</span><span class="pp-author">Zeland</span></span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2211,6 +2333,10 @@
         <label class="gate-row">
           <span>Codice</span>
           <input type="password" name="member-code" required placeholder="codice ricevuto via email" autocomplete="current-password"/>
+        </label>
+        <label class="gate-check" style="font-size:11px">
+          <input type="checkbox" required/>
+          <span>Acconsento al trattamento dei dati per accedere all'area riservata · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
         </label>
         <button type="submit" class="btn-primary">Entra</button>
         <p class="membri-help">Hai dimenticato il codice? <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20il%20codice%20di%20accesso%20area%20membri" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
