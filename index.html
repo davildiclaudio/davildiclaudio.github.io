@@ -1235,6 +1235,87 @@
     background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
   }
   .rcard:hover{transform:translateY(-3px);border-color:var(--border-hover)}
+  /* PDF timer + downloads + Ars Realis password reveal */
+  .pdf-timer{
+    display:flex;align-items:center;gap:14px;margin:18px 0;
+    padding:14px 18px;border-radius:12px;
+    background:linear-gradient(135deg, rgba(244,201,93,.18), rgba(236,72,153,.10));
+    border:1px solid rgba(244,201,93,.40);
+    box-shadow:0 12px 40px rgba(244,201,93,.20),0 0 0 1px rgba(244,201,93,.18) inset;
+    animation:pdfTimerPulse 3s ease-in-out infinite alternate;
+  }
+  @keyframes pdfTimerPulse{
+    0%{box-shadow:0 12px 40px rgba(244,201,93,.20),0 0 0 1px rgba(244,201,93,.18) inset}
+    100%{box-shadow:0 16px 60px rgba(236,72,153,.40),0 0 0 1px rgba(236,72,153,.40) inset}
+  }
+  .pdf-timer-label{font-family:var(--ff-sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+  .pdf-timer-clock{font-family:'Fraunces',serif;font-style:italic;font-size:32px;color:var(--gold);font-weight:500;font-variant-numeric:tabular-nums}
+  .pdf-timer.expired{background:rgba(236,72,153,.10);border-color:rgba(236,90,160,.40);animation:none}
+  .pdf-timer.expired .pdf-timer-clock{color:var(--crimson-bright);font-size:18px}
+  .pdf-downloads{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+  .ars-pw-reveal{
+    margin-top:14px;padding:18px;border-radius:14px;text-align:center;
+    background:linear-gradient(135deg, rgba(124,58,237,.20), rgba(244,201,93,.10));
+    border:1px solid rgba(244,201,93,.45);
+    box-shadow:0 12px 40px rgba(124,58,237,.30),0 0 0 1px rgba(244,201,93,.20) inset;
+    animation:arsReveal .6s var(--ease-smooth);
+  }
+  @keyframes arsReveal{from{opacity:0;transform:translateY(10px) scale(.95)}to{opacity:1;transform:none}}
+  .ars-pw-label{margin:0 0 6px;font-family:var(--ff-sans);font-size:10px;letter-spacing:.30em;text-transform:uppercase;color:var(--ink-soft)}
+  .ars-pw-code{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:36px;color:var(--gold);letter-spacing:.10em;margin:6px 0;text-shadow:0 0 24px rgba(244,201,93,.4);user-select:all;cursor:pointer}
+  .ars-pw-note{margin:8px 0 0;font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
+
+  /* === Dream Interpreter Modal · ombra blu + fix bottom === */
+  #dream-modal{
+    box-shadow:
+      0 50px 120px rgba(45,45,224,.55),
+      0 20px 60px rgba(124,58,237,.45),
+      0 0 100px rgba(45,45,224,.30),
+      0 0 0 1px rgba(180,150,240,.30) inset !important;
+    border-radius:20px !important;
+    max-height:92vh !important;
+    overflow-y:auto !important;
+    padding-bottom:32px !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  #dream-modal::-webkit-scrollbar{width:8px}
+  #dream-modal::-webkit-scrollbar-track{background:rgba(124,58,237,.10)}
+  #dream-modal::-webkit-scrollbar-thumb{background:rgba(236,72,153,.45);border-radius:4px}
+
+  /* === MOBILE / HD OPTIMIZATIONS === */
+  /* Tap targets ≥44px su mobile */
+  @media(max-width:760px){
+    .btn-primary,.btn-wa,.gate button,.btn-wa-style{min-height:48px;padding:14px 22px;font-size:13px}
+    .nav-menu a,.dd-item{min-height:44px;padding:12px 14px}
+    .gate-row input,.gate input[type=email]{font-size:16px;padding:14px 16px} /* 16px evita zoom iOS */
+    /* Hero + spaziature scalano */
+    .hero{padding:120px 22px 70px;min-height:auto}
+    section{padding:clamp(60px,10vh,100px) 22px !important}
+    .h-big,.sect-h{font-size:clamp(32px,9vw,56px) !important}
+    .mega{font-size:clamp(40px,11vw,80px) !important}
+    .quote-big{font-size:clamp(20px,5vw,28px) !important}
+    /* Tutto fluid · niente colonne larghe inutili */
+    .manifesto-grid,.chi-grid,.percorsi-layout,.body-network,.contatti-photo-wrap,.membri-grid,.masterclass-gate,.assi,.pilastri{grid-template-columns:1fr !important;gap:32px !important}
+    /* Foto rispettano l'altezza naturale */
+    .hero-photo,.contatti-photo,.storia-inline-photo{transform:none !important;animation:none !important}
+    /* Modal interprete fullscreen su mobile */
+    #dream-modal{width:96% !important;max-width:none !important;border-radius:14px !important}
+    /* Riduzione canvas Three per perf */
+    .universe-bg{opacity:.7 !important}
+  }
+  /* Tablet */
+  @media(min-width:761px) and (max-width:1024px){
+    .hero-photo{width:clamp(240px,38vw,380px);right:3vw}
+    section{padding:clamp(80px,12vh,140px) 32px !important}
+  }
+  /* HD / Retina · loading sharper */
+  img{image-rendering:auto;-webkit-backface-visibility:hidden}
+  /* Smooth scroll su tutti */
+  html{scroll-behavior:smooth}
+  /* Anti-FOUC su font swap */
+  body{font-display:swap}
+
   /* Featured card · spicca con doppio glow oro/violet */
   .rcard.featured-card{
     box-shadow:
@@ -2001,12 +2082,16 @@
           <li><strong>Diario personale</strong> privato</li>
           <li><strong>Community indipendente</strong> — niente lignaggi</li>
         </ul>
-        <form class="gate" onsubmit="event.preventDefault();this.querySelector('.gate-confirm').style.display='block';this.querySelector('input').value=''">
-          <input type="email" placeholder="La tua email" required />
+        <form class="gate" data-ars-form>
+          <input type="email" name="email" placeholder="La tua email" required />
           <button type="submit">Voglio entrare</button>
-          <p class="gate-note gate-confirm" style="display:none;width:100%;color:var(--gold)">Controlla la posta entro pochi minuti. Se non arriva, guarda nello spam. Poi scrivimi su WhatsApp.</p>
+          <div class="ars-pw-reveal" data-ars-reveal hidden>
+            <p class="ars-pw-label">Password d'accesso</p>
+            <div class="ars-pw-code" data-ars-code>11279336</div>
+            <p class="ars-pw-note">Conservala. <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20avuto%20la%20password%20Ars%20Realis%2C%20serve%20aiuto%20accesso" target="_blank" rel="noopener" style="color:var(--gold)">Scrivimi su WhatsApp</a> se hai problemi.</p>
+          </div>
         </form>
-        <div class="gate-note" style="margin-top:4px">Lasci la mail, ricevi la <strong>password d'accesso</strong>. Nessuna carta, nessun pagamento.</div>
+        <div class="gate-note" style="margin-top:4px">Lasci la mail, ricevi la <strong>password d'accesso</strong> immediatamente. Nessuna carta, nessun pagamento.</div>
       </div>
 
       <!-- Interprete Sogni -->
@@ -2022,23 +2107,31 @@
         </a>
       </div>
 
-      <!-- Psicosintesi PDF -->
-      <div class="rcard" data-reveal>
-        <div class="r-meta">03 · PDF gratuito</div>
-        <h3>Psicosintesi · Il compendio</h3>
-        <div class="r-sub">Il pensiero di Assagioli in un libro</div>
-        <p>Un compendio scritto in prima persona: il mio riassunto ordinato, narrativo, leggibile del patrimonio custodito in <em>psicoenergetica.it</em> — scritti di <strong>Roberto Assagioli</strong>, Viglienghi, Bartoli.</p>
+      <!-- Doppio PDF gratis · Psicosintesi + Transurfing -->
+      <div class="rcard featured-card" id="risorsa-pdf" data-reveal data-pdf-card>
+        <div class="r-meta" style="color:var(--gold)">03 · Doppio PDF · OFFERTA LIMITATA</div>
+        <h3>Psicosintesi + Transurfing</h3>
+        <div class="r-sub">Doppio compendio · valore <span style="text-decoration:line-through;color:var(--ink-dim)">€37</span> <strong style="color:var(--gold)">GRATIS</strong></div>
+        <p><strong>«Psicoenergetica · Il Pensiero della Sintesi»</strong> — il pensiero completo di Roberto Assagioli, Viglienghi, Bartoli. <strong>«Il Transurfing della Realtà»</strong> — il manuale operativo di Vadim Zeland.</p>
         <ul>
-          <li><strong>38 capitoli</strong>, 10 parti</li>
-          <li><strong>Glossario</strong> ragionato</li>
-          <li><strong>Bibliografia</strong> essenziale</li>
+          <li><strong>2 PDF integrali</strong>, oltre 600 pagine</li>
+          <li><strong>Pronti al download</strong> dopo l'iscrizione</li>
+          <li><strong>Gratuito solo per chi richiede entro 15 minuti</strong></li>
         </ul>
-        <p><em>Se vuoi capire come lavoro, la Psicosintesi è il sistema operativo sotto il cofano — ti tocca capirla.</em></p>
-        <form class="gate" onsubmit="event.preventDefault();this.querySelector('.gate-confirm').style.display='block';this.querySelector('input').value=''">
-          <input type="email" placeholder="La tua email" required />
-          <button type="submit">Scarica il PDF</button>
-          <p class="gate-note gate-confirm" style="display:none;width:100%;color:var(--gold)">Controlla la posta. Il PDF arriva a breve.</p>
+        <div class="pdf-timer" data-pdf-timer>
+          <span class="pdf-timer-label">Offerta scade tra</span>
+          <span class="pdf-timer-clock"><span data-pdf-min>15</span>:<span data-pdf-sec>00</span></span>
+        </div>
+        <form class="gate" data-pdf-form>
+          <input type="text" name="name" placeholder="Il tuo nome" required style="margin-bottom:10px"/>
+          <input type="email" name="email" placeholder="La tua email" required />
+          <button type="submit" class="btn-wa-style">Voglio i due PDF gratis</button>
+          <p class="gate-note" data-pdf-status></p>
         </form>
+        <div class="pdf-downloads" data-pdf-downloads hidden>
+          <a href="assets/pdf/psicoenergetica-pensiero-sintesi.pdf" target="_blank" download class="btn-primary" style="margin-top:8px;display:inline-flex;gap:10px;font-size:13px;letter-spacing:.04em">📕 Scarica · Psicoenergetica (Assagioli)</a>
+          <a href="assets/pdf/transurfing-della-realta.pdf" target="_blank" download class="btn-primary" style="margin-top:8px;display:inline-flex;gap:10px;font-size:13px;letter-spacing:.04em;background:linear-gradient(135deg, #f4c95d 0%, #ec4899 100%) !important">📘 Scarica · Transurfing della Realtà</a>
+        </div>
       </div>
     </div>
 

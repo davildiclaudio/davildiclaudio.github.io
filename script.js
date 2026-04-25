@@ -348,24 +348,87 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     if (r.mode === 'localStorage-only') mailtoFallback(lead);
   });
 
-  /* ---------- Ars Realis email gate (existing rcard form) ---------- */
-  $$('.rcard form.gate').forEach(f => {
+  /* ---------- Ars Realis · password istantanea 11279336 ---------- */
+  const ARS_PASSWORD = '11279336';
+  $$('[data-ars-form]').forEach(f => {
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = (f.querySelector('input[type=email]')?.value || '').trim();
       if (!email) return;
       const lead = {
         ts: new Date().toISOString(), email,
-        source: 'ars-realis', code: genCode(),
+        source: 'ars-realis', code: ARS_PASSWORD,
         ua: navigator.userAgent.substring(0, 80)
       };
       saveLead(lead);
-      const confirm = f.querySelector('.gate-confirm');
-      if (confirm) confirm.style.display = 'block';
-      f.querySelector('input[type=email]').value = '';
+      const reveal = f.querySelector('[data-ars-reveal]');
+      if (reveal) reveal.removeAttribute('hidden');
+      const codeEl = f.querySelector('[data-ars-code]');
+      if (codeEl) codeEl.addEventListener('click', () => {
+        navigator.clipboard?.writeText(ARS_PASSWORD);
+        codeEl.style.color = 'var(--cosmic-cyan)';
+        setTimeout(() => codeEl.style.color = '', 800);
+      });
       const r = await sendLeadEmails(lead);
       if (r.mode === 'localStorage-only') mailtoFallback(lead);
     });
+  });
+
+  /* ---------- Doppio PDF · Psicosintesi + Transurfing · timer 15min ---------- */
+  const pdfCard = $('[data-pdf-card]');
+  const pdfForm = $('[data-pdf-form]');
+  const pdfDownloads = $('[data-pdf-downloads]');
+  const pdfStatus = $('[data-pdf-status]');
+  const pdfMin = $('[data-pdf-min]');
+  const pdfSec = $('[data-pdf-sec]');
+  const pdfTimerBox = $('[data-pdf-timer]');
+  const PDF_DEADLINE_KEY = 'davil_pdf_deadline';
+  const PDF_WINDOW = 15 * 60 * 1000; // 15 minuti
+  // Avvia/leggi timer (persistente per visitor)
+  let deadline = parseInt(localStorage.getItem(PDF_DEADLINE_KEY) || '0', 10);
+  if (!deadline || deadline < Date.now()) {
+    deadline = Date.now() + PDF_WINDOW;
+    localStorage.setItem(PDF_DEADLINE_KEY, deadline.toString());
+  }
+  const updateTimer = () => {
+    if (!pdfMin || !pdfSec) return;
+    const now = Date.now();
+    const left = Math.max(0, deadline - now);
+    const m = Math.floor(left / 60000);
+    const s = Math.floor((left % 60000) / 1000);
+    pdfMin.textContent = String(m).padStart(2, '0');
+    pdfSec.textContent = String(s).padStart(2, '0');
+    if (left <= 0) {
+      pdfTimerBox?.classList.add('expired');
+      pdfTimerBox && (pdfTimerBox.querySelector('.pdf-timer-clock').textContent = 'Offerta scaduta · scrivimi su WhatsApp');
+    }
+  };
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  pdfForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(pdfForm);
+    const lead = {
+      ts: new Date().toISOString(),
+      name: (fd.get('name') || '').toString().trim(),
+      email: (fd.get('email') || '').toString().trim(),
+      source: 'doppio-pdf-psicosintesi-transurfing',
+      code: 'PDF-' + genCode(),
+      ua: navigator.userAgent.substring(0, 80)
+    };
+    if (!lead.email || !lead.name) {
+      pdfStatus.textContent = 'Compila nome e email.';
+      pdfStatus.style.color = 'var(--crimson-bright)';
+      return;
+    }
+    saveLead(lead);
+    pdfStatus.style.color = 'var(--gold)';
+    pdfStatus.textContent = 'Fatto! I PDF sono qui sotto. Anche via email.';
+    pdfDownloads?.removeAttribute('hidden');
+    pdfForm.querySelector('button[type=submit]').textContent = 'Scaricato — guarda sotto';
+    const r = await sendLeadEmails(lead);
+    if (r.mode === 'localStorage-only') mailtoFallback(lead);
   });
 
   /* ---------- Logo dropdown menu ---------- */
