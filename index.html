@@ -1281,6 +1281,62 @@
   .book-waitlist .gate-confirm{margin:6px 0 0;font-size:12px;color:var(--gold);font-style:italic}
   .book-waitlist .gate-confirm:not([hidden]){display:block}
 
+  /* === Coming Soon Overlay (PDF pills) === */
+  .cs-overlay{
+    position:fixed;inset:0;z-index:9100;
+    background:rgba(5,3,15,.85);backdrop-filter:blur(14px);
+    display:flex;align-items:center;justify-content:center;padding:24px;
+    opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s;
+  }
+  .cs-overlay:not([hidden]){opacity:1;visibility:visible}
+  .cs-panel{
+    width:100%;max-width:520px;
+    background:linear-gradient(135deg, rgba(20,14,50,.96), rgba(40,28,80,.92));
+    border:1px solid rgba(244,201,93,.40);border-radius:20px;
+    padding:36px 32px 32px;position:relative;
+    box-shadow:0 50px 120px rgba(45,45,224,.55),0 0 0 1px rgba(244,201,93,.18) inset;
+    transform:scale(.92);transition:transform .45s var(--ease);
+  }
+  .cs-overlay:not([hidden]) .cs-panel{transform:scale(1)}
+  .cs-close{
+    position:absolute;top:14px;right:14px;
+    width:36px;height:36px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.05);color:var(--ink);
+    font-size:24px;line-height:1;cursor:pointer;
+    transition:background .25s;
+  }
+  .cs-close:hover{background:rgba(236,72,153,.25)}
+  .cs-badge{
+    display:inline-block;font-family:var(--ff-sans);font-size:10px;letter-spacing:.30em;
+    text-transform:uppercase;color:var(--cosmic-cyan);
+    padding:5px 12px;border:1px solid rgba(34,211,238,.50);border-radius:999px;
+    background:rgba(34,211,238,.08);margin-bottom:16px;
+  }
+  .cs-h{font-family:var(--ff-display);font-weight:300;font-size:clamp(22px,3.4vw,30px);line-height:1.15;margin:0 0 14px;color:var(--ink)}
+  .cs-h em{color:var(--gold);font-style:italic}
+  .cs-text{color:var(--ink-soft);font-size:14.5px;line-height:1.65;margin:0 0 22px}
+  .cs-text strong{color:var(--gold)}
+  [data-cs-form]{display:flex;flex-direction:column;gap:12px}
+  [data-cs-form] input{
+    background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
+    padding:13px 16px;color:var(--ink);font:inherit;font-size:14px;
+  }
+  [data-cs-form] input:focus{outline:0;border-color:rgba(236,90,160,.6);box-shadow:0 0 0 3px rgba(236,72,153,.18)}
+  .cs-check{display:flex;gap:10px;align-items:flex-start;font-size:11px;color:var(--ink-soft);line-height:1.5}
+  .cs-check input{accent-color:var(--cosmic-magenta);margin-top:3px}
+  .cs-check a{color:var(--gold)}
+  .cs-submit{
+    padding:14px 22px;border:0;border-radius:999px;
+    background:linear-gradient(135deg, var(--cosmic-violet), var(--cosmic-magenta));
+    color:#fff;font:inherit;font-size:13px;font-weight:600;letter-spacing:.06em;
+    cursor:pointer;transition:transform .25s,box-shadow .35s;
+    margin-top:6px;
+    box-shadow:0 8px 24px rgba(124,58,237,.40);
+  }
+  .cs-submit:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(236,72,153,.50)}
+  .cs-status{margin:8px 0 0;font-size:12px;color:var(--gold);min-height:1em}
+  .cs-status.error{color:var(--crimson-bright)}
+
   /* PDF timer + downloads + Ars Realis password reveal */
   .pdf-timer{
     display:flex;align-items:center;gap:14px;margin:18px 0;
@@ -2346,14 +2402,14 @@
         <div class="pdf-downloads" data-pdf-downloads hidden>
           <p class="pdf-pills-intro">Due pillole di <em>saggezza antica complementare</em></p>
           <div class="pdf-pills">
-            <a href="assets/pdf/psicoenergetica-pensiero-sintesi.pdf" target="_blank" download class="pdf-pill pdf-pill-1">
+            <button type="button" class="pdf-pill pdf-pill-1" data-pill-soon="psicoenergetica-assagioli">
               <span class="pp-symbol" aria-hidden="true">⚭</span>
               <span class="pp-text"><span class="pp-tag">I</span><span class="pp-name">Psicoenergetica</span><span class="pp-author">Assagioli</span></span>
-            </a>
-            <a href="assets/pdf/transurfing-della-realta.pdf" target="_blank" download class="pdf-pill pdf-pill-2">
+            </button>
+            <button type="button" class="pdf-pill pdf-pill-2" data-pill-soon="transurfing-zeland">
               <span class="pp-symbol" aria-hidden="true">∞</span>
               <span class="pp-text"><span class="pp-tag">II</span><span class="pp-name">Transurfing</span><span class="pp-author">Zeland</span></span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -2575,6 +2631,27 @@
       <figure class="contatti-photo" data-reveal><img src="assets/photos/davil-09.png" alt="" loading="lazy" decoding="async"/></figure>
     </div>
   </section>
+
+  <!-- COMING SOON OVERLAY (per PDF pill) -->
+  <div id="comingSoonOverlay" class="cs-overlay" hidden>
+    <div class="cs-panel" role="dialog" aria-modal="true" aria-labelledby="csTitle">
+      <button class="cs-close" type="button" aria-label="Chiudi" data-cs-close>×</button>
+      <span class="cs-badge">· COMING SOON ·</span>
+      <h3 id="csTitle" class="cs-h">«<span data-cs-name>—</span>» <em>arriva tra pochi giorni.</em></h3>
+      <p class="cs-text">Stiamo finalizzando le ultime correzioni editoriali. Lascia i tuoi dati: ti spedisco il PDF via email <strong>il giorno della pubblicazione</strong>, prima di chiunque altro.</p>
+      <form data-cs-form>
+        <input type="text" name="name" placeholder="Il tuo nome" required autocomplete="name"/>
+        <input type="email" name="email" placeholder="La tua email" required autocomplete="email"/>
+        <input type="tel" name="phone" placeholder="Numero (opzionale)" autocomplete="tel"/>
+        <label class="cs-check">
+          <input type="checkbox" required/>
+          <span>Acconsento al trattamento dei dati per ricevere il PDF e comunicazioni dirette · <a href="privacy.html" target="_blank" rel="noopener">Privacy</a></span>
+        </label>
+        <button type="submit" class="cs-submit">Avvisami appena pronto</button>
+        <p class="cs-status" data-cs-status></p>
+      </form>
+    </div>
+  </div>
 
   <!-- DISCLAIMER LEGALE -->
   <section class="disclaimer-section">

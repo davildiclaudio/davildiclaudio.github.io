@@ -366,6 +366,60 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     });
   });
 
+  /* ---------- Coming Soon Overlay (PDF pills · Psicoenergetica + Transurfing) ---------- */
+  const csOverlay = $('#comingSoonOverlay');
+  const csForm = $('[data-cs-form]');
+  const csStatus = $('[data-cs-status]');
+  const csName = $('[data-cs-name]');
+  let csCurrent = '';
+  const titles = {
+    'psicoenergetica-assagioli': 'Psicoenergetica · Assagioli',
+    'transurfing-zeland': 'Transurfing · Zeland'
+  };
+  $$('[data-pill-soon]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      csCurrent = btn.dataset.pillSoon;
+      if (csName) csName.textContent = titles[csCurrent] || csCurrent;
+      if (csStatus) { csStatus.textContent = ''; csStatus.classList.remove('error'); }
+      csOverlay?.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  const closeCs = () => {
+    csOverlay?.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+  };
+  $$('[data-cs-close]').forEach(b => b.addEventListener('click', closeCs));
+  csOverlay?.addEventListener('click', (e) => { if (e.target === csOverlay) closeCs(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && csOverlay && !csOverlay.hasAttribute('hidden')) closeCs(); });
+
+  csForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(csForm);
+    const lead = {
+      ts: new Date().toISOString(),
+      name: (fd.get('name') || '').toString().trim(),
+      email: (fd.get('email') || '').toString().trim(),
+      phone: (fd.get('phone') || '').toString().trim(),
+      source: `coming-soon-${csCurrent}`,
+      code: 'CS-' + genCode(),
+      ua: navigator.userAgent.substring(0, 80)
+    };
+    if (!lead.email || !lead.name) {
+      csStatus.textContent = 'Compila almeno nome e email.';
+      csStatus.classList.add('error');
+      return;
+    }
+    saveLead(lead);
+    csStatus.classList.remove('error');
+    csStatus.textContent = `Fatto! Ti scrivo appena «${titles[csCurrent]}» è pronto.`;
+    csForm.reset();
+    setTimeout(closeCs, 1800);
+    const r = await sendLeadEmails(lead);
+    if (r.mode === 'localStorage-only') mailtoFallback(lead);
+  });
+
   /* ---------- Book waitlist (Io posso farcela / PNL Esoterica) ---------- */
   $$('[data-book-form]').forEach(f => {
     f.addEventListener('submit', async (e) => {
