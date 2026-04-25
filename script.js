@@ -364,118 +364,132 @@
     });
   }
 
-  /* ---------- Universe in motion · canvas particles drifting === */
-  if (!prefersReducedMotion && !isTouch) {
-    const universe = document.createElement('canvas');
-    universe.className = 'universe-bg';
-    document.body.insertBefore(universe, document.body.firstChild);
-    const uctx = universe.getContext('2d');
-    let uw = 0, uh = 0, dpr = Math.min(devicePixelRatio || 1, 2);
-    const resize = () => {
-      uw = innerWidth; uh = innerHeight;
-      universe.width = uw * dpr; universe.height = uh * dpr;
-      universe.style.width = uw + 'px'; universe.style.height = uh + 'px';
-      uctx.scale(dpr, dpr);
-    };
-    resize();
-    addEventListener('resize', resize);
-    const N = Math.min(180, Math.max(100, Math.floor(uw * uh / 12000)));
-    const stars = [];
-    for (let i = 0; i < N; i++) {
-      stars.push({
-        x: Math.random() * uw, y: Math.random() * uh,
-        z: Math.random() * 0.8 + 0.2,
-        r: Math.random() * 2.4 + 0.6,         // più grandi
-        vx: (Math.random() - 0.5) * 0.15,
-        vy: (Math.random() - 0.5) * 0.15,
-        hue: 'ink',
-        twinkle: Math.random() * Math.PI * 2,
-      });
+  /* ---------- Universe in motion · Three.js cosmic scene (Ars-Realis style) === */
+  const initThreeUniverse = () => {
+    if (prefersReducedMotion || isTouch || !window.THREE) return;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'universe-bg';
+    document.body.insertBefore(canvas, document.body.firstChild);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    renderer.setSize(innerWidth, innerHeight);
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x05030f, 0.0012);
+
+    const camera = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, 0.1, 2000);
+    camera.position.set(0, 0, 0);
+
+    // Particle stars
+    const COUNT = 3500;
+    const positions = new Float32Array(COUNT * 3);
+    const colors = new Float32Array(COUNT * 3);
+    const palette = [
+      [0.486, 0.227, 0.929], // violet
+      [0.925, 0.282, 0.600], // magenta
+      [0.133, 0.827, 0.933], // cyan
+      [0.957, 0.788, 0.365], // gold
+      [0.925, 0.902, 0.984], // ink
+    ];
+    for (let i = 0; i < COUNT; i++) {
+      // sphere distribution
+      const r = 200 + Math.random() * 800;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      positions[i*3]     = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3 + 2] = r * Math.cos(phi);
+      const c = palette[Math.floor(Math.random() * palette.length)];
+      colors[i*3] = c[0]; colors[i*3 + 1] = c[1]; colors[i*3 + 2] = c[2];
     }
-    let mx = uw / 2, my = uh / 2, smx = mx, smy = my;
-    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    const palette = {
-      ink: 'rgba(236,230,251,',
-      gold: 'rgba(244,201,93,',
-      violet: 'rgba(167,139,250,',
-      magenta: 'rgba(236,72,153,',
-      cyan: 'rgba(34,211,238,',
-    };
-    // re-roll hues for cosmic palette
-    stars.forEach(s => {
-      const r = Math.random();
-      s.hue = r < .25 ? 'gold' : r < .55 ? 'violet' : r < .80 ? 'magenta' : r < .92 ? 'cyan' : 'ink';
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const points = new THREE.Points(geo, new THREE.PointsMaterial({
+      size: 3.5, vertexColors: true,
+      blending: THREE.AdditiveBlending, transparent: true,
+      opacity: 0.95, sizeAttenuation: true,
+    }));
+    scene.add(points);
+
+    // Wireframe geometric shapes (cosmic structures)
+    const mkLines = (geom, color, opacity) => new THREE.LineSegments(
+      new THREE.EdgesGeometry(geom),
+      new THREE.LineBasicMaterial({ color, transparent: true, opacity, blending: THREE.AdditiveBlending })
+    );
+
+    const torus1 = mkLines(new THREE.TorusGeometry(120, 1.5, 8, 80), 0x7c3aed, 0.32);
+    torus1.position.set(-180, 90, -350); scene.add(torus1);
+    const ico = mkLines(new THREE.IcosahedronGeometry(80, 1), 0xec4899, 0.28);
+    ico.position.set(220, -120, -300); scene.add(ico);
+    const torus2 = mkLines(new THREE.TorusGeometry(70, 1, 6, 60), 0x22d3ee, 0.30);
+    torus2.position.set(40, 220, -450); scene.add(torus2);
+    const ico2 = mkLines(new THREE.IcosahedronGeometry(50, 0), 0xf4c95d, 0.30);
+    ico2.position.set(-100, -180, -200); scene.add(ico2);
+
+    // Inner faint particle cloud (closer to camera)
+    const NEAR = 600;
+    const nearPos = new Float32Array(NEAR * 3);
+    const nearCol = new Float32Array(NEAR * 3);
+    for (let i = 0; i < NEAR; i++) {
+      nearPos[i*3]     = (Math.random() - 0.5) * 600;
+      nearPos[i*3 + 1] = (Math.random() - 0.5) * 600;
+      nearPos[i*3 + 2] = -100 - Math.random() * 200;
+      const c = palette[Math.floor(Math.random() * palette.length)];
+      nearCol[i*3] = c[0]; nearCol[i*3 + 1] = c[1]; nearCol[i*3 + 2] = c[2];
+    }
+    const nearGeo = new THREE.BufferGeometry();
+    nearGeo.setAttribute('position', new THREE.BufferAttribute(nearPos, 3));
+    nearGeo.setAttribute('color', new THREE.BufferAttribute(nearCol, 3));
+    const nearPoints = new THREE.Points(nearGeo, new THREE.PointsMaterial({
+      size: 6, vertexColors: true, blending: THREE.AdditiveBlending,
+      transparent: true, opacity: 0.6, sizeAttenuation: true,
+    }));
+    scene.add(nearPoints);
+
+    // Mouse parallax
+    let mx = 0, my = 0, tx = 0, ty = 0;
+    addEventListener('mousemove', (e) => {
+      tx = (e.clientX / innerWidth - 0.5) * 50;
+      ty = (e.clientY / innerHeight - 0.5) * 50;
     });
-    const tick = (t) => {
-      smx += (mx - smx) * 0.04;
-      smy += (my - smy) * 0.04;
-      uctx.clearRect(0, 0, uw, uh);
-      // nebula clouds underneath · boosted
-      const cycle = (t * 0.00005) % 1;
-      const offX = Math.sin(t * 0.0001) * uw * 0.06;
-      const offY = Math.cos(t * 0.00012) * uh * 0.06;
-      const g1 = uctx.createRadialGradient(uw * 0.22 + offX, uh * 0.18 + offY, 0, uw * 0.22 + offX, uh * 0.18 + offY, uw * 0.65);
-      g1.addColorStop(0, 'rgba(124,58,237,0.42)');
-      g1.addColorStop(0.4, 'rgba(124,58,237,0.10)');
-      g1.addColorStop(1, 'rgba(0,0,0,0)');
-      uctx.fillStyle = g1; uctx.fillRect(0, 0, uw, uh);
-      const g2 = uctx.createRadialGradient(uw * 0.82 - offX, uh * 0.82 + offY, 0, uw * 0.82 - offX, uh * 0.82 + offY, uw * 0.6);
-      g2.addColorStop(0, 'rgba(236,72,153,0.32)');
-      g2.addColorStop(0.5, 'rgba(236,72,153,0.07)');
-      g2.addColorStop(1, 'rgba(0,0,0,0)');
-      uctx.fillStyle = g2; uctx.fillRect(0, 0, uw, uh);
-      const g3 = uctx.createRadialGradient(uw * 0.55 + offY, uh * 0.45 - offX, 0, uw * 0.55 + offY, uh * 0.45 - offX, uw * 0.7);
-      g3.addColorStop(0, 'rgba(34,211,238,0.20)');
-      g3.addColorStop(0.55, 'rgba(34,211,238,0.04)');
-      g3.addColorStop(1, 'rgba(0,0,0,0)');
-      uctx.fillStyle = g3; uctx.fillRect(0, 0, uw, uh);
-      const g4 = uctx.createRadialGradient(uw * 0.15 + offY, uh * 0.85 - offY, 0, uw * 0.15 + offY, uh * 0.85 - offY, uw * 0.5);
-      g4.addColorStop(0, 'rgba(244,201,93,0.16)');
-      g4.addColorStop(0.5, 'rgba(244,201,93,0.03)');
-      g4.addColorStop(1, 'rgba(0,0,0,0)');
-      uctx.fillStyle = g4; uctx.fillRect(0, 0, uw, uh);
-      // stars
-      stars.forEach(s => {
-        s.x += s.vx; s.y += s.vy; s.twinkle += 0.03;
-        // mouse parallax shift
-        const px = s.x + (smx - uw / 2) * s.z * 0.04;
-        const py = s.y + (smy - uh / 2) * s.z * 0.04;
-        // wrap
-        if (s.x < -10) s.x = uw + 10; else if (s.x > uw + 10) s.x = -10;
-        if (s.y < -10) s.y = uh + 10; else if (s.y > uh + 10) s.y = -10;
-        const a = (0.55 + Math.sin(s.twinkle) * 0.30) * (0.5 + s.z * 0.5);
-        // halo glow
-        uctx.beginPath();
-        uctx.arc(px, py, s.r * (1.2 + s.z * 0.6) * 2.5, 0, Math.PI * 2);
-        uctx.fillStyle = palette[s.hue] + (a * 0.18) + ')';
-        uctx.fill();
-        // core star
-        uctx.beginPath();
-        uctx.arc(px, py, s.r * (0.8 + s.z * 0.5), 0, Math.PI * 2);
-        uctx.fillStyle = palette[s.hue] + a + ')';
-        uctx.fill();
-      });
-      // connection lines between near stars
-      for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-          const a = stars[i], b = stars[j];
-          const dx = a.x - b.x, dy = a.y - b.y;
-          const d2 = dx * dx + dy * dy;
-          if (d2 < 12000) {
-            const op = (1 - d2 / 12000) * 0.10;
-            uctx.beginPath();
-            uctx.moveTo(a.x, a.y);
-            uctx.lineTo(b.x, b.y);
-            uctx.strokeStyle = `rgba(167,139,250,${op})`;
-            uctx.lineWidth = 0.6;
-            uctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(tick);
+
+    const clock = new THREE.Clock();
+    const animate = () => {
+      const t = clock.getElapsedTime();
+      mx += (tx - mx) * 0.04;
+      my += (ty - my) * 0.04;
+
+      points.rotation.x = t * 0.020;
+      points.rotation.y = t * 0.030;
+      nearPoints.rotation.x = t * -0.015;
+      nearPoints.rotation.y = t * 0.025;
+
+      torus1.rotation.x = t * 0.18; torus1.rotation.y = t * 0.10;
+      ico.rotation.x = t * -0.12; ico.rotation.y = t * 0.15;
+      torus2.rotation.x = t * 0.10; torus2.rotation.z = t * 0.18;
+      ico2.rotation.x = t * 0.14; ico2.rotation.z = t * -0.10;
+
+      camera.position.x = mx;
+      camera.position.y = -my;
+      camera.lookAt(0, 0, -200);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     };
-    requestAnimationFrame(tick);
-  }
+    animate();
+
+    addEventListener('resize', () => {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  };
+  // wait for THREE (loaded with defer) then init
+  if (window.THREE) initThreeUniverse();
+  else window.addEventListener('load', () => setTimeout(initThreeUniverse, 50));
 
   const hero = $('.hero');
 

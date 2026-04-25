@@ -390,16 +390,25 @@
   }
   .btn-wa svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
 
-  /* === Servizio · foto inline a sinistra === */
-  .servizio{grid-template-columns:90px 90px 1fr auto !important}
+  /* === Servizio · foto portrait 320×460 (no crop sopra/sotto) === */
+  .servizio{grid-template-columns:90px 320px 1fr auto !important;align-items:start !important;gap:36px}
   .servizio-photo{
-    margin:0;width:80px;height:80px;border-radius:12px;overflow:hidden;
-    box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 1px rgba(180,150,240,.20) inset;
+    margin:0;width:320px;height:460px;border-radius:18px;overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 0 1px rgba(180,150,240,.20) inset, 0 0 40px rgba(124,58,237,.15);
+    transition:transform .7s var(--ease-smooth),box-shadow .5s var(--ease);
   }
-  .servizio-photo img{width:100%;height:100%;object-fit:cover;display:block}
-  @media(max-width:760px){
+  .servizio-photo:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(236,90,160,.40) inset, 0 0 60px rgba(236,72,153,.25);
+  }
+  .servizio-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+  @media(max-width:1100px){
+    .servizio{grid-template-columns:90px 240px 1fr auto !important;gap:24px}
+    .servizio-photo{width:240px;height:340px}
+  }
+  @media(max-width:900px){
     .servizio{grid-template-columns:1fr !important}
-    .servizio-photo{width:100%;height:auto;aspect-ratio:1/1;max-width:200px}
+    .servizio-photo{width:100%;height:auto;aspect-ratio:3/4;max-width:380px;margin:8px 0}
   }
 
   /* === GOLD champagne · colore pieno, glow morbido === */
@@ -1932,6 +1941,7 @@
 </main>
 
 <!-- Engine -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
