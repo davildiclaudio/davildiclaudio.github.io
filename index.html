@@ -473,21 +473,8 @@
   .ls-slide.is-current{opacity:1;transform:scale(1);pointer-events:auto;z-index:2}
   .ls-slide img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
 
-  .ls-nav{
-    position:absolute;top:50%;transform:translateY(-50%);
-    width:52px;height:52px;border-radius:50%;
-    background:rgba(9,9,11,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(232,200,122,.25);color:var(--ink);
-    font-size:18px;line-height:1;
-    display:inline-flex;align-items:center;justify-content:center;
-    z-index:4;cursor:none;
-    transition:background .3s var(--ease),border-color .3s,transform .3s var(--ease);
-  }
-  .ls-nav:hover{background:rgba(232,200,122,.18);border-color:rgba(232,200,122,.55)}
-  .ls-prev{left:18px}
-  .ls-next{right:18px}
-  .ls-prev:hover{transform:translateY(-50%) translateX(-3px)}
-  .ls-next:hover{transform:translateY(-50%) translateX(3px)}
+  /* frecce nascoste · navigazione solo automatica + tastiera + drag */
+  .ls-nav{display:none}
 
   .ls-meta{
     position:absolute;bottom:18px;left:24px;right:24px;
@@ -500,7 +487,8 @@
   .ls-progress{flex:1;height:1px;background:rgba(255,255,255,.22);position:relative;overflow:hidden}
   .ls-progress > span{
     display:block;height:100%;width:0%;
-    background:linear-gradient(90deg, var(--gold), var(--brand-light));
+    background:linear-gradient(90deg, var(--gold-deep,#a87a35), var(--gold), var(--gold-soft));
+    box-shadow:0 0 8px rgba(232,200,122,.45);
     transition:width .5s var(--ease-smooth);
   }
   @media(max-width:720px){

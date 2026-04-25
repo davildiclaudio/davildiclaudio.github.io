@@ -185,9 +185,11 @@
     // Autoplay (start when in view, pause out / on hover)
     let autoTimer = null;
     const stepDelay = 2000;
+    const lastBonus = 2000; // ultima slide rimane 2s in più
     const startAuto = () => {
       if (autoTimer) clearTimeout(autoTimer);
-      autoTimer = setTimeout(() => { goTo(idx + 1); startAuto(); }, stepDelay);
+      const delay = (idx === tot - 1) ? stepDelay + lastBonus : stepDelay;
+      autoTimer = setTimeout(() => { goTo(idx + 1); startAuto(); }, delay);
     };
     const pauseAuto = () => { if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; } };
 
