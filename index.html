@@ -355,6 +355,94 @@
   .prose strong{position:relative;transition:text-shadow .3s var(--ease)}
   .prose:hover strong{text-shadow:0 0 12px rgba(180,197,255,.25)}
 
+  /* === Visuals nelle sezioni · pattern condivisi === */
+  .card-visual{
+    width:calc(100% + 64px);margin:-36px -32px 28px;
+    aspect-ratio:16/9;overflow:hidden;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    background:#0d0d10;
+  }
+  .card-visual img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.2s var(--ease-smooth),filter .8s var(--ease);
+    filter:saturate(.95);
+  }
+  .asse:hover .card-visual img,
+  .pilastro:hover .card-visual img,
+  .piano:hover .card-visual img{transform:scale(1.04);filter:saturate(1.1)}
+
+  .section-banner{
+    width:100vw;margin-left:calc(50% - 50vw);
+    aspect-ratio:21/9;max-height:520px;overflow:hidden;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    margin-bottom:48px;position:relative;
+  }
+  .section-banner img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 8s ease-out;
+    will-change:transform;
+  }
+  .section-banner:hover img{transform:scale(1.06)}
+  .section-banner::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 0%,rgba(9,9,11,.15) 70%,rgba(9,9,11,.6) 100%);
+    pointer-events:none;
+  }
+
+  .inline-figure{
+    margin:36px 0;border:1px solid var(--border);border-radius:var(--radius);
+    overflow:hidden;background:#0d0d10;
+    box-shadow:0 24px 60px rgba(0,0,0,.4);
+  }
+  .inline-figure img{width:100%;height:auto;display:block}
+  .inline-figure figcaption{
+    padding:14px 22px;font-family:var(--ff-sans);font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-dim);border-top:1px solid var(--border);
+  }
+
+  /* Pilastro con visual a destra */
+  .pilastro-with-visual{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;overflow:hidden}
+  .pilastro-with-visual .p-content{padding:44px 40px}
+  .pilastro-with-visual .p-visual{
+    position:relative;overflow:hidden;
+    border-left:1px solid var(--border);
+    background:#0d0d10;
+  }
+  .pilastro-with-visual .p-visual img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.2s var(--ease-smooth);
+  }
+  .pilastro-with-visual:hover .p-visual img{transform:scale(1.04)}
+  @media(max-width:900px){
+    .pilastro-with-visual{grid-template-columns:1fr}
+    .pilastro-with-visual .p-visual{border-left:0;border-top:1px solid var(--border);aspect-ratio:16/9}
+  }
+
+  /* Chi sono · grid con portrait */
+  .chi-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;margin-top:24px}
+  @media(max-width:900px){.chi-grid{grid-template-columns:1fr;gap:40px}}
+  .chi-portrait{
+    position:sticky;top:120px;
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    background:#0d0d10;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  }
+  .chi-portrait img{width:100%;height:auto;display:block}
+
+  /* Strumento dopo gli assi */
+  .strumento-card{
+    margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+  }
+  .strumento-card .s-vis{position:relative;overflow:hidden;background:#0d0d10}
+  .strumento-card .s-vis img{width:100%;height:100%;object-fit:cover}
+  .strumento-card .s-text{padding:36px 40px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+  .strumento-card .s-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brand-light)}
+  .strumento-card .s-title{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2vw,30px);margin:0;line-height:1.2}
+  .strumento-card .s-body{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin:0}
+  @media(max-width:900px){.strumento-card{grid-template-columns:1fr}.strumento-card .s-vis{aspect-ratio:16/9;border-bottom:1px solid var(--border)}}
+
   /* Section rule · linea bianca pulita */
   .rule{
     background:linear-gradient(90deg,transparent,rgba(242,239,233,.5),rgba(242,239,233,.7),rgba(242,239,233,.5),transparent)!important;
@@ -912,14 +1000,21 @@
     <div class="section-label" data-reveal><span>04</span> Chi sono</div>
     <h2 class="sect-h" data-split-words>Davil Di Claudio.</h2>
     <p class="chi-tag" data-reveal>Civitavecchia, 1996 · Roma, oggi · <em>Ricercatore della coscienza · Studioso di psicologia · Mental coach di professione</em></p>
-    <p class="quote-big" data-reveal>«A ventisei anni avevo tutto quello che sembra contare. A ventotto stavo piangendo nella macchina dei miei sogni mentre facevo shopping compulsivo. Era <em>l'anima che presentava il conto.</em>»</p>
-    <div class="prose" data-reveal>
-      <p>Tuta da meccanico prima dell'università. Porta a porta — luce e gas — quando ancora la gente apriva la porta. Reti commerciali in tre continenti, sede a Dubai. Sei milioni di dollari fatturati in un anno. Una proposta di matrimonio davanti a quindicimila persone, a una donna che non mi voleva sposare. <strong>Avevo vinto, secondo qualunque metro contemporaneo.</strong></p>
-      <p>Poi è arrivato il crollo che non si scrive su LinkedIn. Il tipo di crollo dopo cui non sei più la stessa persona — e di cui, oggi, ringrazio. Da quel passaggio è uscito tutto il resto.</p>
-      <p>Mi alleno tre volte alla settimana in corsa, nuoto, ciclismo. Non per estetica. Perché <em>il pensiero che non passa per il corpo non è pensiero, è ronzio.</em> Leggo Jung da prima dei dieci anni — non perché fossi precoce, ma perché era l'unico libro in casa col dorso rovinato dall'essere riletto. La Psicosintesi di <strong>Assagioli</strong> mi ha trovato a ventitré. Il Transurfing di <strong>Zeland</strong> a ventisei. Sono i due strumenti che apro ogni giorno in sessione.</p>
-      <p>Ho scritto <em>«Io posso farcela»</em> e <em>«PNL Esoterica»</em> perché certe cose, se non le scrivi, le perdi. Studio anche ciò che le università non insegnano — alchimia interiore, archetipi attivi, leggi del campo. Non per posa esoterica. Perché <strong>senza quel piano metà di ciò che vedo nei clienti non avrebbe spiegazione.</strong></p>
-      <p>Lavoro a tempo pieno e con poche persone alla volta. Non per arroganza. Per rispetto del tempo di tutti.</p>
-      <p class="chi-signature">— Davil</p>
+    <div class="chi-grid">
+      <div class="chi-col-text">
+        <p class="quote-big" data-reveal>«A ventisei anni avevo tutto quello che sembra contare. A ventotto stavo piangendo nella macchina dei miei sogni mentre facevo shopping compulsivo. Era <em>l'anima che presentava il conto.</em>»</p>
+        <div class="prose" data-reveal>
+          <p>Tuta da meccanico prima dell'università. Porta a porta — luce e gas — quando ancora la gente apriva la porta. Reti commerciali in tre continenti, sede a Dubai. Sei milioni di dollari fatturati in un anno. Una proposta di matrimonio davanti a quindicimila persone, a una donna che non mi voleva sposare. <strong>Avevo vinto, secondo qualunque metro contemporaneo.</strong></p>
+          <p>Poi è arrivato il crollo che non si scrive su LinkedIn. Il tipo di crollo dopo cui non sei più la stessa persona — e di cui, oggi, ringrazio. Da quel passaggio è uscito tutto il resto.</p>
+          <p>Mi alleno tre volte alla settimana in corsa, nuoto, ciclismo. Non per estetica. Perché <em>il pensiero che non passa per il corpo non è pensiero, è ronzio.</em> Leggo Jung da prima dei dieci anni — non perché fossi precoce, ma perché era l'unico libro in casa col dorso rovinato dall'essere riletto. La Psicosintesi di <strong>Assagioli</strong> mi ha trovato a ventitré. Il Transurfing di <strong>Zeland</strong> a ventisei. Sono i due strumenti che apro ogni giorno in sessione.</p>
+          <p>Ho scritto <em>«Io posso farcela»</em> e <em>«PNL Esoterica»</em> perché certe cose, se non le scrivi, le perdi. Studio anche ciò che le università non insegnano — alchimia interiore, archetipi attivi, leggi del campo. Non per posa esoterica. Perché <strong>senza quel piano metà di ciò che vedo nei clienti non avrebbe spiegazione.</strong></p>
+          <p>Lavoro a tempo pieno e con poche persone alla volta. Non per arroganza. Per rispetto del tempo di tutti.</p>
+          <p class="chi-signature">— Davil</p>
+        </div>
+      </div>
+      <figure class="chi-portrait" data-reveal>
+        <img src="assets/content-images/davil-portrait.jpeg" alt="Davil Di Claudio" loading="lazy" decoding="async"/>
+      </figure>
     </div>
   </section>
 
@@ -933,6 +1028,7 @@
 
     <div class="assi">
       <div class="asse" data-reveal>
+        <div class="card-visual"><img src="assets/content-images/intelligenza-emotiva.jpeg" alt="Intelligenza emotiva — schema operativo" loading="lazy" decoding="async"/></div>
         <div class="asse-num">ASSE 01</div>
         <div class="asse-title">Psicologia</div>
         <div class="asse-tag">Guarisci il passato prima di provare a spostare il futuro.</div>
@@ -941,6 +1037,7 @@
       </div>
 
       <div class="asse" data-reveal>
+        <div class="card-visual"><img src="assets/content-images/transurfing.jpeg" alt="Transurfing — mappa operativa" loading="lazy" decoding="async"/></div>
         <div class="asse-num">ASSE 02</div>
         <div class="asse-title">Transurfing</div>
         <div class="asse-tag">Smetti di forzare la realtà. Imparala a scegliere.</div>
@@ -949,6 +1046,7 @@
       </div>
 
       <div class="asse" data-reveal>
+        <div class="card-visual"><img src="assets/content-images/dispenza-attenzione.jpeg" alt="Dispenza — energia segue l'attenzione" loading="lazy" decoding="async"/></div>
         <div class="asse-num">ASSE 03</div>
         <div class="asse-title">Campo energetico</div>
         <div class="asse-tag">La realtà risponde a ciò che sei, non a ciò che speri.</div>
@@ -956,6 +1054,18 @@
         <div class="asse-tools">respiro coerente · coerenza cardiaca · meditazione neuro-plastica · epigenetica · ambiente mentale</div>
       </div>
     </div>
+
+    <!-- Strumento operativo: Ruota della Vita -->
+    <figure class="strumento-card" data-reveal>
+      <div class="s-vis">
+        <img src="assets/content-images/ruota-vita.jpeg" alt="Ruota della Vita — strumento di check-in" loading="lazy" decoding="async"/>
+      </div>
+      <figcaption class="s-text">
+        <span class="s-eyebrow">· Strumento ·</span>
+        <h3 class="s-title">La Ruota della Vita</h3>
+        <p class="s-body">Il primo strumento di diagnosi che apriamo insieme. Otto aree — corpo, lavoro, soldi, amore, famiglia, amici, evoluzione, divertimento — valutate da uno a dieci. Non per giudicarti. Per fotografare, in trenta minuti, dove sta perdendo aria la ruota della tua vita. Da qui parte il piano operativo dei tre assi.</p>
+      </figcaption>
+    </figure>
   </section>
 
   <!-- ============================ -->
@@ -967,13 +1077,16 @@
     <p class="sect-lead" data-reveal>Non mischio le fonti per snobismo culturale. Le mischio perché, sul tavolo operativo di un percorso reale, ognuna di loro risolve qualcosa che le altre non vedono.</p>
 
     <div class="pilastri">
-      <div class="pilastro" data-reveal>
-        <div class="p-num">01 — PILASTRO</div>
-        <div class="p-eyebrow">La cartografia interiore</div>
-        <h3 class="p-h">Psicosintesi <em>—</em> Roberto Assagioli</h3>
-        <div class="p-body"><p><strong>Non sei una cosa sola.</strong> E questo è il punto di partenza. Psichiatra veneziano, contemporaneo e poi critico di Freud: la sua mappa della psiche — l'ovoide, le subpersonalità, l'Io come centro di coscienza e volontà, il Sé transpersonale — dopo cent'anni regge ancora ogni prova clinica.</p>
-        <p>Nel mio metodo è <strong>lo strumento di lavoro quotidiano</strong>: così trasformiamo conflitti endopsichici in energia, disidentifichiamo il pensiero compulsivo, ricostruiamo un atto di volontà che non sia muscolo teso ma direzione chiara.</p></div>
-        <div class="p-concetti">Io osservatore · subpersonalità · inconscio superiore · atto di volontà · sintesi degli opposti</div>
+      <div class="pilastro pilastro-with-visual" data-reveal>
+        <div class="p-content">
+          <div class="p-num">01 — PILASTRO</div>
+          <div class="p-eyebrow">La cartografia interiore</div>
+          <h3 class="p-h">Psicosintesi <em>—</em> Roberto Assagioli</h3>
+          <div class="p-body"><p><strong>Non sei una cosa sola.</strong> E questo è il punto di partenza. Psichiatra veneziano, contemporaneo e poi critico di Freud: la sua mappa della psiche — l'ovoide, le subpersonalità, l'Io come centro di coscienza e volontà, il Sé transpersonale — dopo cent'anni regge ancora ogni prova clinica.</p>
+          <p>Nel mio metodo è <strong>lo strumento di lavoro quotidiano</strong>: così trasformiamo conflitti endopsichici in energia, disidentifichiamo il pensiero compulsivo, ricostruiamo un atto di volontà che non sia muscolo teso ma direzione chiara.</p></div>
+          <div class="p-concetti">Io osservatore · subpersonalità · inconscio superiore · atto di volontà · sintesi degli opposti</div>
+        </div>
+        <div class="p-visual"><img src="assets/content-images/ovoide-psicosintesi.jpeg" alt="L'ovoide della Psicosintesi · Assagioli" loading="lazy" decoding="async"/></div>
       </div>
 
       <div class="pilastro" data-reveal>
@@ -994,13 +1107,16 @@
         <div class="p-concetti">Punto Zero · Nigredo · Albedo · Rubedo · archetipi junghiani · neuroni specchio · memetica</div>
       </div>
 
-      <div class="pilastro" data-reveal>
-        <div class="p-num">04 — PILASTRO</div>
-        <div class="p-eyebrow">La grammatica del campo</div>
-        <h3 class="p-h">Leggi universali <em>—</em> risonanza, karma, vibrazione</h3>
-        <div class="p-body"><p>Legge della Risonanza, del Riflesso, del Vuoto, della Compensazione, di Causa-Effetto, della Vibrazione, del Karma, dell'Amore, della Conoscenza. Non sono dogmi. Sono <strong>regolarità</strong> osservabili.</p>
-        <p><strong>Bruce Lipton</strong> ha mostrato che le credenze modulano l'espressione genetica più della genetica stessa (epigenetica). <strong>Joe Dispenza</strong> ha documentato con EEG, HRV e risonanza magnetica funzionale come la meditazione ripetuta produca cambiamenti cerebrali misurabili in settimane. Quello che le tradizioni dicono da millenni — <em>ciò che pensi diventa carne</em> — la biologia lo sta semplicemente confermando.</p></div>
-        <div class="p-concetti">risonanza · vibrazione · epigenetica (Lipton) · neuroplasticità meditativa (Dispenza) · karma · vuoto</div>
+      <div class="pilastro pilastro-with-visual" data-reveal>
+        <div class="p-content">
+          <div class="p-num">04 — PILASTRO</div>
+          <div class="p-eyebrow">La grammatica del campo</div>
+          <h3 class="p-h">Leggi universali <em>—</em> risonanza, karma, vibrazione</h3>
+          <div class="p-body"><p>Legge della Risonanza, del Riflesso, del Vuoto, della Compensazione, di Causa-Effetto, della Vibrazione, del Karma, dell'Amore, della Conoscenza. Non sono dogmi. Sono <strong>regolarità</strong> osservabili.</p>
+          <p><strong>Bruce Lipton</strong> ha mostrato che le credenze modulano l'espressione genetica più della genetica stessa (epigenetica). <strong>Joe Dispenza</strong> ha documentato con EEG, HRV e risonanza magnetica funzionale come la meditazione ripetuta produca cambiamenti cerebrali misurabili in settimane. Quello che le tradizioni dicono da millenni — <em>ciò che pensi diventa carne</em> — la biologia lo sta semplicemente confermando.</p></div>
+          <div class="p-concetti">risonanza · vibrazione · epigenetica (Lipton) · neuroplasticità meditativa (Dispenza) · karma · vuoto</div>
+        </div>
+        <div class="p-visual"><img src="assets/content-images/campo-energetico.jpeg" alt="Il campo energetico · diagramma" loading="lazy" decoding="async"/></div>
       </div>
     </div>
   </section>
@@ -1089,6 +1205,9 @@
   <!-- 09 · DIPENDENZE              -->
   <!-- ============================ -->
   <section id="dipendenze" class="dip-section">
+    <figure class="section-banner" data-reveal>
+      <img src="assets/content-images/dipendenze.jpeg" alt="Le dipendenze del secolo" loading="lazy" decoding="async"/>
+    </figure>
     <div class="dip-inner">
       <div class="section-label" data-reveal><span>09</span> Percorso libertà</div>
       <h2 class="sect-h" data-split-words>Smettere è l'ultimo passo, <em>non il primo.</em></h2>
@@ -1100,6 +1219,11 @@
         <p>Le diete, gli sforzi di volontà, le app di meditazione e perfino la psicoterapia spesso falliscono con le dipendenze per una ragione sola: lavorano sul <strong>sintomo</strong>, non sulla <strong>chimica del campo</strong>.</p>
         <p><strong>Bruce Lipton</strong> la chiama <em>programmazione subconscia</em>. <strong>Joe Dispenza</strong> la chiama <em>l'abitudine di essere te stesso</em>. I nomi cambiano. Il meccanismo no.</p>
       </div>
+
+      <figure class="inline-figure" data-reveal>
+        <img src="assets/content-images/tecnogeno.jpeg" alt="Sistema tecnogeno · Transurfing 5.0" loading="lazy" decoding="async"/>
+        <figcaption>Il sistema tecnogeno · Transurfing 5.0 — Vadim Zeland</figcaption>
+      </figure>
 
       <div class="piani">
         <div class="piano" data-reveal>
@@ -1150,6 +1274,9 @@
   <!-- 10 · LA STORIA               -->
   <!-- ============================ -->
   <section id="storia" class="sect">
+    <figure class="section-banner" data-reveal>
+      <img src="assets/content-images/timeline.jpeg" alt="Timeline del percorso" loading="lazy" decoding="async"/>
+    </figure>
     <div class="section-label" data-reveal><span>10</span> La storia</div>
     <h2 class="sect-h" data-split-words>Come <em>ci sono arrivato.</em></h2>
     <p class="quote-big" data-reveal>«Mia madre voleva chiamarmi Devil. La gente mormorava, e lei ha cambiato una lettera. Eppure l'inferno l'ho attraversato lo stesso. E da lì sono risorto.»</p>
