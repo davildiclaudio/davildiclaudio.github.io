@@ -635,7 +635,9 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
   /* ---------- Universe in motion · Three.js cosmic refined === */
   const initThreeUniverse = () => {
     if (prefersReducedMotion || !window.THREE) return;
-    const isSmall = innerWidth < 900;       // mobile/tablet → meno particles
+    // Mobile · WebGL OOM su iOS Safari → off completo. Lo sfondo cosmic resta via CSS gradient.
+    if (innerWidth < 760 || (isTouch && innerWidth < 1024)) return;
+    const isSmall = innerWidth < 1100;       // tablet → meno particles
     const canvas = document.createElement('canvas');
     canvas.className = 'universe-bg';
     document.body.insertBefore(canvas, document.body.firstChild);
@@ -1022,14 +1024,17 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
       );
     });
 
-    /* === Generic [data-reveal] === */
+    /* === Generic [data-reveal] === mobile: anticipo trigger, durata corta, no blur */
+    const isMob = innerWidth < 760;
+    const revStart = isMob ? 'top 96%' : 'top 88%';
+    const revDur = isMob ? 0.55 : 1.4;
     $$('[data-reveal]').forEach(el => {
       if (el.closest('.hero')) return; // hero handled above
       gsap.fromTo(el,
-        { opacity: 0, y: 64, scale: 0.98, filter: 'blur(6px)' },
-        { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-          duration: 1.4, ease: 'power4.out',
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+        { opacity: 0, y: isMob ? 24 : 64, scale: isMob ? 1 : 0.98, filter: isMob ? 'none' : 'blur(6px)' },
+        { opacity: 1, y: 0, scale: 1, filter: isMob ? 'none' : 'blur(0px)',
+          duration: revDur, ease: isMob ? 'power2.out' : 'power4.out',
+          scrollTrigger: { trigger: el, start: revStart, toggleActions: 'play none none none' }
         }
       );
     });
@@ -1041,14 +1046,14 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
       gsap.set(inners, { yPercent: 130, rotate: 6, opacity: 0 });
       gsap.to(inners, {
         yPercent: 0, rotate: 0, opacity: 1,
-        duration: 1.3, ease: 'power4.out', stagger: 0.06,
-        scrollTrigger: { trigger: h, start: 'top 88%', toggleActions: 'play none none none' }
+        duration: isMob ? 0.6 : 1.3, ease: isMob ? 'power2.out' : 'power4.out', stagger: isMob ? 0.03 : 0.06,
+        scrollTrigger: { trigger: h, start: revStart, toggleActions: 'play none none none' }
       });
     });
 
     /* === Manifesto — pinned three-line crescendo === */
     const mani = $('#manifesto');
-    if (mani) {
+    if (mani && !isMob) {
       const lines = $$('.m-line', mani);
       lines.forEach(l => splitWords(l));
       gsap.set(lines, { opacity: 0, y: 40 });
@@ -1075,10 +1080,18 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
           });
         }
       });
+    } else if (mani && isMob) {
+      // Mobile · simple stagger reveal · niente pin
+      const lines = $$('.m-line', mani);
+      gsap.fromTo(lines,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.20, ease: 'power2.out',
+          scrollTrigger: { trigger: mani, start: 'top 88%', toggleActions: 'play none none none' } }
+      );
     }
 
-    /* === Velocity-based skew on big headings === */
-    if (lenis) {
+    /* === Velocity-based skew on big headings === desktop only */
+    if (lenis && !isMob && !isTouch) {
       let vel = 0;
       const skewables = $$('.sect-h, .mega');
       lenis.on('scroll', ({ velocity }) => {
@@ -1213,6 +1226,85 @@ Conservalo. Per qualsiasi cosa scrivimi su WhatsApp +39 352 057 2683.
     // No GSAP / reduced motion: ensure visibility
     $$('[data-reveal]').forEach(el => el.style.opacity = '1');
     document.body.classList.add('is-ready');
+  }
+
+  /* === Login modal + Registrati form === */
+  const ACCESS_PW = '11279336';
+  const SESSION_KEY = 'davil_access_v1';
+  const loginModal = document.querySelector('[data-login-modal]');
+  const loginForm  = document.querySelector('[data-login-form]');
+  const loginStatus = document.querySelector('[data-login-status]');
+  const openLogin = () => { if (loginModal) { loginModal.hidden = false; document.body.style.overflow = 'hidden'; } };
+  const closeLogin = () => { if (loginModal) { loginModal.hidden = true; document.body.style.overflow = ''; if (loginStatus) { loginStatus.textContent = ''; loginStatus.className = 'login-status'; } } };
+  document.querySelectorAll('[data-login-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openLogin(); }));
+  document.querySelectorAll('[data-login-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeLogin(); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && loginModal && !loginModal.hidden) closeLogin(); });
+  if (loginForm) {
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(loginForm);
+      const email = (fd.get('email') || '').toString().trim();
+      const pw    = (fd.get('password') || '').toString().trim();
+      if (pw === ACCESS_PW) {
+        const ts = new Date().toISOString();
+        try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, ts })); } catch(e){}
+        // Log access in CRM leads
+        try {
+          const LK = 'davil_leads_v1';
+          const ls = JSON.parse(localStorage.getItem(LK) || '[]');
+          ls.push({ ts, name:'(login)', email, phone:'', source:'login-success', code:'LOGIN-OK', ua: navigator.userAgent.substring(0,80) });
+          localStorage.setItem(LK, JSON.stringify(ls));
+        } catch(e){}
+        loginStatus.className = 'login-status ok';
+        loginStatus.textContent = '✓ Accesso confermato. Bentornato.';
+        setTimeout(() => {
+          closeLogin();
+          const m = document.getElementById('membri');
+          if (m) m.scrollIntoView({ behavior: 'smooth' });
+        }, 900);
+      } else {
+        loginStatus.className = 'login-status err';
+        loginStatus.textContent = '✗ Password non valida. Riprova o registrati.';
+      }
+    });
+  }
+
+  /* === Registrati form === password rivelata immediatamente */
+  const registerForm = document.querySelector('[data-register-form]');
+  if (registerForm) {
+    registerForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(registerForm);
+      const name  = (fd.get('name')  || '').toString().trim();
+      const email = (fd.get('email') || '').toString().trim();
+      // Save lead
+      const LEADS_KEY = 'davil_leads_v1';
+      let leads = [];
+      try { leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch(e){}
+      leads.push({
+        ts: new Date().toISOString(), name, email, phone: '',
+        source: 'registrati-area', code: 'REG-' + Math.random().toString(36).substring(2,8).toUpperCase(),
+        ua: navigator.userAgent.substring(0,100)
+      });
+      try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch(e){}
+      // Reveal password
+      const reveal = document.querySelector('[data-register-reveal]');
+      if (reveal) reveal.hidden = false;
+      // EmailJS optional
+      if (window.DAVIL_EMAIL?.enabled && window.emailjs) {
+        try { window.emailjs.send(window.DAVIL_EMAIL.serviceId, window.DAVIL_EMAIL.tplDavil, {
+          name, email, phone:'', source:'registrati-area', code:'REG', ts:new Date().toISOString(), notes:''
+        }); } catch(e){}
+      }
+      // Mailto fallback
+      const subject = encodeURIComponent(`Nuova registrazione · ${name}`);
+      const body = encodeURIComponent(`Nome: ${name}\nEmail: ${email}\nFonte: Area registrati\nData: ${new Date().toLocaleString('it-IT')}`);
+      // open mailto in background tab to inform Davil
+      const a = document.createElement('a');
+      a.href = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
+      a.target = '_blank';
+      a.click();
+    });
   }
 
   console.log('%c DAVIL ', 'background:#09090b;color:#f2efe9;font-weight:900;padding:4px 10px;border-radius:4px', 'v2 motion engine attivo.');

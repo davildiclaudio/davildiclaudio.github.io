@@ -709,30 +709,18 @@
     border:0;background:transparent;
     z-index:2;pointer-events:none;
     overflow:hidden;
-    filter:
-      drop-shadow(0 20px 40px rgba(124,58,237,.55))
-      drop-shadow(0 0 80px rgba(236,72,153,.40))
-      drop-shadow(0 8px 20px rgba(0,0,0,.6));
-    animation:heroPhotoFloat 6s ease-in-out infinite alternate;
+    filter:drop-shadow(0 12px 30px rgba(0,0,0,.55));
+    animation:none;
     mix-blend-mode:normal;
   }
-  @keyframes heroPhotoFloat{
-    0%{transform:translateY(-50%) translateX(0)}
-    100%{transform:translateY(calc(-50% - 14px)) translateX(-8px)}
-  }
-  .hero-photo::before{
-    content:"";position:absolute;inset:-20%;z-index:-1;
-    background:radial-gradient(circle at 50% 55%, rgba(124,58,237,.55) 0%, rgba(236,72,153,.30) 30%, transparent 70%);
-    filter:blur(50px);
-    pointer-events:none;
-  }
+  @keyframes heroPhotoFloat{from{transform:translateY(-50%)}to{transform:translateY(-50%)}}
+  .hero-photo::before{display:none}
   .hero-photo img{
-    /* zoom orizzontale: 100px su 3000 = ~3.4% per lato → width 106.7% */
-    width:calc(100% + 12.5%);
+    /* foto centrata · zero spazio laterale · zero glow */
+    width:100%;
     height:100%;
-    object-fit:cover;object-position:center;display:block;
-    margin-left:-6.25%;
-    /* PNG trasparente · niente blend */
+    object-fit:cover;object-position:center center;display:block;
+    margin:0;
   }
   @media(max-width:1024px){
     .hero-photo{
@@ -963,9 +951,10 @@
 
   /* Strumento dopo gli assi */
   .strumento-card{
-    margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;
+    margin:40px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0;
     border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
     background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+    width:100%;
   }
   .strumento-card .s-vis{position:relative;overflow:hidden;background:transparent;aspect-ratio:16/9}
   .strumento-card .s-vis img{width:100%;height:100%;object-fit:cover;display:block}
@@ -1589,12 +1578,25 @@
   .gate{
     display:flex;gap:12px;align-items:stretch;margin-top:18px;flex-wrap:wrap;
   }
-  .gate input[type=email]{
-    flex:1;min-width:200px;padding:14px 18px;background:rgba(255,255,255,.03);
+  .gate input[type=email],
+  .gate input[type=text],
+  .gate input[type=tel]{
+    flex:1 1 100%;min-width:200px;padding:14px 18px;
+    background:rgba(20,14,50,.55);
     border:1px solid var(--border);border-radius:12px;color:var(--ink);
-    font-family:var(--ff-sans);font-size:14px;outline:none;transition:border-color .2s;
+    font-family:var(--ff-sans);font-size:14.5px;outline:none;
+    transition:border-color .25s,box-shadow .25s,background .25s;
+    box-shadow:0 1px 0 rgba(255,255,255,.03) inset;
+    -webkit-appearance:none;appearance:none;
   }
-  .gate input[type=email]:focus{border-color:var(--gold)}
+  .gate input::placeholder{color:var(--ink-dim);font-style:italic;letter-spacing:.01em}
+  .gate input[type=email]:focus,
+  .gate input[type=text]:focus,
+  .gate input[type=tel]:focus{
+    border-color:var(--magenta);
+    background:rgba(124,58,237,.10);
+    box-shadow:0 0 0 3px rgba(236,72,153,.18),0 1px 0 rgba(255,255,255,.05) inset;
+  }
   .gate button{
     padding:14px 20px;background:var(--ink);color:var(--bg);border-radius:12px;
     font-family:var(--ff-sans);font-size:13px;font-weight:500;letter-spacing:.04em;
@@ -1762,6 +1764,20 @@
           <span class="dd-sub">Community privata · 52 settimane</span>
         </span>
       </a>
+      <a href="#risorse" class="dd-item" role="menuitem" data-pill-soon="transurfing-zeland">
+        <span class="dd-icon" aria-hidden="true">∞</span>
+        <span class="dd-text">
+          <span class="dd-title">Scarica libro Transurfing</span>
+          <span class="dd-sub">Vadim Zeland · PDF in regalo</span>
+        </span>
+      </a>
+      <a href="#risorse" class="dd-item" role="menuitem" data-pill-soon="psicoenergetica-assagioli">
+        <span class="dd-icon" aria-hidden="true">⚭</span>
+        <span class="dd-text">
+          <span class="dd-title">Scarica libro Psicoenergetica</span>
+          <span class="dd-sub">Assagioli · Pensiero della Sintesi</span>
+        </span>
+      </a>
       <a href="#libri" class="dd-item" role="menuitem">
         <span class="dd-icon" aria-hidden="true">𑁔</span>
         <span class="dd-text">
@@ -1778,6 +1794,9 @@
       </a>
     </div>
   </div>
+  <button class="nav-login-btn" data-login-open aria-label="Accedi">
+    <span aria-hidden="true">⌬</span> <span class="nl-text">Accedi</span>
+  </button>
   <nav class="nav-menu">
     <a href="#manifesto" data-link>Manifesto</a>
     <a href="#metodo" data-link>Metodo</a>
@@ -2336,15 +2355,18 @@
       <div class="rcard" id="risorsa-arsrealis" data-reveal>
         <div class="r-meta">01 · Community privata</div>
         <h3>Ars Realis</h3>
-        <div class="r-sub">Studio del Reality Transurfing</div>
-        <p>Community italiana indipendente di <strong>studio e pratica</strong> del Reality Transurfing di Vadim Zeland. Non un gruppo Telegram di motivazione. Un <strong>laboratorio operativo</strong>.</p>
+        <div class="r-sub">Studio del Reality Transurfing · indipendente</div>
+        <p>Community italiana indipendente di <strong>studio sistematico</strong> del Reality Transurfing di Vadim Zeland. Non un gruppo Telegram di motivazione. Un <strong>laboratorio operativo</strong> dove i concetti — pendoli, spazio delle varianti, intenzione esterna, importanza interna ed esterna, slide, immagine target — vengono <em>messi a terra</em> con esercizi, casi reali e debrief.</p>
+        <p>Pensata per chi <strong>ha già letto Zeland</strong> e vuole smettere di reinventare la ruota: protocollo settimanale, peer-review tra praticanti, glossario coerente, archivio domande. Russofoni nativi e traduzioni rigorose: niente storpiature da catena di Sant'Antonio.</p>
         <ul>
-          <li><strong>52 settimane</strong> di percorso strutturato</li>
+          <li><strong>52 settimane</strong> di percorso strutturato — un tema a settimana</li>
           <li><strong>Tecniche a livelli</strong> — Base, Tecniche, Avanzate, Era Tafti</li>
-          <li><strong>Glossario</strong> con originali russi</li>
-          <li><strong>Diario personale</strong> privato</li>
-          <li><strong>Community indipendente</strong> — niente lignaggi</li>
+          <li><strong>Glossario completo</strong> con originali russi e note etimologiche</li>
+          <li><strong>Diario personale</strong> privato per tracciare slide e varianti</li>
+          <li><strong>Casi pratici condivisi</strong> · debrief mensili sui risultati</li>
+          <li><strong>Community indipendente</strong> — niente lignaggi, niente guru, niente quote</li>
         </ul>
+        <p style="font-size:13px;color:var(--ink-dim);font-style:italic">Lasci la mail, ricevi la password. La community è gratuita e resta gratuita.</p>
         <form class="gate" data-ars-form>
           <input type="email" name="email" placeholder="La tua email" required />
           <button type="submit">Voglio entrare</button>
@@ -2366,10 +2388,16 @@
         <div class="r-meta">02 · Tool interattivo</div>
         <h3>Interprete dei Sogni</h3>
         <div class="r-sub">Framework junghiano · Claude Haiku 4.5</div>
-        <p>Racconta un sogno. Ricevi una lettura <strong>stratificata</strong> — riformulazione, simboli, archetipi attivati, lettura compensatoria e prospettica, domande riflessive — basata sul corpus junghiano (Jung, Hillman, Neumann), sui metodi contemporanei (Johnson, von Franz, Bosnak, Aizenstat, Taylor) e sulle neuroscienze del sogno (Hobson, Solms).</p>
-        <p>La tua API key Anthropic resta nel <strong>tuo browser</strong>. Il sogno non viene registrato.</p>
-        <p style="font-size:13px;color:var(--ink-dim);font-style:italic">Per un lavoro profondo considera un analista o un coaching dedicato. Questo tool apre la porta. Non è la casa.</p>
-        <a href="#" class="btn-primary" data-dream-open style="display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-size:13px;letter-spacing:.06em;font-weight:600;border-radius:999px;margin-top:auto">
+        <p>Racconta un sogno. Ricevi una lettura <strong>stratificata</strong> — riformulazione del materiale onirico, mappa dei simboli, archetipi attivati, lettura <em>compensatoria</em> e <em>prospettica</em>, domande riflessive per il diario — costruita su un corpus rigoroso: <strong>Jung, Hillman, Neumann</strong> per la base junghiana; <strong>Johnson, von Franz, Bosnak, Aizenstat, Taylor</strong> per i metodi contemporanei (Active Imagination, Embodied Dreamwork, Dream Tending); <strong>Hobson e Solms</strong> per la cornice neuroscientifica.</p>
+        <ul>
+          <li><strong>Lettura su 5 livelli</strong> — letterale, soggettivo, oggettivo, archetipico, prospettico</li>
+          <li><strong>Mappa dei simboli</strong> con riferimenti ai testi originali</li>
+          <li><strong>Domande di lavoro</strong> per portare il sogno nel diario</li>
+          <li><strong>Cornice neuroscientifica</strong> · REM, consolidamento mnestico, default mode network</li>
+          <li><strong>Privacy totale</strong> · API key Anthropic locale, sogno mai registrato</li>
+        </ul>
+        <p style="font-size:13px;color:var(--ink-dim);font-style:italic;margin-top:auto">Per un lavoro profondo considera un analista o un coaching dedicato. Questo tool apre la porta. Non è la casa.</p>
+        <a href="#" class="btn-primary" data-dream-open style="display:inline-flex;align-items:center;gap:10px;padding:14px 22px;font-size:13px;letter-spacing:.06em;font-weight:600;border-radius:999px">
           <span aria-hidden="true">⊙</span> Apri l'Interprete dei Sogni
         </a>
       </div>
@@ -2433,6 +2461,10 @@
       In cambio: <strong>la tua email e il tuo numero</strong>. Per mandarti il link diretto e — se serve — risponderti via WhatsApp. Niente spam, niente liste vendute.
     </p>
 
+    <figure class="masterclass-cover" data-reveal>
+      <img src="assets/content-images/transurfing-mirror-rule.jpeg" alt="Reality Mirror Rule · Transurfing di Vadim Zeland" loading="lazy" decoding="async"/>
+    </figure>
+
     <div class="masterclass-gate" data-reveal data-gate>
       <form class="gate-form" data-gate-form>
         <label class="gate-row">
@@ -2473,7 +2505,222 @@
   </section>
 
   <!-- ============================ -->
-  <!-- 12·c · AREA MEMBRI           -->
+  <!-- 12·c · ACADEMY · 21-DAY      -->
+  <!-- ============================ -->
+  <section id="academy" class="sect academy-sect">
+    <div class="section-label" data-reveal><span>12·c</span> Life Leadership &amp; Coaching Academy</div>
+    <figure class="academy-cover" data-reveal>
+      <img src="assets/content-images/academy-coaching.jpeg" alt="Life Leadership &amp; Coaching Academy · Davil" loading="lazy" decoding="async"/>
+    </figure>
+    <h2 class="sect-h" data-split-words>21 giorni. <em>Tre canali. Un solo cervello.</em></h2>
+    <p class="sect-lead" data-reveal>
+      La masterclass — e dentro di essa la <em>21-day challenge</em> — non è una serie di video da guardare. È un <strong>protocollo di apprendimento multi-canale</strong> costruito sulle leggi della <em>memoria a lungo termine.</em> Audio vocali, PDF workbook e video lezioni: tre vie d'ingresso allo stesso contenuto, perché <strong>il cervello consolida ciò che incrocia più sensi.</strong>
+    </p>
+
+    <div class="academy-grid">
+      <article class="acard" data-reveal>
+        <div class="acard-icon" aria-hidden="true">◐</div>
+        <div class="acard-tag">Canale 01 · Uditivo</div>
+        <h3 class="acard-h">Audio vocali.</h3>
+        <p class="acard-body">Ascolti in macchina, in palestra, sotto la doccia. La voce <em>incarnata</em> attiva la corteccia uditiva e il sistema limbico — è il canale che porta la lezione <strong>dentro lo stato emotivo</strong>, dove i nuovi schemi si fissano. La ripetizione distribuita (spaced repetition di Ebbinghaus) trasforma la frase ascoltata in <em>convinzione automatica.</em></p>
+      </article>
+
+      <article class="acard" data-reveal>
+        <div class="acard-icon" aria-hidden="true">▤</div>
+        <div class="acard-tag">Canale 02 · Cinestetico</div>
+        <h3 class="acard-h">PDF workbook.</h3>
+        <p class="acard-body">Scrivere a mano (Mueller &amp; Oppenheimer, 2014) attiva corteccia motoria, area di Broca e cervelletto: la traccia mnestica diventa <strong>3-4 volte più resistente</strong> rispetto al solo ascolto. Il workbook non è un compito — è il <em>recupero attivo</em> (testing effect, Roediger &amp; Karpicke), il singolo intervento più potente per consolidare l'apprendimento.</p>
+      </article>
+
+      <article class="acard" data-reveal>
+        <div class="acard-icon" aria-hidden="true">▶</div>
+        <div class="acard-tag">Canale 03 · Visivo</div>
+        <h3 class="acard-h">Video lezioni.</h3>
+        <p class="acard-body">L'occhio porta il <em>contesto</em>: postura, sguardo, lavagna, schemi visuali. La <strong>dual-coding theory</strong> di Paivio dimostra che canale verbale + canale visivo creano <em>doppia codifica</em> del concetto — due percorsi neurali per recuperare la stessa idea. Doppia ridondanza = doppia probabilità di richiamarla quando serve.</p>
+      </article>
+
+      <article class="acard acard-wide" data-reveal>
+        <div class="acard-icon" aria-hidden="true">⌬</div>
+        <div class="acard-tag">Sinergia · 21 giorni</div>
+        <h3 class="acard-h">Perché <em>21 giorni</em> non è arbitrario.</h3>
+        <p class="acard-body">21 giorni è la finestra in cui la corteccia prefrontale comincia a delegare il nuovo schema ai gangli della base — il salto da <em>azione cosciente</em> a <strong>automatismo neurologico.</strong> Non basta a chiudere un'abitudine (Lally et al., 2010 → ~66 giorni reali), ma è il <em>punto di svolta</em> in cui la pratica smette di costare e inizia a generare. Audio + workbook + video, ogni giorno, per 21 giorni: il cervello riceve lo <strong>stesso input da tre direzioni</strong> e smette di poterlo ignorare.</p>
+        <ul class="acard-list">
+          <li><strong>Encoding multi-canale</strong> — uditivo, cinestetico, visivo. Tre tracce, un solo significato.</li>
+          <li><strong>Spaced repetition</strong> — i contenuti tornano a intervalli crescenti. La curva dell'oblio si appiattisce.</li>
+          <li><strong>Testing effect</strong> — il workbook non insegna: <em>verifica</em>. È la verifica che incide la traccia.</li>
+          <li><strong>Embodied cognition</strong> — scrivere è muovere, muovere è ricordare. Il corpo è parte della memoria.</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="prose" data-reveal style="margin-top:36px;font-style:italic;font-family:var(--ff-display);color:var(--ink-soft);max-width:60ch;font-size:17px">
+      Le 18 aree dell'Academy — Money, Shadow, Psicotrappole, Transurfing, Onirico, Body Energy, Life Circle e le altre — sono <strong style="color:var(--gold)">moduli</strong> all'interno di questo stesso protocollo. Ogni modulo: un audio, un workbook, un video. Tre angolazioni dello stesso vertice.
+    </p>
+
+    <style>
+      .academy-sect{padding:clamp(80px,12vh,140px) clamp(20px,5vw,72px)}
+      .academy-cover,.masterclass-cover{
+        margin:32px 0 24px;border:1px solid var(--border);border-radius:18px;overflow:hidden;
+        background:rgba(20,14,50,.40);box-shadow:0 24px 60px -20px rgba(124,58,237,.35);
+      }
+      .academy-cover img,.masterclass-cover img{display:block;width:100%;height:auto}
+      .masterclass-cover{margin:8px 0 28px}
+      .academy-grid{
+        display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;
+      }
+      .acard{
+        padding:30px 28px;border:1px solid var(--border);border-radius:18px;
+        background:linear-gradient(135deg,rgba(30,20,60,.55),rgba(20,14,50,.40))!important;
+        backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+        box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 40px -20px rgba(124,58,237,.25);
+        display:flex;flex-direction:column;gap:10px;transition:border-color .35s,box-shadow .35s,transform .35s;
+      }
+      .acard:hover{border-color:rgba(236,90,160,.45);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 60px -20px rgba(236,72,153,.35);transform:translateY(-3px)}
+      .acard-icon{font-size:30px;color:var(--gold);line-height:1;margin-bottom:4px;opacity:.85}
+      .acard-tag{font-family:var(--ff-sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta)}
+      .acard-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.4vw,30px);margin:2px 0 6px;line-height:1.18;color:var(--ink)}
+      .acard-h em{color:var(--gold)}
+      .acard-body{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin:0}
+      .acard-wide{grid-column:1 / -1}
+      .acard-list{margin:14px 0 0;padding-left:20px;font-size:14px;line-height:1.7;color:var(--ink-soft)}
+      .acard-list li{margin-bottom:6px}
+      .acard-list li strong{color:var(--gold)}
+      @media(max-width:980px){
+        .academy-grid{grid-template-columns:1fr 1fr}
+        .acard-wide{grid-column:1 / -1}
+      }
+      @media(max-width:640px){
+        .academy-grid{grid-template-columns:1fr;gap:16px}
+        .acard{padding:24px 22px}
+      }
+    </style>
+  </section>
+
+  <!-- ============================ -->
+  <!-- 12·c·2 · REGISTRATI / LOGIN  -->
+  <!-- ============================ -->
+  <section id="registrati" class="sect access-sect">
+    <div class="section-label" data-reveal><span>12·d</span> Accesso</div>
+    <h2 class="sect-h" data-split-words>Sei già <em>dentro?</em></h2>
+    <p class="sect-lead" data-reveal>Se hai già la password puoi entrare subito. Se no, lascia una mail: ricevi l'accesso e tutti gli aggiornamenti dei contenuti riservati.</p>
+    <div class="access-grid">
+      <div class="access-card" data-reveal>
+        <div class="access-eyebrow">· Già dentro ·</div>
+        <h3 class="access-h">Accedi.</h3>
+        <p class="access-body">Hai già la password? Apri il pannello di accesso e portala con te in area riservata.</p>
+        <button type="button" class="btn-primary" data-login-open style="margin-top:auto">Apri il login →</button>
+      </div>
+      <div class="access-card access-card-alt" data-reveal>
+        <div class="access-eyebrow" style="color:var(--gold)">· Nuovo qui ·</div>
+        <h3 class="access-h">Registrati.</h3>
+        <p class="access-body">Lascia mail e nome: ricevi la <strong>password d'accesso</strong> immediatamente. Niente carta, niente abbonamento — solo lo spazio comune dove parliamo davvero.</p>
+        <form class="gate" data-register-form>
+          <input type="text" name="name" placeholder="Il tuo nome" required/>
+          <input type="email" name="email" placeholder="La tua email" required/>
+          <button type="submit" class="btn-wa-style">Voglio entrare</button>
+          <label class="gate-check" style="margin-top:8px;font-size:11px">
+            <input type="checkbox" required/>
+            <span>Acconsento al trattamento dei dati per ricevere accesso e comunicazioni · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
+          <div class="register-pw-reveal" data-register-reveal hidden>
+            <p class="ars-pw-label">La tua password d'accesso</p>
+            <div class="ars-pw-code" data-register-code>11279336</div>
+            <p class="ars-pw-note">Conservala. <a href="#" data-login-open style="color:var(--gold)">Apri il login</a> per usarla subito.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div class="login-modal" data-login-modal hidden>
+    <div class="login-backdrop" data-login-close></div>
+    <div class="login-panel" role="dialog" aria-labelledby="login-h" aria-modal="true">
+      <button class="login-x" data-login-close aria-label="Chiudi">×</button>
+      <div class="login-eyebrow">· Accesso area riservata ·</div>
+      <h3 class="login-h" id="login-h">Bentornato.</h3>
+      <p class="login-sub">Inserisci email e password d'accesso.</p>
+      <form class="login-form" data-login-form>
+        <label class="login-row">
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" placeholder="la-tua-email@dominio.com"/>
+        </label>
+        <label class="login-row">
+          <span>Password</span>
+          <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••"/>
+        </label>
+        <button type="submit" class="btn-primary login-submit">Entra</button>
+        <p class="login-status" data-login-status></p>
+      </form>
+      <p class="login-hint">Non hai ancora la password? <a href="#registrati" data-login-close style="color:var(--gold)">Registrati qui</a> · oppure <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20la%20password%20area%20riservata" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
+    </div>
+  </div>
+
+  <style>
+    .nav-login-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;
+      background:rgba(124,58,237,.14);border:1px solid rgba(180,150,240,.30);
+      color:var(--ink);font:inherit;font-size:12px;letter-spacing:.10em;text-transform:uppercase;
+      cursor:pointer;transition:all .25s;font-weight:500;
+      margin-right:14px;backdrop-filter:blur(10px) saturate(140%);
+    }
+    .nav-login-btn:hover{background:rgba(236,72,153,.18);border-color:rgba(236,72,153,.55);color:var(--gold);transform:translateY(-1px)}
+    .nav-login-btn span[aria-hidden]{font-size:14px;color:var(--gold)}
+    @media(max-width:760px){.nav-login-btn .nl-text{display:none}.nav-login-btn{padding:9px 12px;margin-right:8px}}
+
+    .access-sect{padding:clamp(70px,10vh,120px) clamp(20px,5vw,72px)}
+    .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+    .access-card{
+      padding:32px;border:1px solid var(--border);border-radius:18px;
+      background:linear-gradient(135deg,rgba(30,20,60,.55),rgba(20,14,50,.40))!important;
+      backdrop-filter:blur(14px) saturate(140%);
+      box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 40px -20px rgba(124,58,237,.30);
+      display:flex;flex-direction:column;gap:14px;transition:border-color .35s,box-shadow .35s;
+    }
+    .access-card:hover{border-color:rgba(236,90,160,.45);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 30px 60px -20px rgba(236,72,153,.35)}
+    .access-card-alt{background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.18))!important;border-color:rgba(244,201,93,.30)}
+    .access-eyebrow{font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--magenta)}
+    .access-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.4vw,30px);margin:0;line-height:1.18;color:var(--ink)}
+    .access-body{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin:0}
+    .register-pw-reveal{margin-top:12px}
+    @media(max-width:760px){.access-grid{grid-template-columns:1fr}}
+
+    .login-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+    .login-modal[hidden]{display:none}
+    .login-backdrop{position:absolute;inset:0;background:rgba(5,3,15,.78);backdrop-filter:blur(8px) saturate(120%)}
+    .login-panel{
+      position:relative;width:100%;max-width:440px;
+      background:linear-gradient(135deg,rgba(30,20,60,.95),rgba(14,6,40,.95));
+      border:1px solid rgba(180,150,240,.30);border-radius:20px;
+      padding:36px 32px;color:var(--ink);
+      box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(124,58,237,.25);
+      animation:loginPop .35s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes loginPop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:none}}
+    .login-x{position:absolute;top:14px;right:14px;background:transparent;border:0;color:var(--ink-soft);font-size:24px;cursor:pointer;width:34px;height:34px;border-radius:50%;transition:all .2s}
+    .login-x:hover{background:rgba(236,72,153,.15);color:var(--gold)}
+    .login-eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);margin-bottom:8px}
+    .login-h{font-family:var(--ff-display);font-weight:300;font-size:32px;margin:0 0 6px;color:var(--ink)}
+    .login-sub{font-size:14px;color:var(--ink-soft);margin:0 0 22px}
+    .login-form{display:flex;flex-direction:column;gap:14px}
+    .login-row{display:flex;flex-direction:column;gap:6px}
+    .login-row span{font-size:11px;letter-spacing:.20em;text-transform:uppercase;color:var(--ink-soft)}
+    .login-row input{
+      padding:13px 16px;background:rgba(20,14,50,.55);border:1px solid var(--border);
+      border-radius:10px;color:var(--ink);font-family:var(--ff-sans);font-size:14.5px;
+      outline:none;transition:border-color .25s,box-shadow .25s;
+      -webkit-appearance:none;
+    }
+    .login-row input:focus{border-color:var(--magenta);box-shadow:0 0 0 3px rgba(236,72,153,.18)}
+    .login-submit{margin-top:10px;width:100%;justify-content:center}
+    .login-status{font-size:13px;margin:6px 0 0;min-height:18px}
+    .login-status.ok{color:var(--gold)}
+    .login-status.err{color:var(--magenta)}
+    .login-hint{font-size:12.5px;color:var(--ink-dim);margin:18px 0 0;line-height:1.6;text-align:center}
+  </style>
+
+  <!-- ============================ -->
+  <!-- 12·e · AREA MEMBRI           -->
   <!-- ============================ -->
   <section id="membri" class="sect membri-section">
     <div class="section-label" data-reveal><span>12·c</span> Area Membri</div>

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#05030f" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Test di pre-valutazione · DAVIL</title>
-<meta name="description" content="Test di pre-valutazione per consulenza specialistica con Davil Di Claudio" />
+<title>Questionario delle Psicotrappole · DAVIL</title>
+<meta name="description" content="Test delle Psicotrappole basato su Jeffrey Young e Janet Klosko · Schema Therapy · Davil Di Claudio" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
@@ -24,61 +24,59 @@
   em{font-style:italic;font-family:var(--ff-display);color:var(--gold)}
   strong{color:var(--ink)}
 
-  .container{max-width:780px;margin:0 auto;padding:48px 28px 80px}
+  .container{max-width:820px;margin:0 auto;padding:48px 28px 80px}
   header{margin-bottom:48px}
   .back{display:inline-flex;align-items:center;gap:8px;color:var(--ink-soft);text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--border);border-radius:999px;transition:all .25s;margin-bottom:32px}
   .back:hover{color:var(--ink);border-color:var(--magenta)}
   .meta{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);margin-bottom:18px}
-  h1{font-family:var(--ff-display);font-weight:300;font-size:clamp(36px,7vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px}
+  h1{font-family:var(--ff-display);font-weight:300;font-size:clamp(34px,6.6vw,58px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px}
   h1 em{color:var(--gold)}
-  .lead{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.6vw,21px);margin:0 0 24px;max-width:60ch;line-height:1.55}
+  .lead{font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(16px,1.5vw,20px);margin:0 0 18px;max-width:62ch;line-height:1.6}
+  .lead-note{font-size:13px;color:var(--ink-dim);max-width:60ch;line-height:1.65;margin:0 0 12px}
 
-  /* Progress */
-  .progress{position:sticky;top:0;background:rgba(5,3,15,.75);backdrop-filter:blur(14px) saturate(140%);padding:14px 0;margin:0 -28px 32px;padding-left:28px;padding-right:28px;border-bottom:1px solid var(--border);z-index:10}
+  .progress{position:sticky;top:0;background:rgba(5,3,15,.82);backdrop-filter:blur(14px) saturate(140%);padding:14px 0;margin:0 -28px 32px;padding-left:28px;padding-right:28px;border-bottom:1px solid var(--border);z-index:10}
   .progress-bar{height:3px;background:rgba(180,150,240,.12);border-radius:999px;overflow:hidden;position:relative}
   .progress-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--gold));width:0;transition:width .4s cubic-bezier(.25,.1,.25,1)}
-  .progress-meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+  .progress-meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;flex-wrap:wrap;gap:10px}
 
-  /* Question card */
-  .q-card{padding:32px;border:1px solid var(--border);border-radius:18px;background:var(--card);backdrop-filter:blur(14px) saturate(140%);margin-bottom:24px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-  .q-num{font-family:var(--ff-sans);font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-  .q-text{font-family:var(--ff-display);font-weight:400;font-size:clamp(18px,2.4vw,26px);line-height:1.35;margin:0 0 22px;color:var(--ink)}
-  .q-help{font-size:13px;color:var(--ink-dim);margin:-12px 0 22px;font-style:italic}
+  .q-card{padding:30px;border:1px solid var(--border);border-radius:18px;background:var(--card);backdrop-filter:blur(14px) saturate(140%);margin-bottom:22px;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .area-card{padding:18px 26px;border-left:3px solid var(--violet);border-radius:0 14px 14px 0;background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(236,72,153,.05));margin:36px 0 18px}
+  .area-card .area-num{font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--magenta);margin-bottom:4px}
+  .area-card h2{font-family:var(--ff-display);font-weight:300;font-size:clamp(22px,3vw,32px);margin:0;color:var(--ink)}
+  .area-card h2 em{color:var(--gold)}
+  .trap-card{padding:26px 30px;border:1px solid var(--border);border-radius:18px;background:var(--card);backdrop-filter:blur(14px) saturate(140%);margin-bottom:22px;box-shadow:0 18px 44px rgba(0,0,0,.35)}
+  .trap-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .trap-num{font-family:var(--ff-sans);font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--gold)}
+  .trap-cat{font-size:11px;letter-spacing:.20em;text-transform:uppercase;color:var(--ink-dim)}
+  .trap-name{font-family:var(--ff-display);font-weight:400;font-size:clamp(20px,2.6vw,28px);margin:0 0 4px;color:var(--ink)}
+  .trap-name em{color:var(--gold)}
+  .trap-help{font-size:13px;color:var(--ink-soft);margin:0 0 18px;font-style:italic;line-height:1.55}
 
-  /* Inputs */
+  .stmt{padding:14px 0;border-top:1px dashed var(--border)}
+  .stmt:first-of-type{border-top:0}
+  .stmt-text{font-size:15px;line-height:1.55;color:var(--ink);margin:0 0 12px}
+  .stmt-text .num{display:inline-block;color:var(--ink-dim);font-family:var(--ff-display);font-style:italic;min-width:28px}
+  .scale6{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch}
+  .scale6 label{flex:1;min-width:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;padding:9px 4px;border:1px solid var(--border);border-radius:10px;transition:all .18s;background:rgba(20,14,50,.30);position:relative}
+  .scale6 label:hover{border-color:var(--magenta);background:rgba(124,58,237,.08)}
+  .scale6 input{position:absolute;opacity:0;pointer-events:none}
+  .scale6 .sn{font-family:var(--ff-display);font-size:17px;color:var(--ink-soft);transition:color .15s,font-size .15s;line-height:1}
+  .scale6 .sl{font-size:9.5px;color:var(--ink-dim);letter-spacing:.04em;text-align:center;line-height:1.1;display:none}
+  .scale6 label:has(input:checked){border-color:var(--gold);background:rgba(244,201,93,.12);box-shadow:0 0 0 1px rgba(244,201,93,.30) inset}
+  .scale6 label:has(input:checked) .sn{color:var(--gold);font-size:21px}
+  .scale-legend{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-dim);letter-spacing:.04em;margin-top:6px}
+
   .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
   .field label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-  .field input,.field textarea,.field select{
+  .field input,.field textarea{
     background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
-    padding:14px 16px;color:var(--ink);font:inherit;font-size:15px;width:100%;
+    padding:13px 16px;color:var(--ink);font:inherit;font-size:15px;width:100%;
     transition:border-color .25s,box-shadow .25s;
   }
-  .field textarea{min-height:120px;resize:vertical;line-height:1.6}
-  .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(236,72,153,.18)}
+  .field textarea{min-height:110px;resize:vertical;line-height:1.6}
+  .field input:focus,.field textarea:focus{outline:0;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(236,72,153,.18)}
   .field-help{font-size:12px;color:var(--ink-dim);margin-top:-2px}
 
-  /* Radio + Checkbox option list */
-  .opt-list{display:flex;flex-direction:column;gap:10px}
-  .opt{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all .25s;background:rgba(20,14,50,.30)}
-  .opt:hover{border-color:rgba(236,90,160,.40);background:rgba(124,58,237,.10)}
-  .opt input{accent-color:var(--magenta);margin-top:3px;flex-shrink:0}
-  .opt input:checked + span{color:var(--ink)}
-  .opt input:checked ~ *{color:var(--ink)}
-  .opt:has(input:checked){border-color:rgba(244,201,93,.55);background:rgba(244,201,93,.08);box-shadow:0 0 0 1px rgba(244,201,93,.25) inset}
-  .opt-text{flex:1;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
-  .opt-text strong{display:block;color:var(--ink);margin-bottom:3px;font-size:14px}
-
-  /* Scale 1-10 */
-  .scale{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
-  .scale label{flex:1;min-width:36px;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:10px 4px;border:1px solid var(--border);border-radius:10px;transition:all .2s;background:rgba(20,14,50,.30)}
-  .scale label:hover{border-color:var(--magenta)}
-  .scale input{position:absolute;opacity:0;pointer-events:none}
-  .scale input:checked + .scale-num{color:var(--gold);font-size:22px}
-  .scale label:has(input:checked){border-color:var(--gold);background:rgba(244,201,93,.10)}
-  .scale-num{font-family:var(--ff-display);font-size:18px;color:var(--ink-soft);transition:color .2s,font-size .2s}
-  .scale-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-dim);letter-spacing:.04em}
-
-  /* Nav buttons */
   .nav-btns{display:flex;justify-content:space-between;gap:14px;margin-top:32px;flex-wrap:wrap}
   .btn{padding:14px 26px;border-radius:999px;border:0;background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff;font:inherit;font-size:13px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:10px;text-decoration:none}
   .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(236,72,153,.40)}
@@ -86,15 +84,38 @@
   .btn.ghost:hover{border-color:var(--magenta)}
   .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 
-  /* Final consent */
-  .consent-card{padding:24px;border:1px solid var(--border);border-radius:14px;background:rgba(20,14,50,.40);margin-top:24px}
+  .consent-card{padding:22px 24px;border:1px solid var(--border);border-radius:14px;background:rgba(20,14,50,.40);margin-top:24px}
   .consent-card label{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.55;color:var(--ink-soft)}
   .consent-card input{accent-color:var(--magenta);margin-top:3px}
 
-  /* Success / Error */
   .alert{padding:24px;border-radius:14px;margin:20px 0}
   .alert.ok{background:linear-gradient(135deg,rgba(244,201,93,.15),rgba(124,58,237,.10));border:1px solid rgba(244,201,93,.40);color:var(--gold)}
   .alert.err{background:rgba(236,72,153,.10);border:1px solid rgba(236,72,153,.40);color:var(--magenta)}
+
+  /* Results */
+  .results{margin:24px 0}
+  .result-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:14px 18px;border:1px solid var(--border);border-radius:12px;background:rgba(20,14,50,.40);margin-bottom:10px}
+  .result-name{font-family:var(--ff-display);font-size:17px;color:var(--ink)}
+  .result-cat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);margin-top:2px}
+  .result-score{font-family:var(--ff-display);font-size:22px;color:var(--gold);min-width:60px;text-align:right}
+  .result-band{font-size:12px;letter-spacing:.10em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
+  .result-band.b1{color:#9aa3c7;border-color:rgba(154,163,199,.30)}
+  .result-band.b2{color:#22d3ee;border-color:rgba(34,211,238,.40)}
+  .result-band.b3{color:#a78bfa;border-color:rgba(167,139,250,.45)}
+  .result-band.b4{color:var(--magenta);border-color:rgba(236,72,153,.50)}
+  .result-band.b5{color:var(--gold);border-color:rgba(244,201,93,.60);background:rgba(244,201,93,.08)}
+
+  .legend{padding:18px 22px;border:1px solid var(--border);border-radius:12px;background:rgba(20,14,50,.30);margin:18px 0;font-size:13px;line-height:1.7;color:var(--ink-soft)}
+  .legend strong{color:var(--gold)}
+
+  @media (max-width:560px){
+    .container{padding:32px 18px 60px}
+    .progress{margin:0 -18px 28px;padding-left:18px;padding-right:18px}
+    .q-card,.trap-card{padding:22px 18px}
+    .scale6 label{padding:10px 2px;min-width:38px}
+    .result-row{grid-template-columns:1fr;gap:6px}
+    .result-score,.result-band{justify-self:start}
+  }
 </style>
 </head>
 <body>
@@ -102,23 +123,25 @@
 
 <header>
   <a href="/" class="back">← Torna al sito</a>
-  <p class="meta">· Test di pre-valutazione ·</p>
-  <h1>Prima della <em>prima call.</em></h1>
-  <p class="lead">15-20 minuti. Le tue risposte arrivano direttamente a Davil prima della sessione conoscitiva — niente generalismi, niente perdita di tempo. Tutto è riservato.</p>
+  <p class="meta">· Questionario delle Psicotrappole ·</p>
+  <h1>Le tue <em>psico-trappole.</em></h1>
+  <p class="lead">Basato sul lavoro di <strong>Jeffrey Young</strong> e <strong>Janet Klosko</strong>, ideatori della <em>Schema Therapy.</em> 110 affermazioni, 11 trappole, 6 aree del sé. 15-25 minuti di onestà.</p>
+  <p class="lead-note">Le "psico-trappole" (o <em>schemi</em>) sono modalità profondamente radicate che spesso si originano nell'infanzia e si manifestano come copioni ripetitivi nella vita adulta. Completando il test acquisirai consapevolezza di quali schemi influenzano oggi la tua quotidianità — e quali sono i punti su cui lavorare insieme.</p>
+  <p class="lead-note"><strong style="color:var(--gold)">Disclaimer:</strong> questo test è uno strumento informativo ed educativo. Non sostituisce consulenza, diagnosi o trattamento medico/psicologico professionale. I risultati sono una guida generale, non una valutazione clinica. Ogni storia è unica — usali con responsabilità.</p>
 </header>
 
 <form id="testForm" autocomplete="on">
   <div class="progress">
     <div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
     <div class="progress-meta">
-      <span><strong id="qDone">0</strong>/<span id="qTot">0</span> completate</span>
+      <span><strong id="qDone">0</strong>/<span id="qTot">0</span> risposte</span>
       <span id="pPct">0%</span>
     </div>
   </div>
 
   <!-- ANAGRAFICA -->
   <div class="q-card">
-    <div class="q-num">Sezione 1 · Anagrafica</div>
+    <div class="trap-num">Sezione 1 · Anagrafica</div>
     <div class="field">
       <label for="firstName">Nome</label>
       <input id="firstName" name="firstName" type="text" required autocomplete="given-name"/>
@@ -134,11 +157,11 @@
     <div class="field">
       <label for="phone">Numero di telefono</label>
       <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+39 ..."/>
-      <div class="field-help">Davil ti contatta a questo numero entro 48h dalla submission.</div>
+      <div class="field-help">Davil ti contatta a questo numero per il debrief del test.</div>
     </div>
     <div class="field">
       <label for="age">Età</label>
-      <input id="age" name="age" type="number" min="18" max="99" required/>
+      <input id="age" name="age" type="number" min="14" max="99" required/>
     </div>
     <div class="field">
       <label for="city">Città di residenza</label>
@@ -146,134 +169,30 @@
     </div>
   </div>
 
-  <!-- AREA DI INTERVENTO -->
+  <!-- ISTRUZIONI -->
   <div class="q-card">
-    <div class="q-num">Sezione 2 · Area</div>
-    <p class="q-text">Su cosa vorresti lavorare? Seleziona <strong>una o più aree</strong>.</p>
-    <div class="opt-list">
-      <label class="opt"><input type="checkbox" name="area" value="dipendenza"/><span class="opt-text"><strong>Dipendenze</strong>fumo, alcol, sostanze, porno, gioco, smartphone, food</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="transizione"/><span class="opt-text"><strong>Transizione profonda</strong>separazione, lutto, crollo identitario, risveglio non richiesto</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="business"/><span class="opt-text"><strong>Business / Leadership</strong>imprenditori, network marketing, professionisti</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="ansia"/><span class="opt-text"><strong>Ansia / blocchi cronici</strong>(non condizioni cliniche acute)</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="relazioni"/><span class="opt-text"><strong>Relazioni</strong>copioni ricorrenti, partner, famiglia</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="visione"/><span class="opt-text"><strong>Visione / direzione</strong>ho costruito qualcosa, ma non so più dove sto andando</span></label>
-      <label class="opt"><input type="checkbox" name="area" value="altro"/><span class="opt-text"><strong>Altro</strong>(specifica nelle note in fondo)</span></label>
+    <div class="trap-num">Sezione 2 · Istruzioni</div>
+    <p class="trap-name" style="margin-bottom:14px">Dare un valore da <em>1 a 6</em> a quanto senti tua ogni affermazione.</p>
+    <div class="legend" style="margin:0">
+      <strong>1</strong> Completamente falso · <strong>2</strong> Per lo più falso · <strong>3</strong> Vero solo a tratti · <strong>4</strong> Moderatamente vero · <strong>5</strong> Per lo più vero · <strong>6</strong> Mi descrive perfettamente.
     </div>
   </div>
 
-  <!-- INTENSITÀ -->
-  <div class="q-card">
-    <div class="q-num">Sezione 3 · Intensità</div>
-    <p class="q-text">Da 1 a 10, quanto è <em>impattante</em> oggi questa difficoltà sulla tua vita quotidiana?</p>
-    <p class="q-help">1 = poco, 10 = sento che mi sta divorando.</p>
-    <div class="scale">
-      <label><input type="radio" name="intensity" value="1" required/><span class="scale-num">1</span></label>
-      <label><input type="radio" name="intensity" value="2"/><span class="scale-num">2</span></label>
-      <label><input type="radio" name="intensity" value="3"/><span class="scale-num">3</span></label>
-      <label><input type="radio" name="intensity" value="4"/><span class="scale-num">4</span></label>
-      <label><input type="radio" name="intensity" value="5"/><span class="scale-num">5</span></label>
-      <label><input type="radio" name="intensity" value="6"/><span class="scale-num">6</span></label>
-      <label><input type="radio" name="intensity" value="7"/><span class="scale-num">7</span></label>
-      <label><input type="radio" name="intensity" value="8"/><span class="scale-num">8</span></label>
-      <label><input type="radio" name="intensity" value="9"/><span class="scale-num">9</span></label>
-      <label><input type="radio" name="intensity" value="10"/><span class="scale-num">10</span></label>
-    </div>
-    <div class="scale-meta"><span>Lieve</span><span>Pervasivo</span></div>
-  </div>
-
-  <!-- DURATA -->
-  <div class="q-card">
-    <div class="q-num">Sezione 4 · Durata</div>
-    <p class="q-text">Da <em>quanto tempo</em> convivi con questa difficoltà?</p>
-    <div class="opt-list">
-      <label class="opt"><input type="radio" name="duration" value="<3m" required/><span class="opt-text">Meno di 3 mesi</span></label>
-      <label class="opt"><input type="radio" name="duration" value="3-12m"/><span class="opt-text">Da 3 a 12 mesi</span></label>
-      <label class="opt"><input type="radio" name="duration" value="1-3y"/><span class="opt-text">Da 1 a 3 anni</span></label>
-      <label class="opt"><input type="radio" name="duration" value="3-10y"/><span class="opt-text">Da 3 a 10 anni</span></label>
-      <label class="opt"><input type="radio" name="duration" value=">10y"/><span class="opt-text">Più di 10 anni · è una compagnia di vita</span></label>
-    </div>
-  </div>
-
-  <!-- PERCORSI PRECEDENTI -->
-  <div class="q-card">
-    <div class="q-num">Sezione 5 · Percorsi già fatti</div>
-    <p class="q-text">Hai già provato qualcosa? Seleziona <strong>tutto ciò che hai fatto</strong>.</p>
-    <div class="opt-list">
-      <label class="opt"><input type="checkbox" name="prev" value="psicoterapia"/><span class="opt-text"><strong>Psicoterapia</strong>(individuale o di gruppo)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="coaching"/><span class="opt-text"><strong>Coaching</strong>(con altri coach)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="meditazione"/><span class="opt-text"><strong>Meditazione</strong>(seria, almeno 1 anno)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="psichedelica"/><span class="opt-text"><strong>Esperienze psichedeliche</strong>(ayahuasca, funghi, MDMA terapeutico)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="farmaci"/><span class="opt-text"><strong>Farmaci</strong>(antidepressivi, ansiolitici)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="comunita"/><span class="opt-text"><strong>Comunità</strong>(AA, NA, gruppi di auto-aiuto)</span></label>
-      <label class="opt"><input type="checkbox" name="prev" value="nessuno"/><span class="opt-text"><strong>Niente</strong>· è la prima volta</span></label>
-    </div>
-  </div>
-
-  <!-- OBIETTIVO -->
-  <div class="q-card">
-    <div class="q-num">Sezione 6 · Obiettivo</div>
-    <p class="q-text">Cosa <em>vorresti ottenere</em> da un percorso con me, in 90 giorni?</p>
-    <div class="field">
-      <textarea name="goal" required placeholder="Scrivilo a parole tue. Più sei specifico, meglio è."></textarea>
-    </div>
-  </div>
-
-  <!-- RAGIONE PROFONDA -->
-  <div class="q-card">
-    <div class="q-num">Sezione 7 · Ragione profonda</div>
-    <p class="q-text">Perché <em>adesso</em>? Cosa è successo che ti ha fatto compilare questo test oggi e non sei mesi fa?</p>
-    <div class="field">
-      <textarea name="why_now" required placeholder="Una frase, un fatto, un'intuizione."></textarea>
-    </div>
-  </div>
-
-  <!-- DISPONIBILITÀ -->
-  <div class="q-card">
-    <div class="q-num">Sezione 8 · Disponibilità</div>
-    <p class="q-text">Quanto tempo a settimana puoi dedicare al percorso?</p>
-    <div class="opt-list">
-      <label class="opt"><input type="radio" name="time" value="meno-2h" required/><span class="opt-text">Meno di 2 ore · non è un buon momento</span></label>
-      <label class="opt"><input type="radio" name="time" value="2-4h"/><span class="opt-text">2-4 ore · sessione + esercizi base</span></label>
-      <label class="opt"><input type="radio" name="time" value="4-7h"/><span class="opt-text">4-7 ore · disposto a fare il lavoro</span></label>
-      <label class="opt"><input type="radio" name="time" value="piu-7h"/><span class="opt-text">Più di 7 ore · sono pronto a investire</span></label>
-    </div>
-  </div>
-
-  <!-- BUDGET -->
-  <div class="q-card">
-    <div class="q-num">Sezione 9 · Budget</div>
-    <p class="q-text">Hai già un'idea di quanto sei disposto a investire per un percorso trimestrale (12 settimane)?</p>
-    <div class="opt-list">
-      <label class="opt"><input type="radio" name="budget" value="sotto-1500" required/><span class="opt-text">Sotto i 1.500 €</span></label>
-      <label class="opt"><input type="radio" name="budget" value="1500-3000"/><span class="opt-text">1.500 - 3.000 €</span></label>
-      <label class="opt"><input type="radio" name="budget" value="3000-5000"/><span class="opt-text">3.000 - 5.000 €</span></label>
-      <label class="opt"><input type="radio" name="budget" value="oltre-5000"/><span class="opt-text">Oltre i 5.000 €</span></label>
-      <label class="opt"><input type="radio" name="budget" value="ne-parliamo"/><span class="opt-text">Preferisco parlarne in chiamata</span></label>
-    </div>
-  </div>
-
-  <!-- NOTE LIBERE -->
-  <div class="q-card">
-    <div class="q-num">Sezione 10 · Note libere</div>
-    <p class="q-text">C'è qualcosa che vuoi dirmi prima della call?</p>
-    <div class="field">
-      <textarea name="notes" placeholder="Tutto quello che senti utile · non obbligatorio"></textarea>
-    </div>
-  </div>
+  <!-- TRAPPOLE — generate dinamicamente -->
+  <div id="trapsHost"></div>
 
   <!-- DISCLAIMER + CONSENT -->
   <div class="consent-card">
-    <p style="font-size:13px;color:var(--ink-soft);margin:0 0 14px;line-height:1.6"><strong style="color:var(--gold)">Trasparenza:</strong> Davil è studente di psicologia, non psicologo né psicoterapeuta. Per disturbi clinici acuti rivolgersi a professionisti qualificati. Vedi <a href="privacy.html" target="_blank">privacy</a> e <a href="/#disclaimer" target="_blank">disclaimer</a> completo.</p>
+    <p style="font-size:13px;color:var(--ink-soft);margin:0 0 14px;line-height:1.6"><strong style="color:var(--gold)">Trasparenza:</strong> Davil è studente di psicologia e mental coach, non psicologo né psicoterapeuta. Per disturbi clinici acuti rivolgersi a professionisti qualificati. Vedi <a href="privacy.html" target="_blank">privacy</a> e <a href="/#disclaimer" target="_blank">disclaimer</a> completo.</p>
     <label>
       <input type="checkbox" name="consent" required/>
       <span>Acconsento al trattamento dei dati personali ai sensi del GDPR per ricevere la valutazione di Davil e per comunicazioni connesse al percorso. Sono consapevole che Davil non è un professionista sanitario e che, in presenza di patologie cliniche, mi rivolgerò a un professionista qualificato.</span>
     </label>
   </div>
 
-  <!-- ACTIONS -->
   <div class="nav-btns">
     <a href="/" class="btn ghost">← Annulla</a>
-    <button type="submit" class="btn" id="submitBtn">Invia il test a Davil →</button>
+    <button type="submit" class="btn" id="submitBtn">Calcola e invia a Davil →</button>
   </div>
 
   <div id="alertBox"></div>
@@ -282,6 +201,235 @@
 </div>
 
 <script>
+/* ========== DATA: 11 Psicotrappole × 10 affermazioni ========== */
+const AREAS = {
+  I:   { num:'I',   label:'Sicurezza di base' },
+  II:  { num:'II',  label:'Rapporti con gli altri' },
+  III: { num:'III', label:'Autonomia' },
+  IV:  { num:'IV',  label:'Autostima' },
+  V:   { num:'V',   label:'Espressione di sé' },
+  VI:  { num:'VI',  label:'Limiti realistici' }
+};
+
+const TRAPS = [
+  {
+    id:'abbandono', num:1, area:'I', name:'Abbandono',
+    help:'La paura ricorrente che le persone care possano andarsene, morire, o non essere disponibili nei momenti critici.',
+    items:[
+      'Mi preoccupo molto che le persone a cui voglio bene possano morire o lasciarmi.',
+      'Voglio stare sempre vicino agli altri perché ho paura che mi lascino.',
+      'Non ho una "base" stabile pronta a fornirmi sostegno.',
+      'Continuo a innamorarmi di persone che non possono impegnarsi a stare al mio fianco.',
+      'La mia vita è stata caratterizzata da un continuo "andare e venire" di persone.',
+      'Cado in preda alla disperazione quando qualcuno a cui voglio bene si allontana da me.',
+      "L'idea di poter essere lasciato diventa un'ossessione tale da indurre il mio partner ad andarsene.",
+      "I miei cari sono persone imprevedibili: per un po' sono disponibili nei miei confronti, il momento dopo si disinteressano di me.",
+      'Ho un eccessivo bisogno degli altri.',
+      'Alla fine rimarrò solo.'
+    ]
+  },
+  {
+    id:'sfiducia', num:2, area:'I', name:'Sfiducia e Abuso',
+    help:'La convinzione che gli altri ti faranno del male, ti tradiranno, ti useranno o ti umilieranno se abbasserai la guardia.',
+    items:[
+      'Mi aspetto che gli altri mi facciano del male o mi usino.',
+      'Per tutta la mia vita sono rimasto vittima di abusi commessi proprio dalle persone più care.',
+      'Il tradimento da parte delle persone a cui voglio bene è solo una questione di tempo.',
+      'Devo proteggere me stesso e stare in guardia.',
+      'Se non sto attento, gli altri si approfitteranno di me.',
+      'Metto alla prova gli altri per vedere se sono davvero dalla mia parte.',
+      'Cerco di fare del male agli altri prima che siano loro a fare del male a me.',
+      'Ho paura a lasciare che gli altri approfondiscano il rapporto con me, perché mi aspetto che mi facciano del male.',
+      'Provo rabbia per quello che gli altri mi hanno fatto.',
+      'Sono stato oggetto di abusi fisici, verbali o sessuali da parte di persone di cui avrei dovuto potermi fidare.'
+    ]
+  },
+  {
+    id:'deprivazione', num:3, area:'II', name:'Deprivazione emotiva',
+    help:'La sensazione che nessuno comprenda davvero i tuoi bisogni emotivi profondi: calore, empatia, guida, ascolto autentico.',
+    items:[
+      'Ho bisogno di più amore di quanto ne ricevo.',
+      'Nessuno mi capisce davvero.',
+      'Sono spesso attratto da partner freddi e incapaci di soddisfare i miei bisogni.',
+      'Sento di non avere un vero rapporto con nessuno, neppure con i miei cari.',
+      "Fra le persone a cui voglio bene non ne ho mai avuta una \"speciale\" che desideri aprirsi con me e sia profondamente interessata a ciò che mi capita.",
+      "Non c'è nessuno disponibile a darmi calore, sostegno e affetto.",
+      'Non ho nessuno che mi ascolti veramente e che sappia entrare in sintonia con i miei bisogni e sentimenti più autentici.',
+      'Faccio fatica a lasciarmi guidare o proteggere dagli altri, anche se in cuor mio è ciò che desidero.',
+      'Per me è difficile lasciarmi amare dagli altri.',
+      'Per gran parte del tempo mi sento solo.'
+    ]
+  },
+  {
+    id:'esclusione', num:4, area:'II', name:'Esclusione sociale',
+    help:'Il sentirsi fondamentalmente diversi, fuori posto, esclusi da gruppi e comunità — un "pesce fuor d\'acqua".',
+    items:[
+      'Nelle situazioni sociali mi sento molto a disagio.',
+      'Mi sento poco brillante e noioso alle feste e in altre occasioni mondane. Non so mai cosa dire.',
+      "Le persone che vorrei avere come amici sono superiori a me in qualche modo (per esempio, nell'aspetto fisico, nella popolarità, nella ricchezza, nello status, nel livello di istruzione, nel successo professionale).",
+      'Nella maggior parte dei casi, farei volentieri a meno di partecipare a cerimonie e ricevimenti.',
+      'Non mi sento attraente: sono troppo grasso/magro, alto/basso, brutto, ecc.',
+      'Mi sento fondamentalmente diverso dagli altri.',
+      'Non riesco a inserirmi in nessun ambiente. Sono un tipo solitario.',
+      'Non mi sento parte di nessun gruppo.',
+      'Da piccolo non ho mai avuto un gruppo, una comitiva, una squadra che mi abbia fatto sentire parte di loro.',
+      'Non riesco a sentirmi veramente in rapporto con la comunità generale.'
+    ]
+  },
+  {
+    id:'dipendenza', num:5, area:'III', name:'Dipendenza',
+    help:'La sensazione di non potercela fare da soli, di aver bisogno costante della guida, del giudizio e del sostegno degli altri.',
+    items:[
+      'Quando si tratta di affrontare le responsabilità della vita di ogni giorno, mi sento più come un bambino che come un adulto.',
+      'Non ce la faccio ad andare avanti da solo.',
+      'Da solo non me la cavo bene.',
+      'Gli altri si prendono cura di me meglio di quanto possa prendermi cura io di me stesso.',
+      "Faccio fatica ad affrontare compiti nuovi se non c'è qualcuno a guidarmi.",
+      'Non so fare niente bene.',
+      'Sono un incapace.',
+      'Mi manca il buon senso.',
+      'Non mi fido della mia capacità di giudizio.',
+      'Mi sento sopraffatto dalla vita quotidiana.'
+    ]
+  },
+  {
+    id:'vulnerabilita', num:6, area:'III', name:'Vulnerabilità',
+    help:'La paura costante che possa accadere qualcosa di terribile: malattia, catastrofe, povertà, perdita del controllo.',
+    items:[
+      'Non riesco a evitare di pensare che stia per accadere qualcosa di brutto.',
+      "Ho la sensazione che da un momento all'altro possa accadere qualcosa di terribile.",
+      'Temo di poter finire in mezzo a una strada, di diventare un barbone.',
+      'Ho molta paura di essere aggredito da un criminale, da un ladro, da un rapinatore ecc.',
+      "Temo di potermi ammalare gravemente, anche se non mi è stato diagnosticato nulla.",
+      'Provo troppa ansia per riuscire a viaggiare da solo in aereo, in treno ecc.',
+      "Ho degli attacchi d'ansia.",
+      'Sono particolarmente attento alle sensazioni fisiche che provengono dal mio corpo e mi preoccupo di ciò che possano significare.',
+      'Temo di poter perdere il controllo in pubblico o di impazzire.',
+      'Ho paura di rimanere senza un soldo, di andare in rovina.'
+    ]
+  },
+  {
+    id:'inadeguatezza', num:7, area:'IV', name:'Inadeguatezza',
+    help:'La convinzione di essere essenzialmente difettoso, indegno di amore, di dover nascondere il proprio vero io.',
+    items:[
+      'Nessuno potrebbe mai amarmi, se mi conoscesse davvero.',
+      "In me c'è qualcosa di essenziale che non va. Non sono degno di amore.",
+      'Ho dei segreti che non voglio rivelare, nemmeno alle persone più care.',
+      'È stata colpa mia se i miei genitori non mi hanno amato.',
+      'Nascondo il mio vero io perché è inaccettabile. Quello che mostro è un falso sé.',
+      'Sono spesso attratto da persone — genitori, amici, partner — che mi criticano e mi rifiutano.',
+      'Io stesso rifiuto e critico spesso gli altri, soprattutto le persone che sembrano amarmi.',
+      'Sminuisco le mie qualità positive.',
+      'Convivo con un forte sentimento di vergogna nei confronti di me stesso.',
+      'Una delle cose che temo di più è che i miei difetti vengano scoperti.'
+    ]
+  },
+  {
+    id:'fallimento', num:8, area:'IV', name:'Fallimento',
+    help:'La convinzione di essere meno competente, intelligente o talentuoso degli altri negli ambiti di affermazione personale.',
+    items:[
+      'Mi sembra di essere meno competente degli altri negli ambiti di affermazione personale.',
+      'Se penso ai risultati che ho conseguito, mi sembra di essere un fallito.',
+      'La maggior parte delle persone della mia età ha più successo nel lavoro di quanto ne abbia io.',
+      'Da studente ero un disastro.',
+      'Mi sembra di essere meno intelligente della maggior parte delle persone che frequento.',
+      'Mi sento umiliato dai miei fallimenti in ambito professionale.',
+      "Provo imbarazzo quando sono con altre persone, perché i risultati che ho raggiunto non sono all'altezza di quelli degli altri.",
+      'Ho spesso la sensazione che gli altri mi considerino più competente di quanto io sia realmente.',
+      'Credo di non avere nessuna delle doti speciali che hanno davvero importanza nella vita.',
+      'Lavoro al di sotto delle mie potenzialità.'
+    ]
+  },
+  {
+    id:'sottomissione', num:9, area:'V', name:'Sottomissione',
+    help:'La tendenza a cedere ai desideri degli altri per evitare conflitto, rifiuto o ritorsione, sacrificando i propri bisogni.',
+    items:[
+      'Mi lascio dominare dagli altri.',
+      'Temo che, se non cedo ai desideri degli altri, dovrò subirne la vendetta, la rabbia o il rifiuto.',
+      'Mi sento come se le decisioni più importanti della mia vita non fossero state davvero mie.',
+      'Faccio molta fatica a esigere che gli altri rispettino i miei diritti.',
+      'Mi preoccupo molto di accontentare gli altri e di ottenere la loro approvazione.',
+      'Faccio di tutto per evitare lo scontro.',
+      'Do agli altri più di quanto ricevo in cambio.',
+      'Sento profondamente il dolore degli altri e per questo finisco per prendermi cura delle persone che mi stanno vicino.',
+      'Mi sento in colpa quando metto me stesso al primo posto.',
+      'Sono una brava persona, perché penso agli altri più che a me stesso.'
+    ]
+  },
+  {
+    id:'standard', num:10, area:'V', name:'Standard severi',
+    help:'L\'ossessione per la perfezione, la performance, il primato — anche a costo della salute e delle relazioni.',
+    items:[
+      'Non riesco ad accettare di non essere al primo posto. Devo essere il migliore nella maggior parte delle cose che faccio.',
+      'Tutto ciò che faccio non va mai bene abbastanza.',
+      'Mi sforzo di mantenere tutto in perfetto ordine.',
+      'Devo sempre avere il migliore aspetto possibile.',
+      'Devo fare così tante cose che non ho tempo per rilassarmi.',
+      'I miei rapporti interpersonali soffrono perché sono sempre troppo impegnato a raggiungere qualche obiettivo.',
+      'Sono sempre sotto pressione al punto che la mia salute ne soffre.',
+      'Quando commetto uno sbaglio, merito delle dure critiche.',
+      'Ho uno spirito molto competitivo.',
+      'La ricchezza e lo status sono molto importanti per me.'
+    ]
+  },
+  {
+    id:'pretese', num:11, area:'VI', name:'Pretese',
+    help:'La difficoltà ad accettare limiti, regole, "no" — l\'aspettativa di trattamenti speciali o l\'incapacità di disciplinarsi.',
+    items:[
+      'Faccio fatica ad accettare che qualcuno mi dica di no.',
+      'Mi arrabbio quando non ottengo ciò che voglio.',
+      'Sono una persona speciale e non dovrei accettare le normali costrizioni.',
+      'Metto i miei bisogni al primo posto.',
+      'Faccio molta fatica a smettere di bere, fumare, abbuffarmi o a interrompere altri comportamenti problematici.',
+      'Non riesco a impormi di portare a termine compiti noiosi e ripetitivi.',
+      "Agisco d'impulso e sull'onda delle emozioni e ciò mi causa poi dei problemi.",
+      'Se non riesco a raggiungere un obiettivo, vengo assalito ben presto da un senso di frustrazione e smetto di provarci.',
+      'Esigo che gli altri facciano le cose a modo mio.',
+      'Faccio fatica a rinunciare a una gratificazione istantanea a favore del raggiungimento di un obiettivo a lungo termine.'
+    ]
+  }
+];
+
+const SCALE_LABELS = ['Falso','Per lo più falso','A tratti','Moderatamente vero','Per lo più vero','Mi descrive perfettamente'];
+
+/* ========== RENDER ========== */
+const HOST = document.getElementById('trapsHost');
+let lastArea = null;
+TRAPS.forEach((t, idx) => {
+  if (t.area !== lastArea) {
+    const a = AREAS[t.area];
+    const ac = document.createElement('div');
+    ac.className = 'area-card';
+    ac.innerHTML = `<div class="area-num">Area ${a.num}</div><h2><em>${a.label}</em></h2>`;
+    HOST.appendChild(ac);
+    lastArea = t.area;
+  }
+  const wrap = document.createElement('div');
+  wrap.className = 'trap-card';
+  wrap.id = 't-' + t.id;
+  let html = `
+    <div class="trap-head">
+      <span class="trap-num">Trappola ${t.num}</span>
+      <span class="trap-cat">· ${AREAS[t.area].label}</span>
+    </div>
+    <h3 class="trap-name"><em>${t.name}.</em></h3>
+    <p class="trap-help">${t.help}</p>`;
+  t.items.forEach((it, i) => {
+    const qid = `${t.id}_${i+1}`;
+    html += `
+      <div class="stmt">
+        <p class="stmt-text"><span class="num">${i+1}.</span> ${it}</p>
+        <div class="scale6" role="radiogroup" aria-label="${qid}">
+          ${[1,2,3,4,5,6].map(v => `<label title="${SCALE_LABELS[v-1]}"><input type="radio" name="${qid}" value="${v}" required/><span class="sn">${v}</span></label>`).join('')}
+        </div>
+      </div>`;
+  });
+  html += `<div class="scale-legend"><span>1 · Falso</span><span>6 · Mi descrive perfettamente</span></div>`;
+  wrap.innerHTML = html;
+  HOST.appendChild(wrap);
+});
+
+/* ========== PROGRESS ========== */
 const FORM = document.getElementById('testForm');
 const PF = document.getElementById('pf');
 const Q_DONE = document.getElementById('qDone');
@@ -291,24 +439,20 @@ const ALERT = document.getElementById('alertBox');
 const TESTS_KEY = 'davil_tests_v1';
 
 const trackProgress = () => {
-  // count required fields filled
-  const required = [...FORM.querySelectorAll('[required]')];
-  const totalGroups = new Set();
-  let done = 0;
-  required.forEach(el => {
-    if (el.type === 'radio' || el.type === 'checkbox') {
-      const name = el.name;
-      totalGroups.add(name);
-      if (FORM.querySelector(`[name="${name}"]:checked`)) totalGroups.add(name + '_done');
-    } else {
-      totalGroups.add('field_' + el.name);
-      if (el.value.trim()) totalGroups.add('field_' + el.name + '_done');
-    }
+  const radioGroups = new Set();
+  const radiosFilled = new Set();
+  FORM.querySelectorAll('input[type="radio"][required]').forEach(r => {
+    radioGroups.add(r.name);
+    if (FORM.querySelector(`input[name="${r.name}"]:checked`)) radiosFilled.add(r.name);
   });
-  const groups = [...totalGroups].filter(k => !k.endsWith('_done'));
-  const doneGroups = [...totalGroups].filter(k => k.endsWith('_done')).length;
-  done = doneGroups;
-  const total = groups.length;
+  const textRequired = [...FORM.querySelectorAll('input:not([type="radio"]):not([type="checkbox"])[required], textarea[required]')];
+  const textFilled = textRequired.filter(el => el.value.trim());
+  const consent = FORM.querySelector('input[name="consent"]');
+  const consentReq = consent ? 1 : 0;
+  const consentDone = consent && consent.checked ? 1 : 0;
+
+  const total = radioGroups.size + textRequired.length + consentReq;
+  const done = radiosFilled.size + textFilled.length + consentDone;
   const pct = total ? Math.round(done / total * 100) : 0;
   Q_DONE.textContent = done;
   Q_TOT.textContent = total;
@@ -316,46 +460,60 @@ const trackProgress = () => {
   PF.style.width = pct + '%';
 };
 FORM.addEventListener('input', trackProgress);
+FORM.addEventListener('change', trackProgress);
 trackProgress();
 
-// Submit
+/* ========== SCORING ========== */
+function scoreBand(s){
+  if (s <= 19) return { lvl:'Molto basso', desc:'Questa trappola probabilmente non vi riguarda.', cls:'b1' };
+  if (s <= 29) return { lvl:'Abbastanza basso', desc:'È probabile che vi riguardi solo ogni tanto.', cls:'b2' };
+  if (s <= 39) return { lvl:'Medio', desc:'Costituisce un problema per la vostra vita.', cls:'b3' };
+  if (s <= 49) return { lvl:'Alto', desc:'Condiziona la vostra vita in misura rilevante.', cls:'b4' };
+  return { lvl:'Molto alto', desc:'Si tratta certamente di una delle vostre trappole principali.', cls:'b5' };
+}
+
+function computeScores(data){
+  return TRAPS.map(t => {
+    let sum = 0;
+    for (let i=1;i<=10;i++){
+      const v = parseInt(data[`${t.id}_${i}`] || '0', 10);
+      sum += isNaN(v) ? 0 : v;
+    }
+    return { ...t, score:sum, band:scoreBand(sum) };
+  });
+}
+
+/* ========== SUBMIT ========== */
 FORM.addEventListener('submit', async (e) => {
   e.preventDefault();
   const fd = new FormData(FORM);
   const data = {};
-  for (const [k, v] of fd.entries()) {
-    if (data[k]) {
-      if (Array.isArray(data[k])) data[k].push(v);
-      else data[k] = [data[k], v];
-    } else data[k] = v;
-  }
+  for (const [k, v] of fd.entries()) data[k] = v;
+
+  const scores = computeScores(data);
+  const top = [...scores].sort((a,b) => b.score - a.score).slice(0,3);
+
   const test = {
     ts: new Date().toISOString(),
+    type: 'psicotrappole',
     firstName: data.firstName || '',
     lastName: data.lastName || '',
     email: data.email || '',
     phone: data.phone || '',
     age: data.age || '',
     city: data.city || '',
-    area: [].concat(data.area || []).join(', '),
-    intensity: data.intensity || '',
-    duration: data.duration || '',
-    prev: [].concat(data.prev || []).join(', '),
-    goal: data.goal || '',
-    why_now: data.why_now || '',
-    time: data.time || '',
-    budget: data.budget || '',
-    notes: data.notes || '',
+    scores: scores.map(s => ({ id:s.id, name:s.name, area:AREAS[s.area].label, score:s.score, band:s.band.lvl })),
+    answers: Object.fromEntries(Object.entries(data).filter(([k]) => /_\d+$/.test(k))),
     ua: navigator.userAgent.substring(0, 100)
   };
 
-  // Save
+  // Save test
   let tests = [];
   try { tests = JSON.parse(localStorage.getItem(TESTS_KEY) || '[]'); } catch (e) {}
   tests.push(test);
   try { localStorage.setItem(TESTS_KEY, JSON.stringify(tests)); } catch (e) {}
 
-  // Also save to leads
+  // Lead
   const LEADS_KEY = 'davil_leads_v1';
   let leads = [];
   try { leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) {}
@@ -364,84 +522,91 @@ FORM.addEventListener('submit', async (e) => {
     name: `${test.firstName} ${test.lastName}`.trim(),
     email: test.email,
     phone: test.phone,
-    source: 'test-consulenza',
-    code: 'TEST-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+    source: 'test-psicotrappole',
+    code: 'PSY-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
     ua: test.ua
   });
   try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch (e) {}
 
-  // EmailJS if configured
+  // Mailto body
+  const subject = encodeURIComponent(`Test Psicotrappole · ${test.firstName} ${test.lastName}`);
+  const lines = [
+    `=== QUESTIONARIO DELLE PSICOTRAPPOLE · DAVIL ===`,
+    ``,
+    `Data: ${new Date(test.ts).toLocaleString('it-IT')}`,
+    ``,
+    `--- ANAGRAFICA ---`,
+    `Nome: ${test.firstName} ${test.lastName}`,
+    `Email: ${test.email}`,
+    `Telefono: ${test.phone}`,
+    `Età: ${test.age}  ·  Città: ${test.city}`,
+    ``,
+    `--- PUNTEGGI PER TRAPPOLA ---`,
+    ...scores.map(s => `${String(s.num).padStart(2,'0')}. ${s.name.padEnd(22,' ')} ${String(s.score).padStart(3,' ')}/60   [${s.band.lvl}]   (${AREAS[s.area].label})`),
+    ``,
+    `--- TOP 3 TRAPPOLE PRINCIPALI ---`,
+    ...top.map((s,i) => `#${i+1} ${s.name} (${s.score}/60 · ${s.band.lvl}) — ${s.band.desc}`),
+    ``,
+    `--- RISPOSTE COMPLETE ---`,
+    ...scores.flatMap(s => [
+      `\n[${s.name.toUpperCase()}] (totale ${s.score}/60)`,
+      ...s.items.map((q,i) => `  ${i+1}. (${data[`${s.id}_${i+1}`] || '-'}/6)  ${q}`)
+    ])
+  ].join('\n');
+  const body = encodeURIComponent(lines);
+  const mailto = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
+
+  // EmailJS
   if (window.parent && window.parent.DAVIL_EMAIL?.enabled && window.emailjs) {
     try {
       await window.emailjs.send(window.parent.DAVIL_EMAIL.serviceId, window.parent.DAVIL_EMAIL.tplDavil, {
         name: `${test.firstName} ${test.lastName}`,
         email: test.email,
         phone: test.phone,
-        source: 'test-consulenza',
-        code: 'TEST',
+        source: 'test-psicotrappole',
+        code: 'PSY',
         ts: test.ts,
-        notes: JSON.stringify(test, null, 2)
+        notes: lines.substring(0, 6000)
       });
-    } catch (e) { /* fallback mailto sotto */ }
+    } catch (e) {}
   }
 
-  // Always offer mailto (so Davil receives the test in his email)
-  const subject = encodeURIComponent(`Test consulenza · ${test.firstName} ${test.lastName} · ${test.email}`);
-  const lines = [
-    `=== TEST DI PRE-VALUTAZIONE · DAVIL ===`,
-    ``,
-    `Data: ${new Date(test.ts).toLocaleString('it-IT')}`,
-    ``,
-    `--- ANAGRAFICA ---`,
-    `Nome: ${test.firstName}`,
-    `Cognome: ${test.lastName}`,
-    `Email: ${test.email}`,
-    `Telefono: ${test.phone}`,
-    `Età: ${test.age}`,
-    `Città: ${test.city}`,
-    ``,
-    `--- AREE ---`,
-    `${test.area}`,
-    ``,
-    `--- INTENSITÀ ---`,
-    `Scala 1-10: ${test.intensity}`,
-    ``,
-    `--- DURATA ---`,
-    `${test.duration}`,
-    ``,
-    `--- PERCORSI PRECEDENTI ---`,
-    `${test.prev}`,
-    ``,
-    `--- OBIETTIVO ---`,
-    `${test.goal}`,
-    ``,
-    `--- PERCHÉ ADESSO ---`,
-    `${test.why_now}`,
-    ``,
-    `--- DISPONIBILITÀ TEMPO ---`,
-    `${test.time}`,
-    ``,
-    `--- BUDGET ---`,
-    `${test.budget}`,
-    ``,
-    `--- NOTE LIBERE ---`,
-    `${test.notes || '(vuote)'}`,
-  ].join('\n');
-  const body = encodeURIComponent(lines);
-  const mailto = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
+  // Render results
+  const rowsHtml = scores.map(s => `
+    <div class="result-row">
+      <div>
+        <div class="result-name">${s.num}. ${s.name}</div>
+        <div class="result-cat">${AREAS[s.area].label}</div>
+      </div>
+      <div class="result-score">${s.score}<span style="font-size:14px;color:var(--ink-dim)"> /60</span></div>
+      <div class="result-band ${s.band.cls}">${s.band.lvl}</div>
+    </div>`).join('');
 
-  // Show success + open mailto
   ALERT.innerHTML = `
     <div class="alert ok">
-      <h3 style="margin:0 0 12px;font-family:var(--ff-display);font-weight:400;color:var(--gold)">Grazie ${test.firstName}.</h3>
-      <p style="margin:0 0 14px">Le tue risposte sono state registrate. Davil ti contatta entro 48h al numero <strong>${test.phone}</strong>.</p>
-      <p style="margin:0 0 14px;font-size:13px">Apriamo il tuo client email per inviare la copia della valutazione direttamente a Davil.</p>
-      <a href="${mailto}" class="btn">📧 Invia copia via email</a>
-      <a href="/" class="btn ghost" style="margin-left:10px">Torna al sito</a>
+      <h3 style="margin:0 0 12px;font-family:var(--ff-display);font-weight:400;color:var(--gold);font-size:24px">Grazie ${test.firstName}.</h3>
+      <p style="margin:0 0 8px">Le tue risposte sono state registrate. Davil ti contatta entro 48h al numero <strong>${test.phone}</strong> per il debrief.</p>
+      <p style="margin:0;font-size:13px;color:var(--ink-soft)">Apriamo il client email per inviare la copia integrale a Davil.</p>
+    </div>
+    <h2 style="font-family:var(--ff-display);font-weight:300;font-size:28px;margin:32px 0 8px;color:var(--ink)">I tuoi <em style="color:var(--gold)">punteggi.</em></h2>
+    <p style="font-size:13px;color:var(--ink-soft);margin:0 0 18px">Top 3 trappole: <strong>${top.map(t=>t.name).join(' · ')}</strong></p>
+    <div class="results">${rowsHtml}</div>
+    <div class="legend">
+      <strong>10-19</strong> Molto basso · probabilmente non vi riguarda.<br/>
+      <strong>20-29</strong> Abbastanza basso · vi riguarda solo ogni tanto.<br/>
+      <strong>30-39</strong> Medio · costituisce un problema per la vostra vita.<br/>
+      <strong>40-49</strong> Alto · condiziona la vostra vita in misura rilevante.<br/>
+      <strong>50-60</strong> Molto alto · è certamente una delle vostre trappole principali.
+    </div>
+    <div class="nav-btns">
+      <a href="/" class="btn ghost">Torna al sito</a>
+      <a href="${mailto}" class="btn">📧 Invia copia via email a Davil</a>
     </div>`;
-  ALERT.scrollIntoView({ behavior: 'smooth' });
-  // Auto open mailto after short delay
-  setTimeout(() => { window.location.href = mailto; }, 800);
+
+  // Hide form
+  [...FORM.children].forEach(c => { if (c !== ALERT && c.id !== 'alertBox') c.style.display='none'; });
+  ALERT.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => { window.location.href = mailto; }, 1200);
 });
 </script>
 </body>
