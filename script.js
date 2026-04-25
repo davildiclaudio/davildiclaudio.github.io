@@ -45,11 +45,10 @@
     // Stage 1: orb glow rises
     tl.to(orb, { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0);
     tl.to(orb, { scale: 1.12, duration: 1.6, ease: 'sine.inOut' }, 1.2);
-    // Stage 2: logo materializes con scale + opacity (no mask sweep, niente artefatti)
+    // Stage 2: logo materializza con opacity + scale leggera (niente filter blur che lascia halo)
     tl.fromTo(logo,
-      { opacity: 0, scale: 1.06, filter: 'brightness(0) invert(1) blur(8px)' },
-      { opacity: 1, scale: 1, filter: 'brightness(0) invert(1) blur(0px)',
-        duration: 1.4, ease: 'power3.out' }, 0.4);
+      { opacity: 0, scale: 1.04 },
+      { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0.4);
     // Stage 3: shine sweep elegante
     tl.fromTo(shine,
       { opacity: 0, x: '-60%' },
@@ -197,28 +196,8 @@
     });
   }
 
-  /* ---------- Grain canvas overlay on hero ---------- */
+  /* ---------- (Grain canvas rimosso · era percepito come "stelline") ---------- */
   const hero = $('.hero');
-  if (hero && !prefersReducedMotion) {
-    const grain = document.createElement('canvas');
-    grain.className = 'grain-canvas';
-    hero.appendChild(grain);
-    const ctx = grain.getContext('2d');
-    let w = grain.width = 256;
-    let h = grain.height = 256;
-    const tickGrain = () => {
-      const img = ctx.createImageData(w, h);
-      const d = img.data;
-      for (let i = 0; i < d.length; i += 4) {
-        const v = (Math.random() * 255) | 0;
-        d[i] = d[i+1] = d[i+2] = v;
-        d[i+3] = 18; // alpha
-      }
-      ctx.putImageData(img, 0, 0);
-      setTimeout(() => requestAnimationFrame(tickGrain), 80); // ~12fps grain
-    };
-    tickGrain();
-  }
 
   /* ---------- Split utilities ---------- */
   const splitChars = (el) => {
