@@ -191,16 +191,245 @@
   /* Footer logo wrapper */
   .footer-mark{display:inline-flex;align-items:center}
 
-  /* === BRAND palette estesa (oro champagne + blu elettrico) === */
+  /* === LIGHT THEME · cream-on-ink, oro deep, blu logo === */
   :root{
-    --brand-electric:#2d2de0;     /* logo blue */
-    --brand-light:#b4c5ff;        /* electric soft */
-    --brand-glow:rgba(45,45,224,.45);
-    /* Oro champagne · luminoso, classy, non senape */
-    --gold:#e8c87a;
-    --gold-soft:#f3d99a;
-    --gold-bright:#fff0c8;
+    /* Background warm light */
+    --bg:#f5f3ee;
+    --bg-2:#eceae3;
+    --bg-3:#dfdcd4;
+    --bg-card:#ffffff;
+
+    /* Ink */
+    --ink:#18181a;
+    --ink-soft:#4a4a4d;
+    --ink-dim:#88888c;
+    --white:#ffffff;
+
+    /* Brand */
+    --brand:#2d2de0;
+    --brand-2:#4060d4;
+    --brand-deep:#1a1aa8;
+    --brand-electric:#2d2de0;
+    --brand-light:#5e7df9;        /* più contrasto su sfondo chiaro */
+    --brand-glow:rgba(45,45,224,.30);
+
+    /* Oro deep per fondo chiaro (champagne è troppo pallido) */
+    --gold:#b8862e;
+    --gold-soft:#d4a864;
+    --gold-bright:#e8c87a;
+    --gold-deep:#8b6422;
+    --gold-pale:#f3d99a;
+    --violet:#7c3aed;
+
+    /* Borders + shadows */
+    --border:rgba(24,24,26,.10);
+    --border-soft:rgba(24,24,26,.04);
+    --border-hover:rgba(24,24,26,.22);
+    --shadow-sm:0 2px 12px rgba(24,24,26,.06);
+    --shadow-md:0 24px 60px rgba(24,24,26,.08);
+    --shadow-lg:0 40px 100px rgba(24,24,26,.12);
   }
+  html,body{background:var(--bg)!important;color:var(--ink)!important}
+
+  /* ::selection invertita */
+  ::selection{background:var(--ink);color:var(--bg)}
+
+  /* Cursor invertito: punto scuro */
+  .cursor-dot{background:var(--ink)!important;mix-blend-mode:multiply}
+  .cursor-ring{border-color:rgba(24,24,26,.35)!important}
+
+  /* Loader sfondo chiaro */
+  #loader.loader-magic{
+    background:radial-gradient(ellipse at center, #fefdfa 0%, #ece9e1 60%, #d8d4c9 100%)!important;
+  }
+  .loader-orb{
+    background:radial-gradient(circle at 50% 50%, rgba(184,134,46,.32) 0%, rgba(45,45,224,.12) 38%, transparent 70%)!important;
+    mix-blend-mode:multiply!important;
+  }
+  .loader-aurora{mix-blend-mode:multiply!important}
+  .loader-aurora .a1{background:radial-gradient(circle, rgba(45,45,224,.20) 0%, transparent 65%)!important}
+  .loader-aurora .a2{background:radial-gradient(circle, rgba(124,58,237,.16) 0%, transparent 65%)!important}
+  .loader-aurora .a3{background:radial-gradient(circle, rgba(184,134,46,.18) 0%, transparent 60%)!important}
+
+  /* Loader logo · ora oro su bianco (la classe gold già funziona, override solo se serve) */
+  .loader-logo{filter:none!important}
+
+  /* Hero · bg chiaro caldo */
+  .hero{
+    background:
+      radial-gradient(900px 600px at 20% 0%, rgba(45,45,224,.08), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(124,58,237,.06), transparent 55%),
+      radial-gradient(600px 500px at 50% 50%, rgba(184,134,46,.05), transparent 65%),
+      linear-gradient(180deg, #faf8f3 0%, #efece5 100%)!important;
+  }
+  .hero-bg-clean{
+    background:
+      radial-gradient(900px 600px at 20% 0%, rgba(45,45,224,.08), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(124,58,237,.06), transparent 55%),
+      radial-gradient(500px 400px at 50% 40%, rgba(184,134,46,.06), transparent 60%)!important;
+  }
+  .hero-bg-clean::after{
+    background-image:radial-gradient(rgba(0,0,0,.02) 1px, transparent 1px)!important;
+    mix-blend-mode:multiply!important;opacity:.6!important;
+  }
+  .orb-1{background:#5e7df9!important;opacity:.18!important}
+  .orb-2{background:#b08bff!important;opacity:.14!important}
+
+  /* Nav glass su bianco */
+  .nav.is-scrolled{
+    background:rgba(255,255,255,.72)!important;
+    backdrop-filter:saturate(160%) blur(18px)!important;
+    -webkit-backdrop-filter:saturate(160%) blur(18px)!important;
+    border-bottom-color:rgba(24,24,26,.08)!important;
+  }
+  /* Nav logo bianco→oro (.nav-logo-gold già usa mask + gradient, va bene su bianco) */
+
+  /* Mobile menu */
+  @media(max-width:820px){
+    .nav-menu{background:rgba(255,255,255,.96)!important;backdrop-filter:blur(20px)!important}
+  }
+
+  /* Cards · sfondo chiaro con bordi delicati */
+  .asse,.pilastro,.piano,.rcard,.contatto-card,.tm,.dream-app,.pilastro,.contatto-card{
+    background:var(--bg-card)!important;
+    border-color:var(--border)!important;
+    box-shadow:var(--shadow-sm);
+  }
+  .asse:hover,.pilastro:hover,.piano:hover,.rcard:hover,.contatto-card:hover{
+    border-color:rgba(45,45,224,.30)!important;
+    box-shadow:0 18px 60px -20px rgba(45,45,224,.20), 0 0 0 1px rgba(45,45,224,.10) inset!important;
+  }
+
+  /* Card visual border bottom adjust · keep blue logo bg per le infografiche */
+  .card-visual{border-bottom-color:var(--border)!important}
+  .inline-figure{background:#1a1cd0!important}
+  .inline-figure{box-shadow:var(--shadow-md)!important}
+
+  /* Section banner · togli overlay scuro che non serve su bianco */
+  .section-banner::after{
+    background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.08) 70%,rgba(255,255,255,.4) 100%)!important;
+  }
+
+  /* Email gate input */
+  .gate input[type=email]{
+    background:#fff!important;border-color:var(--border)!important;color:var(--ink)!important;
+  }
+  .gate button{background:var(--ink)!important;color:#fff!important}
+  .gate button:hover{background:var(--brand-electric)!important}
+
+  /* Btn primario · scuro su bianco */
+  .btn-primary{background:var(--ink)!important;color:#fff!important}
+  .btn-primary:hover{background:var(--brand-electric)!important;color:#fff!important}
+  .hero-ctas .btn-primary[style*="transparent"]{
+    border-color:var(--ink)!important;color:var(--ink)!important;background:transparent!important;
+  }
+  .hero-ctas .btn-primary[style*="transparent"]:hover{
+    background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important;
+  }
+
+  /* FAQ */
+  .faq details{border-color:var(--border)!important}
+  .faq-item[open]{background:rgba(45,45,224,.04)!important}
+  .faq summary::after{color:var(--brand-electric)!important}
+
+  /* Servizio rows */
+  .servizio{border-top-color:var(--border)!important}
+  .servizio:last-child{border-bottom-color:var(--border)!important}
+
+  /* Storia capitoli */
+  .storia-cap{border-top-color:var(--border)!important}
+  .storia-cap:last-child{border-bottom-color:var(--border)!important}
+
+  /* Forwho li */
+  .forwho li{border-bottom-color:var(--border)!important}
+
+  /* Dipendenze section */
+  .dip-section{
+    background:
+      radial-gradient(600px 400px at 80% 20%, rgba(224,99,119,.06), transparent 60%),
+      radial-gradient(500px 400px at 10% 90%, rgba(124,58,237,.05), transparent 60%),
+      var(--bg)!important;
+    border-color:var(--border)!important;
+  }
+
+  /* CTA finale */
+  .cta-final{
+    background:radial-gradient(900px 500px at 50% 0%, rgba(184,134,46,.10), transparent 70%), var(--bg)!important;
+  }
+
+  /* Body network · fondo card */
+  .body-network{
+    background:radial-gradient(800px 500px at 0% 50%, rgba(45,45,224,.06), transparent 60%), var(--bg-card)!important;
+    border-color:var(--border)!important;
+    box-shadow:var(--shadow-md)!important;
+  }
+  .bn-vis{background:var(--bg-2)!important}
+
+  /* Strumento card */
+  .strumento-card{
+    background:var(--bg-card)!important;
+    border-color:var(--border)!important;
+  }
+
+  /* Footer */
+  .footer-v2{border-top-color:var(--border)!important}
+
+  /* Logo dropdown · panel chiaro con vetro */
+  .logo-menu{
+    background:rgba(255,255,255,.94)!important;
+    backdrop-filter:saturate(160%) blur(18px)!important;
+    border-color:var(--border)!important;
+    box-shadow:0 24px 60px rgba(24,24,26,.18), 0 0 0 1px rgba(184,134,46,.10) inset!important;
+  }
+  .dd-icon{background:linear-gradient(135deg, rgba(184,134,46,.15), rgba(45,45,224,.10))!important;border-color:rgba(184,134,46,.30)!important}
+  .dd-item:hover{background:rgba(184,134,46,.10)!important}
+
+  /* Logo menu chevron */
+  .logo-menu-btn{background:rgba(24,24,26,.04)!important;border-color:var(--border)!important}
+  .logo-menu-btn:hover,.nav-logo-wrap.open .logo-menu-btn{background:rgba(184,134,46,.18)!important;border-color:rgba(184,134,46,.45)!important}
+  .logo-menu-btn .chev{border-color:var(--ink)!important}
+
+  /* Section .rule · linea scura soft */
+  .rule{
+    background:linear-gradient(90deg,transparent,rgba(24,24,26,.18),rgba(24,24,26,.32),rgba(24,24,26,.18),transparent)!important;
+  }
+
+  /* Page progress bar */
+  .page-progress{background:rgba(24,24,26,.05)!important}
+
+  /* Quote big border */
+  .quote-big{
+    border-image:linear-gradient(180deg, var(--gold) 0%, var(--brand-electric) 100%) 1 100%!important;
+  }
+
+  /* Eyebrow + section label · oro/blu su chiaro */
+  .eyebrow{color:var(--brand)!important}
+  .eyebrow::before{background:var(--brand)!important}
+
+  /* Marquee track gradient (se esiste) */
+  /* Hover trust strip */
+  .hero-trust a{background:rgba(0,0,0,.025)!important;border-color:var(--border)!important}
+  .hero-trust a:hover{background:rgba(0,0,0,.05)!important}
+
+  /* TM blockquote bg su rcard */
+  .rcard{background:linear-gradient(180deg,rgba(0,0,0,.012),transparent), var(--bg-card)!important}
+
+  /* Slideshow Genesi · keep blue stage bg ma con cornice white */
+  .logo-slideshow-stage{
+    border-color:rgba(45,45,224,.25)!important;
+  }
+  .ls-meta{color:rgba(255,255,255,.85)}  /* su sfondo blu interno resta bianco */
+
+  /* Body network stat */
+  .bn-stat{border-top-color:var(--border)!important}
+
+  /* Strong text colors */
+  strong{color:var(--ink)!important}
+
+  /* Chi-tag */
+  .chi-tag{color:var(--ink-dim)!important}
+
+  /* === GOLD pulsante · adattato al fondo chiaro === */
 
   /* === GOLD champagne · colore pieno, glow morbido === */
   em{
@@ -358,15 +587,15 @@
   /* === Visuals nelle sezioni · pattern condivisi === */
   .card-visual{
     width:calc(100% + 64px);margin:-36px -32px 28px;
-    aspect-ratio:16/9;overflow:hidden;
+    aspect-ratio:1/1;overflow:hidden;
     border-bottom:1px solid var(--border);
     position:relative;
-    background:#0d0d10;
+    background:#1a1cd0; /* blu logo per blend con sfondo immagini */
   }
   .card-visual img{
-    width:100%;height:100%;object-fit:cover;
+    width:100%;height:100%;object-fit:contain;
     transition:transform 1.2s var(--ease-smooth),filter .8s var(--ease);
-    filter:saturate(.95);
+    filter:saturate(1);
   }
   .asse:hover .card-visual img,
   .pilastro:hover .card-visual img,
@@ -407,10 +636,11 @@
   .pilastro-with-visual .p-visual{
     position:relative;overflow:hidden;
     border-left:1px solid var(--border);
-    background:#0d0d10;
+    background:#1a1cd0;
+    min-height:380px;
   }
   .pilastro-with-visual .p-visual img{
-    width:100%;height:100%;object-fit:cover;
+    width:100%;height:100%;object-fit:contain;
     transition:transform 1.2s var(--ease-smooth);
   }
   .pilastro-with-visual:hover .p-visual img{transform:scale(1.04)}
@@ -429,6 +659,52 @@
   }
   .chi-portrait img{width:100%;height:auto;display:block}
 
+  /* === VITA · galleria foto sovrapposte === */
+  .vita-section{padding:clamp(80px,11vh,140px) var(--pad);text-align:center;position:relative;overflow:hidden}
+  .vita-section .sect-eyebrow{
+    font-family:var(--ff-sans);font-weight:500;font-size:11px;letter-spacing:.45em;
+    text-transform:uppercase;color:var(--brand);margin:0 0 22px;
+  }
+  .vita-section .sect-h{margin-left:auto;margin-right:auto}
+  .vita-section .sect-lead{margin-left:auto;margin-right:auto;text-align:center;max-width:60ch}
+
+  .vita-grid{
+    position:relative;margin:60px auto 0;
+    width:100%;max-width:1100px;height:620px;
+  }
+  .vita-photo{
+    position:absolute;margin:0;
+    border-radius:14px;overflow:hidden;
+    background:var(--bg-2);
+    border:6px solid #fff;
+    box-shadow:0 30px 80px rgba(24,24,26,.20),0 8px 20px rgba(24,24,26,.10);
+    transition:transform .8s var(--ease-smooth),box-shadow .6s var(--ease),z-index 0s .4s;
+    will-change:transform;
+  }
+  .vita-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .vita-photo:hover{
+    transform:translateY(-8px) rotate(0deg) scale(1.04)!important;
+    box-shadow:0 50px 120px rgba(24,24,26,.28),0 12px 30px rgba(24,24,26,.16);
+    z-index:20;transition:transform .5s var(--ease),box-shadow .5s var(--ease),z-index 0s 0s;
+  }
+  /* Layout free-form, overlapping */
+  .vita-photo.p-1{width:22%;aspect-ratio:3/4;left:3%;top:2%;transform:rotate(-4deg);z-index:2}
+  .vita-photo.p-2{width:26%;aspect-ratio:4/5;left:22%;top:14%;transform:rotate(3deg);z-index:4}
+  .vita-photo.p-3{width:22%;aspect-ratio:1/1;left:46%;top:0%;transform:rotate(-2deg);z-index:3}
+  .vita-photo.p-4{width:24%;aspect-ratio:3/4;left:65%;top:8%;transform:rotate(4deg);z-index:2}
+  .vita-photo.p-5{width:30%;aspect-ratio:16/10;left:8%;top:55%;transform:rotate(-2deg);z-index:5}
+  .vita-photo.p-6{width:26%;aspect-ratio:4/3;left:38%;top:62%;transform:rotate(2deg);z-index:4}
+  .vita-photo.p-7{width:24%;aspect-ratio:3/4;left:68%;top:50%;transform:rotate(-3deg);z-index:3}
+
+  @media(max-width:1000px){
+    .vita-grid{height:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;max-width:100%}
+    .vita-photo{position:static;width:100%!important;height:auto!important;aspect-ratio:3/4!important;
+      transform:rotate(0deg)!important;left:auto!important;top:auto!important}
+  }
+  @media(max-width:600px){
+    .vita-grid{grid-template-columns:1fr 1fr}
+  }
+
   /* Body network · 37 trilioni di cellule */
   .body-network-sect{padding:clamp(80px,12vh,160px) var(--pad)}
   .body-network{
@@ -438,8 +714,8 @@
                linear-gradient(180deg,rgba(255,255,255,.012),transparent);
     box-shadow:0 30px 80px rgba(0,0,0,.4);
   }
-  .bn-vis{position:relative;overflow:hidden;background:#0d0d10;min-height:420px}
-  .bn-vis img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-smooth);filter:saturate(.95)}
+  .bn-vis{position:relative;overflow:hidden;background:#1a1cd0;min-height:480px}
+  .bn-vis img{width:100%;height:100%;object-fit:contain;transition:transform 1.4s var(--ease-smooth);filter:saturate(1)}
   .body-network:hover .bn-vis img{transform:scale(1.04);filter:saturate(1.1)}
   .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
   .bn-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand-light)}
@@ -463,8 +739,8 @@
     border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
     background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
   }
-  .strumento-card .s-vis{position:relative;overflow:hidden;background:#0d0d10}
-  .strumento-card .s-vis img{width:100%;height:100%;object-fit:cover}
+  .strumento-card .s-vis{position:relative;overflow:hidden;background:#1a1cd0;min-height:340px}
+  .strumento-card .s-vis img{width:100%;height:100%;object-fit:contain}
   .strumento-card .s-text{padding:36px 40px;display:flex;flex-direction:column;gap:14px;justify-content:center}
   .strumento-card .s-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brand-light)}
   .strumento-card .s-title{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2vw,30px);margin:0;line-height:1.2}
@@ -1045,6 +1321,27 @@
       </figure>
     </div>
   </section>
+
+  <!-- ============================ -->
+  <!-- 04·b · VITA · galleria foto  -->
+  <!-- ============================ -->
+  <section id="vita" class="sect vita-section">
+    <p class="sect-eyebrow" data-reveal>· Vita ·</p>
+    <h2 class="sect-h" data-split-words>Non solo carta. <em>Anche carne.</em></h2>
+    <p class="sect-lead" data-reveal>Quando non sono in sessione, mi alleno, leggo, viaggio, parlo nei team, mangio con chi conta. Il pensiero senza corpo è ronzio — l'ho detto sopra. Eccolo, il corpo.</p>
+
+    <div class="vita-grid" data-reveal>
+      <figure class="vita-photo p-1" data-vita-photo><img src="assets/photos/davil-01.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-2" data-vita-photo><img src="assets/photos/davil-02.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-3" data-vita-photo><img src="assets/photos/davil-03.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-4" data-vita-photo><img src="assets/photos/davil-04.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-5" data-vita-photo><img src="assets/photos/davil-05.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-6" data-vita-photo><img src="assets/photos/davil-06.png" alt="" loading="lazy" decoding="async"/></figure>
+      <figure class="vita-photo p-7" data-vita-photo><img src="assets/photos/davil-07.png" alt="" loading="lazy" decoding="async"/></figure>
+    </div>
+  </section>
+
+  <div class="rule"></div>
 
   <!-- ============================ -->
   <!-- 05 · IL METODO — 3 ASSI      -->

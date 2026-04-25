@@ -609,6 +609,21 @@
       }
     });
 
+    /* === Vita photos · stagger comparsa con scale + rotate finale === */
+    $$('[data-vita-photo]').forEach((p, i) => {
+      const finalRotate = parseFloat(getComputedStyle(p).rotate) || 0;
+      const initRot = (i % 2 === 0 ? -12 : 12);
+      gsap.fromTo(p,
+        { opacity: 0, scale: 0.6, y: 60, rotate: initRot, filter: 'blur(8px)' },
+        {
+          opacity: 1, scale: 1, y: 0, rotate: 0, filter: 'blur(0px)',
+          duration: 1.4, ease: 'power4.out', delay: i * 0.12,
+          scrollTrigger: { trigger: '.vita-grid', start: 'top 85%', toggleActions: 'play none none none' },
+          onComplete: () => { p.style.transform = ''; } // restore CSS transform (rotation finale)
+        }
+      );
+    });
+
     /* === Hero parallax === */
     const orb1 = $('.orb-1');
     const orb2 = $('.orb-2');
