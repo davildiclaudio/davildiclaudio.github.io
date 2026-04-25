@@ -20,7 +20,7 @@
   document.body.appendChild(progressBar);
   const progressFill = progressBar.querySelector('span');
 
-  /* ---------- Loader ---------- */
+  /* ---------- Loader · ingresso magico GSAP timeline ---------- */
   const loader = $('#loader');
   let heroStarted = false;
   const startHeroAnim = () => {
@@ -28,14 +28,85 @@
     heroStarted = true;
     document.body.classList.add('is-ready');
   };
-  const hideLoader = () => {
-    if (!loader || loader.classList.contains('hidden')) return;
-    loader.classList.add('hidden');
-    setTimeout(startHeroAnim, 400);
-    setTimeout(() => loader.remove(), 1400);
+  const playMagicEntrance = () => {
+    if (!loader || !window.gsap) { startHeroAnim(); loader?.remove(); return; }
+    const stars = loader.querySelector('.loader-stars');
+    const orb = loader.querySelector('.loader-orb');
+    const stage = loader.querySelector('.loader-stage');
+    const logo = loader.querySelector('.loader-logo');
+    const shine = loader.querySelector('.loader-shine');
+    const runes = loader.querySelectorAll('.loader-runes span');
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 1100);
+      }
+    });
+
+    // Stage 1: stars fade in
+    tl.to(stars, { opacity: 1, duration: 1.0, ease: 'power2.out' }, 0);
+    // Stage 2: orb glow rises
+    tl.to(orb, { opacity: 1, scale: 1, duration: 1.4, ease: 'power3.out' }, 0.2);
+    tl.to(orb, { scale: 1.15, duration: 1.6, ease: 'sine.inOut' }, 1.4);
+    // Stage 3: logo materializes (mask sweep + scale + rotation reset + brightness from black to white)
+    tl.fromTo(logo,
+      {
+        opacity: 0,
+        scale: 1.18, rotateX: 8,
+        '-webkit-mask-image': 'linear-gradient(110deg, #000 -10%, #000 -10%, transparent -10%)'
+      },
+      {
+        opacity: 1,
+        scale: 1, rotateX: 0,
+        duration: 1.5, ease: 'power3.out',
+        onUpdate: function () {
+          const p = this.progress();
+          const start = -10 + p * 110; // sweeps mask from -10% to 100%
+          logo.style.webkitMaskImage = `linear-gradient(110deg, #000 ${start}%, #000 ${start}%, transparent ${start}%)`;
+          logo.style.maskImage = logo.style.webkitMaskImage;
+        }
+      }, 0.6);
+    // Stage 4: golden glow pulse on logo + drop shadow
+    tl.to(logo, {
+      filter: 'brightness(0) invert(1) drop-shadow(0 0 28px rgba(212,168,100,.6)) drop-shadow(0 0 60px rgba(212,168,100,.4))',
+      duration: 0.8, ease: 'power2.out'
+    }, 1.4);
+    // Stage 5: shine sweep
+    tl.fromTo(shine,
+      { opacity: 0, x: '-60%' },
+      { opacity: 1, x: '120%', duration: 1.1, ease: 'power2.inOut' }, 1.6);
+    tl.to(shine, { opacity: 0, duration: 0.3 }, 2.5);
+    // Stage 6: runes bloom around logo
+    tl.fromTo(runes,
+      { opacity: 0, scale: 0 },
+      { opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(2)', stagger: { each: 0.04, from: 'random' } }, 1.8);
+    tl.to(runes, { scale: 1.6, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.02 }, 2.6);
+    // Stage 7: hold + start hero, then crossfade loader out
+    tl.add(() => startHeroAnim(), 2.9);
+    tl.to([stars, orb, logo, stage], { opacity: 0, duration: 0.9, ease: 'power2.in' }, 3.0);
+    tl.to(loader, { opacity: 0, duration: 0.7, ease: 'power2.in' }, 3.1);
   };
-  window.addEventListener('load', () => setTimeout(hideLoader, 800));
-  setTimeout(hideLoader, 3000);
+
+  // Run the entrance once page is loaded — but no longer than 1.5s wait
+  let entranceStarted = false;
+  const tryPlayEntrance = () => {
+    if (entranceStarted) return;
+    entranceStarted = true;
+    playMagicEntrance();
+  };
+  if (document.readyState === 'complete') tryPlayEntrance();
+  else window.addEventListener('load', tryPlayEntrance);
+  setTimeout(tryPlayEntrance, 1500);
+
+  // Safety net: if anything blocks the timeline (hidden tab, GSAP failure),
+  // force-hide the loader after 7s and start the hero
+  setTimeout(() => {
+    if (!loader || loader.classList.contains('hidden')) return;
+    startHeroAnim();
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 1100);
+  }, 7000);
 
   /* ---------- Lenis smooth scroll ---------- */
   let lenis = null;

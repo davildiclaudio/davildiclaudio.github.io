@@ -22,24 +22,133 @@
 
 <!-- V2 overrides: text-only, no images -->
 <style>
-  /* Loader wordmark replaces <img> */
-  .loader-mark-text{
-    font-family:var(--ff-display,'Fraunces',serif);
-    font-weight:500;
-    letter-spacing:.22em;
-    font-size:clamp(28px,4vw,44px);
-    color:var(--ink);
-    opacity:0;
-    animation:loaderIn .9s var(--ease) both;
+  /* === LOADER · ingresso magico/mistico === */
+  #loader.loader-magic{
+    background:radial-gradient(ellipse at center, #0e0d12 0%, #050507 60%, #000 100%);
+    overflow:hidden;
   }
-  /* Nav logo as wordmark */
-  .nav-logo-text{
-    font-family:var(--ff-display,'Fraunces',serif);
-    font-weight:500;
-    letter-spacing:.28em;
-    font-size:16px;
-    color:var(--ink);
-    text-transform:uppercase;
+  /* starfield */
+  .loader-stars{
+    position:absolute;inset:-10%;opacity:0;
+    background-image:
+      radial-gradient(1px 1px at 14% 22%, rgba(255,255,255,.95), transparent 60%),
+      radial-gradient(1px 1px at 32% 8%,  rgba(255,255,255,.7),  transparent 60%),
+      radial-gradient(1.2px 1.2px at 78% 18%, rgba(255,235,200,.85), transparent 60%),
+      radial-gradient(1px 1px at 88% 62%, rgba(255,255,255,.7), transparent 60%),
+      radial-gradient(1px 1px at 12% 76%, rgba(255,255,255,.6), transparent 60%),
+      radial-gradient(1.4px 1.4px at 56% 42%, rgba(255,220,180,.9), transparent 60%),
+      radial-gradient(1px 1px at 28% 90%, rgba(255,255,255,.55), transparent 60%),
+      radial-gradient(1px 1px at 64% 84%, rgba(255,235,200,.8), transparent 60%),
+      radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,.7), transparent 60%),
+      radial-gradient(1.2px 1.2px at 48% 70%, rgba(255,255,255,.6), transparent 60%);
+    background-size:100% 100%;
+    animation:starsTwinkle 4s ease-in-out infinite alternate;
+  }
+  @keyframes starsTwinkle{0%{filter:brightness(.7)}100%{filter:brightness(1.3)}}
+
+  /* orb dietro al logo */
+  .loader-orb{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.4);
+    width:min(80vw,720px);height:min(80vw,720px);
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(212,168,100,.55) 0%, rgba(176,139,255,.18) 35%, transparent 65%);
+    filter:blur(60px);
+    opacity:0;mix-blend-mode:screen;
+  }
+
+  /* stage che ospita il logo */
+  .loader-stage{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:min(86vw,780px);
+    aspect-ratio:1920/1080;
+    display:grid;place-items:center;
+    perspective:1200px;
+  }
+  .loader-logo{
+    width:100%;height:100%;object-fit:contain;
+    filter:brightness(0) invert(1) drop-shadow(0 0 0 rgba(212,168,100,0));
+    opacity:0;transform:scale(1.18) rotateX(8deg);
+    /* clip animation drives reveal */
+    -webkit-mask-image:linear-gradient(110deg, #000 0%, #000 0%, transparent 0%);
+    mask-image:linear-gradient(110deg, #000 0%, #000 0%, transparent 0%);
+  }
+  /* sweeping shine */
+  .loader-shine{
+    position:absolute;inset:0;
+    background:linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255,235,200,.85) 50%, transparent 60%, transparent 100%);
+    mix-blend-mode:screen;
+    opacity:0;pointer-events:none;
+  }
+  /* runic dots circling */
+  .loader-runes{
+    position:absolute;inset:-8%;
+    display:grid;place-items:center;pointer-events:none;
+  }
+  .loader-runes span{
+    position:absolute;
+    width:6px;height:6px;border-radius:50%;background:var(--gold);
+    box-shadow:0 0 12px var(--gold), 0 0 24px rgba(212,168,100,.5);
+    opacity:0;
+  }
+  .loader-runes span:nth-child(1){top:0;left:50%}
+  .loader-runes span:nth-child(2){top:14%;left:84%}
+  .loader-runes span:nth-child(3){top:50%;left:100%}
+  .loader-runes span:nth-child(4){top:84%;left:84%}
+  .loader-runes span:nth-child(5){top:100%;left:50%}
+  .loader-runes span:nth-child(6){top:84%;left:14%}
+  .loader-runes span:nth-child(7){top:50%;left:0%}
+  .loader-runes span:nth-child(8){top:14%;left:14%}
+
+  /* Nav logo as PNG wordmark (replaces text) */
+  .nav-logo-img{
+    height:34px;width:auto;display:block;
+    filter:brightness(0) invert(1);
+    transition:filter .25s var(--ease), transform .35s var(--ease);
+  }
+  .nav-logo:hover .nav-logo-img{transform:translateY(-1px)}
+  /* Footer logo */
+  .footer-mark{display:inline-flex;align-items:center}
+  .footer-mark img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.85;transition:opacity .3s}
+  .footer-mark:hover img{opacity:1}
+
+  /* === GOLD shimmer per <em> dentro headings === */
+  .mega em,
+  .sect-h em,
+  .m-line em,
+  .cta-final em,
+  .pilastro .p-h em,
+  .quote-big em{
+    background:linear-gradient(100deg,
+      var(--gold) 0%,
+      #f5deb3 25%,
+      var(--gold-soft) 50%,
+      #f5deb3 75%,
+      var(--gold) 100%);
+    background-size:300% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    color:transparent;
+    background-position:200% center;
+    animation:goldShimmer 6s linear infinite;
+    text-shadow:0 0 20px rgba(212,168,100,.18);
+  }
+  @keyframes goldShimmer{
+    to{background-position:-200% center}
+  }
+
+  /* Dissolve / scramble effect classes */
+  .ch.dissolve > span{
+    transition:opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease);
+  }
+  .glitch-on:hover{animation:glitch .35s steps(2) infinite}
+  @keyframes glitch{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(-1px,1px)}
+    50%{transform:translate(1px,-1px)}
+    75%{transform:translate(-1px,-1px)}
+    100%{transform:translate(0,0)}
   }
   /* Hero without image */
   .hero-bg-clean{
@@ -325,11 +434,16 @@
 </head>
 <body>
 
-<!-- Loader -->
-<div id="loader">
-  <div class="loader-inner">
-    <div class="loader-mark loader-mark-text">DAVIL</div>
-    <div class="loader-bar"><span></span></div>
+<!-- Loader · entrance magica/mistica -->
+<div id="loader" class="loader-magic">
+  <div class="loader-stars" aria-hidden="true"></div>
+  <div class="loader-orb"></div>
+  <div class="loader-stage">
+    <img src="assets/logo/davil-bianco.png" alt="DAVIL" class="loader-logo" />
+    <div class="loader-shine" aria-hidden="true"></div>
+    <div class="loader-runes" aria-hidden="true">
+      <span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span><span>·</span>
+    </div>
   </div>
 </div>
 
@@ -348,7 +462,7 @@
 <!-- Nav -->
 <header class="nav">
   <a href="#top" class="nav-logo" aria-label="Davil home">
-    <span class="nav-logo-text">DAVIL</span>
+    <img src="assets/logo/davil-bianco.png" alt="DAVIL" class="nav-logo-img" />
   </a>
   <nav class="nav-menu">
     <a href="#manifesto" data-link>Manifesto</a>
@@ -424,7 +538,7 @@
   <!-- ============================ -->
   <section id="chi-sono" class="sect">
     <div class="section-label" data-reveal><span>04</span> Chi sono</div>
-    <h2 class="sect-h" data-split-words>Davil Di Claudio.<br/><em>Mental coach. Networker. Atleta.</em></h2>
+    <h2 class="sect-h" data-split-words>Davil Di Claudio.<br/><em>Ricercatore della coscienza. Studioso di psicologia. Mental coach di professione.</em></h2>
     <p class="quote-big" data-reveal>«Ho guidato 3.000 venditori, fatturato milioni, toccato il fondo, e poi ricominciato.»</p>
     <div class="prose" data-reveal>
       <p>Roma. Studio psicologia per mestiere, vivo il Transurfing come pratica quotidiana, mi alleno in corsa, nuoto e ciclismo perché il corpo è il primo ambiente di coscienza che abitiamo.</p>
@@ -577,8 +691,8 @@
       <li class="servizio" data-reveal>
         <div class="s-index">03</div>
         <div class="s-body">
-          <h3>Mentoring Networker &amp; Imprenditori Digitali</h3>
-          <p>Dedicato a chi costruisce un business di network marketing o di consulenza digitale. Posizionamento, disciplina interiore, gestione dell'energia, strategia di lungo termine. Uso la stessa struttura che mi ha permesso di superare i <strong>500.000 € di guadagni nel network</strong> — non come un caso fortunato ma come un protocollo replicabile.</p>
+          <h3>Mentoring per chi parte da zero</h3>
+          <p>Dedicato a chi vuole costruire un business proprio partendo da zero — imprenditori digitali, consulenti, freelance, professionisti in transizione. Posizionamento, disciplina interiore, gestione dell'energia, strategia di lungo termine. La mia scalata nel <strong>network marketing</strong> — fino a oltre <strong>500.000 € di guadagni</strong> in pochi anni, partendo dalla tuta da meccanico — è il <em>trampolino di lancio</em> che porto in sessione: ti consegno la stessa struttura mentale e operativa che mi ha permesso di salire dalla porta a porta ai sei milioni di dollari fatturati. Non un caso fortunato. Un protocollo replicabile.</p>
           <div class="s-struttura">Positioning e voce di brand · ritmi e disciplina atletica applicati al business · gestione energetica della rete · strategia medio-lungo termine senza hype.</div>
         </div>
         <div class="s-meta">1:1 · Business</div>
@@ -764,13 +878,13 @@
 
       <!-- Interprete Sogni -->
       <div class="rcard" data-reveal>
-        <div class="r-meta">02 · Tool interattivo <span class="badge-soon" style="margin-left:8px">In arrivo</span></div>
+        <div class="r-meta">02 · Tool interattivo</div>
         <h3>Interprete dei Sogni</h3>
-        <div class="r-sub">Framework junghiano</div>
-        <p>Un'applicazione web che raccoglie il sogno che racconti e restituisce una <strong>lettura stratificata</strong> — archetipica, simbolica, junghiana — da usare come punto di partenza per la tua riflessione personale.</p>
-        <p>Racconta un sogno che ti è rimasto addosso. Il tool cerca i simboli ricorrenti, li restituisce con la chiave junghiana classica, e lascia a te l'ultima parola.</p>
+        <div class="r-sub">Framework junghiano · Claude Haiku 4.5</div>
+        <p>Racconta un sogno. Ricevi una lettura <strong>stratificata</strong> — riformulazione, simboli, archetipi attivati, lettura compensatoria e prospettica, domande riflessive — basata sul corpus junghiano (Jung, Hillman, Neumann), sui metodi contemporanei (Johnson, von Franz, Bosnak, Aizenstat, Taylor) e sulle neuroscienze del sogno (Hobson, Solms).</p>
+        <p>La tua API key Anthropic resta nel <strong>tuo browser</strong>. Il sogno non viene registrato.</p>
         <p style="font-size:13px;color:var(--ink-dim);font-style:italic">Per un lavoro profondo considera un analista o un coaching dedicato. Questo tool apre la porta. Non è la casa.</p>
-        <a href="#contatti" class="cta-inline">→ Presto disponibile</a>
+        <a href="#" class="cta-inline" data-dream-open>→ Apri l'interprete</a>
       </div>
 
       <!-- Psicosintesi PDF -->
@@ -891,7 +1005,7 @@
 
   <!-- Footer -->
   <footer class="footer-v2">
-    <div class="footer-mark">DAVIL</div>
+    <a href="#top" class="footer-mark"><img src="assets/logo/davil-bianco.png" alt="DAVIL" /></a>
     <div>© <span id="year"></span> Davil Di Claudio — Mental Coaching · P.IVA —</div>
     <div><a href="#">Privacy</a> · <a href="#">Cookie</a></div>
   </footer>
@@ -903,5 +1017,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="script.js"></script>
+<script src="dream.js"></script>
 </body>
 </html>
