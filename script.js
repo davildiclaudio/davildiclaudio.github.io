@@ -395,20 +395,37 @@
     let mx = uw / 2, my = uh / 2, smx = mx, smy = my;
     addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     const palette = {
-      ink: 'rgba(24,24,26,',
-      gold: 'rgba(184,134,46,',
-      blue: 'rgba(45,45,224,',
+      ink: 'rgba(236,230,251,',
+      gold: 'rgba(244,201,93,',
+      violet: 'rgba(167,139,250,',
+      magenta: 'rgba(236,72,153,',
+      cyan: 'rgba(34,211,238,',
     };
+    // re-roll hues for cosmic palette
+    stars.forEach(s => {
+      const r = Math.random();
+      s.hue = r < .25 ? 'gold' : r < .55 ? 'violet' : r < .80 ? 'magenta' : r < .92 ? 'cyan' : 'ink';
+    });
     const tick = (t) => {
       smx += (mx - smx) * 0.04;
       smy += (my - smy) * 0.04;
       uctx.clearRect(0, 0, uw, uh);
-      // soft cloud underneath
-      const grad = uctx.createRadialGradient(uw * 0.3, uh * 0.2, 0, uw * 0.3, uh * 0.2, uw * 0.7);
-      grad.addColorStop(0, 'rgba(45,45,224,0.06)');
-      grad.addColorStop(0.5, 'rgba(184,134,46,0.025)');
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      uctx.fillStyle = grad; uctx.fillRect(0, 0, uw, uh);
+      // nebula clouds underneath
+      const g1 = uctx.createRadialGradient(uw * 0.22, uh * 0.18, 0, uw * 0.22, uh * 0.18, uw * 0.6);
+      g1.addColorStop(0, 'rgba(124,58,237,0.16)');
+      g1.addColorStop(0.5, 'rgba(124,58,237,0.04)');
+      g1.addColorStop(1, 'rgba(0,0,0,0)');
+      uctx.fillStyle = g1; uctx.fillRect(0, 0, uw, uh);
+      const g2 = uctx.createRadialGradient(uw * 0.85, uh * 0.85, 0, uw * 0.85, uh * 0.85, uw * 0.55);
+      g2.addColorStop(0, 'rgba(236,72,153,0.12)');
+      g2.addColorStop(0.55, 'rgba(236,72,153,0.025)');
+      g2.addColorStop(1, 'rgba(0,0,0,0)');
+      uctx.fillStyle = g2; uctx.fillRect(0, 0, uw, uh);
+      const g3 = uctx.createRadialGradient(uw * 0.5, uh * 0.5, 0, uw * 0.5, uh * 0.5, uw * 0.7);
+      g3.addColorStop(0, 'rgba(34,211,238,0.06)');
+      g3.addColorStop(0.6, 'rgba(34,211,238,0.015)');
+      g3.addColorStop(1, 'rgba(0,0,0,0)');
+      uctx.fillStyle = g3; uctx.fillRect(0, 0, uw, uh);
       // stars
       stars.forEach(s => {
         s.x += s.vx; s.y += s.vy; s.twinkle += 0.03;
@@ -431,11 +448,11 @@
           const dx = a.x - b.x, dy = a.y - b.y;
           const d2 = dx * dx + dy * dy;
           if (d2 < 12000) {
-            const op = (1 - d2 / 12000) * 0.07;
+            const op = (1 - d2 / 12000) * 0.10;
             uctx.beginPath();
             uctx.moveTo(a.x, a.y);
             uctx.lineTo(b.x, b.y);
-            uctx.strokeStyle = `rgba(45,45,224,${op})`;
+            uctx.strokeStyle = `rgba(167,139,250,${op})`;
             uctx.lineWidth = 0.6;
             uctx.stroke();
           }

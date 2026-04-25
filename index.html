@@ -191,245 +191,216 @@
   /* Footer logo wrapper */
   .footer-mark{display:inline-flex;align-items:center}
 
-  /* === LIGHT THEME · cream-on-ink, oro deep, blu logo === */
+  /* === COSMIC DARK THEME · profondità universo (Ars-Realis inspired) === */
   :root{
-    /* Background warm light */
-    --bg:#f5f3ee;
-    --bg-2:#eceae3;
-    --bg-3:#dfdcd4;
-    --bg-card:#ffffff;
-
-    /* Ink */
-    --ink:#18181a;
-    --ink-soft:#4a4a4d;
-    --ink-dim:#88888c;
+    --bg:#05030f;
+    --bg-2:#0e0628;
+    --bg-3:#1a0f3a;
+    --bg-card:rgba(20,14,50,.45);
+    --ink:#ece6fb;
+    --ink-soft:#b8afd6;
+    --ink-dim:#7a708f;
     --white:#ffffff;
-
-    /* Brand */
-    --brand:#2d2de0;
-    --brand-2:#4060d4;
-    --brand-deep:#1a1aa8;
+    --brand:#7c3aed;
     --brand-electric:#2d2de0;
-    --brand-light:#5e7df9;        /* più contrasto su sfondo chiaro */
-    --brand-glow:rgba(45,45,224,.30);
-
-    /* Oro deep per fondo chiaro (champagne è troppo pallido) */
-    --gold:#b8862e;
-    --gold-soft:#d4a864;
-    --gold-bright:#e8c87a;
-    --gold-deep:#8b6422;
-    --gold-pale:#f3d99a;
-    --violet:#7c3aed;
-
-    /* Borders + shadows */
-    --border:rgba(24,24,26,.10);
-    --border-soft:rgba(24,24,26,.04);
-    --border-hover:rgba(24,24,26,.22);
-    --shadow-sm:0 2px 12px rgba(24,24,26,.06);
-    --shadow-md:0 24px 60px rgba(24,24,26,.08);
-    --shadow-lg:0 40px 100px rgba(24,24,26,.12);
+    --brand-light:#a78bfa;
+    --brand-glow:rgba(124,58,237,.45);
+    --cosmic-violet:#7c3aed;
+    --cosmic-cyan:#22d3ee;
+    --cosmic-magenta:#ec4899;
+    --cosmic-indigo:#4338ca;
+    --gold:#f4c95d;
+    --gold-soft:#e8c87a;
+    --gold-bright:#fff0c8;
+    --gold-deep:#d4a93d;
+    --gold-pale:#f5deb3;
+    --crimson:#c93a7a;
+    --crimson-bright:#ec5aa0;
+    --border:rgba(180,150,240,.16);
+    --border-soft:rgba(180,150,240,.06);
+    --border-hover:rgba(236,90,160,.4);
+    --shadow-sm:0 2px 12px rgba(0,0,0,.4);
+    --shadow-md:0 24px 60px rgba(0,0,0,.55);
+    --shadow-lg:0 40px 100px rgba(0,0,0,.65);
   }
-  html,body{background:var(--bg)!important;color:var(--ink)!important}
+  html,body{
+    background:radial-gradient(ellipse at top, #0e0628 0%, #05030f 60%, #020108 100%) !important;
+    color:var(--ink) !important;
+  }
+  ::selection{background:var(--cosmic-magenta);color:var(--ink)}
+  .cursor-dot{background:var(--ink)!important;mix-blend-mode:difference}
+  .cursor-ring{border-color:rgba(236,90,160,.55)!important}
+  .cursor-ring.is-hover{border-color:var(--cosmic-cyan)!important;box-shadow:0 0 24px rgba(34,211,238,.4)}
 
-  /* ::selection invertita */
-  ::selection{background:var(--ink);color:var(--bg)}
-
-  /* Cursor invertito: punto scuro */
-  .cursor-dot{background:var(--ink)!important;mix-blend-mode:multiply}
-  .cursor-ring{border-color:rgba(24,24,26,.35)!important}
-
-  /* Loader sfondo chiaro */
   #loader.loader-magic{
-    background:radial-gradient(ellipse at center, #fefdfa 0%, #ece9e1 60%, #d8d4c9 100%)!important;
+    background:radial-gradient(ellipse at center, #0e0628 0%, #05030f 60%, #020108 100%) !important;
   }
   .loader-orb{
-    background:radial-gradient(circle at 50% 50%, rgba(184,134,46,.32) 0%, rgba(45,45,224,.12) 38%, transparent 70%)!important;
-    mix-blend-mode:multiply!important;
+    background:radial-gradient(circle, rgba(236,72,153,.40) 0%, rgba(124,58,237,.22) 38%, transparent 70%) !important;
+    mix-blend-mode:screen !important;
   }
-  .loader-aurora{mix-blend-mode:multiply!important}
-  .loader-aurora .a1{background:radial-gradient(circle, rgba(45,45,224,.20) 0%, transparent 65%)!important}
-  .loader-aurora .a2{background:radial-gradient(circle, rgba(124,58,237,.16) 0%, transparent 65%)!important}
-  .loader-aurora .a3{background:radial-gradient(circle, rgba(184,134,46,.18) 0%, transparent 60%)!important}
 
-  /* Loader logo · ora oro su bianco (la classe gold già funziona, override solo se serve) */
-  .loader-logo{filter:none!important}
+  .asse,.pilastro,.piano,.rcard,.contatto-card,.tm,.dream-app,.body-network,.strumento-card{
+    background:linear-gradient(135deg, rgba(30,20,60,.55), rgba(20,14,50,.40))!important;
+    border-color:rgba(180,150,240,.18)!important;
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.04) inset,
+      0 20px 40px -20px rgba(124,58,237,.25),
+      0 0 0 1px rgba(124,58,237,.08)!important;
+  }
+  .asse:hover,.pilastro:hover,.piano:hover,.rcard:hover,.contatto-card:hover{
+    border-color:rgba(236,90,160,.55)!important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.08) inset,
+      0 30px 60px -20px rgba(236,72,153,.35),
+      0 0 40px rgba(124,58,237,.18)!important;
+  }
+  .card-visual,.inline-figure{background:transparent!important}
 
-  /* Hero · bg chiaro caldo */
   .hero{
     background:
-      radial-gradient(900px 600px at 20% 0%, rgba(45,45,224,.08), transparent 60%),
-      radial-gradient(700px 500px at 90% 100%, rgba(124,58,237,.06), transparent 55%),
-      radial-gradient(600px 500px at 50% 50%, rgba(184,134,46,.05), transparent 65%),
-      linear-gradient(180deg, #faf8f3 0%, #efece5 100%)!important;
+      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.18), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.14), transparent 55%),
+      radial-gradient(600px 500px at 50% 50%, rgba(34,211,238,.08), transparent 65%),
+      var(--bg)!important;
   }
   .hero-bg-clean{
     background:
-      radial-gradient(900px 600px at 20% 0%, rgba(45,45,224,.08), transparent 60%),
-      radial-gradient(700px 500px at 90% 100%, rgba(124,58,237,.06), transparent 55%),
-      radial-gradient(500px 400px at 50% 40%, rgba(184,134,46,.06), transparent 60%)!important;
+      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.18), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.14), transparent 55%),
+      radial-gradient(500px 400px at 50% 40%, rgba(34,211,238,.10), transparent 60%)!important;
   }
-  .hero-bg-clean::after{
-    background-image:radial-gradient(rgba(0,0,0,.02) 1px, transparent 1px)!important;
-    mix-blend-mode:multiply!important;opacity:.6!important;
-  }
-  .orb-1{background:#5e7df9!important;opacity:.18!important}
-  .orb-2{background:#b08bff!important;opacity:.14!important}
+  .hero-bg-clean::after{display:none}
+  .orb-1{background:var(--cosmic-violet)!important;opacity:.30}
+  .orb-2{background:var(--cosmic-magenta)!important;opacity:.22}
 
-  /* Nav glass su bianco */
   .nav.is-scrolled{
-    background:rgba(255,255,255,.72)!important;
+    background:rgba(14,6,40,.55)!important;
     backdrop-filter:saturate(160%) blur(18px)!important;
     -webkit-backdrop-filter:saturate(160%) blur(18px)!important;
-    border-bottom-color:rgba(24,24,26,.08)!important;
+    border-bottom-color:rgba(180,150,240,.12)!important;
   }
-  /* Nav logo bianco→oro (.nav-logo-gold già usa mask + gradient, va bene su bianco) */
-
-  /* Mobile menu */
   @media(max-width:820px){
-    .nav-menu{background:rgba(255,255,255,.96)!important;backdrop-filter:blur(20px)!important}
+    .nav-menu{background:rgba(14,6,40,.96)!important;backdrop-filter:blur(20px)!important}
   }
 
-  /* Cards · sfondo chiaro con bordi delicati */
-  .asse,.pilastro,.piano,.rcard,.contatto-card,.tm,.dream-app,.pilastro,.contatto-card{
-    background:var(--bg-card)!important;
-    border-color:var(--border)!important;
-    box-shadow:var(--shadow-sm);
+  .btn-primary{
+    background:linear-gradient(135deg, var(--cosmic-violet) 0%, var(--cosmic-magenta) 100%)!important;
+    color:#fff!important;border:0!important;
+    box-shadow:0 6px 24px rgba(124,58,237,.40), 0 0 0 1px rgba(236,72,153,.30) inset!important;
   }
-  .asse:hover,.pilastro:hover,.piano:hover,.rcard:hover,.contatto-card:hover{
-    border-color:rgba(45,45,224,.30)!important;
-    box-shadow:0 18px 60px -20px rgba(45,45,224,.20), 0 0 0 1px rgba(45,45,224,.10) inset!important;
+  .btn-primary:hover{
+    background:linear-gradient(135deg, #8b5cf6 0%, #f472b6 100%)!important;
+    color:#fff!important;
+    box-shadow:0 10px 36px rgba(236,72,153,.55), 0 0 0 1px rgba(255,255,255,.15) inset!important;
   }
-
-  /* Card visual border bottom adjust · keep blue logo bg per le infografiche */
-  .card-visual{border-bottom-color:var(--border)!important}
-  .inline-figure{background:#1a1cd0!important}
-  .inline-figure{box-shadow:var(--shadow-md)!important}
-
-  /* Section banner · togli overlay scuro che non serve su bianco */
-  .section-banner::after{
-    background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.08) 70%,rgba(255,255,255,.4) 100%)!important;
-  }
-
-  /* Email gate input */
-  .gate input[type=email]{
-    background:#fff!important;border-color:var(--border)!important;color:var(--ink)!important;
-  }
-  .gate button{background:var(--ink)!important;color:#fff!important}
-  .gate button:hover{background:var(--brand-electric)!important}
-
-  /* Btn primario · scuro su bianco */
-  .btn-primary{background:var(--ink)!important;color:#fff!important}
-  .btn-primary:hover{background:var(--brand-electric)!important;color:#fff!important}
   .hero-ctas .btn-primary[style*="transparent"]{
-    border-color:var(--ink)!important;color:var(--ink)!important;background:transparent!important;
+    background:transparent!important;border:1px solid rgba(180,150,240,.40)!important;color:var(--ink)!important;
+    box-shadow:none!important;
   }
   .hero-ctas .btn-primary[style*="transparent"]:hover{
-    background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important;
+    background:rgba(124,58,237,.20)!important;border-color:rgba(236,90,160,.7)!important;color:var(--ink)!important;
   }
 
-  /* FAQ */
   .faq details{border-color:var(--border)!important}
-  .faq-item[open]{background:rgba(45,45,224,.04)!important}
-  .faq summary::after{color:var(--brand-electric)!important}
+  .faq-item[open]{background:rgba(124,58,237,.10)!important}
+  .faq summary::after{color:var(--cosmic-magenta)!important}
 
-  /* Servizio rows */
-  .servizio{border-top-color:var(--border)!important}
-  .servizio:last-child{border-bottom-color:var(--border)!important}
+  .gate input[type=email]{
+    background:rgba(20,14,50,.55)!important;border-color:var(--border)!important;color:var(--ink)!important;
+  }
+  .gate button{background:linear-gradient(135deg, var(--cosmic-violet), var(--cosmic-magenta))!important;color:#fff!important}
 
-  /* Storia capitoli */
-  .storia-cap{border-top-color:var(--border)!important}
-  .storia-cap:last-child{border-bottom-color:var(--border)!important}
-
-  /* Forwho li */
-  .forwho li{border-bottom-color:var(--border)!important}
-
-  /* Dipendenze section */
-  .dip-section{
-    background:
-      radial-gradient(600px 400px at 80% 20%, rgba(224,99,119,.06), transparent 60%),
-      radial-gradient(500px 400px at 10% 90%, rgba(124,58,237,.05), transparent 60%),
-      var(--bg)!important;
-    border-color:var(--border)!important;
+  .rule{
+    background:linear-gradient(90deg,transparent,rgba(180,150,240,.30),rgba(236,90,160,.40),rgba(180,150,240,.30),transparent)!important;
   }
 
-  /* CTA finale */
-  .cta-final{
-    background:radial-gradient(900px 500px at 50% 0%, rgba(184,134,46,.10), transparent 70%), var(--bg)!important;
+  .page-progress{background:rgba(180,150,240,.08)!important}
+  .page-progress > span{
+    background:linear-gradient(90deg, var(--cosmic-violet), var(--cosmic-magenta), var(--gold))!important;
   }
 
-  /* Body network · fondo card */
-  .body-network{
-    background:radial-gradient(800px 500px at 0% 50%, rgba(45,45,224,.06), transparent 60%), var(--bg-card)!important;
-    border-color:var(--border)!important;
-    box-shadow:var(--shadow-md)!important;
-  }
-  .bn-vis{background:var(--bg-2)!important}
+  .eyebrow{color:var(--cosmic-magenta)!important}
+  .eyebrow::before{background:var(--cosmic-magenta)!important}
 
-  /* Strumento card */
-  .strumento-card{
-    background:var(--bg-card)!important;
-    border-color:var(--border)!important;
-  }
-
-  /* Footer */
-  .footer-v2{border-top-color:var(--border)!important}
-
-  /* Logo dropdown · panel chiaro con vetro */
   .logo-menu{
-    background:rgba(255,255,255,.94)!important;
-    backdrop-filter:saturate(160%) blur(18px)!important;
-    border-color:var(--border)!important;
-    box-shadow:0 24px 60px rgba(24,24,26,.18), 0 0 0 1px rgba(184,134,46,.10) inset!important;
+    background:rgba(14,6,40,.92)!important;
+    border-color:rgba(180,150,240,.20)!important;
+    box-shadow:0 24px 60px rgba(0,0,0,.65), 0 0 0 1px rgba(124,58,237,.18) inset!important;
   }
-  .dd-icon{background:linear-gradient(135deg, rgba(184,134,46,.15), rgba(45,45,224,.10))!important;border-color:rgba(184,134,46,.30)!important}
-  .dd-item:hover{background:rgba(184,134,46,.10)!important}
+  .dd-icon{background:linear-gradient(135deg, rgba(244,201,93,.18), rgba(124,58,237,.20))!important;border-color:rgba(244,201,93,.30)!important;color:var(--gold)!important}
+  .dd-item:hover{background:rgba(124,58,237,.18)!important}
+  .dd-title{color:var(--ink)!important}
+  .dd-sub{color:var(--ink-soft)!important}
 
-  /* Logo menu chevron */
-  .logo-menu-btn{background:rgba(24,24,26,.04)!important;border-color:var(--border)!important}
-  .logo-menu-btn:hover,.nav-logo-wrap.open .logo-menu-btn{background:rgba(184,134,46,.18)!important;border-color:rgba(184,134,46,.45)!important}
+  .logo-menu-btn{background:rgba(180,150,240,.06)!important;border-color:var(--border)!important}
+  .logo-menu-btn:hover,.nav-logo-wrap.open .logo-menu-btn{background:rgba(244,201,93,.16)!important;border-color:rgba(244,201,93,.45)!important}
   .logo-menu-btn .chev{border-color:var(--ink)!important}
 
-  /* Section .rule · linea scura soft */
-  .rule{
-    background:linear-gradient(90deg,transparent,rgba(24,24,26,.18),rgba(24,24,26,.32),rgba(24,24,26,.18),transparent)!important;
-  }
-
-  /* Page progress bar */
-  .page-progress{background:rgba(24,24,26,.05)!important}
-
-  /* Quote big border */
-  .quote-big{
-    border-image:linear-gradient(180deg, var(--gold) 0%, var(--brand-electric) 100%) 1 100%!important;
-  }
-
-  /* Eyebrow + section label · oro/blu su chiaro */
-  .eyebrow{color:var(--brand)!important}
-  .eyebrow::before{background:var(--brand)!important}
-
-  /* Marquee track gradient (se esiste) */
-  /* Hover trust strip */
-  .hero-trust a{background:rgba(0,0,0,.025)!important;border-color:var(--border)!important}
-  .hero-trust a:hover{background:rgba(0,0,0,.05)!important}
-
-  /* TM blockquote bg su rcard */
-  .rcard{background:linear-gradient(180deg,rgba(0,0,0,.012),transparent), var(--bg-card)!important}
-
-  /* Slideshow Genesi · keep blue stage bg ma con cornice white */
-  .logo-slideshow-stage{
-    border-color:rgba(45,45,224,.25)!important;
-  }
-  .ls-meta{color:rgba(255,255,255,.85)}  /* su sfondo blu interno resta bianco */
-
-  /* Body network stat */
-  .bn-stat{border-top-color:var(--border)!important}
-
-  /* Strong text colors */
   strong{color:var(--ink)!important}
-
-  /* Chi-tag */
   .chi-tag{color:var(--ink-dim)!important}
+  .chi-tag em{color:var(--gold)!important}
+  .quote-big{
+    border-image:linear-gradient(180deg, var(--gold) 0%, var(--cosmic-magenta) 100%) 1 100%!important;
+  }
 
-  /* === GOLD pulsante · adattato al fondo chiaro === */
+  /* === Foto sparse · zero bordo bianco · cornice cosmic sottile === */
+  .hero-photo,.pp-photo,.contatti-photo,.storia-inline-photo,.chi-portrait{
+    border:0!important;
+    border-radius:14px!important;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(180,150,240,.12) inset!important;
+  }
+
+  /* === CTA block · WhatsApp riusabile === */
+  .cta-block{
+    margin:80px auto;max-width:780px;text-align:center;padding:48px 32px;
+    background:linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.10));
+    border:1px solid rgba(236,90,160,.30);
+    border-radius:18px;backdrop-filter:blur(12px) saturate(140%);
+    box-shadow:0 30px 80px rgba(124,58,237,.20),0 0 0 1px rgba(236,90,160,.10) inset;
+    position:relative;overflow:hidden;
+  }
+  .cta-block::before{
+    content:"";position:absolute;inset:-50%;
+    background:radial-gradient(circle at 30% 50%, rgba(244,201,93,.15), transparent 60%);
+    pointer-events:none;
+    animation:ctaGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes ctaGlow{0%{transform:translate(0,0)}100%{transform:translate(30%,-20%)}}
+  .cta-block-text{
+    position:relative;font-family:var(--ff-display);font-style:italic;
+    font-size:clamp(20px,2.4vw,30px);line-height:1.3;color:var(--ink);margin:0 0 26px;
+    max-width:48ch;margin-left:auto;margin-right:auto;
+  }
+  .cta-block-text em{color:var(--gold);font-style:italic}
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:12px;
+    padding:16px 28px;border-radius:999px;
+    font-family:var(--ff-sans);font-size:13px;font-weight:600;letter-spacing:.06em;
+    background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color:#fff;text-decoration:none;
+    box-shadow:0 10px 36px rgba(37,211,102,.40),0 0 0 1px rgba(255,255,255,.10) inset;
+    transition:all .35s var(--ease);position:relative;
+  }
+  .btn-wa:hover{
+    transform:translateY(-2px);
+    box-shadow:0 16px 50px rgba(37,211,102,.55),0 0 0 1px rgba(255,255,255,.20) inset;
+  }
+  .btn-wa svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+
+  /* === Servizio · foto inline a sinistra === */
+  .servizio{grid-template-columns:90px 90px 1fr auto !important}
+  .servizio-photo{
+    margin:0;width:80px;height:80px;border-radius:12px;overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 1px rgba(180,150,240,.20) inset;
+  }
+  .servizio-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:760px){
+    .servizio{grid-template-columns:1fr !important}
+    .servizio-photo{width:100%;height:auto;aspect-ratio:1/1;max-width:200px}
+  }
 
   /* === GOLD champagne · colore pieno, glow morbido === */
   em{
@@ -728,12 +699,12 @@
   .contatti-photo:hover{transform:rotate(0deg) scale(1.02)}
   .contatti-photo img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
 
-  /* === UNIVERSE in motion · canvas fixed background === */
+  /* === UNIVERSE in motion · cosmic nebula background === */
   .universe-bg{
     position:fixed;inset:0;width:100vw;height:100vh;
     z-index:-1;pointer-events:none;
-    opacity:.55;
-    mix-blend-mode:multiply;
+    opacity:.85;
+    mix-blend-mode:screen;
   }
 
   /* === VITA · galleria foto sovrapposte === */
@@ -1303,7 +1274,7 @@
       <div class="orb orb-2"></div>
     </div>
     <figure class="hero-photo" data-reveal aria-hidden="true">
-      <img src="assets/photos/davil-08.png" alt="" loading="lazy" decoding="async"/>
+      <img src="assets/photos/hero-davil.png" alt="" loading="lazy" decoding="async"/>
     </figure>
     <div class="hero-inner">
       <p class="eyebrow" data-reveal>· Life Leadership &amp; Coaching ·</p>
@@ -1374,6 +1345,14 @@
       <p>Niente di tutto questo è stato inutile. Niente di tutto questo è stato sufficiente.</p>
       <p>Il motivo è semplice: nessuno ti ha insegnato a <strong>integrare</strong>. A tenere insieme la parte di te che legge Jung e la parte che firma contratti. La parte che cerca il Sé e la parte che deve pagare le bollette. La parte che sa e la parte che non riesce.</p>
       <p>Io lavoro esattamente lì. <strong>Nel punto in cui le due metà si parlano.</strong></p>
+    </div>
+
+    <div class="cta-block" data-reveal>
+      <p class="cta-block-text">Se sei arrivato fino a qui, <em>la crepa è già una bocca che parla.</em></p>
+      <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20letto%20il%20sito%20e%20vorrei%20parlarne%20con%20te" target="_blank" rel="noopener" class="btn-wa">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.3 31.6l8.1-2.1c2.2 1.2 4.7 1.8 7.3 1.8h.3c8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.3c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5C4 20.8 3.3 18.4 3.3 16 3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.3.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5s-1.4 1.3-1.4 3.3 1.5 3.8 1.7 4.1c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+        Scrivimi su WhatsApp
+      </a>
     </div>
   </section>
 
@@ -1561,6 +1540,14 @@
         </ul>
       </div>
     </div>
+
+    <div class="cta-block" data-reveal>
+      <p class="cta-block-text">Ti sei riconosciuto nella prima colonna? <em>È il momento di muoversi.</em></p>
+      <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20mi%20sono%20riconosciuto%20nella%20prima%20colonna.%20Quando%20possiamo%20parlarne%3F" target="_blank" rel="noopener" class="btn-wa">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.3 31.6l8.1-2.1c2.2 1.2 4.7 1.8 7.3 1.8h.3c8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.3c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5C4 20.8 3.3 18.4 3.3 16 3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.3.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5s-1.4 1.3-1.4 3.3 1.5 3.8 1.7 4.1c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+        Apriamo un canale diretto
+      </a>
+    </div>
   </section>
 
   <!-- ============================ -->
@@ -1574,6 +1561,7 @@
       <ul class="servizi-list">
         <li class="servizio" data-reveal>
           <div class="s-index">01</div>
+          <figure class="servizio-photo"><img src="assets/photos/serv-1-esplorazione.jpg" alt="" loading="lazy"/></figure>
           <div class="s-body">
             <h3>Sessione di Esplorazione</h3>
             <p>Un primo incontro gratuito di trenta minuti per capire se c'è terreno comune. Nessun pitch. Nessuna vendita obbligata. Solo onestà e chiarezza. Alla fine ti dico cosa farei se fossi al tuo posto — anche se significa non lavorare insieme.</p>
@@ -1583,6 +1571,7 @@
 
       <li class="servizio" data-reveal>
         <div class="s-index">02</div>
+        <figure class="servizio-photo"><img src="assets/photos/serv-2-leadership.jpg" alt="" loading="lazy"/></figure>
         <div class="s-body">
           <h3>1:1 Leadership Coaching</h3>
           <p>Un percorso individuale a ciclo trimestrale. Sessioni settimanali per riallineare <strong>visione, energia e azione</strong>. Dodici settimane sono il tempo minimo perché qualcosa cambi davvero nei circuiti neurali, nelle abitudini, nel campo che emani.</p>
@@ -1593,6 +1582,7 @@
 
       <li class="servizio" data-reveal>
         <div class="s-index">03</div>
+        <figure class="servizio-photo"><img src="assets/photos/serv-3-mentoring.jpg" alt="" loading="lazy"/></figure>
         <div class="s-body">
           <h3>Mentoring per chi parte da zero</h3>
           <p>Dedicato a chi vuole costruire un business proprio partendo da zero — imprenditori digitali, consulenti, freelance, professionisti in transizione. Posizionamento, disciplina interiore, gestione dell'energia, strategia di lungo termine. La mia scalata nel <strong>network marketing</strong> — fino a oltre <strong>500.000 € di guadagni</strong> in pochi anni, partendo dalla tuta da meccanico — è il <em>trampolino di lancio</em> che porto in sessione: ti consegno la stessa struttura mentale e operativa che mi ha permesso di salire dalla porta a porta ai sei milioni di dollari fatturati. Non un caso fortunato. Un protocollo replicabile.</p>
@@ -1603,6 +1593,7 @@
 
       <li class="servizio" data-reveal>
           <div class="s-index">04</div>
+          <figure class="servizio-photo"><img src="assets/photos/serv-4-gruppo.jpg" alt="" loading="lazy"/></figure>
           <div class="s-body">
             <h3>Percorsi Evolutivi di Gruppo</h3>
             <p>Laboratori esperienziali dove il cambiamento è <strong>moltiplicato dal campo del gruppo</strong>. Teoria, pratica meditativa e strumenti di integrazione quotidiana. Piccoli numeri per garantire profondità: massimo otto persone per ciclo.</p>
@@ -1618,6 +1609,14 @@
       </aside>
     </div>
   </section>
+
+  <div class="cta-block" data-reveal>
+    <p class="cta-block-text">Hai visto il percorso che fa per te? <em>Iniziamo dalla sessione di esplorazione gratuita.</em></p>
+    <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20prenotare%20la%20sessione%20di%20esplorazione%20gratuita" target="_blank" rel="noopener" class="btn-wa">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.3 31.6l8.1-2.1c2.2 1.2 4.7 1.8 7.3 1.8h.3c8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.3c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5C4 20.8 3.3 18.4 3.3 16 3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.3.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5s-1.4 1.3-1.4 3.3 1.5 3.8 1.7 4.1c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+      Prenota la prima sessione
+    </a>
+  </div>
 
   <!-- ============================ -->
   <!-- 09 · DIPENDENZE              -->
@@ -1734,6 +1733,14 @@
         </div>
       </li>
     </ol>
+
+    <div class="cta-block" data-reveal>
+      <p class="cta-block-text">Se questa storia ti ha toccato qualcosa, <em>non è un caso.</em></p>
+      <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20la%20tua%20storia%20mi%20ha%20toccato%20qualcosa.%20Vorrei%20parlarne." target="_blank" rel="noopener" class="btn-wa">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.3 31.6l8.1-2.1c2.2 1.2 4.7 1.8 7.3 1.8h.3c8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.3c-2.3 0-4.5-.6-6.4-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5C4 20.8 3.3 18.4 3.3 16 3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.2-.4.3-.8.1s-1.6-.6-3.1-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.3.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5s-1.4 1.3-1.4 3.3 1.5 3.8 1.7 4.1c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5z"/></svg>
+        Voglio iniziare il cammino
+      </a>
+    </div>
   </section>
 
   <!-- ============================ -->
