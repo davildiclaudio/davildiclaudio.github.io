@@ -364,7 +364,88 @@
     });
   }
 
-  /* ---------- (Grain canvas rimosso · era percepito come "stelline") ---------- */
+  /* ---------- Universe in motion · canvas particles drifting === */
+  if (!prefersReducedMotion && !isTouch) {
+    const universe = document.createElement('canvas');
+    universe.className = 'universe-bg';
+    document.body.insertBefore(universe, document.body.firstChild);
+    const uctx = universe.getContext('2d');
+    let uw = 0, uh = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    const resize = () => {
+      uw = innerWidth; uh = innerHeight;
+      universe.width = uw * dpr; universe.height = uh * dpr;
+      universe.style.width = uw + 'px'; universe.style.height = uh + 'px';
+      uctx.scale(dpr, dpr);
+    };
+    resize();
+    addEventListener('resize', resize);
+    const N = Math.min(110, Math.max(60, Math.floor(uw * uh / 18000)));
+    const stars = [];
+    for (let i = 0; i < N; i++) {
+      stars.push({
+        x: Math.random() * uw, y: Math.random() * uh,
+        z: Math.random() * 0.8 + 0.2,         // depth (parallax weight)
+        r: Math.random() * 1.4 + 0.4,         // radius
+        vx: (Math.random() - 0.5) * 0.12,     // drift x
+        vy: (Math.random() - 0.5) * 0.12,     // drift y
+        hue: Math.random() < .25 ? 'gold' : (Math.random() < .35 ? 'blue' : 'ink'),
+        twinkle: Math.random() * Math.PI * 2,
+      });
+    }
+    let mx = uw / 2, my = uh / 2, smx = mx, smy = my;
+    addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    const palette = {
+      ink: 'rgba(24,24,26,',
+      gold: 'rgba(184,134,46,',
+      blue: 'rgba(45,45,224,',
+    };
+    const tick = (t) => {
+      smx += (mx - smx) * 0.04;
+      smy += (my - smy) * 0.04;
+      uctx.clearRect(0, 0, uw, uh);
+      // soft cloud underneath
+      const grad = uctx.createRadialGradient(uw * 0.3, uh * 0.2, 0, uw * 0.3, uh * 0.2, uw * 0.7);
+      grad.addColorStop(0, 'rgba(45,45,224,0.06)');
+      grad.addColorStop(0.5, 'rgba(184,134,46,0.025)');
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+      uctx.fillStyle = grad; uctx.fillRect(0, 0, uw, uh);
+      // stars
+      stars.forEach(s => {
+        s.x += s.vx; s.y += s.vy; s.twinkle += 0.03;
+        // mouse parallax shift
+        const px = s.x + (smx - uw / 2) * s.z * 0.04;
+        const py = s.y + (smy - uh / 2) * s.z * 0.04;
+        // wrap
+        if (s.x < -10) s.x = uw + 10; else if (s.x > uw + 10) s.x = -10;
+        if (s.y < -10) s.y = uh + 10; else if (s.y > uh + 10) s.y = -10;
+        const a = (0.25 + Math.sin(s.twinkle) * 0.18) * (0.4 + s.z * 0.6);
+        uctx.beginPath();
+        uctx.arc(px, py, s.r * (0.6 + s.z * 0.4), 0, Math.PI * 2);
+        uctx.fillStyle = palette[s.hue] + a + ')';
+        uctx.fill();
+      });
+      // connection lines between near stars
+      for (let i = 0; i < stars.length; i++) {
+        for (let j = i + 1; j < stars.length; j++) {
+          const a = stars[i], b = stars[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 12000) {
+            const op = (1 - d2 / 12000) * 0.07;
+            uctx.beginPath();
+            uctx.moveTo(a.x, a.y);
+            uctx.lineTo(b.x, b.y);
+            uctx.strokeStyle = `rgba(45,45,224,${op})`;
+            uctx.lineWidth = 0.6;
+            uctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
   const hero = $('.hero');
 
   /* ---------- Split utilities ---------- */
