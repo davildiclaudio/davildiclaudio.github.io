@@ -1142,17 +1142,26 @@
   .genesi-section .sect-lead{margin-left:auto;margin-right:auto;text-align:center}
   .genesi-section .sect-lead strong{color:var(--ink);font-style:normal;font-family:var(--ff-sans);letter-spacing:.04em;font-weight:500;font-size:.92em}
   .logo-slideshow{
-    position:relative;margin:32px auto 0;max-width:1080px;
+    position:relative;margin:48px auto 0;max-width:1320px;width:100%;
   }
   .logo-slideshow-stage{
     position:relative;aspect-ratio:16/9;
     background:#1a1cd0;
-    border:1px solid rgba(180,197,255,.25);border-radius:6px;
+    border:1px solid rgba(180,197,255,.25);border-radius:8px;
     overflow:hidden;
     box-shadow:
-      0 24px 80px -10px rgba(45,45,224,.55),
-      0 0 60px rgba(109,138,247,.30),
+      0 30px 100px -10px rgba(45,45,224,.60),
+      0 0 80px rgba(109,138,247,.35),
       0 0 0 1px rgba(45,45,224,.15) inset;
+  }
+  @media(max-width:760px){
+    .genesi-section{padding-left:0!important;padding-right:0!important}
+    .genesi-section .sect-eyebrow,
+    .genesi-section .sect-h,
+    .genesi-section .sect-lead{padding-left:22px;padding-right:22px}
+    .logo-slideshow{margin-top:36px;max-width:100%}
+    .logo-slideshow-stage{aspect-ratio:4/5;border-radius:0;border-left:0;border-right:0}
+    .ls-slide img{object-fit:cover;object-position:center}
   }
   .logo-slideshow-track{position:absolute;inset:0}
   .ls-slide{
