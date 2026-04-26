@@ -671,20 +671,20 @@
     border:1px solid var(--border);
     border-radius:16px;
     background:transparent;
-    aspect-ratio:16/9;
     margin-bottom:8px;
+    display:block;
   }
   .pilastro-with-visual .p-visual img{
-    width:100%;height:100%;object-fit:contain;display:block;
+    width:100%;height:auto;object-fit:contain;display:block;
     transition:transform 1.2s var(--ease-smooth);
   }
-  .pilastro-with-visual:hover .p-visual img{transform:scale(1.03)}
+  .pilastro-with-visual:hover .p-visual img{transform:scale(1.02)}
   .pilastro-with-visual .p-content{padding:36px 32px;display:flex;flex-direction:column;gap:14px}
   @media(max-width:760px){
-    .pilastro-with-visual{padding:16px 16px 0}
-    .pilastro-with-visual .p-visual{aspect-ratio:16/10;border-radius:18px}
-    .pilastro-with-visual .p-visual img{object-fit:contain}
-    .pilastro-with-visual .p-content{padding:26px 20px}
+    .pilastro-with-visual{padding:14px 8px 0}
+    .pilastro-with-visual .p-visual{border-radius:14px}
+    .pilastro-with-visual .p-visual img{width:100%;height:auto;object-fit:contain}
+    .pilastro-with-visual .p-content{padding:26px 16px}
   }
 
   /* Chi sono · grid con portrait raddoppiato */
@@ -720,8 +720,14 @@
     z-index:2;pointer-events:none;
     overflow:hidden;
     filter:drop-shadow(0 12px 30px rgba(0,0,0,.55));
-    animation:none;
+    opacity:0;
+    animation:heroPhotoReveal 2.4s cubic-bezier(.22,.61,.36,1) 1.4s forwards;
     mix-blend-mode:normal;
+  }
+  @keyframes heroPhotoReveal{
+    0%  {opacity:0; transform:translateY(-50%) translateX(20px) scale(.98); filter:drop-shadow(0 12px 30px rgba(0,0,0,.55)) blur(8px)}
+    60% {opacity:.92; filter:drop-shadow(0 12px 30px rgba(0,0,0,.55)) blur(0)}
+    100%{opacity:1; transform:translateY(-50%) translateX(0) scale(1); filter:drop-shadow(0 12px 30px rgba(0,0,0,.55)) blur(0)}
   }
   @keyframes heroPhotoFloat{from{transform:translateY(-50%)}to{transform:translateY(-50%)}}
   .hero-photo::before{display:none}
@@ -738,11 +744,29 @@
     }
   }
   @media(max-width:760px){
-    .hero-photo{
+    .hero{display:flex;flex-direction:column}
+    .hero-bg{order:0}
+    .hero-inner-top{order:1}
+    .hero-photo{order:2;
       position:relative;width:80%;max-width:380px;
       top:auto;right:auto;
-      transform:none;margin:24px auto 0;
-      animation:none;
+      transform:none;margin:28px auto 8px;
+      opacity:0;
+      animation:heroPhotoRevealMob 2.2s cubic-bezier(.22,.61,.36,1) 1.4s forwards;
+    }
+    .hero-inner-bot{order:3;
+      opacity:0;
+      animation:heroBotReveal 2.6s cubic-bezier(.22,.61,.36,1) 3.2s forwards;
+    }
+    @keyframes heroPhotoRevealMob{
+      0%  {opacity:0; transform:translateY(18px) scale(.98); filter:blur(8px)}
+      60% {opacity:.92; filter:blur(0)}
+      100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0)}
+    }
+    @keyframes heroBotReveal{
+      0%  {opacity:0; transform:translateY(14px); filter:blur(6px)}
+      55% {opacity:1; filter:blur(0)}
+      100%{opacity:1; transform:translateY(0); filter:blur(0)}
     }
     @keyframes heroPhotoFloat{from{transform:none}to{transform:none}}
   }
@@ -941,9 +965,9 @@
                linear-gradient(180deg,rgba(255,255,255,.012),transparent);
     box-shadow:0 30px 80px rgba(0,0,0,.4);
   }
-  .bn-vis{position:relative;overflow:hidden;background:transparent;aspect-ratio:16/9;border-radius:18px}
-  .bn-vis img{width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;transition:transform 1.4s var(--ease-smooth)}
-  .body-network:hover .bn-vis img{transform:scale(1.04);filter:saturate(1.1)}
+  .bn-vis{position:relative;overflow:hidden;background:transparent;border-radius:18px;display:block;margin:0;padding:0}
+  .bn-vis img{width:100%;height:auto;object-fit:contain;display:block;border-radius:18px;transition:transform 1.4s var(--ease-smooth)}
+  .body-network:hover .bn-vis img{transform:scale(1.02);filter:saturate(1.1)}
   .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
   .bn-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand-light)}
   .bn-title{font-family:var(--ff-display);font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0}
@@ -955,9 +979,11 @@
   }
   .bn-stat strong{font-family:var(--ff-display);font-style:italic;font-size:32px;color:var(--gold);letter-spacing:0;text-transform:none;font-weight:400}
   @media(max-width:900px){
-    .body-network{grid-template-columns:1fr}
-    .bn-vis{aspect-ratio:4/3;min-height:0}
-    .bn-text{padding:36px 32px}
+    .body-network-sect{padding-left:0!important;padding-right:0!important}
+    .body-network{grid-template-columns:1fr;border-radius:0;border-left:0;border-right:0;margin:0;width:100%}
+    .bn-vis{min-height:0;border-radius:0}
+    .bn-vis img{border-radius:0}
+    .bn-text{padding:36px 22px}
   }
 
   /* Strumento dopo gli assi */
@@ -1021,28 +1047,48 @@
   }
   .mega em{font-style:italic;color:var(--gold);font-weight:300}
 
-  /* Manifesto · mobile: visibilità garantita + animazione opt-in via class */
-  @media(max-width:760px){
-    .manifesto .m-line{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
-    .manifesto.animate .m-line{
-      opacity:0!important;transform:translateY(28px)!important;
-      transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1)!important;
-    }
-    .manifesto.animate.is-visible .m-line{opacity:1!important;transform:none!important}
-    .manifesto.animate .m-line:nth-child(2){transition-delay:.30s}
-    .manifesto.animate .m-line:nth-child(3){transition-delay:.60s}
-  }
-
-  /* Manifesto — three lines rauno-style + sfumatura nera in chiusura */
-  .manifesto{
-    padding:clamp(80px,14vh,200px) var(--pad) calc(clamp(80px,14vh,200px) + 120px);
-    text-align:center;
+  /* Manifesto — pinned scroll, 3 step a comparsa progressiva */
+  .manifesto-scroll{
+    min-height:300vh;
+    padding:0;
     position:relative;
     isolation:isolate;
+    display:block;
+  }
+  .manifesto-scroll .manifesto-stage{
+    position:sticky;
+    top:0;
+    height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:14vh var(--pad);
+    gap:.6em;
+    z-index:2;
+    box-sizing:border-box;
+  }
+  .manifesto-scroll .m-line{
+    opacity:0;
+    transform:translateY(34px);
+    transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1),filter 1.1s cubic-bezier(.22,.61,.36,1);
+    filter:blur(10px);
+    will-change:opacity,transform,filter;
+  }
+  .manifesto-scroll.step-1 .m-line:nth-child(1),
+  .manifesto-scroll.step-2 .m-line:nth-child(-n+2),
+  .manifesto-scroll.step-3 .m-line:nth-child(-n+3){
+    opacity:1;transform:none;filter:blur(0);
+  }
+  /* fallback se JS non parte: mostra tutto */
+  .manifesto-scroll:not(.step-1):not(.step-2):not(.step-3) .m-line{
+    opacity:1;transform:none;filter:none;
   }
   /* Ombra rivolta verso il basso · sfuma il blocco verso la sezione successiva */
   .manifesto::after{
-    content:"";position:absolute;left:0;right:0;bottom:-1px;height:340px;
+    content:"";position:absolute;left:0;right:0;bottom:0;height:34vh;
     background:linear-gradient(180deg,
       rgba(5,3,15,0) 0%,
       rgba(5,3,15,.30) 30%,
@@ -1055,13 +1101,13 @@
   .manifesto .m-line{
     font-family:var(--ff-display);
     font-weight:300;
-    font-size:clamp(28px,4.8vw,72px);
-    line-height:1.1;
+    font-size:clamp(30px,5.2vw,80px);
+    line-height:1.12;
     letter-spacing:-.01em;
     margin:0 auto;
     max-width:18ch;
   }
-  .manifesto .m-line + .m-line{margin-top:.25em}
+  .manifesto .m-line + .m-line{margin-top:.45em}
   .manifesto .m-line em{color:var(--gold)}
 
   /* Section generic */
@@ -1581,7 +1627,7 @@
     /* Tutto fluid · niente colonne larghe inutili */
     .manifesto-grid,.chi-grid,.percorsi-layout,.body-network,.contatti-photo-wrap,.membri-grid,.masterclass-gate,.assi,.pilastri{grid-template-columns:1fr !important;gap:32px !important}
     /* Foto rispettano l'altezza naturale */
-    .hero-photo,.contatti-photo,.storia-inline-photo{transform:none !important;animation:none !important}
+    .contatti-photo,.storia-inline-photo{transform:none !important;animation:none !important}
     /* Modal interprete fullscreen su mobile */
     #dream-modal{width:96% !important;max-width:none !important;border-radius:14px !important}
     /* Riduzione canvas Three per perf */
@@ -1805,12 +1851,14 @@
 <script>
   // Gate check ASAP · prima del rendering del body
   (function(){
-    // sessionStorage = chiede la password ogni nuova sessione (chiusura/riapertura browser)
+    // localStorage = persiste anche se iOS Safari uccide la tab per memoria
     var KEY = 'davil_site_access_v2';
-    // Pulisci vecchio token persistente per forzare prompt a tutti
     try { localStorage.removeItem('davil_site_access_v1'); } catch(e){}
     var ok = false;
-    try { ok = sessionStorage.getItem(KEY) === 'granted'; } catch(e){}
+    try {
+      ok = localStorage.getItem(KEY) === 'granted'
+        || sessionStorage.getItem(KEY) === 'granted';
+    } catch(e){}
     if (!ok) document.documentElement.classList.add('gate-locked');
   })();
 </script>
@@ -1842,6 +1890,7 @@
     f.addEventListener('submit', function(e){
       e.preventDefault();
       if ((i.value||'').trim() === PW) {
+        try { localStorage.setItem(KEY, 'granted'); } catch(e){}
         try { sessionStorage.setItem(KEY, 'granted'); } catch(e){}
         s.className = 'sg-status';
         s.textContent = '✓ Accesso confermato.';
@@ -1945,7 +1994,7 @@
       <a href="#libri" class="dd-item" role="menuitem">
         <span class="dd-icon" aria-hidden="true">𑁔</span>
         <span class="dd-text">
-          <span class="dd-title">Libri scaricabili</span>
+          <span class="dd-title">Libri Davil</span>
           <span class="dd-sub">«Io posso farcela» · «PNL Esoterica»</span>
         </span>
       </a>
@@ -1983,10 +2032,7 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
     </div>
-    <figure class="hero-photo" aria-hidden="true">
-      <img src="assets/photos/io-bianco.png" alt="" loading="eager" decoding="async" fetchpriority="high"/>
-    </figure>
-    <div class="hero-inner">
+    <div class="hero-inner hero-inner-top">
       <p class="eyebrow" data-reveal>· Life Leadership &amp; Coaching ·</p>
       <h1 class="hero-title mega">
         <span class="line">Non hai bisogno</span>
@@ -1994,6 +2040,11 @@
         <span class="line">Devi smettere di vivere</span>
         <span class="line">quella <em>di qualcun altro.</em></span>
       </h1>
+    </div>
+    <figure class="hero-photo" aria-hidden="true">
+      <img src="assets/photos/io-bianco.png" alt="" loading="eager" decoding="async" fetchpriority="high"/>
+    </figure>
+    <div class="hero-inner hero-inner-bot">
       <p class="hero-sub" data-reveal style="max-width:60ch;margin-top:32px;font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.5vw,22px);line-height:1.55">
         Per chi ha già costruito qualcosa e sente che la struttura interna non regge più ciò che ha fuori. Imprenditori, professionisti, persone in transizione profonda. Niente motivazione, niente formule veloci — solo <em>la pazienza dell'orefice e la freddezza del chirurgo.</em>
       </p>
@@ -2007,10 +2058,12 @@
   <!-- ============================ -->
   <!-- 02 · MANIFESTO               -->
   <!-- ============================ -->
-  <section id="manifesto" class="manifesto">
-    <p class="m-line" data-reveal>La realtà non è una linea. <em>È un campo.</em></p>
-    <p class="m-line" data-reveal>Tu non devi forzarla. <em>Devi sintonizzarti.</em></p>
-    <p class="m-line" data-reveal>Tutto il resto di questo sito serve a insegnarti <em>come.</em></p>
+  <section id="manifesto" class="manifesto manifesto-scroll" data-manifesto>
+    <div class="manifesto-stage">
+      <p class="m-line">La realtà non è una linea. <em>È un campo.</em></p>
+      <p class="m-line">Tu non devi forzarla. <em>Devi sintonizzarti.</em></p>
+      <p class="m-line">Tutto il resto di questo sito serve a insegnarti <em>come.</em></p>
+    </div>
   </section>
 
   <div class="rule"></div>
@@ -2020,9 +2073,16 @@
   <!-- ============================ -->
   <section id="genesi" class="sect genesi-section">
     <p class="sect-eyebrow" data-reveal>· Genesi del logo ·</p>
-    <h2 class="sect-h" data-split-words>Tre simboli, <em>una proporzione.</em></h2>
+    <h2 class="sect-h" data-split-words>Una <em>strana sincronicità</em> dell'universo.</h2>
     <p class="sect-lead" data-reveal>
-      <strong>Visione · Equilibrio · Crescita.</strong>
+      Il logo mi è stato consegnato così, già finito. Solo <em>dopo</em> averlo ricevuto ho realizzato
+      che le sue tre forme — <strong>Visione · Equilibrio · Crescita</strong> — coincidono esattamente
+      con il <em>processo indispensabile per vivere una vita psicologica sana</em> descritto da
+      Roberto Assagioli nella <strong>Psicosintesi</strong>: vedere ciò che si è, integrare le parti,
+      far emergere il Sé. Non l'ho cercato. È arrivato. E quando ho collegato i punti, ho capito
+      che non era un marchio: era una <em>mappa</em>.
+    </p>
+    <p class="sect-lead" data-reveal style="margin-top:18px">
       Costruito sulla <em>proporzione del 7</em> — il numero che torna nei pilastri,
       nei chakra, nei pianeti antichi, nelle note. Sotto, la genesi visiva.
     </p>
@@ -3210,6 +3270,33 @@
   if (window.DAVIL_EMAIL.enabled && window.emailjs) {
     emailjs.init({ publicKey: window.DAVIL_EMAIL.publicKey });
   }
+</script>
+<script>
+  // Manifesto · 3 step a comparsa progressiva su scroll (sticky pinned)
+  (function(){
+    var sect = document.querySelector('[data-manifesto]');
+    if (!sect) return;
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var r = sect.getBoundingClientRect();
+      var total = sect.offsetHeight - window.innerHeight;
+      if (total <= 0) { sect.classList.add('step-3'); return; }
+      var passed = -r.top;
+      var p = Math.max(0, Math.min(1, passed / total));
+      var step = 1;
+      if (p > 0.38) step = 2;
+      if (p > 0.70) step = 3;
+      sect.classList.remove('step-1','step-2','step-3');
+      sect.classList.add('step-'+step);
+    }
+    function onScroll(){
+      if (!ticking){ window.requestAnimationFrame(update); ticking = true; }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    update();
+  })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>

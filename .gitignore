@@ -12,3 +12,8 @@ dist/
 input-davil/
 DA-FARE-INSIEME.md
 .claude/settings.local.json
+
+# Avatar pipeline — foto personali e venv non vanno su git
+brand/avatar/.venv/
+brand/avatar/originali/
+brand/avatar/enhanced/
