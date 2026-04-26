@@ -1230,9 +1230,18 @@
   const loginModal = document.querySelector('[data-login-modal]');
   const loginForm  = document.querySelector('[data-login-form]');
   const loginStatus = document.querySelector('[data-login-status]');
-  const openLogin = () => { if (loginModal) { loginModal.hidden = false; document.body.style.overflow = 'hidden'; } };
+  const tabBtns = document.querySelectorAll('.login-tab');
+  const panes = document.querySelectorAll('.login-pane');
+  const switchTab = (name) => {
+    tabBtns.forEach(b => b.classList.toggle('is-active', b.dataset.tab === name));
+    panes.forEach(p => { p.hidden = p.dataset.pane !== name; });
+  };
+  tabBtns.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
+  document.querySelectorAll('[data-tab-switch]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); switchTab(el.dataset.tabSwitch); }));
+  const openLogin = (tab) => { if (loginModal) { switchTab(tab || 'login'); loginModal.hidden = false; document.body.style.overflow = 'hidden'; } };
   const closeLogin = () => { if (loginModal) { loginModal.hidden = true; document.body.style.overflow = ''; if (loginStatus) { loginStatus.textContent = ''; loginStatus.className = 'login-status'; } } };
-  document.querySelectorAll('[data-login-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openLogin(); }));
+  document.querySelectorAll('[data-login-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openLogin('login'); }));
+  document.querySelectorAll('[data-register-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openLogin('register'); }));
   document.querySelectorAll('[data-login-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeLogin(); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && loginModal && !loginModal.hidden) closeLogin(); });
   if (loginForm) {
@@ -1290,10 +1299,11 @@
     });
   }
 
-  /* === Membri area · gating su sessione login === */
+  /* === Membri area · sezione completamente nascosta finché non si fa login === */
   const refreshMembri = () => {
     let logged = false;
     try { logged = !!JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch(e){}
+    document.querySelectorAll('[data-membri-section]').forEach(el => el.hidden = !logged);
     document.querySelectorAll('[data-membri-public]').forEach(el => el.hidden = logged);
     document.querySelectorAll('[data-membri-private]').forEach(el => el.hidden = !logged);
   };
@@ -1374,6 +1384,139 @@
   const closeOracle = () => { if (oracleModal) { oracleModal.hidden = true; document.body.style.overflow = ''; } };
   document.querySelectorAll('[data-oracle-draw]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openOracle(); }));
   document.querySelectorAll('[data-oracle-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeOracle(); }));
+
+  /* === Accademia · video player interno (YouTube nocookie + scudi) === */
+  const ACADEMY_KEY = 'davil_academy_videos_v1';
+  const ACADEMY_ADMIN_KEY = 'davil_academy_admin_v1';
+  const ACADEMY_ADMIN_PW = 'davil-coscienza-2026'; // stessa del CRM
+
+  const academyModal = document.querySelector('[data-academy-modal]');
+  const academyIframe = document.querySelector('[data-academy-iframe]');
+  const academyEmpty  = document.querySelector('[data-academy-empty]');
+  const academyTitle  = document.querySelector('[data-academy-title]');
+  const academyDesc   = document.querySelector('[data-academy-desc]');
+  const academyList   = document.querySelector('[data-academy-list]');
+  const academyAdmin  = document.querySelector('[data-academy-admin]');
+  const academyAdminHint = document.querySelector('[data-academy-admin-hint]');
+  const academyAddForm = document.querySelector('[data-academy-add-form]');
+
+  const getAcademyVideos = () => { try { return JSON.parse(localStorage.getItem(ACADEMY_KEY) || '[]'); } catch(e){ return []; } };
+  const saveAcademyVideos = (arr) => { try { localStorage.setItem(ACADEMY_KEY, JSON.stringify(arr)); } catch(e){} };
+  const isAcademyAdmin = () => { try { return sessionStorage.getItem(ACADEMY_ADMIN_KEY) === '1'; } catch(e){ return false; } };
+
+  // Estrae l'ID YouTube da un URL o restituisce l'ID se è già pulito
+  function extractYtId(input){
+    input = (input||'').trim();
+    if (/^[A-Za-z0-9_-]{11}$/.test(input)) return input;
+    const m = input.match(/(?:v=|\/embed\/|youtu\.be\/|\/v\/|\/shorts\/)([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : '';
+  }
+
+  function loadVideo(idx){
+    const videos = getAcademyVideos();
+    const v = videos[idx];
+    if (!v || !academyIframe) return;
+    const params = 'rel=0&modestbranding=1&iv_load_policy=3&fs=1&playsinline=1&autoplay=1';
+    academyIframe.src = `https://www.youtube-nocookie.com/embed/${v.id}?${params}`;
+    academyIframe.hidden = false;
+    if (academyEmpty) academyEmpty.style.display = 'none';
+    if (academyTitle) academyTitle.textContent = v.title || '—';
+    if (academyDesc) academyDesc.textContent = v.desc || '';
+    document.querySelectorAll('.academy-thumb').forEach((t,i) => t.classList.toggle('is-current', i === idx));
+  }
+
+  function renderAcademyList(){
+    if (!academyList) return;
+    const videos = getAcademyVideos();
+    const admin = isAcademyAdmin();
+    if (!videos.length) {
+      academyList.innerHTML = '';
+      if (academyIframe) { academyIframe.hidden = true; academyIframe.src = ''; }
+      if (academyEmpty) academyEmpty.style.display = 'flex';
+      if (academyTitle) academyTitle.textContent = '—';
+      if (academyDesc) academyDesc.textContent = '';
+      return;
+    }
+    academyList.innerHTML = videos.map((v,i) => `
+      <button type="button" class="academy-thumb" data-academy-idx="${i}">
+        <span class="academy-thumb-num">Modulo ${String(i+1).padStart(2,'0')}</span>
+        <h5 class="academy-thumb-title">${(v.title||'—').replace(/</g,'&lt;')}</h5>
+        ${admin ? `<button type="button" class="academy-thumb-del" data-academy-del="${i}">elimina</button>` : ''}
+      </button>
+    `).join('');
+    // bind clicks
+    academyList.querySelectorAll('[data-academy-idx]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target.matches('[data-academy-del]')) return;
+        loadVideo(parseInt(el.dataset.academyIdx, 10));
+      });
+    });
+    academyList.querySelectorAll('[data-academy-del]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(el.dataset.academyDel, 10);
+        const videos = getAcademyVideos();
+        if (!confirm(`Eliminare «${videos[idx].title}»?`)) return;
+        videos.splice(idx, 1);
+        saveAcademyVideos(videos);
+        renderAcademyList();
+        if (videos.length) loadVideo(0);
+      });
+    });
+    // auto-load first
+    if (academyIframe && academyIframe.hidden) loadVideo(0);
+  }
+
+  function refreshAcademyAdminUI(){
+    const admin = isAcademyAdmin();
+    if (academyAdmin) academyAdmin.hidden = !admin;
+    if (academyAdminHint) academyAdminHint.hidden = admin;
+  }
+
+  const openAcademy = () => {
+    if (!academyModal) return;
+    academyModal.hidden = false; document.body.style.overflow = 'hidden';
+    refreshAcademyAdminUI();
+    renderAcademyList();
+  };
+  const closeAcademy = () => {
+    if (!academyModal) return;
+    academyModal.hidden = true; document.body.style.overflow = '';
+    if (academyIframe) { academyIframe.src = ''; academyIframe.hidden = true; }
+  };
+  document.querySelectorAll('[data-academy-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openAcademy(); }));
+  document.querySelectorAll('[data-academy-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeAcademy(); }));
+
+  // Admin toggle
+  document.querySelectorAll('[data-academy-admin-toggle]').forEach(el => el.addEventListener('click', e => {
+    e.preventDefault();
+    const pw = prompt('Password admin Davil:');
+    if (pw === ACADEMY_ADMIN_PW) {
+      try { sessionStorage.setItem(ACADEMY_ADMIN_KEY, '1'); } catch(e){}
+      refreshAcademyAdminUI();
+      renderAcademyList();
+    } else if (pw !== null) {
+      alert('Password errata.');
+    }
+  }));
+
+  if (academyAddForm) {
+    academyAddForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(academyAddForm);
+      const title = (fd.get('title')||'').toString().trim();
+      const url   = (fd.get('url')||'').toString().trim();
+      const desc  = (fd.get('desc')||'').toString().trim();
+      const id = extractYtId(url);
+      if (!id) { alert('URL/ID YouTube non valido. Esempi: https://youtube.com/watch?v=ID  oppure  ID di 11 caratteri'); return; }
+      const videos = getAcademyVideos();
+      videos.push({ title, id, desc, ts: new Date().toISOString() });
+      saveAcademyVideos(videos);
+      academyAddForm.reset();
+      renderAcademyList();
+      loadVideo(videos.length - 1);
+    });
+  }
 
   console.log('%c DAVIL ', 'background:#09090b;color:#f2efe9;font-weight:900;padding:4px 10px;border-radius:4px', 'v2 motion engine attivo.');
 })();

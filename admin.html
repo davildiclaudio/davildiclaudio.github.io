@@ -84,6 +84,15 @@
     <button class="danger" id="clearAll">Cancella tutti</button>
   </div>
 
+  <div class="actions" style="margin-top:10px">
+    <span style="font-size:11px;letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;align-self:center;margin-right:8px">Filtra:</span>
+    <button class="btn ghost filter-btn is-active" data-filter="all">Tutti</button>
+    <button class="btn ghost filter-btn" data-filter="register">Solo Registrazioni Area Membri</button>
+    <button class="btn ghost filter-btn" data-filter="masterclass">Masterclass</button>
+    <button class="btn ghost filter-btn" data-filter="waitlist">Lista d'attesa libri</button>
+    <button class="btn ghost filter-btn" data-filter="other">Altro</button>
+  </div>
+
   <div class="stats" id="stats"></div>
   <div id="tableWrap"></div>
   <div id="testsWrap" hidden></div>
@@ -109,27 +118,53 @@ $('#loginForm').addEventListener('submit', (e) => {
 
 const getLeads = () => { try { return JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch (e) { return []; } };
 
+// Mappa source tecnica → etichetta umana + sezione del sito
+function sourceLabel(src){
+  src = (src||'').toLowerCase();
+  if (src === 'registrati-area' || src === 'register-modal') return { label:'Registrazione Area Membri', area:'Modal · Menu a tendina', cat:'register' };
+  if (src === 'login-success') return { label:'Login eseguito', area:'Modal Accedi', cat:'register' };
+  if (src === 'membri-login-attempt') return { label:'Tentativo login fallito', area:'Modal Accedi', cat:'register' };
+  if (src === 'site-access') return { label:'Accesso sito (gate password)', area:'Gate iniziale', cat:'other' };
+  if (src === 'masterclass-transurfing') return { label:'Masterclass 2 ore Transurfing', area:'Sezione Masterclass · Risorse', cat:'masterclass' };
+  if (src === 'ars-realis') return { label:'Ars Realis', area:'Sezione Ars Realis · Risorse', cat:'register' };
+  if (src === 'doppio-pdf-psicosintesi-transurfing') return { label:'Doppio PDF Psicosintesi+Transurfing', area:'Sezione Risorse', cat:'waitlist' };
+  if (src.startsWith('coming-soon-')) return { label:'Coming Soon · '+src.replace('coming-soon-',''), area:'Modal Coming Soon (PDF pill)', cat:'waitlist' };
+  if (src.startsWith('waitlist-')) return { label:'Lista attesa · '+src.replace('waitlist-',''), area:'Sezione Libri', cat:'waitlist' };
+  return { label: src || '?', area: '—', cat:'other' };
+}
+
+let currentFilter = 'all';
+
 function render(){
-  const leads = getLeads().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
-  $('#leadCount').textContent = leads.length + ' LEAD';
-  // Stats
-  const bySource = {};
-  leads.forEach(l => { bySource[l.source||'?'] = (bySource[l.source||'?']||0) + 1; });
-  $('#stats').innerHTML = Object.entries(bySource).map(([s,n]) =>
+  const allLeads = getLeads().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
+  const leads = currentFilter === 'all' ? allLeads : allLeads.filter(l => sourceLabel(l.source).cat === currentFilter);
+  $('#leadCount').textContent = leads.length + ' / ' + allLeads.length + ' LEAD';
+  // Stats raggruppate per area del sito
+  const byArea = {};
+  allLeads.forEach(l => { const a = sourceLabel(l.source).area; byArea[a] = (byArea[a]||0) + 1; });
+  $('#stats').innerHTML = Object.entries(byArea).map(([s,n]) =>
     `<div class="stat"><div class="stat-label">${s}</div><div class="stat-value">${n}</div></div>`
-  ).join('') + `<div class="stat"><div class="stat-label">Totale</div><div class="stat-value">${leads.length}</div></div>`;
+  ).join('') + `<div class="stat" style="background:linear-gradient(135deg,rgba(244,201,93,.18),rgba(124,58,237,.10));border-color:rgba(244,201,93,.40)"><div class="stat-label" style="color:var(--gold)">Totale</div><div class="stat-value">${allLeads.length}</div></div>`;
   // Table
   if (!leads.length) {
-    $('#tableWrap').innerHTML = '<div class="empty">Nessun lead ancora. Saranno qui appena qualcuno compila il form della masterclass o dell\'area membri.</div>';
+    $('#tableWrap').innerHTML = '<div class="empty">Nessun lead per questo filtro.</div>';
     return;
   }
-  $('#tableWrap').innerHTML = '<table><thead><tr><th>Data</th><th>Nome</th><th>Email</th><th>Telefono</th><th>Source</th></tr></thead><tbody>'
+  $('#tableWrap').innerHTML = '<table><thead><tr><th>Data</th><th>Nome</th><th>Email</th><th>Telefono</th><th>Tipo</th><th>Sezione del sito</th></tr></thead><tbody>'
     + leads.map(l => {
       const d = l.ts ? new Date(l.ts) : new Date();
       const date = d.toLocaleDateString('it-IT') + ' ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-      return `<tr><td>${date}</td><td>${l.name||'—'}</td><td class="email">${l.email||'—'}</td><td class="phone">${l.phone||'—'}</td><td class="source">${l.source||'—'}</td></tr>`;
+      const sl = sourceLabel(l.source);
+      return `<tr><td>${date}</td><td>${l.name||'—'}</td><td class="email">${l.email||'—'}</td><td class="phone">${l.phone||'—'}</td><td class="source">${sl.label}</td><td style="font-size:12px;color:var(--ink-soft);font-style:italic">${sl.area}</td></tr>`;
     }).join('') + '</tbody></table>';
 }
+
+document.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('is-active'));
+  b.classList.add('is-active');
+  currentFilter = b.dataset.filter;
+  render();
+}));
 
 $('#reload').addEventListener('click', render);
 

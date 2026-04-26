@@ -2010,11 +2010,18 @@
           <span class="dd-sub">«Io posso farcela» · «PNL Esoterica»</span>
         </span>
       </a>
-      <a href="#membri" class="dd-item" role="menuitem">
+      <a href="#" class="dd-item" role="menuitem" data-login-open>
         <span class="dd-icon" aria-hidden="true">⎔</span>
         <span class="dd-text">
-          <span class="dd-title">Area Membri</span>
-          <span class="dd-sub">Accesso riservato</span>
+          <span class="dd-title">Area Membri · Accedi</span>
+          <span class="dd-sub">Login con email e password</span>
+        </span>
+      </a>
+      <a href="#" class="dd-item" role="menuitem" data-register-open>
+        <span class="dd-icon" aria-hidden="true">✶</span>
+        <span class="dd-text">
+          <span class="dd-title">Registrati gratis</span>
+          <span class="dd-sub">Ricevi la password d'accesso</span>
         </span>
       </a>
     </div>
@@ -2028,7 +2035,6 @@
     <a href="#storia" data-link>Storia</a>
     <a href="#risorse" data-link>Risorse</a>
     <a href="#faq" data-link>FAQ</a>
-    <button type="button" class="nav-login-btn" data-login-open aria-label="Accedi"><span aria-hidden="true">⌬</span> <span class="nl-text">Accedi</span></button>
     <a href="#contatti" data-link class="cta">Contatti</a>
   </nav>
   <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
@@ -2553,7 +2559,7 @@
             <input type="checkbox" required/>
             <span>Acconsento al trattamento dei dati personali per essere avvisato all'uscita del libro e per comunicazioni promozionali · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
           </label>
-          <p class="gate-confirm" hidden>In lista. Ti scrivo non appena esce.</p>
+          <p class="gate-confirm" hidden>In lista. Ti spediamo l'avviso e il materiale nelle ore successive all'uscita.</p>
         </form>
       </div>
 
@@ -2571,7 +2577,7 @@
             <input type="checkbox" required/>
             <span>Acconsento al trattamento dei dati personali per essere avvisato all'uscita del libro e per comunicazioni promozionali · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
           </label>
-          <p class="gate-confirm" hidden>In lista. Ti scrivo non appena esce.</p>
+          <p class="gate-confirm" hidden>In lista. Ti spediamo l'avviso e il materiale nelle ore successive all'uscita.</p>
         </form>
       </div>
     </div>
@@ -2691,7 +2697,7 @@
       Una <strong>masterclass completa</strong> sul Reality Transurfing di Vadim Zeland — pendoli, spazio delle varianti, intenzione esterna, importanza, slide. <em>Niente teaser, niente ritagli</em>: due ore intere, registrate per chi vuole capire <strong>davvero</strong> come funziona il modello.
     </p>
     <p class="sect-lead" data-reveal style="font-size:14px;letter-spacing:.04em">
-      In cambio: <strong>la tua email e il tuo numero</strong>. Per mandarti il link diretto e — se serve — risponderti via WhatsApp. Niente spam, niente liste vendute.
+      In cambio: <strong>la tua email e il tuo numero</strong>. Ti mandiamo il link diretto <strong style="color:var(--gold)">nelle ore successive alla richiesta</strong> e — se serve — possiamo risponderti via WhatsApp. Niente spam, niente liste vendute.
     </p>
 
     <figure class="masterclass-cover" data-reveal>
@@ -2722,7 +2728,7 @@
 
       <div class="masterclass-locked" data-gate-locked>
         <div class="lock-icon" aria-hidden="true">⊙</div>
-        <p class="lock-text">Compila il form. Il video apparirà qui sotto e riceverai il link via email.</p>
+        <p class="lock-text">Compila il form. Il video apparirà qui sotto e riceverai il link via email <strong style="color:var(--gold)">nelle ore successive alla richiesta</strong>.</p>
       </div>
 
       <figure class="masterclass-video" data-gate-video hidden>
@@ -2829,64 +2835,63 @@
     </style>
   </section>
 
-  <!-- ============================ -->
-  <!-- 12·c·2 · REGISTRATI / LOGIN  -->
-  <!-- ============================ -->
-  <section id="registrati" class="sect access-sect">
-    <div class="section-label" data-reveal><span>12·d</span> Accesso</div>
-    <h2 class="sect-h" data-split-words>Sei già <em>dentro?</em></h2>
-    <p class="sect-lead" data-reveal>Se hai già la password puoi entrare subito. Se no, lascia una mail: ricevi l'accesso e tutti gli aggiornamenti dei contenuti riservati.</p>
-    <div class="access-grid">
-      <div class="access-card" data-reveal>
-        <div class="access-eyebrow">· Già dentro ·</div>
-        <h3 class="access-h">Accedi.</h3>
-        <p class="access-body">Hai già la password? Apri il pannello di accesso e portala con te in area riservata.</p>
-        <button type="button" class="btn-primary" data-login-open style="margin-top:auto">Apri il login →</button>
-      </div>
-      <div class="access-card access-card-alt" data-reveal>
-        <div class="access-eyebrow" style="color:var(--gold)">· Nuovo qui ·</div>
-        <h3 class="access-h">Registrati.</h3>
-        <p class="access-body">Lascia mail e nome: ricevi la <strong>password d'accesso</strong> immediatamente. Niente carta, niente abbonamento — solo lo spazio comune dove parliamo davvero.</p>
-        <form class="gate" data-register-form>
-          <input type="text" name="name" placeholder="Il tuo nome" required/>
-          <input type="email" name="email" placeholder="La tua email" required/>
-          <button type="submit" class="btn-wa-style">Voglio entrare</button>
-          <label class="gate-check" style="margin-top:8px;font-size:11px">
-            <input type="checkbox" required/>
-            <span>Acconsento al trattamento dei dati per ricevere accesso e comunicazioni · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
-          </label>
-          <div class="register-pw-reveal" data-register-reveal hidden>
-            <p class="ars-pw-label">La tua password d'accesso</p>
-            <div class="ars-pw-code" data-register-code>11279336</div>
-            <a href="https://davildiclaudio.github.io/Ars-Realis/" target="_blank" rel="noopener" class="ars-pw-cta">Entra in Ars Realis →</a>
-            <p class="ars-pw-note">Conservala. <a href="#" data-login-open style="color:var(--gold)">Apri il login</a> per usarla subito.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Login Modal -->
+  <!-- Login + Register Modal -->
   <div class="login-modal" data-login-modal hidden>
     <div class="login-backdrop" data-login-close></div>
     <div class="login-panel" role="dialog" aria-labelledby="login-h" aria-modal="true">
       <button class="login-x" data-login-close aria-label="Chiudi">×</button>
-      <div class="login-eyebrow">· Accesso area riservata ·</div>
-      <h3 class="login-h" id="login-h">Bentornato.</h3>
-      <p class="login-sub">Inserisci email e password d'accesso.</p>
-      <form class="login-form" data-login-form>
-        <label class="login-row">
-          <span>Email</span>
-          <input type="email" name="email" required autocomplete="email" placeholder="la-tua-email@dominio.com"/>
-        </label>
-        <label class="login-row">
-          <span>Password</span>
-          <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••"/>
-        </label>
-        <button type="submit" class="btn-primary login-submit">Entra</button>
-        <p class="login-status" data-login-status></p>
-      </form>
-      <p class="login-hint">Non hai ancora la password? <a href="#registrati" data-login-close style="color:var(--gold)">Registrati qui</a> · oppure <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20la%20password%20area%20riservata" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
+
+      <div class="login-tabs" role="tablist">
+        <button type="button" class="login-tab is-active" data-tab="login" role="tab">Accedi</button>
+        <button type="button" class="login-tab" data-tab="register" role="tab">Registrati</button>
+      </div>
+
+      <!-- LOGIN PANE -->
+      <div class="login-pane" data-pane="login">
+        <div class="login-eyebrow">· Accesso area riservata ·</div>
+        <h3 class="login-h" id="login-h">Bentornato.</h3>
+        <p class="login-sub">Inserisci email e password d'accesso.</p>
+        <form class="login-form" data-login-form>
+          <label class="login-row">
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="la-tua-email@dominio.com"/>
+          </label>
+          <label class="login-row">
+            <span>Password</span>
+            <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••"/>
+          </label>
+          <button type="submit" class="btn-primary login-submit">Entra</button>
+          <p class="login-status" data-login-status></p>
+        </form>
+        <p class="login-hint">Non hai ancora la password? <a href="#" data-tab-switch="register" style="color:var(--gold)">Registrati qui</a> · oppure <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20ho%20perso%20la%20password%20area%20riservata" target="_blank" rel="noopener" style="color:var(--gold)">scrivimi</a>.</p>
+      </div>
+
+      <!-- REGISTER PANE -->
+      <div class="login-pane" data-pane="register" hidden>
+        <div class="login-eyebrow" style="color:var(--gold)">· Nuovo qui ·</div>
+        <h3 class="login-h">Registrati gratis.</h3>
+        <p class="login-sub">Lascia nome ed email: ricevi subito la <strong style="color:var(--gold)">password d'accesso</strong> all'area riservata.</p>
+        <form class="login-form" data-register-form>
+          <label class="login-row">
+            <span>Nome</span>
+            <input type="text" name="name" required placeholder="Il tuo nome"/>
+          </label>
+          <label class="login-row">
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="la-tua-email@dominio.com"/>
+          </label>
+          <label class="gate-check" style="margin-top:4px;font-size:11.5px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start">
+            <input type="checkbox" required style="margin-top:3px"/>
+            <span>Acconsento al trattamento dei dati per ricevere l'accesso · <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--gold)">Privacy</a></span>
+          </label>
+          <button type="submit" class="btn-primary login-submit">Voglio entrare</button>
+          <div class="register-pw-reveal" data-register-reveal hidden style="margin-top:14px">
+            <p class="ars-pw-label">La tua password d'accesso</p>
+            <div class="ars-pw-code" data-register-code>11279336</div>
+            <p class="ars-pw-note">Conservala. <a href="#" data-tab-switch="login" style="color:var(--gold)">Vai al login</a> per usarla subito.</p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -2936,6 +2941,15 @@
     .login-eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--magenta);margin-bottom:8px}
     .login-h{font-family:var(--ff-display);font-weight:300;font-size:32px;margin:0 0 6px;color:var(--ink)}
     .login-sub{font-size:14px;color:var(--ink-soft);margin:0 0 22px}
+    .login-tabs{display:flex;gap:8px;margin:-8px 0 18px;border-bottom:1px solid rgba(180,150,240,.18);padding-bottom:0}
+    .login-tab{
+      flex:1;background:transparent;border:0;color:var(--ink-soft);
+      font:inherit;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+      padding:12px 8px;cursor:pointer;border-bottom:2px solid transparent;transition:color .25s,border-color .25s;
+    }
+    .login-tab:hover{color:var(--ink)}
+    .login-tab.is-active{color:var(--gold);border-bottom-color:var(--gold)}
+    .login-pane[hidden]{display:none}
     .login-form{display:flex;flex-direction:column;gap:14px}
     .login-row{display:flex;flex-direction:column;gap:6px}
     .login-row span{font-size:11px;letter-spacing:.20em;text-transform:uppercase;color:var(--ink-soft)}
@@ -2974,34 +2988,56 @@
     .room-list{margin:8px 0 0;padding-left:20px;font-size:13.5px;line-height:1.7;color:var(--ink-soft)}
     .room-cta{margin-top:auto;align-self:flex-start;padding:11px 20px;font-size:12.5px}
     @media(max-width:760px){.membri-rooms{grid-template-columns:1fr}}
+    .room-card-wide{grid-column:1 / -1;background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.18))!important;border-color:rgba(244,201,93,.30)!important}
 
     .diary-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
     .diary-modal[hidden]{display:none}
+
+    /* Accademia · player interno */
+    .membri-section{contain:none!important} /* permette modal fixed di posizionarsi sul viewport */
+    .academy-modal .academy-panel{max-width:880px;width:100%;max-height:90vh;overflow-y:auto}
+    .academy-stage{margin:14px 0 20px}
+    .academy-player{
+      position:relative;width:100%;aspect-ratio:16/9;
+      background:#000;border:1px solid rgba(180,150,240,.20);border-radius:12px;overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+    }
+    .academy-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .academy-player iframe[hidden]{display:none!important}
+    .academy-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink-dim);font-style:italic;font-size:14px;padding:20px;text-align:center}
+    /* Scudi click-blocking · nascondono logo YouTube + link "watch on YouTube" */
+    .academy-shield{position:absolute;background:transparent;z-index:5;cursor:default;pointer-events:auto}
+    .academy-shield-top{top:0;right:0;width:140px;height:50px}
+    .academy-shield-bot-right{bottom:0;right:0;width:160px;height:50px}
+    .academy-meta{padding:14px 4px 0}
+    .academy-title{font-family:var(--ff-display);font-weight:400;font-size:22px;margin:0 0 6px;color:var(--ink)}
+    .academy-desc{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.55}
+    .academy-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:8px}
+    .academy-thumb{
+      cursor:pointer;background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:10px;
+      padding:12px;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;gap:6px;
+      text-align:left;font:inherit;color:var(--ink);
+    }
+    .academy-thumb:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .academy-thumb.is-current{border-color:var(--gold);background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.10))}
+    .academy-thumb-num{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+    .academy-thumb-title{font-family:var(--ff-display);font-size:15px;line-height:1.25;margin:0}
+    .academy-thumb-del{align-self:flex-end;font-size:10px;color:var(--ink-dim);background:transparent;border:0;cursor:pointer;padding:2px 6px;border-radius:4px}
+    .academy-thumb-del:hover{color:var(--crimson-bright,#ec4899);background:rgba(236,72,153,.12)}
+    .academy-admin{margin-top:18px;padding:18px;background:rgba(244,201,93,.06);border:1px dashed rgba(244,201,93,.35);border-radius:12px}
   </style>
 
   <!-- ============================ -->
   <!-- 12·e · AREA MEMBRI           -->
   <!-- ============================ -->
-  <section id="membri" class="sect membri-section">
-    <div class="section-label" data-reveal><span>12·e</span> Area Membri</div>
+  <section id="membri" class="sect membri-section" data-membri-section hidden>
+    <div class="section-label" data-reveal><span>★</span> Area Membri</div>
     <h2 class="sect-h" data-split-words>La <em>tua dashboard.</em></h2>
-    <p class="sect-lead" data-reveal data-membri-public>
-      Spazio riservato a chi è in percorso 1:1, in <em>Ars Realis</em> o ha completato la registrazione. Quattro stanze: materiale scaricabile, percorso 21-day challenge, diario personale, oracolo. <strong style="color:var(--gold)">Accedi</strong> con la tua password per sbloccare i contenuti.
-    </p>
-    <p class="sect-lead" data-reveal data-membri-private hidden>
+    <p class="sect-lead" data-reveal>
       <span style="color:var(--gold)">Bentornato.</span> Hai accesso completo alle quattro stanze: scarica i materiali, riprendi il percorso 21-day, scrivi nel diario, consulta l'oracolo.
     </p>
 
-    <div class="membri-locked" data-reveal data-membri-public>
-      <div class="ml-icon" aria-hidden="true">⌬</div>
-      <p class="ml-text">Per entrare nelle quattro stanze devi essere registrato.</p>
-      <div class="ml-actions">
-        <button type="button" class="btn-primary" data-login-open>Accedi all'area</button>
-        <a href="#registrati" class="btn-primary" style="background:transparent;border:1px solid var(--border-hover);color:var(--ink)">Registrati</a>
-      </div>
-    </div>
-
-    <div class="membri-rooms" data-reveal data-membri-private hidden>
+    <div class="membri-rooms" data-reveal>
       <article class="room-card">
         <div class="room-icon" aria-hidden="true">▤</div>
         <div class="room-tag">Stanza 01</div>
@@ -3053,6 +3089,66 @@
         </ul>
         <button type="button" class="btn-primary room-cta" data-oracle-draw>Estrai oggi →</button>
       </article>
+
+      <article class="room-card room-card-wide">
+        <div class="room-icon" aria-hidden="true">▷</div>
+        <div class="room-tag">Stanza 05 · University</div>
+        <h3 class="room-h">Accademia.</h3>
+        <p class="room-body">La piattaforma video interna dei miei corsi. <strong>Riproduttore proprietario</strong> — niente click verso YouTube, niente video correlati, niente distrazioni. Solo il contenuto e la pratica.</p>
+        <button type="button" class="btn-primary room-cta" data-academy-open>Apri l'Accademia →</button>
+      </article>
+    </div>
+
+    <!-- Modal Accademia · video player interno -->
+    <div class="diary-modal academy-modal" data-academy-modal hidden>
+      <div class="login-backdrop" data-academy-close></div>
+      <div class="login-panel academy-panel" role="dialog" aria-modal="true">
+        <button class="login-x" data-academy-close aria-label="Chiudi">×</button>
+        <div class="login-eyebrow">· Accademia · University ·</div>
+        <h3 class="login-h" id="academy-h">I corsi di Davil.</h3>
+        <p class="login-sub">Riproduttore proprietario · zero distrazioni esterne.</p>
+
+        <div class="academy-stage" data-academy-stage>
+          <div class="academy-player" data-academy-player>
+            <div class="academy-empty" data-academy-empty>
+              <p>Nessun corso caricato. Davil può aggiungere link YouTube dal pannello admin.</p>
+            </div>
+            <iframe data-academy-iframe hidden allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            <!-- Click-blocking overlays per nascondere logo YouTube + "watch on YT" -->
+            <div class="academy-shield academy-shield-top" data-academy-shield-top></div>
+            <div class="academy-shield academy-shield-bot-right" data-academy-shield-br></div>
+          </div>
+          <div class="academy-meta">
+            <h4 class="academy-title" data-academy-title>—</h4>
+            <p class="academy-desc" data-academy-desc></p>
+          </div>
+        </div>
+
+        <div class="academy-list" data-academy-list></div>
+
+        <!-- Admin add video (gated) -->
+        <div class="academy-admin" data-academy-admin hidden>
+          <h4 style="font-family:var(--ff-display);font-weight:400;font-size:18px;margin:18px 0 8px;color:var(--gold)">+ Aggiungi corso</h4>
+          <form class="login-form" data-academy-add-form>
+            <label class="login-row">
+              <span>Titolo</span>
+              <input type="text" name="title" required placeholder="Es. Modulo 01 — Money Mindset"/>
+            </label>
+            <label class="login-row">
+              <span>YouTube URL o ID</span>
+              <input type="text" name="url" required placeholder="https://youtube.com/watch?v=... oppure ID"/>
+            </label>
+            <label class="login-row">
+              <span>Descrizione (opz.)</span>
+              <input type="text" name="desc" placeholder="Breve descrizione del modulo"/>
+            </label>
+            <button type="submit" class="btn-primary login-submit">Salva nel corso</button>
+          </form>
+        </div>
+        <p class="academy-admin-hint" data-academy-admin-hint style="margin-top:14px;font-size:11.5px;color:var(--ink-dim);text-align:center">
+          <a href="#" data-academy-admin-toggle style="color:var(--gold)">Sei Davil? Sblocca aggiunta corsi</a>
+        </p>
+      </div>
     </div>
 
     <!-- Mini Diary Modal -->
@@ -3223,7 +3319,7 @@
       <button class="cs-close" type="button" aria-label="Chiudi" data-cs-close>×</button>
       <span class="cs-badge">· COMING SOON ·</span>
       <h3 id="csTitle" class="cs-h">«<span data-cs-name>—</span>» <em>arriva tra pochi giorni.</em></h3>
-      <p class="cs-text">Stiamo finalizzando le ultime correzioni editoriali. Lascia i tuoi dati: ti spedisco il PDF via email <strong>il giorno della pubblicazione</strong>, prima di chiunque altro.</p>
+      <p class="cs-text">Stiamo finalizzando le ultime correzioni editoriali. Lascia i tuoi dati: ti spediamo il PDF via email <strong style="color:var(--gold)">nelle ore successive alla pubblicazione</strong>, prima di chiunque altro.</p>
       <form data-cs-form>
         <input type="text" name="name" placeholder="Il tuo nome" required autocomplete="name"/>
         <input type="email" name="email" placeholder="La tua email" required autocomplete="email"/>
