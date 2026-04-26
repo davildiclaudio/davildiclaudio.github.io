@@ -752,20 +752,20 @@
       top:auto;right:auto;
       transform:none;margin:28px auto 8px;
       opacity:0;
-      animation:heroPhotoRevealMob 2.2s cubic-bezier(.22,.61,.36,1) 1.4s forwards;
+      animation:heroPhotoRevealMob 3s cubic-bezier(.22,.61,.36,1) 1.6s forwards;
     }
     .hero-inner-bot{order:3;
       opacity:0;
-      animation:heroBotReveal 2.6s cubic-bezier(.22,.61,.36,1) 3.2s forwards;
+      animation:heroBotReveal 3s cubic-bezier(.22,.61,.36,1) 4.2s forwards;
     }
     @keyframes heroPhotoRevealMob{
-      0%  {opacity:0; transform:translateY(18px) scale(.98); filter:blur(8px)}
-      60% {opacity:.92; filter:blur(0)}
+      0%  {opacity:0; transform:translateY(28px) scale(.94); filter:blur(14px)}
+      55% {opacity:.7; transform:translateY(8px) scale(.98); filter:blur(4px)}
       100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0)}
     }
     @keyframes heroBotReveal{
-      0%  {opacity:0; transform:translateY(14px); filter:blur(6px)}
-      55% {opacity:1; filter:blur(0)}
+      0%  {opacity:0; transform:translateY(20px); filter:blur(10px)}
+      55% {opacity:.7; filter:blur(3px)}
       100%{opacity:1; transform:translateY(0); filter:blur(0)}
     }
     @keyframes heroPhotoFloat{from{transform:none}to{transform:none}}
@@ -1065,8 +1065,8 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:14vh var(--pad);
-    gap:.6em;
+    padding:5vh var(--pad);
+    gap:.5em;
     z-index:2;
     box-sizing:border-box;
   }
@@ -1619,8 +1619,8 @@
     .nav-menu a,.dd-item{min-height:44px;padding:12px 14px}
     .gate-row input,.gate input[type=email]{font-size:16px;padding:14px 16px} /* 16px evita zoom iOS */
     /* Hero + spaziature scalano */
-    .hero{padding:120px 22px 70px;min-height:auto}
     section{padding:clamp(60px,10vh,100px) 22px !important}
+    section.hero{padding:calc(150px + env(safe-area-inset-top)) 22px 70px !important;min-height:auto}
     .h-big,.sect-h{font-size:clamp(32px,9vw,56px) !important}
     .mega{font-size:clamp(40px,11vw,80px) !important}
     .quote-big{font-size:clamp(20px,5vw,28px) !important}
