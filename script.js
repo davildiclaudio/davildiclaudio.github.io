@@ -1244,6 +1244,36 @@
   document.querySelectorAll('[data-register-open]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); openLogin('register'); }));
   document.querySelectorAll('[data-login-close]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); closeLogin(); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && loginModal && !loginModal.hidden) closeLogin(); });
+
+  // URL params: ?accedi=1 → modal Login · ?registrati=1 → modal Register · ?confirm=TOKEN → conferma email
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('accedi')) setTimeout(() => openLogin('login'), 600);
+    if (urlParams.has('registrati')) setTimeout(() => openLogin('register'), 600);
+    const confirmTok = urlParams.get('confirm');
+    if (confirmTok) {
+      try {
+        const REG_KEY_LOCAL = 'davil_registrations_v1';
+        const regs = JSON.parse(localStorage.getItem(REG_KEY_LOCAL) || '[]');
+        const idx = regs.findIndex(r => r.token === confirmTok);
+        if (idx >= 0 && !regs[idx].confirmed) {
+          regs[idx].confirmed = true;
+          regs[idx].confirmedTs = new Date().toISOString();
+          localStorage.setItem(REG_KEY_LOCAL, JSON.stringify(regs));
+          // Also push CRM event
+          const LK = 'davil_leads_v1';
+          const ls = JSON.parse(localStorage.getItem(LK) || '[]');
+          ls.push({ ts: new Date().toISOString(), name: regs[idx].name, email: regs[idx].email, phone: '', source: 'registrazione-confermata', code: regs[idx].code, ua: navigator.userAgent.substring(0,80) });
+          localStorage.setItem(LK, JSON.stringify(ls));
+          setTimeout(() => alert('✓ Email confermata. Ora puoi accedere all\'Area Membri con la password 11279336.'), 800);
+        } else if (idx >= 0 && regs[idx].confirmed) {
+          setTimeout(() => alert('Questa email è già stata confermata.'), 800);
+        } else {
+          setTimeout(() => alert('Token di conferma non valido o scaduto.'), 800);
+        }
+      } catch(_){}
+    }
+  } catch(_){}
   if (loginForm) {
     loginForm.addEventListener('submit', e => {
       e.preventDefault();
@@ -1274,7 +1304,21 @@
     });
   }
 
-  /* === Registrati form === password rivelata immediatamente */
+  /* === Registrati form · double opt-in via token + GDPR consent === */
+  const PRIVACY_VERSION = '2026-04-27'; // bump quando cambia il testo
+  const REG_KEY = 'davil_registrations_v1';
+  const genToken = () => {
+    const buf = new Uint8Array(16);
+    if (window.crypto && crypto.getRandomValues) {
+      crypto.getRandomValues(buf);
+    } else {
+      for (let i=0;i<buf.length;i++) buf[i] = Math.floor(Math.random()*256);
+    }
+    return Array.from(buf).map(b=>b.toString(16).padStart(2,'0')).join('');
+  };
+  const getRegistrations = () => { try { return JSON.parse(localStorage.getItem(REG_KEY) || '[]'); } catch(e){ return []; } };
+  const saveRegistrations = (arr) => { try { localStorage.setItem(REG_KEY, JSON.stringify(arr)); } catch(e){} };
+
   const registerForm = document.querySelector('[data-register-form]');
   if (registerForm) {
     registerForm.addEventListener('submit', e => {
@@ -1282,20 +1326,51 @@
       const fd = new FormData(registerForm);
       const name  = (fd.get('name')  || '').toString().trim();
       const email = (fd.get('email') || '').toString().trim();
-      // Save lead
+      const consentMarketing = !!fd.get('consent_marketing');
+      const ts = new Date().toISOString();
+      const token = genToken();
+      const code = 'REG-' + token.substring(0, 6).toUpperCase();
+
+      // 1. CRM lead (vista classica)
       const LEADS_KEY = 'davil_leads_v1';
-      let leads = [];
-      try { leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch(e){}
+      let leads = []; try { leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]'); } catch(_){}
       leads.push({
-        ts: new Date().toISOString(), name, email, phone: '',
-        source: 'registrati-area', code: 'REG-' + Math.random().toString(36).substring(2,8).toUpperCase(),
+        ts, name, email, phone: '',
+        source: 'registrati-area', code,
         ua: navigator.userAgent.substring(0,100)
       });
-      try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch(e){}
-      // Reveal password
+      try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch(_){}
+
+      // 2. Registrazioni dedicate (double opt-in)
+      const regs = getRegistrations();
+      regs.push({
+        ts, name, email, code, token,
+        confirmed: false, confirmedTs: null,
+        consentDataProcessing: true, // checkbox required per submit
+        consentMarketing, // checkbox opzionale
+        consentTs: ts, consentVersion: PRIVACY_VERSION,
+        ua: navigator.userAgent.substring(0,150)
+      });
+      saveRegistrations(regs);
+
+      // 3. Genera link conferma + invia (EmailJS se configurato, altrimenti mostra link)
+      const confirmUrl = window.location.origin + window.location.pathname + '?confirm=' + token;
       const reveal = document.querySelector('[data-register-reveal]');
-      if (reveal) reveal.hidden = false;
-      // No mailto — solo CRM. Email automatica attiva solo sul test Psicotrappole.
+      const confirmHint = document.querySelector('[data-register-confirm-link]');
+      if (confirmHint) confirmHint.href = confirmUrl;
+
+      let emailSent = false;
+      if (window.DAVIL_EMAIL && window.DAVIL_EMAIL.enabled && window.emailjs && window.DAVIL_EMAIL.tplConfirm) {
+        emailjs.send(window.DAVIL_EMAIL.serviceId, window.DAVIL_EMAIL.tplConfirm, {
+          to_name: name, to_email: email,
+          confirm_link: confirmUrl, code
+        }).then(()=>{ emailSent = true; }).catch(()=>{});
+      }
+
+      if (reveal) {
+        reveal.hidden = false;
+        reveal.dataset.emailSent = emailSent ? '1' : '0';
+      }
     });
   }
 

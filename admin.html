@@ -93,7 +93,17 @@
     <button class="btn ghost filter-btn" data-filter="other">Altro</button>
   </div>
 
-  <div class="stats" id="stats"></div>
+  <!-- Sezione dedicata Registrazioni Area Membri -->
+  <section style="margin-top:30px;padding:24px;background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.06));border:1px solid rgba(244,201,93,.30);border-radius:18px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Fraunces',serif;font-weight:300;font-size:26px;color:var(--ink)">★ Registrazioni Area Membri</h2>
+      <span class="badge" id="regCount" style="background:linear-gradient(135deg,#f4c95d,#7c3aed)">0</span>
+      <span style="font-size:12px;color:var(--ink-dim);font-style:italic;margin-left:auto">Double opt-in · GDPR compliant · localStorage <code>davil_registrations_v1</code></span>
+    </div>
+    <div id="regWrap"></div>
+  </section>
+
+  <div class="stats" id="stats" style="margin-top:30px"></div>
   <div id="tableWrap"></div>
   <div id="testsWrap" hidden></div>
 </div>
@@ -103,12 +113,68 @@
 <script>
 const ADMIN_PW = 'davil-coscienza-2026'; // cambia qui
 const LEADS_KEY = 'davil_leads_v1';
+const REG_KEY = 'davil_registrations_v1';
 const $ = (s) => document.querySelector(s);
 
 const isAuthed = () => sessionStorage.getItem('davil_admin_ok') === '1';
-const showDashboard = () => { $('#login').hidden = true; $('#dashboard').hidden = false; render(); };
+const showDashboard = () => { $('#login').hidden = true; $('#dashboard').hidden = false; render(); renderRegistrations(); };
 
-if (isAuthed()) showDashboard();
+const getRegistrations = () => { try { return JSON.parse(localStorage.getItem(REG_KEY) || '[]'); } catch(e){ return []; } };
+const saveRegistrations = (arr) => { try { localStorage.setItem(REG_KEY, JSON.stringify(arr)); } catch(e){} };
+
+function renderRegistrations(){
+  const regs = getRegistrations().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
+  const w = $('#regWrap');
+  $('#regCount').textContent = regs.length + ' REG';
+  if (!regs.length) { w.innerHTML = '<div class="empty" style="border-radius:12px">Nessuna registrazione ancora. Apparirà qui ogni iscrizione dall\'Area Membri (modal Registrati).</div>'; return; }
+  w.innerHTML = '<table><thead><tr><th>Data</th><th>Nome</th><th>Email</th><th>Codice</th><th>Stato</th><th>Consensi</th><th>Azioni</th></tr></thead><tbody>'
+    + regs.map((r,i) => {
+      const d = r.ts ? new Date(r.ts) : new Date();
+      const date = d.toLocaleDateString('it-IT') + ' ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+      const status = r.confirmed
+        ? `<span style="color:#22d3ee;font-weight:500">✓ Confermato</span><br><span style="font-size:10px;color:var(--ink-dim)">${r.confirmedTs ? new Date(r.confirmedTs).toLocaleString('it-IT') : ''}</span>`
+        : `<span style="color:#f59e0b;font-weight:500">⏳ In attesa</span>`;
+      const consents = `
+        <div style="font-size:11px;line-height:1.6">
+          <div>📋 Dati: <span style="color:#22d3ee">✓</span></div>
+          <div>📧 Marketing: ${r.consentMarketing ? '<span style="color:#22d3ee">✓</span>' : '<span style="color:var(--ink-dim)">—</span>'}</div>
+          <div style="color:var(--ink-dim);margin-top:4px">v.${r.consentVersion||'?'}</div>
+        </div>`;
+      const actions = `
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+          ${!r.confirmed ? `<button class="btn ghost" data-reg-confirm="${i}" style="padding:6px 10px;font-size:11px">Conferma manuale</button>` : ''}
+          <button class="btn ghost" data-reg-copylink="${i}" style="padding:6px 10px;font-size:11px">Copia link conferma</button>
+          <button class="btn ghost" data-reg-delete="${i}" style="padding:6px 10px;font-size:11px;color:#ec4899">Elimina (GDPR)</button>
+        </div>`;
+      return `<tr><td>${date}</td><td>${r.name||'—'}</td><td class="email">${r.email||'—'}</td><td style="font-family:ui-monospace;font-size:11px;color:var(--gold)">${r.code||'—'}</td><td>${status}</td><td>${consents}</td><td>${actions}</td></tr>`;
+    }).join('') + '</tbody></table>';
+
+  // bind actions
+  w.querySelectorAll('[data-reg-confirm]').forEach(b => b.addEventListener('click', () => {
+    const i = parseInt(b.dataset.regConfirm,10);
+    const arr = getRegistrations();
+    arr[i].confirmed = true;
+    arr[i].confirmedTs = new Date().toISOString();
+    arr[i].confirmedBy = 'admin-manuale';
+    saveRegistrations(arr);
+    renderRegistrations();
+  }));
+  w.querySelectorAll('[data-reg-copylink]').forEach(b => b.addEventListener('click', async () => {
+    const i = parseInt(b.dataset.regCopylink,10);
+    const arr = getRegistrations();
+    const url = window.location.origin + '/?confirm=' + arr[i].token;
+    try { await navigator.clipboard.writeText(url); b.textContent = '✓ Copiato'; setTimeout(()=>{b.textContent='Copia link conferma'},1500); }
+    catch(e){ prompt('Copia il link:', url); }
+  }));
+  w.querySelectorAll('[data-reg-delete]').forEach(b => b.addEventListener('click', () => {
+    const i = parseInt(b.dataset.regDelete,10);
+    const arr = getRegistrations();
+    if (!confirm(`GDPR · Eliminare definitivamente la registrazione di ${arr[i].name} (${arr[i].email})?`)) return;
+    arr.splice(i,1);
+    saveRegistrations(arr);
+    renderRegistrations();
+  }));
+}
 
 $('#loginForm').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -166,7 +232,7 @@ document.querySelectorAll('.filter-btn').forEach(b => b.addEventListener('click'
   render();
 }));
 
-$('#reload').addEventListener('click', render);
+$('#reload').addEventListener('click', () => { render(); renderRegistrations(); });
 
 $('#exportCsv').addEventListener('click', () => {
   const leads = getLeads();
@@ -259,6 +325,9 @@ ${t.notes||'(vuote)'}
   a.click();
   URL.revokeObjectURL(url);
 });
+
+// Auto-show dashboard se autenticato (deve stare DOPO tutte le const)
+if (isAuthed()) showDashboard();
 </script>
 </body>
 </html>
