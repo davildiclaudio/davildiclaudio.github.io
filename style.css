@@ -210,6 +210,15 @@ strong{font-weight:600;color:var(--ink)}
     max-width:min(58vw, 760px);
     padding-right:clamp(20px, 4vw, 60px);
   }
+  /* Hero title più contenuto su desktop · libera spazio per sub + CTA above-the-fold */
+  .hero .hero-title.mega{
+    font-size:clamp(40px, 5.4vw, 88px) !important;
+    line-height:1.05;
+  }
+  .hero .hero-sub{font-size:clamp(15px, 1.15vw, 19px) !important;margin-top:24px !important}
+  .hero .hero-ctas{margin-top:28px !important}
+  /* Riduce padding hero per stringere il flusso verticale */
+  .hero{padding-top:120px !important; padding-bottom:60px !important}
 }
 .eyebrow{
   font-size:11px;letter-spacing:.45em;text-transform:uppercase;

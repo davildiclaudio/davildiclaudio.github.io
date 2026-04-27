@@ -563,13 +563,45 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Hero photo · parallax/ancoraggio scroll (solo desktop) ---------- */
+  const heroPhoto = $('.hero-photo');
+  if (heroPhoto && window.innerWidth >= 1025) {
+    let parallaxRaf = false;
+    const parallaxUpdate = () => {
+      parallaxRaf = false;
+      const heroEl = $('.hero');
+      if (!heroEl) return;
+      const heroH = heroEl.offsetHeight;
+      const sy = Math.max(0, Math.min(window.scrollY, heroH * 1.2));
+      // Parallax delicato: l'immagine si "ancora" (scorre 30% più lenta della pagina)
+      heroPhoto.style.translate = `0 ${sy * 0.3}px`;
+    };
+    const onParallaxScroll = () => {
+      if (!parallaxRaf) { window.requestAnimationFrame(parallaxUpdate); parallaxRaf = true; }
+    };
+    window.addEventListener('scroll', onParallaxScroll, { passive: true });
+    parallaxUpdate();
+  }
+
   /* ---------- Nav mobile toggle ---------- */
   const toggle = $('.nav-toggle');
   const menu = $('.nav-menu');
+  // Sposta il menu fuori da .nav (che ha backdrop-filter) per permettere
+  // a position:fixed di posizionarsi davvero sul viewport · evita "menu tagliato"
+  if (menu && menu.parentElement && menu.parentElement.classList.contains('nav')) {
+    document.body.appendChild(menu);
+  }
   toggle?.addEventListener('click', () => {
     toggle.classList.toggle('open');
     menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   });
+  // Chiudi menu quando clicchi su un link
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+  }));
 
   /* ---------- Custom cursor with text mode ---------- */
   const dot = $('.cursor-dot');
@@ -1191,11 +1223,8 @@
         yPercent: 80, ease: 'none',
         scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
       });
-      gsap.to('.hero-inner', {
-        yPercent: 30, scale: 0.92, opacity: 0.1, filter: 'blur(4px)',
-        ease: 'none',
-        scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true }
-      });
+      // RIMOSSO il fade-out di .hero-inner su scroll · il testo restava illeggibile
+      // troppo presto. Ora la sezione hero scorre in modo naturale.
     }
 
     /* === FAQ open/close letterspacing === */
