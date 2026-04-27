@@ -901,6 +901,15 @@
   }
   .contatti-photo:hover{transform:scale(1.02)}
   .contatti-photo img{width:100%;height:auto;display:block;object-fit:contain}
+  /* CTA Finale · foto sopra il claim */
+  .cta-final-photo{
+    margin:0 auto 36px;max-width:280px;
+    border-radius:20px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(45,45,224,.40),0 0 60px rgba(124,58,237,.30);
+    border:1px solid rgba(180,150,240,.20);
+  }
+  .cta-final-photo img{width:100%;height:auto;display:block}
+  @media(max-width:760px){.cta-final-photo{max-width:220px;margin-bottom:28px}}
 
   /* === UNIVERSE in motion · cosmic nebula visibile === */
   body{position:relative}
@@ -3279,6 +3288,9 @@
   <!-- 14 · CTA FINALE              -->
   <!-- ============================ -->
   <section class="cta-final">
+    <figure class="cta-final-photo" data-reveal>
+      <img src="assets/photos/davil-09.png" alt="Davil Di Claudio" loading="lazy" decoding="async"/>
+    </figure>
     <h2 class="cta-h" data-split-words>Se sei arrivato fin qui, <em>una parte di te ha già deciso.</em></h2>
     <p data-reveal style="font-family:var(--ff-display);font-style:italic;color:var(--ink-soft);font-size:clamp(17px,1.6vw,22px);max-width:54ch;margin:0 auto 48px;line-height:1.5">
       L'altra vuole solo essere rassicurata. Prenota una chiamata. È gratis. Dura trenta minuti. Decidi dopo.
@@ -3316,7 +3328,6 @@
     </div>
     <p data-reveal style="margin-top:40px;font-family:var(--ff-sans);color:var(--ink-dim);font-size:13px;letter-spacing:.04em">Roma, Italia · 70% dei percorsi 1:1 online · Aziende e team: in tutta Italia</p>
       </div>
-      <figure class="contatti-photo" data-reveal><img src="assets/photos/davil-09.png" alt="" loading="lazy" decoding="async"/></figure>
     </div>
   </section>
 
