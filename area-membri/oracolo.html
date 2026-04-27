@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#09090b" />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Oracolo · Area Membri</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .oracle-stage{
+    max-width:680px;margin:32px auto 0;text-align:center;padding:48px 32px;
+    background:radial-gradient(ellipse at top,rgba(124,58,237,.20),rgba(20,14,50,.40) 60%);
+    border:1px solid var(--border);border-radius:24px;
+    box-shadow:0 30px 80px rgba(0,0,0,.4),0 0 60px rgba(244,201,93,.10) inset;
+  }
+  .oracle-symbol{font-size:88px;color:var(--gold);margin:0 0 18px;line-height:1;text-shadow:0 0 40px rgba(244,201,93,.5)}
+  .oracle-name{font-family:var(--ff-display);font-weight:300;font-size:42px;margin:0 0 18px;color:var(--ink)}
+  .oracle-question{font-family:var(--ff-display);font-style:italic;font-size:20px;line-height:1.5;color:var(--ink);max-width:48ch;margin:0 auto 24px}
+  .oracle-practice{font-size:14px;color:var(--ink-soft);line-height:1.7;max-width:54ch;margin:0 auto 32px;padding:18px 22px;background:rgba(244,201,93,.06);border:1px dashed rgba(244,201,93,.30);border-radius:12px;text-align:left}
+  .oracle-practice strong{color:var(--gold);display:block;margin-bottom:6px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+  .oracle-empty{padding:60px 40px;text-align:center;color:var(--ink-dim)}
+</style>
+<script src="_shared.js"></script>
+</head>
+<body>
+
+<header class="am-nav">
+  <a href="/" class="am-brand"><img src="../assets/logo/davil-bianco.png" alt="DAVIL"/></a>
+  <nav class="am-menu">
+    <a href="/area-membri.html">Dashboard</a>
+    <a href="/area-membri/materiale.html">Materiale</a>
+    <a href="/area-membri/21day.html">21-day</a>
+    <a href="/area-membri/diario.html">Diario</a>
+    <a href="/area-membri/oracolo.html">Oracolo</a>
+    <a href="/area-membri/accademia.html">Accademia</a>
+  </nav>
+  <div class="am-user">
+    <span>Ciao, <strong data-am-username>amico</strong></span>
+    <button type="button" class="am-logout" data-am-logout>Esci</button>
+  </div>
+</header>
+
+<main class="am-wrap">
+  <p class="am-eyebrow">☉ Stanza 04</p>
+  <h1 class="am-h1">Oracolo <em>del giorno.</em></h1>
+  <p class="am-lead">22 arcani maggiori letti in chiave junghiana e Reality Transurfing. Non per "predire" — per <strong style="color:var(--ink);font-style:normal">specchiare</strong>. Una carta · una domanda aperta · una pratica concreta.</p>
+
+  <div class="oracle-stage" data-oracle-stage>
+    <div class="oracle-empty" data-oracle-empty>
+      <p style="font-style:italic;font-size:16px;margin:0 0 22px">Centra l'attenzione, fai un respiro lungo, poi estrai.</p>
+      <button type="button" class="am-btn" data-oracle-draw>Estrai una carta →</button>
+    </div>
+    <div data-oracle-card hidden>
+      <div class="oracle-symbol" data-oracle-symbol>☉</div>
+      <h3 class="oracle-name" data-oracle-name>—</h3>
+      <p class="oracle-question" data-oracle-question>—</p>
+      <div class="oracle-practice"><strong>La pratica</strong><span data-oracle-practice>—</span></div>
+      <button type="button" class="am-btn-ghost" data-oracle-draw>Estrai un'altra carta</button>
+    </div>
+  </div>
+
+  <p style="text-align:center;margin-top:18px;font-size:12.5px;color:var(--ink-dim);font-style:italic">Ogni estrazione viene salvata nel <a href="/area-membri/diario.html" style="color:var(--gold)">tuo diario</a> sotto la sezione «oracolo».</p>
+</main>
+
+<script>
+(function(){
+  var DIARY_KEY = 'davil_diary_v1';
+  var ORACLE = [
+    { s:'☉',  n:'Il Sole',         q:"Cosa stai facendo per primo, anche quando nessuno ti guarda?",                     p:"Scrivi una pagina di diario senza filtro su questa domanda." },
+    { s:'☽',  n:'La Luna',         q:"Quale paura ti sta ancora dirigendo nelle scelte di tutti i giorni?",              p:"Nominala. Scrivila. Domani rileggila e chiediti se è ancora vera." },
+    { s:'★',  n:'La Stella',       q:"Cosa speravi a 12 anni che hai dimenticato di sperare adesso?",                    p:"Recupera un sogno antico. Fai un piccolo passo concreto verso di esso." },
+    { s:'⊙',  n:'Il Mondo',        q:"Cosa stai integrando? Cosa ti manca per sentirti completo?",                       p:"Identifica una parte di te che hai lasciato fuori. Falla rientrare." },
+    { s:'∞',  n:"L'Appeso",        q:"Quale sospensione stai vivendo che non vuoi accettare?",                           p:"Resta nell'attesa per 24h senza forzare. Osserva cosa emerge." },
+    { s:'⌬',  n:"L'Eremita",       q:"Da dove ti aspetti che venga la risposta che già conosci?",                        p:"Spegni i contatti per 2h. Scrivi cosa ti dice il silenzio." },
+    { s:'☥',  n:'Il Bagatto',      q:"Quale strumento hai in mano che non stai ancora usando?",                          p:"Identifica una capacità latente. Mettila in pratica oggi." },
+    { s:'♔',  n:"L'Imperatore",    q:"Dove ti serve struttura, dove invece flessibilità?",                                p:"Scegli un'area: più disciplina o più spontaneità. Sperimenta una settimana." },
+    { s:'♕',  n:"L'Imperatrice",   q:"Cosa stai generando? E cosa stai nutrendo che non vuole nascere?",                  p:"Distingui il progetto vivo dal compito che ti pesa. Rilascia uno." },
+    { s:'⚖',  n:'La Giustizia',    q:"Dove sei in debito con te stesso? Dove sei in credito?",                            p:"Riequilibra una relazione personale o lavorativa con una conversazione vera." },
+    { s:'⚯',  n:'Gli Innamorati',  q:"Tra due strade, quale sceglie il bambino che eri? Quale sceglie l'adulto?",         p:"Onora entrambi. Trova il punto in cui possono coincidere." },
+    { s:'☠',  n:'La Morte',        q:"Cosa è già finito che ancora pretendi di tenere in vita?",                          p:"Nominalo. Scrivi la lettera di chiusura. Non serve spedirla." },
+    { s:'⚔',  n:'La Forza',        q:"Quale parte selvaggia di te aspetta di essere domata con dolcezza?",                p:"Pratica oggi un atto di tenerezza verso te stesso, non di disciplina." },
+    { s:'⚗',  n:'La Temperanza',   q:"Cosa stai mescolando troppo in fretta? Cosa, troppo lentamente?",                   p:"Aggiusta un ritmo: rallenta una cosa, accelera un'altra." },
+    { s:'⚛',  n:'Il Diavolo',      q:"Quale catena ti dichiari obbligato a tenere — sapendo che potresti aprirla?",       p:"Una sola catena. Identificala. Inizia a smontarla con un'azione." },
+    { s:'☂',  n:'La Torre',        q:"Quale struttura sta crollando — e tu stai cercando di puntellare invece di lasciarla cadere?", p:"Lascia cadere. Quello che resta è il fondamento vero." },
+    { s:'❋',  n:'La Ruota',        q:"Cosa sta tornando nella tua vita per la terza, quarta volta?",                      p:"Cambia un parametro: stesso tema, risposta diversa." },
+    { s:'⚱',  n:'Il Giudizio',     q:"Quale chiamata stai fingendo di non sentire?",                                       p:"Rispondi oggi a un messaggio o a una vocazione che hai messo in pausa." },
+    { s:'☼',  n:'Il Matto',        q:"Quale salto stai rimandando perché 'non è il momento'?",                            p:"Fai oggi il primo gesto del salto. Anche piccolo." },
+    { s:'♆',  n:'La Papessa',      q:"Quale verità interiore conosci già ma fingi di dover ancora cercare?",              p:"Scrivila. È più semplice di quanto sembri." },
+    { s:'♅',  n:'Il Papa',         q:"A quale autorità esterna stai delegando ciò che dovresti decidere tu?",             p:"Riprenditi una decisione oggi. Anche minima." }
+  ];
+  var emptyEl  = document.querySelector('[data-oracle-empty]');
+  var cardEl   = document.querySelector('[data-oracle-card]');
+  var symEl    = document.querySelector('[data-oracle-symbol]');
+  var nameEl   = document.querySelector('[data-oracle-name]');
+  var questEl  = document.querySelector('[data-oracle-question]');
+  var practEl  = document.querySelector('[data-oracle-practice]');
+  function draw(){
+    var card = ORACLE[Math.floor(Math.random() * ORACLE.length)];
+    symEl.textContent = card.s;
+    nameEl.textContent = card.n;
+    questEl.textContent = card.q;
+    practEl.textContent = card.p;
+    if (emptyEl) emptyEl.hidden = true;
+    if (cardEl) cardEl.hidden = false;
+    try {
+      var arr = JSON.parse(localStorage.getItem(DIARY_KEY) || '[]');
+      arr.push({ ts: new Date().toISOString(), section:'oracolo', text: card.n + ' — ' + card.q });
+      localStorage.setItem(DIARY_KEY, JSON.stringify(arr));
+    } catch(_){}
+  }
+  document.querySelectorAll('[data-oracle-draw]').forEach(function(b){ b.addEventListener('click', draw); });
+})();
+</script>
+
+</body>
+</html>

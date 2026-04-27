@@ -1345,26 +1345,13 @@
             ls.push({ ts: new Date().toISOString(), name: regs[idx].name, email: regs[idx].email, phone: '', source: 'registrazione-confermata', code: regs[idx].code, ua: navigator.userAgent.substring(0,80) });
             localStorage.setItem(LK, JSON.stringify(ls));
           }
-          // AUTO-LOGIN: dopo conferma porta direttamente nell'Area Membri
+          // AUTO-LOGIN: dopo conferma porta direttamente nell'Area Membri (nuova pagina dedicata)
           try {
             localStorage.setItem(SESSION_KEY, JSON.stringify({
               email: regs[idx].email, name: regs[idx].name, ts: new Date().toISOString()
             }));
           } catch(_){}
-          // Aggiorna gating sezione membri (definito sotto)
-          setTimeout(() => {
-            try { document.querySelectorAll('[data-membri-section]').forEach(el => el.hidden = false); } catch(_){}
-            try { document.querySelectorAll('[data-membri-public]').forEach(el => el.hidden = true); } catch(_){}
-            try { document.querySelectorAll('[data-membri-private]').forEach(el => el.hidden = false); } catch(_){}
-            const m = document.getElementById('membri');
-            if (m) m.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Toast di conferma morbido
-            const t = document.createElement('div');
-            t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:10000;padding:14px 22px;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;border-radius:999px;font:500 14px/1 "Space Grotesk",sans-serif;box-shadow:0 20px 60px rgba(124,58,237,.5);letter-spacing:.04em';
-            t.textContent = `✓ Bentornato ${regs[idx].name||''} · accesso attivo`;
-            document.body.appendChild(t);
-            setTimeout(() => { t.style.transition = 'opacity .6s'; t.style.opacity = '0'; setTimeout(() => t.remove(), 600); }, 3000);
-          }, 600);
+          setTimeout(() => { window.location.href = '/area-membri.html'; }, 600);
         } else {
           setTimeout(() => alert('Token di conferma non valido o scaduto.'), 800);
         }
@@ -1395,10 +1382,9 @@
         }
         try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, name: user.name, ts })); } catch(_){}
         loginStatus.className = 'login-status ok';
-        loginStatus.textContent = `✓ Bentornato, ${user.name||'amico'}.`;
-        setTimeout(() => { closeLogin(); const m = document.getElementById('membri'); if (m) m.scrollIntoView({ behavior: 'smooth' }); }, 900);
+        loginStatus.textContent = `✓ Bentornato, ${user.name||'amico'}. Apertura area riservata...`;
+        setTimeout(() => { window.location.href = '/area-membri.html'; }, 700);
       } else if (legacyOk) {
-        // Legacy: passa solo se NON c'è account email registrato (così proteggi gli account)
         const emailRegistered = regs.some(r => (r.email||'').toLowerCase() === email);
         if (emailRegistered) {
           loginStatus.className = 'login-status err';
@@ -1407,8 +1393,8 @@
         }
         try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, ts })); } catch(_){}
         loginStatus.className = 'login-status ok';
-        loginStatus.textContent = '✓ Accesso legacy confermato.';
-        setTimeout(() => { closeLogin(); const m = document.getElementById('membri'); if (m) m.scrollIntoView({ behavior: 'smooth' }); }, 900);
+        loginStatus.textContent = '✓ Accesso legacy confermato. Apertura area riservata...';
+        setTimeout(() => { window.location.href = '/area-membri.html'; }, 700);
       } else {
         loginStatus.className = 'login-status err';
         loginStatus.textContent = '✗ Email o password non valide. Verifica o registrati.';

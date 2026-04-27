@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#09090b" />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Accademia · Area Membri</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .academy-stage{margin:24px 0 32px}
+  .academy-player{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid rgba(180,150,240,.20);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .academy-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .academy-player iframe[hidden]{display:none!important}
+  .academy-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ink-dim);font-style:italic;font-size:14px;padding:20px;text-align:center}
+  .academy-shield{position:absolute;background:transparent;z-index:5;cursor:default;pointer-events:auto}
+  .academy-shield-top{top:0;right:0;width:140px;height:50px}
+  .academy-shield-bot-right{bottom:0;right:0;width:160px;height:50px}
+  .academy-meta{padding:18px 4px 4px}
+  .academy-title{font-family:var(--ff-display);font-weight:400;font-size:24px;margin:0 0 6px}
+  .academy-desc{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.6}
+  .academy-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:24px}
+  .academy-thumb{cursor:pointer;background:rgba(20,14,50,.55);border:1px solid var(--border);border-radius:12px;padding:14px;transition:border-color .25s,transform .25s;display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:var(--ink);position:relative}
+  .academy-thumb:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .academy-thumb.is-current{border-color:var(--gold);background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.10))}
+  .academy-thumb-num{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .academy-thumb-title{font-family:var(--ff-display);font-size:16px;line-height:1.25;margin:0}
+  .academy-thumb-del{align-self:flex-end;font-size:10px;color:var(--ink-dim);background:transparent;border:0;cursor:pointer;padding:2px 6px;border-radius:4px;position:absolute;top:6px;right:6px}
+  .academy-thumb-del:hover{color:var(--magenta);background:rgba(236,72,153,.12)}
+  .academy-admin{margin-top:24px;padding:24px;background:rgba(244,201,93,.06);border:1px dashed rgba(244,201,93,.35);border-radius:14px}
+  .academy-admin h3{font-family:var(--ff-display);font-weight:400;font-size:20px;margin:0 0 14px;color:var(--gold)}
+  .academy-admin-hint{margin-top:18px;font-size:12.5px;color:var(--ink-dim);text-align:center}
+  .academy-admin-hint a{color:var(--gold)}
+</style>
+<script src="_shared.js"></script>
+</head>
+<body>
+
+<header class="am-nav">
+  <a href="/" class="am-brand"><img src="../assets/logo/davil-bianco.png" alt="DAVIL"/></a>
+  <nav class="am-menu">
+    <a href="/area-membri.html">Dashboard</a>
+    <a href="/area-membri/materiale.html">Materiale</a>
+    <a href="/area-membri/21day.html">21-day</a>
+    <a href="/area-membri/diario.html">Diario</a>
+    <a href="/area-membri/oracolo.html">Oracolo</a>
+    <a href="/area-membri/accademia.html">Accademia</a>
+  </nav>
+  <div class="am-user">
+    <span>Ciao, <strong data-am-username>amico</strong></span>
+    <button type="button" class="am-logout" data-am-logout>Esci</button>
+  </div>
+</header>
+
+<main class="am-wrap">
+  <p class="am-eyebrow">▷ Stanza 05 · University</p>
+  <h1 class="am-h1">Accademia <em>· i corsi.</em></h1>
+  <p class="am-lead">Riproduttore proprietario · zero distrazioni esterne. <strong style="color:var(--ink);font-style:normal">Niente click verso YouTube, niente video correlati.</strong> Solo il contenuto e la pratica.</p>
+
+  <div class="academy-stage">
+    <div class="academy-player">
+      <div class="academy-empty" data-academy-empty>
+        <p>Nessun corso caricato. Davil può aggiungere link YouTube dal pannello admin in fondo alla pagina.</p>
+      </div>
+      <iframe data-academy-iframe hidden allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <div class="academy-shield academy-shield-top"></div>
+      <div class="academy-shield academy-shield-bot-right"></div>
+    </div>
+    <div class="academy-meta">
+      <h4 class="academy-title" data-academy-title>—</h4>
+      <p class="academy-desc" data-academy-desc></p>
+    </div>
+  </div>
+
+  <h2 class="am-section-h">Moduli del corso</h2>
+  <div class="academy-list" data-academy-list></div>
+
+  <div class="academy-admin" data-academy-admin hidden>
+    <h3>+ Aggiungi corso</h3>
+    <form class="am-form" data-academy-add-form>
+      <label class="am-row"><span>Titolo</span><input type="text" name="title" required placeholder="Es. Modulo 01 — Money Mindset"/></label>
+      <label class="am-row"><span>YouTube URL o ID</span><input type="text" name="url" required placeholder="https://youtube.com/watch?v=... oppure ID"/></label>
+      <label class="am-row"><span>Descrizione (opz.)</span><input type="text" name="desc" placeholder="Breve descrizione del modulo"/></label>
+      <button type="submit" class="am-btn">Salva nel corso</button>
+    </form>
+  </div>
+  <p class="academy-admin-hint" data-academy-admin-hint>
+    <a href="#" data-academy-admin-toggle>Sei Davil? Sblocca aggiunta corsi</a>
+  </p>
+</main>
+
+<script>
+(function(){
+  var ACADEMY_KEY = 'davil_academy_videos_v1';
+  var ACADEMY_ADMIN_KEY = 'davil_academy_admin_v1';
+  var ACADEMY_ADMIN_PW = 'davil-coscienza-2026';
+
+  var iframe   = document.querySelector('[data-academy-iframe]');
+  var emptyEl  = document.querySelector('[data-academy-empty]');
+  var titleEl  = document.querySelector('[data-academy-title]');
+  var descEl   = document.querySelector('[data-academy-desc]');
+  var listEl   = document.querySelector('[data-academy-list]');
+  var adminEl  = document.querySelector('[data-academy-admin]');
+  var hintEl   = document.querySelector('[data-academy-admin-hint]');
+  var addForm  = document.querySelector('[data-academy-add-form]');
+
+  function getVideos(){ try { return JSON.parse(localStorage.getItem(ACADEMY_KEY) || '[]'); } catch(_){ return []; } }
+  function saveVideos(arr){ try { localStorage.setItem(ACADEMY_KEY, JSON.stringify(arr)); } catch(_){} }
+  function isAdmin(){ try { return sessionStorage.getItem(ACADEMY_ADMIN_KEY) === '1'; } catch(_){ return false; } }
+  function ytId(input){
+    input = (input||'').trim();
+    if (/^[A-Za-z0-9_-]{11}$/.test(input)) return input;
+    var m = input.match(/(?:v=|\/embed\/|youtu\.be\/|\/v\/|\/shorts\/)([A-Za-z0-9_-]{11})/);
+    return m ? m[1] : '';
+  }
+  function load(idx){
+    var v = getVideos()[idx]; if (!v || !iframe) return;
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + v.id + '?rel=0&modestbranding=1&iv_load_policy=3&fs=1&playsinline=1&autoplay=1';
+    iframe.hidden = false;
+    if (emptyEl) emptyEl.style.display = 'none';
+    if (titleEl) titleEl.textContent = v.title || '—';
+    if (descEl) descEl.textContent = v.desc || '';
+    document.querySelectorAll('.academy-thumb').forEach(function(t,i){ t.classList.toggle('is-current', i === idx); });
+  }
+  function renderList(){
+    var videos = getVideos();
+    var admin = isAdmin();
+    if (!videos.length) {
+      listEl.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-dim);font-style:italic;padding:40px 20px">Nessun modulo ancora caricato.</p>';
+      if (iframe) { iframe.hidden = true; iframe.src = ''; }
+      if (emptyEl) emptyEl.style.display = 'flex';
+      if (titleEl) titleEl.textContent = '—';
+      if (descEl) descEl.textContent = '';
+      return;
+    }
+    listEl.innerHTML = videos.map(function(v,i){
+      return '<button type="button" class="academy-thumb" data-idx="' + i + '">' +
+        '<span class="academy-thumb-num">Modulo ' + String(i+1).padStart(2,'0') + '</span>' +
+        '<h5 class="academy-thumb-title">' + (v.title||'—').replace(/</g,'&lt;') + '</h5>' +
+        (admin ? '<button type="button" class="academy-thumb-del" data-del="'+i+'" aria-label="Elimina">✕</button>' : '') +
+      '</button>';
+    }).join('');
+    listEl.querySelectorAll('[data-idx]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        if (e.target.matches('[data-del]')) return;
+        load(parseInt(el.dataset.idx, 10));
+      });
+    });
+    listEl.querySelectorAll('[data-del]').forEach(function(el){
+      el.addEventListener('click', function(e){
+        e.stopPropagation();
+        var i = parseInt(el.dataset.del, 10);
+        var arr = getVideos();
+        if (!confirm('Eliminare «' + arr[i].title + '»?')) return;
+        arr.splice(i, 1); saveVideos(arr); renderList();
+        if (arr.length) load(0);
+      });
+    });
+    if (iframe && iframe.hidden) load(0);
+  }
+  function refreshAdmin(){
+    var admin = isAdmin();
+    if (adminEl) adminEl.hidden = !admin;
+    if (hintEl) hintEl.hidden = admin;
+  }
+  document.querySelectorAll('[data-academy-admin-toggle]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var pw = prompt('Password admin Davil:');
+      if (pw === ACADEMY_ADMIN_PW) { try { sessionStorage.setItem(ACADEMY_ADMIN_KEY, '1'); } catch(_){} refreshAdmin(); renderList(); }
+      else if (pw !== null) alert('Password errata.');
+    });
+  });
+  if (addForm) addForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fd = new FormData(addForm);
+    var title = (fd.get('title')||'').toString().trim();
+    var url   = (fd.get('url')||'').toString().trim();
+    var desc  = (fd.get('desc')||'').toString().trim();
+    var id = ytId(url);
+    if (!id) { alert('URL/ID YouTube non valido. Esempi: https://youtube.com/watch?v=ID  oppure  ID di 11 caratteri'); return; }
+    var arr = getVideos();
+    arr.push({ title: title, id: id, desc: desc, ts: new Date().toISOString() });
+    saveVideos(arr); addForm.reset(); renderList();
+    load(arr.length - 1);
+  });
+  document.addEventListener('DOMContentLoaded', function(){ refreshAdmin(); renderList(); });
+})();
+</script>
+
+</body>
+</html>

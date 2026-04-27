@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#09090b" />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Diario · Area Membri</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .diary-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;margin-top:24px}
+  @media(max-width:900px){.diary-grid{grid-template-columns:1fr}}
+  .diary-entries{max-height:600px;overflow-y:auto;padding-right:8px}
+  .diary-entry{padding:18px;background:rgba(20,14,50,.40);border:1px solid var(--border);border-radius:12px;margin-bottom:10px}
+  .diary-entry-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+  .diary-entry-section{color:var(--gold);font-weight:500}
+  .diary-entry-text{font-size:14px;color:var(--ink);line-height:1.6;white-space:pre-wrap;word-break:break-word}
+  .diary-entry-del{background:transparent;border:0;color:var(--ink-dim);cursor:pointer;font-size:14px;padding:0 4px}
+  .diary-entry-del:hover{color:var(--magenta)}
+  .diary-empty{text-align:center;padding:40px 20px;color:var(--ink-dim);font-style:italic}
+  .diary-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .diary-filter button{padding:6px 14px;border-radius:999px;background:rgba(180,150,240,.06);border:1px solid var(--border);color:var(--ink-soft);cursor:pointer;font:inherit;font-size:11.5px;letter-spacing:.10em;transition:all .25s}
+  .diary-filter button:hover{border-color:var(--gold);color:var(--gold)}
+  .diary-filter button.is-active{background:linear-gradient(135deg,rgba(124,58,237,.30),rgba(236,72,153,.20));color:var(--gold);border-color:rgba(244,201,93,.40)}
+</style>
+<script src="_shared.js"></script>
+</head>
+<body>
+
+<header class="am-nav">
+  <a href="/" class="am-brand"><img src="../assets/logo/davil-bianco.png" alt="DAVIL"/></a>
+  <nav class="am-menu">
+    <a href="/area-membri.html">Dashboard</a>
+    <a href="/area-membri/materiale.html">Materiale</a>
+    <a href="/area-membri/21day.html">21-day</a>
+    <a href="/area-membri/diario.html">Diario</a>
+    <a href="/area-membri/oracolo.html">Oracolo</a>
+    <a href="/area-membri/accademia.html">Accademia</a>
+  </nav>
+  <div class="am-user">
+    <span>Ciao, <strong data-am-username>amico</strong></span>
+    <button type="button" class="am-logout" data-am-logout>Esci</button>
+  </div>
+</header>
+
+<main class="am-wrap">
+  <p class="am-eyebrow">✎ Stanza 03</p>
+  <h1 class="am-h1">Diario <em>personale.</em></h1>
+  <p class="am-lead">Lo spazio privato dove tracci sogni, slide del Transurfing, insight, ombra, oracolo. <strong style="color:var(--ink);font-style:normal">Salvato solo nel tuo browser, mai sui miei server.</strong></p>
+
+  <div class="diary-grid">
+    <div class="am-card">
+      <h3 style="margin:0 0 14px;font-family:var(--ff-display);font-weight:400;font-size:22px">Nuova voce</h3>
+      <form class="am-form" data-diary-form>
+        <label class="am-row">
+          <span>Sezione</span>
+          <select name="section">
+            <option value="sogni">Sogni</option>
+            <option value="slide">Slide Transurfing</option>
+            <option value="insight">Insight</option>
+            <option value="ombra">Ombra</option>
+            <option value="oracolo">Oracolo</option>
+          </select>
+        </label>
+        <label class="am-row">
+          <span>Voce</span>
+          <textarea name="entry" required rows="8" style="resize:vertical;min-height:160px" placeholder="Scrivi qui..."></textarea>
+        </label>
+        <button type="submit" class="am-btn">Salva nel diario</button>
+        <p class="am-status" data-diary-status></p>
+      </form>
+    </div>
+
+    <div>
+      <h3 style="margin:0 0 14px;font-family:var(--ff-display);font-weight:400;font-size:22px">Le tue voci</h3>
+      <div class="diary-filter" data-diary-filter>
+        <button type="button" data-filter="all" class="is-active">Tutte</button>
+        <button type="button" data-filter="sogni">Sogni</button>
+        <button type="button" data-filter="slide">Slide</button>
+        <button type="button" data-filter="insight">Insight</button>
+        <button type="button" data-filter="ombra">Ombra</button>
+        <button type="button" data-filter="oracolo">Oracolo</button>
+      </div>
+      <div class="diary-entries" data-diary-list></div>
+      <div style="margin-top:14px;text-align:right">
+        <button type="button" class="am-btn-ghost" data-diary-export>Esporta JSON</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var KEY = 'davil_diary_v1';
+  var form = document.querySelector('[data-diary-form]');
+  var status = document.querySelector('[data-diary-status]');
+  var listEl = document.querySelector('[data-diary-list]');
+  var filterEl = document.querySelector('[data-diary-filter]');
+  var currentFilter = 'all';
+
+  function getEntries(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(_){ return []; } }
+  function save(arr){ try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch(_){} }
+
+  function renderList(){
+    var arr = getEntries().sort(function(a,b){ return (b.ts||'').localeCompare(a.ts||''); });
+    if (currentFilter !== 'all') arr = arr.filter(function(e){ return e.section === currentFilter; });
+    if (!arr.length) { listEl.innerHTML = '<div class="diary-empty">Nessuna voce in questa sezione.</div>'; return; }
+    listEl.innerHTML = arr.map(function(e, i){
+      var d = e.ts ? new Date(e.ts) : new Date();
+      var date = d.toLocaleDateString('it-IT') + ' · ' + d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+      return '<div class="diary-entry">' +
+        '<div class="diary-entry-meta">' +
+          '<span><span class="diary-entry-section">' + (e.section||'?') + '</span> · ' + date + '</span>' +
+          '<button type="button" class="diary-entry-del" data-ts="' + (e.ts||'') + '" aria-label="Elimina">✕</button>' +
+        '</div>' +
+        '<div class="diary-entry-text">' + (e.text||'').replace(/</g,'&lt;') + '</div>' +
+      '</div>';
+    }).join('');
+    listEl.querySelectorAll('.diary-entry-del').forEach(function(b){
+      b.addEventListener('click', function(){
+        if (!confirm('Eliminare questa voce?')) return;
+        var arr = getEntries().filter(function(e){ return e.ts !== b.dataset.ts; });
+        save(arr); renderList();
+      });
+    });
+  }
+
+  if (form) form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fd = new FormData(form);
+    var entry = { ts: new Date().toISOString(), section: fd.get('section'), text: (fd.get('entry')||'').toString().trim() };
+    var arr = getEntries(); arr.push(entry); save(arr);
+    status.className = 'am-status ok';
+    status.textContent = '✓ Salvato in [' + entry.section + ']. ' + arr.length + ' voci totali.';
+    form.querySelector('[name="entry"]').value = '';
+    renderList();
+  });
+
+  filterEl.querySelectorAll('button[data-filter]').forEach(function(b){
+    b.addEventListener('click', function(){
+      filterEl.querySelectorAll('button').forEach(function(x){ x.classList.remove('is-active'); });
+      b.classList.add('is-active');
+      currentFilter = b.dataset.filter;
+      renderList();
+    });
+  });
+
+  document.querySelector('[data-diary-export]').addEventListener('click', function(){
+    var arr = getEntries();
+    var blob = new Blob([JSON.stringify(arr, null, 2)], {type:'application/json'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'davil-diario-' + new Date().toISOString().slice(0,10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.addEventListener('DOMContentLoaded', renderList);
+})();
+</script>
+
+</body>
+</html>

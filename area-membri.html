@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#09090b" />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Area Membri · DAVIL</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="area-membri/_shared.css" />
+<style>
+  .am-rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
+  @media(max-width:760px){.am-rooms{grid-template-columns:1fr;gap:14px}}
+  .am-room{display:flex;flex-direction:column;gap:8px;padding:32px 28px;border:1px solid var(--border);border-radius:20px;
+    background:linear-gradient(135deg,rgba(30,20,60,.55),rgba(20,14,50,.30));
+    backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 20px 50px -20px rgba(0,0,0,.5);
+    transition:transform .35s var(--ease-smooth), border-color .35s, box-shadow .35s;
+    text-decoration:none;color:inherit;cursor:pointer;
+  }
+  .am-room:hover{transform:translateY(-3px);border-color:rgba(244,201,93,.40);box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 30px 70px -20px rgba(124,58,237,.40)}
+  .am-room-icon{font-size:32px;color:var(--gold);line-height:1;margin-bottom:4px}
+  .am-room-tag{font-family:var(--ff-sans);font-size:10.5px;letter-spacing:.30em;text-transform:uppercase;color:var(--magenta);font-weight:500}
+  .am-room-h{font-family:var(--ff-display);font-weight:400;font-size:clamp(22px,2.4vw,28px);margin:2px 0 4px;line-height:1.2}
+  .am-room-h em{color:var(--gold)}
+  .am-room-body{font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin:0}
+  .am-room-arrow{margin-top:auto;align-self:flex-end;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#1a0d28;display:grid;place-items:center;font-size:18px;font-weight:700;box-shadow:0 8px 20px rgba(244,201,93,.30);transition:transform .35s, box-shadow .35s}
+  .am-room:hover .am-room-arrow{transform:translate(2px,-2px) rotate(-12deg);box-shadow:0 14px 30px rgba(244,201,93,.50)}
+  .am-room-wide{grid-column:1 / -1;background:linear-gradient(135deg,rgba(244,201,93,.10),rgba(124,58,237,.18));border-color:rgba(244,201,93,.30)}
+</style>
+<script src="area-membri/_shared.js"></script>
+</head>
+<body>
+
+<header class="am-nav">
+  <a href="/" class="am-brand"><img src="assets/logo/davil-bianco.png" alt="DAVIL"/></a>
+  <nav class="am-menu">
+    <a href="/area-membri.html">Dashboard</a>
+    <a href="/area-membri/materiale.html">Materiale</a>
+    <a href="/area-membri/21day.html">21-day</a>
+    <a href="/area-membri/diario.html">Diario</a>
+    <a href="/area-membri/oracolo.html">Oracolo</a>
+    <a href="/area-membri/accademia.html">Accademia</a>
+  </nav>
+  <div class="am-user">
+    <span>Ciao, <strong data-am-username>amico</strong></span>
+    <button type="button" class="am-logout" data-am-logout>Esci</button>
+  </div>
+</header>
+
+<main class="am-wrap">
+  <p class="am-eyebrow">★ Area Membri · Accesso Riservato</p>
+  <h1 class="am-h1">La <em>tua dashboard.</em></h1>
+  <p class="am-lead"><span class="ok">Sei dentro.</span> Cinque sezioni a tua disposizione. Apri quella che ti serve dal menu in alto o dalle stanze qui sotto.</p>
+
+  <div class="am-rooms">
+    <a href="/area-membri/materiale.html" class="am-room">
+      <div class="am-room-icon">▤</div>
+      <div class="am-room-tag">Stanza 01</div>
+      <h3 class="am-room-h">Materiale scaricabile.</h3>
+      <p class="am-room-body">PDF, audio MP3, slide delle masterclass, mappe operative dei 7 pilastri. Tutto da scaricare e tenere offline.</p>
+      <span class="am-room-arrow">→</span>
+    </a>
+
+    <a href="/area-membri/21day.html" class="am-room">
+      <div class="am-room-icon">⊕</div>
+      <div class="am-room-tag">Stanza 02</div>
+      <h3 class="am-room-h">21-day challenge.</h3>
+      <p class="am-room-body">Il percorso strutturato di 21 giorni — un audio, un workbook, un video al giorno. Multi-canale.</p>
+      <span class="am-room-arrow">→</span>
+    </a>
+
+    <a href="/area-membri/diario.html" class="am-room">
+      <div class="am-room-icon">✎</div>
+      <div class="am-room-tag">Stanza 03</div>
+      <h3 class="am-room-h">Diario personale.</h3>
+      <p class="am-room-body">Spazio privato dove tracci sogni, slide del Transurfing, insight, ombra. Salvato nel tuo browser, mai sui miei server.</p>
+      <span class="am-room-arrow">→</span>
+    </a>
+
+    <a href="/area-membri/oracolo.html" class="am-room">
+      <div class="am-room-icon">☉</div>
+      <div class="am-room-tag">Stanza 04</div>
+      <h3 class="am-room-h">Oracolo.</h3>
+      <p class="am-room-body">22 arcani in chiave junghiana e Transurfing. Una carta · una domanda · una pratica. Reading guidato, niente fortune-telling.</p>
+      <span class="am-room-arrow">→</span>
+    </a>
+
+    <a href="/area-membri/accademia.html" class="am-room am-room-wide">
+      <div class="am-room-icon">▷</div>
+      <div class="am-room-tag">Stanza 05 · University</div>
+      <h3 class="am-room-h">Accademia.</h3>
+      <p class="am-room-body">La piattaforma video interna dei miei corsi. <strong>Riproduttore proprietario</strong> — niente click verso YouTube, niente video correlati, niente distrazioni.</p>
+      <span class="am-room-arrow">→</span>
+    </a>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#09090b" />
+<meta name="color-scheme" content="dark" />
+<meta name="robots" content="noindex, nofollow" />
+<title>21-day Challenge · Area Membri</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css" />
+<style>
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;margin-top:24px}
+  .day-cell{
+    aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border:1px solid var(--border);border-radius:14px;
+    background:rgba(20,14,50,.40);transition:all .25s;cursor:pointer;
+    text-decoration:none;color:var(--ink);
+  }
+  .day-cell:hover{border-color:var(--gold);transform:translateY(-2px);background:rgba(244,201,93,.08)}
+  .day-cell.is-done{background:linear-gradient(135deg,rgba(124,58,237,.30),rgba(236,72,153,.20));border-color:rgba(244,201,93,.40)}
+  .day-num{font-family:var(--ff-display);font-size:28px;font-weight:300;color:var(--ink)}
+  .day-cell.is-done .day-num{color:var(--gold)}
+  .day-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-top:4px}
+  .progress-bar{height:6px;background:rgba(180,150,240,.12);border-radius:999px;overflow:hidden;margin:24px 0 8px}
+  .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--magenta),var(--gold));border-radius:999px;transition:width .6s var(--ease-smooth)}
+  .progress-info{font-size:12.5px;color:var(--ink-soft);font-style:italic}
+</style>
+<script src="_shared.js"></script>
+</head>
+<body>
+
+<header class="am-nav">
+  <a href="/" class="am-brand"><img src="../assets/logo/davil-bianco.png" alt="DAVIL"/></a>
+  <nav class="am-menu">
+    <a href="/area-membri.html">Dashboard</a>
+    <a href="/area-membri/materiale.html">Materiale</a>
+    <a href="/area-membri/21day.html">21-day</a>
+    <a href="/area-membri/diario.html">Diario</a>
+    <a href="/area-membri/oracolo.html">Oracolo</a>
+    <a href="/area-membri/accademia.html">Accademia</a>
+  </nav>
+  <div class="am-user">
+    <span>Ciao, <strong data-am-username>amico</strong></span>
+    <button type="button" class="am-logout" data-am-logout>Esci</button>
+  </div>
+</header>
+
+<main class="am-wrap">
+  <p class="am-eyebrow">⊕ Stanza 02</p>
+  <h1 class="am-h1">21-day <em>challenge.</em></h1>
+  <p class="am-lead">Un percorso strutturato di 21 giorni. <strong style="color:var(--ink);font-style:normal">Un audio, un workbook, un video al giorno.</strong> Costruito sui principi dell'apprendimento multi-canale: encoding uditivo + cinestetico + visivo. Tre vie d'ingresso allo stesso contenuto, perché il cervello consolida ciò che incrocia più sensi.</p>
+
+  <div class="am-card" style="padding:28px">
+    <h3 style="margin:0 0 6px;font-family:var(--ff-display);font-weight:400;font-size:22px">Il tuo progresso</h3>
+    <div class="progress-bar"><span class="progress-bar-fill" data-progress-fill style="width:0%"></span></div>
+    <p class="progress-info"><span data-progress-text>0 / 21 giorni completati</span></p>
+  </div>
+
+  <div class="am-section">
+    <h2 class="am-section-h">Calendario · 21 giorni</h2>
+    <p style="color:var(--ink-soft);font-size:13px;margin:0 0 8px">Clicca un giorno per segnarlo come completato. Stato salvato nel tuo browser.</p>
+    <div class="day-grid" data-day-grid></div>
+  </div>
+
+  <div class="am-section" style="text-align:center">
+    <p style="color:var(--ink-soft);font-size:14px;max-width:54ch;margin:0 auto 22px">Per ricevere il <strong style="color:var(--gold)">debrief settimanale</strong> e i contenuti di ogni giornata scrivimi su WhatsApp.</p>
+    <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20iniziare%20la%2021-day%20challenge" target="_blank" rel="noopener" class="am-btn">Inizia con Davil →</a>
+  </div>
+</main>
+
+<script>
+(function(){
+  var KEY = 'davil_21day_progress_v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(_){}
+  var grid = document.querySelector('[data-day-grid]');
+  var fill = document.querySelector('[data-progress-fill]');
+  var text = document.querySelector('[data-progress-text]');
+
+  function render(){
+    grid.innerHTML = '';
+    var done = 0;
+    for (var i = 1; i <= 21; i++) {
+      var isDone = !!state['d'+i];
+      if (isDone) done++;
+      var cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'day-cell' + (isDone ? ' is-done' : '');
+      cell.dataset.day = i;
+      cell.innerHTML = '<span class="day-num">' + String(i).padStart(2,'0') + '</span>' +
+                       '<span class="day-label">' + (isDone ? 'fatto' : 'giorno') + '</span>';
+      cell.addEventListener('click', function(){
+        var d = this.dataset.day;
+        state['d'+d] = !state['d'+d];
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(_){}
+        render();
+      });
+      grid.appendChild(cell);
+    }
+    var pct = Math.round((done / 21) * 100);
+    fill.style.width = pct + '%';
+    text.textContent = done + ' / 21 giorni completati · ' + pct + '%';
+  }
+  document.addEventListener('DOMContentLoaded', render);
+})();
+</script>
+
+</body>
+</html>
