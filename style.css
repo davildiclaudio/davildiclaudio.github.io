@@ -134,19 +134,25 @@ strong{font-weight:600;color:var(--ink)}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease),opacity .3s}
 
 @media (max-width:820px){
-  /* Mobile · reset pillola desktop e usa fullscreen menu rettangolare */
+  /* Mobile · fullscreen menu rettangolare a tutto schermo */
   .nav-menu{
-    position:fixed;inset:0;
+    position:fixed!important;
+    top:0!important;left:0!important;right:0!important;bottom:0!important;
+    width:100vw!important;height:100vh!important;height:100dvh!important;
+    max-width:none!important;
+    z-index:999!important;
     background:linear-gradient(135deg, rgba(14,6,40,.98), rgba(20,14,50,.98))!important;
     backdrop-filter:blur(24px) saturate(160%)!important;
     -webkit-backdrop-filter:blur(24px) saturate(160%)!important;
     border:0!important;border-radius:0!important;
     box-shadow:none!important;
-    padding:90px 28px 40px!important;
-    flex-direction:column;justify-content:flex-start;align-items:stretch;
+    padding:90px 22px 40px!important;
+    display:flex!important;flex-direction:column!important;
+    justify-content:flex-start!important;align-items:stretch!important;
     gap:6px!important;font-size:18px;
     opacity:0;pointer-events:none;transition:opacity .35s;
-    overflow-y:auto;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    box-sizing:border-box;
   }
   .nav-menu.open{opacity:1;pointer-events:auto}
   .nav-menu a{
