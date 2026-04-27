@@ -586,9 +586,10 @@
   /* ---------- Nav mobile toggle ---------- */
   const toggle = $('.nav-toggle');
   const menu = $('.nav-menu');
-  // Sposta il menu fuori da .nav (che ha backdrop-filter) per permettere
-  // a position:fixed di posizionarsi davvero sul viewport · evita "menu tagliato"
-  if (menu && menu.parentElement && menu.parentElement.classList.contains('nav')) {
+  // Solo SU MOBILE: sposta il menu fuori da .nav (che ha backdrop-filter creando
+  // containing block per position:fixed). Su desktop il menu resta dentro .nav
+  // come pillola inline.
+  if (menu && menu.parentElement && menu.parentElement.classList.contains('nav') && window.innerWidth <= 820) {
     document.body.appendChild(menu);
   }
   // Inietta pulsante X per chiudere il menu fullscreen
