@@ -59,9 +59,9 @@ window.DAVIL_EMAIL = {
    ============================================================ */
 
 window.DAVIL_SUPABASE = {
-  enabled:  false, // metti true dopo aver compilato URL + anonKey
-  url:      'https://YOUR_PROJECT.supabase.co',
-  anonKey:  'YOUR_ANON_PUBLIC_KEY',
+  enabled:  true,
+  url:      'https://zrictduhyvlwyuakudyu.supabase.co',
+  anonKey:  'sb_publishable_QaO1ekpIKHhPMcMOCyY6dg_fMPTGZyh',
   // Page a cui Supabase reindirizza dopo conferma email
   redirectTo: 'https://davil-life-leadership-coaching.it/area-membri.html'
 };
