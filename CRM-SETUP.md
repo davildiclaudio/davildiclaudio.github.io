@@ -184,6 +184,47 @@ window.DAVIL_EMAIL = {
 
 ---
 
+## ④ Supabase — backend autenticazione cross-device (50.000 utenti gratis)
+
+**Cosa fa**: gli utenti possono registrarsi e accedere all'Area Membri **da qualsiasi dispositivo** (Mac, iPhone, PC). Senza questo, il login funziona solo nello stesso browser dove ci si è registrati.
+
+**Setup (~5 minuti)**:
+
+1. Vai su [supabase.com](https://supabase.com) e clicca **Sign Up** (puoi usare GitHub)
+2. **New Project**:
+   - Name: `davil-coscienza` (o quello che vuoi)
+   - Database Password: scegline una forte e salvala
+   - Region: **West EU (Ireland)** per essere GDPR-friendly
+   - Pricing Plan: **Free**
+3. Aspetta ~2 minuti che il progetto sia creato
+4. Vai su **Project Settings → API**:
+   - Copia "**Project URL**" (es: `https://xxxxxxx.supabase.co`)
+   - Copia "**anon public**" key (lunga stringa che inizia con `eyJ...`)
+5. Vai su **Authentication → URL Configuration**:
+   - **Site URL**: `https://davil-life-leadership-coaching.it`
+   - In **Redirect URLs** aggiungi:
+     - `https://davil-life-leadership-coaching.it/area-membri.html`
+     - `https://davil-life-leadership-coaching.it/**` (wildcard)
+6. Vai su **Authentication → Email Templates → Confirm signup**:
+   - Personalizza Subject e Body del template di conferma email
+   - Esempio Subject: `Conferma la tua email · Davil`
+7. Apri `crm-config.js` e modifica `window.DAVIL_SUPABASE`:
+   ```javascript
+   window.DAVIL_SUPABASE = {
+     enabled:  true,
+     url:      'https://xxxxxxx.supabase.co',  // il tuo Project URL
+     anonKey:  'eyJ...',                         // la tua anon public key
+     redirectTo: 'https://davil-life-leadership-coaching.it/area-membri.html'
+   };
+   ```
+8. Commit e push
+
+✅ Da ora ogni registrazione crea un account vero su Supabase, l'email di conferma viene inviata automaticamente, e l'utente può loggarsi da qualsiasi dispositivo.
+
+**Per vedere gli utenti registrati**: vai su Supabase → **Authentication → Users**.
+
+---
+
 ## Cosa funziona già senza setup
 
 Anche **senza configurare nulla**:

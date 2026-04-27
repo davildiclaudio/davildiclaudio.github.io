@@ -4,20 +4,26 @@
   var SESSION_KEY = 'davil_access_v1';
   var session = null;
   try { session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch(_){}
-  if (!session || !session.email) {
-    window.location.replace('/?accedi=1');
-    return;
+
+  // Init Supabase client se configurato e SDK presente
+  if (window.DAVIL_SUPABASE && window.DAVIL_SUPABASE.enabled && window.supabase && !window.davilSb) {
+    try { window.davilSb = window.supabase.createClient(window.DAVIL_SUPABASE.url, window.DAVIL_SUPABASE.anonKey); } catch(_){}
   }
-  document.addEventListener('DOMContentLoaded', function(){
+
+  function applyUI(){
     document.documentElement.classList.remove('am-locked');
     document.querySelectorAll('[data-am-username]').forEach(function(el){
-      el.textContent = session.name || session.email.split('@')[0] || 'amico';
+      el.textContent = (session && (session.name || (session.email||'').split('@')[0])) || 'amico';
     });
     // Logout button
     document.querySelectorAll('[data-am-logout]').forEach(function(b){
       b.addEventListener('click', function(){
         try { localStorage.removeItem(SESSION_KEY); } catch(_){}
-        window.location.href = '/';
+        if (window.davilSb) {
+          window.davilSb.auth.signOut().finally(function(){ window.location.href = '/'; });
+        } else {
+          window.location.href = '/';
+        }
       });
     });
     // Marca menu attivo
@@ -31,5 +37,40 @@
         a.classList.add('is-active');
       }
     });
-  });
+  }
+
+  function initUI(){
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyUI);
+    } else { applyUI(); }
+  }
+
+  function redirectLogin(){ window.location.replace('/?accedi=1'); }
+
+  // Se Supabase attivo: verifica session lato server (cross-device)
+  if (window.davilSb) {
+    window.davilSb.auth.getSession().then(function(res){
+      var sb = res && res.data && res.data.session;
+      if (sb && sb.user) {
+        try {
+          localStorage.setItem(SESSION_KEY, JSON.stringify({
+            email: sb.user.email,
+            name: (sb.user.user_metadata && sb.user.user_metadata.name) || (sb.user.email||'').split('@')[0],
+            ts: new Date().toISOString(),
+            backend: 'supabase'
+          }));
+          session = JSON.parse(localStorage.getItem(SESSION_KEY));
+        } catch(_){}
+        initUI();
+      } else {
+        redirectLogin();
+      }
+    }).catch(function(){
+      // fallback: se localStorage ha session, usala
+      if (session && session.email) initUI(); else redirectLogin();
+    });
+  } else {
+    // Solo localStorage
+    if (session && session.email) initUI(); else redirectLogin();
+  }
 })();

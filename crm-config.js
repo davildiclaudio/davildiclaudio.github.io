@@ -37,3 +37,31 @@ window.DAVIL_EMAIL = {
   tplConfirm:'YOUR_TEMPLATE_CONFIRM_ID',// link conferma email per registrazione
   fromAddr:  'davildiclaudio@gmail.com'
 };
+
+/* ============================================================
+   SUPABASE · backend autenticazione cross-device (free tier)
+   ------------------------------------------------------------
+   Free tier: 50.000 utenti attivi/mese · email verification incluso
+   GDPR-compliant · server EU disponibile
+
+   Setup (3 minuti):
+   1. Vai su supabase.com → Sign Up con GitHub o email
+   2. New Project → scegli region "West EU (Ireland)" per GDPR EU
+   3. Imposta una Database Password (segnala a Davil)
+   4. Aspetta ~2 min che il progetto sia creato
+   5. Project Settings → API → copia "Project URL" e "anon public" key
+   6. Authentication → URL Configuration:
+      - Site URL: https://davil-life-leadership-coaching.it
+      - Redirect URLs: aggiungi
+        https://davil-life-leadership-coaching.it/area-membri.html
+   7. Authentication → Email Templates → personalizza il template di conferma
+   8. Incolla i valori qui sotto e metti enabled:true
+   ============================================================ */
+
+window.DAVIL_SUPABASE = {
+  enabled:  false, // metti true dopo aver compilato URL + anonKey
+  url:      'https://YOUR_PROJECT.supabase.co',
+  anonKey:  'YOUR_ANON_PUBLIC_KEY',
+  // Page a cui Supabase reindirizza dopo conferma email
+  redirectTo: 'https://davil-life-leadership-coaching.it/area-membri.html'
+};

@@ -3423,9 +3423,14 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- CRM esterno · Web3Forms + Google Sheets + EmailJS (vedi CRM-SETUP.md) -->
 <script src="crm-config.js"></script>
+<!-- Supabase · backend auth cross-device (caricato solo se configurato) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
   if (window.DAVIL_EMAIL && window.DAVIL_EMAIL.enabled && window.emailjs) {
     emailjs.init({ publicKey: window.DAVIL_EMAIL.publicKey });
+  }
+  if (window.DAVIL_SUPABASE && window.DAVIL_SUPABASE.enabled && window.supabase) {
+    window.davilSb = window.supabase.createClient(window.DAVIL_SUPABASE.url, window.DAVIL_SUPABASE.anonKey);
   }
 </script>
 <script>

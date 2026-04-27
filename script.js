@@ -1367,6 +1367,41 @@
       const pw    = (fd.get('password') || '').toString().trim();
       const ts = new Date().toISOString();
 
+      // === SUPABASE LOGIN (se configurato) ===
+      if (window.davilSb) {
+        try {
+          const { data, error } = await window.davilSb.auth.signInWithPassword({ email, password: pw });
+          if (error) {
+            loginStatus.className = 'login-status err';
+            loginStatus.textContent = '✗ ' + error.message;
+            return;
+          }
+          if (!data.user) {
+            loginStatus.className = 'login-status err';
+            loginStatus.textContent = '✗ Verifica la tua email prima del login.';
+            return;
+          }
+          // Salva sessione locale per il guard area-membri (la sessione Supabase è già in sb-* keys)
+          try {
+            localStorage.setItem(SESSION_KEY, JSON.stringify({
+              email: data.user.email,
+              name: (data.user.user_metadata && data.user.user_metadata.name) || data.user.email.split('@')[0],
+              ts: new Date().toISOString(),
+              backend: 'supabase'
+            }));
+          } catch(_){}
+          loginStatus.className = 'login-status ok';
+          loginStatus.textContent = '✓ Bentornato. Apertura area riservata...';
+          setTimeout(() => { window.location.href = '/area-membri.html'; }, 700);
+          return;
+        } catch(err) {
+          loginStatus.className = 'login-status err';
+          loginStatus.textContent = '✗ Errore: ' + err.message;
+          return;
+        }
+      }
+
+      // === FALLBACK LOCALSTORAGE ===
       // 1. Cerca account utente registrato con la sua password personale
       let regs = []; try { regs = JSON.parse(localStorage.getItem('davil_registrations_v1') || '[]'); } catch(_){}
       const pwHash = await hashPassword(pw);
@@ -1440,6 +1475,48 @@
         return;
       }
 
+      // === SUPABASE BACKEND (se configurato) ===
+      if (window.davilSb) {
+        try {
+          const { data, error } = await window.davilSb.auth.signUp({
+            email, password: pw,
+            options: {
+              data: { name: name, consent_marketing: consentMarketing, consent_version: PRIVACY_VERSION },
+              emailRedirectTo: window.DAVIL_SUPABASE.redirectTo
+            }
+          });
+          if (error) {
+            if (registerStatus) { registerStatus.className='login-status err'; registerStatus.textContent='✗ ' + error.message; }
+            return;
+          }
+          // Lead nel CRM locale per traccia
+          const ts = new Date().toISOString();
+          const code = 'REG-' + (data.user?.id||'').substring(0,6).toUpperCase();
+          try {
+            const LK = 'davil_leads_v1';
+            const ls = JSON.parse(localStorage.getItem(LK) || '[]');
+            ls.push({ ts, name, email, phone:'', source:'registrati-area', code, ua: navigator.userAgent.substring(0,100) });
+            localStorage.setItem(LK, JSON.stringify(ls));
+          } catch(_){}
+          if (registerStatus) { registerStatus.className='login-status ok'; registerStatus.textContent='✓ Email di conferma inviata. Controlla la tua casella e clicca il link.'; }
+          const reveal = document.querySelector('[data-register-reveal]');
+          if (reveal) {
+            reveal.hidden = false;
+            const link = reveal.querySelector('[data-register-confirm-link]');
+            if (link) link.style.display = 'none'; // Supabase invia email reale, no link locale
+            const note = reveal.querySelector('.ars-pw-note');
+            if (note) note.innerHTML = 'Conferma l\'email cliccando il link che ti abbiamo inviato. Poi torna qui e <a href="#" data-tab-switch="login" style="color:var(--gold)">accedi</a>.';
+            const codeEl = reveal.querySelector('[data-register-code]');
+            if (codeEl) codeEl.textContent = code;
+          }
+          return;
+        } catch(err) {
+          if (registerStatus) { registerStatus.className='login-status err'; registerStatus.textContent='✗ Errore: ' + err.message; }
+          return;
+        }
+      }
+
+      // === FALLBACK LOCALSTORAGE (se Supabase non configurato) ===
       // Verifica email non già registrata
       const existing = getRegistrations();
       if (existing.some(r => (r.email||'').toLowerCase() === email)) {
