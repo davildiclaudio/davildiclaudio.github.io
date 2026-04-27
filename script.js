@@ -591,6 +591,20 @@
   if (menu && menu.parentElement && menu.parentElement.classList.contains('nav')) {
     document.body.appendChild(menu);
   }
+  // Inietta pulsante X per chiudere il menu fullscreen
+  if (menu && !menu.querySelector('.nav-menu-close')) {
+    const x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'nav-menu-close';
+    x.setAttribute('aria-label','Chiudi menu');
+    x.innerHTML = '×';
+    menu.insertBefore(x, menu.firstChild);
+    x.addEventListener('click', () => {
+      toggle?.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
   toggle?.addEventListener('click', () => {
     toggle.classList.toggle('open');
     menu.classList.toggle('open');
@@ -598,10 +612,28 @@
   });
   // Chiudi menu quando clicchi su un link
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    toggle.classList.remove('open');
+    toggle?.classList.remove('open');
     menu.classList.remove('open');
     document.body.style.overflow = '';
   }));
+
+  /* ---------- Torna in cima · bottone fluttuante (mobile + desktop) ---------- */
+  if (!document.querySelector('.scroll-top-btn')) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'scroll-top-btn';
+    btn.setAttribute('aria-label','Torna in cima');
+    btn.innerHTML = '↑';
+    document.body.appendChild(btn);
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    const updateVisibility = () => {
+      btn.classList.toggle('is-visible', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    updateVisibility();
+  }
 
   /* ---------- Custom cursor with text mode ---------- */
   const dot = $('.cursor-dot');

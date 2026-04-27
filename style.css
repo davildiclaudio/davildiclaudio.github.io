@@ -179,9 +179,44 @@ strong{font-weight:600;color:var(--ink)}
     padding:18px 22px!important;
   }
   .nav-menu .cta:hover{background:linear-gradient(135deg, #ffd970, var(--gold))!important;color:#1a0d28!important}
+  /* Pulsante X per chiudere menu fullscreen */
+  .nav-menu-close{
+    position:absolute;top:22px;right:22px;
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(180,150,240,.10);border:1px solid rgba(180,150,240,.25);
+    color:#ece6fb;cursor:pointer;
+    font-size:24px;line-height:1;
+    display:grid;place-items:center;
+    transition:background .25s, border-color .25s, transform .25s;
+    z-index:1;
+  }
+  .nav-menu-close:hover, .nav-menu-close:active{
+    background:rgba(236,72,153,.20);border-color:var(--gold,#f4c95d);
+    color:var(--gold,#f4c95d);transform:rotate(90deg);
+  }
   .nav-toggle{display:flex;z-index:200}
   .nav-toggle.open span:first-child{transform:translateY(3.5px) rotate(45deg)}
   .nav-toggle.open span:last-child{transform:translateY(-4px) rotate(-45deg)}
+}
+
+/* Torna in cima · fluttuante sopra-destra in basso · sia mobile che desktop */
+.scroll-top-btn{
+  position:fixed;
+  right:20px;bottom:96px; /* sopra il pulsante WhatsApp */
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#7c3aed,#ec4899);
+  color:#fff;border:0;cursor:pointer;
+  font-size:22px;font-weight:700;line-height:1;
+  display:grid;place-items:center;
+  box-shadow:0 16px 40px rgba(124,58,237,.45),0 0 0 1px rgba(255,255,255,.06) inset;
+  opacity:0;visibility:hidden;transform:translateY(12px) scale(.94);
+  transition:opacity .35s,transform .35s,visibility .35s,box-shadow .35s;
+  z-index:990;
+}
+.scroll-top-btn.is-visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.scroll-top-btn:hover{box-shadow:0 22px 50px rgba(236,72,153,.55);transform:translateY(-3px) scale(1.04)}
+@media(max-width:760px){
+  .scroll-top-btn{right:14px;bottom:84px;width:44px;height:44px;font-size:20px}
 }
 
 /* ---------- Hero ---------- */
