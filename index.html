@@ -1906,13 +1906,7 @@
         try { sessionStorage.setItem(KEY, 'granted'); } catch(e){}
         s.className = 'sg-status';
         s.textContent = '✓ Accesso confermato.';
-        // log nel CRM
-        try {
-          var LK = 'davil_leads_v1';
-          var ls = JSON.parse(localStorage.getItem(LK) || '[]');
-          ls.push({ ts:new Date().toISOString(), name:'(site-gate)', email:'', phone:'', source:'site-access', code:'GATE-OK', ua:navigator.userAgent.substring(0,80) });
-          localStorage.setItem(LK, JSON.stringify(ls));
-        } catch(e){}
+        // Gate sito · NON salvato nel CRM (solo password tecnica, niente dati)
         document.documentElement.classList.remove('gate-locked');
         // forza un reflow / reload per evitare stati incoerenti
         setTimeout(function(){ window.location.reload(); }, 250);
@@ -3372,24 +3366,12 @@
 
 <!-- Engine -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-<!-- EmailJS · setup completamente automatico (vedi /admin.html#setup-email) -->
+<!-- EmailJS (200 mail/mese gratis · auto-responder e link conferma) -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- CRM esterno · Web3Forms + Google Sheets + EmailJS (vedi CRM-SETUP.md) -->
+<script src="crm-config.js"></script>
 <script>
-  /* === DAVIL · Email config ===
-     Per attivare email automatiche: 1. crea account su emailjs.com (free 200/mo)
-     2. connetti davildiclaudio@gmail.com come service. 3. crea due template:
-       - tpl_davil_notif (variabili: name,email,phone,source,code,ts) — destinatario te
-       - tpl_user_code (variabili: name,email,code) — destinatario {{email}} con risposta da davildiclaudio@gmail.com
-     4. copia public-key + service-id + template-ids qui sotto. */
-  window.DAVIL_EMAIL = {
-    enabled: false,                           // metti true dopo aver compilato
-    publicKey: 'YOUR_EMAILJS_PUBLIC_KEY',
-    serviceId: 'YOUR_EMAILJS_SERVICE_ID',
-    tplDavil: 'YOUR_TEMPLATE_DAVIL_NOTIF',
-    tplUser:  'YOUR_TEMPLATE_USER_CODE',
-    fromAddr: 'davildiclaudio@gmail.com',     // mostrata in mailto fallback
-  };
-  if (window.DAVIL_EMAIL.enabled && window.emailjs) {
+  if (window.DAVIL_EMAIL && window.DAVIL_EMAIL.enabled && window.emailjs) {
     emailjs.init({ publicKey: window.DAVIL_EMAIL.publicKey });
   }
 </script>
@@ -3425,5 +3407,58 @@
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script src="script.js"></script>
 <script src="dream.js"></script>
+
+<!-- Cookie banner GDPR · si auto-mostra solo se non già scelto -->
+<style>
+  #cookie-banner{
+    position:fixed;left:14px;right:14px;bottom:14px;z-index:9999;
+    max-width:760px;margin:0 auto;
+    background:rgba(14,6,40,.96);backdrop-filter:blur(16px) saturate(140%);
+    border:1px solid rgba(180,150,240,.30);border-radius:16px;
+    padding:18px 20px;color:#ece6fb;font:14px/1.55 'Space Grotesk',ui-sans-serif,system-ui,sans-serif;
+    box-shadow:0 24px 60px rgba(0,0,0,.5);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  #cookie-banner[hidden]{display:none}
+  #cookie-banner h4{font-family:'Fraunces',serif;font-weight:400;font-size:18px;margin:0;color:#f4c95d}
+  #cookie-banner p{margin:0;color:#b8afd6;font-size:13px}
+  #cookie-banner a{color:#f4c95d}
+  #cookie-banner .cb-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+  #cookie-banner button{
+    padding:10px 16px;border-radius:999px;border:0;font:inherit;font-size:12.5px;
+    letter-spacing:.06em;font-weight:500;cursor:pointer;transition:all .25s;
+  }
+  #cookie-banner .cb-accept{background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff}
+  #cookie-banner .cb-accept:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(236,72,153,.40)}
+  #cookie-banner .cb-essential{background:transparent;color:#ece6fb;border:1px solid rgba(180,150,240,.30)}
+  #cookie-banner .cb-essential:hover{border-color:#f4c95d;color:#f4c95d}
+  @media(max-width:560px){
+    #cookie-banner{padding:16px 16px;font-size:13px}
+    #cookie-banner h4{font-size:16px}
+  }
+</style>
+<div id="cookie-banner" hidden role="dialog" aria-labelledby="cb-title">
+  <h4 id="cb-title">🍪 Cookie e dati personali</h4>
+  <p>Questo sito usa <strong>storage locale tecnico</strong> per il funzionamento (preferenze, accesso area riservata, salvataggio diario). Non usa cookie di profilazione. I dati che lasci nei form sono trattati come descritto nell'<a href="privacy.html" target="_blank" rel="noopener">informativa privacy</a> · <a href="terms.html" target="_blank" rel="noopener">termini</a>.</p>
+  <div class="cb-actions">
+    <button type="button" class="cb-accept" data-cb-accept>Accetto · continua</button>
+    <button type="button" class="cb-essential" data-cb-essential>Solo essenziali</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'davil_cookie_consent_v1';
+  var b = document.getElementById('cookie-banner');
+  var current = null;
+  try { current = localStorage.getItem(KEY); } catch(e){}
+  if (!current) { b.hidden = false; }
+  function set(v){
+    try { localStorage.setItem(KEY, JSON.stringify({v: v, ts: new Date().toISOString()})); } catch(e){}
+    b.hidden = true;
+  }
+  document.querySelector('[data-cb-accept]').addEventListener('click', function(){ set('all'); });
+  document.querySelector('[data-cb-essential]').addEventListener('click', function(){ set('essential'); });
+})();
+</script>
 </body>
 </html>

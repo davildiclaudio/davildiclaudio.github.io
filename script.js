@@ -228,7 +228,60 @@
   const saveLead = (lead) => {
     const leads = getLeads(); leads.push(lead);
     try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch (e) {}
+    // Relay verso CRM esterno (Web3Forms, Google Sheets) se configurato
+    relayLeadToExternalCRM(lead);
   };
+
+  /* === CRM esterno · relay a servizi gratuiti se configurati === */
+  // Configurazione in window.DAVIL_CRM_CONFIG (definita in crm-config.js)
+  // - web3formsKey: chiave da web3forms.com (250 mail/mese gratis)
+  // - sheetsWebhookUrl: URL deploy di Google Apps Script per scrivere su Google Sheet
+  // - notifyEmail: email destinazione per Web3Forms
+  function relayLeadToExternalCRM(lead){
+    const cfg = window.DAVIL_CRM_CONFIG || {};
+    // 1. Web3Forms · invia email a Davil con i dati del lead
+    if (cfg.web3formsKey && cfg.web3formsKey !== 'YOUR_WEB3FORMS_KEY') {
+      try {
+        fetch('https://api.web3forms.com/submit', {
+          method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body: JSON.stringify({
+            access_key: cfg.web3formsKey,
+            from_name: 'Davil Site CRM',
+            subject: `Nuovo lead · ${lead.source||'?'} · ${lead.name||lead.email||'anonimo'}`,
+            email: cfg.notifyEmail || 'davildiclaudio@gmail.com',
+            replyto: lead.email || '',
+            message: [
+              `Sezione del sito: ${lead.source||'—'}`,
+              `Nome: ${lead.name||'—'}`,
+              `Email: ${lead.email||'—'}`,
+              `Telefono: ${lead.phone||'—'}`,
+              `Codice: ${lead.code||'—'}`,
+              `Timestamp: ${lead.ts||new Date().toISOString()}`,
+              `User-Agent: ${lead.ua||'—'}`
+            ].join('\n')
+          })
+        }).catch(()=>{});
+      } catch(_){}
+    }
+    // 2. Google Sheets · webhook Apps Script · scrive una riga per lead
+    if (cfg.sheetsWebhookUrl && cfg.sheetsWebhookUrl.startsWith('https://script.google.com')) {
+      try {
+        // Apps Script richiede no-cors quando hai un body e mode CORS non è abilitato
+        fetch(cfg.sheetsWebhookUrl, {
+          method:'POST', mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body: JSON.stringify({
+            ts: lead.ts || new Date().toISOString(),
+            source: lead.source||'', name: lead.name||'', email: lead.email||'',
+            phone: lead.phone||'', code: lead.code||'', ua: lead.ua||''
+          })
+        }).catch(()=>{});
+      } catch(_){}
+    }
+  }
+  // Esponi per uso da admin/test
+  window.__relayLead = relayLeadToExternalCRM;
+
   const genCode = () => {
     const c = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
     let s = ''; for (let i = 0; i < 6; i++) s += c[Math.floor(Math.random() * c.length)];
@@ -302,25 +355,6 @@
     if (r.mode === 'localStorage-only') mailtoFallback(lead);
   });
 
-  /* ---------- Membri ---------- */
-  const memberForm = $('[data-member-form]');
-  const memberStatus = $('[data-member-status]');
-  memberForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const fd = new FormData(memberForm);
-    const lead = {
-      ts: new Date().toISOString(),
-      email: (fd.get('member-email') || '').toString().trim(),
-      source: 'membri-login-attempt',
-      code: genCode(),
-      ua: navigator.userAgent.substring(0, 80)
-    };
-    saveLead(lead);
-    memberStatus.textContent = 'Richiesta inviata. Davil ti contatta entro 24h.';
-    memberStatus.classList.remove('error');
-    const r = await sendLeadEmails(lead);
-    if (r.mode === 'localStorage-only') mailtoFallback(lead);
-  });
 
   /* ---------- Ars Realis · password istantanea 11279336 ---------- */
   const ARS_PASSWORD = '11279336';
@@ -1283,13 +1317,7 @@
       if (pw === ACCESS_PW) {
         const ts = new Date().toISOString();
         try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, ts })); } catch(e){}
-        // Log access in CRM leads
-        try {
-          const LK = 'davil_leads_v1';
-          const ls = JSON.parse(localStorage.getItem(LK) || '[]');
-          ls.push({ ts, name:'(login)', email, phone:'', source:'login-success', code:'LOGIN-OK', ua: navigator.userAgent.substring(0,80) });
-          localStorage.setItem(LK, JSON.stringify(ls));
-        } catch(e){}
+        // Login eseguito · NON salvato nel CRM (il CRM raccoglie solo lead nuovi che lasciano dati nei form)
         loginStatus.className = 'login-status ok';
         loginStatus.textContent = '✓ Accesso confermato. Bentornato.';
         setTimeout(() => {

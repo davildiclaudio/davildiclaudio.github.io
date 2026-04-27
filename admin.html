@@ -202,7 +202,17 @@ function sourceLabel(src){
 let currentFilter = 'all';
 
 function render(){
-  const allLeads = getLeads().sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
+  // Filtra fuori entries tecnici (login, gate password) che NON sono lead reali
+  const TECH_SOURCES = new Set(['login-success','membri-login-attempt','site-access']);
+  const allLeads = getLeads()
+    .filter(l => {
+      // Esclude entries tecniche
+      if (TECH_SOURCES.has(l.source)) return false;
+      // Esclude entries senza alcun dato di contatto
+      const hasData = (l.email && l.email.trim()) || (l.phone && l.phone.trim()) || (l.name && l.name.trim() && !l.name.startsWith('('));
+      return hasData;
+    })
+    .sort((a,b) => (b.ts||'').localeCompare(a.ts||''));
   const leads = currentFilter === 'all' ? allLeads : allLeads.filter(l => sourceLabel(l.source).cat === currentFilter);
   $('#leadCount').textContent = leads.length + ' / ' + allLeads.length + ' LEAD';
   // Stats raggruppate per area del sito
