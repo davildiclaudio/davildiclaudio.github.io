@@ -532,18 +532,10 @@
     ddWrap.querySelectorAll('.dd-item').forEach(a => a.addEventListener('click', () => setTimeout(closeMenu, 100)));
   }
 
-  /* ---------- Lenis smooth scroll ---------- */
+  /* ---------- Lenis smooth scroll · disattivato su desktop (effetto remolio) ---------- */
+  // Lenis con inerzia genera un "wobble" alla fine dello scroll: rimosso.
+  // Manteniamo lo scroll nativo del browser (anche per mobile, già nativo perché smoothTouch:false).
   let lenis = null;
-  if (window.Lenis && !prefersReducedMotion) {
-    lenis = new Lenis({
-      duration: 1.15,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      smoothTouch: false,
-    });
-    const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-    requestAnimationFrame(raf);
-  }
 
   /* ---------- Anchor links ---------- */
   $$('a[href^="#"]').forEach(a => {
@@ -1068,35 +1060,12 @@
       });
     });
 
-    /* === Manifesto — pinned three-line crescendo === */
+    /* === Manifesto — DISATTIVATO GSAP: gestito da CSS+JS dedicato in index.html === */
     const mani = $('#manifesto');
-    if (mani && !isMob) {
-      const lines = $$('.m-line', mani);
-      lines.forEach(l => splitWords(l));
-      gsap.set(lines, { opacity: 0, y: 40 });
-      gsap.set('.m-line .w > span', { yPercent: 130 });
-      ScrollTrigger.create({
-        trigger: mani,
-        start: 'top top',
-        end: '+=200%',
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.8,
-        onUpdate: (self) => {
-          const p = self.progress;
-          // 3 phases: 0-.33 line 1, .33-.66 line 2, .66-1 line 3
-          lines.forEach((line, i) => {
-            const localProg = Math.max(0, Math.min(1, (p - i * 0.30) / 0.30));
-            const inners = $$('.w > span', line);
-            gsap.set(line, { opacity: localProg < 0.05 ? 0 : 1, y: 40 - localProg * 40 });
-            inners.forEach((sp, idx) => {
-              const charDelay = idx / inners.length * 0.5;
-              const charProg = Math.max(0, Math.min(1, (localProg - charDelay) / (1 - charDelay)));
-              gsap.set(sp, { yPercent: 130 - charProg * 130, rotate: 8 - charProg * 8 });
-            });
-          });
-        }
-      });
+    if (false) {
+      // Codice GSAP rimosso per evitare conflitto con .manifesto-scroll step-1/2/3
+      // L'animazione 3-step è ora interamente gestita dal CSS .manifesto-scroll
+      // e dallo script <script>data-manifesto</script> in index.html.
     } else if (mani && isMob) {
       // Mobile · animazione opt-in: prima si abilita .animate (start state), poi IO aggiunge .is-visible
       const lines = $$('.m-line', mani);
@@ -1259,8 +1228,22 @@
   }
 
   /* === Login modal + Registrati form === */
+  // ACCESS_PW legacy (account demo creato prima del sistema personale).
+  // I nuovi utenti scelgono la propria password durante la registrazione.
   const ACCESS_PW = '11279336';
   const SESSION_KEY = 'davil_access_v1';
+
+  // Hash SHA-256 client-side per non salvare password in chiaro
+  async function hashPassword(pw) {
+    if (!window.crypto || !crypto.subtle) {
+      // fallback non sicuro · solo per ambienti senza WebCrypto
+      let h = 0; for (let i=0;i<pw.length;i++) h = ((h<<5)-h) + pw.charCodeAt(i);
+      return 'fallback:' + h;
+    }
+    const buf = new TextEncoder().encode(pw);
+    const hash = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
   const loginModal = document.querySelector('[data-login-modal]');
   const loginForm  = document.querySelector('[data-login-form]');
   const loginStatus = document.querySelector('[data-login-status]');
@@ -1290,18 +1273,37 @@
         const REG_KEY_LOCAL = 'davil_registrations_v1';
         const regs = JSON.parse(localStorage.getItem(REG_KEY_LOCAL) || '[]');
         const idx = regs.findIndex(r => r.token === confirmTok);
-        if (idx >= 0 && !regs[idx].confirmed) {
-          regs[idx].confirmed = true;
-          regs[idx].confirmedTs = new Date().toISOString();
-          localStorage.setItem(REG_KEY_LOCAL, JSON.stringify(regs));
-          // Also push CRM event
-          const LK = 'davil_leads_v1';
-          const ls = JSON.parse(localStorage.getItem(LK) || '[]');
-          ls.push({ ts: new Date().toISOString(), name: regs[idx].name, email: regs[idx].email, phone: '', source: 'registrazione-confermata', code: regs[idx].code, ua: navigator.userAgent.substring(0,80) });
-          localStorage.setItem(LK, JSON.stringify(ls));
-          setTimeout(() => alert('✓ Email confermata. Ora puoi accedere all\'Area Membri con la password 11279336.'), 800);
-        } else if (idx >= 0 && regs[idx].confirmed) {
-          setTimeout(() => alert('Questa email è già stata confermata.'), 800);
+        if (idx >= 0) {
+          if (!regs[idx].confirmed) {
+            regs[idx].confirmed = true;
+            regs[idx].confirmedTs = new Date().toISOString();
+            localStorage.setItem(REG_KEY_LOCAL, JSON.stringify(regs));
+            // CRM event
+            const LK = 'davil_leads_v1';
+            const ls = JSON.parse(localStorage.getItem(LK) || '[]');
+            ls.push({ ts: new Date().toISOString(), name: regs[idx].name, email: regs[idx].email, phone: '', source: 'registrazione-confermata', code: regs[idx].code, ua: navigator.userAgent.substring(0,80) });
+            localStorage.setItem(LK, JSON.stringify(ls));
+          }
+          // AUTO-LOGIN: dopo conferma porta direttamente nell'Area Membri
+          try {
+            localStorage.setItem(SESSION_KEY, JSON.stringify({
+              email: regs[idx].email, name: regs[idx].name, ts: new Date().toISOString()
+            }));
+          } catch(_){}
+          // Aggiorna gating sezione membri (definito sotto)
+          setTimeout(() => {
+            try { document.querySelectorAll('[data-membri-section]').forEach(el => el.hidden = false); } catch(_){}
+            try { document.querySelectorAll('[data-membri-public]').forEach(el => el.hidden = true); } catch(_){}
+            try { document.querySelectorAll('[data-membri-private]').forEach(el => el.hidden = false); } catch(_){}
+            const m = document.getElementById('membri');
+            if (m) m.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Toast di conferma morbido
+            const t = document.createElement('div');
+            t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:10000;padding:14px 22px;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;border-radius:999px;font:500 14px/1 "Space Grotesk",sans-serif;box-shadow:0 20px 60px rgba(124,58,237,.5);letter-spacing:.04em';
+            t.textContent = `✓ Bentornato ${regs[idx].name||''} · accesso attivo`;
+            document.body.appendChild(t);
+            setTimeout(() => { t.style.transition = 'opacity .6s'; t.style.opacity = '0'; setTimeout(() => t.remove(), 600); }, 3000);
+          }, 600);
         } else {
           setTimeout(() => alert('Token di conferma non valido o scaduto.'), 800);
         }
@@ -1309,25 +1311,46 @@
     }
   } catch(_){}
   if (loginForm) {
-    loginForm.addEventListener('submit', e => {
+    loginForm.addEventListener('submit', async e => {
       e.preventDefault();
       const fd = new FormData(loginForm);
-      const email = (fd.get('email') || '').toString().trim();
+      const email = (fd.get('email') || '').toString().trim().toLowerCase();
       const pw    = (fd.get('password') || '').toString().trim();
-      if (pw === ACCESS_PW) {
-        const ts = new Date().toISOString();
-        try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, ts })); } catch(e){}
-        // Login eseguito · NON salvato nel CRM (il CRM raccoglie solo lead nuovi che lasciano dati nei form)
+      const ts = new Date().toISOString();
+
+      // 1. Cerca account utente registrato con la sua password personale
+      let regs = []; try { regs = JSON.parse(localStorage.getItem('davil_registrations_v1') || '[]'); } catch(_){}
+      const pwHash = await hashPassword(pw);
+      const user = regs.find(r => (r.email||'').toLowerCase() === email && r.passwordHash === pwHash);
+
+      // 2. Account legacy "11279336" senza email associata (compatibilità per demo)
+      const legacyOk = pw === ACCESS_PW;
+
+      if (user) {
+        if (!user.confirmed) {
+          loginStatus.className = 'login-status err';
+          loginStatus.textContent = '✗ Email non ancora confermata. Controlla la tua casella e clicca il link di conferma.';
+          return;
+        }
+        try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, name: user.name, ts })); } catch(_){}
         loginStatus.className = 'login-status ok';
-        loginStatus.textContent = '✓ Accesso confermato. Bentornato.';
-        setTimeout(() => {
-          closeLogin();
-          const m = document.getElementById('membri');
-          if (m) m.scrollIntoView({ behavior: 'smooth' });
-        }, 900);
+        loginStatus.textContent = `✓ Bentornato, ${user.name||'amico'}.`;
+        setTimeout(() => { closeLogin(); const m = document.getElementById('membri'); if (m) m.scrollIntoView({ behavior: 'smooth' }); }, 900);
+      } else if (legacyOk) {
+        // Legacy: passa solo se NON c'è account email registrato (così proteggi gli account)
+        const emailRegistered = regs.some(r => (r.email||'').toLowerCase() === email);
+        if (emailRegistered) {
+          loginStatus.className = 'login-status err';
+          loginStatus.textContent = '✗ Per quell\'email serve la tua password personale (non quella legacy).';
+          return;
+        }
+        try { localStorage.setItem(SESSION_KEY, JSON.stringify({ email, ts })); } catch(_){}
+        loginStatus.className = 'login-status ok';
+        loginStatus.textContent = '✓ Accesso legacy confermato.';
+        setTimeout(() => { closeLogin(); const m = document.getElementById('membri'); if (m) m.scrollIntoView({ behavior: 'smooth' }); }, 900);
       } else {
         loginStatus.className = 'login-status err';
-        loginStatus.textContent = '✗ Password non valida. Riprova o registrati.';
+        loginStatus.textContent = '✗ Email o password non valide. Verifica o registrati.';
       }
     });
   }
@@ -1348,16 +1371,38 @@
   const saveRegistrations = (arr) => { try { localStorage.setItem(REG_KEY, JSON.stringify(arr)); } catch(e){} };
 
   const registerForm = document.querySelector('[data-register-form]');
+  const registerStatus = document.querySelector('[data-register-status]');
   if (registerForm) {
-    registerForm.addEventListener('submit', e => {
+    registerForm.addEventListener('submit', async e => {
       e.preventDefault();
       const fd = new FormData(registerForm);
       const name  = (fd.get('name')  || '').toString().trim();
-      const email = (fd.get('email') || '').toString().trim();
+      const email = (fd.get('email') || '').toString().trim().toLowerCase();
+      const pw    = (fd.get('password') || '').toString();
+      const pw2   = (fd.get('password_confirm') || '').toString();
       const consentMarketing = !!fd.get('consent_marketing');
+
+      // Validazione password
+      if (pw.length < 6) {
+        if (registerStatus) { registerStatus.className='login-status err'; registerStatus.textContent='✗ La password deve avere almeno 6 caratteri.'; }
+        return;
+      }
+      if (pw !== pw2) {
+        if (registerStatus) { registerStatus.className='login-status err'; registerStatus.textContent='✗ Le due password non coincidono.'; }
+        return;
+      }
+
+      // Verifica email non già registrata
+      const existing = getRegistrations();
+      if (existing.some(r => (r.email||'').toLowerCase() === email)) {
+        if (registerStatus) { registerStatus.className='login-status err'; registerStatus.textContent='✗ Email già registrata. Vai al login o usa un\'altra email.'; }
+        return;
+      }
+
       const ts = new Date().toISOString();
       const token = genToken();
       const code = 'REG-' + token.substring(0, 6).toUpperCase();
+      const passwordHash = await hashPassword(pw);
 
       // 1. CRM lead (vista classica)
       const LEADS_KEY = 'davil_leads_v1';
@@ -1369,17 +1414,20 @@
       });
       try { localStorage.setItem(LEADS_KEY, JSON.stringify(leads)); } catch(_){}
 
-      // 2. Registrazioni dedicate (double opt-in)
+      // 2. Registrazioni dedicate (double opt-in + password personale hash)
       const regs = getRegistrations();
       regs.push({
         ts, name, email, code, token,
+        passwordHash, // SHA-256 della password personale scelta
         confirmed: false, confirmedTs: null,
-        consentDataProcessing: true, // checkbox required per submit
-        consentMarketing, // checkbox opzionale
+        consentDataProcessing: true,
+        consentMarketing,
         consentTs: ts, consentVersion: PRIVACY_VERSION,
         ua: navigator.userAgent.substring(0,150)
       });
       saveRegistrations(regs);
+
+      if (registerStatus) { registerStatus.className='login-status ok'; registerStatus.textContent='✓ Registrazione completata. Conferma l\'email per accedere.'; }
 
       // 3. Genera link conferma + invia (EmailJS se configurato, altrimenti mostra link)
       const confirmUrl = window.location.origin + window.location.pathname + '?confirm=' + token;

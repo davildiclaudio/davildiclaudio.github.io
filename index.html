@@ -1061,7 +1061,7 @@
 
   /* Manifesto — pinned scroll, 3 step a comparsa progressiva */
   .manifesto-scroll{
-    min-height:300vh;
+    min-height:180vh; /* ridotto da 300vh per evitare la sensazione di "ripetizione" */
     padding:0;
     position:relative;
     isolation:isolate;
@@ -2873,7 +2873,7 @@
       <div class="login-pane" data-pane="register" hidden>
         <div class="login-eyebrow" style="color:var(--gold)">· Nuovo qui ·</div>
         <h3 class="login-h">Registrati gratis.</h3>
-        <p class="login-sub">Lascia nome ed email: ti inviamo un <strong style="color:var(--gold)">link di conferma</strong> e la <strong style="color:var(--gold)">password d'accesso</strong> all'area riservata.</p>
+        <p class="login-sub">Scegli email e <strong style="color:var(--gold)">la tua password personale</strong>. Riceverai un link di conferma per attivare l'accesso all'area riservata.</p>
         <form class="login-form" data-register-form>
           <label class="login-row">
             <span>Nome</span>
@@ -2882,6 +2882,14 @@
           <label class="login-row">
             <span>Email</span>
             <input type="email" name="email" required autocomplete="email" placeholder="la-tua-email@dominio.com"/>
+          </label>
+          <label class="login-row">
+            <span>Password (min 6 caratteri)</span>
+            <input type="password" name="password" required minlength="6" autocomplete="new-password" placeholder="La password che preferisci"/>
+          </label>
+          <label class="login-row">
+            <span>Conferma password</span>
+            <input type="password" name="password_confirm" required minlength="6" autocomplete="new-password" placeholder="Ripeti la password"/>
           </label>
 
           <label class="gate-check" style="margin-top:4px;font-size:11.5px;color:var(--ink-soft);display:flex;gap:8px;align-items:flex-start">
@@ -2894,6 +2902,7 @@
           </label>
 
           <button type="submit" class="btn-primary login-submit">Voglio entrare</button>
+          <p class="login-status" data-register-status></p>
 
           <div class="register-pw-reveal" data-register-reveal hidden style="margin-top:14px">
             <p class="ars-pw-label" style="color:var(--gold)">✉ Conferma la tua email</p>
@@ -2902,9 +2911,7 @@
             </p>
             <p style="font-size:12px;color:var(--ink-dim);margin:0 0 10px">In alternativa, puoi confermare ora cliccando direttamente:</p>
             <a href="#" data-register-confirm-link target="_blank" rel="noopener" class="ars-pw-cta" style="display:block;text-align:center;padding:10px 14px;background:linear-gradient(135deg,var(--cosmic-violet,#7c3aed),var(--cosmic-magenta,#ec4899));color:#fff;border-radius:10px;text-decoration:none;font-size:13px;letter-spacing:.06em;font-weight:500">Conferma email ora →</a>
-            <p class="ars-pw-label" style="margin-top:18px">La tua password d'accesso</p>
-            <div class="ars-pw-code" data-register-code>11279336</div>
-            <p class="ars-pw-note" style="font-size:12px;color:var(--ink-dim)">Conservala. Dopo aver confermato l'email, <a href="#" data-tab-switch="login" style="color:var(--gold)">vai al login</a> per usarla.</p>
+            <p class="ars-pw-note" style="font-size:12px;color:var(--ink-dim);margin-top:14px">La tua password personale è memorizzata. Dopo aver confermato l'email, <a href="#" data-tab-switch="login" style="color:var(--gold)">vai al login</a> per usarla.</p>
           </div>
         </form>
       </div>
@@ -3400,8 +3407,8 @@
       var passed = -r.top;
       var p = Math.max(0, Math.min(1, passed / total));
       var step = 1;
-      if (p > 0.38) step = 2;
-      if (p > 0.70) step = 3;
+      if (p > 0.30) step = 2;
+      if (p > 0.60) step = 3;
       sect.classList.remove('step-1','step-2','step-3');
       sect.classList.add('step-'+step);
     }
