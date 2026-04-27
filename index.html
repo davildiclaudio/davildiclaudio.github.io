@@ -711,20 +711,21 @@
     .chi-portrait img{aspect-ratio:auto}
   }
 
-  /* === Hero photo · "io bianco" verticale (crop 100px lati) === */
+  /* === Hero photo · "io bianco" verticale === */
   .hero-photo{
     position:absolute;
-    top:44%;right:3vw;
+    top:50%;right:3vw;
     transform:translateY(-50%);
-    width:clamp(280px,32vw,460px);
-    aspect-ratio:2/3; /* portrait · taglia 100px lati 3000×3000 */
+    width:clamp(360px, 38vw, 560px); /* più grande su desktop */
+    aspect-ratio:2/3;
     margin:0;
     border:0;background:transparent;
     z-index:2;pointer-events:none;
     overflow:hidden;
     filter:drop-shadow(0 12px 30px rgba(0,0,0,.55));
     opacity:0;
-    animation:heroPhotoReveal 2.4s cubic-bezier(.22,.61,.36,1) 1.4s forwards;
+    animation:heroPhotoReveal 2.4s cubic-bezier(.22,.61,.36,1) 1.4s forwards,
+              heroPhotoFloat 6s ease-in-out 4s infinite alternate;
     mix-blend-mode:normal;
   }
   @keyframes heroPhotoReveal{
@@ -732,7 +733,11 @@
     60% {opacity:.92; filter:drop-shadow(0 12px 30px rgba(0,0,0,.55)) blur(0)}
     100%{opacity:1; transform:translateY(-50%) translateX(0) scale(1); filter:drop-shadow(0 12px 30px rgba(0,0,0,.55)) blur(0)}
   }
-  @keyframes heroPhotoFloat{from{transform:translateY(-50%)}to{transform:translateY(-50%)}}
+  /* Float morbido continuo · solo su desktop (no transform sticky issues) */
+  @keyframes heroPhotoFloat{
+    from{transform:translateY(calc(-50% - 8px))}
+    to  {transform:translateY(calc(-50% + 8px))}
+  }
   .hero-photo::before{display:none}
   .hero-photo img{
     /* foto centrata · zero spazio laterale · zero glow */
@@ -901,15 +906,15 @@
   }
   .contatti-photo:hover{transform:scale(1.02)}
   .contatti-photo img{width:100%;height:auto;display:block;object-fit:contain}
-  /* CTA Finale · foto sopra il claim */
+  /* CTA Finale · foto sopra il claim · grande e centrata */
   .cta-final-photo{
-    margin:0 auto 36px;max-width:280px;
-    border-radius:20px;overflow:hidden;
-    box-shadow:0 30px 80px rgba(45,45,224,.40),0 0 60px rgba(124,58,237,.30);
-    border:1px solid rgba(180,150,240,.20);
+    margin:0 auto 44px;max-width:480px;width:min(70vw,480px);
+    border-radius:24px;overflow:hidden;
+    box-shadow:0 40px 100px rgba(45,45,224,.45),0 0 80px rgba(124,58,237,.30),0 0 0 1px rgba(180,150,240,.18) inset;
+    border:1px solid rgba(180,150,240,.25);
   }
   .cta-final-photo img{width:100%;height:auto;display:block}
-  @media(max-width:760px){.cta-final-photo{max-width:220px;margin-bottom:28px}}
+  @media(max-width:760px){.cta-final-photo{max-width:300px;margin-bottom:32px}}
 
   /* === UNIVERSE in motion · cosmic nebula visibile === */
   body{position:relative}
@@ -972,11 +977,13 @@
   .body-network-sect{padding:clamp(80px,12vh,160px) var(--pad)}
   .body-network{
     display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+    align-items:center; /* evita lo spazio vuoto sotto la foto quando il testo è più alto */
     border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
     background:radial-gradient(800px 500px at 0% 50%, rgba(45,45,224,.10), transparent 60%),
                linear-gradient(180deg,rgba(255,255,255,.012),transparent);
     box-shadow:0 30px 80px rgba(0,0,0,.4);
   }
+  .body-network .bn-vis{align-self:stretch;display:flex;align-items:center;justify-content:center}
   .bn-vis{position:relative;overflow:hidden;background:transparent;border-radius:18px;display:block;margin:0;padding:0}
   .bn-vis img{width:100%;height:auto;object-fit:contain;display:block;border-radius:18px;transition:transform 1.4s var(--ease-smooth)}
   .body-network:hover .bn-vis img{transform:scale(1.02);filter:saturate(1.1)}
@@ -1059,9 +1066,9 @@
   }
   .mega em{font-style:italic;color:var(--gold);font-weight:300}
 
-  /* Manifesto — pinned scroll, 3 step a comparsa progressiva */
+  /* Manifesto — pinned scroll · 3 frasi sequenziali · una alla volta · ben leggibili */
   .manifesto-scroll{
-    min-height:180vh; /* ridotto da 300vh per evitare la sensazione di "ripetizione" */
+    min-height:300vh; /* 3 viewport: una per ogni frase */
     padding:0;
     position:relative;
     isolation:isolate;
@@ -1072,30 +1079,33 @@
     top:0;
     height:100vh;
     width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    display:grid;
+    place-items:center;
     text-align:center;
-    padding:5vh var(--pad);
-    gap:.5em;
+    padding:6vh var(--pad);
     z-index:2;
     box-sizing:border-box;
   }
+  /* Stack delle 3 frasi sulla STESSA cella · si scambiano via opacity · zero overflow */
   .manifesto-scroll .m-line{
+    grid-column:1;grid-row:1;
+    width:100%;max-width:18ch;justify-self:center;
     opacity:0;
-    transform:translateY(34px);
-    transition:opacity 1.1s cubic-bezier(.22,.61,.36,1),transform 1.1s cubic-bezier(.22,.61,.36,1),filter 1.1s cubic-bezier(.22,.61,.36,1);
-    filter:blur(10px);
+    transform:translateY(20px);
+    transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1),filter .9s cubic-bezier(.22,.61,.36,1);
+    filter:blur(8px);
     will-change:opacity,transform,filter;
+    pointer-events:none;
   }
+  /* Step attivo · solo UNA frase visibile alla volta */
   .manifesto-scroll.step-1 .m-line:nth-child(1),
-  .manifesto-scroll.step-2 .m-line:nth-child(-n+2),
-  .manifesto-scroll.step-3 .m-line:nth-child(-n+3){
+  .manifesto-scroll.step-2 .m-line:nth-child(2),
+  .manifesto-scroll.step-3 .m-line:nth-child(3){
     opacity:1;transform:none;filter:blur(0);
+    pointer-events:auto;
   }
-  /* fallback se JS non parte: mostra tutto */
-  .manifesto-scroll:not(.step-1):not(.step-2):not(.step-3) .m-line{
+  /* Fallback senza JS · mostra solo la prima */
+  .manifesto-scroll:not(.step-1):not(.step-2):not(.step-3) .m-line:nth-child(1){
     opacity:1;transform:none;filter:none;
   }
   /* Ombra rivolta verso il basso · sfuma il blocco verso la sezione successiva */
@@ -1761,18 +1771,42 @@
   }
   .btn-primary:hover{background:var(--gold);transform:translateY(-2px)}
 
-  /* Contatti */
-  .contatti-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-  @media(max-width:900px){.contatti-grid{grid-template-columns:1fr}}
+  /* Contatti · cards rifinite */
+  .contatti-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  @media(max-width:900px){.contatti-grid{grid-template-columns:1fr;gap:16px}}
   .contatto-card{
-    display:flex;flex-direction:column;gap:10px;
-    padding:28px 26px;border:1px solid var(--border);border-radius:var(--radius);
-    transition:all .3s;
+    display:flex;flex-direction:column;gap:8px;
+    padding:32px 28px;border:1px solid rgba(180,150,240,.20);border-radius:20px;
+    background:linear-gradient(135deg, rgba(30,20,60,.55), rgba(20,14,50,.30));
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 20px 50px -20px rgba(0,0,0,.5);
+    transition:transform .35s var(--ease,cubic-bezier(.22,.61,.36,1)), border-color .35s, box-shadow .35s, background .35s;
+    text-decoration:none;color:inherit;
+    position:relative;overflow:hidden;
   }
-  .contatto-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-  .c-label{font-family:var(--ff-sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim)}
-  .c-value{font-family:var(--ff-display);font-size:22px;color:var(--ink)}
-  .c-arrow{margin-top:auto;font-size:18px;color:var(--gold);align-self:flex-end}
+  .contatto-card::before{
+    content:"";position:absolute;inset:0;border-radius:inherit;
+    background:linear-gradient(135deg, rgba(124,58,237,.0), rgba(236,72,153,.0));
+    transition:background .4s;pointer-events:none;
+  }
+  .contatto-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(244,201,93,.45);
+    box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 30px 70px -20px rgba(124,58,237,.45);
+  }
+  .contatto-card:hover::before{background:linear-gradient(135deg, rgba(124,58,237,.10), rgba(236,72,153,.08))}
+  .c-label{font-family:var(--ff-sans);font-size:11px;letter-spacing:.30em;text-transform:uppercase;color:var(--magenta,#ec4899);font-weight:500}
+  .c-value{font-family:var(--ff-display);font-weight:400;font-size:26px;color:var(--ink);line-height:1.2}
+  .c-arrow{
+    margin-top:auto;align-self:flex-end;
+    width:40px;height:40px;border-radius:50%;
+    background:linear-gradient(135deg, var(--gold,#f4c95d), #d8a73d);
+    color:#1a0d28;display:grid;place-items:center;font-size:18px;font-weight:700;
+    box-shadow:0 8px 20px rgba(244,201,93,.30);
+    transition:transform .35s, box-shadow .35s;
+  }
+  .contatto-card:hover .c-arrow{transform:translate(2px,-2px) rotate(-12deg);box-shadow:0 14px 30px rgba(244,201,93,.50)}
 
   /* Footer */
   .footer-v2{
@@ -3407,8 +3441,8 @@
       var passed = -r.top;
       var p = Math.max(0, Math.min(1, passed / total));
       var step = 1;
-      if (p > 0.30) step = 2;
-      if (p > 0.60) step = 3;
+      if (p > 0.33) step = 2;
+      if (p > 0.66) step = 3;
       sect.classList.remove('step-1','step-2','step-3');
       sect.classList.add('step-'+step);
     }
