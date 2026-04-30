@@ -387,6 +387,58 @@ body {
     0 4px 14px rgba(0,0,0,.5);
 }
 
+/* ===== VIDEOS ===== */
+.videos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeUp .8s var(--ease) .85s both;
+}
+.videos h2 {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: .08em;
+  background: linear-gradient(135deg, #f2efe9 0%, #b5c5ff 50%, #f2efe9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.video-block { display: flex; flex-direction: column; gap: 8px; }
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(109,138,247,.28);
+  box-shadow:
+    inset 0 0 0 1px rgba(109,138,247,.08),
+    0 0 30px rgba(109,138,247,.25),
+    0 16px 40px rgba(64,96,212,.30),
+    0 4px 14px rgba(0,0,0,.5);
+  background: rgba(20,18,40,.6);
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.video-label {
+  margin: 0;
+  font-size: 12px;
+  color: var(--brand-2);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(109,138,247,.4);
+}
+
 @media (max-width: 480px) {
   .card { padding: 36px 18px; gap: 26px; }
   .portrait { max-width: 280px; }
@@ -506,6 +558,34 @@ body {
     </a>
 
   </nav>
+
+  <div class="videos">
+    <h2>Video</h2>
+    <div class="video-block">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/yyr1o4qnuc4"
+          title="La mia storia — Symposium Podcast"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="video-label">La mia storia — Symposium Podcast</p>
+    </div>
+    <div class="video-block">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/N2EF6s5qIzo"
+          title="Approfondimento — Transurfing teoria"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="video-label">Approfondimento — Transurfing teoria</p>
+    </div>
+  </div>
 </div>
 
 <script>
