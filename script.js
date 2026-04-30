@@ -540,6 +540,7 @@
   /* ---------- Anchor links ---------- */
   $$('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
+      if (a.hasAttribute('data-dream-open')) return;
       const id = a.getAttribute('href');
       if (id.length < 2) return;
       const target = $(id);
