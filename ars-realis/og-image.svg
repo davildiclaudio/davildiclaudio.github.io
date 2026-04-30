@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#3b1a78"/>
+      <stop offset="55%" stop-color="#1a0a45"/>
+      <stop offset="100%" stop-color="#0e0628"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g transform="translate(600 315)" fill="none" stroke="#e0b46b" stroke-width="1.2" opacity=".7">
+    <polygon points="0,-130 112,65 -112,65"/>
+    <polygon points="0,130 112,-65 -112,-65"/>
+  </g>
+  <text x="600" y="230" text-anchor="middle" fill="#e0b46b"
+        font-family="'Cinzel', 'Times New Roman', serif" font-size="36" letter-spacing="8">ARS REALIS</text>
+  <text x="600" y="490" text-anchor="middle" fill="#ece2d0"
+        font-family="'EB Garamond', Georgia, serif" font-size="34" font-style="italic">Community di Studio &amp; Pratica</text>
+  <text x="600" y="540" text-anchor="middle" fill="#9d8fb8"
+        font-family="'EB Garamond', Georgia, serif" font-size="22">Reality Transurfing · 2004 → 2025</text>
+</svg>
