@@ -356,8 +356,8 @@
   });
 
 
-  /* ---------- Ars Realis · password istantanea 11279336 ---------- */
-  const ARS_PASSWORD = '11279336';
+  /* ---------- Ars Realis · password istantanea 117933 ---------- */
+  const ARS_PASSWORD = '117933';
   $$('[data-ars-form]').forEach(f => {
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1298,7 +1298,7 @@
   /* === Login modal + Registrati form === */
   // ACCESS_PW legacy (account demo creato prima del sistema personale).
   // I nuovi utenti scelgono la propria password durante la registrazione.
-  const ACCESS_PW = '11279336';
+  const ACCESS_PW = '117933';
   const SESSION_KEY = 'davil_access_v1';
 
   // Hash SHA-256 client-side per non salvare password in chiaro
@@ -1413,7 +1413,7 @@
       const pwHash = await hashPassword(pw);
       const user = regs.find(r => (r.email||'').toLowerCase() === email && r.passwordHash === pwHash);
 
-      // 2. Account legacy "11279336" senza email associata (compatibilità per demo)
+      // 2. Account legacy "117933" senza email associata (compatibilità per demo)
       const legacyOk = pw === ACCESS_PW;
 
       if (user) {
