@@ -1090,24 +1090,30 @@
     }
 
     /* === Eyebrow + hero sub + ctas === */
-    $$('.hero .eyebrow, .hero-sub, .hero-ctas').forEach((el, i) => {
+    $$('.hero .eyebrow').forEach(el => {
       gsap.fromTo(el,
         { opacity: 0, y: 30, filter: 'blur(8px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.4, ease: 'power3.out', delay: 0.7 + i * 0.15 }
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power3.out', delay: 0.7 }
+      );
+    });
+    $$('.hero-sub, .hero-ctas').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 30, filter: 'blur(8px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power3.out', delay: 1.8 }
       );
     });
 
     /* === Generic [data-reveal] === mobile: anticipo trigger, durata corta, no blur */
     const isMob = innerWidth < 760;
     const revStart = isMob ? 'top 96%' : 'top 88%';
-    const revDur = isMob ? 0.55 : 1.4;
+    const revDur = isMob ? 0.45 : 0.7;
     $$('[data-reveal]').forEach(el => {
-      if (el.closest('.hero')) return; // hero handled above
-      if (el.classList.contains('m-line')) return; // manifesto handled separately
+      if (el.closest('.hero')) return;
+      if (el.classList.contains('m-line')) return;
       gsap.fromTo(el,
-        { opacity: 0, y: isMob ? 24 : 64, scale: isMob ? 1 : 0.98, filter: isMob ? 'none' : 'blur(6px)' },
+        { opacity: 0, y: isMob ? 20 : 36, scale: isMob ? 1 : 0.99, filter: isMob ? 'none' : 'blur(4px)' },
         { opacity: 1, y: 0, scale: 1, filter: isMob ? 'none' : 'blur(0px)',
-          duration: revDur, ease: isMob ? 'power2.out' : 'power4.out',
+          duration: revDur, ease: isMob ? 'power2.out' : 'power3.out',
           scrollTrigger: { trigger: el, start: revStart, toggleActions: 'play none none none' }
         }
       );
@@ -1120,7 +1126,7 @@
       gsap.set(inners, { yPercent: 130, rotate: 6, opacity: 0 });
       gsap.to(inners, {
         yPercent: 0, rotate: 0, opacity: 1,
-        duration: isMob ? 0.6 : 1.3, ease: isMob ? 'power2.out' : 'power4.out', stagger: isMob ? 0.03 : 0.06,
+        duration: isMob ? 0.5 : 0.8, ease: isMob ? 'power2.out' : 'power3.out', stagger: isMob ? 0.03 : 0.04,
         scrollTrigger: { trigger: h, start: revStart, toggleActions: 'play none none none' }
       });
     });
@@ -1171,9 +1177,9 @@
       const siblings = [...c.parentElement.children].filter(s => s.matches(cardSel));
       const i = siblings.indexOf(c);
       gsap.fromTo(c,
-        { opacity: 0, y: 100, scale: 0.92, filter: 'blur(10px)' },
+        { opacity: 0, y: 50, scale: 0.96, filter: 'blur(6px)' },
         { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-          duration: 1.4, ease: 'power4.out',
+          duration: 0.7, ease: 'power3.out',
           delay: i * 0.08,
           scrollTrigger: { trigger: c.parentElement, start: 'top 82%', toggleActions: 'play none none none' }
         }
@@ -1183,8 +1189,8 @@
     /* === Servizio rows — slide from left with progressive border === */
     $$('.servizio').forEach((s, i) => {
       gsap.fromTo(s,
-        { opacity: 0, x: -80, filter: 'blur(8px)' },
-        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power4.out',
+        { opacity: 0, x: -40, filter: 'blur(5px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out',
           delay: (i % 4) * 0.06,
           scrollTrigger: { trigger: s, start: 'top 88%', toggleActions: 'play none none none' }
         }
