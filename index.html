@@ -736,21 +736,21 @@
     .pilastro.pilastro-with-visual .p-content{padding:32px 22px}
   }
 
-  /* Chi sono · portrait piccolo a SINISTRA, testo principale a DESTRA */
-  .chi-grid{display:grid;grid-template-columns:320px 1fr;gap:48px;align-items:start;margin-top:24px}
+  /* Chi sono · portrait a SINISTRA, dimensione equilibrata (460px) */
+  .chi-grid{display:grid;grid-template-columns:460px 1fr;gap:56px;align-items:start;margin-top:24px}
   .chi-grid > .chi-portrait{order:-1}
+  @media(max-width:1100px){.chi-grid{grid-template-columns:380px 1fr;gap:40px}}
   @media(max-width:900px){.chi-grid{grid-template-columns:1fr;gap:40px}}
   .chi-portrait{
     position:sticky;top:100px;
     border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
     background:var(--bg-2);box-shadow:0 40px 100px rgba(24,24,26,.20);
     transform-origin:top left;
-    max-width:320px;
     width:100%;
   }
   .chi-portrait img{width:100%;height:auto;display:block}
   @media(max-width:760px){
-    .chi-portrait{position:relative;top:auto;width:100%;margin:0 auto;max-width:320px}
+    .chi-portrait{position:relative;top:auto;width:100%;margin:0 auto;max-width:460px}
     .chi-portrait img{aspect-ratio:auto}
   }
 
@@ -1016,21 +1016,20 @@
     .vita-grid{grid-template-columns:1fr 1fr}
   }
 
-  /* Body network · 37 trilioni di cellule · immagine a dimensioni native, casella adattata */
+  /* Body network · 37 trilioni di cellule · IMMAGINE SOPRA, testo SOTTO (foto rettangolare) */
   .body-network-sect{padding:clamp(80px,12vh,160px) var(--pad)}
   .body-network{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:0;
-    align-items:stretch; /* l'immagine determina l'altezza, il testo si allunga */
+    display:flex;flex-direction:column;gap:0;
     border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
-    background:radial-gradient(800px 500px at 0% 50%, rgba(45,45,224,.10), transparent 60%),
+    background:radial-gradient(800px 500px at 50% 0%, rgba(45,45,224,.10), transparent 60%),
                linear-gradient(180deg,rgba(255,255,255,.012),transparent);
     box-shadow:0 30px 80px rgba(0,0,0,.4);
   }
-  .body-network .bn-vis{align-self:stretch;display:block;line-height:0}
+  .body-network .bn-vis{display:block;line-height:0;width:100%}
   .bn-vis{position:relative;overflow:hidden;background:transparent;margin:0;padding:0}
-  .bn-vis img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease-smooth)}
+  .bn-vis img{width:100%;height:auto;object-fit:contain;display:block;transition:transform 1.4s var(--ease-smooth)}
   .body-network:hover .bn-vis img{transform:scale(1.02);filter:saturate(1.1)}
-  .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;justify-content:center}
+  .bn-text{padding:48px 56px;display:flex;flex-direction:column;gap:18px;align-items:flex-start;text-align:left}
   .bn-eyebrow{font-family:var(--ff-sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--brand-light)}
   .bn-title{font-family:var(--ff-display);font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0}
   .bn-body{font-size:15.5px;line-height:1.75;color:var(--ink-soft);margin:0;max-width:48ch}
