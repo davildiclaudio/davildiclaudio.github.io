@@ -1287,6 +1287,28 @@
     font-size:24px;
     margin-top:36px!important;
   }
+  /* Gancio Chi sono · specchio per il pubblico prima del racconto */
+  .chi-hook{
+    max-width:62ch;
+    margin:0 0 48px;
+    padding:28px 32px;
+    border-left:2px solid var(--gold);
+    background:linear-gradient(90deg, rgba(212,168,100,.05) 0%, transparent 100%);
+    border-radius:0 14px 14px 0;
+  }
+  .chi-hook p{
+    font-family:var(--ff-display);
+    font-size:clamp(17px, 1.6vw, 21px);
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .chi-hook p:last-child{margin-bottom:0}
+  .chi-hook em{color:var(--gold);font-style:italic}
+  .chi-hook strong{color:var(--ink);font-weight:500}
+  @media(max-width:760px){
+    .chi-hook{padding:22px 22px 22px 24px;margin-bottom:36px}
+  }
 
   /* Method — 3 assi · allineati verticalmente + flex column */
   .assi{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px;align-items:stretch}
@@ -2231,16 +2253,25 @@
     <div class="section-label" data-reveal><span>04</span> Chi sono</div>
     <h2 class="sect-h" data-split-words>Davil Di Claudio.</h2>
     <p class="chi-tag" data-reveal>Civitavecchia, 1996 · Roma, oggi · <em>Ricercatore della coscienza · Studioso di psicologia del profondo · Guida e mental coach</em></p>
+
+    <div class="chi-hook" data-reveal>
+      <p>Hai costruito una vita che, dall'esterno, <strong>regge</strong>. Hai i numeri, i ruoli, le foto giuste. Eppure quando il rumore si spegne e resti solo con te stesso, una voce torna sempre uguale: <em>non era questo. O forse lo era — ma non basta più.</em></p>
+      <p>Se ti riconosci in queste righe, fermati un attimo. La storia che sto per raccontarti è la mia, ma riguarda anche te. Te la racconto perché prima di sedermi al tavolo come coach, <strong>sono stato esattamente nel punto in cui forse ti trovi adesso</strong> — e conosco, dal di dentro, l'unico varco che porta fuori.</p>
+    </div>
+
     <div class="chi-grid">
       <div class="chi-col-text">
-        <p class="quote-big" data-reveal>«A venticinque anni piangevo in auto e riempivo carrelli che non mi servivano — la gabbia dorata che sembrava successo, e dentro una notte senza fondo. A ventisei è arrivato il richiamo dell'anima: quando l'anima chiama, <em>o rispondi, o lei ti ferma.</em> Ho risposto.»</p>
+        <p class="quote-big" data-reveal>«Sono partito dalla fabbrica di Tarquinia, millecentocinquanta euro al mese in mezzo al rumore. Sono arrivato ai sei milioni di dollari fatturati a Dubai. Tra i due fuochi passa un centimetro: <em>è il varco esatto dove oggi accompagno chi mi sceglie.</em>»</p>
         <div class="prose" data-reveal>
-          <p>Tuta da meccanico prima dell'università. Porta a porta — luce e gas — quando ancora la gente apriva la porta. Reti commerciali in tre continenti, sede a Dubai. Sei milioni di dollari fatturati in un anno. Una richiesta di matrimonio davanti a quindicimila persone, davanti alla donna dei miei sogni. <strong>Avevo vinto, secondo qualunque metro contemporaneo.</strong></p>
-          <p>Poi è arrivata la chiamata che non si scrive su LinkedIn — un <em>passaggio iniziatico</em>, il tipo di traversata dopo cui non sei più la stessa persona. E di cui, oggi, ringrazio. Da quella soglia è uscito tutto il resto.</p>
-          <p>Mi alleno tre volte alla settimana — corsa, nuoto, ciclismo. Non per estetica. Perché <em>il pensiero che non passa per il corpo resta un'ipotesi.</em> Lungo la strada ho incontrato i pensieri di <strong>Jung</strong>, di <strong>Assagioli</strong> e di <strong>Zeland</strong>. Non li ho cercati come maestri da venerare: mi ci sono <em>ritrovato</em>. Erano lì già da tempo, come se descrivessero qualcosa che già conoscevo senza saperlo nominare. Sono diventati i miei riferimenti operativi, i compagni con cui apro ogni sessione.</p>
-          <p>Condivido con <strong>Albert Einstein</strong> due dettagli che ho preso, con tutta l'umiltà del caso, come una piccola conferma che esistono fili invisibili: la stessa <em>data di nascita</em> — il 14 marzo — e lo stesso <em>numero pitagorico del destino, il 33</em>. Non lo dico per paragonarmi a un genio. Lo dico perché certe sincronicità, quando le ascolti, ti orientano. La mia mi ha indicato la via dello studio, della ricerca interiore e del servizio.</p>
-          <p>Ho scritto <em>«Io posso farcela»</em> e <em>«PNL Esoterica»</em> perché certe cose, se non si scrivono, si perdono. Studio anche ciò che le università non insegnano — alchimia interiore, archetipi attivi, leggi del campo. Non per posa esoterica: perché <strong>senza quel piano, metà di ciò che vedo in sessione non avrebbe spiegazione.</strong></p>
-          <p>Lavoro a tempo pieno e con poche persone alla volta — per <em>rispetto del tempo di tutti</em>, mio e tuo. Sono un coach e, prima ancora, un compagno di cammino.</p>
+          <p><strong>Mondo ordinario.</strong> Sono nato il 14 marzo 1996 a Civitavecchia, da una madre di sedici anni e da un padre che è scomparso il giorno stesso. Sono cresciuto sotto il peso di un nome che non si pronunciava, con la dislessia che fa sembrare ottuso un bambino sveglio e il bullismo che ti chiude prima che impari ad aprirti. <em>L'ordinarietà mi è stata negata fin dall'inizio</em> — oggi so che è stata la prima delle benedizioni travestite.</p>
+          <p><strong>Le prime perdite.</strong> A dieci anni se ne è andato l'amico più caro. A quattordici ho incontrato per la prima volta mio padre — e ho scoperto che certe attese non si chiudono: si trasformano. A diciotto vendevo gas porta a porta tra rifiuti e porte sbattute in faccia. A ventidue la fabbrica di tornitura a Tarquinia mi prendeva otto ore al giorno per millecentocinquanta euro al mese, in mezzo al rumore e a persone che parlavano solo di quanto la vita fosse storta. <strong>Era il bivio</strong>: restare e morire dentro, o rischiare tutto.</p>
+          <p><strong>La soglia.</strong> A ventitré anni ho scelto la seconda. Niente paracadute, niente piano B: ho lasciato la fabbrica e mi sono giocato l'intera carta sull'unica cosa che avevo — la parola, la disciplina, una visione che ancora non sapevo di avere. <em>Quando l'unico paracadute è il salto, impari a volare in fretta.</em></p>
+          <p><strong>L'ascesa.</strong> In quattro anni ho costruito reti commerciali in tre continenti, sede a Dubai, tremila persone attive nel mio gruppo. <strong>Sei milioni di dollari fatturati in un anno.</strong> Una richiesta di matrimonio davanti a quindicimila persone in Colombia, alla donna che credevo dei miei sogni. <em>Avevo vinto, secondo qualunque metro contemporaneo</em> — eppure più la cifra cresceva, più dentro si svuotava qualcosa.</p>
+          <p><strong>L'abisso.</strong> A ventisei anni la verità si è presentata <em>con la nitidezza di una macchia di caffè su una camicia bianca</em>: la donna a cui avevo chiesto di sposarmi davanti a quindicimila persone aveva detto sì sapendo che era no. Avevo percorso la china del successo sull'orlo di un baratro — un centimetro in più, sarei precipitato senza ritorno. È stato lì che, <strong>per la prima volta nella mia vita, ho chiesto aiuto.</strong></p>
+          <p><strong>Il ritorno e il maestro interno.</strong> Nella primavera del 2022 ho lasciato Dubai e sono tornato in Italia. Quattro anni di lavoro profondo: ipnosi regressiva, lavoro sciamanico, il perdono delle donne della mia vita — a partire da mia madre. Mi ci sono ritrovato nei pensieri di <strong>Jung</strong>, <strong>Assagioli</strong> e <strong>Zeland</strong>: non li ho cercati come maestri da venerare, mi ci sono <em>riconosciuto</em>. Erano lì già da tempo, come se descrivessero qualcosa che già conoscevo senza saperlo nominare.</p>
+          <p><strong>Il corpo.</strong> Mi alleno tre volte alla settimana — corsa, nuoto, ciclismo. Non per estetica. Perché <em>il pensiero che non passa per il corpo resta un'ipotesi.</em> Condivido con <strong>Albert Einstein</strong> due dettagli che ho preso, con tutta l'umiltà del caso, come una piccola conferma che esistono fili invisibili: la stessa <em>data di nascita</em> — il 14 marzo — e lo stesso <em>numero pitagorico del destino, il 33</em>. Non per paragonarmi a un genio: certe sincronicità, quando le ascolti, ti orientano.</p>
+          <p><strong>L'elisir.</strong> Ho scritto <em>«Io posso farcela»</em> e <em>«PNL Esoterica»</em> perché certe cose, se non si scrivono, si perdono. Studio anche ciò che le università non insegnano — alchimia interiore, archetipi attivi, leggi del campo. Non per posa esoterica: <strong>senza quel piano, metà di ciò che vedo in sessione non avrebbe spiegazione.</strong></p>
+          <p>Lavoro a tempo pieno e con poche persone alla volta — per <em>rispetto del tempo di tutti</em>, mio e tuo. Sono un coach e, prima ancora, un compagno di cammino. <strong>Se ce l'ho fatta io, può farcela chiunque</strong> — sicuro come il sole.</p>
           <p class="chi-signature">— Davil</p>
         </div>
       </div>
@@ -2508,7 +2539,7 @@
 
       <div class="prose" data-reveal style="max-width:68ch">
         <p>Le chiamano dipendenze. Sono molto di più: sono <strong>pendoli energetici</strong> che si nutrono della tua attenzione e ti restituiscono una microdose di sollievo per non sentire ciò che dovresti sentire.</p>
-        <p>Ho attraversato in prima persona la trappola delle sostanze — so di cosa parlo dal di dentro, non dal manuale. È proprio perché conosco il meccanismo dalla radice che posso guidarti fuori.</p>
+        <p>Ho attraversato in prima persona il meccanismo della dipendenza — so di cosa parlo dal di dentro, non dal manuale. È proprio perché conosco la dinamica dalla radice che posso guidarti fuori.</p>
         <p>Le diete, gli sforzi di volontà, le app di meditazione e perfino la psicoterapia spesso falliscono con le dipendenze per una ragione sola: lavorano sul <strong>sintomo</strong>, non sulla <strong>chimica del campo</strong>.</p>
         <p><strong>Bruce Lipton</strong> la chiama <em>programmazione subconscia</em>. <strong>Joe Dispenza</strong> la chiama <em>l'abitudine di essere te stesso</em>. I nomi cambiano. Il meccanismo no.</p>
       </div>
