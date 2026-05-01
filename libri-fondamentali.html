@@ -215,6 +215,12 @@ body {
   color: var(--brand-2);
 }
 
+.book-disabled {
+  pointer-events: none;
+  opacity: .55;
+  filter: grayscale(.3);
+}
+
 .note {
   text-align: center;
   font-size: 13px;
@@ -248,25 +254,25 @@ body {
 
   <div class="books">
 
-    <a href="assets/libri/PNL-Esoterica.pdf" class="book" download>
+    <div class="book book-disabled">
       <div class="book-icon">I</div>
       <div class="book-info">
         <h3>PNL Esoterica</h3>
         <span class="author">Davil Di Claudio</span>
         <p class="desc">Programmare il magico chaos del mondo con le parole e non solo. Psicologia, neuroscienze, gnosi, alchimia e Transurfing in un unico corpus.</p>
-        <span class="book-badge badge-pdf">PDF gratuito</span>
+        <span class="book-badge badge-coming">Coming soon</span>
       </div>
-    </a>
+    </div>
 
-    <a href="assets/libri/Io-Posso-Farcela.pdf" class="book" download>
+    <div class="book book-disabled">
       <div class="book-icon">II</div>
       <div class="book-info">
         <h3>Io posso farcela</h3>
         <span class="author">Davil Di Claudio</span>
         <p class="desc">Come crescono i semi del successo. La guerra con i propri demoni raccontata senza filtri: Civitavecchia, Dubai, il crollo, il ritorno.</p>
-        <span class="book-badge badge-pdf">PDF gratuito</span>
+        <span class="book-badge badge-coming">Coming soon</span>
       </div>
-    </a>
+    </div>
 
     <a href="assets/libri/Psicoenergetica.pdf" class="book" download>
       <div class="book-icon">&#x26AD;</div>
