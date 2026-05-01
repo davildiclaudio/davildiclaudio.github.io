@@ -11,6 +11,80 @@
 
   const SYSTEM_PROMPT = `Sei l'**Interprete dei Sogni di Davil Di Claudio**, mental coach. Lavori nella cornice della psicologia del profondo junghiana, integrata con archetipica (Hillman), ricerca contemporanea (von Franz, Bosnak, Aizenstat, Johnson, Taylor, Woodman) e neuroscienze del sogno (Hobson, Solms, Walker, Revonsuo). Non sei un GPT generico: il tuo standard è quello di un dream worker formato in un istituto junghiano, con la lucidità di un coach e la cautela di un clinico.
 
+# Funzionamento a due fasi (IMPORTANTISSIMO)
+
+Lavori in **due turni**:
+
+**Turno 1 (APPROFONDIMENTO)** — appena ricevi il sogno, decidi se hai abbastanza materiale per una lettura davvero personale. Quasi sempre **non lo hai**: i simboli sono iperdeterminati (un serpente per Davil ≠ un serpente per chi guarda Indiana Jones da bambino). Per leggere bene servono **le associazioni personali del sognatore**, i suoi **aggettivi d'istinto**, le sue **risonanze**.
+
+**Quando chiedere approfondimento (default)**:
+- Il sogno è breve, frammentario, o ha 1-3 figure principali da esplorare.
+- Compaiono figure umane (madre, padre, partner, sconosciuto, bambino, sé doppio).
+- Compaiono animali, oggetti carichi, luoghi specifici (casa d'infanzia, posto inventato, bosco).
+- Mancano del tutto associazioni personali nel materiale fornito.
+- Il sognatore non ha dato contesto di vita o ne ha dato pochissimo.
+
+**Quando NON chiedere approfondimento (eccezioni)**:
+- Il sogno è già lungo e ricco di dettagli + associazioni personali esplicite + contesto biografico denso (>3 paragrafi totali).
+- Sogno traumatico (ripetizione fedele di evento reale): non chiedere associazioni, vai direttamente al messaggio di tutela e indirizzo a un professionista.
+- Sogno chiaramente piccolo/residuo diurno (meno di 3 righe, narrazione banale, nessun affetto significativo): puoi procedere con lettura breve.
+
+In tutti gli altri casi: **chiedi approfondimento**.
+
+**Turno 2 (LETTURA)** — dopo che il sognatore ha risposto alle tue domande, fai l'interpretazione finale completa nelle 7 sezioni canoniche (formato sotto), **integrando** le sue associazioni: i 3 aggettivi *positivi* diventano la mappa delle **risorse / lato luminoso** della figura; i 3 aggettivi *negativi* diventano la mappa dell'**Ombra / aspetto rimosso** che chiede integrazione; le associazioni personali aprono il piano biografico (oggettivo) e correggono o approfondiscono il piano archetipico.
+
+## Formato del Turno 1 (approfondimento)
+
+Quando chiedi approfondimento, rispondi ESATTAMENTE in questo formato (la prima riga è obbligatoria):
+
+\`\`\`
+<!--APPROFONDIMENTO-->
+## Mi serve un passaggio in più
+
+Una breve frase (1-2 righe) che spiega *al sognatore* perché stai chiedendo: i simboli del sogno sono iperdeterminati, le sue associazioni li renderanno specifici e potenti.
+
+### Per [NOME FIGURA/SIMBOLO 1] — *(es. "tua madre nel sogno", "il serpente", "la casa abbandonata")*
+- **3 aggettivi positivi** che ti vengono d'istinto (di pancia, in 5 secondi, senza pensarci).
+- **3 aggettivi negativi** che ti vengono d'istinto (idem, senza filtri).
+- **Prima associazione personale**: cosa/chi/quando ti viene in mente *adesso* davanti a questa figura? (può essere una persona reale, una memoria, un luogo, una scena di film, una sensazione corporea — la prima cosa).
+
+### Per [NOME FIGURA/SIMBOLO 2]
+*(stesso schema)*
+
+### Per [NOME FIGURA/SIMBOLO 3] *(opzionale, solo se è davvero centrale)*
+*(stesso schema)*
+
+### Domande di contesto
+- *(1-3 domande aperte e specifiche al sogno: contesto di vita di chi sogna, momento attuale, eventi recenti che potrebbero aver innescato il sogno. Niente generiche tipo "come ti senti in generale". Esempio buono: "stai vivendo qualche tipo di soglia in questo periodo — fine relazione, cambio professionale, lutto, scelta importante?")*
+
+> **Come rispondere**: scrivi liberamente, anche solo per punti. Non c'è giusto o sbagliato. Le prime cose che ti vengono sono le più preziose. Quando hai finito invia: io intreccio tutto e leggo il sogno con queste tue parole.
+\`\`\`
+
+**Regole strette per il Turno 1**:
+- La PRIMA riga deve essere **esattamente** \`<!--APPROFONDIMENTO-->\` — è un marker tecnico, non rimuoverlo, non modificarlo.
+- Scegli **da 2 a 3 figure/simboli**. Non di più: l'utente si stanca. La scelta è chirurgica: prendi i nodi simbolici più *carichi* del sogno, quelli da cui dipende l'interpretazione.
+- I nomi delle figure devono essere **dal sogno specifico**, non generici. Non "la figura femminile" ma "la donna sconosciuta in cucina".
+- Le domande di contesto sono **massimo 3**, e solo se davvero servono. Se il sognatore ha già dato contesto, scendi a 0-1.
+- Tono del Turno 1: caldo ma asciutto, *invitante*, mai burocratico.
+- **Nessuna interpretazione ancora** in questa fase. Stai solo raccogliendo materiale.
+
+## Formato del Turno 2 (lettura finale)
+
+Dopo che ricevi le risposte del sognatore, fai l'interpretazione completa nelle **7 sezioni** descritte sotto. Inizi DIRETTAMENTE con \`## 1. Riformulazione fenomenologica\` (nessun marker, nessuna intro). **Integri attivamente** le associazioni che il sognatore ti ha dato:
+- I **3 aggettivi positivi** → mappa delle **risorse** / aspetti luminosi attivi nel sogno.
+- I **3 aggettivi negativi** → mappa dell'**Ombra** / aspetti rimossi che il sogno sta riportando alla luce.
+- Le **associazioni personali** → connessioni biografiche (piano oggettivo o soggettivo specifico) che fanno scendere l'archetipo nella vita concreta.
+- Le **domande di contesto** → orientano la lettura compensatoria e prospettica al *momento di vita reale*.
+
+Nella sezione **3. Simboli e immagini** e nella **4. Lettura compensatoria**, **cita esplicitamente** uno o due aggettivi/associazioni del sognatore (in corsivo) per mostrare come la lettura è cucita su di lui — non un template generico.
+
+## Quando salti il Turno 1
+
+In tre casi vai *direttamente* al Turno 2 (lettura), senza approfondimento:
+1. **Sogno traumatico**: produci una risposta breve (200-300 parole) che NON interpreta, riconosce il peso, e indirizza a un professionista (EMDR, somatic experiencing, psicoterapia). Includi linee di emergenza se l'allarme è alto: 112, Telefono Amico 02 2327 2327.
+2. **Sogno piccolo/residuo diurno**: una lettura breve nelle 7 sezioni ma più asciutta (400-600 parole), senza forzare archetipi che non ci sono.
+3. **Sognatore già super-prolisso**: ha scritto >3 paragrafi con dettagli, associazioni, contesto biografico. In quel caso vai dritto al Turno 2.
+
 # Identità e voce
 - Parli **italiano colto, pulito, mai accademico**. Frasi brevi e dense. Niente gergo psicologistico vuoto ("processo", "energia bloccata", "blocco emotivo" sono banditi se non specificati).
 - Tono: **serio, caldo, lucido, leggermente austero**. Mai oracolare, mai motivazionale, mai esoterico vago, mai New Age, mai "guru".
@@ -181,6 +255,10 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     h = h.replace(/^# (.+)$/gm, '<h2>$1</h2>');
     h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     h = h.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    h = h.replace(/^(?:&gt; .+\n?)+/gm, (block) => {
+      const lines = block.trim().split('\n').map(l => l.replace(/^&gt; /, '').trim());
+      return '<blockquote>' + lines.join(' ') + '</blockquote>';
+    });
     h = h.replace(/^(?:[-*] .+\n?)+/gm, (block) => {
       const items = block.trim().split('\n').map(l => l.replace(/^[-*] /, '').trim());
       return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
@@ -196,11 +274,10 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     return h;
   }
 
-  /* ---------- Anthropic API call ---------- */
-  async function interpretDream({ apiKey, dream, context }) {
-    const userContent = (context && context.trim())
-      ? `Contesto di vita del sognatore (opzionale):\n${context.trim()}\n\n---\n\nIl sogno:\n${dream.trim()}`
-      : `Il sogno:\n${dream.trim()}`;
+  /* ---------- Anthropic API call (conversational) ---------- */
+  const APPROFONDIMENTO_MARKER = '<!--APPROFONDIMENTO-->';
+
+  async function callAnthropic(apiKey, messages) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {
@@ -211,9 +288,9 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 2000,
+        max_tokens: 2400,
         system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: userContent }]
+        messages
       })
     });
     if (!res.ok) {
@@ -228,6 +305,20 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     const text = data?.content?.[0]?.text || '';
     if (!text) throw new Error('Risposta vuota dall\'API.');
     return text;
+  }
+
+  function buildFirstMessage({ dream, context }) {
+    return (context && context.trim())
+      ? `Contesto di vita del sognatore (opzionale):\n${context.trim()}\n\n---\n\nIl sogno:\n${dream.trim()}`
+      : `Il sogno:\n${dream.trim()}`;
+  }
+
+  function isApprofondimento(text) {
+    return text.trim().startsWith(APPROFONDIMENTO_MARKER);
+  }
+
+  function stripMarker(text) {
+    return text.replace(APPROFONDIMENTO_MARKER, '').trim();
   }
 
   /* ---------- Modal mount ---------- */
@@ -264,6 +355,16 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
       </div>
       <div class="dream-error" id="dream-error" style="display:none"></div>
     </div>
+    <div class="dream-body" data-step="questions" style="display:none">
+      <div class="dream-questions" id="dream-questions"></div>
+      <label class="dream-label" for="dream-answers">Le tue risposte <span class="dream-meta">— scrivi liberamente, anche solo per punti</span></label>
+      <textarea id="dream-answers" class="dream-textarea" rows="10" placeholder="Per la figura 1: positivi — ... · negativi — ... · associazione — ...&#10;Per la figura 2: ..."></textarea>
+      <div class="dream-actions">
+        <button class="dream-submit" id="dream-go-2">Invia e leggi il sogno</button>
+        <span class="dream-hint">~15 secondi</span>
+      </div>
+      <div class="dream-error" id="dream-error-2" style="display:none"></div>
+    </div>
     <div class="dream-body dream-result-wrap" data-step="result" style="display:none">
       <div class="dream-result" id="dream-result"></div>
       <div class="dream-actions">
@@ -274,7 +375,7 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     <div class="dream-body" data-step="loading" style="display:none">
       <div class="dream-loading">
         <div class="dream-spinner"></div>
-        <div class="dream-loading-text">Sto leggendo il sogno…</div>
+        <div class="dream-loading-text" id="dream-loading-text">Sto leggendo il sogno…</div>
       </div>
     </div>
     <div class="dream-foot">
@@ -327,6 +428,15 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
 .dream-spinner{width:40px;height:40px;border:2px solid rgba(212,168,100,.2);border-top-color:#d4a864;border-radius:50%;margin:0 auto 18px;animation:dreamSpin .9s linear infinite}
 @keyframes dreamSpin{to{transform:rotate(360deg)}}
 .dream-loading-text{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:#b5b1a8}
+.dream-questions{font-family:'Fraunces',serif;font-size:15.5px;line-height:1.7;color:#e8e5dd;margin-bottom:8px;padding-bottom:8px}
+.dream-questions h2{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:0 0 12px;color:#f2efe9}
+.dream-questions h3{font-family:'Fraunces',serif;font-weight:500;font-size:16px;margin:22px 0 8px;color:#d4a864;letter-spacing:.02em}
+.dream-questions p{margin:0 0 12px}
+.dream-questions ul,.dream-questions ol{margin:6px 0 12px;padding-left:22px}
+.dream-questions li{margin:4px 0;line-height:1.6}
+.dream-questions strong{color:#f2efe9;font-weight:600}
+.dream-questions em{color:#d4a864;font-style:italic}
+.dream-questions blockquote{margin:18px 0;padding:12px 16px;border-left:2px solid #d4a864;background:rgba(212,168,100,.06);border-radius:6px;font-size:14px;color:#b5b1a8;font-style:italic}
 .dream-result{font-family:'Fraunces',serif;font-size:15.5px;line-height:1.7;color:#e8e5dd;max-height:60vh;overflow-y:auto;padding-right:8px}
 .dream-result h2{font-family:'Fraunces',serif;font-weight:400;font-size:22px;margin:24px 0 12px;color:#f2efe9}
 .dream-result h3{font-family:'Fraunces',serif;font-weight:500;font-size:17px;margin:24px 0 10px;color:#d4a864;letter-spacing:.02em}
@@ -364,9 +474,16 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     const keyInput = $('#dream-key');
     const remember = $('#dream-remember');
     const goBtn = $('#dream-go');
+    const goBtn2 = $('#dream-go-2');
     const errBox = $('#dream-error');
+    const errBox2 = $('#dream-error-2');
     const resultBox = $('#dream-result');
+    const questionsBox = $('#dream-questions');
+    const answersInput = $('#dream-answers');
+    const loadingText = $('#dream-loading-text');
     const keyStatus = $('.dream-key-status');
+
+    let messages = [];
 
     const saved = localStorage.getItem(KEY_STORAGE);
     if (saved) { keyInput.value = saved; keyStatus.textContent = '✓ memorizzata'; }
@@ -383,6 +500,28 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeDreamBot();
     });
+
+    function apiErrorMessage(err) {
+      const status = err.status || 0;
+      if (status === 401) return '<strong>API key non valida.</strong> Controlla la chiave — deve iniziare con <code>sk-ant-</code>. Generane una nuova su <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.';
+      if (status === 429) return '<strong>Limite raggiunto.</strong> Hai esaurito il credito o le chiamate al minuto. Verifica su console.anthropic.com.';
+      if (/Failed to fetch|NetworkError|CORS/i.test(err.message || '')) return '<strong>Connessione fallita.</strong> Controlla la rete. Se persiste, l\'API Anthropic potrebbe avere problemi temporanei.';
+      return '<strong>Errore.</strong> ' + (err.message || String(err));
+    }
+
+    function showResult(text) {
+      resultBox.innerHTML = mdToHtml(text);
+      resultBox.dataset.raw = text;
+      showStep('result');
+      resultBox.scrollTop = 0;
+    }
+
+    function showQuestions(text) {
+      questionsBox.innerHTML = mdToHtml(stripMarker(text));
+      answersInput.value = '';
+      showStep('questions');
+      questionsBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     goBtn.addEventListener('click', async () => {
       const apiKey = keyInput.value.trim();
@@ -405,32 +544,61 @@ Se anche un solo punto non è ok, riscrivi prima di rispondere.`;
       if (remember.checked) localStorage.setItem(KEY_STORAGE, apiKey);
       else localStorage.removeItem(KEY_STORAGE);
 
+      const firstUserMsg = buildFirstMessage({ dream, context });
+      messages = [{ role: 'user', content: firstUserMsg }];
+
+      loadingText.textContent = 'Sto leggendo il sogno…';
       showStep('loading');
       try {
-        const text = await interpretDream({ apiKey, dream, context });
-        resultBox.innerHTML = mdToHtml(text);
-        resultBox.dataset.raw = text;
-        showStep('result');
-        resultBox.scrollTop = 0;
+        const reply = await callAnthropic(apiKey, messages);
+        messages.push({ role: 'assistant', content: reply });
+        if (isApprofondimento(reply)) {
+          showQuestions(reply);
+        } else {
+          showResult(reply);
+        }
       } catch (err) {
         showStep('form');
-        const status = err.status || 0;
-        let msg;
-        if (status === 401) {
-          msg = '<strong>API key non valida.</strong> Controlla la chiave — deve iniziare con <code>sk-ant-</code>. Generane una nuova su <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.';
-        } else if (status === 429) {
-          msg = '<strong>Limite raggiunto.</strong> Hai esaurito il credito o le chiamate al minuto. Verifica su console.anthropic.com.';
-        } else if (/Failed to fetch|NetworkError|CORS/i.test(err.message || '')) {
-          msg = '<strong>Connessione fallita.</strong> Controlla la rete. Se persiste, l\'API Anthropic potrebbe avere problemi temporanei.';
-        } else {
-          msg = '<strong>Errore.</strong> ' + (err.message || String(err));
-        }
-        errBox.innerHTML = msg;
+        errBox.innerHTML = apiErrorMessage(err);
         errBox.style.display = 'block';
       }
     });
 
+    goBtn2.addEventListener('click', async () => {
+      const apiKey = keyInput.value.trim();
+      const answers = answersInput.value.trim();
+      errBox2.style.display = 'none';
+
+      if (!apiKey) {
+        errBox2.innerHTML = '<strong>API key mancante.</strong> La key è scomparsa — torna al form e reinseriscila.';
+        errBox2.style.display = 'block';
+        return;
+      }
+      if (!answers || answers.length < 10) {
+        errBox2.innerHTML = '<strong>Risposte troppo brevi.</strong> Anche poche righe vanno bene — bastano gli aggettivi e una prima associazione.';
+        errBox2.style.display = 'block';
+        return;
+      }
+
+      messages.push({ role: 'user', content: `Le mie risposte:\n\n${answers}` });
+
+      loadingText.textContent = 'Sto cucendo la lettura sulle tue parole…';
+      showStep('loading');
+      try {
+        const reply = await callAnthropic(apiKey, messages);
+        messages.push({ role: 'assistant', content: reply });
+        showResult(reply);
+      } catch (err) {
+        showStep('questions');
+        errBox2.innerHTML = apiErrorMessage(err);
+        errBox2.style.display = 'block';
+      }
+    });
+
     $('#dream-again').addEventListener('click', () => {
+      messages = [];
+      $('#dream-text').value = '';
+      $('#dream-context').value = '';
       showStep('form');
       $('#dream-text').focus();
     });
