@@ -489,6 +489,22 @@
   updateTimer();
   setInterval(updateTimer, 1000);
 
+  // Blocca download diretto dei PDF se il form non è stato compilato
+  pdfCard?.querySelectorAll('.pdf-pill').forEach((pill) => {
+    pill.addEventListener('click', (e) => {
+      if (pdfDownloads?.hasAttribute('hidden')) {
+        e.preventDefault();
+        const nameInput = pdfForm?.querySelector('input[name="name"]');
+        pdfForm?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (pdfStatus) {
+          pdfStatus.style.color = 'var(--gold)';
+          pdfStatus.textContent = 'Compila nome e email qui sopra per ricevere i due PDF.';
+        }
+        setTimeout(() => nameInput?.focus(), 600);
+      }
+    });
+  });
+
   pdfForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fd = new FormData(pdfForm);
