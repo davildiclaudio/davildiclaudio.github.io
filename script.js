@@ -88,13 +88,13 @@
         1.4 + (i * 0.04));
     });
 
-    // 5. Logo materializza con scale + opacity (mistico, lento)
+    // 5. Logo materializza con scale + opacity (mistico, lento e fluido)
     tl.fromTo(logo,
-      { opacity: 0, scale: 1.18, rotateZ: -2 },
-      { opacity: 1, scale: 1, rotateZ: 0, duration: 1.8, ease: 'power3.out' }, 1.2);
+      { opacity: 0, scale: 1.12, rotateZ: -1.5 },
+      { opacity: 1, scale: 1, rotateZ: 0, duration: 2.4, ease: 'sine.out' }, 1.2);
 
-    // 6. Logo respira sottile (breathing)
-    tl.to(logo, { scale: 1.02, duration: 1.4, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 2.6);
+    // 6. Logo respira sottile (breathing) — più morbido
+    tl.to(logo, { scale: 1.015, duration: 1.8, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 2.8);
 
     // 7. Hold + start hero anim, then crossfade out
     tl.add(() => startHeroAnim(), 4.5);
@@ -1025,7 +1025,7 @@
             // padding verticale per non clippare accenti (È) né discendenti (g, q, p)
             wrap.style.cssText = 'display:inline-block;overflow:hidden;line-height:inherit;vertical-align:top;padding:.18em 0;margin:-.18em 0';
             const inner = document.createElement('span');
-            inner.style.cssText = 'display:inline-block;will-change:transform,opacity';
+            inner.style.cssText = 'display:inline-block';
             inner.textContent = ch;
             wrap.appendChild(inner);
             word.appendChild(wrap);
@@ -1054,7 +1054,7 @@
             w.className = 'w';
             w.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:bottom';
             const inner = document.createElement('span');
-            inner.style.cssText = 'display:inline-block;will-change:transform';
+            inner.style.cssText = 'display:inline-block';
             inner.textContent = chunk;
             w.appendChild(inner);
             frag.appendChild(w);
@@ -1131,20 +1131,21 @@
         { opacity: 0, y: isMob ? 20 : 36, scale: isMob ? 1 : 0.99, filter: isMob ? 'none' : 'blur(4px)' },
         { opacity: 1, y: 0, scale: 1, filter: isMob ? 'none' : 'blur(0px)',
           duration: revDur, ease: isMob ? 'power2.out' : 'power3.out',
-          scrollTrigger: { trigger: el, start: revStart, toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: el, start: revStart, toggleActions: 'play none none none', once: true }
         }
       );
     });
 
     /* === [data-split-words] — sect-h flip-up reveal === */
     $$('[data-split-words]').forEach(h => {
+      if (isMob) { h.style.opacity = '1'; return; }
       const inners = splitWords(h);
       if (!inners) return;
       gsap.set(inners, { yPercent: 130, rotate: 6, opacity: 0 });
       gsap.to(inners, {
         yPercent: 0, rotate: 0, opacity: 1,
-        duration: isMob ? 0.5 : 0.8, ease: isMob ? 'power2.out' : 'power3.out', stagger: isMob ? 0.03 : 0.04,
-        scrollTrigger: { trigger: h, start: revStart, toggleActions: 'play none none none' }
+        duration: 0.8, ease: 'power3.out', stagger: 0.04,
+        scrollTrigger: { trigger: h, start: revStart, toggleActions: 'play none none none', once: true }
       });
     });
 
@@ -1198,7 +1199,7 @@
         { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
           duration: 0.7, ease: 'power3.out',
           delay: i * 0.08,
-          scrollTrigger: { trigger: c.parentElement, start: 'top 82%', toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: c.parentElement, start: 'top 82%', toggleActions: 'play none none none', once: true }
         }
       );
     });
@@ -1209,7 +1210,7 @@
         { opacity: 0, x: -40, filter: 'blur(5px)' },
         { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.7, ease: 'power3.out',
           delay: (i % 4) * 0.06,
-          scrollTrigger: { trigger: s, start: 'top 88%', toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: s, start: 'top 88%', toggleActions: 'play none none none', once: true }
         }
       );
     });
@@ -1222,7 +1223,7 @@
       gsap.fromTo([num, h, body].filter(Boolean),
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1.2, ease: 'power4.out', stagger: 0.1,
-          scrollTrigger: { trigger: cap, start: 'top 85%', toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: cap, start: 'top 85%', toggleActions: 'play none none none', once: true }
         }
       );
     });
@@ -1233,7 +1234,7 @@
       gsap.fromTo(items,
         { opacity: 0, x: -30, filter: 'blur(4px)' },
         { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out', stagger: 0.06,
-          scrollTrigger: { trigger: ul, start: 'top 85%', toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: ul, start: 'top 85%', toggleActions: 'play none none none', once: true }
         }
       );
     });
@@ -1243,13 +1244,13 @@
       const num = label.querySelector('span');
       gsap.from(label, {
         opacity: 0, x: -60, duration: 1.1, ease: 'power4.out',
-        scrollTrigger: { trigger: label, start: 'top 92%' }
+        scrollTrigger: { trigger: label, start: 'top 92%', once: true }
       });
       if (num) {
         gsap.from(num, {
           scale: 0, rotate: -180, opacity: 0,
           duration: 1.1, ease: 'back.out(2.5)', delay: 0.15,
-          scrollTrigger: { trigger: label, start: 'top 92%' }
+          scrollTrigger: { trigger: label, start: 'top 92%', once: true }
         });
       }
     });
@@ -1263,7 +1264,7 @@
         {
           opacity: 1, scale: 1, y: 0, rotate: 0, filter: 'blur(0px)',
           duration: 1.4, ease: 'power4.out', delay: i * 0.12,
-          scrollTrigger: { trigger: '.vita-grid', start: 'top 85%', toggleActions: 'play none none none' },
+          scrollTrigger: { trigger: '.vita-grid', start: 'top 85%', toggleActions: 'play none none none', once: true },
           onComplete: () => { p.style.transform = ''; } // restore CSS transform (rotation finale)
         }
       );
@@ -1272,8 +1273,10 @@
     /* === Hero parallax === */
     const orb1 = $('.orb-1');
     const orb2 = $('.orb-2');
-    if (orb1) gsap.to(orb1, { xPercent: 25, yPercent: 30, duration: 18, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    if (orb2) gsap.to(orb2, { xPercent: -22, yPercent: -28, duration: 24, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    if (!isMob) {
+      if (orb1) gsap.to(orb1, { xPercent: 25, yPercent: 30, duration: 18, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      if (orb2) gsap.to(orb2, { xPercent: -22, yPercent: -28, duration: 24, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    }
     if (hero) {
       gsap.to('.orb-1, .orb-2', {
         yPercent: 80, ease: 'none',
@@ -1302,7 +1305,7 @@
         gsap.set(ws, { yPercent: 130, rotate: 8 });
         gsap.to(ws, {
           yPercent: 0, rotate: 0, duration: 1.4, ease: 'power4.out', stagger: 0.06,
-          scrollTrigger: { trigger: ctaH, start: 'top 90%', toggleActions: 'play none none none' }
+          scrollTrigger: { trigger: ctaH, start: 'top 90%', toggleActions: 'play none none none', once: true }
         });
       }
     }
