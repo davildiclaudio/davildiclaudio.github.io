@@ -1959,19 +1959,19 @@
       0 0 40px rgba(124,58,237,.12) !important;
   }
 
-  /* Hero · gradients accentati su sfondo chiaro */
+  /* Hero · gradients accentati su sfondo chiaro · più vivi */
   .hero{
     background:
-      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.14), transparent 60%),
-      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.10), transparent 55%),
-      radial-gradient(600px 500px at 50% 50%, rgba(244,201,93,.08), transparent 65%),
+      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.30), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.22), transparent 55%),
+      radial-gradient(600px 500px at 50% 50%, rgba(244,201,93,.16), transparent 65%),
       #ffffff !important;
   }
   .hero-bg-clean{
     background:
-      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.14), transparent 60%),
-      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.10), transparent 55%),
-      radial-gradient(500px 400px at 50% 40%, rgba(244,201,93,.08), transparent 60%) !important;
+      radial-gradient(900px 600px at 20% 0%, rgba(124,58,237,.30), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.22), transparent 55%),
+      radial-gradient(500px 400px at 50% 40%, rgba(244,201,93,.16), transparent 60%) !important;
   }
 
   /* Nav · vetro bianco quando scrolled */
@@ -2020,9 +2020,19 @@
   .eyebrow{color:#c93a7a !important}
   .eyebrow::before{background:#c93a7a !important}
 
-  /* Orbs hero · meno saturi su bianco */
-  .orb-1{opacity:.10 !important}
-  .orb-2{opacity:.08 !important}
+  /* Orbs hero · saturazione media · vivi ma non opprimenti */
+  .orb-1{opacity:.22 !important}
+  .orb-2{opacity:.18 !important}
+
+  /* Background html globale · più vibrante e mosso */
+  html{
+    background:
+      radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+      radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+      radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+      radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%) !important;
+    background-attachment:fixed !important;
+  }
 
   /* Slideshow logo · sfondo bianco invece del blu cobalto */
   .logo-slideshow-stage{
@@ -2037,12 +2047,12 @@
   /* Manifesto · rimuove la sfumatura nera sul bottom (era pensata per dark mode) */
   .manifesto::after{display:none !important}
 
-  /* Testi dorati · più leggibili su sfondo bianco (oro più scuro + grassetto) */
+  /* Testi dorati · oro brillante con ombra calda per leggibilità */
   :root{
-    --gold:#a7782a !important;
-    --gold-soft:#9a6e26 !important;
-    --gold-bright:#b88a1f !important;
-    --gold-deep:#7a5a1f !important;
+    --gold:#dba93b !important;
+    --gold-soft:#e6b94a !important;
+    --gold-bright:#f0c75a !important;
+    --gold-deep:#b88a25 !important;
   }
   .lead em,
   .hero-eyebrow,
@@ -2052,19 +2062,114 @@
   .mega em,
   h1 em, h2 em, h3 em,
   em{
-    color:#a7782a !important;
-    font-weight:600 !important;
+    color:#dba93b !important;
+    font-weight:500 !important;
+    text-shadow:
+      0 1px 2px rgba(90,60,10,.30),
+      0 0 1px rgba(140,95,20,.45);
   }
-  /* Hero headline più contrastata */
+  /* Hero headline · oro luminoso con ombra warm per contrasto */
   .hero-headline em,
-  .hero h1 em{
-    color:#8a5e16 !important;
-    font-weight:600 !important;
-    text-shadow:0 1px 0 rgba(255,255,255,.4);
+  .hero h1 em,
+  .m-line em{
+    color:#dba93b !important;
+    font-weight:500 !important;
+    text-shadow:
+      0 1px 3px rgba(90,60,10,.32),
+      0 0 1px rgba(140,95,20,.50);
+  }
+  /* Sezioni titoli · gold em più drammatico */
+  .sect-h em,
+  .mega em{
+    color:#cc9a2e !important;
+    font-weight:500 !important;
+    text-shadow:
+      0 2px 4px rgba(90,60,10,.28),
+      0 0 1px rgba(140,95,20,.48);
   }
   /* Link/keyword inline gold */
   .lead a,
   .lead strong{font-weight:600 !important}
+
+  /* === OMBRE LIGHT MODE · armoniche, eleganti, leggere ma in risalto === */
+
+  /* Card visuals · foto, slideshow, podcast frame · ombra soft con leggero tocco viola */
+  .card-visual,
+  .pilastro-with-visual .p-visual,
+  .strumento-card .s-vis,
+  .bn-vis,
+  .inline-figure,
+  .servizio-photo,
+  .podcast-frame,
+  .logo-slideshow-stage,
+  .ls-slide{
+    box-shadow:
+      0 12px 28px -8px rgba(20,15,40,.14),
+      0 4px 10px -2px rgba(124,58,237,.08),
+      0 0 0 1px rgba(124,58,237,.05) !important;
+  }
+
+  /* Banner full-width (Dipendenze + Storia) · ombra leggera ma presente */
+  .section-banner{
+    box-shadow:
+      0 24px 50px -16px rgba(20,15,40,.18),
+      0 8px 20px -6px rgba(124,58,237,.10),
+      0 0 0 1px rgba(124,58,237,.06) !important;
+  }
+
+  /* Hover foto · accent magenta sottile invece di blu pesante */
+  .servizio-photo:hover,
+  .pp-photo:hover,
+  .contatti-photo:hover,
+  .storia-inline-photo:hover,
+  .chi-portrait:hover{
+    box-shadow:
+      0 20px 44px -12px rgba(20,15,40,.22),
+      0 8px 20px -4px rgba(236,72,153,.14),
+      0 0 0 1px rgba(236,72,153,.18) !important;
+  }
+
+  /* CTA block · armonia warm */
+  .cta-block{
+    box-shadow:
+      0 16px 36px -12px rgba(124,58,237,.14),
+      0 0 0 1px rgba(236,72,153,.08) inset !important;
+  }
+
+  /* Bottoni primary · ombre più contenute su sfondo chiaro */
+  .btn-primary{
+    box-shadow:
+      0 6px 16px -4px rgba(124,58,237,.30),
+      0 2px 6px -1px rgba(236,72,153,.20),
+      0 0 0 1px rgba(236,72,153,.20) inset !important;
+  }
+  .btn-primary:hover{
+    box-shadow:
+      0 10px 24px -6px rgba(236,72,153,.40),
+      0 4px 10px -2px rgba(124,58,237,.25),
+      0 0 0 1px rgba(255,255,255,.20) inset !important;
+  }
+
+  /* Cards (asse, pilastro, ecc.) · ombre più leggere */
+  .asse,.pilastro,.piano,.rcard,.contatto-card,.tm,.dream-app,.body-network,.strumento-card{
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 10px 24px -10px rgba(20,15,40,.12),
+      0 0 0 1px rgba(124,58,237,.05) !important;
+  }
+  .asse:hover,.pilastro:hover,.piano:hover,.rcard:hover,.contatto-card:hover{
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 18px 36px -12px rgba(236,72,153,.18),
+      0 0 0 1px rgba(236,72,153,.22) !important;
+  }
+
+  /* Logo dropdown · meno pesante */
+  .logo-menu{
+    box-shadow:
+      0 16px 36px -12px rgba(20,15,40,.16),
+      0 0 0 1px rgba(124,58,237,.08) inset !important;
+  }
 </style>
 
 <!-- JSON-LD Schema.org — aggiornato per v2 -->
