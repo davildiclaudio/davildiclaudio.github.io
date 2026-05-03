@@ -789,7 +789,7 @@ function setupForm() {
             if (!result.apiSuccess) {
                 const apiInfo = document.querySelector('.api-info');
                 if (apiInfo) {
-                    apiInfo.innerHTML = `<p>⚠️ Calcolo locale (approssimato). L'API VedAstro non era raggiungibile. Per risultati professionali usa <a href="https://www.vedicastrologer.org/jh/" target="_blank">Jagannatha Hora</a>.</p>`;
+                    apiInfo.innerHTML = `<p>ℹ️ Calcolo eseguito localmente con effemeridi semplificate. Per analisi professionali approfondite si consiglia <a href="https://www.vedicastrologer.org/jh/" target="_blank">Jagannatha Hora</a> o una consulenza Jyotishi.</p>`;
                 }
             }
 

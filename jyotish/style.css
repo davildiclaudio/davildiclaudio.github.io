@@ -971,11 +971,31 @@ body {
 }
 
 @media (max-width: 768px) {
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .main-nav {
+        padding: 0.75rem 1rem;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+    }
+
+    .nav-brand {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
         top: 100%; left: 0; right: 0;
-        background: rgba(10, 14, 26, 0.98);
+        background: rgba(5, 3, 15, 0.98);
         flex-direction: column;
         padding: 1rem;
         border-bottom: 1px solid var(--card-border);
@@ -987,6 +1007,25 @@ body {
 
     .nav-toggle {
         display: block;
+        flex-shrink: 0;
+    }
+
+    .btn-gold.btn-ticket {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .hero {
+        padding: 5rem 1rem 3rem;
     }
 
     .hero-title {
@@ -997,12 +1036,44 @@ body {
         font-size: 1.3rem;
     }
 
+    .hero-quote {
+        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
+    }
+
     .section-title {
         font-size: 1.8rem;
     }
 
+    .calc-form,
+    .calc-results,
+    .knowledge-card,
+    .master-card,
+    .text-card,
+    .dasha-explanation {
+        padding: 1.25rem;
+    }
+
     .dasha-planet span {
         display: none;
+    }
+
+    .dasha-bar-label {
+        width: 60px;
+        font-size: 0.7rem;
+    }
+
+    .dasha-bar-dates {
+        font-size: 0.65rem;
+        width: 130px;
+    }
+
+    .data-table {
+        font-size: 0.75rem;
+    }
+
+    .data-table th, .data-table td {
+        padding: 0.4rem 0.4rem;
     }
 
     .texts-grid {
@@ -1015,6 +1086,29 @@ body {
 
     .master-category {
         grid-template-columns: 1fr;
+    }
+
+    .nakshatra-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .si-chart td {
+        font-size: 0.6rem;
+        padding: 2px;
+    }
+
+    .si-chart td .planet-in-house {
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-title {
+        display: none;
+    }
+
+    .btn-gold.btn-ticket {
+        padding: 0.45rem 0.7rem;
     }
 }
 
