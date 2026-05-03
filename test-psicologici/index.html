@@ -226,6 +226,34 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   .result-bar-name{flex:0 0 130px; font-size:14px}
 }
 
+/* Divisore schema (YSQ) */
+.schema-divider{
+  margin:36px 0 18px;
+  padding:22px 26px;
+  background:linear-gradient(135deg, rgba(124,58,237,.06), rgba(236,72,153,.04));
+  border-left:3px solid var(--cosmic-magenta);
+  border-radius:14px;
+  position:sticky; top:4px; z-index:5;
+  backdrop-filter:blur(6px);
+}
+.schema-divider .num{
+  font-family:var(--ff-sans); font-weight:500; font-size:11px;
+  letter-spacing:.32em; text-transform:uppercase; color:var(--cosmic-magenta);
+}
+.schema-divider h4{
+  font-family:var(--ff-display); font-style:italic; font-weight:500;
+  font-size:clamp(20px, 2.4vw, 26px); color:var(--gold);
+  text-shadow: 0 1px 2px rgba(90,60,10,.30), 0 0 1px rgba(140,95,20,.45);
+  margin:6px 0 4px; line-height:1.2;
+}
+.schema-divider .domain{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); font-weight:500; margin-bottom:8px}
+.schema-divider .desc{font-size:14px; color:var(--ink-soft); line-height:1.5; font-family:var(--ff-display); font-style:italic}
+.schema-divider:first-child{margin-top:0}
+.questions > .question:first-child{margin-top:0}
+@media (max-width:640px){
+  .schema-divider{padding:18px 20px; position:static}
+}
+
 /* Print / PDF */
 @media print{
   html, body{
@@ -471,7 +499,27 @@ const TESTS = {
       {v:5, label:"Quasi vero"},
       {v:6, label:"Vero"}
     ],
-    info: "108 affermazioni — 6 per ognuno dei 18 schemi. Indica quanto ciascuna frase ti rispecchia: rispondi di pancia, senza filtrare. Schemi con media ≥4/6 sono attivi. Tempo: ~15 min.",
+    info: "108 affermazioni — 6 per ognuno dei 18 schemi. Le domande sono raggruppate per schema cosi puoi riconoscere il tema mentre rispondi. Indica quanto ciascuna frase ti rispecchia: rispondi di pancia, senza filtrare. Schemi con media ≥4/6 sono attivi. Tempo: ~15 min.",
+    schemaInfo: {
+      "Abbandono":            {n:"01", domain:"Distacco e Rifiuto",       core:"Le persone importanti finiranno per andarsene"},
+      "Sfiducia/Abuso":       {n:"02", domain:"Distacco e Rifiuto",       core:"Gli altri prima o poi mi feriranno o useranno"},
+      "Deprivazione emotiva": {n:"03", domain:"Distacco e Rifiuto",       core:"Nessuno comprende davvero i miei bisogni"},
+      "Inadeguatezza/Vergogna":{n:"04",domain:"Distacco e Rifiuto",       core:"C'e qualcosa di sbagliato in me"},
+      "Isolamento sociale":   {n:"05", domain:"Distacco e Rifiuto",       core:"Sono diverso, non appartengo a nessun gruppo"},
+      "Dipendenza/Incompetenza":{n:"06",domain:"Autonomia compromessa",   core:"Non posso cavarmela da solo"},
+      "Vulnerabilita al pericolo":{n:"07",domain:"Autonomia compromessa", core:"Qualcosa di terribile sta per accadere"},
+      "Invischiamento/Sé indifferenziato":{n:"08",domain:"Autonomia compromessa", core:"La mia identita si confonde con quella dell'altro"},
+      "Fallimento":           {n:"09", domain:"Autonomia compromessa",    core:"Sono destinato/a a non riuscire"},
+      "Pretese/Grandiosita":  {n:"10", domain:"Limiti deficitari",        core:"Le regole non valgono per me"},
+      "Autocontrollo insufficiente":{n:"11",domain:"Limiti deficitari",   core:"Non tollero frustrazione e disciplina"},
+      "Sottomissione":        {n:"12", domain:"Etero-direzionalita",      core:"Devo cedere agli altri per evitare conflitti"},
+      "Auto-sacrificio":      {n:"13", domain:"Etero-direzionalita",      core:"I miei bisogni vengono sempre dopo quelli degli altri"},
+      "Ricerca approvazione": {n:"14", domain:"Etero-direzionalita",      core:"Il mio valore dipende dal giudizio esterno"},
+      "Negativita/Pessimismo":{n:"15", domain:"Ipervigilanza/Inibizione", core:"Aspettare il peggio mi protegge"},
+      "Inibizione emotiva":   {n:"16", domain:"Ipervigilanza/Inibizione", core:"Mostrare emozioni e segno di debolezza"},
+      "Standard severi":      {n:"17", domain:"Ipervigilanza/Inibizione", core:"Non sono mai abbastanza"},
+      "Punizione":            {n:"18", domain:"Ipervigilanza/Inibizione", core:"Chi sbaglia deve pagare"}
+    },
     questions: [
       // 1. Abbandono/Instabilita
       {q:"Una parte di me sa che le persone importanti, prima o poi, se ne andranno.", s:"Abbandono"},
@@ -1186,8 +1234,23 @@ function startTest(id){
 
 function renderQuestions(){
   const container = document.getElementById('questions');
-  container.innerHTML = currentTest.questions.map((q, i) => `
-    <div class="question" id="q${i}">
+  let html = '';
+  let lastSchema = null;
+  currentTest.questions.forEach((q, i) => {
+    // Divisore di gruppo (solo se test ha schemaInfo e q.s definito)
+    if(currentTest.schemaInfo && q.s && q.s !== lastSchema){
+      const info = currentTest.schemaInfo[q.s];
+      if(info){
+        html += `<div class="schema-divider">
+          <div class="num">Schema ${info.n} di 18</div>
+          <h4>${q.s}</h4>
+          <div class="domain">${info.domain}</div>
+          <div class="desc">"${info.core}"</div>
+        </div>`;
+      }
+      lastSchema = q.s;
+    }
+    html += `<div class="question" id="q${i}">
       <div class="q-num">Domanda ${i+1} di ${currentTest.questions.length}</div>
       <div class="q-text">${q.q}</div>
       <div class="options ${currentTest.scaleType !== 'yesno' ? 'likert' : ''}">
@@ -1198,8 +1261,9 @@ function renderQuestions(){
           </button>
         `).join('')}
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  });
+  container.innerHTML = html;
   updateProgress();
 }
 
