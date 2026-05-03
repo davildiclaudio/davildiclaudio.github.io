@@ -4,44 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profilo Esoterico-Archetipico · Davil</title>
-<meta name="theme-color" content="#05030f">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <style>
   :root {
-    --bg: #05030f;
-    --bg-2: #0e0628;
-    --bg-3: #1a0f3a;
-    --bg-card: rgba(20,14,50,.55);
-    --bg-card-2: rgba(30,20,60,.45);
-    --ink: #ece6fb;
-    --ink-soft: #b8afd6;
-    --ink-dim: #7a708f;
+    --bg: #ffffff;
+    --bg-2: #f4f4f7;
+    --bg-3: #eef0f5;
+    --bg-card: rgba(255,255,255,.85);
+    --bg-card-2: rgba(255,255,255,.75);
+    --ink: #15131c;
+    --ink-soft: #3d3a4a;
+    --ink-dim: #6b6878;
+    --white: #ffffff;
     --brand: #7c3aed;
+    --brand-electric: #2d2de0;
     --brand-light: #a78bfa;
+    --brand-glow: rgba(124,58,237,.45);
     --cosmic-violet: #7c3aed;
     --cosmic-cyan: #22d3ee;
     --cosmic-magenta: #ec4899;
     --cosmic-indigo: #4338ca;
-    --gold: #f4c95d;
-    --gold-soft: #e8c87a;
-    --gold-bright: #fff0c8;
-    --gold-deep: #d4a93d;
+    --gold: #dba93b;
+    --gold-soft: #e6b94a;
+    --gold-bright: #f0c75a;
+    --gold-deep: #b88a25;
+    --gold-pale: #f5deb3;
     --crimson: #c93a7a;
-    --border: rgba(180,150,240,.18);
-    --border-soft: rgba(180,150,240,.08);
-    --border-hover: rgba(236,90,160,.45);
-    --shadow-sm: 0 2px 12px rgba(0,0,0,.45);
-    --shadow-md: 0 24px 60px rgba(0,0,0,.55);
+    --crimson-bright: #ec5aa0;
+    --border: rgba(20,15,40,.10);
+    --border-soft: rgba(20,15,40,.05);
+    --border-hover: rgba(236,72,153,.45);
+    --shadow-sm: 0 2px 12px rgba(20,15,40,.06);
+    --shadow-md: 0 24px 60px rgba(20,15,40,.10);
+    --shadow-lg: 0 40px 100px rgba(20,15,40,.14);
     --ff-display: 'Fraunces', Georgia, serif;
     --ff-sans: 'Space Grotesk', system-ui, sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   html {
-    background: radial-gradient(ellipse at top, #0e0628 0%, #05030f 60%, #020108 100%);
+    background:
+      radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+      radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+      radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+      radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%);
+    background-attachment: fixed;
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
   }
@@ -54,11 +65,19 @@
     color: var(--ink);
     min-height: 100vh;
   }
-  ::selection { background: var(--cosmic-magenta); color: var(--ink); }
-  em { font-style: italic; font-family: var(--ff-display); font-weight: 400; color: var(--gold); }
+  ::selection { background: rgba(236,72,153,.25); color: var(--ink); }
+  em {
+    font-style: italic;
+    font-family: var(--ff-display);
+    font-weight: 500;
+    color: #dba93b;
+    text-shadow:
+      0 1px 2px rgba(90,60,10,.30),
+      0 0 1px rgba(140,95,20,.45);
+  }
   strong { font-weight: 600; color: var(--ink); }
-  a { color: var(--brand-light); text-decoration: none; }
-  a:hover { color: var(--gold); }
+  a { color: var(--brand); text-decoration: none; transition: color .25s; }
+  a:hover { color: var(--cosmic-magenta); }
 
   .container {
     max-width: 1100px;
@@ -67,13 +86,13 @@
     position: relative;
   }
 
-  /* Aurora di sfondo */
+  /* Aurora di sfondo · light mode (movimento sottile sopra il bianco) */
   .aurora {
     position: fixed; inset: 0; z-index: -2; pointer-events: none;
     background:
-      radial-gradient(900px 600px at 15% 0%, rgba(124,58,237,.20), transparent 60%),
-      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.14), transparent 55%),
-      radial-gradient(600px 500px at 50% 50%, rgba(34,211,238,.08), transparent 65%);
+      radial-gradient(900px 600px at 15% 0%, rgba(124,58,237,.10), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(236,72,153,.08), transparent 55%),
+      radial-gradient(600px 500px at 50% 50%, rgba(244,201,93,.06), transparent 65%);
     animation: auroraDrift 60s ease-in-out infinite alternate;
   }
   @keyframes auroraDrift {
@@ -81,53 +100,10 @@
     100% { background-position: 30% 20%, 70% 80%, 60% 40%; }
   }
 
-  /* Starfield · solo punti luminosi (no simboli) */
-  .cosmic-stars {
-    position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
-  }
-  .cosmic-stars .star {
-    position: absolute; border-radius: 50%;
-    background: rgba(232, 234, 255, 0.7);
-    box-shadow: 0 0 4px rgba(167, 200, 255, 0.6);
-    animation: starTwinkle ease-in-out infinite alternate;
-    will-change: opacity;
-  }
-  .cosmic-stars .star.bright {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 8px rgba(167, 200, 255, 0.9), 0 0 16px rgba(124, 58, 237, 0.5);
-  }
-  .cosmic-stars .star.gold {
-    background: rgba(255, 240, 200, 0.9);
-    box-shadow: 0 0 8px rgba(244, 201, 93, 0.8), 0 0 14px rgba(244, 201, 93, 0.4);
-  }
-  .cosmic-stars .star.magenta {
-    background: rgba(255, 200, 240, 0.85);
-    box-shadow: 0 0 8px rgba(236, 72, 153, 0.7);
-  }
-  @keyframes starTwinkle {
-    0%   { opacity: 0.3; transform: scale(0.85); }
-    100% { opacity: 1;   transform: scale(1.1); }
-  }
-  .cosmic-stars .shooting-star {
-    position: absolute; width: 2px; height: 2px;
-    background: #fff;
-    box-shadow: 0 0 12px rgba(255,255,255,0.9), 0 0 24px rgba(167,200,255,0.7);
-    border-radius: 50%;
-    animation: shootingStar linear forwards;
-  }
-  .cosmic-stars .shooting-star::after {
-    content: ""; position: absolute; right: 0; top: 50%;
-    width: 80px; height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7));
-    transform-origin: right center;
-  }
-  @keyframes shootingStar {
-    0%   { transform: translate(0, 0); opacity: 0; }
-    10%  { opacity: 1; }
-    100% { transform: translate(-60vw, 40vh); opacity: 0; }
-  }
+  /* Starfield disabilitato in light mode */
+  .cosmic-stars { display: none; }
 
-  /* Mandala centrale · ruota zodiacale arcana */
+  /* Mandala centrale · molto leggero su sfondo chiaro */
   .cosmic-mandala {
     position: fixed;
     top: 50%; left: 50%;
@@ -136,8 +112,8 @@
     transform: translate(-50%, -50%);
     z-index: -1;
     pointer-events: none;
-    opacity: 0.10;
-    color: rgba(244, 201, 93, 0.7);
+    opacity: 0.05;
+    color: rgba(124, 58, 237, 0.7);
     animation: mandalaSpin 480s linear infinite;
   }
   .cosmic-mandala-counter {
@@ -148,8 +124,8 @@
     transform: translate(-50%, -50%);
     z-index: -1;
     pointer-events: none;
-    opacity: 0.07;
-    color: rgba(167, 139, 250, 0.7);
+    opacity: 0.04;
+    color: rgba(236, 72, 153, 0.6);
     animation: mandalaSpin 720s linear infinite reverse;
   }
   @keyframes mandalaSpin {
@@ -162,10 +138,14 @@
   .diagram-wrap {
     display: flex; justify-content: center; align-items: center;
     margin: 24px 0;
-    background: rgba(5,3,15,.5);
+    background: rgba(255,255,255,0.6);
     border-radius: 16px;
     padding: 24px;
-    border: 1px solid var(--border-soft);
+    border: 1px solid var(--border);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 10px 24px -10px rgba(20,15,40,.10),
+      0 0 0 1px rgba(124,58,237,.05);
   }
   .diagram-wrap svg { max-width: 100%; height: auto; display: block; }
 
@@ -177,19 +157,21 @@
     margin-bottom: 24px;
   }
   .hd-type-banner .badge {
-    background: linear-gradient(135deg, rgba(124,58,237,.20), rgba(244,201,93,.12));
-    border: 1px solid var(--gold-deep);
+    background: linear-gradient(135deg, rgba(124,58,237,.06), rgba(236,72,153,.04));
+    border: 1px solid var(--border);
     border-radius: 14px;
     padding: 18px;
     text-align: center;
+    box-shadow: 0 4px 12px -4px rgba(124,58,237,.10);
   }
   .hd-type-banner .badge .key {
-    font-size: 10px; color: var(--ink-dim);
+    font-size: 10px; color: var(--cosmic-magenta);
     text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+    font-weight: 500;
   }
   .hd-type-banner .badge .val {
     font-family: var(--ff-display);
-    font-size: 22px; color: var(--gold);
+    font-size: 22px; color: var(--ink);
     font-weight: 400; line-height: 1.1;
   }
   .hd-type-banner .badge .meta {
@@ -203,9 +185,9 @@
   }
   header.hero .eyebrow {
     font-size: 11px;
-    letter-spacing: 3px;
+    letter-spacing: .32em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--cosmic-magenta);
     font-weight: 500;
     margin-bottom: 16px;
   }
@@ -238,15 +220,16 @@
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     box-shadow:
-      0 1px 0 rgba(255,255,255,.04) inset,
-      0 20px 40px -20px rgba(124,58,237,.25),
-      0 0 0 1px rgba(124,58,237,.08);
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 18px 36px -12px rgba(20,15,40,.10),
+      0 6px 14px -4px rgba(124,58,237,.08),
+      0 0 0 1px rgba(124,58,237,.05);
   }
   form .form-title {
     font-family: var(--ff-display);
     font-size: 22px;
     font-weight: 400;
-    color: var(--gold-soft);
+    color: var(--ink);
     margin: 0 0 24px;
     letter-spacing: -0.01em;
   }
@@ -267,32 +250,128 @@
   input, button {
     width: 100%;
     padding: 12px 14px;
-    background: rgba(5,3,15,.5);
+    background: rgba(255,255,255,.85);
     border: 1px solid var(--border);
     border-radius: 10px;
     color: var(--ink);
     font-family: inherit;
     font-size: 15px;
-    transition: border-color .25s, background .25s;
+    transition: border-color .25s, background .25s, box-shadow .25s;
   }
+  input::placeholder { color: var(--ink-dim); opacity: .7; }
   input:focus {
     outline: none;
-    border-color: var(--gold-soft);
-    background: rgba(5,3,15,.7);
+    border-color: var(--cosmic-magenta);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(236,72,153,.10);
   }
   button {
-    background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-soft));
-    color: #1a1410;
+    background: linear-gradient(135deg, var(--cosmic-violet) 0%, var(--cosmic-magenta) 100%);
+    color: #ffffff;
     border: none;
     cursor: pointer;
     font-weight: 600;
     margin-top: 24px;
     letter-spacing: 0.5px;
-    transition: filter .25s, transform .15s;
-    box-shadow: 0 8px 24px -8px rgba(244,201,93,.4);
+    transition: filter .25s, transform .15s, box-shadow .25s;
+    box-shadow:
+      0 6px 16px -4px rgba(124,58,237,.30),
+      0 2px 6px -1px rgba(236,72,153,.20),
+      0 0 0 1px rgba(236,72,153,.20) inset;
   }
-  button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  button:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+    box-shadow:
+      0 10px 24px -6px rgba(236,72,153,.40),
+      0 4px 10px -2px rgba(124,58,237,.25),
+      0 0 0 1px rgba(255,255,255,.20) inset;
+  }
   button:active { transform: translateY(0); }
+
+  /* Autocomplete luogo di nascita */
+  .autocomplete-wrap {
+    position: relative;
+    width: 100%;
+  }
+  .autocomplete-wrap input {
+    width: 100%;
+  }
+  .place-loading {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: var(--cosmic-magenta);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    pointer-events: none;
+    opacity: .8;
+  }
+  .suggestions {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow:
+      0 18px 36px -12px rgba(20,15,40,.18),
+      0 6px 14px -4px rgba(124,58,237,.10),
+      0 0 0 1px rgba(124,58,237,.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity .18s, transform .18s, visibility .18s;
+  }
+  .suggestions.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .suggestion-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-soft);
+    transition: background .15s;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .suggestion-item:last-child { border-bottom: none; }
+  .suggestion-item:hover,
+  .suggestion-item.active {
+    background: rgba(124,58,237,.08);
+  }
+  .suggestion-item .place-name {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .suggestion-item .place-meta {
+    color: var(--ink-dim);
+    font-size: 11px;
+    letter-spacing: .5px;
+  }
+  .suggestion-empty {
+    padding: 14px;
+    color: var(--ink-dim);
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+  }
+  @media (max-width: 600px) {
+    .suggestions { max-height: 220px; }
+    .suggestion-item .place-name { font-size: 13px; }
+    .suggestion-item .place-meta { font-size: 10px; }
+  }
 
   .toggle-row {
     display: flex; gap: 24px; margin-top: 16px;
@@ -328,58 +407,62 @@
   }
 
   .card {
-    background: linear-gradient(135deg, rgba(10,12,46,.70), rgba(5,5,25,.55));
+    background: rgba(255,255,255,.85);
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 32px;
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     box-shadow:
-      0 1px 0 rgba(255,255,255,.04) inset,
-      0 20px 40px -20px rgba(45,45,224,.30),
-      0 0 0 1px rgba(45,45,224,.10);
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 18px 36px -12px rgba(20,15,40,.10),
+      0 6px 14px -4px rgba(124,58,237,.06),
+      0 0 0 1px rgba(124,58,237,.05);
     transition: border-color .45s, box-shadow .45s, transform .8s, opacity .8s;
     position: relative;
     overflow: hidden;
   }
-  /* Alternanza blu notte / blu elettrico */
+  /* Alternanza tonale: card "viola tenue" / card "magenta tenue" */
   .card.night-card {
-    background: linear-gradient(135deg, rgba(8,10,38,.78), rgba(3,4,18,.60));
-    border-color: rgba(110,140,255,0.18);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(247,243,255,.85));
+    border-color: rgba(124,58,237,.14);
     box-shadow:
-      0 1px 0 rgba(255,255,255,.04) inset,
-      0 20px 50px -20px rgba(20,30,100,.50),
-      0 0 0 1px rgba(20,30,100,.15);
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 18px 36px -12px rgba(20,15,40,.10),
+      0 6px 14px -4px rgba(124,58,237,.10),
+      0 0 0 1px rgba(124,58,237,.08);
   }
   .card.night-card::before {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(700px 400px at 80% -10%, rgba(20,40,140,.30), transparent 55%),
-      radial-gradient(500px 300px at 0% 110%, rgba(30,60,180,.18), transparent 60%);
+      radial-gradient(700px 400px at 80% -10%, rgba(124,58,237,.06), transparent 55%),
+      radial-gradient(500px 300px at 0% 110%, rgba(124,58,237,.04), transparent 60%);
     z-index: 0;
   }
   .card.electric-card {
-    background: linear-gradient(135deg, rgba(40,50,200,.32), rgba(20,25,90,.55));
-    border-color: rgba(110,150,255,0.32);
+    background: linear-gradient(135deg, rgba(255,255,255,.90), rgba(253,246,250,.84));
+    border-color: rgba(236,72,153,.16);
     box-shadow:
-      0 1px 0 rgba(255,255,255,.06) inset,
-      0 20px 60px -20px rgba(45,90,255,.40),
-      0 0 0 1px rgba(110,150,255,.18);
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 18px 36px -12px rgba(20,15,40,.10),
+      0 6px 14px -4px rgba(236,72,153,.10),
+      0 0 0 1px rgba(236,72,153,.08);
   }
   .card.electric-card::before {
     content: ""; position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(700px 400px at 100% 0%, rgba(80,120,255,.22), transparent 55%),
-      radial-gradient(500px 300px at 0% 100%, rgba(124,58,237,.18), transparent 60%);
+      radial-gradient(700px 400px at 100% 0%, rgba(236,72,153,.06), transparent 55%),
+      radial-gradient(500px 300px at 0% 100%, rgba(244,201,93,.05), transparent 60%);
     z-index: 0;
   }
   .card > * { position: relative; z-index: 1; }
   .card:hover {
-    border-color: rgba(167,200,255,.55);
+    border-color: var(--border-hover);
     box-shadow:
-      0 1px 0 rgba(255,255,255,.08) inset,
-      0 30px 70px -20px rgba(80,120,255,.45),
-      0 0 60px rgba(124,58,237,.20);
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 22px 44px -12px rgba(236,72,153,.18),
+      0 8px 18px -4px rgba(124,58,237,.10),
+      0 0 0 1px rgba(236,72,153,.18);
   }
 
   /* Animazione di comparsa scroll-reveal */
@@ -404,7 +487,7 @@
   /* Bordo luminoso che attraversa la card al reveal */
   .card.in-view::after {
     content: ""; position: absolute; inset: -1px; border-radius: 18px;
-    background: linear-gradient(135deg, transparent, rgba(167,200,255,0.4), transparent 50%);
+    background: linear-gradient(135deg, transparent, rgba(236,72,153,0.35), transparent 50%);
     background-size: 200% 200%;
     animation: cardBorderSweep 1.2s ease-out forwards;
     pointer-events: none; z-index: 2;
@@ -439,7 +522,7 @@
     font-family: var(--ff-display);
     font-size: 18px;
     font-weight: 400;
-    color: var(--gold-soft);
+    color: var(--ink);
     margin: 24px 0 8px;
     letter-spacing: -0.005em;
   }
@@ -453,11 +536,14 @@
     margin-bottom: 24px;
   }
   .stat {
-    background: rgba(5,3,15,.4);
-    border: 1px solid var(--border-soft);
-    border-left: 3px solid var(--gold-deep);
+    background: rgba(255,255,255,.85);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--cosmic-violet);
     padding: 14px 16px;
     border-radius: 10px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 4px 10px -2px rgba(20,15,40,.06);
   }
   .stat .label {
     font-size: 10px;
@@ -470,7 +556,7 @@
   .stat .value {
     font-family: var(--ff-display);
     font-size: 28px;
-    color: var(--gold);
+    color: var(--ink);
     font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -483,29 +569,30 @@
   }
 
   .interp-box {
-    background: rgba(5,3,15,.35);
+    background: rgba(247,243,255,.55);
     border-radius: 12px;
     padding: 20px 24px;
     margin: 16px 0;
-    border-left: 3px solid var(--gold-deep);
+    border-left: 3px solid var(--cosmic-violet);
+    box-shadow: 0 4px 12px -4px rgba(124,58,237,.08);
   }
   .interp-box .heading {
     font-family: var(--ff-display);
     font-size: 22px;
-    color: var(--gold);
+    color: var(--ink);
     margin-bottom: 4px;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
   .interp-box .heading .num {
-    color: var(--ink-dim);
+    color: var(--cosmic-magenta);
     margin-right: 10px;
     font-style: italic;
     font-size: 18px;
   }
   .interp-box .epigraph {
     font-style: italic;
-    color: var(--ink-dim);
+    color: var(--ink-soft);
     font-size: 14px;
     margin-bottom: 12px;
   }
@@ -518,7 +605,7 @@
     align-items: baseline;
   }
   .interp-row .key {
-    color: var(--gold-soft);
+    color: var(--cosmic-magenta);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 11px;
@@ -529,54 +616,195 @@
 
   .archetypes { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 24px; }
   .chip {
-    background: rgba(5,3,15,.4);
-    border: 1px solid var(--border-soft);
+    background: rgba(255,255,255,.85);
+    border: 1px solid var(--border);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 12px;
-    color: var(--ink-dim);
+    color: var(--ink-soft);
     transition: all .25s;
   }
   .chip.active {
-    background: linear-gradient(135deg, var(--gold-deep), var(--gold));
-    color: #1a1410;
-    border-color: var(--gold);
+    background: linear-gradient(135deg, var(--cosmic-violet), var(--cosmic-magenta));
+    color: #ffffff;
+    border-color: transparent;
     font-weight: 600;
+    box-shadow: 0 4px 10px -2px rgba(236,72,153,.30);
   }
 
   details { margin-top: 16px; }
   details summary {
     cursor: pointer;
-    color: var(--ink-dim);
+    color: var(--ink-soft);
     font-size: 13px;
     padding: 8px 0;
     list-style: none;
-    border-top: 1px solid var(--border-soft);
+    border-top: 1px solid var(--border);
     padding-top: 12px;
   }
   details summary::-webkit-details-marker { display: none; }
   details summary::before {
     content: "+ ";
-    color: var(--gold);
+    color: var(--cosmic-magenta);
     font-weight: 600;
   }
   details[open] summary::before { content: "− "; }
-  details[open] summary { color: var(--gold-soft); }
+  details[open] summary { color: var(--ink); }
 
   table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-soft); }
-  th { color: var(--ink-dim); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--ink-dim); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; background: rgba(124,58,237,.05); }
   td { color: var(--ink-soft); }
 
   .disclaimer {
     font-size: 12px;
-    color: var(--ink-dim);
+    color: var(--ink-soft);
     margin-top: 16px;
     padding: 12px 18px;
-    background: rgba(201,58,122,.08);
-    border-left: 2px solid var(--crimson);
+    background: rgba(201,58,122,.06);
+    border-left: 2px solid var(--cosmic-magenta);
     border-radius: 6px;
     line-height: 1.55;
+  }
+  .origin-note {
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin: 4px 0 16px;
+    padding: 8px 14px;
+    background: rgba(124,58,237,.06);
+    border-left: 2px solid rgba(124,58,237,.3);
+    border-radius: 4px;
+    line-height: 1.5;
+  }
+
+  /* CTA Scarica PDF · in fondo ai risultati */
+  .pdf-actions {
+    margin-top: 48px;
+    padding: 36px 32px;
+    background: linear-gradient(135deg, rgba(124,58,237,.06), rgba(236,72,153,.04));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    text-align: center;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 12px 28px -8px rgba(20,15,40,.10),
+      0 0 0 1px rgba(124,58,237,.05);
+  }
+  .pdf-actions-title {
+    font-family: var(--ff-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .pdf-actions-desc {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+    max-width: 480px;
+    margin: 0 auto 22px;
+  }
+  .pdf-btn {
+    display: inline-block;
+    width: auto;
+    padding: 14px 32px;
+    font-size: 14px;
+    letter-spacing: .04em;
+    margin-top: 0;
+  }
+  .pdf-btn::before {
+    content: "↓ ";
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  /* === STAMPA / ESPORTA PDF === */
+  @media print {
+    @page { margin: 14mm 12mm; size: A4; }
+    html, body {
+      background: #ffffff !important;
+      color: #15131c !important;
+    }
+    .aurora, .cosmic-stars, .cosmic-mandala, .cosmic-mandala-counter,
+    .nav, #birth-form, .pdf-actions, .footer-note, button {
+      display: none !important;
+    }
+    .container { padding: 0 !important; max-width: 100% !important; }
+    header.hero { margin-bottom: 24px !important; padding-bottom: 18px !important; }
+    header.hero h1 { font-size: 28px !important; line-height: 1.1 !important; }
+    header.hero p.lead { font-size: 12px !important; }
+    .card {
+      background: #ffffff !important;
+      border: 1px solid #d8d4e6 !important;
+      border-radius: 10px !important;
+      padding: 18px !important;
+      margin-bottom: 14px !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      transform: none !important;
+      filter: none !important;
+      opacity: 1 !important;
+    }
+    .card::before, .card::after { display: none !important; }
+    .card.night-card, .card.electric-card { background: #ffffff !important; }
+    .card h2 { font-size: 18px !important; margin-bottom: 4px !important; }
+    .card h3 { font-size: 14px !important; margin: 14px 0 4px !important; }
+    .card p { font-size: 11px !important; line-height: 1.45 !important; margin: 4px 0 !important; }
+    .subtitle { font-size: 9px !important; margin-bottom: 14px !important; }
+    .section-marker {
+      background: none !important;
+      -webkit-text-fill-color: var(--cosmic-violet) !important;
+      color: var(--cosmic-violet) !important;
+      font-size: 11px !important;
+      margin: 18px 0 6px !important;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    .stat {
+      background: #f7f5fc !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+    }
+    .stat .value { font-size: 18px !important; }
+    .stat .value.small { font-size: 13px !important; }
+    .stat .label { font-size: 8px !important; }
+    .stat .meta { font-size: 9px !important; }
+    .row { gap: 8px !important; }
+    .interp-box {
+      background: #f7f5fc !important;
+      padding: 12px 14px !important;
+      box-shadow: none !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .interp-box .heading { font-size: 14px !important; }
+    .interp-box .epigraph { font-size: 10px !important; }
+    .interp-row { font-size: 10px !important; grid-template-columns: 70px 1fr !important; gap: 8px !important; }
+    .interp-row .key { font-size: 8px !important; }
+    .origin-note { font-size: 9px !important; padding: 6px 10px !important; line-height: 1.4 !important; }
+    .disclaimer { font-size: 9px !important; padding: 6px 10px !important; }
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    table { font-size: 9px !important; }
+    th, td { padding: 4px 6px !important; }
+    details { display: block !important; }
+    details > summary { display: none !important; }
+    details > *:not(summary) { display: block !important; }
+    .diagram-wrap { page-break-inside: avoid; padding: 14px !important; }
+    .diagram-wrap svg { max-width: 380px !important; }
+    .archetypes .chip { font-size: 9px !important; padding: 3px 9px !important; }
+    em {
+      color: #b88a25 !important;
+      text-shadow: none !important;
+      -webkit-text-fill-color: #b88a25 !important;
+    }
+    a { color: var(--cosmic-violet) !important; text-decoration: underline; }
   }
 
   .footer-note {
@@ -589,12 +817,16 @@
     color: var(--ink-soft);
     line-height: 1.7;
     backdrop-filter: blur(14px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.85) inset,
+      0 12px 28px -8px rgba(20,15,40,.10),
+      0 0 0 1px rgba(124,58,237,.05);
   }
-  .footer-note strong { color: var(--gold-soft); }
+  .footer-note strong { color: var(--ink); }
 
   .glyph { font-size: 22px; vertical-align: middle; margin-right: 6px; }
   .hidden { display: none; }
-  .error { color: var(--crimson-bright, #ec5aa0); margin-top: 12px; font-size: 13px; }
+  .error { color: var(--crimson, #c93a7a); margin-top: 12px; font-size: 13px; }
 
   /* Pinnacoli/Sfide visual */
   .timeline {
@@ -605,11 +837,12 @@
   }
   @media (max-width: 700px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
   .timeline .stage {
-    background: linear-gradient(180deg, rgba(124,58,237,.10), rgba(5,3,15,.4));
-    border: 1px solid var(--border-soft);
+    background: linear-gradient(180deg, rgba(124,58,237,.06), rgba(255,255,255,.85));
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 16px;
     text-align: center;
+    box-shadow: 0 4px 10px -2px rgba(20,15,40,.06);
   }
   .timeline .stage .age {
     font-size: 11px;
@@ -621,7 +854,7 @@
   .timeline .stage .num-big {
     font-family: var(--ff-display);
     font-size: 36px;
-    color: var(--gold);
+    color: var(--ink);
     line-height: 1;
     margin: 6px 0;
     font-weight: 400;
@@ -633,7 +866,7 @@
   }
 
   .quote-block {
-    border-left: 3px solid var(--brand-light);
+    border-left: 3px solid var(--cosmic-violet);
     padding: 4px 18px;
     margin: 16px 0;
     color: var(--ink-soft);
@@ -647,13 +880,17 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px clamp(20px, 4vw, 40px);
-    background: rgba(5,3,15,0.6);
+    background: rgba(255,255,255,0.65);
     backdrop-filter: saturate(160%) blur(18px);
     -webkit-backdrop-filter: saturate(160%) blur(18px);
     border-bottom: 1px solid var(--border-soft);
     transition: background .35s, border-color .35s;
   }
-  .nav.is-scrolled { background: rgba(5,3,15,0.85); border-bottom-color: var(--border); }
+  .nav.is-scrolled {
+    background: rgba(255,255,255,0.92);
+    border-bottom-color: var(--border);
+    box-shadow: 0 4px 16px -4px rgba(20,15,40,.06);
+  }
   .nav-logo-wrap { position: relative; display: flex; align-items: center; gap: 10px; }
   .nav-logo {
     display: block; height: 56px;
@@ -680,12 +917,12 @@
   .logo-menu-btn {
     display: inline-flex; align-items: center; justify-content: center;
     width: 30px; height: 30px; border-radius: 50%;
-    background: rgba(180,150,240,.06); border: 1px solid var(--border);
+    background: rgba(124,58,237,.05); border: 1px solid var(--border);
     transition: background .25s, border-color .25s, transform .25s;
     cursor: pointer; padding: 0;
   }
   .logo-menu-btn:hover, .nav-logo-wrap.open .logo-menu-btn {
-    background: rgba(244,201,93,.16); border-color: rgba(244,201,93,.45);
+    background: rgba(236,72,153,.10); border-color: var(--border-hover);
   }
   .logo-menu-btn .chev {
     width: 8px; height: 8px;
@@ -697,12 +934,15 @@
   .logo-menu {
     position: absolute; top: calc(100% + 14px); left: 0;
     min-width: 320px; padding: 14px;
-    background: rgba(14,6,40,.92);
+    background: rgba(255,255,255,.96);
     backdrop-filter: saturate(160%) blur(18px);
     -webkit-backdrop-filter: saturate(160%) blur(18px);
-    border: 1px solid rgba(180,150,240,.20);
+    border: 1px solid var(--border);
     border-radius: 18px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.65), 0 0 0 1px rgba(124,58,237,.18) inset;
+    box-shadow:
+      0 24px 60px -12px rgba(20,15,40,.18),
+      0 8px 18px -4px rgba(124,58,237,.10),
+      0 0 0 1px rgba(124,58,237,.05);
     opacity: 0; visibility: hidden;
     transform: translateY(-12px) scale(.98);
     transform-origin: top left;
@@ -717,10 +957,10 @@
     color: var(--ink); text-decoration: none;
   }
   .dd-item + .dd-item { margin-top: 4px; }
-  .dd-item:hover { background: rgba(124,58,237,.18); transform: translateX(2px); }
+  .dd-item:hover { background: rgba(124,58,237,.06); transform: translateX(2px); }
   .dd-item.active {
-    background: linear-gradient(135deg, rgba(244,201,93,.14), rgba(124,58,237,.18));
-    border: 1px solid rgba(244,201,93,.35);
+    background: linear-gradient(135deg, rgba(244,201,93,.10), rgba(124,58,237,.08));
+    border: 1px solid rgba(124,58,237,.20);
   }
   .dd-icon {
     flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%;
@@ -737,49 +977,80 @@
     .nav-logo { height: 44px; }
   }
 
+  @media (max-width: 600px) {
+    body { font-size: 14px; line-height: 1.55; }
+    .container { padding: 90px 14px 64px; }
+    .card { padding: 18px 14px; }
+    .card h2 { font-size: 20px; }
+    .card h3 { font-size: 15px; }
+    .card p { font-size: 13px; line-height: 1.5; }
+    .subtitle { font-size: 11px; }
+    .interp-box { padding: 14px 12px; }
+    .interp-box .heading { font-size: 17px; }
+    .interp-box .epigraph { font-size: 12px; }
+    .interp-row { font-size: 12px; grid-template-columns: 80px 1fr; gap: 8px; }
+    .interp-row .key { font-size: 10px; }
+    .stat .value { font-size: 22px; }
+    .stat .value.small { font-size: 15px; }
+    .stat .label { font-size: 9px; }
+    .stat .meta { font-size: 11px; }
+    .disclaimer { font-size: 11px; padding: 10px 12px; }
+    .origin-note { font-size: 10px; padding: 6px 10px; }
+    .section-marker { font-size: 14px; }
+    .section-marker .num { font-size: 9px; }
+    .row { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+    .stat { padding: 10px 12px; }
+    .footer-note { font-size: 12px; padding: 20px 16px; }
+    table { font-size: 11px; }
+    th { font-size: 10px; }
+  }
+
   /* Sposta il container in basso per non collidere con la nav */
   .container { padding-top: 120px; }
 
-  /* Effetto oro brillante per testi · gradient + shimmer */
-  .gold-shimmer, header.hero h1 em, .card h2 em, .interp-box .heading,
-  .stat .value, .card h3, .hd-type-banner .badge .val, .form-title,
-  .timeline .stage .num-big, .gate-card-hd .gate-num, .section-marker,
-  #gate h2 {
-    background: linear-gradient(135deg,
-      #8b6f2f 0%, #c9a047 18%, #f3d99a 38%, #fff0c8 50%,
-      #f3d99a 62%, #c9a047 82%, #8b6f2f 100%);
-    background-size: 220% 220%;
+  /* Em oro · firma del brand · solo italic in titoli */
+  header.hero h1 em, .card h2 em, h1 em, h2 em, h3 em {
+    color: #dba93b;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow:
+      0 1px 2px rgba(90,60,10,.30),
+      0 0 1px rgba(140,95,20,.45);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  .section-marker {
+    background: linear-gradient(90deg, var(--cosmic-violet), var(--cosmic-magenta), #dba93b);
+    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: goldTextShimmer 8s ease-in-out infinite alternate;
-    text-shadow: none;
-    filter: drop-shadow(0 0 18px rgba(244,201,93,0.22));
+    animation: gradientShift 6s ease-in-out infinite alternate;
   }
-  @keyframes goldTextShimmer {
-    0%   { background-position: 0% 0%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 100%; }
+  @keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
   }
-  /* Glow attorno ai titoli oro */
-  header.hero h1 { filter: drop-shadow(0 0 32px rgba(244,201,93,0.10)); }
 
   /* Master Badge */
   .master-badge {
     display: inline-block;
     padding: 5px 14px;
-    background: linear-gradient(135deg, #4a3618, #c9a047, #fff0c8, #c9a047, #4a3618);
+    background: linear-gradient(135deg, #b88a25, #dba93b, #f0c75a, #dba93b, #b88a25);
     background-size: 200% 200%;
-    color: #1a1410;
+    color: #ffffff;
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 4px;
     margin-bottom: 10px;
-    box-shadow: 0 4px 16px rgba(244,201,93,0.4), 0 0 0 1px rgba(255,240,200,0.5) inset;
+    box-shadow:
+      0 4px 12px -2px rgba(219,169,59,.40),
+      0 0 0 1px rgba(255,240,200,0.4) inset;
     animation: masterBadgeShimmer 4s ease-in-out infinite alternate;
+    text-shadow: 0 1px 1px rgba(90,60,10,.30);
   }
   @keyframes masterBadgeShimmer {
     0% { background-position: 0% 0%; }
@@ -789,12 +1060,16 @@
   /* Gate */
   #gate {
     position: fixed; inset: 0;
-    background: radial-gradient(ellipse at center, #0e0628 0%, #05030f 70%, #020108 100%);
+    background:
+      radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+      radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+      radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+      radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%);
     display: flex; align-items: center; justify-content: center;
     z-index: 9999;
   }
   #gate .gate-card {
-    background: var(--bg-card);
+    background: rgba(255,255,255,.92);
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 40px;
@@ -802,33 +1077,38 @@
     width: 90%;
     text-align: center;
     backdrop-filter: blur(14px) saturate(140%);
-    box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(124,58,237,.1);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.95) inset,
+      0 30px 70px -20px rgba(20,15,40,.18),
+      0 12px 28px -8px rgba(124,58,237,.12),
+      0 0 0 1px rgba(124,58,237,.08);
   }
   #gate h2 {
     font-family: var(--ff-display);
-    color: var(--gold);
+    color: var(--ink);
     margin: 0 0 8px;
     font-size: 28px;
     font-weight: 400;
     letter-spacing: -0.01em;
   }
   #gate .gate-eyebrow {
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--gold-soft); margin-bottom: 8px;
+    font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--cosmic-magenta); margin-bottom: 8px; font-weight: 500;
   }
   #gate p { color: var(--ink-soft); font-size: 14px; margin: 0 0 24px; }
   #gate input { margin-bottom: 16px; text-align: center; letter-spacing: 4px; font-size: 16px; }
-  #gate-error { color: var(--crimson-bright, #ec5aa0); font-size: 13px; min-height: 18px; margin-top: 8px; }
+  #gate-error { color: var(--crimson, #c93a7a); font-size: 13px; min-height: 18px; margin-top: 8px; }
   body.locked { overflow: hidden; }
   body.locked .container { display: none; }
 
   /* Hexagram visual for HD */
   .hexagram { display: inline-flex; flex-direction: column; gap: 4px; margin: 12px 0; vertical-align: middle; }
   .hexagram .line { width: 60px; height: 6px; display: flex; gap: 4px; }
-  .hexagram .line.solid { background: var(--gold); border-radius: 2px; }
+  .hexagram .line.solid { background: var(--cosmic-violet); border-radius: 2px; }
   .hexagram .line.broken { background: transparent; }
   .hexagram .line.broken::before, .hexagram .line.broken::after {
-    content: ""; flex: 1; background: var(--gold); border-radius: 2px;
+    content: ""; flex: 1; background: var(--cosmic-violet); border-radius: 2px;
   }
 
   .gate-grid {
@@ -838,22 +1118,24 @@
     margin: 16px 0;
   }
   .gate-card-hd {
-    background: rgba(5,3,15,.4);
-    border: 1px solid var(--border-soft);
+    background: rgba(255,255,255,.85);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 16px;
+    box-shadow: 0 4px 10px -2px rgba(20,15,40,.06);
   }
   .gate-card-hd .role {
     font-size: 11px;
-    color: var(--gold-soft);
+    color: var(--cosmic-magenta);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 6px;
+    font-weight: 500;
   }
   .gate-card-hd .gate-num {
     font-family: var(--ff-display);
     font-size: 32px;
-    color: var(--gold);
+    color: var(--ink);
     line-height: 1;
   }
   .gate-card-hd .gate-name {
@@ -1171,13 +1453,6 @@
           <span class="dd-sub">«Io posso farcela» · «PNL Esoterica»</span>
         </span>
       </a>
-      <a href="https://davil-life-leadership-coaching.it/#" class="dd-item" role="menuitem">
-        <span class="dd-icon" aria-hidden="true">⎔</span>
-        <span class="dd-text">
-          <span class="dd-title">Area Membri · Accedi</span>
-          <span class="dd-sub">Login con email e password</span>
-        </span>
-      </a>
     </div>
   </div>
 </nav>
@@ -1222,7 +1497,13 @@
       </div>
       <div style="grid-column: 1 / -1;">
         <label for="birthPlace">Luogo di nascita</label>
-        <input type="text" id="birthPlace" placeholder="Roma, Italia" autocomplete="off">
+        <div class="autocomplete-wrap">
+          <input type="text" id="birthPlace" placeholder="Inizia a scrivere — es. Roma, Milano, New York…" autocomplete="off" spellcheck="false">
+          <div id="place-suggestions" class="suggestions" role="listbox" aria-label="Suggerimenti luoghi"></div>
+          <div id="place-loading" class="place-loading hidden">Cerco…</div>
+        </div>
+        <input type="hidden" id="birthPlaceLat">
+        <input type="hidden" id="birthPlaceLon">
       </div>
     </div>
     <div class="toggle-row">
@@ -1263,6 +1544,184 @@
   window.addEventListener("scroll", () => {
     if (window.scrollY > 30) nav.classList.add("is-scrolled");
     else nav.classList.remove("is-scrolled");
+  });
+})();
+
+/* =====================================================================
+   AUTOCOMPLETE · luogo di nascita via Nominatim (OpenStreetMap)
+   ===================================================================== */
+(function setupPlaceAutocomplete() {
+  const input = document.getElementById("birthPlace");
+  const box = document.getElementById("place-suggestions");
+  const loading = document.getElementById("place-loading");
+  const latField = document.getElementById("birthPlaceLat");
+  const lonField = document.getElementById("birthPlaceLon");
+  if (!input || !box) return;
+
+  let debounceTimer = null;
+  let activeIndex = -1;
+  let currentItems = [];
+  let lastQuery = "";
+  let abortController = null;
+
+  function closeBox() {
+    box.classList.remove("open");
+    activeIndex = -1;
+  }
+
+  function openBox() {
+    box.classList.add("open");
+  }
+
+  function setLoading(on) {
+    if (!loading) return;
+    loading.classList.toggle("hidden", !on);
+  }
+
+  function clearCoords() {
+    if (latField) latField.value = "";
+    if (lonField) lonField.value = "";
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const safe = text.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+    const re = new RegExp("(" + query.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&") + ")", "gi");
+    return safe.replace(re, '<span style="color:var(--gold);font-weight:500">$1</span>');
+  }
+
+  function renderItems(items, query) {
+    box.innerHTML = "";
+    currentItems = items;
+    activeIndex = -1;
+    if (!items.length) {
+      const empty = document.createElement("div");
+      empty.className = "suggestion-empty";
+      empty.textContent = "Nessun luogo trovato. Prova a essere più specifico (es. città, paese).";
+      box.appendChild(empty);
+      openBox();
+      return;
+    }
+    items.forEach((item, idx) => {
+      const div = document.createElement("div");
+      div.className = "suggestion-item";
+      div.setAttribute("role", "option");
+      div.dataset.index = idx;
+      const name = document.createElement("div");
+      name.className = "place-name";
+      name.innerHTML = highlightMatch(item.primary, query);
+      const meta = document.createElement("div");
+      meta.className = "place-meta";
+      meta.textContent = item.secondary;
+      div.appendChild(name);
+      div.appendChild(meta);
+      div.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        selectItem(idx);
+      });
+      box.appendChild(div);
+    });
+    openBox();
+  }
+
+  function updateActive() {
+    const nodes = box.querySelectorAll(".suggestion-item");
+    nodes.forEach((n, i) => n.classList.toggle("active", i === activeIndex));
+    if (activeIndex >= 0 && nodes[activeIndex]) {
+      nodes[activeIndex].scrollIntoView({ block: "nearest" });
+    }
+  }
+
+  function selectItem(idx) {
+    const item = currentItems[idx];
+    if (!item) return;
+    input.value = item.full;
+    if (latField) latField.value = item.lat;
+    if (lonField) lonField.value = item.lon;
+    closeBox();
+  }
+
+  function parsePlace(p) {
+    const a = p.address || {};
+    const primary = a.city || a.town || a.village || a.hamlet || a.municipality || a.county || p.name || (p.display_name || "").split(",")[0];
+    const region = a.state || a.region || a.province || "";
+    const country = a.country || "";
+    const secondary = [region, country].filter(Boolean).join(" · ");
+    const full = [primary, region, country].filter(Boolean).join(", ");
+    return {
+      primary: primary || p.display_name,
+      secondary: secondary || p.display_name,
+      full: full || p.display_name,
+      lat: p.lat,
+      lon: p.lon
+    };
+  }
+
+  async function fetchPlaces(query) {
+    if (abortController) abortController.abort();
+    abortController = new AbortController();
+    const url = "https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=8&accept-language=it&q=" + encodeURIComponent(query);
+    try {
+      setLoading(true);
+      const res = await fetch(url, {
+        signal: abortController.signal,
+        headers: { "Accept": "application/json" }
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      if (query !== lastQuery) return;
+      const items = data
+        .filter(d => d.lat && d.lon)
+        .map(parsePlace);
+      renderItems(items, query);
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      box.innerHTML = '<div class="suggestion-empty">Errore di ricerca. Verifica la connessione.</div>';
+      openBox();
+    } finally {
+      if (query === lastQuery) setLoading(false);
+    }
+  }
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim();
+    clearCoords();
+    lastQuery = q;
+    if (debounceTimer) clearTimeout(debounceTimer);
+    if (q.length < 2) {
+      closeBox();
+      setLoading(false);
+      return;
+    }
+    debounceTimer = setTimeout(() => fetchPlaces(q), 350);
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (!box.classList.contains("open")) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, currentItems.length - 1);
+      updateActive();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      updateActive();
+    } else if (e.key === "Enter") {
+      if (activeIndex >= 0) {
+        e.preventDefault();
+        selectItem(activeIndex);
+      }
+    } else if (e.key === "Escape") {
+      closeBox();
+    }
+  });
+
+  input.addEventListener("blur", () => {
+    setTimeout(closeBox, 150);
+  });
+
+  input.addEventListener("focus", () => {
+    if (currentItems.length && input.value.trim().length >= 2) openBox();
   });
 })();
 
@@ -2586,6 +3045,77 @@ function eclipticLongitudeOfDate(body, date) {
   }
 }
 
+/* =====================================================================
+   ASCENDENTE · MC · CASE (sistema Equal House)
+   ===================================================================== */
+function computeAscMC(date, lat, lon) {
+  if (typeof Astronomy === "undefined") return null;
+  try {
+    const time = Astronomy.MakeTime(date);
+    // GAST in ore → gradi
+    const gastHours = Astronomy.SiderealTime(time);
+    const gastDeg = gastHours * 15;
+    // LST = GAST + longitudine (est positiva)
+    const lstDeg = ((gastDeg + lon) % 360 + 360) % 360;
+
+    // Obliquità media dell'eclittica alla data
+    const T = (date.getTime() - Date.UTC(2000, 0, 1, 12)) / (365.25 * 86400000) / 100;
+    const obliq = 23.4392911 - 0.013004167 * T - 0.0000001639 * T * T + 0.0000005036 * T * T * T;
+
+    const lstRad = lstDeg * Math.PI / 180;
+    const oblRad = obliq * Math.PI / 180;
+    const latRad = lat * Math.PI / 180;
+
+    // MC: tan(MC) = sin(LST) / (cos(LST) · cos(ε))
+    const mcRad = Math.atan2(Math.sin(lstRad), Math.cos(lstRad) * Math.cos(oblRad));
+    const mcDeg = ((mcRad * 180 / Math.PI) % 360 + 360) % 360;
+
+    // ASC: atan2(cos(LST), -(sin(LST) · cos(ε) + tan(lat) · sin(ε)))
+    const ascRad = Math.atan2(
+      Math.cos(lstRad),
+      -(Math.sin(lstRad) * Math.cos(oblRad) + Math.tan(latRad) * Math.sin(oblRad))
+    );
+    let ascDeg = ((ascRad * 180 / Math.PI) % 360 + 360) % 360;
+
+    return { asc: ascDeg, mc: mcDeg, lst: lstDeg, obliq };
+  } catch (e) {
+    console.error("computeAscMC error", e);
+    return null;
+  }
+}
+
+function equalHouseCusps(asc) {
+  const cusps = [];
+  for (let i = 0; i < 12; i++) cusps.push((asc + i * 30) % 360);
+  return cusps;
+}
+
+function planetHouse(lon, cusps) {
+  for (let i = 0; i < 12; i++) {
+    const start = cusps[i];
+    const end = cusps[(i + 1) % 12];
+    const span = (end - start + 360) % 360 || 360;
+    const within = (lon - start + 360) % 360;
+    if (within < span) return i + 1;
+  }
+  return 1;
+}
+
+const HOUSE_MEANINGS = {
+  1:  { nome: "I · Sé / Ascendente",       sintesi: "L'identità manifesta, il modo in cui ti presenti al mondo, il corpo e l'inizio." },
+  2:  { nome: "II · Risorse",              sintesi: "Valori, denaro, talenti, ciò che ti dà sicurezza materiale ed emotiva." },
+  3:  { nome: "III · Comunicazione",       sintesi: "Mente quotidiana, fratelli, brevi viaggi, apprendimento, ambiente prossimo." },
+  4:  { nome: "IV · Casa / Radici",        sintesi: "Famiglia d'origine, casa interiore, radici emotive, padre/madre archetipica." },
+  5:  { nome: "V · Creatività",            sintesi: "Espressione personale, gioco, figli, amori, ciò che crei e che ti rappresenta." },
+  6:  { nome: "VI · Lavoro / Salute",      sintesi: "Routine, servizio, salute, abitudini quotidiane, dovere e perfezionamento." },
+  7:  { nome: "VII · Relazioni",           sintesi: "Partner, alleati, contratti, lo specchio dell'altro, matrimoni e collaborazioni." },
+  8:  { nome: "VIII · Trasformazione",     sintesi: "Crisi, sessualità profonda, eredità, risorse condivise, morte e rinascita." },
+  9:  { nome: "IX · Visione",              sintesi: "Filosofia, lunghi viaggi, studi superiori, ricerca di senso, fede e ideologie." },
+  10: { nome: "X · Vocazione / MC",        sintesi: "Carriera, ruolo pubblico, missione, ciò per cui sei riconosciuto/a nel mondo." },
+  11: { nome: "XI · Comunità",             sintesi: "Amici, gruppi, ideali futuri, alleanze, ciò che progetti per il collettivo." },
+  12: { nome: "XII · Inconscio",           sintesi: "Solitudine, sogni, ritiro, karma, ombra, dissoluzione e mistica." }
+};
+
 function findDesignDate(birthDate) {
   const sunBirth = eclipticLongitudeOfDate("Sun", birthDate);
   if (sunBirth === null) return new Date(birthDate.getTime() - 88 * 86400000);
@@ -2800,6 +3330,7 @@ function renderNumerologyMain(parent, lp, exp, soul, pers, birth, maturity, yAsV
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Numerologia "), el("em", {}, "pitagorica")]));
   card.appendChild(el("div", { class: "subtitle" }, "Tradizione occidentale moderna · sistema di Hans Decoz"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Pitagora di Samo (VI sec. a.C.) formulò la corrispondenza numero-essenza. La numerologia moderna fu sistematizzata da Juno Jordan (1965) e Hans Decoz (anni '80). Funziona come riduzione simbolica: ogni nome/data si comprime in archetipi numerici che riflettono pattern ricorrenti nella psicologia della persona. Non è scienza empirica — è linguaggio simbolico per l'autoriflessione."));
 
   const row = el("div", { class: "row" }, [
     statBox("Sentiero di Vita", String(lp.value), `${lp.dRed} + ${lp.mRed} + ${lp.yRed}${isMaster(lp.value) ? " · Master" : ""}`),
@@ -3021,6 +3552,7 @@ function renderChaldean(parent, ch) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Numerologia "), el("em", {}, "caldea")]));
   card.appendChild(el("div", { class: "subtitle" }, "Sistema antico · scuola di Cheiro"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Mesopotamia antica (~4000 a.C.), i Caldei associavano vibrazioni sonore ai numeri. Popularizzata da Cheiro (William John Warner, 1866–1936), palmista e numerologista irlandese che servì teste coronate europee. A differenza del sistema pitagorico, qui le lettere non seguono l'ordine alfabetico ma corrispondenze vibrazionali. Il compound (numero non ridotto) rivela il destino karmico sottostante."));
 
   const row = el("div", { class: "row" }, [
     statBox("Singolo", String(ch.single), "Energia esterna"),
@@ -3053,6 +3585,7 @@ function renderKabbalistic(parent, kab) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Numerologia "), el("em", {}, "kabbalistica")]));
   card.appendChild(el("div", { class: "subtitle" }, "Gematria adattata · 22 lettere ebraiche · scuola Golden Dawn"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: La Gematria nasce nella tradizione mistica ebraica (Sefer Yetzirah, II–VI sec. d.C.). La Hermetic Order of the Golden Dawn (Londra, 1888 — Mathers, Westcott) integrò le 22 lettere ebraiche con i 22 Arcani Maggiori dei Tarocchi, creando corrispondenze lettera→archetipo. Qui si usa un adattamento ordinale ciclico (modulo 22) per l'alfabeto latino — non è gematria ebraica rigorosa, ma una lente simbolica di lettura."));
 
   const row = el("div", { class: "row" }, [
     statBox("Valore gematriale", String(kab.total)),
@@ -3077,7 +3610,7 @@ function renderKabbalistic(parent, kab) {
   parent.appendChild(card);
 }
 
-function renderNatalChartSVG(planetPositions) {
+function renderNatalChartSVG(planetPositions, ascMc, houseCusps) {
   const W = 720, H = 720;
   const cx = W / 2, cy = H / 2;
   // Anelli concentrici (dall'esterno verso l'interno)
@@ -3283,22 +3816,66 @@ function renderNatalChartSVG(planetPositions) {
     svg += `<text x="${lx}" y="${ly + 10}" text-anchor="middle" font-size="11" fill="${SIGN_COLORS[signIdx]}" opacity="0.85">${SIGN_GLYPHS[signIdx]}</text>`;
   }
 
+  // Linee delle case (Equal House) — disegnate sotto i pianeti
+  if (houseCusps && houseCusps.length === 12) {
+    for (let h = 0; h < 12; h++) {
+      const cusp = houseCusps[h];
+      const isAngular = (h === 0 || h === 3 || h === 6 || h === 9);
+      const [hx1, hy1] = pointOnCircle(cusp, rAspectInner);
+      const [hx2, hy2] = pointOnCircle(cusp, rZodiac - 5);
+      const stroke = isAngular ? "rgba(244,201,93,0.55)" : "rgba(180,150,240,0.22)";
+      const width = isAngular ? 1.2 : 0.6;
+      const dash = isAngular ? "" : "stroke-dasharray=\"2 3\"";
+      svg += `<line x1="${hx1}" y1="${hy1}" x2="${hx2}" y2="${hy2}" stroke="${stroke}" stroke-width="${width}" ${dash}/>`;
+      // Numero romano della casa al centro del settore
+      const midAngle = cusp + 15;
+      const [nx, ny] = pointOnCircle(midAngle, rAspectInner - 14);
+      const roman = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"][h];
+      svg += `<text x="${nx}" y="${ny + 3}" text-anchor="middle" font-size="9" fill="rgba(180,150,240,0.55)" font-family="Fraunces, serif" font-style="italic">${roman}</text>`;
+    }
+  }
+
+  // Marcatori ASC e MC
+  if (ascMc) {
+    // Asse ASC (orizzonte) ↔ DSC
+    const [ax1, ay1] = pointOnCircle(ascMc.asc, rAspectInner);
+    const [ax2, ay2] = pointOnCircle((ascMc.asc + 180) % 360, rAspectInner);
+    svg += `<line x1="${ax1}" y1="${ay1}" x2="${ax2}" y2="${ay2}" stroke="rgba(244,201,93,0.35)" stroke-width="0.6" stroke-dasharray="4 4"/>`;
+    // Asse MC (meridiano) ↔ IC
+    const [mx1, my1] = pointOnCircle(ascMc.mc, rAspectInner);
+    const [mx2, my2] = pointOnCircle((ascMc.mc + 180) % 360, rAspectInner);
+    svg += `<line x1="${mx1}" y1="${my1}" x2="${mx2}" y2="${my2}" stroke="rgba(244,201,93,0.35)" stroke-width="0.6" stroke-dasharray="4 4"/>`;
+
+    // Etichette
+    const [aLx, aLy] = pointOnCircle(ascMc.asc, rOuter + 14);
+    svg += `<text x="${aLx}" y="${aLy + 4}" text-anchor="middle" font-size="11" fill="var(--gold)" font-family="Fraunces, serif" font-weight="500">ASC</text>`;
+    const [dLx, dLy] = pointOnCircle((ascMc.asc + 180) % 360, rOuter + 14);
+    svg += `<text x="${dLx}" y="${dLy + 4}" text-anchor="middle" font-size="10" fill="rgba(244,201,93,0.6)" font-family="Fraunces, serif">DSC</text>`;
+    const [mLx, mLy] = pointOnCircle(ascMc.mc, rOuter + 14);
+    svg += `<text x="${mLx}" y="${mLy + 4}" text-anchor="middle" font-size="11" fill="var(--gold)" font-family="Fraunces, serif" font-weight="500">MC</text>`;
+    const [iLx, iLy] = pointOnCircle((ascMc.mc + 180) % 360, rOuter + 14);
+    svg += `<text x="${iLx}" y="${iLy + 4}" text-anchor="middle" font-size="10" fill="rgba(244,201,93,0.6)" font-family="Fraunces, serif">IC</text>`;
+  }
+
   // Centro: titolo e sottotitolo
   svg += `<text x="${cx}" y="${cy - 15}" text-anchor="middle" font-size="13" fill="rgba(244,201,93,0.85)" letter-spacing="3" font-weight="500">TEMA NATALE</text>`;
   svg += `<line x1="${cx - 50}" y1="${cy - 5}" x2="${cx + 50}" y2="${cy - 5}" stroke="rgba(244,201,93,0.4)" stroke-width="0.6"/>`;
-  svg += `<text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="9" fill="rgba(232,234,235,0.45)" letter-spacing="1.5">posizioni geocentriche tropicali</text>`;
+  svg += `<text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="9" fill="rgba(232,234,235,0.45)" letter-spacing="1.5">${ascMc ? "case · equal house" : "posizioni geocentriche tropicali"}</text>`;
   svg += `<text x="${cx}" y="${cy + 26}" text-anchor="middle" font-size="9" fill="rgba(232,234,235,0.45)" letter-spacing="1.5">elementi: ${"fuoco · terra · aria · acqua".toUpperCase()}</text>`;
 
   svg += `</svg>`;
   return svg;
 }
 
-function renderAstrology(parent, dateObj) {
+function renderAstrology(parent, dateObj, lat, lon, hasTime) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Astrologia · "), el("em", {}, "tema natale")]));
   card.appendChild(el("div", { class: "subtitle" }, "Tropicale · ruota planetaria · aspetti maggiori"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Nata in Babilonia (~2000 a.C.), sistematizzata da Claudio Tolomeo nel Tetrabiblos (II sec. d.C.). Il sistema tropicale (usato qui) si basa sugli equinozi, non sulle costellazioni reali. Ogni posizione planetaria al momento della nascita descrive una qualità archetipica — non predice eventi. L'astrologia funziona come mappa simbolica della psiche: i pianeti rappresentano funzioni psicologiche (volontà, emozione, comunicazione, desiderio) collocate in 12 modalità espressive."));
 
   const z = sunSign(dateObj.getMonth() + 1, dateObj.getDate());
+  const SIGN_GLYPHS = ["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"];
+  const SIGN_NAMES_IT = ["Ariete","Toro","Gemelli","Cancro","Leone","Vergine","Bilancia","Scorpione","Sagittario","Capricorno","Acquario","Pesci"];
 
   // Calcola posizioni di tutti i pianeti
   const planetPositions = {};
@@ -3308,43 +3885,130 @@ function renderAstrology(parent, dateObj) {
     }
   }
 
+  // Calcola Ascendente / MC / case se abbiamo coordinate e ora
+  let ascMc = null, houseCusps = null;
+  const hasCoords = (typeof lat === "number" && typeof lon === "number" && !isNaN(lat) && !isNaN(lon));
+  if (hasCoords && hasTime) {
+    ascMc = computeAscMC(dateObj, lat, lon);
+    if (ascMc) houseCusps = equalHouseCusps(ascMc.asc);
+  }
+
   if (z) {
-    const row = el("div", { class: "row" }, [
+    const stats = [
       statBox("Segno solare", `${z.glyph} ${z.sign}`, null, true),
       statBox("Elemento", z.el),
       statBox("Modalità", z.mod),
       statBox("Pianeta reggente", z.pl)
-    ]);
-    card.appendChild(row);
+    ];
+    if (ascMc) {
+      const ascSignIdx = Math.floor(ascMc.asc / 30);
+      const ascDeg = ascMc.asc - ascSignIdx * 30;
+      const ascMin = Math.floor((ascDeg - Math.floor(ascDeg)) * 60);
+      const mcSignIdx = Math.floor(ascMc.mc / 30);
+      const mcDeg = ascMc.mc - mcSignIdx * 30;
+      const mcMin = Math.floor((mcDeg - Math.floor(mcDeg)) * 60);
+      stats.push(statBox("Ascendente", `${SIGN_GLYPHS[ascSignIdx]} ${SIGN_NAMES_IT[ascSignIdx]}`, `${Math.floor(ascDeg)}°${String(ascMin).padStart(2,"0")}'`, true));
+      stats.push(statBox("Medio Cielo", `${SIGN_GLYPHS[mcSignIdx]} ${SIGN_NAMES_IT[mcSignIdx]}`, `${Math.floor(mcDeg)}°${String(mcMin).padStart(2,"0")}'`, true));
+    }
+    card.appendChild(el("div", { class: "row" }, stats));
   }
 
   // Grafico tema natale
   if (Object.keys(planetPositions).length > 0 && planetPositions.Sun !== null) {
     const wrap = el("div", { class: "diagram-wrap" });
-    wrap.innerHTML = renderNatalChartSVG(planetPositions);
+    wrap.innerHTML = renderNatalChartSVG(planetPositions, ascMc, houseCusps);
     card.appendChild(wrap);
 
     // Tabella posizioni
     const tableDet = el("details");
-    tableDet.appendChild(el("summary", {}, "Posizioni planetarie · gradi e segni"));
+    tableDet.appendChild(el("summary", {}, "Posizioni planetarie · gradi · case"));
     const tbl = el("table");
-    let html = `<tr><th>Pianeta</th><th>Glifo</th><th>Segno</th><th>Gradi</th></tr>`;
-    const SIGN_GLYPHS = ["♈","♉","♊","♋","♌","♍","♎","♏","♐","♑","♒","♓"];
-    const SIGN_NAMES_IT = ["Ariete","Toro","Gemelli","Cancro","Leone","Vergine","Bilancia","Scorpione","Sagittario","Capricorno","Acquario","Pesci"];
+    const showHouse = !!houseCusps;
+    let html = `<tr><th>Pianeta</th><th>Glifo</th><th>Segno</th><th>Gradi</th>${showHouse ? "<th>Casa</th>" : ""}</tr>`;
     const NAMES_IT = { Sun:"Sole", Moon:"Luna", Mercury:"Mercurio", Venus:"Venere", Mars:"Marte", Jupiter:"Giove", Saturn:"Saturno", Uranus:"Urano", Neptune:"Nettuno", Pluto:"Plutone", NorthNode:"Nodo Nord", SouthNode:"Nodo Sud" };
     const GLYPHS = { Sun:"☉", Moon:"☽", Mercury:"☿", Venus:"♀", Mars:"♂", Jupiter:"♃", Saturn:"♄", Uranus:"♅", Neptune:"♆", Pluto:"♇", NorthNode:"☊", SouthNode:"☋" };
+    const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
     for (const p of ["Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","NorthNode","SouthNode"]) {
-      const lon = planetPositions[p];
-      if (lon === null || lon === undefined) continue;
-      const signIdx = Math.floor(lon / 30);
-      const signDeg = lon - signIdx * 30;
+      const plon = planetPositions[p];
+      if (plon === null || plon === undefined) continue;
+      const signIdx = Math.floor(plon / 30);
+      const signDeg = plon - signIdx * 30;
       const deg = Math.floor(signDeg);
       const min = Math.floor((signDeg - deg) * 60);
-      html += `<tr><td>${NAMES_IT[p]}</td><td style="font-family:Fraunces,serif;font-size:18px;color:var(--gold)">${GLYPHS[p]}</td><td>${SIGN_GLYPHS[signIdx]} ${SIGN_NAMES_IT[signIdx]}</td><td><strong>${deg}° ${min}'</strong></td></tr>`;
+      const houseCell = showHouse ? `<td style="color:var(--gold-soft);font-family:Fraunces,serif">${ROMAN[planetHouse(plon, houseCusps) - 1]}</td>` : "";
+      html += `<tr><td>${NAMES_IT[p]}</td><td style="font-family:Fraunces,serif;font-size:18px;color:var(--gold)">${GLYPHS[p]}</td><td>${SIGN_GLYPHS[signIdx]} ${SIGN_NAMES_IT[signIdx]}</td><td><strong>${deg}° ${min}'</strong></td>${houseCell}</tr>`;
     }
     tbl.innerHTML = html;
     tableDet.appendChild(tbl);
     card.appendChild(tableDet);
+  }
+
+  // Lettura ASCENDENTE
+  if (ascMc) {
+    const ascSignIdx = Math.floor(ascMc.asc / 30);
+    const ascSign = SIGN_NAMES_IT[ascSignIdx];
+    const ascGlyph = SIGN_GLYPHS[ascSignIdx];
+    card.appendChild(el("h3", {}, `${ascGlyph} Ascendente in ${ascSign}`));
+    const ascInterp = SIGN_INTERP[ascSign];
+    const ascBox = el("div", { class: "interp-box" });
+    ascBox.appendChild(el("div", { class: "epigraph" }, "Maschera sociale, primo impatto, corpo. Come gli altri ti vedono prima di conoscerti."));
+    if (ascInterp) {
+      ascBox.appendChild(el("p", {}, [
+        el("strong", {}, "Stile di apparizione. "),
+        document.createTextNode("Ti presenti al mondo in modalità " + ascSign + ": " + ascInterp.breve.toLowerCase() + " È la porta da cui entri nei contesti nuovi.")
+      ]));
+    }
+    card.appendChild(ascBox);
+
+    // Lettura MC
+    const mcSignIdx = Math.floor(ascMc.mc / 30);
+    const mcSign = SIGN_NAMES_IT[mcSignIdx];
+    card.appendChild(el("p", {}, [
+      el("strong", {}, `${SIGN_GLYPHS[mcSignIdx]} Medio Cielo in ${mcSign}. `),
+      document.createTextNode("Vocazione, ruolo pubblico, ciò per cui sei riconosciuto/a. Il punto più alto del cielo al momento della nascita — la direzione della tua manifestazione nel mondo.")
+    ]));
+
+    // Tabella case con pianeti contenuti
+    if (houseCusps) {
+      const housesByPlanet = {};
+      for (let i = 1; i <= 12; i++) housesByPlanet[i] = [];
+      const NAMES_IT_H = { Sun:"Sole", Moon:"Luna", Mercury:"Mercurio", Venus:"Venere", Mars:"Marte", Jupiter:"Giove", Saturn:"Saturno", Uranus:"Urano", Neptune:"Nettuno", Pluto:"Plutone", NorthNode:"Nodo N.", SouthNode:"Nodo S." };
+      for (const p of ["Sun","Moon","Mercury","Venus","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto","NorthNode","SouthNode"]) {
+        const plon = planetPositions[p];
+        if (plon === null || plon === undefined) continue;
+        const h = planetHouse(plon, houseCusps);
+        housesByPlanet[h].push(NAMES_IT_H[p]);
+      }
+      const housesDet = el("details");
+      housesDet.appendChild(el("summary", {}, "Le 12 case · sistema Equal House"));
+      const houseList = el("div", { style: "margin-top: 12px" });
+      for (let h = 1; h <= 12; h++) {
+        const cuspIdx = Math.floor(houseCusps[h - 1] / 30);
+        const cuspSign = SIGN_NAMES_IT[cuspIdx];
+        const cuspGlyph = SIGN_GLYPHS[cuspIdx];
+        const meaning = HOUSE_MEANINGS[h];
+        const planets = housesByPlanet[h];
+        const hbox = el("div", { class: "interp-box", style: "margin: 8px 0; padding: 12px 16px" });
+        hbox.appendChild(el("div", { class: "heading", style: "font-size: 16px" }, [
+          document.createTextNode(meaning.nome + " — "),
+          el("span", { style: "color: var(--ink-soft); font-size: 14px" }, `${cuspGlyph} cuspide in ${cuspSign}`)
+        ]));
+        hbox.appendChild(el("p", { style: "margin: 4px 0; font-size: 13px" }, meaning.sintesi));
+        if (planets.length) {
+          hbox.appendChild(el("p", { style: "margin: 4px 0; font-size: 12px; color: var(--gold-soft)" }, [
+            el("strong", {}, "Pianeti in casa: "),
+            document.createTextNode(planets.join(" · "))
+          ]));
+        }
+        houseList.appendChild(hbox);
+      }
+      housesDet.appendChild(houseList);
+      card.appendChild(housesDet);
+    }
+  } else if (hasCoords && !hasTime) {
+    card.appendChild(el("div", { class: "disclaimer" }, "Per calcolare l'Ascendente serve l'ora di nascita precisa. Inseriscila nel form per ottenere il tema natale completo con case astrologiche."));
+  } else if (!hasCoords && hasTime) {
+    card.appendChild(el("div", { class: "disclaimer" }, "Per calcolare l'Ascendente serve il luogo di nascita selezionato dal menu suggerimenti (con coordinate). Riprova selezionando una città dall'elenco."));
   }
 
   if (z) {
@@ -3375,7 +4039,7 @@ function renderAstrology(parent, dateObj) {
     }
   }
 
-  card.appendChild(el("div", { class: "disclaimer" }, "Calcolo basato su effemeridi astronomy-engine + correzione precessione lineare. Aspetti maggiori (cong/sest/quad/trig/opp) disegnati nel cerchio centrale. Per Ascendente e case serve luogo di nascita preciso (lat/long) — implementazione successiva via geocoding."));
+  card.appendChild(el("div", { class: "disclaimer" }, "Calcolo basato su effemeridi astronomy-engine + correzione precessione lineare. Aspetti maggiori (cong/sest/quad/trig/opp) disegnati nel cerchio centrale. Ascendente, MC e case calcolati con sistema Equal House (case di 30° a partire dall'Ascendente). Per Placidus o Koch serve un calcolo più complesso che varia con la latitudine."));
 
   parent.appendChild(card);
 }
@@ -3384,6 +4048,7 @@ function renderChinese(parent, dateObj) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Zodiaco "), el("em", {}, "cinese")]));
   card.appendChild(el("div", { class: "subtitle" }, "Ciclo sessagesimale · pilastro dell'anno"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Dinastia Han (~200 a.C.), il ciclo sessagesimale (60 anni = 12 animali × 5 elementi) è documentato nei Registri del Grande Storico di Sima Qian (109 a.C.). Ogni animale incarna un archetipo comportamentale osservato nei ritmi naturali. Il sistema descrive tendenze temperamentali legate al ciclo dell'anno — non determina il carattere, ma suggerisce inclinazioni energetiche da integrare con il vissuto personale."));
 
   const c = chineseZodiacCalc(dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate());
   const row = el("div", { class: "row" }, [
@@ -3417,6 +4082,7 @@ function renderMaya(parent, dateObj) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Maya · "), el("em", {}, "Dreamspell")]));
   card.appendChild(el("div", { class: "subtitle" }, "20 sigilli × 13 toni · sistema di José Argüelles"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Il Dreamspell fu creato da José Argüelles nel 1987 (The Mayan Factor), ispirato al calendario Tzolkin Maya (260 giorni = 20 nahuales × 13 numeri). NOTA: non è il Tzolkin tradizionale Maya — è una reinterpretazione New Age che salta il 29 febbraio. I Maya classici (periodo 250–900 d.C.) usavano il Lungo Computo. Il Dreamspell funziona come oracolo personale: ogni 'firma galattica' descrive una qualità archetipica del giorno di nascita."));
 
   const m = dreamspellKin(dateObj.getFullYear(), dateObj.getMonth() + 1, dateObj.getDate());
   const row = el("div", { class: "row" }, [
@@ -3444,6 +4110,7 @@ function renderTarot(parent, dateObj) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Arcani Maggiori · "), el("em", {}, "Birth Cards")]));
   card.appendChild(el("div", { class: "subtitle" }, "Metodo Angeles Arrien / Mary K. Greer"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: I Tarocchi nascono come gioco di carte nel XV sec. (Milano/Ferrara). L'uso divinatorio si sviluppa dal XVIII sec. (Etteilla, Éliphas Lévi). Le Birth Cards furono introdotte da Angeles Arrien (The Tarot Handbook, 1987) e Mary K. Greer (Tarot for Your Self, 1984). Il metodo riduce la data di nascita a un Arcano Maggiore che rappresenta il tema archetipico dominante della vita. Funziona come specchio simbolico — le carte non 'predicono', offrono un linguaggio per leggere pattern psicologici."));
 
   const bc = birthCardsCalc(dateObj.getDate(), dateObj.getMonth() + 1, dateObj.getFullYear());
   const yc = yearCardCalc(dateObj.getDate(), dateObj.getMonth() + 1, new Date().getFullYear());
@@ -3744,6 +4411,7 @@ function renderHumanDesign(parent, dateObj) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Human Design · "), el("em", {}, "BodyGraph completo")]));
   card.appendChild(el("div", { class: "subtitle" }, "Sistema di Ra Uru Hu · 64 porte I-Ching · 9 centri · 36 canali"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Creato da Ra Uru Hu (Robert Alan Krakower) nel 1987 dopo un'esperienza mistica a Ibiza. Sintetizza I-Ching (64 esagrammi cinesi, ~1000 a.C.), Kabbalah (Albero della Vita), Astrologia occidentale, sistema dei Chakra Hindu e fisica dei neutrini. Il BodyGraph mappa come l'energia fluisce nel corpo — Tipo, Strategia e Autorità indicano come prendere decisioni allineate. Non è scienza verificata — è un sistema sperimentale di autoconoscenza corporea."));
 
   if (typeof Astronomy === "undefined") {
     card.appendChild(el("p", {}, "Caricamento dati astronomici in corso. Riprova tra qualche secondo."));
@@ -3869,6 +4537,7 @@ function renderArchetypes(parent, lpVal, expVal) {
   const card = el("div", { class: "card" });
   card.appendChild(el("h2", {}, [document.createTextNode("Archetipi "), el("em", {}, "junghiani")]));
   card.appendChild(el("div", { class: "subtitle" }, "12 archetipi · sintesi Pearson · lente coach"));
+  card.appendChild(el("div", { class: "origin-note" }, "Origine: Carl Gustav Jung introdusse il concetto di archetipo nel 1919 (Istinti e inconscio). Il sistema dei 12 archetipi fu sviluppato da Carol S. Pearson (The Hero Within, 1986; Awakening the Heroes Within, 1991) e applicato al branding da Margaret Mark e Pearson (The Hero and the Outlaw, 2001). La mappatura numerologica→archetipo usata qui è indicativa, non canonica — serve come punto di partenza per esplorare quali pattern mitici risuonano nella propria storia personale."));
 
   const fromLP = NUM_TO_ARCH[lpVal] || ["Eroe"];
   const fromEX = NUM_TO_ARCH[expVal] || ["Eroe"];
@@ -3918,6 +4587,10 @@ document.getElementById("birth-form").addEventListener("submit", (e) => {
   const birthDate = document.getElementById("birthDate").value;
   const birthTime = document.getElementById("birthTime").value;
   const birthPlace = document.getElementById("birthPlace").value.trim();
+  const latRaw = document.getElementById("birthPlaceLat").value;
+  const lonRaw = document.getElementById("birthPlaceLon").value;
+  const birthLat = latRaw ? parseFloat(latRaw) : null;
+  const birthLon = lonRaw ? parseFloat(lonRaw) : null;
   const yAsVowel = document.getElementById("yAsVowel").checked;
 
   if (!firstName || !lastName || !birthDate) {
@@ -3927,7 +4600,19 @@ document.getElementById("birth-form").addEventListener("submit", (e) => {
   }
 
   const fullName = firstName + " " + lastName;
-  const dateObj = new Date(birthDate + (birthTime ? "T" + birthTime : "T12:00"));
+  // Costruisci dateObj. Se abbiamo longitudine + ora, interpretiamo l'ora come "ora locale del luogo di nascita"
+  // e convertiamo in UTC usando offset stimato (lon/15). Approssimazione del fuso solare; non considera DST né
+  // confini politici, ma è accurata entro ~30 minuti per la maggior parte dei luoghi.
+  let dateObj;
+  if (birthTime && birthLon !== null && !isNaN(birthLon)) {
+    const [yy, mm, dd] = birthDate.split("-").map(Number);
+    const [hh, mi] = birthTime.split(":").map(Number);
+    const offsetHours = birthLon / 15;
+    const utcMs = Date.UTC(yy, mm - 1, dd, hh, mi) - offsetHours * 3600000;
+    dateObj = new Date(utcMs);
+  } else {
+    dateObj = new Date(birthDate + (birthTime ? "T" + birthTime : "T12:00"));
+  }
   const d = dateObj.getDate(), m = dateObj.getMonth() + 1, y = dateObj.getFullYear();
 
   // Calcoli
@@ -3972,8 +4657,8 @@ document.getElementById("birth-form").addEventListener("submit", (e) => {
   results.appendChild(sectionMarker("05", "Numerologia · gematria kabbalistica"));
   renderKabbalistic(results, kab);
 
-  results.appendChild(sectionMarker("06", "Astrologia · segno solare"));
-  renderAstrology(results, dateObj);
+  results.appendChild(sectionMarker("06", "Astrologia · segno solare · ascendente · case"));
+  renderAstrology(results, dateObj, birthLat, birthLon, !!birthTime);
 
   results.appendChild(sectionMarker("07", "Zodiaco cinese"));
   renderChinese(results, dateObj);
@@ -3989,6 +4674,22 @@ document.getElementById("birth-form").addEventListener("submit", (e) => {
 
   results.appendChild(sectionMarker("11", "Archetipi junghiani"));
   renderArchetypes(results, lp.value, sums.expression);
+
+  // Pulsante Scarica PDF
+  const pdfWrap = el("div", { class: "pdf-actions" });
+  const pdfTitle = el("div", { class: "pdf-actions-title" }, "Salva il tuo profilo");
+  const pdfDesc = el("div", { class: "pdf-actions-desc" }, "Esporta tutta la lettura in PDF per consultarla offline o stamparla.");
+  const pdfBtn = el("button", { type: "button", class: "pdf-btn" }, "Scarica PDF");
+  pdfBtn.addEventListener("click", () => {
+    const originalTitle = document.title;
+    document.title = `Profilo-Archetipico-${fullName.replace(/\s+/g, "-")}-${birthDate}`;
+    window.print();
+    setTimeout(() => { document.title = originalTitle; }, 1000);
+  });
+  pdfWrap.appendChild(pdfTitle);
+  pdfWrap.appendChild(pdfDesc);
+  pdfWrap.appendChild(pdfBtn);
+  results.appendChild(pdfWrap);
 
   // Alternanza colori card e scroll-reveal
   const cards = results.querySelectorAll(".card, .section-marker");
