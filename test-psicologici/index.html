@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Davil — Assessment Psicologici</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg-2:#f4f4f7; --bg-3:#eef0f5; --bg-card:rgba(255,255,255,.85);
+  --ink:#15131c; --ink-soft:#3d3a4a; --ink-dim:#6b6878; --white:#ffffff;
+  --brand:#7c3aed; --brand-light:#a78bfa; --brand-glow:rgba(124,58,237,.45);
+  --cosmic-violet:#7c3aed; --cosmic-magenta:#ec4899; --cosmic-indigo:#4338ca;
+  --gold:#dba93b; --gold-soft:#e6b94a; --gold-bright:#f0c75a; --gold-deep:#b88a25;
+  --border:rgba(20,15,40,.10); --border-soft:rgba(20,15,40,.05); --border-hover:rgba(236,72,153,.45);
+  --shadow-sm:0 2px 12px rgba(20,15,40,.06);
+  --shadow-md:0 24px 60px rgba(20,15,40,.10);
+  --max:1200px; --pad:clamp(20px, 4vw, 64px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ff-display:'Fraunces', Georgia, serif;
+  --ff-sans:'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{
+  background:
+    radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+    radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+    radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+    radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%);
+  background-attachment:fixed;
+  color:var(--ink);
+  scroll-behavior:smooth;
+}
+body{background:transparent; color:var(--ink); font-family:var(--ff-sans); font-weight:400; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh}
+::selection{background:rgba(236,72,153,.25); color:var(--ink)}
+
+h1,h2,h3,.display{font-family:var(--ff-display); font-weight:300; letter-spacing:-.01em; line-height:1.12; color:var(--ink)}
+h1{font-size:clamp(36px, 5.6vw, 68px)}
+h2{font-size:clamp(26px, 3.6vw, 44px)}
+h3{font-size:clamp(20px, 2.4vw, 28px)}
+h1 em, h2 em, h3 em, .lead em{
+  color:var(--gold); font-style:italic; font-weight:500;
+  text-shadow: 0 1px 2px rgba(90,60,10,.30), 0 0 1px rgba(140,95,20,.45);
+}
+.lead{font-family:var(--ff-display); font-weight:300; font-size:clamp(17px, 1.5vw, 21px); line-height:1.5; color:var(--ink-soft); max-width:62ch}
+.sect-eyebrow{font-family:var(--ff-sans); font-weight:500; font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--cosmic-magenta); margin-bottom:20px; display:inline-block}
+.sect-eyebrow::before{content:"";display:inline-block;width:24px;height:1px;background:var(--cosmic-magenta);vertical-align:middle;margin-right:10px}
+
+.sect{padding:clamp(60px,9vh,120px) var(--pad); max-width:var(--max); margin:0 auto; position:relative}
+
+/* Hero */
+.hero{padding-top:clamp(70px,11vh,140px); padding-bottom:clamp(40px,6vh,80px); text-align:center}
+.hero h1{margin-bottom:24px}
+.hero .lead{margin:0 auto 12px}
+
+/* Grid tests */
+.grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(310px,1fr)); gap:24px; margin-top:56px}
+.card{
+  background:var(--bg-card); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border-radius:22px; padding:32px 28px; position:relative;
+  border:1px solid var(--border); transition:all .4s var(--ease);
+  display:flex; flex-direction:column; gap:14px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 10px 24px -10px rgba(20,15,40,.12),
+    0 0 0 1px rgba(124,58,237,.05);
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:var(--border-hover);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 18px 36px -12px rgba(236,72,153,.18),
+    0 0 0 1px rgba(236,72,153,.22);
+}
+.card .tag{font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--cosmic-magenta); font-weight:500}
+.card h3{margin-bottom:6px}
+.card .author{font-size:13px; color:var(--ink-dim); font-style:italic}
+.card .desc{font-size:15px; color:var(--ink-soft); line-height:1.55; flex:1}
+.card .meta{font-size:12px; color:var(--ink-dim); display:flex; gap:14px; flex-wrap:wrap}
+.card .meta span::before{content:"·"; margin-right:6px; color:var(--cosmic-magenta)}
+.card .meta span:first-child::before{content:""; margin:0}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 28px; border-radius:50px; font-family:var(--ff-sans); font-weight:500; font-size:14px;
+  letter-spacing:.06em; text-transform:uppercase; border:none; cursor:pointer;
+  transition:all .35s var(--ease); text-decoration:none;
+}
+.btn-primary{
+  background:linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); color:#fff;
+  box-shadow:
+    0 6px 16px -4px rgba(124,58,237,.30),
+    0 2px 6px -1px rgba(236,72,153,.20),
+    0 0 0 1px rgba(236,72,153,.20) inset;
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 10px 24px -6px rgba(236,72,153,.40),
+    0 4px 10px -2px rgba(124,58,237,.25),
+    0 0 0 1px rgba(255,255,255,.20) inset;
+}
+.btn-ghost{
+  background:rgba(255,255,255,.6); color:var(--ink); border:1px solid var(--border);
+}
+.btn-ghost:hover{border-color:var(--border-hover); background:#fff}
+.btn-gold{
+  background:linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+  color:#2a1f08;
+  box-shadow:0 6px 16px -4px rgba(184,138,37,.40), 0 0 0 1px rgba(255,255,255,.30) inset;
+}
+.btn-gold:hover{transform:translateY(-2px)}
+
+/* Test view */
+.view{display:none}
+.view.active{display:block; animation:fadeIn .6s var(--ease)}
+@keyframes fadeIn{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+
+.test-header{padding:50px var(--pad) 30px; max-width:900px; margin:0 auto}
+.back-btn{
+  display:inline-flex; align-items:center; gap:8px; color:var(--ink-soft);
+  font-size:13px; letter-spacing:.06em; text-transform:uppercase; font-weight:500;
+  background:none; border:none; cursor:pointer; margin-bottom:30px; padding:8px 0;
+}
+.back-btn:hover{color:var(--cosmic-magenta)}
+.test-info{
+  background:var(--bg-card); backdrop-filter:blur(8px); border-radius:18px;
+  padding:24px 28px; margin-top:24px; border:1px solid var(--border);
+  font-size:15px; color:var(--ink-soft); line-height:1.65;
+}
+.test-info strong{color:var(--ink); font-weight:500}
+
+.progress{
+  position:sticky; top:0; height:4px; background:var(--bg-3); z-index:50;
+  margin-bottom:30px; border-radius:0;
+}
+.progress-bar{
+  height:100%; width:0;
+  background:linear-gradient(90deg, var(--cosmic-violet), var(--cosmic-magenta), var(--gold));
+  transition:width .4s var(--ease);
+}
+
+.questions{max-width:780px; margin:0 auto; padding:20px var(--pad) 60px}
+.question{
+  background:var(--bg-card); backdrop-filter:blur(8px);
+  border-radius:18px; padding:28px 30px; margin-bottom:20px;
+  border:1px solid var(--border);
+  box-shadow:0 4px 16px -4px rgba(20,15,40,.06);
+}
+.q-num{font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--cosmic-magenta); font-weight:500; margin-bottom:10px}
+.q-text{font-family:var(--ff-display); font-weight:400; font-size:19px; line-height:1.45; color:var(--ink); margin-bottom:22px}
+
+.options{display:flex; flex-direction:column; gap:8px}
+.options.likert{flex-direction:row; flex-wrap:wrap; gap:8px; justify-content:space-between}
+.opt{
+  flex:1; min-width:fit-content; padding:12px 18px; border-radius:12px;
+  background:#fff; border:1px solid var(--border); cursor:pointer;
+  font-family:var(--ff-sans); font-size:14px; color:var(--ink-soft);
+  transition:all .25s var(--ease); text-align:center;
+}
+.options:not(.likert) .opt{text-align:left; padding:14px 20px}
+.opt:hover{border-color:var(--brand-light); color:var(--ink); background:rgba(124,58,237,.04)}
+.opt.selected{
+  background:linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.10));
+  border-color:var(--cosmic-magenta); color:var(--ink); font-weight:500;
+  box-shadow:0 0 0 3px rgba(236,72,153,.10);
+}
+.opt-label{display:block; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); margin-top:4px}
+.opt.selected .opt-label{color:var(--cosmic-magenta)}
+
+.test-footer{display:flex; justify-content:space-between; align-items:center; gap:16px; max-width:780px; margin:30px auto 0; padding:0 var(--pad)}
+
+/* Results */
+.results{max-width:900px; margin:0 auto; padding:50px var(--pad) 80px}
+.result-hero{text-align:center; margin-bottom:50px}
+.result-score{
+  display:inline-block; font-family:var(--ff-display); font-weight:500;
+  font-size:clamp(60px,10vw,120px); color:var(--gold);
+  text-shadow: 0 2px 4px rgba(90,60,10,.30), 0 0 1px rgba(140,95,20,.45);
+  line-height:1; margin:20px 0;
+}
+.result-label{font-size:13px; letter-spacing:.32em; text-transform:uppercase; color:var(--cosmic-magenta); font-weight:500}
+.result-band{
+  display:inline-block; padding:8px 22px; border-radius:50px;
+  background:linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.10));
+  border:1px solid var(--border-hover); margin-top:14px;
+  font-size:14px; font-weight:500; color:var(--ink);
+}
+.result-section{
+  background:var(--bg-card); backdrop-filter:blur(8px); border-radius:18px;
+  padding:28px 32px; margin-bottom:20px; border:1px solid var(--border);
+}
+.result-section h3{margin-bottom:14px; font-size:22px}
+.result-section p{color:var(--ink-soft); line-height:1.65; margin-bottom:10px}
+.result-bar{
+  display:flex; align-items:center; gap:14px; padding:12px 0;
+  border-bottom:1px solid var(--border-soft);
+}
+.result-bar:last-child{border-bottom:none}
+.result-bar-name{flex:0 0 200px; font-family:var(--ff-display); font-size:16px; color:var(--ink)}
+.result-bar-track{flex:1; height:10px; background:var(--bg-3); border-radius:50px; overflow:hidden}
+.result-bar-fill{height:100%; background:linear-gradient(90deg, var(--cosmic-violet), var(--cosmic-magenta)); border-radius:50px; transition:width 1s var(--ease)}
+.result-bar-val{flex:0 0 60px; text-align:right; font-weight:500; color:var(--ink); font-variant-numeric:tabular-nums}
+
+.actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:40px}
+
+.disclaimer{
+  margin-top:40px; padding:20px 24px; border-radius:14px;
+  background:rgba(124,58,237,.05); border-left:3px solid var(--cosmic-violet);
+  font-size:13px; color:var(--ink-dim); line-height:1.6;
+}
+
+/* Footer */
+footer{padding:60px var(--pad) 40px; text-align:center; color:var(--ink-dim); font-size:13px; border-top:1px solid var(--border-soft); margin-top:80px}
+footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
+
+@media (max-width:640px){
+  .test-header{padding:30px var(--pad) 20px}
+  .question{padding:22px}
+  .q-text{font-size:17px}
+  .options.likert{flex-direction:column}
+  .options.likert .opt{text-align:left}
+  .result-bar-name{flex:0 0 130px; font-size:14px}
+}
+
+/* Toast */
+.toast{
+  position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:var(--ink); color:#fff; padding:14px 26px; border-radius:50px;
+  font-size:14px; font-weight:500; opacity:0; pointer-events:none;
+  transition:all .4s var(--ease); z-index:200;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<div id="landing" class="view active">
+  <header class="sect hero">
+    <span class="sect-eyebrow">Davil — assessment psicologici</span>
+    <h1>Conosci la tua <em>mappa interiore</em></h1>
+    <p class="lead">Otto test validati nella ricerca clinica — personalita, schemi, traumi, dissociazione e ruminazione. Strumenti per <em>esplorare</em>, non per diagnosticare.</p>
+  </header>
+
+  <section class="sect" style="padding-top:0">
+    <div class="grid" id="testGrid"></div>
+  </section>
+</div>
+
+<!-- TEST VIEW -->
+<div id="testView" class="view">
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="test-header">
+    <button class="back-btn" onclick="goHome()">← Torna ai test</button>
+    <span class="sect-eyebrow" id="testEyebrow"></span>
+    <h2 id="testTitle"></h2>
+    <div class="test-info" id="testInfo"></div>
+  </div>
+  <div class="questions" id="questions"></div>
+  <div class="test-footer">
+    <button class="btn btn-ghost" onclick="goHome()">Annulla</button>
+    <button class="btn btn-primary" id="submitBtn" onclick="submitTest()" disabled>Calcola risultato</button>
+  </div>
+</div>
+
+<!-- RESULTS VIEW -->
+<div id="resultsView" class="view">
+  <div class="results">
+    <button class="back-btn" onclick="goHome()">← Torna ai test</button>
+    <div class="result-hero">
+      <span class="result-label" id="resultEyebrow"></span>
+      <h2 id="resultTitle"></h2>
+    </div>
+    <div id="resultBody"></div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="copyResult()">Copia risultato</button>
+      <button class="btn btn-gold" onclick="downloadResult()">Salva come file</button>
+      <button class="btn btn-ghost" onclick="emailResult()">Invia via email</button>
+      <button class="btn btn-ghost" onclick="goHome()">Fai un altro test</button>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Nota importante:</strong> questi strumenti sono validati nella ricerca scientifica ma non sostituiscono una valutazione clinica. I risultati hanno valore esplorativo e di self-reflection. Per un assessment formale rivolgiti a uno psicologo o psicoterapeuta abilitato.
+    </div>
+  </div>
+</div>
+
+<footer>
+  Davil · <em>mental coaching</em> · davildiclaudio@gmail.com
+</footer>
+
+<div class="toast" id="toast">Copiato negli appunti</div>
+
+<script>
+// ========== TEST DEFINITIONS ==========
+const TESTS = {
+  enneagram: {
+    title: "Enneagramma",
+    eyebrow: "Tipologia caratteriale",
+    author: "Sviluppato da Oscar Ichazo (anni '60) ed Esoterico/Claudio Naranjo, formalizzato per la psicologia da Don Riso & Russ Hudson (RHETI). 9 tipi di personalita basati su motivazioni profonde.",
+    info: "27 affermazioni — 3 per ognuno dei 9 tipi. Indica quanto ti riconosci nella frase. Il tuo tipo dominante emerge dal punteggio piu alto. Tempo: ~5 min.",
+    scaleType: "likert5",
+    scale: [
+      {v:1, label:"Per niente"},
+      {v:2, label:"Poco"},
+      {v:3, label:"In parte"},
+      {v:4, label:"Abbastanza"},
+      {v:5, label:"Molto"}
+    ],
+    questions: [
+      // Tipo 1 - Perfezionista
+      {q:"Quando vedo qualcosa fatto male, sento il bisogno di sistemarlo — anche se nessuno me l'ha chiesto.", t:1},
+      {q:"Ho dentro una voce che valuta tutto di me e degli altri, e raramente tace.", t:1},
+      {q:"Mi e difficile rilassarmi davvero finche c'e qualcosa di incompleto o non corretto.", t:1},
+      {q:"Mi capita di reprimere desideri o impulsi perche li sento 'non giusti'.", t:1},
+      {q:"Ho il timore profondo di essere giudicato/a come una persona 'non a posto'.", t:1},
+      // Tipo 2 - Aiutante
+      {q:"Sento istintivamente di cosa hanno bisogno gli altri, prima ancora che me lo dicano.", t:2},
+      {q:"Mi viene difficile chiedere apertamente cio che mi serve, mentre lo faccio per gli altri con naturalezza.", t:2},
+      {q:"Mi sento davvero amato/a soprattutto quando mi rendo utile a qualcuno.", t:2},
+      {q:"A volte do tantissimo, e poi mi sento svuotato/a o non riconosciuto/a.", t:2},
+      {q:"Tendo a entrare in connessione con le persone scoprendo come posso esserci per loro.", t:2},
+      // Tipo 3 - Realizzatore
+      {q:"Mi misuro spesso attraverso i risultati: senza, mi sento meno.", t:3},
+      {q:"Ho una capacita naturale di adattare la mia immagine a cio che il contesto premia.", t:3},
+      {q:"Fermarmi mi sembra un lusso che non posso davvero permettermi.", t:3},
+      {q:"Il giudizio di 'non vincente' o 'fallito' e una delle mie paure piu intime.", t:3},
+      {q:"So motivare e trascinare gli altri verso un obiettivo: la performance e il mio terreno.", t:3},
+      // Tipo 4 - Individualista/Romantico
+      {q:"C'e qualcosa di profondamente unico in me che gli altri raramente colgono.", t:4},
+      {q:"Sento spesso che mi manca qualcosa di essenziale che gli altri sembrano avere.", t:4},
+      {q:"Le mie emozioni, anche le piu intense o malinconiche, sono parte preziosa di chi sono.", t:4},
+      {q:"Mi attira cio che ha profondita, mistero o bellezza struggente.", t:4},
+      {q:"Tendo a idealizzare cio che e lontano e a sentire mancanza di cio che non ho.", t:4},
+      // Tipo 5 - Investigatore
+      {q:"Preferisco osservare e capire prima di buttarmi dentro a una situazione.", t:5},
+      {q:"Proteggo con cura il mio tempo, la mia energia e il mio spazio personale.", t:5},
+      {q:"Sapere come funzionano le cose mi fa sentire al sicuro e al mio posto.", t:5},
+      {q:"Anche in mezzo agli altri, una parte di me resta nel suo mondo interiore.", t:5},
+      {q:"Le richieste emotive degli altri possono diventarmi rapidamente pesanti.", t:5},
+      // Tipo 6 - Leale/Scettico
+      {q:"Anticipo cio che potrebbe andare storto, per essere pronto/a se accade.", t:6},
+      {q:"Mi affido a sistemi, gruppi o figure di riferimento per sentirmi sicuro/a.", t:6},
+      {q:"Ho un rapporto ambivalente con l'autorita: oscillo tra fiducia e dubbio.", t:6},
+      {q:"La lealta e per me una qualita non negoziabile, sia data che ricevuta.", t:6},
+      {q:"La mia mente fa molte domande prima di decidere — anche su me stesso/a.", t:6},
+      // Tipo 7 - Entusiasta
+      {q:"Sono attratto/a da esperienze nuove, idee, possibilita: la noia mi pesa.", t:7},
+      {q:"Faccio molti piani contemporaneamente e fatico a portarli tutti a termine.", t:7},
+      {q:"Quando qualcosa diventa difficile o doloroso, la mia mente cerca subito un'alternativa.", t:7},
+      {q:"Ho una mente rapida che salta da un'idea all'altra con energia ed entusiasmo.", t:7},
+      {q:"Voglio assaporare tutto cio che la vita offre, senza limiti che mi trattengano.", t:7},
+      // Tipo 8 - Sfidante
+      {q:"Sono diretto/a, schietto/a: non temo lo scontro quando serve.", t:8},
+      {q:"Difendo istintivamente chi e debole o vittima di ingiustizie.", t:8},
+      {q:"Mostrare vulnerabilita mi viene difficile — la sento come una perdita di forza.", t:8},
+      {q:"Mi muovo con energia decisa: gli altri sentono la mia presenza in una stanza.", t:8},
+      {q:"Preferisco prendere il controllo di una situazione piuttosto che subirla.", t:8},
+      // Tipo 9 - Pacificatore
+      {q:"Cerco armonia ed evito conflitti, anche a costo di mettermi in secondo piano.", t:9},
+      {q:"Ho difficolta naturale a sentire e affermare cio che voglio davvero.", t:9},
+      {q:"Tendo a procrastinare cio che mi richiederebbe di prendere posizione.", t:9},
+      {q:"So vedere il punto di vista di tutti — a volte al punto da perdere il mio.", t:9},
+      {q:"Trovo conforto nelle abitudini e nel ritmo familiare delle cose quotidiane.", t:9}
+    ],
+    score(answers){
+      const types = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+      this.questions.forEach((q,i)=>{ types[q.t] += answers[i] || 0; });
+      const sorted = Object.entries(types).sort((a,b)=>b[1]-a[1]);
+      const dominant = sorted[0];
+      const wing = sorted[1];
+      return {types, sorted, dominant, wing};
+    },
+    interpret(r){
+      const NAMES = {
+        1:{name:"Perfezionista", desc:"Etico, organizzato, idealista. Driver: essere giusto/a. Ombra: critica rigida."},
+        2:{name:"Aiutante", desc:"Empatico, generoso, relazionale. Driver: essere amato/a. Ombra: bisogno nascosto."},
+        3:{name:"Realizzatore", desc:"Ambizioso, adattabile, orientato al successo. Driver: avere valore. Ombra: identita di facciata."},
+        4:{name:"Individualista", desc:"Sensibile, autentico, creativo. Driver: essere unico. Ombra: malinconia, mancanza."},
+        5:{name:"Investigatore", desc:"Osservatore, riflessivo, indipendente. Driver: essere competente. Ombra: distacco."},
+        6:{name:"Leale", desc:"Affidabile, vigile, prudente. Driver: trovare sicurezza. Ombra: ansia anticipatoria."},
+        7:{name:"Entusiasta", desc:"Versatile, ottimista, pieno di idee. Driver: evitare il dolore. Ombra: dispersione."},
+        8:{name:"Sfidante", desc:"Forte, protettivo, diretto. Driver: avere controllo. Ombra: durezza, negazione vulnerabilita."},
+        9:{name:"Pacificatore", desc:"Accogliente, mediatore, calmo. Driver: avere pace. Ombra: auto-cancellazione."}
+      };
+      const d = r.dominant; const w = r.wing;
+      const dominantInfo = NAMES[d[0]];
+      const wingInfo = NAMES[w[0]];
+      return {
+        headline: `Tipo ${d[0]} — ${dominantInfo.name}`,
+        band: `Ala ${w[0]} (${wingInfo.name})`,
+        body: `<div class="result-section">
+          <h3>Tipo dominante: ${d[0]} — ${dominantInfo.name}</h3>
+          <p>${dominantInfo.desc}</p>
+          <p><strong>Punteggio:</strong> ${d[1]}/25 · <strong>Ala secondaria:</strong> ${w[0]} (${wingInfo.name}) ${w[1]}/25</p>
+        </div>
+        <div class="result-section">
+          <h3>Profilo completo (9 tipi)</h3>
+          ${r.sorted.map(([t,v])=>{
+            const pct = (v/25)*100;
+            return `<div class="result-bar">
+              <div class="result-bar-name">${t} · ${NAMES[t].name}</div>
+              <div class="result-bar-track"><div class="result-bar-fill" style="width:${pct}%"></div></div>
+              <div class="result-bar-val">${v}/25</div>
+            </div>`;
+          }).join('')}
+        </div>`
+      };
+    }
+  },
+
+  young: {
+    title: "Schemi di Young (YSQ-S3)",
+    eyebrow: "Psicotrappole — schemi maladattivi precoci",
+    author: "Jeffrey Young (1990, Schema Therapy). Identifica i 18 schemi maladattivi precoci che si formano nell'infanzia e generano i pattern ripetitivi dell'eta adulta — le 'psicotrappole' di sé.",
+    info: "18 affermazioni — 1 per ognuno dei 18 schemi (versione screening). Indica quanto la frase descrive te. Punteggi ≥4 segnalano uno schema attivo. Tempo: ~4 min.",
+    scaleType: "likert6",
+    scale: [
+      {v:1, label:"Falso"},
+      {v:2, label:"Quasi falso"},
+      {v:3, label:"Piu falso che vero"},
+      {v:4, label:"Piu vero che falso"},
+      {v:5, label:"Quasi vero"},
+      {v:6, label:"Vero"}
+    ],
+    info: "108 affermazioni — 6 per ognuno dei 18 schemi. Indica quanto ciascuna frase ti rispecchia: rispondi di pancia, senza filtrare. Schemi con media ≥4/6 sono attivi. Tempo: ~15 min.",
+    questions: [
+      // 1. Abbandono/Instabilita
+      {q:"Una parte di me sa che le persone importanti, prima o poi, se ne andranno.", s:"Abbandono"},
+      {q:"Quando sento qualcuno emotivamente distante, mi entra ansia da abbandono.", s:"Abbandono"},
+      {q:"Faccio fatica a fidarmi che chi mi ama restera davvero.", s:"Abbandono"},
+      {q:"Da bambino/a ho avuto paura di rimanere senza una figura di riferimento stabile.", s:"Abbandono"},
+      {q:"Anche quando una relazione va bene, una parte di me aspetta la perdita.", s:"Abbandono"},
+      {q:"Mi attacco intensamente alle persone, e mi terrorizza l'idea di perderle.", s:"Abbandono"},
+      // 2. Sfiducia/Abuso
+      {q:"Una parte di me sa che non posso davvero fidarmi: prima o poi mi tradiranno.", s:"Sfiducia/Abuso"},
+      {q:"Tendo a immaginare le intenzioni nascoste dietro cio che gli altri fanno.", s:"Sfiducia/Abuso"},
+      {q:"Faccio fatica a lasciar entrare qualcuno nella mia intimita piu profonda.", s:"Sfiducia/Abuso"},
+      {q:"Quando qualcuno e gentile con me, sospetto che voglia qualcosa.", s:"Sfiducia/Abuso"},
+      {q:"Mi sono sentito/a usato/a o tradito/a in modo doloroso, e non lo dimentico.", s:"Sfiducia/Abuso"},
+      {q:"Sto sempre in guardia, anche con persone vicine: non si sa mai.", s:"Sfiducia/Abuso"},
+      // 3. Deprivazione emotiva
+      {q:"Nessuno capisce davvero cio che provo o di cosa ho bisogno.", s:"Deprivazione emotiva"},
+      {q:"Anche con persone vicine mi sento solo/a in cio che davvero conta.", s:"Deprivazione emotiva"},
+      {q:"Da piccolo/a non ho ricevuto l'affetto e la cura emotiva che mi servivano.", s:"Deprivazione emotiva"},
+      {q:"Quando sto male, so di non poter contare davvero su qualcuno che mi ascolti.", s:"Deprivazione emotiva"},
+      {q:"Mi sento spesso non visto/a, non considerato/a per chi sono dentro.", s:"Deprivazione emotiva"},
+      {q:"Tengo nascosti i miei bisogni emotivi: tanto non saranno colti.", s:"Deprivazione emotiva"},
+      // 4. Inadeguatezza/Vergogna
+      {q:"C'e qualcosa di intrinsecamente sbagliato in me.", s:"Inadeguatezza/Vergogna"},
+      {q:"Se le persone vedessero davvero chi sono, scapperebbero.", s:"Inadeguatezza/Vergogna"},
+      {q:"Mi sento meno degno/a di affetto e amore degli altri.", s:"Inadeguatezza/Vergogna"},
+      {q:"Quando ricevo critiche, le sento come la conferma di cio che gia sapevo.", s:"Inadeguatezza/Vergogna"},
+      {q:"Una vergogna profonda di me stesso/a mi accompagna, anche quando va tutto bene.", s:"Inadeguatezza/Vergogna"},
+      {q:"Mi nascondo dietro maschere perche temo che il mio 'vero io' non vada bene.", s:"Inadeguatezza/Vergogna"},
+      // 5. Isolamento sociale
+      {q:"Mi sento fuori posto nei gruppi: non appartengo davvero a nessuno.", s:"Isolamento sociale"},
+      {q:"Sono diverso/a dalla maggior parte delle persone, in un modo che mi isola.", s:"Isolamento sociale"},
+      {q:"Anche tra amici, una parte di me si sente straniera.", s:"Isolamento sociale"},
+      {q:"Non riesco a integrarmi nei contesti sociali con naturalezza.", s:"Isolamento sociale"},
+      {q:"Non condivido i valori, gli interessi o lo stile della maggior parte delle persone.", s:"Isolamento sociale"},
+      {q:"Mi sento un outsider, anche quando faccio parte di qualcosa.", s:"Isolamento sociale"},
+      // 6. Dipendenza/Incompetenza
+      {q:"Nelle questioni pratiche quotidiane mi serve l'aiuto degli altri per cavarmela.", s:"Dipendenza/Incompetenza"},
+      {q:"Mi sento incapace di prendere decisioni importanti da solo/a.", s:"Dipendenza/Incompetenza"},
+      {q:"Senza qualcuno che mi guidi, mi blocco facilmente.", s:"Dipendenza/Incompetenza"},
+      {q:"Affrontare la vita 'da adulto/a' in piena autonomia mi spaventa.", s:"Dipendenza/Incompetenza"},
+      {q:"Tendo a chiedere conferma agli altri prima di agire.", s:"Dipendenza/Incompetenza"},
+      {q:"Mi sembra che gli altri sappiano fare cose normali che a me sfuggono.", s:"Dipendenza/Incompetenza"},
+      // 7. Vulnerabilita al pericolo
+      {q:"Temo che qualcosa di terribile possa accadere all'improvviso.", s:"Vulnerabilita al pericolo"},
+      {q:"Sono ipersensibile a sintomi corporei che potrebbero indicare malattie gravi.", s:"Vulnerabilita al pericolo"},
+      {q:"La paura di catastrofi (incidenti, perdite, disastri) mi accompagna.", s:"Vulnerabilita al pericolo"},
+      {q:"Evito situazioni in cui potrei sentirmi in pericolo, anche se improbabile.", s:"Vulnerabilita al pericolo"},
+      {q:"Penso spesso a cosa potrebbe andare storto.", s:"Vulnerabilita al pericolo"},
+      {q:"Una sensazione di pericolo imminente mi visita anche quando va tutto bene.", s:"Vulnerabilita al pericolo"},
+      // 8. Invischiamento
+      {q:"Io e una figura di riferimento (genitore, partner) siamo cosi legati che fatico a sentirmi separato/a.", s:"Invischiamento/Sé indifferenziato"},
+      {q:"La mia identita e fortemente intrecciata con quella di un'altra persona.", s:"Invischiamento/Sé indifferenziato"},
+      {q:"Mi sento svuotato/a o disorientato/a quando sono lontano/a da chi mi e vicino.", s:"Invischiamento/Sé indifferenziato"},
+      {q:"Faccio fatica a sentire quali sono i miei desideri, distinti da quelli di chi amo.", s:"Invischiamento/Sé indifferenziato"},
+      {q:"La separazione da una figura di attaccamento mi da angoscia profonda.", s:"Invischiamento/Sé indifferenziato"},
+      {q:"Vivo le emozioni dell'altro come se fossero mie.", s:"Invischiamento/Sé indifferenziato"},
+      // 9. Fallimento
+      {q:"Quasi tutto cio che intraprendo finisce per non funzionare.", s:"Fallimento"},
+      {q:"Sono meno talentuoso/a, capace o intelligente delle persone come me.", s:"Fallimento"},
+      {q:"Confronto i miei risultati con quelli degli altri e mi sento dietro.", s:"Fallimento"},
+      {q:"Sento di non aver realizzato cio che avrei potuto.", s:"Fallimento"},
+      {q:"Anche quando ho successo, sento di non meritarlo davvero (impostore).", s:"Fallimento"},
+      {q:"C'e un copione di fallimento che ritorna, in forme diverse, nella mia vita.", s:"Fallimento"},
+      // 10. Pretese/Grandiosita
+      {q:"Le regole comuni non si applicano a me allo stesso modo che agli altri.", s:"Pretese/Grandiosita"},
+      {q:"Merito attenzione, considerazione o trattamenti speciali piu della media.", s:"Pretese/Grandiosita"},
+      {q:"Quando non ottengo cio che voglio, mi infastidisco con facilita.", s:"Pretese/Grandiosita"},
+      {q:"Trovo difficile accettare limiti imposti da altri.", s:"Pretese/Grandiosita"},
+      {q:"Sono speciale: poche persone mi capiscono al mio livello.", s:"Pretese/Grandiosita"},
+      {q:"Faccio fatica a stare nella reciprocita: do se ricevo riconoscimento.", s:"Pretese/Grandiosita"},
+      // 11. Autocontrollo insufficiente
+      {q:"Mi e difficile portare a termine cose che mi annoiano o frustrano.", s:"Autocontrollo insufficiente"},
+      {q:"Cedo agli impulsi (cibo, spesa, scoppi d'ira) anche sapendo che non mi conviene.", s:"Autocontrollo insufficiente"},
+      {q:"Faccio fatica a darmi una disciplina e a rispettarla.", s:"Autocontrollo insufficiente"},
+      {q:"Procrastino cio che richiede sforzo, anche quando e importante.", s:"Autocontrollo insufficiente"},
+      {q:"Quando provo emozioni forti, perdo il controllo dei miei comportamenti.", s:"Autocontrollo insufficiente"},
+      {q:"La frustrazione mi e quasi insopportabile: cerco subito sollievo.", s:"Autocontrollo insufficiente"},
+      // 12. Sottomissione
+      {q:"Tendo a mettere i bisogni degli altri prima dei miei, fino a dimenticarmi.", s:"Sottomissione"},
+      {q:"Mi e difficile dire 'no', anche quando vorrei farlo.", s:"Sottomissione"},
+      {q:"Reprimo cio che provo per non creare problemi.", s:"Sottomissione"},
+      {q:"Lascio decidere agli altri pur di evitare conflitti.", s:"Sottomissione"},
+      {q:"Esprimere rabbia o disaccordo apertamente mi mette molto a disagio.", s:"Sottomissione"},
+      {q:"Il mio 'io' si attenua o sparisce quando l'altro e forte o esigente.", s:"Sottomissione"},
+      // 13. Auto-sacrificio
+      {q:"Sacrifico costantemente i miei bisogni per prendermi cura degli altri.", s:"Auto-sacrificio"},
+      {q:"Mi sento in colpa quando metto me stesso/a al primo posto.", s:"Auto-sacrificio"},
+      {q:"Sono iper-responsabile per la felicita e il benessere altrui.", s:"Auto-sacrificio"},
+      {q:"Tendo a notare quanto offro e come gli altri non ricambiano.", s:"Auto-sacrificio"},
+      {q:"Ho difficolta a fermarmi anche quando sono esausto/a.", s:"Auto-sacrificio"},
+      {q:"Mi prendo carico di problemi che, razionalmente, non sono miei.", s:"Auto-sacrificio"},
+      // 14. Ricerca di approvazione
+      {q:"Per essere accettato/a devo nascondere chi sono davvero.", s:"Ricerca approvazione"},
+      {q:"Mi adatto a cio che gli altri si aspettano per essere apprezzato/a.", s:"Ricerca approvazione"},
+      {q:"La mia autostima dipende molto dal giudizio o dal riconoscimento esterno.", s:"Ricerca approvazione"},
+      {q:"Cerco status, premi o segnali di valore per sentirmi valido/a.", s:"Ricerca approvazione"},
+      {q:"Sento il bisogno di essere ammirato/a o speciale agli occhi degli altri.", s:"Ricerca approvazione"},
+      {q:"Soffro molto quando vengo escluso/a o non riconosciuto/a.", s:"Ricerca approvazione"},
+      // 15. Negativita/Pessimismo
+      {q:"Vedo per primo cio che puo andare male in una situazione.", s:"Negativita/Pessimismo"},
+      {q:"Mi aspetto il peggio, cosi se accade non rimango deluso/a.", s:"Negativita/Pessimismo"},
+      {q:"Tendo a focalizzarmi sui problemi, anche quando ci sono cose buone.", s:"Negativita/Pessimismo"},
+      {q:"Mi preoccupo molto, anche per cose che probabilmente non accadranno.", s:"Negativita/Pessimismo"},
+      {q:"Faccio fatica a godermi i momenti positivi: aspetto il 'ma'.", s:"Negativita/Pessimismo"},
+      {q:"Una parte di me e abituata a una visione cupa del futuro.", s:"Negativita/Pessimismo"},
+      // 16. Inibizione emotiva
+      {q:"Devo controllare le mie emozioni: mostrarle mi sembra debolezza.", s:"Inibizione emotiva"},
+      {q:"Trattengo cio che provo per non perdere la compostezza.", s:"Inibizione emotiva"},
+      {q:"Mi e difficile lasciarmi andare alla gioia, alla rabbia o al pianto davanti agli altri.", s:"Inibizione emotiva"},
+      {q:"Vengo percepito/a come distaccato/a o 'freddo/a', anche se dentro provo molto.", s:"Inibizione emotiva"},
+      {q:"Reprimo affetto e tenerezza, anche con chi amo.", s:"Inibizione emotiva"},
+      {q:"Esprimere spontaneamente cio che provo mi mette a disagio.", s:"Inibizione emotiva"},
+      // 17. Standard severi
+      {q:"Devo essere il/la migliore in cio che faccio: niente e mai abbastanza.", s:"Standard severi"},
+      {q:"Quando completo qualcosa, vedo subito cio che ancora non va.", s:"Standard severi"},
+      {q:"Ho una pressione interna costante di rendere al massimo.", s:"Standard severi"},
+      {q:"Mi giudico in modo severo, ben oltre cio che sarebbe giusto.", s:"Standard severi"},
+      {q:"Faccio fatica a rilassarmi davvero: c'e sempre qualcosa da migliorare.", s:"Standard severi"},
+      {q:"Se non raggiungo standard alti, sento di valere meno.", s:"Standard severi"},
+      // 18. Punizione
+      {q:"Chi sbaglia deve pagare, me incluso.", s:"Punizione"},
+      {q:"Faccio fatica a perdonare gli errori, miei o altrui.", s:"Punizione"},
+      {q:"Le scuse non bastano: serve un 'prezzo' da pagare.", s:"Punizione"},
+      {q:"Tendo a essere duro/a con me stesso/a quando sbaglio.", s:"Punizione"},
+      {q:"Una parte di me prova soddisfazione quando chi ha sbagliato 'paga'.", s:"Punizione"},
+      {q:"Vedo gli errori come segno di scarso carattere, non come parte del processo.", s:"Punizione"}
+    ],
+    score(answers){
+      const schemas = {}; const counts = {};
+      this.questions.forEach((q,i)=>{
+        schemas[q.s] = (schemas[q.s] || 0) + (answers[i] || 0);
+        counts[q.s] = (counts[q.s] || 0) + 1;
+      });
+      const means = {};
+      for(const s in schemas) means[s] = schemas[s] / counts[s];
+      const active = Object.entries(means).filter(([s,v])=>v>=4);
+      const sorted = Object.entries(means).sort((a,b)=>b[1]-a[1]);
+      return {schemas: means, active, sorted};
+    },
+    interpret(r){
+      const DOMAINS = {
+        "Abbandono":"Distacco e Rifiuto",
+        "Sfiducia/Abuso":"Distacco e Rifiuto",
+        "Deprivazione emotiva":"Distacco e Rifiuto",
+        "Inadeguatezza/Vergogna":"Distacco e Rifiuto",
+        "Isolamento sociale":"Distacco e Rifiuto",
+        "Dipendenza/Incompetenza":"Autonomia compromessa",
+        "Vulnerabilita al pericolo":"Autonomia compromessa",
+        "Invischiamento/Sé indifferenziato":"Autonomia compromessa",
+        "Fallimento":"Autonomia compromessa",
+        "Pretese/Grandiosita":"Limiti deficitari",
+        "Autocontrollo insufficiente":"Limiti deficitari",
+        "Sottomissione":"Etero-direzionalita",
+        "Auto-sacrificio":"Etero-direzionalita",
+        "Ricerca approvazione":"Etero-direzionalita",
+        "Negativita/Pessimismo":"Ipervigilanza/Inibizione",
+        "Inibizione emotiva":"Ipervigilanza/Inibizione",
+        "Standard severi":"Ipervigilanza/Inibizione",
+        "Punizione":"Ipervigilanza/Inibizione"
+      };
+      const activeCount = r.active.length;
+      let band = "Pochi schemi attivi";
+      if(activeCount >= 8) band = "Molti schemi attivi — lavoro importante";
+      else if(activeCount >= 4) band = "Schemi attivi multipli";
+      else if(activeCount >= 1) band = "Alcuni schemi attivi";
+
+      return {
+        headline: `${activeCount} schemi attivi su 18`,
+        band: band,
+        body: `<div class="result-section">
+          <h3>Schemi attivi (≥4)</h3>
+          ${r.active.length === 0
+            ? '<p>Nessuno schema raggiunge la soglia di attivazione. Possibile profilo equilibrato o tendenza a minimizzare. Considera una versione completa (YSQ-L3) per maggior accuratezza.</p>'
+            : '<p>Gli schemi sotto sono i tuoi pattern piu attivi: convinzioni profonde formate nell\'infanzia che oggi guidano emozioni e comportamenti. Sono le "trappole" di Young.</p><div style="margin-top:18px">' +
+              r.active.map(([s,v])=>`<div class="result-bar">
+                <div class="result-bar-name">${s}<br><span style="font-size:11px; color:var(--ink-dim); letter-spacing:.1em; text-transform:uppercase">${DOMAINS[s]}</span></div>
+                <div class="result-bar-track"><div class="result-bar-fill" style="width:${(v/6)*100}%"></div></div>
+                <div class="result-bar-val">${v.toFixed(1)}/6</div>
+              </div>`).join('') + '</div>'}
+        </div>
+        <div class="result-section">
+          <h3>Profilo completo (18 schemi)</h3>
+          ${r.sorted.map(([s,v])=>`<div class="result-bar">
+            <div class="result-bar-name" style="font-size:14px">${s}</div>
+            <div class="result-bar-track"><div class="result-bar-fill" style="width:${(v/6)*100}%; opacity:${v>=4?1:.5}"></div></div>
+            <div class="result-bar-val">${v.toFixed(1)}/6</div>
+          </div>`).join('')}
+        </div>`
+      };
+    }
+  },
+
+  cattell16pf: {
+    title: "16PF (Cattell)",
+    eyebrow: "Sedici fattori primari di personalita",
+    author: "Raymond Cattell (1949). Modello fattoriale che identifica 16 tratti primari di personalita attraverso analisi statistica del linguaggio. Misura disposizioni stabili e indipendenti dal contesto.",
+    info: "48 affermazioni — 3 per ognuno dei 16 fattori. Indica quanto ti riconosci, senza pensarci troppo. Tempo: ~8 min. (Screening; non sostituisce il 16PF-5 completo)",
+    scaleType: "likert5",
+    scale: [
+      {v:1, label:"Per niente"},
+      {v:2, label:"Poco"},
+      {v:3, label:"In parte"},
+      {v:4, label:"Abbastanza"},
+      {v:5, label:"Molto"}
+    ],
+    questions: [
+      // A · Affettivita
+      {q:"Stare con le persone mi nutre: mi accendo nei rapporti caldi.", f:"A", r:false},
+      {q:"Tendo a mantenere una certa distanza nei rapporti, anche stretti.", f:"A", r:true},
+      {q:"Mi lascio coinvolgere emotivamente da chi mi sta vicino.", f:"A", r:false},
+      // B · Ragionamento
+      {q:"Capisco rapidamente concetti astratti e problemi complessi.", f:"B", r:false},
+      {q:"Faccio fatica a seguire ragionamenti molto astratti.", f:"B", r:true},
+      {q:"Risolvo problemi mentali con facilita.", f:"B", r:false},
+      // C · Stabilita emotiva
+      {q:"Anche sotto stress, conservo lucidita e centratura.", f:"C", r:false},
+      {q:"Mi lascio sopraffare facilmente dalle emozioni.", f:"C", r:true},
+      {q:"Le difficolta della vita le gestisco senza crollare.", f:"C", r:false},
+      // E · Dominanza
+      {q:"Mi viene naturale prendere il comando di una situazione.", f:"E", r:false},
+      {q:"Tendo a cedere agli altri e a evitare i conflitti.", f:"E", r:true},
+      {q:"Esprimo le mie idee con forza, anche quando sono in disaccordo.", f:"E", r:false},
+      // F · Vivacita
+      {q:"Sono spontaneo/a, vivace, espressivo/a.", f:"F", r:false},
+      {q:"Sono serio/a, sobrio/a, ponderato/a.", f:"F", r:true},
+      {q:"Mi capita di animare un gruppo con la mia energia.", f:"F", r:false},
+      // G · Coscienziosita normativa
+      {q:"Rispetto rigorosamente le regole e i doveri.", f:"G", r:false},
+      {q:"Sono flessibile con le regole: le adatto al contesto.", f:"G", r:true},
+      {q:"Per me la parola data e un impegno sacro.", f:"G", r:false},
+      // H · Audacia sociale
+      {q:"Mi sento a mio agio davanti a un pubblico.", f:"H", r:false},
+      {q:"In situazioni sociali nuove mi sento timido/a.", f:"H", r:true},
+      {q:"Affronto persone nuove con disinvoltura.", f:"H", r:false},
+      // I · Sensibilita
+      {q:"Sono sensibile, intuitivo/a, sentimentale.", f:"I", r:false},
+      {q:"Sono pratico/a, oggettivo/a, poco influenzato/a dalle emozioni.", f:"I", r:true},
+      {q:"Mi commuovo facilmente di fronte alla bellezza o al dolore.", f:"I", r:false},
+      // L · Vigilanza
+      {q:"Sto attento/a alle intenzioni reali delle persone.", f:"L", r:false},
+      {q:"Tendo a fidarmi facilmente delle persone.", f:"L", r:true},
+      {q:"Diffido di chi sembra troppo gentile.", f:"L", r:false},
+      // M · Astrazione
+      {q:"Sono spesso immerso/a nelle idee e nell'immaginazione.", f:"M", r:false},
+      {q:"Sono pratico/a, coi piedi per terra, orientato/a al concreto.", f:"M", r:true},
+      {q:"Mi viene naturale fantasticare scenari e possibilita.", f:"M", r:false},
+      // N · Riservatezza
+      {q:"Sono diplomatico/a, attento/a a cio che rivelo di me.", f:"N", r:false},
+      {q:"Sono diretto/a, schietto/a, trasparente.", f:"N", r:true},
+      {q:"Tengo private le mie cose personali.", f:"N", r:false},
+      // O · Apprensione
+      {q:"Mi preoccupo facilmente, sono ansioso/a.", f:"O", r:false},
+      {q:"Mi sento sicuro/a e sereno/a rispetto a me stesso/a.", f:"O", r:true},
+      {q:"Mi colpevolizzo per cose che ho fatto o non fatto.", f:"O", r:false},
+      // Q1 · Apertura al cambiamento
+      {q:"Mi piacciono i cambiamenti e sperimentare cose nuove.", f:"Q1", r:false},
+      {q:"Preferisco la tradizione e cio che e familiare.", f:"Q1", r:true},
+      {q:"Sono attratto/a da idee non convenzionali.", f:"Q1", r:false},
+      // Q2 · Auto-sufficienza
+      {q:"Preferisco fare le cose da solo/a, autosufficiente.", f:"Q2", r:false},
+      {q:"Preferisco lavorare in gruppo e decidere insieme.", f:"Q2", r:true},
+      {q:"Sto bene in solitudine, mi nutre.", f:"Q2", r:false},
+      // Q3 · Perfezionismo
+      {q:"Sono organizzato/a, disciplinato/a, attento/a ai dettagli.", f:"Q3", r:false},
+      {q:"Sono flessibile, tollerante con il disordine.", f:"Q3", r:true},
+      {q:"Pianifico in anticipo e seguo cio che mi sono dato/a.", f:"Q3", r:false},
+      // Q4 · Tensione
+      {q:"Mi sento spesso teso/a, irrequieto/a, frustrato/a.", f:"Q4", r:false},
+      {q:"Sono rilassato/a, paziente, in pace con me stesso/a.", f:"Q4", r:true},
+      {q:"Una tensione di fondo mi accompagna durante la giornata.", f:"Q4", r:false}
+    ],
+    score(answers){
+      const factors = {A:[],B:[],C:[],E:[],F:[],G:[],H:[],I:[],L:[],M:[],N:[],O:[],Q1:[],Q2:[],Q3:[],Q4:[]};
+      this.questions.forEach((q,i)=>{
+        let v = answers[i] || 0;
+        if(q.r) v = 6 - v;
+        factors[q.f].push(v);
+      });
+      const scores = {};
+      for(const f in factors) scores[f] = factors[f].reduce((a,b)=>a+b,0)/factors[f].length;
+      return scores;
+    },
+    interpret(r){
+      const NAMES = {
+        A:{name:"Affettivita (Warmth)", high:"Caloroso, socievole, attento agli altri.", low:"Distante, riservato, critico."},
+        B:{name:"Ragionamento (Reasoning)", high:"Astratto, intelligente, veloce.", low:"Concreto, pensiero piu lineare."},
+        C:{name:"Stabilita emotiva", high:"Calmo, maturo, gestisce lo stress.", low:"Reattivo, instabile, facilmente turbato."},
+        E:{name:"Dominanza", high:"Assertivo, competitivo, prende il comando.", low:"Cooperativo, accomodante, deferente."},
+        F:{name:"Vivacita (Liveliness)", high:"Spontaneo, allegro, espressivo.", low:"Serio, sobrio, prudente."},
+        G:{name:"Coscienziosita normativa", high:"Rispettoso delle regole, dovere, perseverante.", low:"Pragmatico, flessibile con le norme."},
+        H:{name:"Audacia sociale", high:"Estroverso, intraprendente, non teme il giudizio.", low:"Timido, sensibile alla minaccia sociale."},
+        I:{name:"Sensibilita", high:"Empatico, sentimentale, intuitivo.", low:"Pratico, razionale, poco emotivo."},
+        L:{name:"Vigilanza", high:"Sospettoso, cauto, attento ai rischi.", low:"Fiducioso, accettante, accogliente."},
+        M:{name:"Astrazione (Abstractedness)", high:"Immaginativo, creativo, idealista.", low:"Pratico, concreto, orientato al fare."},
+        N:{name:"Riservatezza (Privateness)", high:"Discreto, diplomatico, calcolato.", low:"Aperto, spontaneo, trasparente."},
+        O:{name:"Apprensione", high:"Preoccupato, autocritico, insicuro.", low:"Sicuro di sé, sereno, disinvolto."},
+        Q1:{name:"Apertura al cambiamento", high:"Innovativo, sperimentatore, liberale.", low:"Tradizionalista, conservatore, abitudinario."},
+        Q2:{name:"Auto-sufficienza", high:"Indipendente, individualista, solitario.", low:"Orientato al gruppo, cerca compagnia."},
+        Q3:{name:"Perfezionismo (Self-control)", high:"Organizzato, disciplinato, scrupoloso.", low:"Flessibile, tollerante, spontaneo."},
+        Q4:{name:"Tensione", high:"Teso, irrequieto, energia frustrata.", low:"Rilassato, paziente, calmo."}
+      };
+      const sorted = Object.entries(r).sort((a,b)=>b[1]-a[1]);
+      const dominant = sorted[0];
+      return {
+        headline: "Profilo 16PF",
+        band: `${NAMES[dominant[0]].name} dominante (${dominant[1].toFixed(1)}/5)`,
+        body: `<div class="result-section">
+          <h3>I tuoi 16 fattori</h3>
+          ${Object.entries(r).map(([f,v])=>{
+            const pct = (v/5)*100;
+            const lvl = v>=3.5 ? "Alto" : v<=2.5 ? "Basso" : "Medio";
+            const desc = v>=3.5 ? NAMES[f].high : v<=2.5 ? NAMES[f].low : "Profilo bilanciato.";
+            return `<div style="margin-bottom:18px">
+              <div class="result-bar">
+                <div class="result-bar-name">${f} · ${NAMES[f].name}</div>
+                <div class="result-bar-track"><div class="result-bar-fill" style="width:${pct}%"></div></div>
+                <div class="result-bar-val">${v.toFixed(1)}/5</div>
+              </div>
+              <p style="font-size:13px; color:var(--ink-soft); margin-top:4px"><strong>${lvl}:</strong> ${desc}</p>
+            </div>`;
+          }).join('')}
+        </div>
+        <div class="result-section">
+          <h3>Nota interpretativa</h3>
+          <p>Il 16PF non distingue tratti "buoni" e "cattivi" — ogni polo ha vantaggi nel contesto giusto. Le combinazioni di alti/bassi creano profili complessi (es. alto Q1 + alto M = innovatore visionario; alto C + alto G = leader stabile e affidabile).</p>
+        </div>`
+      };
+    }
+  },
+
+  bigfive: {
+    title: "Big Five (BFI-20)",
+    eyebrow: "Modello dei cinque fattori",
+    author: "Modello sviluppato da Costa & McCrae (NEO-PI-R, 1985), refinato da John, Donahue & Kentle (BFI-44, 1991). Versione qui adattata di 20 item (4/fattore) per maggiore affidabilita rispetto al BFI-10. I 5 fattori principali della personalita umana, validati cross-culturalmente.",
+    info: "20 affermazioni — 4 per ognuno dei 5 fattori. Indica quanto ti riconosci. Tempo: ~3 min.",
+    scaleType: "likert5",
+    scale: [
+      {v:1, label:"Disaccordo forte"},
+      {v:2, label:"Disaccordo"},
+      {v:3, label:"Né l'uno né l'altro"},
+      {v:4, label:"D'accordo"},
+      {v:5, label:"Accordo forte"}
+    ],
+    questions: [
+      // Estroversione (E)
+      {q:"Sono socievole, estroverso/a.", f:"E", r:false},
+      {q:"Sono riservato/a, mi tengo per me.", f:"E", r:true},
+      {q:"Mi sento pieno/a di energia in mezzo alle persone.", f:"E", r:false},
+      {q:"Preferisco stare in disparte rispetto a essere al centro.", f:"E", r:true},
+      // Amicalita (A)
+      {q:"In generale tendo a fidarmi degli altri.", f:"A", r:false},
+      {q:"Tendo a trovare difetti negli altri.", f:"A", r:true},
+      {q:"Mi commuovo facilmente per cio che provano gli altri.", f:"A", r:false},
+      {q:"Posso essere freddo/a e distante con gli altri.", f:"A", r:true},
+      // Coscienziosita (C)
+      {q:"Faccio un lavoro accurato e completo.", f:"C", r:false},
+      {q:"Tendo a essere pigro/a.", f:"C", r:true},
+      {q:"Pianifico bene le cose e seguo i miei piani.", f:"C", r:false},
+      {q:"Mi distraggo facilmente.", f:"C", r:true},
+      // Nevroticismo (N)
+      {q:"Mi innervosisco facilmente.", f:"N", r:false},
+      {q:"Sono rilassato/a, gestisco bene lo stress.", f:"N", r:true},
+      {q:"Mi preoccupo molto.", f:"N", r:false},
+      {q:"Sono emotivamente stabile, raramente turbato/a.", f:"N", r:true},
+      // Apertura (O)
+      {q:"Ho un'immaginazione attiva.", f:"O", r:false},
+      {q:"Ho pochi interessi artistici.", f:"O", r:true},
+      {q:"Mi piace riflettere e giocare con idee complesse.", f:"O", r:false},
+      {q:"Preferisco cio che e concreto e familiare al nuovo.", f:"O", r:true}
+    ],
+    score(answers){
+      const factors = {O:[], C:[], E:[], A:[], N:[]};
+      this.questions.forEach((q,i)=>{
+        let v = answers[i] || 0;
+        if(q.r) v = 6 - v;
+        factors[q.f].push(v);
+      });
+      const scores = {};
+      for(const f in factors) scores[f] = factors[f].reduce((a,b)=>a+b,0)/factors[f].length;
+      return scores;
+    },
+    interpret(r){
+      const NAMES = {
+        O:{name:"Apertura all'esperienza", high:"Curioso, creativo, immaginativo, aperto al nuovo.", low:"Pratico, convenzionale, preferisce il familiare."},
+        C:{name:"Coscienziosita", high:"Organizzato, affidabile, disciplinato, orientato al risultato.", low:"Spontaneo, flessibile, talvolta disordinato."},
+        E:{name:"Estroversione", high:"Socievole, energico, assertivo, ama il contatto.", low:"Riservato, riflessivo, ricarica energia in solitudine."},
+        A:{name:"Amicalita / Gradevolezza", high:"Cooperativo, empatico, fiducioso, accomodante.", low:"Diretto, competitivo, scettico verso gli altri."},
+        N:{name:"Nevroticismo / Stabilita emotiva", high:"Reattivo emotivamente, sensibile allo stress, tendente alla ruminazione.", low:"Calmo, resiliente, emotivamente stabile."}
+      };
+      const dominant = Object.entries(r).sort((a,b)=>b[1]-a[1])[0];
+      return {
+        headline: `Profilo BFI-10`,
+        band: `${NAMES[dominant[0]].name} dominante (${dominant[1].toFixed(1)}/5)`,
+        body: `<div class="result-section">
+          <h3>I tuoi cinque fattori</h3>
+          ${Object.entries(r).map(([f,v])=>{
+            const pct = (v/5)*100;
+            const lvl = v>=3.5 ? "Alto" : v<=2.5 ? "Basso" : "Medio";
+            const desc = v>=3.5 ? NAMES[f].high : v<=2.5 ? NAMES[f].low : "Bilanciato tra i due poli.";
+            return `<div style="margin-bottom:24px">
+              <div class="result-bar">
+                <div class="result-bar-name">${NAMES[f].name}</div>
+                <div class="result-bar-track"><div class="result-bar-fill" style="width:${pct}%"></div></div>
+                <div class="result-bar-val">${v.toFixed(1)}/5</div>
+              </div>
+              <p style="font-size:14px; color:var(--ink-soft); margin-top:6px; padding-left:0"><strong>${lvl}:</strong> ${desc}</p>
+            </div>`;
+          }).join('')}
+        </div>`
+      };
+    }
+  },
+
+  pcl5: {
+    title: "PCL-5 (PTSD)",
+    eyebrow: "Sintomi post-traumatici",
+    author: "PTSD Checklist for DSM-5 — Weathers, Litz, Keane, Palmieri, Marx & Schnurr (2013), National Center for PTSD. Misura i 20 sintomi del Disturbo Post-Traumatico da Stress secondo il DSM-5.",
+    info: "20 affermazioni sui sintomi nelle ULTIME 4 SETTIMANE in relazione a un evento traumatico vissuto. Cutoff ≥33 = sospetto PTSD clinicamente rilevante. Tempo: ~5 min.",
+    scaleType: "likert5pcl",
+    scale: [
+      {v:0, label:"Per niente"},
+      {v:1, label:"Un po"},
+      {v:2, label:"Moderatamente"},
+      {v:3, label:"Abbastanza"},
+      {v:4, label:"Estremamente"}
+    ],
+    questions: [
+      {q:"Ricordi ripetuti, disturbanti e involontari dell'esperienza traumatica.", c:"B"},
+      {q:"Sogni ripetuti e disturbanti collegati all'esperienza.", c:"B"},
+      {q:"Sentire o agire come se l'esperienza stesse accadendo di nuovo (flashback).", c:"B"},
+      {q:"Sentirsi molto turbato quando qualcosa ricorda l'esperienza.", c:"B"},
+      {q:"Reazioni fisiche forti (cuore in gola, sudorazione) di fronte a ricordi.", c:"B"},
+      {q:"Evitare ricordi, pensieri o sentimenti legati all'esperienza.", c:"C"},
+      {q:"Evitare situazioni esterne (persone, luoghi, attivita) che ricordano l'evento.", c:"C"},
+      {q:"Difficolta a ricordare parti importanti dell'esperienza traumatica.", c:"D"},
+      {q:"Convinzioni negative forti su di sé, sugli altri o sul mondo.", c:"D"},
+      {q:"Incolpare se stesso o altri per l'evento o le sue conseguenze.", c:"D"},
+      {q:"Emozioni negative forti: paura, orrore, rabbia, colpa, vergogna.", c:"D"},
+      {q:"Perdita di interesse per attivita un tempo gradite.", c:"D"},
+      {q:"Sentirsi distaccato/a dagli altri.", c:"D"},
+      {q:"Difficolta a provare emozioni positive (amore, gioia).", c:"D"},
+      {q:"Comportamento irritabile, scoppi di rabbia, aggressivita verbale o fisica.", c:"E"},
+      {q:"Comportamento rischioso o autodistruttivo.", c:"E"},
+      {q:"Essere super-vigile o in stato di allarme.", c:"E"},
+      {q:"Soprassalti facili (ipersensibilita allo startle).", c:"E"},
+      {q:"Difficolta a concentrarsi.", c:"E"},
+      {q:"Difficolta ad addormentarsi o a mantenere il sonno.", c:"E"}
+    ],
+    score(answers){
+      const total = answers.reduce((a,b)=>a+(b||0),0);
+      const clusters = {B:0,C:0,D:0,E:0};
+      this.questions.forEach((q,i)=>{ clusters[q.c] += answers[i] || 0; });
+      return {total, clusters};
+    },
+    interpret(r){
+      const t = r.total;
+      let band, desc;
+      if(t >= 50){ band = "Sintomi molto elevati"; desc = "Profilo coerente con PTSD severo. È fortemente consigliato un consulto specialistico (psicoterapeuta esperto in trauma)."; }
+      else if(t >= 33){ band = "Sopra cutoff clinico"; desc = "Profilo coerente con probabile PTSD. È consigliato un approfondimento con un clinico specializzato (CAPS-5 e' il gold standard diagnostico)."; }
+      else if(t >= 21){ band = "Sintomi moderati"; desc = "Sotto la soglia clinica ma presenti sintomi significativi. Possono beneficiarsi di lavoro psicoterapeutico mirato."; }
+      else if(t >= 10){ band = "Sintomi lievi"; desc = "Sintomi presenti ma di intensita lieve. Monitorare se peggiorano."; }
+      else { band = "Sintomi minimi"; desc = "Sintomi minimi o assenti. Profilo non suggestivo di PTSD."; }
+
+      const CLUSTER_NAMES = {
+        B:"Intrusione (rivivere)",
+        C:"Evitamento",
+        D:"Alterazioni cognitive ed emotive",
+        E:"Iperattivazione e reattivita"
+      };
+      const CLUSTER_MAX = {B:20, C:8, D:28, E:24};
+
+      return {
+        headline: `Punteggio totale`,
+        score: t,
+        scoreMax: 80,
+        band: band,
+        body: `<div class="result-section">
+          <h3>Interpretazione</h3>
+          <p>${desc}</p>
+          <p><strong>Cutoff DSM-5:</strong> 31-33 (probabile diagnosi). I cluster sintomatologici sono i 4 raggruppamenti DSM-5.</p>
+        </div>
+        <div class="result-section">
+          <h3>Per cluster sintomatologico</h3>
+          ${Object.entries(r.clusters).map(([c,v])=>`<div class="result-bar">
+            <div class="result-bar-name">${c}. ${CLUSTER_NAMES[c]}</div>
+            <div class="result-bar-track"><div class="result-bar-fill" style="width:${(v/CLUSTER_MAX[c])*100}%"></div></div>
+            <div class="result-bar-val">${v}/${CLUSTER_MAX[c]}</div>
+          </div>`).join('')}
+        </div>`
+      };
+    }
+  },
+
+  ace: {
+    title: "ACE — Esperienze Avverse Infantili",
+    eyebrow: "Trauma dello sviluppo",
+    author: "Adverse Childhood Experiences Study — Felitti, Anda, et al. (CDC-Kaiser Permanente, 1998). Misura l'esposizione a 10 categorie di esperienze traumatiche prima dei 18 anni. Predittore di salute fisica e mentale adulta.",
+    info: "10 domande sì/no sui primi 18 anni di vita. Punteggio ≥4 indica alto rischio per problemi di salute fisica e mentale adulta. Tempo: ~3 min.",
+    scaleType: "yesno",
+    scale: [
+      {v:0, label:"No"},
+      {v:1, label:"Sì"}
+    ],
+    questions: [
+      {q:"Un genitore o adulto in casa ti ha mai insultato, umiliato, o fatto sentire di non valere nulla?"},
+      {q:"Un genitore o adulto in casa ti ha mai spinto, schiaffeggiato o colpito al punto da lasciare segni?"},
+      {q:"Un adulto o persona piu grande ti ha mai toccato in modo sessuale, o ti ha forzato a un contatto sessuale?"},
+      {q:"Hai mai sentito che nessuno in famiglia ti volesse bene o vi consideraste importanti l'uno per l'altro?"},
+      {q:"Hai mai sentito che non c'era cibo a sufficienza, vestiti puliti o nessuno che si occupasse di te?"},
+      {q:"I tuoi genitori erano separati, divorziati, o un genitore era assente?"},
+      {q:"Tua madre o la tua caregiver veniva trattata con violenza fisica?"},
+      {q:"Hai vissuto con qualcuno con problemi di alcolismo o abuso di sostanze?"},
+      {q:"Qualcuno in casa aveva una malattia mentale grave o ha tentato il suicidio?"},
+      {q:"Un membro della famiglia e finito in prigione?"}
+    ],
+    score(answers){
+      const total = answers.reduce((a,b)=>a+(b||0),0);
+      return {total};
+    },
+    interpret(r){
+      const t = r.total;
+      let band, desc;
+      if(t >= 6){ band = "Punteggio molto alto (≥6)"; desc = "Esposizione molto elevata a esperienze infantili avverse. Forte associazione con esiti di salute fisica e mentale, dipendenze, difficolta relazionali. Un percorso terapeutico trauma-informed e altamente raccomandato."; }
+      else if(t >= 4){ band = "Punteggio alto (4-5)"; desc = "Soglia di rischio clinico. Associato a maggior probabilita di depressione, ansia, dipendenze, malattie cardiovascolari. Beneficio significativo da lavoro terapeutico (EMDR, schema therapy, IFS)."; }
+      else if(t >= 1){ band = "Punteggio basso-medio (1-3)"; desc = "Alcune esperienze avverse presenti. Impatto variabile in base a fattori protettivi (relazioni sicure, resilienza, supporto). Buona occasione per consapevolezza e prevenzione."; }
+      else { band = "Nessuna esperienza riportata (0)"; desc = "Nessuna delle 10 categorie ACE riportata. Ricorda: l'ACE non copre tutti i tipi di trauma (lutti, bullismo, traumi medici, traumi razziali, ecc.)."; }
+      return {
+        headline: "Punteggio ACE",
+        score: t,
+        scoreMax: 10,
+        band: band,
+        body: `<div class="result-section">
+          <h3>Interpretazione</h3>
+          <p>${desc}</p>
+        </div>
+        <div class="result-section">
+          <h3>Cosa non misura l'ACE</h3>
+          <p>Il punteggio ACE classico non rileva: bullismo, traumi medici, lutti precoci, traumi razziali/discriminatori, neglect emotivo sottile, traumi ambientali (guerra, disastri). Un punteggio basso non esclude trauma significativo. La presenza di una <strong>relazione sicura</strong> in infanzia e il piu forte fattore protettivo conosciuto.</p>
+        </div>`
+      };
+    }
+  },
+
+  dest: {
+    title: "DES-T (Dissociative Experiences Taxon)",
+    eyebrow: "Esperienze dissociative",
+    author: "Versione taxon della Dissociative Experiences Scale di Bernstein & Putnam (1986), raffinata da Waller, Putnam & Carlson (1996). Identifica le esperienze dissociative patologiche associate a trauma.",
+    info: "12 affermazioni (8 item DES-T taxon + 4 item DES-II per profondita) — indica con quale frequenza ti capita (0% = mai, 100% = sempre). Calcola la media. Punteggi >20% suggeriscono dissociazione clinicamente rilevante. Tempo: ~4 min.",
+    scaleType: "percent",
+    scale: [
+      {v:0, label:"0%"},
+      {v:10, label:"10%"},
+      {v:20, label:"20%"},
+      {v:30, label:"30%"},
+      {v:40, label:"40%"},
+      {v:50, label:"50%"},
+      {v:60, label:"60%"},
+      {v:70, label:"70%"},
+      {v:80, label:"80%"},
+      {v:90, label:"90%"},
+      {v:100, label:"100%"}
+    ],
+    questions: [
+      // DES-T (8 item taxon)
+      {q:"Trovarmi in un luogo senza ricordare come ci sono arrivato/a."},
+      {q:"Trovare oggetti tra le mie cose senza ricordare di averli comprati."},
+      {q:"Non riconoscere amici o familiari per qualche istante."},
+      {q:"Sentirmi come se il mio corpo non fosse mio."},
+      {q:"Sentirmi come se altre persone, oggetti o il mondo intorno a me non fossero reali."},
+      {q:"Vedere me stesso/a come se osservassi un'altra persona."},
+      {q:"Sentire voci dentro la mia testa che mi parlano o discutono."},
+      {q:"Sentire che dentro di me ci sono diverse persone diverse."},
+      // DES-II — 4 item aggiuntivi per profondita
+      {q:"Guidare l'auto e accorgermi di non ricordare cio che e successo durante (parte o tutto) il viaggio."},
+      {q:"Avere amnesie per eventi importanti della mia vita (es. matrimonio, lutto, esami)."},
+      {q:"Trovarmi vestito/a con abiti che non ricordo di aver indossato."},
+      {q:"Sentirmi 'altrove' nei momenti di stress, come se la mia mente si staccasse dal momento."}
+    ],
+    score(answers){
+      const sum = answers.reduce((a,b)=>a+(b||0),0);
+      const avg = sum / answers.length;
+      return {avg, sum};
+    },
+    interpret(r){
+      const a = r.avg;
+      let band, desc;
+      if(a >= 30){ band = "Dissociazione elevata"; desc = "Profilo coerente con dissociazione patologica significativa, spesso associato a trauma complesso o disturbi dissociativi. È fortemente consigliato un approfondimento con clinico esperto in trauma e dissociazione."; }
+      else if(a >= 20){ band = "Sopra soglia clinica"; desc = "Sopra il cutoff di 20% per dissociazione patologica (taxon). Approfondimento con DES-II completa e valutazione clinica consigliati."; }
+      else if(a >= 10){ band = "Esperienze occasionali"; desc = "Esperienze dissociative presenti ma sotto soglia clinica. Possono essere reattive a stress o trauma. Monitorare."; }
+      else { band = "Dissociazione minima"; desc = "Esperienze dissociative minime o assenti."; }
+      return {
+        headline: "Media dissociazione",
+        score: a.toFixed(1) + "%",
+        band: band,
+        body: `<div class="result-section">
+          <h3>Interpretazione</h3>
+          <p>${desc}</p>
+          <p><strong>Cutoff DES-T:</strong> 20%. La dissociazione e una difesa adattiva di fronte al trauma — non un disturbo in sé, ma puo cronicizzarsi.</p>
+        </div>`
+      };
+    }
+  },
+
+  rrs: {
+    title: "RRS-10 (Ruminazione)",
+    eyebrow: "Stile di pensiero ruminativo",
+    author: "Ruminative Response Scale, versione breve di Treynor, Gonzalez & Nolen-Hoeksema (2003). Distingue due forme di ruminazione: brooding (rimuginio depressivo, problematico) e reflection (riflessione introspettiva, potenzialmente adattiva).",
+    info: "10 affermazioni — indica con quale frequenza pensi o agisci cosi quando ti senti giu. Tempo: ~2 min.",
+    scaleType: "likert4",
+    scale: [
+      {v:1, label:"Quasi mai"},
+      {v:2, label:"A volte"},
+      {v:3, label:"Spesso"},
+      {v:4, label:"Quasi sempre"}
+    ],
+    questions: [
+      {q:"Penso 'cosa ho fatto per meritarmi questo?'", t:"B"},
+      {q:"Penso 'perché reagisco sempre cosi?'", t:"B"},
+      {q:"Penso a tutto cio che mi e mancato e che vorrei.", t:"B"},
+      {q:"Penso 'perché ho problemi che gli altri non hanno?'", t:"B"},
+      {q:"Penso 'perché non riesco a uscirne?'", t:"B"},
+      {q:"Vado da solo/a in qualche posto a pensare ai miei sentimenti.", t:"R"},
+      {q:"Scrivo cio che sto pensando e lo analizzo.", t:"R"},
+      {q:"Analizzo eventi recenti per capire perché sono triste.", t:"R"},
+      {q:"Vado in disparte a pensare al mio umore.", t:"R"},
+      {q:"Analizzo la mia personalita per cercare di capirmi.", t:"R"}
+    ],
+    score(answers){
+      let brooding = 0, reflection = 0;
+      this.questions.forEach((q,i)=>{
+        if(q.t === "B") brooding += answers[i] || 0;
+        else reflection += answers[i] || 0;
+      });
+      return {brooding, reflection, total: brooding + reflection};
+    },
+    interpret(r){
+      let band;
+      if(r.brooding >= 16) band = "Brooding alto — ruminazione disadattiva";
+      else if(r.brooding >= 11) band = "Brooding moderato";
+      else band = "Brooding basso";
+
+      const desc = r.brooding > r.reflection
+        ? "Predomina il <strong>brooding</strong>: ruminazione passiva e auto-critica, fortemente associata a depressione, ansia e mantenimento dei sintomi traumatici."
+        : "Predomina la <strong>reflection</strong>: riflessione introspettiva, potenzialmente adattiva se non scivola in brooding.";
+
+      return {
+        headline: `Brooding ${r.brooding}/20 · Reflection ${r.reflection}/20`,
+        band: band,
+        body: `<div class="result-section">
+          <h3>I tuoi due profili</h3>
+          <p>${desc}</p>
+          <div class="result-bar">
+            <div class="result-bar-name">Brooding (rimuginio)</div>
+            <div class="result-bar-track"><div class="result-bar-fill" style="width:${(r.brooding/20)*100}%"></div></div>
+            <div class="result-bar-val">${r.brooding}/20</div>
+          </div>
+          <div class="result-bar">
+            <div class="result-bar-name">Reflection (riflessione)</div>
+            <div class="result-bar-track"><div class="result-bar-fill" style="width:${(r.reflection/20)*100}%; background:linear-gradient(90deg, var(--gold-bright), var(--gold-deep))"></div></div>
+            <div class="result-bar-val">${r.reflection}/20</div>
+          </div>
+        </div>
+        <div class="result-section">
+          <h3>Cosa significa</h3>
+          <p><strong>Brooding</strong>: pensieri ricorrenti del tipo "perché a me?", "cosa c'e che non va in me?". È la forma di ruminazione che intrappola e mantiene la sofferenza. Cutoff alto: ≥16.</p>
+          <p><strong>Reflection</strong>: pensieri analitici del tipo "cerco di capire cosa provo". Puo diventare risorsa se collegata ad azione, problematica se ristagna.</p>
+        </div>`
+      };
+    }
+  }
+};
+
+// ========== STATE ==========
+let currentTest = null;
+let currentAnswers = [];
+let currentResult = null;
+
+// ========== RENDER LANDING ==========
+function renderLanding(){
+  const grid = document.getElementById('testGrid');
+  grid.innerHTML = Object.entries(TESTS).map(([id, t]) => `
+    <div class="card">
+      <span class="tag">${t.eyebrow}</span>
+      <h3>${t.title}</h3>
+      <p class="author">${t.author.split('.')[0]}.</p>
+      <p class="desc">${t.info.split('.')[0]}.</p>
+      <div class="meta">
+        <span>${t.questions.length} domande</span>
+        <span>${t.info.match(/~(\d+) min/)?.[1] || '5'} min</span>
+      </div>
+      <button class="btn btn-primary" onclick="startTest('${id}')" style="margin-top:14px">Inizia →</button>
+    </div>
+  `).join('');
+}
+
+// ========== START TEST ==========
+function startTest(id){
+  currentTest = TESTS[id];
+  currentTest.id = id;
+  currentAnswers = new Array(currentTest.questions.length).fill(null);
+
+  document.getElementById('testEyebrow').textContent = currentTest.eyebrow;
+  document.getElementById('testEyebrow').className = 'sect-eyebrow';
+  document.getElementById('testTitle').innerHTML = currentTest.title;
+  document.getElementById('testInfo').innerHTML = `<strong>Cosa misura:</strong> ${currentTest.author}<br><br><strong>Come:</strong> ${currentTest.info}`;
+
+  renderQuestions();
+  switchView('testView');
+  window.scrollTo(0, 0);
+}
+
+function renderQuestions(){
+  const container = document.getElementById('questions');
+  container.innerHTML = currentTest.questions.map((q, i) => `
+    <div class="question" id="q${i}">
+      <div class="q-num">Domanda ${i+1} di ${currentTest.questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options ${currentTest.scaleType !== 'yesno' ? 'likert' : ''}">
+        ${currentTest.scale.map(s => `
+          <button class="opt" onclick="selectAnswer(${i}, ${s.v}, this)">
+            <span>${currentTest.scaleType === 'percent' || currentTest.scaleType === 'yesno' ? s.label : s.v}</span>
+            ${currentTest.scaleType !== 'percent' && currentTest.scaleType !== 'yesno' ? `<span class="opt-label">${s.label}</span>` : ''}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+  updateProgress();
+}
+
+function selectAnswer(qIdx, value, btn){
+  currentAnswers[qIdx] = value;
+  const q = document.getElementById(`q${qIdx}`);
+  q.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  updateProgress();
+
+  // auto-scroll alla prossima
+  if(qIdx < currentTest.questions.length - 1){
+    setTimeout(() => {
+      const next = document.getElementById(`q${qIdx+1}`);
+      if(next) next.scrollIntoView({behavior:'smooth', block:'center'});
+    }, 280);
+  }
+}
+
+function updateProgress(){
+  const answered = currentAnswers.filter(a => a !== null).length;
+  const pct = (answered / currentTest.questions.length) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('submitBtn').disabled = answered < currentTest.questions.length;
+}
+
+// ========== SUBMIT & RESULTS ==========
+function submitTest(){
+  const raw = currentTest.score(currentAnswers);
+  const interp = currentTest.interpret(raw);
+  currentResult = {test: currentTest, raw, interp, answers: [...currentAnswers], date: new Date()};
+
+  document.getElementById('resultEyebrow').textContent = currentTest.eyebrow + ' · ' + currentTest.title;
+  document.getElementById('resultTitle').innerHTML = interp.headline + (interp.score !== undefined ? `<div class="result-score">${interp.score}${interp.scoreMax ? `<span style="font-size:.4em; color:var(--ink-dim)">/${interp.scoreMax}</span>` : ''}</div>` : '');
+
+  document.getElementById('resultBody').innerHTML = `
+    <div style="text-align:center; margin-bottom:30px">
+      <span class="result-band">${interp.band}</span>
+    </div>
+    ${interp.body}
+  `;
+
+  switchView('resultsView');
+  window.scrollTo(0, 0);
+}
+
+// ========== EXPORT ==========
+function buildResultText(){
+  const r = currentResult;
+  const date = r.date.toLocaleString('it-IT');
+  let out = `═══════════════════════════════════════\n`;
+  out += `  ${r.test.title.toUpperCase()}\n`;
+  out += `  ${r.test.eyebrow}\n`;
+  out += `═══════════════════════════════════════\n\n`;
+  out += `Data: ${date}\n\n`;
+  out += `RISULTATO: ${r.interp.headline}\n`;
+  if(r.interp.score !== undefined) out += `Punteggio: ${r.interp.score}${r.interp.scoreMax ? '/'+r.interp.scoreMax : ''}\n`;
+  out += `Banda: ${r.interp.band}\n\n`;
+
+  // Scrape interpretazione testuale dal body HTML
+  const tmp = document.createElement('div');
+  tmp.innerHTML = r.interp.body;
+  tmp.querySelectorAll('h3').forEach(h => h.outerHTML = '\n--- ' + h.textContent + ' ---\n');
+  tmp.querySelectorAll('p').forEach(p => p.outerHTML = p.textContent + '\n');
+  tmp.querySelectorAll('.result-bar').forEach(b => {
+    const name = b.querySelector('.result-bar-name')?.textContent.trim();
+    const val = b.querySelector('.result-bar-val')?.textContent.trim();
+    b.outerHTML = `  ${name}: ${val}\n`;
+  });
+  out += tmp.textContent.replace(/\n{3,}/g, '\n\n').trim() + '\n\n';
+
+  out += `\n───────────────────────────────────────\n`;
+  out += `Fonte: ${r.test.author}\n\n`;
+  out += `Nota: questo strumento ha valore esplorativo. Per un assessment formale rivolgersi a uno psicologo abilitato.\n`;
+  out += `\nDavil — mental coaching · davildiclaudio@gmail.com\n`;
+  return out;
+}
+
+function copyResult(){
+  navigator.clipboard.writeText(buildResultText()).then(() => showToast('Risultato copiato negli appunti'));
+}
+
+function downloadResult(){
+  const text = buildResultText();
+  const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const fname = `${currentResult.test.title.replace(/[^a-z0-9]/gi,'_')}_${new Date().toISOString().slice(0,10)}.txt`;
+  a.href = url; a.download = fname; a.click();
+  URL.revokeObjectURL(url);
+  showToast('File scaricato');
+}
+
+function emailResult(){
+  const text = buildResultText();
+  const subject = encodeURIComponent(`Risultato test: ${currentResult.test.title}`);
+  const body = encodeURIComponent(text);
+  window.location.href = `mailto:davildiclaudio@gmail.com?subject=${subject}&body=${body}`;
+}
+
+// ========== UI ==========
+function switchView(id){
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goHome(){
+  switchView('landing');
+  currentTest = null; currentAnswers = []; currentResult = null;
+  window.scrollTo(0, 0);
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ========== INIT ==========
+renderLanding();
+</script>
+</body>
+</html>
