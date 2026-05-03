@@ -226,6 +226,48 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   .result-bar-name{flex:0 0 130px; font-size:14px}
 }
 
+/* Print / PDF */
+@media print{
+  html, body{
+    background:#fff !important;
+    color:#15131c !important;
+    font-size:12pt;
+  }
+  .view{display:none !important}
+  .view#resultsView{display:block !important}
+  .back-btn, .actions, .disclaimer, footer, .progress, .toast, header.hero, .test-header, .test-footer{display:none !important}
+  .results{padding:0; max-width:100%}
+  .result-section{
+    background:#fff !important; border:1px solid #ccc !important;
+    box-shadow:none !important; backdrop-filter:none !important;
+    page-break-inside:avoid; margin-bottom:14pt;
+  }
+  .result-hero{margin-bottom:24pt}
+  .result-score{
+    color:#b88a25 !important; text-shadow:none !important;
+    font-size:48pt !important;
+  }
+  .result-band{
+    background:#f4f4f7 !important; border:1px solid #ccc !important;
+    color:#15131c !important;
+  }
+  .result-bar-fill{
+    background:#7c3aed !important; print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
+  }
+  h1 em, h2 em, h3 em{color:#b88a25 !important; text-shadow:none !important}
+  a{color:#7c3aed !important; text-decoration:none}
+  /* Header pagina stampata */
+  body::before{
+    content:"Davil — Assessment Psicologici · davildiclaudio@gmail.com";
+    display:block;
+    font-family:'Fraunces', Georgia, serif; font-style:italic;
+    font-size:10pt; color:#6b6878;
+    text-align:center; padding:8pt 0; margin-bottom:16pt;
+    border-bottom:1px solid #ccc;
+  }
+}
+
 /* Toast */
 .toast{
   position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(20px);
@@ -278,8 +320,9 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
     <div id="resultBody"></div>
 
     <div class="actions">
+      <button class="btn btn-gold" onclick="downloadPDF()">Salva PDF</button>
       <button class="btn btn-primary" onclick="copyResult()">Copia risultato</button>
-      <button class="btn btn-gold" onclick="downloadResult()">Salva come file</button>
+      <button class="btn btn-ghost" onclick="downloadResult()">Salva .txt</button>
       <button class="btn btn-ghost" onclick="emailResult()">Invia via email</button>
       <button class="btn btn-ghost" onclick="goHome()">Fai un altro test</button>
     </div>
@@ -1248,6 +1291,17 @@ function downloadResult(){
   a.href = url; a.download = fname; a.click();
   URL.revokeObjectURL(url);
   showToast('File scaricato');
+}
+
+function downloadPDF(){
+  const originalTitle = document.title;
+  const date = currentResult.date.toLocaleDateString('it-IT');
+  document.title = `${currentResult.test.title} — ${date}`;
+  showToast('Apri il dialog di stampa e scegli "Salva come PDF"');
+  setTimeout(() => {
+    window.print();
+    document.title = originalTitle;
+  }, 400);
 }
 
 function emailResult(){
