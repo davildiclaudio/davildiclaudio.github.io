@@ -654,6 +654,629 @@ function parsePlanetData(payload) {
     return planets;
 }
 
+// --- INTERPRETIVE READING ENGINE ---
+
+const RASHI_INTERPRETATIONS = {
+    0: { traits: "iniziativa, coraggio, leadership, impulsività", body: "testa, viso", element: "Fuoco cardinale", lesson: "imparare la pazienza e a considerare gli altri", strength: "pioniere naturale, capace di iniziare nuovi cicli" },
+    1: { traits: "stabilità, sensualità, perseveranza, possessività", body: "collo, gola", element: "Terra fissa", lesson: "rilasciare l'attaccamento e accogliere il cambiamento", strength: "costruire valore duraturo, godimento della bellezza" },
+    2: { traits: "comunicazione, curiosità, dualità, versatilità", body: "spalle, braccia, polmoni", element: "Aria mutevole", lesson: "trovare profondità e radicamento dietro la versatilità", strength: "ponte tra mondi, intelletto agile" },
+    3: { traits: "sensibilità, nutrimento, memoria, emotività", body: "petto, stomaco", element: "Acqua cardinale", lesson: "proteggere senza chiudersi, fluire senza affogare", strength: "intuizione profonda, capacità di accudire" },
+    4: { traits: "regalità, generosità, creatività, orgoglio", body: "cuore, schiena", element: "Fuoco fisso", lesson: "umiltà autentica, servire più che dominare", strength: "magnetismo carismatico, espressione creativa" },
+    5: { traits: "discernimento, servizio, perfezionismo, analisi", body: "addome, intestino", element: "Terra mutevole", lesson: "accettare l'imperfezione come parte del Tutto", strength: "competenza tecnica, dedizione al miglioramento" },
+    6: { traits: "armonia, diplomazia, equilibrio, indecisione", body: "reni, parte bassa schiena", element: "Aria cardinale", lesson: "decidere senza sempre cercare il consenso", strength: "mediazione, senso di giustizia, raffinatezza" },
+    7: { traits: "intensità, trasformazione, mistero, controllo", body: "organi riproduttivi", element: "Acqua fissa", lesson: "lasciare andare per rinascere", strength: "profondità psicologica, capacità rigenerativa" },
+    8: { traits: "espansione, filosofia, libertà, ottimismo", body: "fianchi, cosce", element: "Fuoco mutevole", lesson: "incarnare la saggezza nel quotidiano", strength: "visione, ricerca del senso, insegnamento" },
+    9: { traits: "ambizione, disciplina, responsabilità, pragmatismo", body: "ginocchia, scheletro", element: "Terra cardinale", lesson: "ammorbidire il rigore con compassione", strength: "costruire strutture durature, autorità naturale" },
+    10: { traits: "originalità, innovazione, distacco, idealismo", body: "polpacci, caviglie", element: "Aria fissa", lesson: "tradurre l'idealismo in azione concreta", strength: "visione del futuro, pensiero non convenzionale" },
+    11: { traits: "compassione, sogno, sensibilità, dissoluzione", body: "piedi, sistema linfatico", element: "Acqua mutevole", lesson: "ancorare la spiritualità nella vita pratica", strength: "empatia universale, accesso ai mondi sottili" }
+};
+
+const NAKSHATRA_READINGS = {
+    0: "Velocità di guarigione e capacità di nuovi inizi. L'anima ha l'energia dei guaritori divini Ashwini Kumara — porta soccorso rapido. Tema vitale: usare la velocità con saggezza.",
+    1: "Trasformazione attraverso il limite. Bharani contiene l'energia dell'utero (yoni) e della morte (Yama). Tema: gestire la creatività e la sessualità con maturità.",
+    2: "Purificazione attraverso il fuoco. Krittika taglia l'illusione. Personalità nitida, talvolta tagliente. Tema: usare la lama del discernimento per servire, non per ferire.",
+    3: "Bellezza, fertilità e desiderio. Nakshatra preferita di Krishna. Carisma naturale, sensualità terrena. Tema: equilibrio tra godimento e attaccamento.",
+    4: "Curiosità e ricerca delicata. Energia del cervo che cerca. Mente esplorativa, gentilezza. Tema: trovare la propria meta interiore senza disperdersi.",
+    5: "Tempesta interiore creativa. Rudra è l'urlo che purifica. Intensità emotiva e mentale. Tema: trasformare la sofferenza in arte e visione.",
+    6: "Ritorno al centro dopo l'esilio. Aditi è la madre cosmica. Capacità di ricominciare. Tema: ottimismo radicato, ritrovare la luce dopo l'oscurità.",
+    7: "Nutrimento e prosperità spirituale. La Nakshatra più auspiciosa per nuovi inizi. Tema: nutrire gli altri come pratica di abbondanza.",
+    8: "Misticismo, ipnosi, kundalini. Energia del serpente arrotolato. Magnetismo profondo, talvolta inquietante. Tema: usare il potere occulto per elevare.",
+    9: "Regalità e legame con gli antenati. Magha porta il trono dei Pitri. Tema: onorare il lignaggio, esercitare autorità con dignità.",
+    10: "Piacere e creatività rilassata. Bhaga è la fortuna del godimento. Tema: equilibrare il piacere con il proposito.",
+    11: "Patronato, contratti, amicizia stabile. Aryaman dona unioni durature. Tema: costruire alleanze basate su valori condivisi.",
+    12: "Mani come strumento di guarigione. Savitar è la forza del Sole creativo. Tema: ciò che tocchi si trasforma — usa le mani per servire.",
+    13: "Bellezza creata dall'arte cosmica. Vishwakarma costruisce mondi. Tema: creatività raffinata, occhio per il bello e l'armonioso.",
+    14: "Indipendenza e flessibilità. Vayu è il vento che si muove libero. Tema: bilanciare libertà personale e radicamento.",
+    15: "Determinazione assoluta verso un obiettivo. Indragni unisce fuoco e tuono. Tema: focalizzare la potenza senza diventare ossessivi.",
+    16: "Devozione e amicizia profonda. Mitra porta unione e organizzazione. Tema: leadership attraverso il servizio amorevole.",
+    17: "Anzianità e protezione. Indra è il re degli dei. Tema: assumere responsabilità con coraggio, anche se solitario.",
+    18: "Ricerca delle radici e distruzione di ciò che è falso. Nirriti scioglie le illusioni. Tema: andare al fondo delle cose.",
+    19: "Invincibilità attraverso la purificazione. Apas è l'acqua sacra. Tema: tenere fede ai valori più alti, ottenere vittoria interiore.",
+    20: "Vittoria finale e leadership integra. Tema: pazienza che porta al trionfo duraturo, integrità sopra tutto.",
+    21: "Ascolto e connessione cosmica. Vishnu sostiene l'universo. Tema: ricevere insegnamenti dall'ascolto profondo.",
+    22: "Ricchezza, ritmo, fama. Vasus sono gli dei dell'abbondanza. Tema: musica, simmetria, fama attraverso il talento.",
+    23: "Cento medicine. Varuna guarisce ciò che sembra incurabile. Tema: ricerca, mistero, capacità di sciogliere nodi profondi.",
+    24: "Fuoco interiore della tapas. Aja Ekapada è l'asceta a una gamba. Tema: trasformazione attraverso disciplina spirituale intensa.",
+    25: "Profondità cosmica e kundalini. Ahir Budhnya è il serpente delle profondità. Tema: saggezza dei fondali oceanici dell'inconscio.",
+    26: "Nutrimento, viaggio, completamento. Pushan protegge i viandanti. Tema: condurre gli altri a destinazione con cura."
+};
+
+const HOUSE_READINGS = [
+    { name: "Tanu Bhava (Sé)", deep: "Come ti presenti al mondo, il corpo, la vitalità, l'inizio di ogni cosa." },
+    { name: "Dhana Bhava (Ricchezza)", deep: "La tua relazione con risorse, parola, famiglia di origine, valori personali." },
+    { name: "Sahaja Bhava (Sforzi)", deep: "Coraggio, fratelli, comunicazione, tutto ciò che richiede iniziativa propria." },
+    { name: "Sukha Bhava (Felicità)", deep: "Madre, casa, fondamenta emotive, terra, comfort interiore. La radice della pace." },
+    { name: "Putra Bhava (Merito)", deep: "Figli, intelligenza, creatività, romanticismo, e — cruciale — il merito accumulato in vite passate (purva punya)." },
+    { name: "Ripu Bhava (Ostacoli)", deep: "Nemici, malattie, debiti, servizio, lavoro quotidiano. Dove devi conquistare." },
+    { name: "Kalatra Bhava (Coniuge)", deep: "Partner, matrimonio, partnership pubbliche, ciò che incontri come 'altro'." },
+    { name: "Ayu Bhava (Trasformazione)", deep: "Longevità, eredità, occulto, traumi, sessualità profonda. La porta della morte e rinascita." },
+    { name: "Dharma Bhava (Fortuna)", deep: "Padre, guru, viaggi lunghi, filosofia, fortuna karmica, ciò che ti guida verso il significato." },
+    { name: "Karma Bhava (Carriera)", deep: "Reputazione pubblica, professione, posizione sociale, le tue azioni più visibili." },
+    { name: "Labha Bhava (Guadagni)", deep: "Amici, network, aspirazioni, guadagni, fratelli maggiori. Dove la rete sostiene il sogno." },
+    { name: "Vyaya Bhava (Liberazione)", deep: "Perdite, spese, isolamento, terre lontane, sonno, moksha. Il preludio alla nuova alba." }
+];
+
+const PLANET_INTERPRETATIONS = {
+    "Sun": { core: "il Sé, l'anima (atman), il padre, l'autorità, la vitalità", strong: "leadership naturale, integrità, salute robusta", weak: "ego ferito, problemi con figure paterne, vitalità bassa" },
+    "Moon": { core: "la mente (manas), la madre, le emozioni, il subconscio, il pubblico", strong: "stabilità emotiva, intuizione, popolarità, memoria", weak: "instabilità mentale, ansia, difficoltà materne" },
+    "Mars": { core: "energia, coraggio, fratelli, terra, conflitto, sangue", strong: "coraggio, capacità di azione, atletismo, leadership militare/imprenditoriale", weak: "rabbia incontrollata, conflitti, infortuni, impulsività" },
+    "Mercury": { core: "intelletto, comunicazione, commercio, educazione, abilità tecniche", strong: "eloquenza, intelligenza analitica, successo negli scambi", weak: "confusione mentale, difficoltà di comunicazione, doppiezza" },
+    "Jupiter": { core: "saggezza, dharma, guru, figli, espansione, fortuna", strong: "saggezza, ricchezza, prole sana, fortuna spirituale, riconoscimento", weak: "eccessi, dogmatismo, difficoltà con figli o insegnanti" },
+    "Venus": { core: "amore, matrimonio, arte, lusso, veicoli, comfort, creatività", strong: "armonia relazionale, talento artistico, prosperità, bellezza", weak: "delusioni amorose, eccessi sensuali, problemi di gusto" },
+    "Saturn": { core: "disciplina, longevità, karma, ritardi, servitù, vecchiaia", strong: "perseveranza, autorità duratura, integrità sotto pressione", weak: "depressione, isolamento, ostacoli cronici, paure" },
+    "Rahu": { core: "ossessione, illusione, materia, tecnologia, stranieri, desideri amplificati", strong: "successo materiale, capacità di rompere convenzioni, accesso a nuovi mondi", weak: "dipendenze, illusioni, ambizione divorante" },
+    "Ketu": { core: "liberazione, distacco, vite passate, misticismo, perdite", strong: "intuizione spirituale, capacità di lasciar andare, accesso a saperi profondi", weak: "isolamento, perdite improvvise, scollamento dalla realtà" }
+};
+
+const DASHA_INTERPRETATIONS = {
+    "Sole": "Periodo di centratura nell'autorità, focus sul Sé e sull'identità. Tempo di leadership, riconoscimento o difficoltà con figure di autorità. Forza vitale al centro.",
+    "Luna": "Periodo emotivo, lunare, ciclico. Casa, madre, pubblico, fluidità. Adatto per nutrire relazioni intime e sviluppare la sensibilità. Possibili oscillazioni emotive.",
+    "Marte": "Periodo di azione, conflitto creativo, energia. Progetti che richiedono coraggio. Possibili scontri, infortuni o invece grandi conquiste se l'energia è ben canalizzata.",
+    "Mercurio": "Periodo intellettuale, di comunicazione, commercio, viaggi brevi. Ottimo per studio, scrittura, scambi. Mente molto attiva — serve disciplinarla.",
+    "Giove": "Periodo di espansione, saggezza, fortuna, dharma. Spesso il più benefico. Studi superiori, figli, riconoscimento spirituale. Tempo di crescita autentica.",
+    "Venere": "Periodo di amore, arte, lusso, relazioni. Matrimonio, romanticismo, creatività estetica. Attenzione agli eccessi e alle illusioni del piacere.",
+    "Saturno": "Periodo lungo (19 anni) di responsabilità, disciplina, fatica costruttiva. Risultati tardivi ma duraturi. Test del karma. Ciò che è solido resterà.",
+    "Rahu": "Periodo lungo (18 anni) di ambizione amplificata, desideri intensi, capacità di rompere schemi. Successo mondano ma rischio di illusione. Direzione: nuovi territori.",
+    "Ketu": "Periodo di distacco, spiritualità, possibili perdite materiali. Tempo per lasciar andare e ricevere intuizioni dall'altrove. Direzione: interiorità."
+};
+
+function generateReading(result, birthData) {
+    const ascRashi = result.ascendantRashi;
+    const moon = result.planets.find(p => p.name === 'Moon');
+    const sun = result.planets.find(p => p.name === 'Sun');
+    const moonRashi = getRashi(moon.longitude);
+    const sunRashi = getRashi(sun.longitude);
+    const moonNakIdx = result.moonNak.index;
+
+    const ascData = RASHI_INTERPRETATIONS[ascRashi];
+    const moonData = RASHI_INTERPRETATIONS[moonRashi];
+    const sunData = RASHI_INTERPRETATIONS[sunRashi];
+    const nakReading = NAKSHATRA_READINGS[moonNakIdx];
+
+    const now = new Date();
+    const activeDasha = result.dashas.find(d => now >= d.start && now < d.end);
+    const dashaInterp = activeDasha ? DASHA_INTERPRETATIONS[activeDasha.planet] : null;
+
+    const sections = [];
+
+    // INTRO
+    sections.push({
+        type: 'intro',
+        content: `Una lettura del Kundli vedico legge il momento di nascita come una mappa di tendenze karmiche. Non è destino fisso — è il terreno su cui crescerai. Le scelte consapevoli, il dharma e le pratiche spirituali (kriya, mantra, donazioni, gemme) possono modulare ogni influenza planetaria. Questa è la prospettiva di Sri Yukteswar e Yogananda: i pianeti sono indicatori, non cause.`
+    });
+
+    // ASCENDANT
+    sections.push({
+        icon: "🌅",
+        title: "Ascendente — Lagna",
+        rashi: RASHIS[ascRashi],
+        text: `Il tuo Ascendente in <span class="highlight">${RASHIS[ascRashi].name} (${RASHIS[ascRashi].western})</span> definisce <span class="key">come ti presenti al mondo</span>, il tuo corpo fisico e l'inizio di ogni nuovo ciclo. È l'involucro attraverso cui l'anima si manifesta in questa vita.\n\n` +
+            `Tratti dominanti: <em>${ascData.traits}</em>.\n\n` +
+            `<span class="key">Forza:</span> ${ascData.strength}.\n\n` +
+            `<span class="key">Lezione karmica:</span> ${ascData.lesson}.\n\n` +
+            `Zona del corpo da curare: ${ascData.body}. Elemento: ${ascData.element}.`
+    });
+
+    // MOON
+    sections.push({
+        icon: "🌙",
+        title: "Luna — Mente ed Emozioni (Rashi)",
+        rashi: RASHIS[moonRashi],
+        text: `La tua Luna in <span class="highlight">${RASHIS[moonRashi].name}</span> rivela <span class="key">la natura della tua mente, le emozioni profonde e il rapporto con la madre</span>. Nel Jyotish, il segno lunare è considerato spesso più importante del segno solare per descrivere chi sei davvero.\n\n` +
+            `La tua mente opera attraverso: <em>${moonData.traits}</em>.\n\n` +
+            `<span class="key">Forza emotiva:</span> ${moonData.strength}.\n\n` +
+            `<span class="key">Apprendimento dell'anima:</span> ${moonData.lesson}.`
+    });
+
+    // NAKSHATRA
+    sections.push({
+        icon: "✨",
+        title: `Janma Nakshatra — ${NAKSHATRAS[moonNakIdx].name} (Pada ${result.moonNak.pada})`,
+        text: `${nakReading}\n\n` +
+            `<span class="key">Divinità della Nakshatra:</span> ${NAKSHATRAS[moonNakIdx].deity}\n` +
+            `<span class="key">Simbolo:</span> ${NAKSHATRAS[moonNakIdx].symbol}\n` +
+            `<span class="key">Signore planetario:</span> ${NAKSHATRAS[moonNakIdx].ruler}\n\n` +
+            `La Janma Nakshatra è l'indicatore più intimo del tuo Kundli — rivela il <span class="highlight">filo conduttore karmico</span> di questa incarnazione e determina l'intero ciclo Vimshottari Dasha.`
+    });
+
+    // SUN
+    sections.push({
+        icon: "☉",
+        title: "Sole — Anima e Padre",
+        rashi: RASHIS[sunRashi],
+        text: `Il Sole in <span class="highlight">${RASHIS[sunRashi].name}</span> rappresenta <span class="key">la tua essenza spirituale (atman), l'autorità e il rapporto con la figura paterna</span>.\n\n` +
+            `Espressione solare: <em>${sunData.traits}</em>.\n\n` +
+            `<span class="key">Espressione luminosa:</span> ${sunData.strength}.`
+    });
+
+    // ACTIVE DASHA
+    if (activeDasha && dashaInterp) {
+        const yearsLeft = ((activeDasha.end - now) / (365.25 * 24 * 60 * 60 * 1000)).toFixed(1);
+        sections.push({
+            icon: "⏳",
+            title: `Mahadasha Attiva — ${activeDasha.planet}`,
+            text: `Stai attraversando il <span class="highlight">Mahadasha di ${activeDasha.planet}</span>, iniziato il ${activeDasha.start.toLocaleDateString('it-IT')} e che terminerà il ${activeDasha.end.toLocaleDateString('it-IT')} (mancano circa ${yearsLeft} anni).\n\n` +
+                `${dashaInterp}\n\n` +
+                `<span class="key">Raccomandazione pratica:</span> osserva quali aree della vita sono particolarmente attive ora — sono il "campo di prova" che il karma sta presentando. Le scelte fatte in questo periodo creeranno semi per il prossimo Dasha.`
+        });
+    }
+
+    // YOGAS
+    if (result.yogas.length > 0) {
+        const positive = result.yogas.filter(y => y.positive);
+        const challenges = result.yogas.filter(y => !y.positive);
+
+        let yogaText = '';
+        if (positive.length > 0) {
+            yogaText += `<span class="key">Combinazioni favorevoli rilevate:</span>\n`;
+            positive.forEach(y => {
+                yogaText += `• <span class="highlight">${y.name}</span>: ${y.description}\n`;
+            });
+        }
+        if (challenges.length > 0) {
+            yogaText += `\n<span class="key">Aree di attenzione (dosha):</span>\n`;
+            challenges.forEach(y => {
+                yogaText += `• <span class="highlight">${y.name}</span>: ${y.description}\n`;
+            });
+            yogaText += `\nI dosha non sono "maledizioni" — sono <em>tensioni karmiche</em> che richiedono consapevolezza e pratiche specifiche (mantra, puja, gemme, donazioni). Il libero arbitrio resta sovrano.`;
+        }
+
+        sections.push({
+            icon: "🔗",
+            title: "Yoga e Combinazioni Significative",
+            text: yogaText
+        });
+    }
+
+    // HOUSES SUMMARY (top 3 strongest)
+    const planetCounts = {};
+    result.planets.forEach(p => {
+        const houseFromAsc = ((getRashi(p.longitude) - ascRashi) + 12) % 12;
+        planetCounts[houseFromAsc] = (planetCounts[houseFromAsc] || 0) + 1;
+    });
+
+    const strongHouses = Object.entries(planetCounts)
+        .sort((a,b) => b[1] - a[1])
+        .filter(([_, c]) => c >= 2)
+        .slice(0, 3);
+
+    if (strongHouses.length > 0) {
+        let housesText = `Le aree della vita più "popolate" da pianeti — quindi più attive nel tuo karma:\n\n`;
+        strongHouses.forEach(([h, count]) => {
+            const idx = parseInt(h);
+            housesText += `<span class="key">${HOUSE_READINGS[idx].name}</span> (${count} pianeti): ${HOUSE_READINGS[idx].deep}\n\n`;
+        });
+        sections.push({
+            icon: "🏠",
+            title: "Case Karmicamente Attive",
+            text: housesText
+        });
+    }
+
+    // CLOSING
+    sections.push({
+        type: 'closing',
+        content: `Ricorda: <em>"Un uomo saggio domina le stelle"</em> — ogni configurazione planetaria è un'opportunità di crescita. La pratica spirituale (meditazione, kriya yoga, mantra, donazioni, servizio) può modulare anche i transiti più difficili. Per un'analisi professionale completa, consulta un Jyotishi qualificato.`
+    });
+
+    return sections;
+}
+
+function renderReading(result, birthData) {
+    const container = document.getElementById('reading-content');
+    if (!container) return;
+
+    const sections = generateReading(result, birthData);
+    let html = '';
+
+    sections.forEach(s => {
+        if (s.type === 'intro' || s.type === 'closing') {
+            html += `<div class="reading-intro">
+                ${s.type === 'intro' ? '<h3>Lettura Personalizzata del Kundli</h3>' : '<h3>Conclusione</h3>'}
+                <p>${s.content}</p>
+            </div>`;
+        } else {
+            const text = s.text.replace(/\n/g, '<br>');
+            html += `<div class="reading-section">
+                <h4><span class="icon">${s.icon}</span> ${s.title}</h4>
+                <p>${text}</p>
+            </div>`;
+        }
+    });
+
+    container.innerHTML = html;
+}
+
+// --- PDF GENERATION ---
+let lastKundliResult = null;
+let lastBirthData = null;
+
+function generatePDF() {
+    if (!lastKundliResult || !lastBirthData) {
+        alert('Genera prima un Kundli per scaricare il PDF.');
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 15;
+    let y = margin;
+
+    const GOLD = [212, 175, 55];
+    const VIOLET = [124, 58, 237];
+    const DARK = [30, 27, 75];
+    const TEXT = [40, 40, 50];
+    const DIM = [110, 110, 130];
+
+    // === COVER PAGE ===
+    doc.setFillColor(...DARK);
+    doc.rect(0, 0, pageW, 60, 'F');
+
+    doc.setTextColor(...GOLD);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(28);
+    doc.text('Jyotish Vidya', pageW/2, 25, { align: 'center' });
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(13);
+    doc.setTextColor(230, 230, 240);
+    doc.text('Report Kundli — Carta Natale Vedica', pageW/2, 36, { align: 'center' });
+
+    doc.setFontSize(9);
+    doc.setTextColor(180, 180, 200);
+    doc.text('La Scienza della Luce', pageW/2, 44, { align: 'center' });
+
+    y = 75;
+
+    // Birth data box
+    doc.setDrawColor(...GOLD);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(margin, y, pageW - 2*margin, 45, 3, 3, 'S');
+
+    doc.setFontSize(11);
+    doc.setTextColor(...GOLD);
+    doc.setFont('helvetica', 'bold');
+    doc.text('DATI DI NASCITA', margin + 5, y + 8);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(...TEXT);
+
+    const [yyyy, mm, dd] = lastBirthData.date.split('-');
+    const dateStr = `${dd}/${mm}/${yyyy}`;
+
+    let by = y + 16;
+    doc.text(`Data:`, margin + 5, by);
+    doc.setFont('helvetica', 'bold');
+    doc.text(dateStr, margin + 30, by);
+
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Ora:`, margin + 80, by);
+    doc.setFont('helvetica', 'bold');
+    doc.text(lastBirthData.time, margin + 95, by);
+
+    by += 7;
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Luogo:`, margin + 5, by);
+    doc.setFont('helvetica', 'bold');
+    doc.text(lastBirthData.city || `${lastBirthData.lat}, ${lastBirthData.lon}`, margin + 30, by);
+
+    by += 7;
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Coordinate:`, margin + 5, by);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`${lastBirthData.lat}°, ${lastBirthData.lon}°`, margin + 30, by);
+
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Fuso:`, margin + 80, by);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`UTC${lastBirthData.timezone >= 0 ? '+' : ''}${lastBirthData.timezone}`, margin + 95, by);
+
+    y += 55;
+
+    // === ASCENDANT & MOON SECTION ===
+    const ascRashi = RASHIS[lastKundliResult.ascendantRashi];
+    const moonPlanet = lastKundliResult.planets.find(p => p.name === 'Moon');
+    const moonRashi = RASHIS[getRashi(moonPlanet.longitude)];
+    const moonNak = NAKSHATRAS[lastKundliResult.moonNak.index];
+    const sunPlanet = lastKundliResult.planets.find(p => p.name === 'Sun');
+    const sunRashi = RASHIS[getRashi(sunPlanet.longitude)];
+
+    doc.setFontSize(13);
+    doc.setTextColor(...VIOLET);
+    doc.setFont('helvetica', 'bold');
+    doc.text('I TRE PILASTRI', margin, y);
+    y += 6;
+
+    const pillars = [
+        { label: 'Ascendente (Lagna)', value: `${ascRashi.name} (${ascRashi.western})` },
+        { label: 'Segno Lunare (Rashi)', value: `${moonRashi.name} (${moonRashi.western})` },
+        { label: 'Nakshatra Lunare', value: `${moonNak.name} — Pada ${lastKundliResult.moonNak.pada}` },
+        { label: 'Segno Solare', value: `${sunRashi.name} (${sunRashi.western})` }
+    ];
+
+    doc.autoTable({
+        startY: y,
+        head: [['Elemento', 'Valore']],
+        body: pillars.map(p => [p.label, p.value]),
+        theme: 'grid',
+        headStyles: { fillColor: VIOLET, textColor: 255, fontStyle: 'bold', fontSize: 10 },
+        bodyStyles: { fontSize: 10, textColor: TEXT },
+        styles: { cellPadding: 3 },
+        margin: { left: margin, right: margin }
+    });
+
+    y = doc.lastAutoTable.finalY + 10;
+
+    // === PLANETARY POSITIONS ===
+    doc.setFontSize(13);
+    doc.setTextColor(...VIOLET);
+    doc.setFont('helvetica', 'bold');
+    doc.text('POSIZIONI PLANETARIE (9 GRAHA)', margin, y);
+    y += 4;
+
+    const planetRows = lastKundliResult.planets.map(p => {
+        const r = getRashi(p.longitude);
+        const deg = formatDegrees(getDegreesInSign(p.longitude));
+        const nak = getLunarNakshatra(p.longitude);
+        return [
+            PLANET_NAMES_IT[p.name] || p.name,
+            `${RASHIS[r].name} (${RASHIS[r].western})`,
+            deg,
+            NAKSHATRAS[nak.index]?.name || '-',
+            String(nak.pada),
+            p.retro ? 'R' : '-'
+        ];
+    });
+
+    doc.autoTable({
+        startY: y,
+        head: [['Graha', 'Rashi', 'Gradi', 'Nakshatra', 'Pada', 'Retro']],
+        body: planetRows,
+        theme: 'striped',
+        headStyles: { fillColor: VIOLET, textColor: 255, fontStyle: 'bold', fontSize: 9 },
+        bodyStyles: { fontSize: 9, textColor: TEXT },
+        styles: { cellPadding: 2 },
+        margin: { left: margin, right: margin }
+    });
+
+    y = doc.lastAutoTable.finalY + 10;
+
+    // === HOUSES ===
+    if (y > pageH - 80) { doc.addPage(); y = margin; }
+
+    doc.setFontSize(13);
+    doc.setTextColor(...VIOLET);
+    doc.setFont('helvetica', 'bold');
+    doc.text('LE 12 BHAVA (CASE)', margin, y);
+    y += 4;
+
+    const houseNames = ['Lagna','Dhana','Sahaja','Sukha','Putra','Ripu','Kalatra','Ayu','Dharma','Karma','Labha','Vyaya'];
+    const houseRows = Array.from({length: 12}, (_, i) => {
+        const rashiIdx = (lastKundliResult.ascendantRashi + i) % 12;
+        const r = RASHIS[rashiIdx];
+        return [`${i+1}ª (${houseNames[i]})`, `${r.name} (${r.western})`, r.ruler, HOUSE_DOMAINS[i]];
+    });
+
+    doc.autoTable({
+        startY: y,
+        head: [['Bhava', 'Rashi', 'Signore', 'Dominio']],
+        body: houseRows,
+        theme: 'striped',
+        headStyles: { fillColor: VIOLET, textColor: 255, fontStyle: 'bold', fontSize: 9 },
+        bodyStyles: { fontSize: 8.5, textColor: TEXT },
+        styles: { cellPadding: 2 },
+        columnStyles: { 3: { cellWidth: 70 } },
+        margin: { left: margin, right: margin }
+    });
+
+    // === NAKSHATRA DETAIL ===
+    doc.addPage();
+    y = margin;
+
+    doc.setFontSize(13);
+    doc.setTextColor(...VIOLET);
+    doc.setFont('helvetica', 'bold');
+    doc.text('JANMA NAKSHATRA — Dettaglio', margin, y);
+    y += 8;
+
+    doc.setFillColor(248, 245, 255);
+    doc.roundedRect(margin, y, pageW - 2*margin, 60, 3, 3, 'F');
+    doc.setDrawColor(...GOLD);
+    doc.roundedRect(margin, y, pageW - 2*margin, 60, 3, 3, 'S');
+
+    let ny = y + 8;
+    doc.setFontSize(14);
+    doc.setTextColor(...DARK);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`${moonNak.name} — Pada ${lastKundliResult.moonNak.pada}`, margin + 5, ny);
+
+    ny += 8;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...TEXT);
+
+    const nakDetails = [
+        ['Posizione', moonNak.degrees],
+        ['Signore', moonNak.ruler],
+        ['Divinità', moonNak.deity],
+        ['Simbolo', moonNak.symbol],
+        ['Natura', moonNak.nature]
+    ];
+
+    nakDetails.forEach(([k, v]) => {
+        doc.setFont('helvetica', 'bold');
+        doc.text(k + ':', margin + 5, ny);
+        doc.setFont('helvetica', 'normal');
+        const wrapped = doc.splitTextToSize(v, pageW - 2*margin - 30);
+        doc.text(wrapped, margin + 30, ny);
+        ny += Math.max(6, wrapped.length * 5);
+    });
+
+    y = ny + 15;
+
+    // === VIMSHOTTARI DASHA ===
+    doc.setFontSize(13);
+    doc.setTextColor(...VIOLET);
+    doc.setFont('helvetica', 'bold');
+    doc.text('VIMSHOTTARI MAHADASHA', margin, y);
+    y += 4;
+
+    const now = new Date();
+    const dashaRows = lastKundliResult.dashas.map(d => {
+        const isActive = now >= d.start && now < d.end;
+        const fmt = (date) => date.toLocaleDateString('it-IT', { day: '2-digit', month: 'short', year: 'numeric' });
+        return [
+            (isActive ? '▶ ' : '   ') + d.planet,
+            `${d.years.toFixed(2)} anni`,
+            fmt(d.start),
+            fmt(d.end),
+            isActive ? 'ATTIVO' : ''
+        ];
+    });
+
+    doc.autoTable({
+        startY: y,
+        head: [['Pianeta', 'Durata', 'Inizio', 'Fine', 'Stato']],
+        body: dashaRows,
+        theme: 'striped',
+        headStyles: { fillColor: VIOLET, textColor: 255, fontStyle: 'bold', fontSize: 9 },
+        bodyStyles: { fontSize: 9, textColor: TEXT },
+        didParseCell: (data) => {
+            if (data.section === 'body' && data.row.raw[4] === 'ATTIVO') {
+                data.cell.styles.fillColor = [255, 240, 200];
+                data.cell.styles.fontStyle = 'bold';
+            }
+        },
+        styles: { cellPadding: 2 },
+        margin: { left: margin, right: margin }
+    });
+
+    y = doc.lastAutoTable.finalY + 10;
+
+    // === YOGAS ===
+    if (lastKundliResult.yogas.length > 0) {
+        if (y > pageH - 60) { doc.addPage(); y = margin; }
+
+        doc.setFontSize(13);
+        doc.setTextColor(...VIOLET);
+        doc.setFont('helvetica', 'bold');
+        doc.text('YOGA E COMBINAZIONI RILEVATE', margin, y);
+        y += 8;
+
+        lastKundliResult.yogas.forEach(yoga => {
+            if (y > pageH - 30) { doc.addPage(); y = margin; }
+
+            const color = yoga.positive ? [100, 180, 100] : [200, 100, 100];
+            doc.setFillColor(...color);
+            doc.rect(margin, y - 4, 2, 14, 'F');
+
+            doc.setFontSize(11);
+            doc.setTextColor(...DARK);
+            doc.setFont('helvetica', 'bold');
+            doc.text(`${yoga.positive ? '✦' : '⚠'} ${yoga.name}`, margin + 5, y);
+
+            y += 5;
+            doc.setFontSize(9);
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(...TEXT);
+            const desc = doc.splitTextToSize(yoga.description, pageW - 2*margin - 5);
+            doc.text(desc, margin + 5, y);
+            y += desc.length * 4 + 6;
+        });
+    }
+
+    // === LETTURA INTERPRETATIVA ===
+    doc.addPage();
+    y = margin;
+
+    doc.setFillColor(...VIOLET);
+    doc.rect(0, 0, pageW, 25, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(18);
+    doc.text('LETTURA INTERPRETATIVA', pageW/2, 16, { align: 'center' });
+
+    y = 35;
+    const sections = generateReading(lastKundliResult, lastBirthData);
+
+    const stripHtml = (s) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&');
+
+    sections.forEach(s => {
+        const titleText = s.type === 'intro' ? 'Introduzione' : (s.type === 'closing' ? 'Conclusione' : `${s.icon} ${s.title}`);
+        const bodyText = stripHtml(s.content || s.text);
+
+        // Estimate space needed
+        const wrapped = doc.splitTextToSize(bodyText, pageW - 2*margin - 8);
+        const neededSpace = 14 + wrapped.length * 4.5;
+
+        if (y + neededSpace > pageH - 20) {
+            doc.addPage();
+            y = margin;
+        }
+
+        // Title
+        doc.setFillColor(245, 240, 255);
+        doc.rect(margin, y - 4, pageW - 2*margin, 9, 'F');
+        doc.setDrawColor(...VIOLET);
+        doc.setLineWidth(0.5);
+        doc.line(margin, y - 4, margin, y + 5);
+
+        doc.setFontSize(11);
+        doc.setTextColor(...VIOLET);
+        doc.setFont('helvetica', 'bold');
+        doc.text(titleText, margin + 4, y + 2);
+
+        y += 10;
+
+        // Body
+        doc.setFontSize(9.5);
+        doc.setTextColor(...TEXT);
+        doc.setFont('helvetica', 'normal');
+        doc.text(wrapped, margin + 4, y);
+        y += wrapped.length * 4.5 + 6;
+    });
+
+    // === FOOTER on every page ===
+    const totalPages = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= totalPages; i++) {
+        doc.setPage(i);
+        doc.setFontSize(8);
+        doc.setTextColor(...DIM);
+        doc.setFont('helvetica', 'italic');
+        doc.text('Jyotish Vidya — Generato con Swiss Ephemeris (Ayanamsa Lahiri)', pageW/2, pageH - 8, { align: 'center' });
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Pagina ${i} di ${totalPages}`, pageW - margin, pageH - 8, { align: 'right' });
+        doc.text('davil-life-leadership-coaching.it', margin, pageH - 8);
+    }
+
+    // Save
+    const fileName = `kundli_${dateStr.replace(/\//g, '-')}_${lastBirthData.time.replace(':', '')}.pdf`;
+    doc.save(fileName);
+}
+
 // --- EVENT HANDLERS ---
 document.addEventListener('DOMContentLoaded', () => {
     renderNakshatraGrid();
@@ -661,7 +1284,13 @@ document.addEventListener('DOMContentLoaded', () => {
     setupCitySuggestions();
     setupForm();
     setupTabs();
+    setupPDFDownload();
 });
+
+function setupPDFDownload() {
+    const btn = document.getElementById('download-pdf');
+    if (btn) btn.addEventListener('click', generatePDF);
+}
 
 function setupNavigation() {
     const toggle = document.querySelector('.nav-toggle');
@@ -777,12 +1406,19 @@ function setupForm() {
         try {
             const result = await calculateKundli(date, time, lat, lon, timezone);
 
+            lastKundliResult = result;
+            lastBirthData = {
+                date, time, lat, lon, timezone,
+                city: document.getElementById('birth-city').value
+            };
+
             renderSouthIndianChart(result.planets, result.ascendantRashi);
             renderPlanetsTable(result.planets);
             renderHousesTable(result.ascendantRashi);
             renderNakshatraDetail(result.planets.find(p => p.name === "Moon").longitude);
             renderDashaTimeline(result.dashas);
             renderYogas(result.yogas);
+            renderReading(result, lastBirthData);
 
             document.getElementById('results').style.display = 'block';
 

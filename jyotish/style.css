@@ -601,6 +601,90 @@ body {
     border-top: 1px solid var(--card-border);
 }
 
+.tab-reading {
+    background: rgba(244, 201, 93, 0.15) !important;
+    color: var(--gold) !important;
+    border: 1px solid rgba(244, 201, 93, 0.3);
+}
+
+.reading-box {
+    line-height: 1.8;
+}
+
+.reading-section {
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background: rgba(124, 58, 237, 0.06);
+    border-left: 3px solid var(--cosmic-violet);
+    border-radius: var(--radius-sm);
+}
+
+.reading-section h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reading-section h4 .icon {
+    font-size: 1.4rem;
+}
+
+.reading-section p {
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.reading-section .key {
+    color: var(--gold-light);
+    font-weight: 500;
+}
+
+.reading-section .highlight {
+    background: rgba(244, 201, 93, 0.1);
+    padding: 0 0.3rem;
+    border-radius: 3px;
+    color: var(--gold-light);
+}
+
+.reading-intro {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.05));
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+}
+
+.reading-intro h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.reading-intro p {
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.pdf-export {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
+    text-align: center;
+}
+
+.btn-pdf {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
 /* === KNOWLEDGE GRID === */
 .knowledge-grid {
     display: grid;
