@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jyotish Vidya — Astronomia Vedica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+    <div class="stars-bg"></div>
+    <div class="cosmic-overlay"></div>
+
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <span class="nav-symbol">☉</span>
+            <span class="nav-title">Jyotish Vidya</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#calcola">Calcola Kundli</a></li>
+            <li><a href="#fondamenti">Fondamenti</a></li>
+            <li><a href="#nakshatras">Nakshatra</a></li>
+            <li><a href="#dasha">Dasha</a></li>
+            <li><a href="#maestri">Maestri</a></li>
+            <li><a href="#testi">Testi Sacri</a></li>
+        </ul>
+        <a href="https://davil-life-leadership-coaching.it/biglietto.html" class="btn-gold btn-ticket" target="_blank" rel="noopener">
+            🎟 Biglietto
+        </a>
+        <button class="nav-toggle" aria-label="Menu">☰</button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">ज्योतिष विद्या</h1>
+            <p class="hero-subtitle">La Scienza della Luce — Astronomia Vedica</p>
+            <p class="hero-desc">
+                Jyotish Shastra è la scienza vedica che studia l'influenza dei corpi celesti
+                sul destino umano. Uno dei sei Vedanga (arti ausiliarie dei Veda),
+                è la più antica tradizione astrologica sistematica al mondo.
+            </p>
+            <blockquote class="hero-quote">
+                "Un bambino nasce in quel giorno e a quell'ora in cui i raggi celesti sono in
+                armonia matematica con il suo karma individuale."
+                <cite>— Paramahansa Yogananda, Autobiografia di uno Yogi</cite>
+            </blockquote>
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="#calcola" class="btn-primary">Calcola il tuo Kundli ↓</a>
+                <a href="https://davil-life-leadership-coaching.it/biglietto.html" class="btn-gold btn-ticket" target="_blank" rel="noopener" style="padding:1rem 2rem; font-size:1rem;">
+                    🎟 Prenota Consulenza
+                </a>
+            </div>
+        </div>
+        <div class="hero-chart">
+            <svg viewBox="0 0 400 400" class="zodiac-wheel">
+                <circle cx="200" cy="200" r="180" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>
+                <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+                <circle cx="200" cy="200" r="100" fill="none" stroke="rgba(212,175,55,0.15)" stroke-width="1"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- CALCOLATORE -->
+    <section id="calcola" class="section calculator-section">
+        <div class="container">
+            <h2 class="section-title">Calcola il tuo Kundli</h2>
+            <p class="section-intro">
+                Inserisci i dati di nascita per generare la tua carta natale vedica (Kundli).
+                Il calcolo utilizza le Swiss Ephemeris (dati NASA JPL) con Ayanamsa Lahiri.
+            </p>
+
+            <div class="calculator-grid">
+                <form id="kundli-form" class="calc-form">
+                    <div class="form-group">
+                        <label for="birth-date">Data di nascita</label>
+                        <input type="date" id="birth-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-time">Ora di nascita (esatta)</label>
+                        <input type="time" id="birth-time" step="60" required>
+                        <small>L'Ascendente cambia segno ogni ~2 ore. La precisione è fondamentale.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-city">Città di nascita</label>
+                        <input type="text" id="birth-city" placeholder="es. Roma, Milano, Napoli..." required>
+                        <div id="city-suggestions" class="suggestions-dropdown"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birth-lat">Latitudine</label>
+                            <input type="number" id="birth-lat" step="0.0001" placeholder="41.9028">
+                        </div>
+                        <div class="form-group">
+                            <label for="birth-lon">Longitudine</label>
+                            <input type="number" id="birth-lon" step="0.0001" placeholder="12.4964">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="timezone">Fuso orario (offset UTC)</label>
+                        <select id="timezone">
+                            <option value="-12">UTC-12</option>
+                            <option value="-11">UTC-11</option>
+                            <option value="-10">UTC-10 (Hawaii)</option>
+                            <option value="-9">UTC-9 (Alaska)</option>
+                            <option value="-8">UTC-8 (Pacific)</option>
+                            <option value="-7">UTC-7 (Mountain)</option>
+                            <option value="-6">UTC-6 (Central)</option>
+                            <option value="-5">UTC-5 (Eastern)</option>
+                            <option value="-4">UTC-4 (Atlantic)</option>
+                            <option value="-3">UTC-3 (Brasilia)</option>
+                            <option value="-2">UTC-2</option>
+                            <option value="-1">UTC-1</option>
+                            <option value="0">UTC+0 (Greenwich)</option>
+                            <option value="1" selected>UTC+1 (CET - Italia)</option>
+                            <option value="2">UTC+2 (CEST - Italia estate)</option>
+                            <option value="3">UTC+3 (Mosca)</option>
+                            <option value="3.5">UTC+3:30 (Iran)</option>
+                            <option value="4">UTC+4 (Dubai)</option>
+                            <option value="4.5">UTC+4:30 (Kabul)</option>
+                            <option value="5">UTC+5 (Pakistan)</option>
+                            <option value="5.5">UTC+5:30 (India - IST)</option>
+                            <option value="5.75">UTC+5:45 (Nepal)</option>
+                            <option value="6">UTC+6 (Bangladesh)</option>
+                            <option value="7">UTC+7 (Indocina)</option>
+                            <option value="8">UTC+8 (Cina/Singapore)</option>
+                            <option value="9">UTC+9 (Giappone)</option>
+                            <option value="9.5">UTC+9:30 (Australia C.)</option>
+                            <option value="10">UTC+10 (Australia E.)</option>
+                            <option value="11">UTC+11</option>
+                            <option value="12">UTC+12 (Nuova Zelanda)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary btn-calculate">
+                        <span class="btn-text">Genera Kundli</span>
+                        <span class="btn-loading" style="display:none;">Calcolo in corso...</span>
+                    </button>
+                </form>
+
+                <div id="results" class="calc-results" style="display:none;">
+                    <div class="result-tabs">
+                        <button class="tab-btn active" data-tab="chart">Carta</button>
+                        <button class="tab-btn" data-tab="planets">Pianeti</button>
+                        <button class="tab-btn" data-tab="houses">Case</button>
+                        <button class="tab-btn" data-tab="nakshatra">Nakshatra</button>
+                        <button class="tab-btn" data-tab="dasha-result">Dasha</button>
+                        <button class="tab-btn" data-tab="yogas">Yoga</button>
+                    </div>
+                    <div id="tab-chart" class="tab-content active">
+                        <div id="chart-container" class="chart-box"></div>
+                    </div>
+                    <div id="tab-planets" class="tab-content">
+                        <table id="planets-table" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Graha</th>
+                                    <th>Rashi</th>
+                                    <th>Gradi</th>
+                                    <th>Nakshatra</th>
+                                    <th>Pada</th>
+                                    <th>Retro</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div id="tab-houses" class="tab-content">
+                        <table id="houses-table" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Bhava</th>
+                                    <th>Rashi</th>
+                                    <th>Signore</th>
+                                    <th>Dominio</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <div id="tab-nakshatra" class="tab-content">
+                        <div id="nakshatra-detail" class="nakshatra-card"></div>
+                    </div>
+                    <div id="tab-dasha-result" class="tab-content">
+                        <div id="dasha-timeline"></div>
+                    </div>
+                    <div id="tab-yogas" class="tab-content">
+                        <div id="yogas-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="api-info">
+                <p>⚙️ Powered by <strong>VedAstro.org</strong> — Open Source, Swiss Ephemeris (NASA JPL), Ayanamsa Lahiri</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FONDAMENTI -->
+    <section id="fondamenti" class="section">
+        <div class="container">
+            <h2 class="section-title">I Fondamenti del Jyotish</h2>
+
+            <div class="knowledge-grid">
+                <!-- Differenza Siderale/Tropicale -->
+                <div class="knowledge-card full-width">
+                    <h3>🌌 Zodiaco Siderale vs Tropicale</h3>
+                    <p>
+                        La differenza fondamentale tra astrologia vedica e occidentale: il Jyotish usa lo
+                        <strong>zodiaco siderale</strong> (basato sulle stelle fisse), non quello tropicale (basato sulle stagioni).
+                    </p>
+                    <div class="info-box">
+                        <strong>Ayanamsa (2026):</strong> ~24°08' (Lahiri) — Lo scarto tra i due sistemi.
+                        Un pianeta a 10° Ariete tropicale si trova a ~15°52' Pesci nel sistema siderale.
+                        <br><br>
+                        <strong>Precessione:</strong> ~50.29 secondi d'arco/anno. I due zodiaci coincidevano intorno al 285 d.C.
+                    </div>
+                </div>
+
+                <!-- I 9 Graha -->
+                <div class="knowledge-card">
+                    <h3>☿ I 9 Graha (Pianeti)</h3>
+                    <table class="mini-table">
+                        <tr><td>☉ Surya</td><td>Sole</td><td>Anima, padre, autorità</td></tr>
+                        <tr><td>☽ Chandra</td><td>Luna</td><td>Mente, madre, emozioni</td></tr>
+                        <tr><td>♂ Mangal</td><td>Marte</td><td>Energia, coraggio, conflitto</td></tr>
+                        <tr><td>☿ Budha</td><td>Mercurio</td><td>Intelletto, comunicazione</td></tr>
+                        <tr><td>♃ Guru</td><td>Giove</td><td>Saggezza, figli, dharma</td></tr>
+                        <tr><td>♀ Shukra</td><td>Venere</td><td>Amore, arte, lusso</td></tr>
+                        <tr><td>♄ Shani</td><td>Saturno</td><td>Disciplina, ritardi, karma</td></tr>
+                        <tr><td>☊ Rahu</td><td>Nodo Nord</td><td>Ossessione, illusione, tecnologia</td></tr>
+                        <tr><td>☋ Ketu</td><td>Nodo Sud</td><td>Liberazione, distacco, misticismo</td></tr>
+                    </table>
+                    <p class="note">Rahu e Ketu non sono corpi fisici ma punti matematici dove l'orbita lunare interseca l'eclittica.</p>
+                </div>
+
+                <!-- I 12 Rashi -->
+                <div class="knowledge-card">
+                    <h3>♈ I 12 Rashi (Segni)</h3>
+                    <table class="mini-table">
+                        <tr><td>1. Mesha</td><td>Ariete</td><td>Fuoco</td><td>Marte</td></tr>
+                        <tr><td>2. Vrishabha</td><td>Toro</td><td>Terra</td><td>Venere</td></tr>
+                        <tr><td>3. Mithuna</td><td>Gemelli</td><td>Aria</td><td>Mercurio</td></tr>
+                        <tr><td>4. Karka</td><td>Cancro</td><td>Acqua</td><td>Luna</td></tr>
+                        <tr><td>5. Simha</td><td>Leone</td><td>Fuoco</td><td>Sole</td></tr>
+                        <tr><td>6. Kanya</td><td>Vergine</td><td>Terra</td><td>Mercurio</td></tr>
+                        <tr><td>7. Tula</td><td>Bilancia</td><td>Aria</td><td>Venere</td></tr>
+                        <tr><td>8. Vrischika</td><td>Scorpione</td><td>Acqua</td><td>Marte</td></tr>
+                        <tr><td>9. Dhanu</td><td>Sagittario</td><td>Fuoco</td><td>Giove</td></tr>
+                        <tr><td>10. Makara</td><td>Capricorno</td><td>Terra</td><td>Saturno</td></tr>
+                        <tr><td>11. Kumbha</td><td>Acquario</td><td>Aria</td><td>Saturno</td></tr>
+                        <tr><td>12. Meena</td><td>Pesci</td><td>Acqua</td><td>Giove</td></tr>
+                    </table>
+                </div>
+
+                <!-- Le 12 Bhava -->
+                <div class="knowledge-card">
+                    <h3>🏠 Le 12 Bhava (Case)</h3>
+                    <table class="mini-table">
+                        <tr><td><strong>1ª Lagna</strong></td><td>Sé, corpo, personalità</td></tr>
+                        <tr><td><strong>2ª Dhana</strong></td><td>Ricchezza, famiglia, parola</td></tr>
+                        <tr><td><strong>3ª Sahaja</strong></td><td>Fratelli, coraggio, comunicazione</td></tr>
+                        <tr><td><strong>4ª Sukha</strong></td><td>Madre, casa, felicità</td></tr>
+                        <tr><td><strong>5ª Putra</strong></td><td>Figli, intelligenza, merito passato</td></tr>
+                        <tr><td><strong>6ª Ripu</strong></td><td>Nemici, malattie, debiti</td></tr>
+                        <tr><td><strong>7ª Kalatra</strong></td><td>Coniuge, partnership</td></tr>
+                        <tr><td><strong>8ª Ayu</strong></td><td>Longevità, trasformazione, occulto</td></tr>
+                        <tr><td><strong>9ª Dharma</strong></td><td>Padre, fortuna, filosofia</td></tr>
+                        <tr><td><strong>10ª Karma</strong></td><td>Carriera, reputazione, azioni</td></tr>
+                        <tr><td><strong>11ª Labha</strong></td><td>Guadagni, amici, aspirazioni</td></tr>
+                        <tr><td><strong>12ª Vyaya</strong></td><td>Perdite, liberazione, isolamento</td></tr>
+                    </table>
+                </div>
+
+                <!-- Carte Divisionali -->
+                <div class="knowledge-card">
+                    <h3>📊 Carte Divisionali (Varga)</h3>
+                    <p>Divisioni dei 30° di un segno in segmenti più piccoli, ognuno mappato su un dominio specifico:</p>
+                    <table class="mini-table">
+                        <tr><td><strong>D-1 Rashi</strong></td><td>30°</td><td>Vita in generale</td></tr>
+                        <tr><td><strong>D-9 Navamsa</strong></td><td>3°20'</td><td>Matrimonio, dharma, forza spirituale</td></tr>
+                        <tr><td><strong>D-10 Dasamsa</strong></td><td>3°</td><td>Carriera, professione</td></tr>
+                        <tr><td><strong>D-12 Dwadasamsa</strong></td><td>2°30'</td><td>Genitori</td></tr>
+                        <tr><td><strong>D-7 Saptamsa</strong></td><td>4°17'</td><td>Figli, progenie</td></tr>
+                        <tr><td><strong>D-60 Shashtiamsa</strong></td><td>0°30'</td><td>Karma vite passate</td></tr>
+                    </table>
+                    <p class="note">Il Navamsa (D-9) è la carta divisionale più importante dopo la D-1. Parashara afferma che matrimonio, carattere e fortuna vanno giudicati da essa.</p>
+                </div>
+
+                <!-- Yoga -->
+                <div class="knowledge-card">
+                    <h3>🔗 Yoga (Combinazioni Planetarie)</h3>
+                    <div class="yoga-list">
+                        <div class="yoga-item">
+                            <strong>Raja Yoga</strong> — Signori di Kendra (1,4,7,10) + Trikona (1,5,9): potere e autorità
+                        </div>
+                        <div class="yoga-item">
+                            <strong>Gajakesari Yoga</strong> — Giove in Kendra dalla Luna: saggezza, ricchezza, fama duratura
+                        </div>
+                        <div class="yoga-item">
+                            <strong>Pancha Mahapurusha</strong> — 5 yoga di grandezza (Ruchaka, Bhadra, Hamsa, Malavya, Sasa)
+                        </div>
+                        <div class="yoga-item">
+                            <strong>Dhana Yoga</strong> — Signori di 2ª,5ª,9ª,11ª associati: ricchezza
+                        </div>
+                        <div class="yoga-item">
+                            <strong>Kemadruma</strong> — Nessun pianeta in 2ª/12ª dalla Luna: difficoltà (negativo)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dosha -->
+                <div class="knowledge-card">
+                    <h3>⚠️ Dosha (Afflizioni)</h3>
+                    <div class="dosha-list">
+                        <div class="dosha-item">
+                            <strong>Mangal Dosha (Kuja Dosha)</strong>
+                            <p>Marte in 1ª, 4ª, 7ª, 8ª o 12ª casa. Controllato per compatibilità matrimoniale.
+                            Effetti: ritardi nel matrimonio, conflitti coniugali.</p>
+                        </div>
+                        <div class="dosha-item">
+                            <strong>Kaal Sarp Dosha</strong>
+                            <p>Tutti i 7 pianeti racchiusi tra Rahu e Ketu. 12 tipi diversi.
+                            Effetti: ostacoli continui, problemi di salute. Opera fino a ~47 anni.</p>
+                        </div>
+                        <div class="dosha-item">
+                            <strong>Pitru Dosha</strong>
+                            <p>Karma ancestrale. Sole afflitto da Rahu/Ketu o Saturno in 9ª casa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAKSHATRA -->
+    <section id="nakshatras" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Le 27 Nakshatra</h2>
+            <p class="section-intro">
+                Le dimore lunari — 27 costellazioni di 13°20' ciascuna, divise in 4 pada (quarti) di 3°20'.
+                La Nakshatra della Luna al momento della nascita (Janma Nakshatra) determina il Dasha iniziale
+                e rivela la natura profonda dell'anima.
+            </p>
+
+            <div class="nakshatra-grid" id="nakshatra-grid">
+                <!-- Generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHA -->
+    <section id="dasha" class="section">
+        <div class="container">
+            <h2 class="section-title">Sistema Vimshottari Dasha</h2>
+            <p class="section-intro">
+                Il sistema di timing più utilizzato nel Jyotish. Un ciclo di 120 anni diviso tra i 9 pianeti.
+                La Nakshatra della Luna alla nascita determina quale Mahadasha è attivo e quanto ne rimane.
+            </p>
+
+            <div class="dasha-visual">
+                <div class="dasha-cycle">
+                    <div class="dasha-planet" style="--size: 5.83%;" data-planet="Ketu"><span>Ketu</span><small>7 anni</small></div>
+                    <div class="dasha-planet" style="--size: 16.67%;" data-planet="Venus"><span>Venere</span><small>20 anni</small></div>
+                    <div class="dasha-planet" style="--size: 5%;" data-planet="Sun"><span>Sole</span><small>6 anni</small></div>
+                    <div class="dasha-planet" style="--size: 8.33%;" data-planet="Moon"><span>Luna</span><small>10 anni</small></div>
+                    <div class="dasha-planet" style="--size: 5.83%;" data-planet="Mars"><span>Marte</span><small>7 anni</small></div>
+                    <div class="dasha-planet" style="--size: 15%;" data-planet="Rahu"><span>Rahu</span><small>18 anni</small></div>
+                    <div class="dasha-planet" style="--size: 13.33%;" data-planet="Jupiter"><span>Giove</span><small>16 anni</small></div>
+                    <div class="dasha-planet" style="--size: 15.83%;" data-planet="Saturn"><span>Saturno</span><small>19 anni</small></div>
+                    <div class="dasha-planet" style="--size: 14.17%;" data-planet="Mercury"><span>Mercurio</span><small>17 anni</small></div>
+                </div>
+            </div>
+
+            <div class="dasha-explanation">
+                <h3>Come funziona</h3>
+                <ol>
+                    <li>La Nakshatra della Luna alla nascita determina il <strong>primo signore del Mahadasha</strong></li>
+                    <li>Il bilancio del primo Dasha è calcolato proporzionalmente in base a quanto la Luna ha attraversato quella Nakshatra</li>
+                    <li>Ogni Mahadasha è suddiviso in <strong>Antardasha</strong> (sotto-periodi), poi Pratyantardasha, poi Sookshma Dasha — tutti nella stessa sequenza</li>
+                    <li>La sequenza è sempre: Ketu → Venere → Sole → Luna → Marte → Rahu → Giove → Saturno → Mercurio</li>
+                </ol>
+                <div class="info-box">
+                    <strong>Sequenza Nakshatra → Signore Dasha:</strong><br>
+                    Ashwini/Magha/Moola → Ketu | Bharani/P.Phalguni/P.Ashadha → Venere |
+                    Krittika/U.Phalguni/U.Ashadha → Sole | Rohini/Hasta/Shravana → Luna |
+                    Mrigashira/Chitra/Dhanishta → Marte | Ardra/Swati/Shatabhisha → Rahu |
+                    Punarvasu/Vishakha/P.Bhadrapada → Giove | Pushya/Anuradha/U.Bhadrapada → Saturno |
+                    Ashlesha/Jyeshtha/Revati → Mercurio
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAESTRI -->
+    <section id="maestri" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Maestri e Autorità</h2>
+            <p class="section-intro">
+                Figure influenti che hanno validato, studiato e insegnato l'astronomia vedica —
+                dal mondo spirituale a quello scientifico e medico.
+            </p>
+
+            <div class="masters-grid">
+                <!-- Spirituali -->
+                <div class="master-category">
+                    <h3 class="category-title">🙏 Maestri Spirituali</h3>
+
+                    <div class="master-card">
+                        <h4>Paramahansa Yogananda</h4>
+                        <p class="master-role">Autore "Autobiografia di uno Yogi"</p>
+                        <p>Capitolo 16 ("Outwitting the Stars") è interamente dedicato all'astrologia. Insegnò che i raggi planetari non sono la <em>causa</em> del destino ma <em>indicatori</em> del karma passato. Raccomandava bracciali astrologici (oro, argento, rame) e gemme come rimedi.</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Sri Yukteswar Giri</h4>
+                        <p class="master-role">Guru di Yogananda, autore "The Holy Science" (1894)</p>
+                        <p>Jyotishi realizzato. Insegnò che l'astrologia rivela l'operazione della legge cosmica (karma) ma che pratiche spirituali (Kriya Yoga) possono mitigare le influenze planetarie. Il suo sistema di Ayanamsa è ancora in uso.</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Maharishi Mahesh Yogi</h4>
+                        <p class="master-role">Fondatore della Meditazione Trascendentale</p>
+                        <p>Integrò il Jyotish nel suo framework come "Maharishi Jyotish" — programma formale presso la Maharishi International University. Definì il Jyotish come "la scienza e tecnologia della predizione e trasformazione".</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Deepak Chopra</h4>
+                        <p class="master-role">Medico, autore bestseller</p>
+                        <p>Riferisce l'astrologia vedica in molteplici opere, connettendo i cicli planetari ai bioritmi e alla coscienza. Promuove l'integrazione di Jyotish con Ayurveda per il benessere olistico.</p>
+                    </div>
+                </div>
+
+                <!-- Astrologi Tradizionali -->
+                <div class="master-category">
+                    <h3 class="category-title">⭐ Astrologi Vedici Tradizionali</h3>
+
+                    <div class="master-card">
+                        <h4>B.V. Raman (1912-1998)</h4>
+                        <p class="master-role">Il più influente del XX secolo</p>
+                        <p>Editore di "The Astrological Magazine" per 62+ anni. Fondò l'Indian Council of Astrological Sciences. Il suo Ayanamsa è ancora in uso. Opere: "Hindu Predictive Astrology", "How to Judge a Horoscope".</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>K.N. Rao</h4>
+                        <p class="master-role">Accademizzazione del Jyotish</p>
+                        <p>Introdusse il Jyotish come corso universitario UGC in India. Lo difese alla Corte Suprema. Fondò la Bharatiya Vidya Bhavan School of Astrology. 40+ libri. Sviluppò la tecnica PAC-DARES.</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>David Frawley (Vamadeva Shastri)</h4>
+                        <p class="master-role">Padma Bhushan, 40+ libri</p>
+                        <p>Ponte unico tra Jyotish e Ayurveda. "Ayurvedic Astrology" mostra come i tipi costituzionali (Vata, Pitta, Kapha) correlano con i tipi planetari. Fondatore dell'American Institute of Vedic Studies.</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Sanjay Rath</h4>
+                        <p class="master-role">Lignaggio tradizionale (Puri, Orissa)</p>
+                        <p>Famiglia di astrologi dalla linea di Shri Achyuta Das. Fondò Sri Jagannath Center (SJC). Opere: "Brihat Nakshatra", "Maharishi Jaimini Upadesa Sutra".</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Hart deFouw & Robert Svoboda</h4>
+                        <p class="master-role">Co-autori "Light on Life"</p>
+                        <p>Svoboda: primo occidentale laureato in Medicina Ayurvedica (Tilak Ayurved Mahavidyalaya, Pune). "Light on Life" è considerato la migliore introduzione in inglese al Jyotish.</p>
+                    </div>
+                </div>
+
+                <!-- Scienziati -->
+                <div class="master-category">
+                    <h3 class="category-title">🔬 Ricercatori Scientifici</h3>
+
+                    <div class="master-card">
+                        <h4>Michel Gauquelin (1928-1991)</h4>
+                        <p class="master-role">Statistico e psicologo francese</p>
+                        <p>I più grandi studi statistici di carte natali (25.000+ nascite). Pubblicò il famoso "Effetto Marte" (1955): correlazione statisticamente significativa tra Marte appena sorto/culminante e nascita di campioni sportivi. Risultati estesi a 5 pianeti correlati con eminenza in campi corrispondenti.</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>Dr. Percy Seymour</h4>
+                        <p class="master-role">Astrofisico, Università di Manchester</p>
+                        <p>Propose un meccanismo scientifico: il movimento planetario influenza le macchie solari e il campo magnetico terrestre; le fluttuazioni vengono captate dal sistema nervoso fetale come "antenna". Opere: "The Scientific Basis of Astrology".</p>
+                    </div>
+
+                    <div class="master-card">
+                        <h4>P.V.R. Narasimha Rao</h4>
+                        <p class="master-role">IIT Madras + Rice University</p>
+                        <p>Creatore di Jagannatha Hora — il software di riferimento gratuito per il Jyotish professionale. Ha reso calcoli di livello professionale accessibili gratuitamente a tutti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTI SACRI -->
+    <section id="testi" class="section">
+        <div class="container">
+            <h2 class="section-title">Testi Classici di Riferimento</h2>
+            <p class="section-intro">
+                Le fonti autoritative del Jyotish Shastra, tramandate da millenni nella tradizione vedica.
+            </p>
+
+            <div class="texts-grid">
+                <div class="text-card primary">
+                    <div class="text-number">1</div>
+                    <h4>Brihat Parashara Hora Shastra</h4>
+                    <p class="text-author">Maharishi Parashara (padre di Vyasa)</p>
+                    <p>Il testo più completo sull'astrologia natale vedica. 97 capitoli che coprono: creazione, incarnazioni, caratteri planetari, segni, effetti delle case, carte divisionali, yoga, dasha e rimedi. La "Bibbia" del Jyotish.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">2</div>
+                    <h4>Brihat Jataka</h4>
+                    <p class="text-author">Varahamihira (505-587 d.C.)</p>
+                    <p>Opera concisa e autorevole. 28 capitoli. Noto per il trattamento sistematico di Ashtakavarga e forze planetarie.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">3</div>
+                    <h4>Phaladeepika</h4>
+                    <p class="text-author">Mantreshwara (XIII secolo)</p>
+                    <p>28 capitoli. Molto apprezzato per le linee guida chiare e pratiche di interpretazione.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">4</div>
+                    <h4>Jataka Parijata</h4>
+                    <p class="text-author">Vaidyanatha Dikshita (XIV-XV sec.)</p>
+                    <p>18 capitoli con descrizioni estese degli yoga e combinazioni natali.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">5</div>
+                    <h4>Saravali</h4>
+                    <p class="text-author">Kalyanavarma (IX secolo)</p>
+                    <p>Testo enciclopedico su combinazioni planetarie, effetti dei transiti e formazioni di rajyoga.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">6</div>
+                    <h4>Jaimini Sutras (Upadesa Sutras)</h4>
+                    <p class="text-author">Maharishi Jaimini</p>
+                    <p>Sistema alternativo con Chara Karakas (significatori variabili), aspetti basati sui segni e Chara Dasha. Complementare a Parashara.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">7</div>
+                    <h4>Surya Siddhanta</h4>
+                    <p class="text-author">Testo astronomico antico</p>
+                    <p>Fornisce il framework matematico per i calcoli planetari utilizzati nel Jyotish.</p>
+                </div>
+
+                <div class="text-card">
+                    <div class="text-number">8</div>
+                    <h4>Uttara Kalamrita</h4>
+                    <p class="text-author">Kalidasa</p>
+                    <p>Noto per le significazioni dettagliate di case e pianeti.</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <h4>📚 Software di riferimento gratuito</h4>
+                <p><strong>Jagannatha Hora (JHora)</strong> — di P.V.R. Narasimha Rao. Gratuito, professionale, basato su Swiss Ephemeris.
+                Include tutti i sistemi Dasha, carte divisionali, transiti, Ashtakavarga, e un atlante con 2.5 milioni di città.</p>
+                <p><a href="https://www.vedicastrologer.org/jh/" target="_blank" rel="noopener">→ Scarica Jagannatha Hora</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>☉ Jyotish Vidya</h3>
+                    <p>La Scienza della Luce</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Risorse</h4>
+                    <ul>
+                        <li><a href="https://vedastro.org" target="_blank" rel="noopener">VedAstro (API Open Source)</a></li>
+                        <li><a href="https://www.vedicastrologer.org/jh/" target="_blank" rel="noopener">Jagannatha Hora (Software)</a></li>
+                        <li><a href="https://www.vedanet.com/" target="_blank" rel="noopener">American Institute of Vedic Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-note">
+                    <h4>Nota</h4>
+                    <p>Questa applicazione è a scopo educativo e di ricerca. L'astronomia vedica è un sistema di conoscenza millenario che va studiato con rispetto e approfondimento. Per consulenze professionali, rivolgersi a un Jyotishi qualificato.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Calcoli: Swiss Ephemeris (NASA JPL) via VedAstro.org — Ayanamsa: Lahiri (Chitrapaksha)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js?v=3"></script>
+</body>
+</html>
