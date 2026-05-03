@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DAVIL — Test di Auto-Analisi | Chi Sono, Ikigai, Ruota della Vita</title>
+<meta name="description" content="Percorso di auto-analisi guidato: scopri chi sei, trova il tuo Ikigai e valuta le 14 aree della tua vita con diagrammi interattivi.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0b;--black-2:#131318;--ink:#e9eaf0;--ink-dim:#8a8b96;
+  --brand:#2d2de0;--brand-2:#5e5efb;--brand-deep:#1414a8;--white:#fff;
+  --accent:#f2e9dc;--border:rgba(255,255,255,.08);--radius:16px;
+  --ease:cubic-bezier(.77,0,.18,1);
+  --ff-display:'Fraunces',serif;--ff-sans:'Space Grotesk',sans-serif;
+  --pad:clamp(16px,4vw,56px);
+  --ikigai-love:#e84393;--ikigai-good:#6c5ce7;--ikigai-need:#00b894;--ikigai-paid:#0984e3;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--black);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:var(--ff-sans);font-weight:300;font-size:clamp(14px,1vw+.3rem,16px);line-height:1.6;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+/* ---- Loader ---- */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--black);display:flex;align-items:center;justify-content:center;transition:opacity .8s var(--ease),visibility .8s var(--ease)}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-text{font-family:var(--ff-sans);font-weight:900;font-size:clamp(36px,8vw,80px);letter-spacing:-.04em;background:linear-gradient(90deg,#fff 0 50%,var(--brand) 50% 100%);background-size:200% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:loaderFill 1.2s var(--ease) forwards}
+@keyframes loaderFill{to{background-position:0 0}}
+
+/* ---- Top Nav ---- */
+.top-bar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px var(--pad);background:rgba(10,10,11,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.top-logo{color:var(--white);display:flex;align-items:center}
+.top-logo svg{height:24px;width:auto}
+.top-back{font-size:13px;color:var(--ink-dim);display:flex;align-items:center;gap:6px;transition:color .3s}
+.top-back:hover{color:var(--white)}
+
+/* ---- Hero ---- */
+.hero{text-align:center;padding:clamp(60px,12vh,120px) var(--pad) 40px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(45,45,224,.15) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-family:var(--ff-display);font-weight:500;font-size:clamp(28px,5vw,52px);line-height:1.15;margin:0 0 16px;position:relative}
+.hero h1 em{color:var(--brand-2);font-style:italic}
+.hero p{color:var(--ink-dim);max-width:600px;margin:0 auto 40px;font-size:clamp(14px,1.1vw,17px)}
+
+/* ---- Section Tabs ---- */
+.tabs{display:flex;justify-content:center;gap:8px;padding:0 var(--pad) 48px;flex-wrap:wrap}
+.tab-btn{padding:12px 28px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.03em;border:1px solid var(--border);background:transparent;transition:all .35s var(--ease);position:relative;overflow:hidden}
+.tab-btn::before{content:"";position:absolute;inset:0;background:var(--brand);opacity:0;transition:opacity .35s var(--ease);border-radius:999px}
+.tab-btn.active{border-color:var(--brand);color:#fff}
+.tab-btn.active::before{opacity:1}
+.tab-btn span{position:relative;z-index:1}
+.tab-btn:hover:not(.active){border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.03)}
+.tab-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.1);font-size:11px;font-weight:700;margin-right:8px}
+.tab-btn.active .tab-num{background:rgba(255,255,255,.2)}
+
+/* ---- Sections ---- */
+.section{display:none;max-width:820px;margin:0 auto;padding:0 var(--pad) 80px;animation:fadeUp .5s var(--ease)}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.section-title{font-family:var(--ff-display);font-weight:500;font-size:clamp(22px,3.5vw,36px);margin:0 0 8px;color:var(--white)}
+.section-subtitle{color:var(--ink-dim);margin:0 0 40px;font-size:15px;line-height:1.7}
+
+/* ---- Step Navigation ---- */
+.step{display:none;animation:fadeUp .4s var(--ease)}
+.step.active{display:block}
+.step-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.step-badge{background:var(--brand);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.step-label{font-size:14px;color:var(--ink-dim)}
+
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:999px;font-size:14px;font-weight:500;transition:all .3s var(--ease)}
+.btn-primary{background:var(--brand);color:#fff;border:1px solid var(--brand)}
+.btn-primary:hover{background:var(--brand-2);border-color:var(--brand-2);transform:translateY(-2px)}
+.btn-secondary{border:1px solid var(--border);color:var(--ink-dim)}
+.btn-secondary:hover{border-color:rgba(255,255,255,.3);color:#fff}
+.btn-results{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:none;padding:16px 40px;font-size:16px;font-weight:700;letter-spacing:.02em}
+.btn-results:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(45,45,224,.4)}
+
+/* ---- Progress Bar ---- */
+.progress-wrap{margin-bottom:32px}
+.progress-info{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-dim);margin-bottom:8px}
+.progress-bar{height:3px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));border-radius:99px;transition:width .5s var(--ease)}
+
+/* ---- Cards / Question Groups ---- */
+.card{background:var(--black-2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px;transition:border-color .3s}
+.card:hover{border-color:rgba(255,255,255,.12)}
+.card-title{font-weight:500;font-size:16px;color:var(--white);margin:0 0 6px}
+.card-desc{font-size:13px;color:var(--ink-dim);margin:0 0 20px;line-height:1.6}
+
+/* ---- Textarea ---- */
+.field{margin-bottom:20px}
+.field label{display:block;font-size:14px;color:var(--ink);margin-bottom:8px;font-weight:400}
+.field textarea{width:100%;min-height:80px;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;color:var(--ink);font:inherit;font-size:14px;resize:vertical;transition:border-color .3s,background .3s;outline:none}
+.field textarea:focus{border-color:var(--brand-2);background:rgba(45,45,224,.04)}
+.field textarea::placeholder{color:var(--ink-dim)}
+.field-hint{font-size:12px;color:var(--ink-dim);margin-top:4px;font-style:italic;font-family:var(--ff-display)}
+
+/* ---- Rating Slider ---- */
+.rating-q{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.04)}
+.rating-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.rating-text{font-size:14px;color:var(--ink);margin-bottom:12px;line-height:1.5}
+.rating-row{display:flex;align-items:center;gap:12px}
+.rating-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-dim);margin-bottom:4px}
+.rating-slider{flex:1;-webkit-appearance:none;appearance:none;height:6px;background:linear-gradient(90deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.06) 100%);border-radius:99px;outline:none;cursor:pointer}
+.rating-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--brand-2);border:3px solid var(--black);cursor:pointer;box-shadow:0 0 12px rgba(94,94,251,.4);transition:transform .2s}
+.rating-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.rating-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--brand-2);border:3px solid var(--black);cursor:pointer}
+.rating-val{min-width:32px;text-align:center;font-weight:700;font-size:18px;color:var(--brand-2)}
+
+/* ---- Ikigai Area Header ---- */
+.area-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.area-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.area-name{font-family:var(--ff-display);font-weight:500;font-size:20px;color:var(--white)}
+.area-subtitle{font-size:13px;color:var(--ink-dim);margin:0 0 24px;line-height:1.6}
+
+/* ---- Ruota area accordion ---- */
+.ruota-area{background:var(--black-2);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:border-color .3s}
+.ruota-area.completed{border-color:rgba(0,184,148,.3)}
+.ruota-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;cursor:pointer;transition:background .3s}
+.ruota-toggle:hover{background:rgba(255,255,255,.02)}
+.ruota-toggle-left{display:flex;align-items:center;gap:12px}
+.ruota-num{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink-dim);transition:all .3s}
+.ruota-area.completed .ruota-num{background:rgba(0,184,148,.15);color:#00b894}
+.ruota-area-name{font-weight:500;font-size:15px;color:var(--white)}
+.ruota-score{font-size:13px;color:var(--ink-dim);font-weight:500}
+.ruota-area.completed .ruota-score{color:#00b894}
+.ruota-arrow{color:var(--ink-dim);transition:transform .3s var(--ease);font-size:18px}
+.ruota-area.open .ruota-arrow{transform:rotate(180deg)}
+.ruota-body{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.ruota-body-inner{padding:0 24px 24px}
+
+/* ---- Results ---- */
+.results{text-align:center;padding:60px 0}
+.results-title{font-family:var(--ff-display);font-weight:500;font-size:clamp(24px,4vw,40px);color:var(--white);margin:0 0 8px}
+.results-sub{color:var(--ink-dim);margin:0 0 48px;font-size:15px}
+.chart-wrap{position:relative;margin:0 auto 40px;max-width:600px}
+.chart-wrap canvas{width:100%!important;height:auto!important}
+
+.score-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:32px;text-align:left}
+.score-item{background:var(--black-2);border:1px solid var(--border);border-radius:12px;padding:16px}
+.score-item-label{font-size:12px;color:var(--ink-dim);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.score-item-val{font-size:28px;font-weight:700;color:var(--brand-2)}
+.score-item-bar{height:4px;background:rgba(255,255,255,.06);border-radius:99px;margin-top:8px;overflow:hidden}
+.score-item-fill{height:100%;border-radius:99px;transition:width 1s var(--ease)}
+
+.ikigai-legend{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:480px;margin:32px auto 0;text-align:left}
+.legend-item{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--black-2);border:1px solid var(--border);border-radius:12px}
+.legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.legend-info .legend-label{font-size:13px;font-weight:500;color:var(--white)}
+.legend-info .legend-score{font-size:12px;color:var(--ink-dim)}
+
+/* ---- Ikigai insight box ---- */
+.insight-box{background:linear-gradient(135deg,rgba(45,45,224,.08),rgba(94,94,251,.04));border:1px solid rgba(94,94,251,.2);border-radius:var(--radius);padding:24px 28px;margin-top:32px;text-align:left}
+.insight-box h4{font-family:var(--ff-display);font-size:18px;color:var(--brand-2);margin:0 0 12px;font-weight:500}
+.insight-box p{color:var(--ink);font-size:14px;line-height:1.7;margin:0 0 8px}
+.insight-box p:last-child{margin:0}
+
+/* ---- Download btn ---- */
+.download-row{display:flex;justify-content:center;gap:12px;margin-top:40px;flex-wrap:wrap}
+
+/* ---- Responsive ---- */
+@media(max-width:640px){
+  .tabs{gap:6px}
+  .tab-btn{padding:10px 16px;font-size:13px}
+  .card{padding:20px}
+  .ruota-toggle{padding:14px 16px}
+  .score-grid{grid-template-columns:1fr 1fr}
+  .ikigai-legend{grid-template-columns:1fr}
+  .hero{padding:40px var(--pad) 24px}
+}
+
+/* ---- Print / PDF ---- */
+.print-only{display:none}
+.btn-pdf{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--border);padding:14px 32px;font-size:14px;font-weight:500;gap:10px}
+.btn-pdf:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff}
+.btn-pdf svg{flex-shrink:0}
+
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  body{background:#0a0a0b!important;margin:0;font-size:11px}
+  #loader,.top-bar,.hero,.tabs,.step-nav,.btn-results,.btn-primary,.btn-secondary,.ruota-area,.download-row,.no-print,
+  #sec-chisono,.progress-wrap,.ruota-toggle,.ruota-body,.step:not(.active){display:none!important}
+
+  .section{display:none!important;max-width:100%;padding:0 24px 40px}
+  .section.print-target{display:block!important}
+  .section-title,.section-subtitle{display:none!important}
+
+  .print-only{display:block!important}
+  .print-header{text-align:center;padding:32px 0 8px;border-bottom:2px solid var(--brand);margin-bottom:24px}
+  .print-header svg{height:32px;margin:0 auto 8px;display:block;color:var(--white)}
+  .print-header h2{font-family:var(--ff-display);font-size:20px;color:var(--white);margin:0 0 4px;font-weight:500}
+  .print-header p{font-size:11px;color:var(--ink-dim);margin:0}
+  .print-date{font-size:10px;color:var(--ink-dim);text-align:right;margin-bottom:16px}
+
+  .results{padding:20px 0}
+  .results-title{font-size:22px}
+  .results-sub{font-size:12px;margin-bottom:20px}
+  .chart-wrap{max-width:420px;margin-bottom:20px}
+  .chart-wrap canvas{max-width:420px!important}
+  .score-grid{grid-template-columns:repeat(4,1fr);gap:8px}
+  .score-item{padding:10px;border-radius:8px}
+  .score-item-label{font-size:9px}
+  .score-item-val{font-size:20px}
+  .ikigai-legend{grid-template-columns:1fr 1fr;gap:8px;max-width:100%}
+  .legend-item{padding:8px 12px}
+  .insight-box{page-break-inside:avoid;padding:16px 20px}
+  .insight-box h4{font-size:14px}
+  .insight-box p{font-size:11px}
+
+  .print-footer{text-align:center;padding-top:20px;border-top:1px solid var(--border);margin-top:24px;font-size:10px;color:var(--ink-dim)}
+
+  @page{size:A4;margin:12mm 10mm}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader"><div class="loader-text"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="currentColor" style="height:clamp(40px,8vw,80px);color:#fff"><g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-6"><text x="0" y="180" font-size="220">DAVIL</text></g></svg></div></div>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <a href="index.html" class="top-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" fill="currentColor" height="28"><g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-6"><text x="0" y="180" font-size="220">DAVIL</text></g><text x="4" y="240" font-family="'Space Grotesk',sans-serif" font-size="28" letter-spacing="18" fill="currentColor">INTERNATIONAL CONSULTING</text></svg></a>
+  <a href="index.html" class="top-back">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Torna al sito
+  </a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Percorso di <em>Auto-Analisi</em></h1>
+  <p>Tre strumenti di consapevolezza per esplorare chi sei, scoprire il tuo scopo e mappare le aree della tua vita. Compila con onesta e senza fretta.</p>
+</section>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(0)"><span><span class="tab-num">1</span>Chi Sono</span></button>
+  <button class="tab-btn" onclick="switchTab(1)"><span><span class="tab-num">2</span>Ikigai</span></button>
+  <button class="tab-btn" onclick="switchTab(2)"><span><span class="tab-num">3</span>Ruota della Vita</span></button>
+</div>
+
+<!-- ===================== SEZIONE 1: CHI SONO ===================== -->
+<div class="section active" id="sec-chisono">
+
+  <div class="section-title">Chi Sono? Chi Voglio Essere?</div>
+  <div class="section-subtitle">
+    <em>Essere - Fare - Avere.</em> Riconoscere chi siamo e cosa vogliamo e la base solida di ogni persona di successo.
+    Questo percorso ti guida attraverso una serie di esercizi di introspezione profonda.
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-info"><span id="cs-step-label">Step 1 di 7</span><span id="cs-pct">14%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="cs-fill" style="width:14%"></div></div>
+  </div>
+
+  <!-- Step 1: Chi Sei? -->
+  <div class="step active" data-step="0">
+    <div class="step-header">
+      <div class="step-badge">Step 1</div>
+      <div class="step-label">Chi Sei?</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Le 9 risposte</div>
+      <div class="card-desc">
+        Mettiti comodo, respira profondamente per 5 minuti. Poi poniti 9 volte la domanda <strong>"Chi sei?"</strong> lasciando che la mente risponda senza filtri.
+        Per ogni risposta superficiale (lavoro, aspetto, carattere), scava piu a fondo: non ti ho chiesto cosa fai, che aspetto hai o che carattere hai. <em>Chi sei davvero?</em>
+      </div>
+      <div class="field" id="chisono-fields">
+        <label>1. Chi sei?</label><textarea placeholder="Rispondi dal profondo..." rows="2"></textarea>
+        <label style="margin-top:12px">2. Chi sei?</label><textarea placeholder="Scava piu a fondo..." rows="2"></textarea>
+        <label style="margin-top:12px">3. Chi sei?</label><textarea placeholder="Oltre le etichette..." rows="2"></textarea>
+        <label style="margin-top:12px">4. Chi sei?</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">5. Chi sei?</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">6. Chi sei?</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">7. Chi sei?</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">8. Chi sei?</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">9. Chi sei?</label><textarea rows="2"></textarea>
+      </div>
+      <div class="field-hint">Consiglio: le ultime risposte sono le piu autentiche. Non censurarti.</div>
+    </div>
+    <div class="step-nav">
+      <div></div>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 2: Lati Positivi -->
+  <div class="step" data-step="1">
+    <div class="step-header">
+      <div class="step-badge">Step 2</div>
+      <div class="step-label">Lati Positivi</div>
+    </div>
+    <div class="card">
+      <div class="card-title">I tuoi punti di forza</div>
+      <div class="card-desc">Elenca almeno 8 qualita positive che riconosci in te stesso. Possono essere talenti, tratti caratteriali, competenze, valori. Sii generoso con te stesso.</div>
+      <div class="field">
+        <textarea rows="6" placeholder="Es: Sono determinato, empatico, creativo, resiliente..."></textarea>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 3: Lati Negativi -->
+  <div class="step" data-step="2">
+    <div class="step-header">
+      <div class="step-badge">Step 3</div>
+      <div class="step-label">Lati Negativi e Trasformazione</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cosa non accetti di te</div>
+      <div class="card-desc">Cosa non ti piace di te stesso? Cosa non stai accettando fisicamente, caratterialmente o a livello comportamentale?</div>
+      <div class="field">
+        <textarea rows="4" placeholder="Sii onesto: riconoscere un limite e il primo passo per superarlo..."></textarea>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cosa deve cambiare</div>
+      <div class="card-desc">Per ognuno dei lati negativi che hai elencato, cosa deve succedere concretamente perche non siano piu tali nella tua vita?</div>
+      <div class="field">
+        <textarea rows="4" placeholder="Azioni concrete, cambiamenti di abitudine, nuove decisioni..."></textarea>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 4: Paure -->
+  <div class="step" data-step="3">
+    <div class="step-header">
+      <div class="step-badge">Step 4</div>
+      <div class="step-label">Le Tue Paure</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Cosa ti fa paura</div>
+      <div class="card-desc">
+        Riconoscere un problema porta gia il 50% della soluzione. Le paure vanno accettate, riconosciute, affrontate ed osservate
+        &mdash; come facevi da piccolo con il buio o qualsiasi altra paura &mdash; <strong>PRIMA di lasciarle andare.</strong>
+      </div>
+      <div class="field">
+        <textarea rows="5" placeholder="Elenca le tue paure principali, grandi e piccole. Cosa temi davvero?"></textarea>
+      </div>
+      <div class="field-hint">Tecniche utili: Preferenza o resistenza &middot; Peggiore fantasia &middot; Psicomagia</div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 5: Ombre -->
+  <div class="step" data-step="4">
+    <div class="step-header">
+      <div class="step-badge">Step 5</div>
+      <div class="step-label">Riconoscere le Proprie Ombre</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Lo specchio del mondo esterno</div>
+      <div class="card-desc">
+        Il mondo esterno e uno specchio del nostro mondo interiore. Pensa a 5 persone che non sopporti nella tua vita
+        e osserva il motivo per cui le stai criticando. Se ti impegni a scavare a fondo, ritroverai quelle stesse azioni anche nella tua vita.
+        <br><br><strong>Ricorda:</strong> <em>cio che rifiuti ti possiede, cio che accetti ti libera.</em>
+      </div>
+      <div class="field">
+        <label>Persona 1 &mdash; Cosa non sopporto e perche</label>
+        <textarea rows="2" placeholder="Nome (o ruolo) e il comportamento che ti triggera..."></textarea>
+        <label style="margin-top:12px">Persona 2</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">Persona 3</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">Persona 4</label><textarea rows="2"></textarea>
+        <label style="margin-top:12px">Persona 5</label><textarea rows="2"></textarea>
+      </div>
+      <div class="field" style="margin-top:20px">
+        <label>Dove ritrovi questi stessi schemi nella tua vita?</label>
+        <textarea rows="3" placeholder="Sii coraggioso nell'ammettere le similitudini..."></textarea>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 6: Chi Vuoi Essere (SMART) -->
+  <div class="step" data-step="5">
+    <div class="step-header">
+      <div class="step-badge">Step 6</div>
+      <div class="step-label">Chi Vuoi Essere</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Definisci la tua nuova identita</div>
+      <div class="card-desc">
+        Se non sai dove stai andando non sei ancora partito. La vita e come una bicicletta: serve velocita per restare dritti e una direzione per arrivare a un obiettivo.
+        Definisci chi vuoi diventare usando il metodo SMART.
+      </div>
+      <div class="field">
+        <label><strong>S</strong>pecifico &mdash; Mai come altri, va bene ispirarsi non ricopiarsi</label>
+        <textarea rows="2" placeholder="Chi vuoi essere nello specifico?"></textarea>
+      </div>
+      <div class="field">
+        <label><strong>M</strong>isurabile &mdash; Dividi a step il tuo goal</label>
+        <textarea rows="2" placeholder="Come misurerai i tuoi progressi?"></textarea>
+      </div>
+      <div class="field">
+        <label><strong>A</strong>chievable &mdash; Sii realista, goal che ti permettano di essere felice anche senza di essi</label>
+        <textarea rows="2" placeholder="E raggiungibile con le tue risorse attuali?"></textarea>
+      </div>
+      <div class="field">
+        <label><strong>R</strong>ilevante &mdash; Al punto da muoverti anche se nessuno potesse assistere al tuo successo</label>
+        <textarea rows="2" placeholder="Perche questo goal e importante per te?"></textarea>
+      </div>
+      <div class="field">
+        <label><strong>T</strong>ime-definito &mdash; Fede in te stesso e nel processo</label>
+        <textarea rows="2" placeholder="Entro quando? Quale scadenza ti dai?"></textarea>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="csNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Step 7: Il tuo Perche -->
+  <div class="step" data-step="6">
+    <div class="step-header">
+      <div class="step-badge">Step 7</div>
+      <div class="step-label">Il Tuo Perche</div>
+    </div>
+    <div class="card">
+      <div class="card-title">La tua motivazione profonda</div>
+      <div class="card-desc">
+        Questa e la motivazione principale da ricordare nei momenti in cui ti verra voglia di mollare.
+        Scrivi il tuo "perche" come se stessi parlando a te stesso nel momento piu difficile.
+      </div>
+      <div class="field">
+        <textarea rows="6" placeholder="Perche vuoi cambiare? Perche vuoi crescere? Cosa ti muove nel profondo?"></textarea>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Come ti senti dopo questo percorso?</div>
+      <div class="card-desc">Cosa hai scoperto di te stesso? Cosa ha significato questa esperienza?</div>
+      <div class="field">
+        <textarea rows="4" placeholder="Le tue riflessioni finali..."></textarea>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="csPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="switchTab(1)">Vai all'Ikigai <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SEZIONE 2: IKIGAI ===================== -->
+<div class="section" id="sec-ikigai">
+
+  <div class="section-title">Scopri il tuo Ikigai</div>
+  <div class="section-subtitle">
+    <em>Ikigai</em> e un termine giapponese che significa "la ragione per cui ti svegli al mattino".
+    Si trova nell'intersezione tra cio che ami, cio in cui eccelli, cio di cui il mondo ha bisogno e cio per cui puoi essere pagato.
+    Rispondi onestamente a ogni domanda con un voto da 1 a 10.
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-info"><span id="ik-step-label">Area 1 di 4</span><span id="ik-pct">25%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="ik-fill" style="width:25%"></div></div>
+  </div>
+
+  <!-- Passione -->
+  <div class="step active" data-step="0">
+    <div class="area-header">
+      <div class="area-dot" style="background:var(--ikigai-love)"></div>
+      <div class="area-name">Passione</div>
+    </div>
+    <div class="area-subtitle">Cio che ami fare &mdash; le attivita che ti accendono dentro.</div>
+    <div class="card">
+      <div class="rating-q">
+        <div class="rating-text">Se il denaro non fosse un problema, a quale attivita dedicheresti la maggior parte del tuo tempo?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="0"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto spesso ti capita di perdere completamente la cognizione del tempo facendo qualcosa che ami?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="0"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto forte e il desiderio interiore che senti verso una specifica attivita o campo?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="0"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Saresti disposto a fare questa attivita ogni giorno anche senza ricevere nulla in cambio?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="0"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Se potessi ricominciare da zero senza paura di fallire, quanto cambieresti la direzione della tua vita?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="0"><div class="rating-val">5</div></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>Descrivi in poche parole cio che ami davvero fare:</label>
+      <textarea rows="2" placeholder="La mia passione e..."></textarea>
+    </div>
+    <div class="step-nav">
+      <div></div>
+      <button class="btn btn-primary" onclick="ikNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Talento / Vocazione -->
+  <div class="step" data-step="1">
+    <div class="area-header">
+      <div class="area-dot" style="background:var(--ikigai-good)"></div>
+      <div class="area-name">Talento</div>
+    </div>
+    <div class="area-subtitle">Cio in cui sei bravo &mdash; le abilita naturali e le competenze che hai sviluppato.</div>
+    <div class="card">
+      <div class="rating-q">
+        <div class="rating-text">Quale abilita ti viene riconosciuta piu spesso dalle persone intorno a te?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="1"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">In quale ambito ottieni risultati superiori alla media con meno sforzo rispetto agli altri?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="1"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto ti senti sicuro delle competenze che hai sviluppato nella tua vita?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="1"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Se dovessi insegnare qualcosa a qualcuno, quanto ti sentiresti preparato?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="1"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto stai investendo attivamente nello sviluppo dei tuoi talenti naturali?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="1"><div class="rating-val">5</div></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>In cosa sei davvero bravo?</label>
+      <textarea rows="2" placeholder="I miei talenti principali sono..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="ikPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="ikNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Missione -->
+  <div class="step" data-step="2">
+    <div class="area-header">
+      <div class="area-dot" style="background:var(--ikigai-need)"></div>
+      <div class="area-name">Missione</div>
+    </div>
+    <div class="area-subtitle">Cio di cui il mondo ha bisogno &mdash; il contributo che puoi offrire alla comunita.</div>
+    <div class="card">
+      <div class="rating-q">
+        <div class="rating-text">Quanto senti che il tuo lavoro o le tue azioni contribuiscono positivamente alla vita degli altri?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="2"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto ti sta a cuore risolvere un problema specifico nel mondo?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="2"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Se potessi lasciare un'eredita al mondo, quanto chiara sarebbe nella tua mente?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="2"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto ti senti motivato da una causa o comunita piu grande di te?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="2"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto stai usando i tuoi talenti per fare la differenza nella vita di chi ti circonda?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="2"><div class="rating-val">5</div></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>Quale contributo vuoi dare al mondo?</label>
+      <textarea rows="2" placeholder="La mia missione e..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="ikPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-primary" onclick="ikNext()">Avanti <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Professione -->
+  <div class="step" data-step="3">
+    <div class="area-header">
+      <div class="area-dot" style="background:var(--ikigai-paid)"></div>
+      <div class="area-name">Professione</div>
+    </div>
+    <div class="area-subtitle">Cio per cui puoi essere pagato &mdash; il valore economico dei tuoi talenti.</div>
+    <div class="card">
+      <div class="rating-q">
+        <div class="rating-text">Per quale competenza o servizio qualcuno sarebbe disposto a pagarti oggi?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="3"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto il tuo attuale lavoro riflette le tue vere passioni e talenti?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="3"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto sei soddisfatto del valore economico che ricevi per cio che offri?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="3"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Quanto chiaramente vedi le opportunita di mercato per i tuoi talenti?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="3"><div class="rating-val">5</div></div>
+      </div>
+      <div class="rating-q">
+        <div class="rating-text">Ti sentiresti in grado di ricominciare da zero e ricostruire la tua professione?</div>
+        <div class="rating-row"><input type="range" min="1" max="10" value="5" class="rating-slider ik-slider" data-area="3"><div class="rating-val">5</div></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>Qual e (o quale sarebbe) la tua professione ideale?</label>
+      <textarea rows="2" placeholder="Il mio lavoro ideale e..."></textarea>
+    </div>
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="ikPrev()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Indietro</button>
+      <button class="btn btn-results" onclick="showIkigaiResults()">Scopri il tuo Ikigai</button>
+    </div>
+  </div>
+
+  <!-- Ikigai Results -->
+  <div class="step" data-step="4" id="ikigai-results">
+    <div class="print-only print-header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" fill="currentColor"><g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-6"><text x="0" y="180" font-size="220">DAVIL</text></g><text x="4" y="240" font-family="'Space Grotesk',sans-serif" font-size="28" letter-spacing="18" fill="currentColor">INTERNATIONAL CONSULTING</text></svg>
+      <h2>Risultati Test Ikigai</h2>
+      <p>Percorso di Auto-Analisi</p>
+    </div>
+    <div class="print-only print-date" id="ik-print-date"></div>
+    <div class="results">
+      <div class="results-title">Il Tuo Ikigai</div>
+      <div class="results-sub">Ecco la mappa delle tue 4 dimensioni</div>
+      <div class="chart-wrap">
+        <canvas id="ikigai-canvas" width="600" height="600"></canvas>
+      </div>
+      <div class="ikigai-legend" id="ikigai-legend"></div>
+      <div class="insight-box" id="ikigai-insight"></div>
+      <div class="download-row">
+        <button class="btn btn-pdf" onclick="printSection('sec-ikigai')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg> Salva risultati PDF</button>
+        <button class="btn btn-primary" onclick="switchTab(2)">Continua con la Ruota della Vita <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="print-only print-footer">DAVIL International Consulting &middot; davildiclaudio@gmail.com &middot; Instagram: @davil_diclaudio</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SEZIONE 3: RUOTA DELLA VITA ===================== -->
+<div class="section" id="sec-ruota">
+
+  <div class="section-title">Ruota della Vita</div>
+  <div class="section-subtitle">
+    Le <em>14 aree della felicita</em>. Per ogni area rispondi con un valore da 1 a 10.
+    Alla fine vedrai la tua ruota: i punti di forza e le aree su cui lavorare.
+    <br><strong>1</strong> = Mai/Per niente &middot; <strong>5</strong> = Ogni tanto &middot; <strong>10</strong> = Sempre/Completamente
+  </div>
+
+  <div id="ruota-areas"></div>
+
+  <div style="text-align:center;padding:20px 0 40px">
+    <button class="btn btn-results" onclick="showRuotaResults()">Genera la tua Ruota della Vita</button>
+  </div>
+
+  <!-- Ruota Results -->
+  <div id="ruota-results" style="display:none">
+    <div class="print-only print-header">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" fill="currentColor"><g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-6"><text x="0" y="180" font-size="220">DAVIL</text></g><text x="4" y="240" font-family="'Space Grotesk',sans-serif" font-size="28" letter-spacing="18" fill="currentColor">INTERNATIONAL CONSULTING</text></svg>
+      <h2>Risultati Ruota della Vita</h2>
+      <p>Percorso di Auto-Analisi &mdash; Le 14 Aree della Felicita</p>
+    </div>
+    <div class="print-only print-date" id="ruota-print-date"></div>
+    <div class="results">
+      <div class="results-title">La Tua Ruota della Vita</div>
+      <div class="results-sub">Media per ognuna delle 14 aree &mdash; piu il grafico e pieno, piu la tua vita e in equilibrio</div>
+      <div class="chart-wrap">
+        <canvas id="ruota-canvas" width="700" height="700"></canvas>
+      </div>
+      <div class="score-grid" id="ruota-scores"></div>
+      <div class="insight-box" id="ruota-insight" style="margin-top:32px"></div>
+      <div class="download-row" style="margin-top:32px">
+        <button class="btn btn-pdf" onclick="printSection('sec-ruota')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg> Salva risultati PDF</button>
+      </div>
+      <div class="print-only print-footer">DAVIL International Consulting &middot; davildiclaudio@gmail.com &middot; Instagram: @davil_diclaudio</div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div style="text-align:center;padding:40px var(--pad) 60px;border-top:1px solid var(--border);margin-top:40px">
+  <div style="margin-bottom:8px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" fill="currentColor" style="height:36px;color:var(--white);display:inline-block"><g font-family="'Space Grotesk','Inter',sans-serif" font-weight="900" letter-spacing="-6"><text x="0" y="180" font-size="220">DAVIL</text></g><text x="4" y="240" font-family="'Space Grotesk',sans-serif" font-size="28" letter-spacing="18" fill="currentColor">INTERNATIONAL CONSULTING</text></svg></div>
+  <div style="font-size:13px;color:var(--ink-dim);margin-bottom:16px;font-family:var(--ff-display);font-style:italic">"Lascia che il mondo sia quel che sia, ma impara ad essere la versione migliore di te stesso"</div>
+  <div style="font-size:12px;color:var(--ink-dim)">davildiclaudio@gmail.com &middot; Instagram: @davil_diclaudio</div>
+</div>
+
+<script>
+/* ========== LOADER ========== */
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),1200)});
+
+/* ========== TABS ========== */
+const sections=['sec-chisono','sec-ikigai','sec-ruota'];
+const tabBtns=document.querySelectorAll('.tab-btn');
+function switchTab(i){
+  tabBtns.forEach((b,j)=>{b.classList.toggle('active',j===i)});
+  sections.forEach((id,j)=>{document.getElementById(id).classList.toggle('active',j===i)});
+  window.scrollTo({top:200,behavior:'smooth'});
+}
+
+/* ========== CHI SONO STEPS ========== */
+const csSteps=document.querySelectorAll('#sec-chisono .step');
+let csIdx=0;
+function csUpdate(){
+  csSteps.forEach((s,i)=>s.classList.toggle('active',i===csIdx));
+  document.getElementById('cs-step-label').textContent=`Step ${csIdx+1} di ${csSteps.length}`;
+  const pct=Math.round((csIdx+1)/csSteps.length*100);
+  document.getElementById('cs-pct').textContent=pct+'%';
+  document.getElementById('cs-fill').style.width=pct+'%';
+}
+function csNext(){if(csIdx<csSteps.length-1){csIdx++;csUpdate();window.scrollTo({top:200,behavior:'smooth'})}}
+function csPrev(){if(csIdx>0){csIdx--;csUpdate();window.scrollTo({top:200,behavior:'smooth'})}}
+
+/* ========== IKIGAI STEPS ========== */
+const ikSteps=document.querySelectorAll('#sec-ikigai .step');
+let ikIdx=0;
+function ikUpdate(){
+  ikSteps.forEach((s,i)=>s.classList.toggle('active',i===ikIdx));
+  const total=4;
+  const label=ikIdx<total?`Area ${ikIdx+1} di ${total}`:'Risultati';
+  document.getElementById('ik-step-label').textContent=label;
+  const pct=Math.round(Math.min((ikIdx+1)/total*100,100));
+  document.getElementById('ik-pct').textContent=pct+'%';
+  document.getElementById('ik-fill').style.width=pct+'%';
+}
+function ikNext(){if(ikIdx<ikSteps.length-1){ikIdx++;ikUpdate();window.scrollTo({top:200,behavior:'smooth'})}}
+function ikPrev(){if(ikIdx>0){ikIdx--;ikUpdate();window.scrollTo({top:200,behavior:'smooth'})}}
+
+/* ========== SLIDER VALUE DISPLAY ========== */
+document.addEventListener('input',e=>{
+  if(e.target.classList.contains('rating-slider')){
+    e.target.parentElement.querySelector('.rating-val').textContent=e.target.value;
+  }
+});
+
+/* ========== IKIGAI RESULTS ========== */
+const ikigaiAreas=[
+  {name:'Passione',sub:'Cio che ami',color:'#e84393'},
+  {name:'Talento',sub:'Cio in cui eccelli',color:'#6c5ce7'},
+  {name:'Missione',sub:'Cio che serve al mondo',color:'#00b894'},
+  {name:'Professione',sub:'Cio per cui sei pagato',color:'#0984e3'}
+];
+
+function getIkigaiScores(){
+  const scores=[0,0,0,0];
+  const counts=[0,0,0,0];
+  document.querySelectorAll('.ik-slider').forEach(s=>{
+    const a=parseInt(s.dataset.area);
+    scores[a]+=parseInt(s.value);
+    counts[a]++;
+  });
+  return scores.map((s,i)=>counts[i]?s/counts[i]:5);
+}
+
+function showIkigaiResults(){
+  ikIdx=4;ikUpdate();
+  window.scrollTo({top:200,behavior:'smooth'});
+  const scores=getIkigaiScores();
+  drawIkigai(scores);
+
+  // Legend
+  const leg=document.getElementById('ikigai-legend');
+  leg.innerHTML=ikigaiAreas.map((a,i)=>`
+    <div class="legend-item">
+      <div class="legend-dot" style="background:${a.color}"></div>
+      <div class="legend-info">
+        <div class="legend-label">${a.name}</div>
+        <div class="legend-score">${scores[i].toFixed(1)} / 10 &mdash; ${a.sub}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // Insight
+  const min=Math.min(...scores);
+  const max=Math.max(...scores);
+  const minIdx=scores.indexOf(min);
+  const maxIdx=scores.indexOf(max);
+  const avg=scores.reduce((a,b)=>a+b,0)/4;
+
+  let html=`<h4>La tua analisi Ikigai</h4>`;
+  html+=`<p><strong>Area piu forte:</strong> ${ikigaiAreas[maxIdx].name} (${scores[maxIdx].toFixed(1)}/10). Questa e la tua base solida.</p>`;
+  html+=`<p><strong>Area da sviluppare:</strong> ${ikigaiAreas[minIdx].name} (${scores[minIdx].toFixed(1)}/10). Concentra qui i tuoi prossimi sforzi.</p>`;
+  if(avg>=7.5) html+=`<p>Il tuo Ikigai e ben delineato! Le 4 aree sono in buon equilibrio. Continua a coltivare questa armonia.</p>`;
+  else if(avg>=5) html+=`<p>Sei sulla strada giusta. Lavora sull'area piu debole per avvicinarti al tuo Ikigai completo.</p>`;
+  else html+=`<p>C'e spazio per una grande trasformazione. Il percorso di coaching ti aiutera a connettere queste 4 dimensioni.</p>`;
+
+  document.getElementById('ikigai-insight').innerHTML=html;
+}
+
+function drawIkigai(scores){
+  const canvas=document.getElementById('ikigai-canvas');
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=600*dpr;canvas.height=600*dpr;
+  canvas.style.width='600px';canvas.style.height='600px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  const cx=300,cy=300;
+  const baseR=90;
+  const offset=55;
+  const positions=[
+    {x:cx-offset,y:cy-offset}, // Passione (top-left)
+    {x:cx+offset,y:cy-offset}, // Talento (top-right)
+    {x:cx+offset,y:cy+offset}, // Missione (bottom-right) — swapped to make visual sense
+    {x:cx-offset,y:cy+offset}  // Professione (bottom-left)
+  ];
+  // Swap Missione and Professione visually to match classic Ikigai diagram
+  const drawOrder=[0,1,2,3];
+  const colors=['#e84393','#6c5ce7','#00b894','#0984e3'];
+
+  ctx.clearRect(0,0,600,600);
+
+  // Labels outside circles
+  const labels=['Cio che AMI','Cio in cui sei BRAVO','Cio di cui il MONDO\nha bisogno','Cio per cui sei\nPAGATO'];
+  const labelPos=[{x:cx,y:40},{x:560,y:cy},{x:cx,y:560},{x:40,y:cy}];
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.font='500 13px "Space Grotesk",sans-serif';
+
+  labelPos.forEach((p,i)=>{
+    ctx.fillStyle='rgba(255,255,255,0.5)';
+    const lines=labels[i].split('\n');
+    lines.forEach((l,li)=>ctx.fillText(l,p.x,p.y+li*16));
+  });
+
+  // Draw circles
+  drawOrder.forEach(i=>{
+    const r=baseR+(scores[i]/10)*40;
+    const p=positions[i];
+    ctx.globalAlpha=0.25;
+    ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);
+    ctx.fillStyle=colors[i];ctx.fill();
+    ctx.globalAlpha=0.6;
+    ctx.lineWidth=2;ctx.strokeStyle=colors[i];ctx.stroke();
+  });
+  ctx.globalAlpha=1;
+
+  // Center IKIGAI label
+  const centerAlpha=scores.reduce((a,b)=>a+b,0)/(4*10);
+  ctx.globalAlpha=Math.max(0.3,centerAlpha);
+  ctx.font='700 22px "Space Grotesk",sans-serif';
+  ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillText('IKIGAI',cx,cy);
+  ctx.globalAlpha=1;
+
+  // Area names on circles
+  const areaLabels=['Passione','Talento','Missione','Professione'];
+  ctx.font='500 14px "Space Grotesk",sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.9)';
+  positions.forEach((p,i)=>{
+    const yOff=i<2?-15:15;
+    ctx.fillText(areaLabels[i],p.x,p.y+yOff);
+    ctx.font='700 16px "Space Grotesk",sans-serif';
+    ctx.fillText(scores[i].toFixed(1),p.x,p.y+yOff+18);
+    ctx.font='500 14px "Space Grotesk",sans-serif';
+  });
+}
+
+/* ========== RUOTA DELLA VITA ========== */
+const ruotaData=[
+  {name:'Fisico, Salute, Vitalita',qs:[
+    'Mi sento energico e pieno di vitalita nella maggior parte delle giornate?',
+    'Mi prendo cura attivamente del mio corpo con alimentazione sana e movimento?',
+    'Riconosco i segnali che il mio corpo mi invia e agisco di conseguenza?',
+    'Sono soddisfatto del mio stato di salute e della mia forma fisica?',
+    'Le mie abitudini quotidiane favoriscono il mio benessere a lungo termine?'
+  ]},
+  {name:'Emozioni',qs:[
+    'Gestisco efficacemente le mie emozioni nella vita quotidiana?',
+    'Riconosco, accetto e nomino i miei stati emotivi senza reprimerli?',
+    'Ritrovo l\'equilibrio rapidamente dopo essere stato sopraffatto dalle emozioni?',
+    'Utilizzo le emozioni come bussola per prendere decisioni in linea con i miei valori?',
+    'Vedo un collegamento positivo tra le mie emozioni e il mio benessere fisico?'
+  ]},
+  {name:'Ambiente e Beni Materiali',qs:[
+    'Sono soddisfatto del luogo in cui vivo e dello spazio che mi circonda?',
+    'Il mio ambiente riflette chi sono e chi voglio diventare?',
+    'L\'ordine e gli oggetti nel mio spazio influenzano positivamente il mio stato d\'animo?',
+    'I beni che possiedo sono stati scelti da me e riflettono cio che e davvero importante?',
+    'Il mio spazio personale contribuisce al mio senso di energia e ispirazione?'
+  ]},
+  {name:'Crescita Personale',qs:[
+    'Il me di oggi e migliore rispetto a un anno fa?',
+    'Investo regolarmente tempo e risorse nella mia formazione e crescita?',
+    'Le mie convinzioni supportano la mia evoluzione personale?',
+    'Mi sento stimolato e sfidato a crescere nella vita di tutti i giorni?',
+    'Dedico almeno 7 ore settimanali alla mia crescita e auto-miglioramento?'
+  ]},
+  {name:'Svago e Hobby',qs:[
+    'Trascorro tempo regolarmente praticando attivita che mi fanno sentire vivo?',
+    'Mi immergo in attivita che mi fanno perdere la nozione del tempo?',
+    'Ho tempo e spazi adeguati per praticare i miei hobby?',
+    'Le mie esperienze di svago contribuiscono al mio benessere generale?',
+    'Ho persone con cui condividere i miei momenti di svago?'
+  ]},
+  {name:'Famiglia',qs:[
+    'Sono soddisfatto della qualita delle relazioni all\'interno della mia famiglia?',
+    'Gestisco efficacemente i conflitti familiari riuscendo a ricreare equilibrio?',
+    'Riesco a creare nuovi ricordi positivi con la mia famiglia?',
+    'I valori della mia famiglia sono coerenti con le mie azioni quotidiane?',
+    'Investo tempo e energia nel mantenere e nutrire le relazioni familiari?'
+  ]},
+  {name:'Relazioni Intime',qs:[
+    'Posso stare bene sia da solo sia in una relazione sentimentale?',
+    'La mia relazione intima supporta la mia crescita personale e il mio benessere?',
+    'Mi sento libero di essere vulnerabile e autentico nelle mie relazioni?',
+    'Esprimo frequentemente apprezzamento e amore in modo significativo?',
+    'Sono soddisfatto della profondita e qualita delle mie relazioni intime?'
+  ]},
+  {name:'Educazione e Apprendimento',qs:[
+    'Sono motivato a esplorare nuove conoscenze e abilita?',
+    'Integro efficacemente l\'apprendimento nella mia vita quotidiana?',
+    'Ho mentori o figure ispiratrici che guidano il mio apprendimento?',
+    'Utilizzo risorse e strumenti che amplificano il mio processo di crescita?',
+    'Sono resiliente di fronte agli errori nel mio percorso di apprendimento?'
+  ]},
+  {name:'Creativita e Espressione',qs:[
+    'Mi dedico regolarmente ad attivita che stimolano il mio mondo interiore?',
+    'Mi sento in grado di esprimere liberamente le mie emozioni in forme creative?',
+    'I miei spazi personali e lavorativi stimolano la mia creativita?',
+    'Ritengo che la mia vita rifletta un\'espressione creativa autentica?',
+    'Quando la parte razionale prevale, prendo una pausa facendo qualcosa di creativo?'
+  ]},
+  {name:'Salute Mentale',qs:[
+    'Mi sento in pace con il mio stato mentale attuale?',
+    'Pratico una disciplina che mantiene la mia mente sana (meditazione, mindfulness)?',
+    'Sono consapevole dell\'influenza della tecnologia sulla mia psiche e la gestisco?',
+    'Vivo il qui ed ora, gestendo i pensieri che si proiettano troppo avanti o indietro?',
+    'Riconosco situazioni che mi triggerano e ne modifico il significato in modo funzionale?'
+  ]},
+  {name:'Comunita e Spiritualita',qs:[
+    'Mi sento connesso e parte integrante della mia comunita?',
+    'Sento che la mia vita rifletta una missione o uno scopo superiore?',
+    'Dedico tempo a pratiche meditative, introspettive o spirituali?',
+    'Il contributo che sto dando al mondo mi gratifica?',
+    'Mi sento impegnato a lasciare un segno positivo nella mia comunita?'
+  ]},
+  {name:'Lavoro, Carriera, Business',qs:[
+    'Sono soddisfatto delle mansioni e della direzione del mio lavoro?',
+    'Il mio lavoro e meritocratico e mi offre margini di evoluzione?',
+    'Sono soddisfatto del mio equilibrio lavoro-tempo libero?',
+    'Il mio lavoro risolve un problema reale, facendomi percepire un win-win?',
+    'Mi sentirei in grado di ricominciare da zero se quello che faccio non fosse piu allineato?'
+  ]},
+  {name:'Autorealizzazione',qs:[
+    'Mi sento sulla strada verso la mia auto-realizzazione personale?',
+    'Le mie passioni sono centrali nella mia vita e le perseguo attivamente?',
+    'I miei criteri di successo sono allineati con i miei valori profondi?',
+    'Sono resiliente di fronte alle sfide nel percorso di auto-realizzazione?',
+    'Mi sento di poter offrire consigli utili agli altri sulla realizzazione del se?'
+  ]},
+  {name:'Identita e Autenticita',qs:[
+    'Mi sento in grado di esprimere il mio vero io nella vita quotidiana?',
+    'I miei comportamenti e azioni riflettono i miei veri valori e credenze?',
+    'Resisto alle pressioni esterne che minacciano la mia autenticita?',
+    'Mi ritengo una persona integra in cio che penso, dico e faccio?',
+    'Mi sento sostenuto e accettato nella mia espressione autentica?'
+  ]}
+];
+
+// Build ruota areas
+const ruotaContainer=document.getElementById('ruota-areas');
+ruotaData.forEach((area,aIdx)=>{
+  let html=`<div class="ruota-area" id="ruota-area-${aIdx}">
+    <button class="ruota-toggle" onclick="toggleRuota(${aIdx})">
+      <div class="ruota-toggle-left">
+        <div class="ruota-num">${aIdx+1}</div>
+        <div class="ruota-area-name">${area.name}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="ruota-score" id="ruota-score-${aIdx}">-</div>
+        <div class="ruota-arrow">&#9662;</div>
+      </div>
+    </button>
+    <div class="ruota-body" id="ruota-body-${aIdx}">
+      <div class="ruota-body-inner">`;
+  area.qs.forEach((q,qIdx)=>{
+    html+=`<div class="rating-q">
+      <div class="rating-text">${q}</div>
+      <div class="rating-row">
+        <input type="range" min="1" max="10" value="5" class="rating-slider ruota-slider" data-area="${aIdx}" oninput="updateRuotaScore(${aIdx})">
+        <div class="rating-val">5</div>
+      </div>
+    </div>`;
+  });
+  html+=`</div></div></div>`;
+  ruotaContainer.insertAdjacentHTML('beforeend',html);
+});
+
+function toggleRuota(idx){
+  const area=document.getElementById(`ruota-area-${idx}`);
+  const body=document.getElementById(`ruota-body-${idx}`);
+  const isOpen=area.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.ruota-area').forEach(a=>{a.classList.remove('open');a.querySelector('.ruota-body').style.maxHeight='0'});
+  if(!isOpen){
+    area.classList.add('open');
+    body.style.maxHeight=body.scrollHeight+'px';
+  }
+}
+
+function updateRuotaScore(aIdx){
+  const sliders=document.querySelectorAll(`.ruota-slider[data-area="${aIdx}"]`);
+  let sum=0;
+  sliders.forEach(s=>sum+=parseInt(s.value));
+  const avg=(sum/sliders.length).toFixed(1);
+  document.getElementById(`ruota-score-${aIdx}`).textContent=avg+'/10';
+  document.getElementById(`ruota-area-${aIdx}`).classList.add('completed');
+}
+
+/* ========== RUOTA RESULTS ========== */
+function getRuotaScores(){
+  return ruotaData.map((_,i)=>{
+    const sliders=document.querySelectorAll(`.ruota-slider[data-area="${i}"]`);
+    let sum=0;sliders.forEach(s=>sum+=parseInt(s.value));
+    return sum/sliders.length;
+  });
+}
+
+function showRuotaResults(){
+  // Update all scores first
+  ruotaData.forEach((_,i)=>updateRuotaScore(i));
+  const scores=getRuotaScores();
+  document.getElementById('ruota-results').style.display='block';
+  drawRadar(scores);
+
+  // Score grid
+  const colors=['#e84393','#fd79a8','#6c5ce7','#a29bfe','#00b894','#55efc4','#0984e3','#74b9ff','#fdcb6e','#ffeaa7','#e17055','#fab1a0','#00cec9','#81ecec'];
+  const grid=document.getElementById('ruota-scores');
+  grid.innerHTML=ruotaData.map((a,i)=>`
+    <div class="score-item">
+      <div class="score-item-label">${a.name}</div>
+      <div class="score-item-val">${scores[i].toFixed(1)}</div>
+      <div class="score-item-bar"><div class="score-item-fill" style="width:${scores[i]*10}%;background:${colors[i%colors.length]}"></div></div>
+    </div>
+  `).join('');
+
+  // Insight
+  const avg=scores.reduce((a,b)=>a+b,0)/scores.length;
+  const sorted=scores.map((s,i)=>({s,i})).sort((a,b)=>a.s-b.s);
+  const worst3=sorted.slice(0,3);
+  const best3=sorted.slice(-3).reverse();
+
+  let html=`<h4>La tua analisi</h4>`;
+  html+=`<p><strong>Media generale:</strong> ${avg.toFixed(1)}/10</p>`;
+  html+=`<p><strong>Aree piu forti:</strong> ${best3.map(x=>ruotaData[x.i].name+' ('+x.s.toFixed(1)+')').join(', ')}</p>`;
+  html+=`<p><strong>Aree da sviluppare:</strong> ${worst3.map(x=>ruotaData[x.i].name+' ('+x.s.toFixed(1)+')').join(', ')}</p>`;
+  if(avg>=7.5) html+=`<p>Ottimo equilibrio generale! Mantieni e affina le aree piu deboli per raggiungere l'eccellenza.</p>`;
+  else if(avg>=5) html+=`<p>Buona base di partenza. Concentra le tue energie sulle 3 aree piu basse per ottenere il massimo impatto.</p>`;
+  else html+=`<p>Hai un grande potenziale di trasformazione. Un percorso di coaching strutturato puo aiutarti a fare un salto significativo in ogni area.</p>`;
+  html+=`<p style="margin-top:12px;font-size:12px;color:var(--ink-dim)"><em>Consiglio: ripeti il test ogni 6 mesi per misurare i tuoi progressi.</em></p>`;
+
+  document.getElementById('ruota-insight').innerHTML=html;
+  setTimeout(()=>document.getElementById('ruota-results').scrollIntoView({behavior:'smooth',block:'start'}),300);
+}
+
+function drawRadar(scores){
+  const canvas=document.getElementById('ruota-canvas');
+  const dpr=window.devicePixelRatio||1;
+  const size=700;
+  canvas.width=size*dpr;canvas.height=size*dpr;
+  canvas.style.width=size+'px';canvas.style.height=size+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  const cx=size/2,cy=size/2;
+  const maxR=260;
+  const n=scores.length;
+  const step=Math.PI*2/n;
+  const startAngle=-Math.PI/2;
+
+  ctx.clearRect(0,0,size,size);
+
+  // Grid
+  for(let level=2;level<=10;level+=2){
+    const r=maxR*level/10;
+    ctx.beginPath();
+    for(let i=0;i<=n;i++){
+      const angle=startAngle+i*step;
+      const x=cx+Math.cos(angle)*r;
+      const y=cy+Math.sin(angle)*r;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;ctx.stroke();
+    // Level label
+    ctx.fillStyle='rgba(255,255,255,0.15)';ctx.font='11px "Space Grotesk"';ctx.textAlign='center';
+    ctx.fillText(level,cx,cy-r+12);
+  }
+
+  // Spokes
+  for(let i=0;i<n;i++){
+    const angle=startAngle+i*step;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(angle)*maxR,cy+Math.sin(angle)*maxR);
+    ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;ctx.stroke();
+  }
+
+  // Data polygon
+  ctx.beginPath();
+  scores.forEach((s,i)=>{
+    const angle=startAngle+i*step;
+    const r=maxR*s/10;
+    const x=cx+Math.cos(angle)*r;
+    const y=cy+Math.sin(angle)*r;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.closePath();
+  const grad=ctx.createRadialGradient(cx,cy,0,cx,cy,maxR);
+  grad.addColorStop(0,'rgba(94,94,251,0.15)');
+  grad.addColorStop(1,'rgba(45,45,224,0.25)');
+  ctx.fillStyle=grad;ctx.fill();
+  ctx.strokeStyle='rgba(94,94,251,0.8)';ctx.lineWidth=2.5;ctx.stroke();
+
+  // Data points
+  scores.forEach((s,i)=>{
+    const angle=startAngle+i*step;
+    const r=maxR*s/10;
+    const x=cx+Math.cos(angle)*r;
+    const y=cy+Math.sin(angle)*r;
+    ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);
+    ctx.fillStyle='#5e5efb';ctx.fill();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
+  });
+
+  // Labels
+  ctx.font='500 11px "Space Grotesk",sans-serif';
+  ctx.fillStyle='rgba(255,255,255,0.75)';
+  const shortNames=['Fisico','Emozioni','Ambiente','Crescita','Svago','Famiglia','Relazioni','Educazione','Creativita','Mente','Comunita','Lavoro','Autorealiz.','Identita'];
+  shortNames.forEach((name,i)=>{
+    const angle=startAngle+i*step;
+    const lr=maxR+28;
+    const x=cx+Math.cos(angle)*lr;
+    const y=cy+Math.sin(angle)*lr;
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    // Adjust alignment for left/right labels
+    if(Math.cos(angle)<-0.3) ctx.textAlign='right';
+    else if(Math.cos(angle)>0.3) ctx.textAlign='left';
+    ctx.fillText(name,x,y);
+    // Score value
+    ctx.font='700 12px "Space Grotesk"';
+    ctx.fillStyle='rgba(94,94,251,0.9)';
+    ctx.fillText(scores[i].toFixed(1),x,y+14);
+    ctx.font='500 11px "Space Grotesk",sans-serif';
+    ctx.fillStyle='rgba(255,255,255,0.75)';
+  });
+}
+
+/* ========== PRINT / PDF ========== */
+function printSection(sectionId){
+  const now=new Date();
+  const dateStr=now.toLocaleDateString('it-IT',{day:'2-digit',month:'long',year:'numeric'});
+  document.querySelectorAll('.print-date').forEach(el=>el.textContent='Data: '+dateStr);
+
+  const sec=document.getElementById(sectionId);
+  sec.classList.add('print-target');
+
+  window.print();
+
+  setTimeout(()=>sec.classList.remove('print-target'),500);
+}
+</script>
+</body>
+</html>

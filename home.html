@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Davil Di Claudio · Mental Coach</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-2: #f4f4f7;
+  --bg-3: #eef0f5;
+  --bg-card: rgba(255,255,255,.85);
+  --ink: #15131c;
+  --ink-soft: #3d3a4a;
+  --ink-dim: #6b6878;
+  --brand: #7c3aed;
+  --brand-light: #a78bfa;
+  --brand-glow: rgba(124,58,237,.45);
+  --cosmic-violet: #7c3aed;
+  --cosmic-magenta: #ec4899;
+  --cosmic-indigo: #4338ca;
+  --gold: #dba93b;
+  --gold-soft: #e6b94a;
+  --gold-bright: #f0c75a;
+  --gold-deep: #b88a25;
+  --crimson: #c93a7a;
+  --border: rgba(20,15,40,.10);
+  --border-soft: rgba(20,15,40,.05);
+  --border-hover: rgba(236,72,153,.45);
+  --shadow-sm: 0 2px 12px rgba(20,15,40,.06);
+  --shadow-md: 0 24px 60px rgba(20,15,40,.10);
+  --ff-display: 'Fraunces', Georgia, serif;
+  --ff-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --pad: clamp(20px, 4vw, 64px);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background:
+    radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+    radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+    radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+    radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+}
+body {
+  font-family: var(--ff-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100dvh;
+  background: transparent;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(236,72,153,.20); color: var(--ink); }
+
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998;
+  transition: transform .12s ease-out, width .25s, height .25s, opacity .25s;
+}
+.cursor-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ink);
+  transform: translate(-50%,-50%);
+}
+.cursor-ring {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid rgba(236,72,153,.55);
+  transform: translate(-50%,-50%);
+}
+.cursor-ring.is-hover {
+  border-color: var(--cosmic-magenta);
+  box-shadow: 0 0 24px rgba(236,72,153,.4);
+  width: 48px; height: 48px;
+}
+@media (hover:none),(pointer:coarse) { .cursor-dot, .cursor-ring { display: none; } * { cursor: auto !important; } }
+@media (hover:hover) { * { cursor: none; } }
+
+/* ===== AMBIENT LIGHT ORBS ===== */
+.ambient {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(100px);
+  opacity: .35;
+  will-change: transform;
+}
+.orb.o1 {
+  width: 50vw; height: 50vw;
+  top: -12vw; left: -8vw;
+  background: radial-gradient(circle, rgba(124,58,237,.40), transparent 65%);
+  animation: orbDrift1 26s ease-in-out infinite alternate;
+}
+.orb.o2 {
+  width: 45vw; height: 45vw;
+  bottom: -14vw; right: -6vw;
+  background: radial-gradient(circle, rgba(236,72,153,.35), transparent 65%);
+  animation: orbDrift2 32s ease-in-out infinite alternate;
+}
+.orb.o3 {
+  width: 40vw; height: 40vw;
+  top: 40%; left: 30%;
+  background: radial-gradient(circle, rgba(244,201,93,.25), transparent 60%);
+  animation: orbDrift3 36s ease-in-out infinite alternate;
+}
+
+@keyframes orbDrift1 {
+  0%   { transform: translate(0,0) scale(1);       opacity: .30; }
+  50%  { transform: translate(6vw,5vw) scale(1.12); opacity: .40; }
+  100% { transform: translate(-3vw,10vw) scale(.92); opacity: .28; }
+}
+@keyframes orbDrift2 {
+  0%   { transform: translate(0,0) scale(1);        opacity: .28; }
+  50%  { transform: translate(-5vw,-6vw) scale(1.15); opacity: .38; }
+  100% { transform: translate(6vw,-3vw) scale(.90);   opacity: .25; }
+}
+@keyframes orbDrift3 {
+  0%   { transform: translate(0,0) scale(1);       opacity: .22; }
+  50%  { transform: translate(8vw,-6vw) scale(1.08); opacity: .32; }
+  100% { transform: translate(-10vw,5vw) scale(.88); opacity: .20; }
+}
+
+/* cosmic animated canvas (ars-realis style) */
+.cosmic-canvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  width: 100%; height: 100%;
+}
+
+/* ===== CARD CONTAINER ===== */
+.card-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 48px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  min-height: 100dvh;
+  justify-content: center;
+}
+
+/* ===== PORTRAIT ===== */
+.portrait-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 18px;
+  animation: portraitIn 1s var(--ease) both;
+}
+.portrait-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(124,58,237,.35), rgba(236,72,153,.30), rgba(219,169,59,.25));
+  filter: blur(28px);
+  opacity: .7;
+  z-index: -1;
+  animation: glowPulse 5s ease-in-out infinite;
+}
+.portrait {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(124,58,237,.18);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 18px 40px -14px rgba(20,15,40,.16),
+    0 0 80px -16px rgba(45,45,224,.30),
+    0 0 32px -8px rgba(109,138,247,.24),
+    0 0 0 1px rgba(124,58,237,.06);
+}
+@keyframes portraitIn {
+  from { opacity: 0; transform: scale(.94) translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50%      { opacity: .8; transform: scale(1.03); }
+}
+
+/* ===== IDENTITY ===== */
+.identity {
+  text-align: center;
+  animation: fadeUp .8s var(--ease) .2s both;
+}
+.identity h1 {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: clamp(24px, 5.5vw, 32px);
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+.identity h1 em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 500;
+  text-shadow:
+    0 1px 2px rgba(90,60,10,.30),
+    0 0 1px rgba(140,95,20,.45);
+}
+.identity p {
+  margin: 6px 0 0;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--cosmic-magenta);
+  font-weight: 500;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ===== BUTTONS ===== */
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,.32), rgba(255,255,255,.18));
+  border: 1px solid rgba(255,255,255,.40);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.55) inset,
+    0 0 0 1px rgba(255,255,255,.18) inset,
+    0 12px 28px -10px rgba(20,15,40,.18),
+    0 0 50px -12px rgba(64,96,212,.20),
+    0 0 0 1px rgba(124,58,237,.08);
+  transition: all .4s var(--ease);
+  animation: btnIn .7s var(--ease) both;
+  overflow: hidden;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(236,72,153,.12), transparent 60%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  pointer-events: none;
+}
+
+.btn:nth-child(1) { animation-delay: .20s; }
+.btn:nth-child(2) { animation-delay: .27s; }
+.btn:nth-child(3) { animation-delay: .34s; }
+.btn:nth-child(4) { animation-delay: .41s; }
+.btn:nth-child(5) { animation-delay: .48s; }
+.btn:nth-child(6) { animation-delay: .55s; }
+.btn:nth-child(7) { animation-delay: .62s; }
+.btn:nth-child(8) { animation-delay: .69s; }
+
+@keyframes btnIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(236,72,153,.55);
+  background: linear-gradient(135deg, rgba(255,255,255,.45), rgba(255,255,255,.25));
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.75) inset,
+    0 0 0 1px rgba(255,255,255,.30) inset,
+    0 18px 36px -12px rgba(236,72,153,.22),
+    0 0 60px -10px rgba(64,96,212,.32),
+    0 0 24px -6px rgba(45,45,224,.25),
+    0 0 0 1px rgba(236,72,153,.30);
+}
+.btn:hover::before { opacity: 1; }
+
+.btn .icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .35s var(--ease);
+}
+
+/* Icon color variants */
+.btn-sito .icon {
+  background: rgba(124,58,237,.10);
+  color: var(--cosmic-violet);
+  box-shadow: 0 0 12px rgba(124,58,237,.15), inset 0 0 0 1px rgba(124,58,237,.10);
+}
+.btn-test .icon {
+  background: rgba(236,72,153,.10);
+  color: var(--cosmic-magenta);
+  box-shadow: 0 0 12px rgba(236,72,153,.15), inset 0 0 0 1px rgba(236,72,153,.10);
+}
+.btn-coaching .icon {
+  background: rgba(45,45,224,.10);
+  color: #5e5efb;
+  box-shadow: 0 0 12px rgba(94,94,251,.18), inset 0 0 0 1px rgba(94,94,251,.12);
+}
+.btn-sogni .icon {
+  background: rgba(124,58,237,.10);
+  color: var(--brand-light);
+  box-shadow: 0 0 12px rgba(124,58,237,.18), inset 0 0 0 1px rgba(124,58,237,.12);
+}
+.btn-libri .icon {
+  background: rgba(219,169,59,.10);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(219,169,59,.18), inset 0 0 0 1px rgba(219,169,59,.12);
+}
+.btn-arche .icon {
+  background: rgba(219,169,59,.10);
+  color: var(--gold-deep);
+  box-shadow: 0 0 12px rgba(219,169,59,.18), inset 0 0 0 1px rgba(219,169,59,.12);
+}
+.btn-jyotish .icon {
+  background: rgba(244,201,93,.10);
+  color: #c9940a;
+  box-shadow: 0 0 12px rgba(244,201,93,.18), inset 0 0 0 1px rgba(244,201,93,.12);
+}
+.btn-ars .icon {
+  background: rgba(124,58,237,.10);
+  color: var(--cosmic-indigo);
+  box-shadow: 0 0 12px rgba(124,58,237,.15), inset 0 0 0 1px rgba(124,58,237,.10);
+}
+.btn-wa .icon {
+  background: rgba(37,211,102,.08);
+  color: #25D366;
+  box-shadow: 0 0 12px rgba(37,211,102,.15), inset 0 0 0 1px rgba(37,211,102,.10);
+}
+
+.btn:hover .icon {
+  transform: scale(1.05);
+}
+
+.btn .label {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.btn .label span:first-child {
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--ink);
+}
+.btn .label span:nth-child(2) {
+  font-size: 11.5px;
+  color: var(--ink-dim);
+  font-weight: 400;
+  margin-top: 1px;
+}
+.btn .label .note {
+  font-size: 9px;
+  opacity: .55;
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-dim);
+}
+
+.btn-wa:hover {
+  border-color: rgba(37,211,102,.35);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 18px 36px -12px rgba(37,211,102,.18),
+    0 0 0 1px rgba(37,211,102,.18);
+}
+
+/* ===== VIDEOS ===== */
+.videos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeUp .8s var(--ease) .85s both;
+}
+.videos h2 {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+}
+.video-block { display: flex; flex-direction: column; gap: 8px; }
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow:
+    0 12px 28px -8px rgba(20,15,40,.14),
+    0 4px 10px -2px rgba(124,58,237,.08),
+    0 0 60px -10px rgba(64,96,212,.32),
+    0 0 24px -4px rgba(45,45,224,.22),
+    0 0 0 1px rgba(124,58,237,.05);
+  background: rgba(255,255,255,.20);
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.video-label {
+  margin: 0;
+  font-size: 11px;
+  color: var(--cosmic-magenta);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 24px var(--pad) 32px;
+  font-size: 12px;
+  color: var(--ink-dim);
+  letter-spacing: .04em;
+  animation: fadeUp .8s var(--ease) 1s both;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .card-wrap { padding: 30px 16px; gap: 28px; max-width: 100%; }
+  .portrait-wrap { width: 100%; display: block; }
+  .portrait { max-width: 100%; width: 100%; }
+  .btn { padding: 14px 18px; gap: 12px; }
+  .btn .icon { width: 34px; height: 34px; }
+  .identity h1 { font-size: clamp(26px, 7vw, 34px); }
+}
+@media (max-width: 380px) {
+  .card-wrap { padding: 24px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb, .portrait-wrap::before, .cosmic-canvas { animation: none !important; }
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<div class="ambient" aria-hidden="true">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+<canvas class="cosmic-canvas" aria-hidden="true"></canvas>
+
+<div class="card-wrap">
+
+  <div class="portrait-wrap">
+    <img
+      src="https://davil-life-leadership-coaching.it/assets/content-images/davil-portrait.jpeg"
+      alt="Davil Di Claudio"
+      class="portrait"
+      loading="eager"
+    >
+  </div>
+
+  <div class="identity">
+    <h1>Davil <em>Di Claudio</em></h1>
+    <p>Mental Coach · Ricercatore</p>
+  </div>
+
+  <nav class="buttons">
+
+    <!-- 1. Sito Principale -->
+    <a href="https://davil-life-leadership-coaching.it/" class="btn btn-sito" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="label">
+        <span>Sito Principale</span>
+        <span>Percorsi, metodo, risorse</span>
+      </div>
+    </a>
+
+    <!-- 2. Test Psicologici -->
+    <a href="https://davil-life-leadership-coaching.it/test-psicologici/" class="btn btn-test" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div class="label">
+        <span>Assessment Psicologici</span>
+        <span>8 test validati · Enneagramma, Young, Big Five, PTSD</span>
+      </div>
+    </a>
+
+    <!-- 3. Test Coaching: Chi Sono, Ikigai, Ruota della Vita -->
+    <a href="https://davil-life-leadership-coaching.it/test-coaching/" class="btn btn-coaching" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg>
+      </div>
+      <div class="label">
+        <span>Test di Auto-Analisi</span>
+        <span>Chi Sono · Ikigai · Ruota della Vita</span>
+      </div>
+    </a>
+
+    <!-- 4. Interprete dei Sogni -->
+    <a href="#" class="btn btn-sogni" data-dream-open>
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
+      <div class="label">
+        <span>Interprete dei Sogni</span>
+        <span>Lettura junghiana stratificata</span>
+      </div>
+    </a>
+
+    <!-- 4. Libri Fondamentali -->
+    <a href="libri-fondamentali.html" class="btn btn-libri">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="label">
+        <span>Scarica i Libri Fondamentali</span>
+        <span>PNL Esoterica, Psicoenergetica, Transurfing</span>
+        <span class="note">I PDF di Assagioli e Zeland sono compendi AI, non le opere originali</span>
+      </div>
+    </a>
+
+    <!-- 5. Lettura Archetipica -->
+    <a href="https://davil-life-leadership-coaching.it/profilo-esoterico/" class="btn btn-arche" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      </div>
+      <div class="label">
+        <span>Lettura Archetipica</span>
+        <span>Profilo esoterico-archetipico</span>
+      </div>
+    </a>
+
+    <!-- 6. Astronomia Vedica -->
+    <a href="https://davil-life-leadership-coaching.it/jyotish/" class="btn btn-jyotish" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <div class="label">
+        <span>Jyotish Vidya</span>
+        <span>Astronomia Vedica · Calcola Kundli</span>
+      </div>
+    </a>
+
+    <!-- 7. Community Ars Realis -->
+    <a href="https://davil-life-leadership-coaching.it/ars-realis/" class="btn btn-ars" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="label">
+        <span>Community Ars Realis</span>
+        <span>Studio del Reality Transurfing</span>
+      </div>
+    </a>
+
+    <!-- 8. Contatti -->
+    <a href="https://wa.me/393520572683?text=Ciao%20Davil%2C%20vorrei%20informazioni" class="btn btn-wa" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      </div>
+      <div class="label">
+        <span>Contattami</span>
+        <span>Scrivimi su WhatsApp</span>
+      </div>
+    </a>
+
+  </nav>
+
+  <div class="videos">
+    <h2>Video</h2>
+    <div class="video-block">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/yyr1o4qnuc4"
+          title="La mia storia — Symposium Podcast"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="video-label">La mia storia — Symposium Podcast</p>
+    </div>
+    <div class="video-block">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/N2EF6s5qIzo"
+          title="Approfondimento — Transurfing teoria"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+      <p class="video-label">Approfondimento — Transurfing teoria</p>
+    </div>
+  </div>
+
+  <div class="footer">© 2026 Davil Di Claudio · Tutti i diritti riservati</div>
+
+</div>
+
+<script>
+// Custom cursor
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+if (dot && ring && matchMedia('(hover:hover)').matches) {
+  addEventListener('pointermove', e => {
+    dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+    ring.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+  });
+  document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+    el.addEventListener('pointerenter', () => ring.classList.add('is-hover'));
+    el.addEventListener('pointerleave', () => ring.classList.remove('is-hover'));
+  });
+}
+
+// Button spotlight
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    btn.style.setProperty('--x', (e.clientX - r.left) + 'px');
+    btn.style.setProperty('--y', (e.clientY - r.top) + 'px');
+  });
+});
+
+// Cosmic canvas — stars + orbs + varianti drift (ars-realis style, light mode)
+(function(){
+  const canvas = document.querySelector('.cosmic-canvas');
+  if (!canvas || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  const isMobile = matchMedia('(max-width:600px)').matches;
+
+  function resize(){
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  resize();
+  addEventListener('resize', resize, {passive:true});
+
+  const palette = [
+    [124,58,237],   // viola
+    [236,72,153],   // magenta
+    [219,169,59],   // oro
+    [64,96,212],    // cobalto
+    [167,139,250],  // viola chiaro
+  ];
+  function pick(){ return palette[(Math.random()*palette.length)|0]; }
+
+  function makeStars(n, depth){
+    const arr = [];
+    for (let i = 0; i < n; i++){
+      arr.push({
+        x: Math.random()*W, y: Math.random()*H,
+        r: (0.4 + Math.random()*1.4) * (1/depth),
+        vx: (Math.random()-.5) * 0.04 * depth,
+        vy: (Math.random()-.5) * 0.04 * depth,
+        c: pick(), depth,
+        twinkle: Math.random()*Math.PI*2,
+        twinkleSpeed: 0.008 + Math.random()*0.025,
+      });
+    }
+    return arr;
+  }
+  const starsBack = makeStars(isMobile ? 50 : 110, 3);
+  const starsMid  = makeStars(isMobile ? 35 : 70,  2);
+  const starsFront= makeStars(isMobile ? 20 : 45,  1);
+
+  // Orbiting cosmic orbs (energy points)
+  const ORBS = isMobile ? 12 : 24;
+  const orbs = [];
+  for (let i = 0; i < ORBS; i++){
+    orbs.push({
+      r: 60 + Math.random()*Math.min(W,H)*0.55,
+      angle: Math.random()*Math.PI*2,
+      speed: 0.0002 + Math.random()*0.0007,
+      size: 1.0 + Math.random()*2.4,
+      c: pick(),
+      pulse: Math.random()*Math.PI*2,
+      pulseSpeed: 0.015 + Math.random()*0.025,
+    });
+  }
+
+  // Varianti drift (signature ars-realis effect — soft glow rising)
+  const VARIANTI = isMobile ? 5 : 10;
+  const varianti = [];
+  for (let i = 0; i < VARIANTI; i++){
+    varianti.push({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-.5) * 0.18,
+      vy: -0.10 - Math.random()*0.22,
+      size: 8 + Math.random()*16,
+      c: pick(),
+      life: Math.random(),
+    });
+  }
+
+  let lastT = performance.now();
+  function frame(now){
+    const dt = Math.min(40, now - lastT); lastT = now;
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+
+    function drawStars(arr){
+      for (const s of arr){
+        s.x += s.vx * dt; s.y += s.vy * dt;
+        if (s.x < -10) s.x = W+10; if (s.x > W+10) s.x = -10;
+        if (s.y < -10) s.y = H+10; if (s.y > H+10) s.y = -10;
+        s.twinkle += s.twinkleSpeed;
+        const a = 0.30 + 0.40 * Math.sin(s.twinkle);
+        const grad = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*4);
+        grad.addColorStop(0, `rgba(${s.c[0]},${s.c[1]},${s.c[2]},${a*0.75})`);
+        grad.addColorStop(1, `rgba(${s.c[0]},${s.c[1]},${s.c[2]},0)`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r*4, 0, Math.PI*2);
+        ctx.fill();
+      }
+    }
+    drawStars(starsBack);
+    drawStars(starsMid);
+    drawStars(starsFront);
+
+    // orbiting orbs
+    const cx = W/2, cy = H/2;
+    for (const o of orbs){
+      o.angle += o.speed * dt;
+      o.pulse += o.pulseSpeed;
+      const x = cx + Math.cos(o.angle) * o.r;
+      const y = cy + Math.sin(o.angle) * o.r * 0.55;
+      const sz = o.size * (1 + 0.25*Math.sin(o.pulse));
+      const grad = ctx.createRadialGradient(x,y,0,x,y,sz*8);
+      grad.addColorStop(0, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},.50)`);
+      grad.addColorStop(0.4, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},.16)`);
+      grad.addColorStop(1, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(x, y, sz*8, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    // varianti drifting
+    for (const v of varianti){
+      v.x += v.vx; v.y += v.vy;
+      v.life += 0.0025;
+      if (v.y < -50 || v.life > 1){
+        v.x = Math.random()*W; v.y = H + 30;
+        v.life = 0; v.size = 8 + Math.random()*16;
+        v.c = pick();
+      }
+      const a = Math.sin(v.life * Math.PI) * 0.50;
+      const grad = ctx.createRadialGradient(v.x,v.y,0,v.x,v.y,v.size*6);
+      grad.addColorStop(0, `rgba(${v.c[0]},${v.c[1]},${v.c[2]},${a})`);
+      grad.addColorStop(1, `rgba(${v.c[0]},${v.c[1]},${v.c[2]},0)`);
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(v.x, v.y, v.size*6, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    ctx.globalCompositeOperation = 'source-over';
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<script src="dream.js"></script>
+
+</body>
+</html>
