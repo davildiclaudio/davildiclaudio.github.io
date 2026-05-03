@@ -324,9 +324,11 @@ body {
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem;
     align-items: start;
+    width: 100%;
+    min-width: 0;
 }
 
 .calc-form {
@@ -335,6 +337,22 @@ body {
     border-radius: var(--radius);
     padding: 2rem;
     backdrop-filter: blur(10px);
+    min-width: 0;
+    max-width: 100%;
+}
+
+.calc-form *,
+.calc-results * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.calc-form input,
+.calc-form select,
+.calc-form button {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group {
@@ -381,8 +399,14 @@ body {
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1rem;
+    width: 100%;
+}
+
+.form-group {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .suggestions-dropdown {
@@ -421,6 +445,14 @@ body {
     border-radius: var(--radius);
     padding: 2rem;
     backdrop-filter: blur(10px);
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.tab-content {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .result-tabs {
