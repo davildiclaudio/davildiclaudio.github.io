@@ -247,7 +247,13 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   margin:6px 0 4px; line-height:1.2;
 }
 .schema-divider .domain{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-dim); font-weight:500; margin-bottom:8px}
-.schema-divider .desc{font-size:14px; color:var(--ink-soft); line-height:1.5; font-family:var(--ff-display); font-style:italic}
+.schema-divider .desc{font-size:14px; color:var(--ink-soft); line-height:1.5; font-family:var(--ff-display); font-style:italic; margin-bottom:10px}
+.schema-divider .info-block{font-size:13px; color:var(--ink-soft); line-height:1.55; margin-top:6px}
+.schema-divider .info-label{
+  display:inline-block; font-family:var(--ff-sans); font-weight:500;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--cosmic-violet); margin-right:6px;
+}
 .schema-divider:first-child{margin-top:0}
 .questions > .question:first-child{margin-top:0}
 @media (max-width:640px){
@@ -374,7 +380,48 @@ const TESTS = {
     title: "Enneagramma",
     eyebrow: "Tipologia caratteriale",
     author: "Sviluppato da Oscar Ichazo (anni '60) ed Esoterico/Claudio Naranjo, formalizzato per la psicologia da Don Riso & Russ Hudson (RHETI). 9 tipi di personalita basati su motivazioni profonde.",
-    info: "27 affermazioni — 3 per ognuno dei 9 tipi. Indica quanto ti riconosci nella frase. Il tuo tipo dominante emerge dal punteggio piu alto. Tempo: ~5 min.",
+    info: "45 affermazioni — 5 per ognuno dei 9 tipi. Indica quanto ti riconosci nella frase. Il tuo tipo dominante emerge dal punteggio piu alto. Tempo: ~7 min.",
+    groupBy: "t",
+    groupTotal: 9,
+    groupLabel: "Tipo",
+    groupInfo: {
+      1: {n:"1", label:"Perfezionista", domain:"Centro Istinto · Rabbia",
+          core:"Devo essere giusto/a e migliorare cio che e sbagliato",
+          origin:"Bambino criticato per gli errori, atmosfera familiare con regole rigide e poco margine di sbaglio.",
+          impact:"Critico interno spietato, rigidita, repressione di rabbia e desideri, fatica a rilassarsi e accettare l'imperfezione."},
+      2: {n:"2", label:"Aiutante", domain:"Centro Cuore · Vergogna",
+          core:"Sono amato/a se mi rendo utile",
+          origin:"Affetto ricevuto in cambio di prestazioni di cura, bisogni emotivi del bambino non riconosciuti.",
+          impact:"Iper-cura, bisogni nascosti che esplodono in burnout, manipolazione affettiva sottile, risentimento."},
+      3: {n:"3", label:"Realizzatore", domain:"Centro Cuore · Vergogna",
+          core:"Valgo per cio che ottengo",
+          origin:"Affetto condizionato al successo, premi solo per le performance, mancanza di amore per il sé autentico.",
+          impact:"Workaholism, identita di facciata adattabile, vuoto sotto i risultati, paura del fallimento come morte simbolica."},
+      4: {n:"4", label:"Individualista", domain:"Centro Cuore · Vergogna",
+          core:"Mi manca qualcosa di essenziale che gli altri hanno",
+          origin:"Senso di perdita o abbandono precoce, esperienza di non essere visti per chi si era veramente.",
+          impact:"Idealizzazione del lontano, malinconia cronica, dramma emotivo, difficolta a stare nel presente concreto."},
+      5: {n:"5", label:"Investigatore", domain:"Centro Testa · Paura",
+          core:"Devo proteggere le mie risorse: il mondo prende troppo",
+          origin:"Caregiver invadenti o emotivamente caotici, bambino che si ritirava per proteggersi.",
+          impact:"Distacco affettivo, accumulo di sapere teorico, evitamento dell'azione, difficolta nelle relazioni intime."},
+      6: {n:"6", label:"Leale", domain:"Centro Testa · Paura",
+          core:"Devo prepararmi al peggio per essere al sicuro",
+          origin:"Ambiente familiare imprevedibile, autorita inaffidabile o eccessivamente rigida, perdita di figure di riferimento.",
+          impact:"Ansia anticipatoria, dubbio paralizzante, controfobia o sottomissione alterna, dipendenza da sistemi esterni."},
+      7: {n:"7", label:"Entusiasta", domain:"Centro Testa · Paura",
+          core:"Devo evitare il dolore cercando esperienze positive",
+          origin:"Esperienza precoce di privazione o dolore, bambino che impara a fuggire mentalmente nel piacere e nelle possibilita.",
+          impact:"Dispersione, fuga dalla profondita, dipendenze 'leggere' (idee, viaggi, persone), incapacita di sostenere il difficile."},
+      8: {n:"8", label:"Sfidante", domain:"Centro Istinto · Rabbia",
+          core:"Devo essere forte: il mondo punisce i deboli",
+          origin:"Ambiente ostile o tradente in cui mostrarsi vulnerabili era pericoloso, bambino che si e armato presto.",
+          impact:"Negazione della vulnerabilita, scontro frontale come stile, controllo, eccessi (lavoro, cibo, sesso, sostanze)."},
+      9: {n:"9", label:"Pacificatore", domain:"Centro Istinto · Rabbia",
+          core:"Devo mantenere la pace, anche cancellando me stesso",
+          origin:"Ambiente conflittuale dove esprimere bisogni creava problemi, bambino reso 'invisibile' come strategia di sopravvivenza.",
+          impact:"Auto-cancellazione, procrastinazione, dipendenza da abitudini, rabbia repressa esplosiva (passivo-aggressivita)."}
+    },
     scaleType: "likert5",
     scale: [
       {v:1, label:"Per niente"},
@@ -500,25 +547,64 @@ const TESTS = {
       {v:6, label:"Vero"}
     ],
     info: "108 affermazioni — 6 per ognuno dei 18 schemi. Le domande sono raggruppate per schema cosi puoi riconoscere il tema mentre rispondi. Indica quanto ciascuna frase ti rispecchia: rispondi di pancia, senza filtrare. Schemi con media ≥4/6 sono attivi. Tempo: ~15 min.",
-    schemaInfo: {
-      "Abbandono":            {n:"01", domain:"Distacco e Rifiuto",       core:"Le persone importanti finiranno per andarsene"},
-      "Sfiducia/Abuso":       {n:"02", domain:"Distacco e Rifiuto",       core:"Gli altri prima o poi mi feriranno o useranno"},
-      "Deprivazione emotiva": {n:"03", domain:"Distacco e Rifiuto",       core:"Nessuno comprende davvero i miei bisogni"},
-      "Inadeguatezza/Vergogna":{n:"04",domain:"Distacco e Rifiuto",       core:"C'e qualcosa di sbagliato in me"},
-      "Isolamento sociale":   {n:"05", domain:"Distacco e Rifiuto",       core:"Sono diverso, non appartengo a nessun gruppo"},
-      "Dipendenza/Incompetenza":{n:"06",domain:"Autonomia compromessa",   core:"Non posso cavarmela da solo"},
-      "Vulnerabilita al pericolo":{n:"07",domain:"Autonomia compromessa", core:"Qualcosa di terribile sta per accadere"},
-      "Invischiamento/Sé indifferenziato":{n:"08",domain:"Autonomia compromessa", core:"La mia identita si confonde con quella dell'altro"},
-      "Fallimento":           {n:"09", domain:"Autonomia compromessa",    core:"Sono destinato/a a non riuscire"},
-      "Pretese/Grandiosita":  {n:"10", domain:"Limiti deficitari",        core:"Le regole non valgono per me"},
-      "Autocontrollo insufficiente":{n:"11",domain:"Limiti deficitari",   core:"Non tollero frustrazione e disciplina"},
-      "Sottomissione":        {n:"12", domain:"Etero-direzionalita",      core:"Devo cedere agli altri per evitare conflitti"},
-      "Auto-sacrificio":      {n:"13", domain:"Etero-direzionalita",      core:"I miei bisogni vengono sempre dopo quelli degli altri"},
-      "Ricerca approvazione": {n:"14", domain:"Etero-direzionalita",      core:"Il mio valore dipende dal giudizio esterno"},
-      "Negativita/Pessimismo":{n:"15", domain:"Ipervigilanza/Inibizione", core:"Aspettare il peggio mi protegge"},
-      "Inibizione emotiva":   {n:"16", domain:"Ipervigilanza/Inibizione", core:"Mostrare emozioni e segno di debolezza"},
-      "Standard severi":      {n:"17", domain:"Ipervigilanza/Inibizione", core:"Non sono mai abbastanza"},
-      "Punizione":            {n:"18", domain:"Ipervigilanza/Inibizione", core:"Chi sbaglia deve pagare"}
+    groupBy: "s",
+    groupTotal: 18,
+    groupLabel: "Schema",
+    groupInfo: {
+      "Abbandono":            {n:"01", label:"Abbandono", domain:"Distacco e Rifiuto",       core:"Le persone importanti finiranno per andarsene",
+        origin:"Caregiver imprevedibili, lutti precoci, separazioni, instabilita affettiva in famiglia.",
+        impact:"Gelosia, ansia da separazione, attaccamento ansioso, sabotaggio delle relazioni stabili — paradossalmente provoca cio che teme."},
+      "Sfiducia/Abuso":            {n:"02", label:"Sfiducia/Abuso", domain:"Distacco e Rifiuto",       core:"Gli altri prima o poi mi feriranno o useranno",
+        origin:"Abusi fisici, sessuali o emotivi, tradimenti, manipolazione, umiliazioni in famiglia.",
+        impact:"Diffidenza cronica, isolamento, scelta di partner abusivi (che 'confermano'), evitamento dell'intimita."},
+      "Deprivazione emotiva":            {n:"03", label:"Deprivazione emotiva", domain:"Distacco e Rifiuto",       core:"Nessuno comprende davvero i miei bisogni",
+        origin:"Caregiver emotivamente assenti, freddi, anaffettivi, incapaci di sintonia con il bambino.",
+        impact:"Senso di solitudine anche in relazioni, attrazione per partner indisponibili, rabbia repressa, fame d'amore mai saziata."},
+      "Inadeguatezza/Vergogna":{n:"04",domain:"Distacco e Rifiuto",       core:"C'e qualcosa di sbagliato in me",
+        origin:"Critiche svalutanti, rifiuti, paragoni umilianti, vergogna indotta dai genitori (sei stupido/cattivo/troppo).",
+        impact:"Bassa autostima, evitamento sociale, perfezionismo difensivo, dipendenza dall'approvazione esterna."},
+      "Isolamento sociale":            {n:"05", label:"Isolamento sociale", domain:"Distacco e Rifiuto",       core:"Sono diverso, non appartengo a nessun gruppo",
+        origin:"Sentirsi diversi per origine, salute, classe sociale o talenti, esclusione precoce dal gruppo dei pari.",
+        impact:"Estraneita cronica, difficolta a integrarsi, identita marginale, solitudine anche tra gli altri."},
+      "Dipendenza/Incompetenza":{n:"06",domain:"Autonomia compromessa",   core:"Non posso cavarmela da solo",
+        origin:"Genitori iperprotettivi che fanno al posto del bambino, o caotici/inaffidabili che non insegnano competenze.",
+        impact:"Ansia decisionale, ricerca costante di guide, paura dell'autonomia, blocchi su lavoro e responsabilita adulte."},
+      "Vulnerabilita al pericolo":{n:"07",domain:"Autonomia compromessa", core:"Qualcosa di terribile sta per accadere",
+        origin:"Genitori ansiosi/ipervigilanti, eventi traumatici precoci, malattie gravi in famiglia.",
+        impact:"Ansia generalizzata, ipocondria, attacchi di panico, evitamenti fobici, vita ristretta dalla paura."},
+      "Invischiamento/Sé indifferenziato":{n:"08",domain:"Autonomia compromessa", core:"La mia identita si confonde con quella dell'altro",
+        origin:"Genitori invadenti che usano il figlio come confidente o coniuge sostitutivo, mancanza di confini.",
+        impact:"Identita fragile, decisioni dettate dal 'cosa direbbe', simbiosi relazionali, vuoto fuori dalle relazioni fusionali."},
+      "Fallimento":            {n:"09", label:"Fallimento", domain:"Autonomia compromessa",    core:"Sono destinato/a a non riuscire",
+        origin:"Critiche svalutanti, paragoni con fratelli o coetanei, esperienze di insuccesso senza supporto.",
+        impact:"Sindrome dell'impostore, evitamento delle sfide, bassa ambizione, auto-sabotaggio professionale."},
+      "Pretese/Grandiosita":            {n:"10", label:"Pretese/Grandiosita", domain:"Limiti deficitari",        core:"Le regole non valgono per me",
+        origin:"Genitori permissivi senza limiti, oppure idealizzanti che hanno trattato il figlio come 'speciale/superiore'.",
+        impact:"Bassa tolleranza alla frustrazione, conflitti relazionali, tratti narcisistici, difficolta nella reciprocita."},
+      "Autocontrollo insufficiente":{n:"11",domain:"Limiti deficitari",   core:"Non tollero frustrazione e disciplina",
+        origin:"Mancanza di struttura e disciplina in famiglia, indulgenza eccessiva, modelli adulti impulsivi.",
+        impact:"Impulsivita, dipendenze, procrastinazione, esplosioni emotive, fatica nei progetti a lungo termine."},
+      "Sottomissione":            {n:"12", label:"Sottomissione", domain:"Etero-direzionalita",      core:"Devo cedere agli altri per evitare conflitti",
+        origin:"Genitore dominante o autoritario, paura di rabbia o punizioni, amore condizionato all'obbedienza.",
+        impact:"Incapacita di dire no, rabbia passiva accumulata, attrazione per partner controllanti, somatizzazioni."},
+      "Auto-sacrificio":            {n:"13", label:"Auto-sacrificio", domain:"Etero-direzionalita",      core:"I miei bisogni vengono sempre dopo quelli degli altri",
+        origin:"Bambino parentificato: genitore fragile, depresso o malato che il figlio doveva accudire emotivamente.",
+        impact:"Burnout cronico, relazioni squilibrate, difficolta a chiedere o ricevere, risentimento mascherato da generosita."},
+      "Ricerca approvazione":            {n:"14", label:"Ricerca approvazione", domain:"Etero-direzionalita",      core:"Il mio valore dipende dal giudizio esterno",
+        origin:"Amore condizionato al risultato, ossessione familiare per status e immagine, valutazioni costanti dell'apparire.",
+        impact:"Vita orientata allo sguardo altrui, scelte non autentiche, ansia da prestazione, vuoto interiore cronico."},
+      "Negativita/Pessimismo":            {n:"15", label:"Negativita/Pessimismo", domain:"Ipervigilanza/Inibizione", core:"Aspettare il peggio mi protegge",
+        origin:"Genitori ansiosi, depressi o ipercritici, ambiente familiare che premia l'allarme e svaluta l'ottimismo.",
+        impact:"Anedonia, evitamento di opportunita, incapacita di godersi il presente, depressione cronica sottosoglia."},
+      "Inibizione emotiva":            {n:"16", label:"Inibizione emotiva", domain:"Ipervigilanza/Inibizione", core:"Mostrare emozioni e segno di debolezza",
+        origin:"Famiglie dove esprimere emozioni era ridicolizzato, punito o ignorato; modelli rigidi e composti.",
+        impact:"Distacco emotivo, somatizzazioni, relazioni senza intimita profonda, difficolta a sentire e nominare cio che si prova."},
+      "Standard severi":            {n:"17", label:"Standard severi", domain:"Ipervigilanza/Inibizione", core:"Non sono mai abbastanza",
+        origin:"Aspettative genitoriali altissime, amore legato al rendimento, critica costante anche dei buoni risultati.",
+        impact:"Workaholism, perfezionismo paralizzante, burnout, incapacita di godere dei propri successi e di rilassarsi."},
+      "Punizione":            {n:"18", label:"Punizione", domain:"Ipervigilanza/Inibizione", core:"Chi sbaglia deve pagare",
+        origin:"Famiglie punitive, dogmatiche, rigide nel 'giusto/sbagliato', mancanza di compassione per gli errori.",
+        impact:"Severita verso sé e gli altri, perdono difficile, conflitti relazionali, auto-flagellazione, rabbia moralista."}
     },
     questions: [
       // 1. Abbandono/Instabilita
@@ -717,7 +803,76 @@ const TESTS = {
     title: "16PF (Cattell)",
     eyebrow: "Sedici fattori primari di personalita",
     author: "Raymond Cattell (1949). Modello fattoriale che identifica 16 tratti primari di personalita attraverso analisi statistica del linguaggio. Misura disposizioni stabili e indipendenti dal contesto.",
-    info: "48 affermazioni — 3 per ognuno dei 16 fattori. Indica quanto ti riconosci, senza pensarci troppo. Tempo: ~8 min. (Screening; non sostituisce il 16PF-5 completo)",
+    info: "48 affermazioni — 3 per ognuno dei 16 fattori. Le domande sono raggruppate per fattore. Indica quanto ti riconosci, senza pensarci troppo. Tempo: ~8 min. (Screening; non sostituisce il 16PF-5 completo)",
+    groupBy: "f",
+    groupTotal: 16,
+    groupLabel: "Fattore",
+    groupInfo: {
+      A:  {n:"A",  label:"Affettivita (Warmth)",        domain:"Tratto interpersonale · Big Five: Amicalita",
+           core:"Quanto sei caloroso/a o riservato/a nei rapporti",
+           origin:"Influenzato da temperamento innato e qualita dei legami affettivi precoci.",
+           impact:"Polo alto: rischio di dipendenza affettiva, fatica nei confini. Polo basso: distacco, isolamento relazionale."},
+      B:  {n:"B",  label:"Ragionamento",                domain:"Tratto cognitivo (proxy di QI verbale)",
+           core:"Velocita e flessibilita mentale astratta",
+           origin:"Innato + stimolazione cognitiva nell'infanzia (lettura, gioco simbolico, dialogo).",
+           impact:"Misura di abilita: i punteggi non hanno polo 'disfunzionale', ma orientano scelte di studio/lavoro."},
+      C:  {n:"C",  label:"Stabilita emotiva",           domain:"Tratto · Big Five: Nevroticismo (inverso)",
+           core:"Capacita di gestire stress e frustrazione",
+           origin:"Temperamento + esperienze di sicurezza-base con caregiver regolanti.",
+           impact:"Polo basso: reattivita emotiva, somatizzazioni, ansia, instabilita relazionale, rischio depressivo."},
+      E:  {n:"E",  label:"Dominanza",                   domain:"Tratto interpersonale",
+           core:"Tendenza a guidare o ad accomodarsi",
+           origin:"Modelli familiari + esperienze precoci di assertivita premiata o punita.",
+           impact:"Polo alto: conflittualita, controllo, fatica a delegare. Polo basso: passivita, sottomissione, perdita di voce."},
+      F:  {n:"F",  label:"Vivacita (Liveliness)",       domain:"Tratto · Big Five: Estroversione (faceta)",
+           core:"Spontaneita ed esuberanza vs serieta",
+           origin:"Temperamento (sistema dopaminergico) + atmosfera familiare ludica o austera.",
+           impact:"Polo alto: superficialita, impulsivita. Polo basso: rigidita, anedonia, blocco espressivo."},
+      G:  {n:"G",  label:"Coscienziosita normativa",    domain:"Tratto · Big Five: Coscienziosita",
+           core:"Aderenza a regole, doveri e valori interiorizzati",
+           origin:"Educazione morale, modelli genitoriali coerenti, super-io strutturato.",
+           impact:"Polo alto: rigidita morale, giudizio, scrupolosita. Polo basso: anomia, mancanza di affidabilita."},
+      H:  {n:"H",  label:"Audacia sociale",             domain:"Tratto · Big Five: Estroversione (faceta)",
+           core:"Coraggio nelle situazioni sociali e d'esposizione",
+           origin:"Temperamento (sistema BIS/BAS) + esperienze precoci di sicurezza o ridicolo sociale.",
+           impact:"Polo alto: superficialita relazionale, spavalderia. Polo basso: fobia sociale, isolamento, ritiro."},
+      I:  {n:"I",  label:"Sensibilita",                 domain:"Tratto · stile cognitivo-emotivo",
+           core:"Filtraggio emotivo vs filtraggio razionale del mondo",
+           origin:"Innato + permesso familiare di sentire vs comprimere le emozioni.",
+           impact:"Polo alto: iper-reattivita, fatica nei contesti duri. Polo basso: aridita affettiva, perdita di empatia."},
+      L:  {n:"L",  label:"Vigilanza",                   domain:"Tratto interpersonale · simile a paranoia subclinica",
+           core:"Apertura vs sospetto verso le intenzioni altrui",
+           origin:"Esperienze precoci di tradimento, abuso o ambiente competitivo/ostile.",
+           impact:"Polo alto: difficolta nei rapporti, isolamento, conflittualita. Polo basso: ingenuita, rischio di essere usato/a."},
+      M:  {n:"M",  label:"Astrazione",                  domain:"Tratto · Big Five: Apertura (faceta)",
+           core:"Mente immaginativa vs concreta",
+           origin:"Innato + ambiente che premia fantasia/idee oppure il pratico-fattuale.",
+           impact:"Polo alto: distrazione, perdita di contatto col reale. Polo basso: poverta immaginativa, rigidita."},
+      N:  {n:"N",  label:"Riservatezza (Privateness)",  domain:"Tratto interpersonale",
+           core:"Controllo dell'auto-rivelazione",
+           origin:"Esperienze in cui aprirsi e stato sicuro o pericoloso, codice familiare di pudore/intimita.",
+           impact:"Polo alto: distanza, freddezza, opacita. Polo basso: ingenuita, sovra-esposizione, mancanza di limiti."},
+      O:  {n:"O",  label:"Apprensione",                 domain:"Tratto · Big Five: Nevroticismo (faceta)",
+           core:"Senso di colpa, autocritica, preoccupazione",
+           origin:"Famiglie critiche, perfezioniste, religiose-punitive; modelli ansiosi.",
+           impact:"Polo alto: ruminazione, ansia, depressione, autosvalutazione. Polo basso: incoscienza, poca empatia per i propri errori."},
+      Q1: {n:"Q1", label:"Apertura al cambiamento",     domain:"Tratto · Big Five: Apertura",
+           core:"Innovazione vs tradizione",
+           origin:"Esposizione precoce a diversita di idee/culture o a contesto chiuso e prescrittivo.",
+           impact:"Polo alto: instabilita, ricerca di novita disfunzionale. Polo basso: rigidita, conservatorismo difensivo."},
+      Q2: {n:"Q2", label:"Auto-sufficienza",            domain:"Tratto · Big Five: Estroversione (inverso, faceta)",
+           core:"Indipendenza vs orientamento al gruppo",
+           origin:"Esperienze di solitudine produttiva o di gruppo come risorsa.",
+           impact:"Polo alto: isolamento, difficolta a chiedere aiuto. Polo basso: dipendenza dal gruppo, fatica nella solitudine."},
+      Q3: {n:"Q3", label:"Perfezionismo (Self-control)",domain:"Tratto · Big Five: Coscienziosita (faceta)",
+           core:"Disciplina, ordine, controllo di sé",
+           origin:"Educazione strutturata, valore familiare dell'ordine e dell'autocontrollo.",
+           impact:"Polo alto: ossessivita, rigidita, blocco creativo. Polo basso: caos, procrastinazione, scarsa affidabilita."},
+      Q4: {n:"Q4", label:"Tensione",                    domain:"Tratto · Big Five: Nevroticismo (faceta)",
+           core:"Energia frustrata, irrequietezza interna",
+           origin:"Stress cronico, mancanza di scarico emotivo, accumulo di rabbia o ansia non elaborata.",
+           impact:"Polo alto: irritabilita, insonnia, somatizzazioni, esplosioni. Polo basso: apatia, mancanza di drive."}
+    },
     scaleType: "likert5",
     scale: [
       {v:1, label:"Per niente"},
@@ -855,7 +1010,32 @@ const TESTS = {
     title: "Big Five (BFI-20)",
     eyebrow: "Modello dei cinque fattori",
     author: "Modello sviluppato da Costa & McCrae (NEO-PI-R, 1985), refinato da John, Donahue & Kentle (BFI-44, 1991). Versione qui adattata di 20 item (4/fattore) per maggiore affidabilita rispetto al BFI-10. I 5 fattori principali della personalita umana, validati cross-culturalmente.",
-    info: "20 affermazioni — 4 per ognuno dei 5 fattori. Indica quanto ti riconosci. Tempo: ~3 min.",
+    info: "20 affermazioni — 4 per ognuno dei 5 fattori. Le domande sono raggruppate per fattore. Indica quanto ti riconosci. Tempo: ~3 min.",
+    groupBy: "f",
+    groupTotal: 5,
+    groupLabel: "Fattore",
+    groupInfo: {
+      E: {n:"1/5", label:"Estroversione",       domain:"Energia sociale e vitalita",
+          core:"Quanto sei orientato/a verso il mondo esterno e le persone",
+          origin:"Temperamento dopaminergico innato + esperienze precoci di stimolazione sociale.",
+          impact:"Polo alto: superficialita, fatica nella solitudine, dipendenza dallo stimolo. Polo basso: isolamento, blocco espressivo."},
+      A: {n:"2/5", label:"Amicalita / Gradevolezza", domain:"Stile interpersonale",
+          core:"Quanto sei cooperativo/a e fiducioso/a verso gli altri",
+          origin:"Modelli di attaccamento sicuri vs ostili, esperienze di reciprocita o tradimento.",
+          impact:"Polo alto: ingenuita, sovra-adattamento, sfruttabilita. Polo basso: cinismo, conflittualita, isolamento."},
+      C: {n:"3/5", label:"Coscienziosita",      domain:"Auto-disciplina e organizzazione",
+          core:"Capacita di pianificare, persistere e portare a termine",
+          origin:"Strutturazione educativa precoce, modelli adulti coerenti, super-io organizzato.",
+          impact:"Polo alto: rigidita, ossessivita, workaholism. Polo basso: caos, procrastinazione, inaffidabilita."},
+      N: {n:"4/5", label:"Nevroticismo",        domain:"Reattivita emotiva (vs stabilita)",
+          core:"Sensibilita allo stress e tendenza alle emozioni negative",
+          origin:"Temperamento (sistema HPA reattivo) + esperienze precoci di insicurezza o trauma.",
+          impact:"Polo alto: ansia, depressione, ruminazione, instabilita. Polo basso: anaffettivita, sotto-reattivita ai pericoli reali."},
+      O: {n:"5/5", label:"Apertura all'esperienza", domain:"Curiosita cognitiva ed estetica",
+          core:"Attrazione verso il nuovo, l'astratto, il complesso",
+          origin:"Innato + esposizione precoce a diversita di stimoli (libri, arte, viaggi, idee).",
+          impact:"Polo alto: dispersione, fuga in idee/fantasie, instabilita. Polo basso: rigidita, conservatorismo, poverta interiore."}
+    },
     scaleType: "likert5",
     scale: [
       {v:1, label:"Disaccordo forte"},
@@ -938,7 +1118,28 @@ const TESTS = {
     title: "PCL-5 (PTSD)",
     eyebrow: "Sintomi post-traumatici",
     author: "PTSD Checklist for DSM-5 — Weathers, Litz, Keane, Palmieri, Marx & Schnurr (2013), National Center for PTSD. Misura i 20 sintomi del Disturbo Post-Traumatico da Stress secondo il DSM-5.",
-    info: "20 affermazioni sui sintomi nelle ULTIME 4 SETTIMANE in relazione a un evento traumatico vissuto. Cutoff ≥33 = sospetto PTSD clinicamente rilevante. Tempo: ~5 min.",
+    info: "20 affermazioni sui sintomi nelle ULTIME 4 SETTIMANE in relazione a un evento traumatico vissuto. Le domande sono raggruppate nei 4 cluster DSM-5. Cutoff ≥33 = sospetto PTSD clinicamente rilevante. Tempo: ~5 min.",
+    groupBy: "c",
+    groupTotal: 4,
+    groupLabel: "Cluster",
+    groupInfo: {
+      B: {n:"B", label:"Intrusione (Rivivere)", domain:"Cluster B · DSM-5",
+          core:"La memoria traumatica torna involontariamente ed e vivida come se accadesse ora",
+          origin:"Si origina quando un evento sopraffacente non viene processato e integrato — resta 'congelato' nella memoria implicita.",
+          impact:"Flashback, incubi, attivazione fisiologica al ricordo, sensazione di essere catapultati nel passato anche da piccoli trigger."},
+      C: {n:"C", label:"Evitamento", domain:"Cluster C · DSM-5",
+          core:"Si evita tutto cio che potrebbe richiamare il trauma",
+          origin:"Difesa per non essere sopraffatti dal rivivere — nasce dall'incapacita di tollerare l'attivazione.",
+          impact:"Vita ristretta, perdita di luoghi/relazioni/attivita, evitamento dei sentimenti, dissociazione, restringimento progressivo."},
+      D: {n:"D", label:"Alterazioni cognitive ed emotive", domain:"Cluster D · DSM-5",
+          core:"Cambiano le credenze su sé, gli altri, il mondo",
+          origin:"Il trauma altera profondamente lo schema 'il mondo e sicuro / io ho valore / posso fidarmi'.",
+          impact:"Vergogna, colpa, anestesia emotiva, distacco dagli altri, depressione, perdita di interesse, visione cupa di sé e del futuro."},
+      E: {n:"E", label:"Iperattivazione e reattivita", domain:"Cluster E · DSM-5",
+          core:"Il sistema nervoso resta in modalita allarme",
+          origin:"Disregolazione del sistema nervoso autonomo (asse HPA) cronicizzata dopo l'evento.",
+          impact:"Ipervigilanza, soprassalti, irritabilita, scoppi di rabbia, insonnia, difficolta di concentrazione, comportamenti rischiosi."}
+    },
     scaleType: "likert5pcl",
     scale: [
       {v:0, label:"Per niente"},
@@ -1128,7 +1329,20 @@ const TESTS = {
     title: "RRS-10 (Ruminazione)",
     eyebrow: "Stile di pensiero ruminativo",
     author: "Ruminative Response Scale, versione breve di Treynor, Gonzalez & Nolen-Hoeksema (2003). Distingue due forme di ruminazione: brooding (rimuginio depressivo, problematico) e reflection (riflessione introspettiva, potenzialmente adattiva).",
-    info: "10 affermazioni — indica con quale frequenza pensi o agisci cosi quando ti senti giu. Tempo: ~2 min.",
+    info: "10 affermazioni — divise in due sotto-scale: brooding (rimuginio) e reflection (riflessione). Indica con quale frequenza pensi o agisci cosi quando ti senti giu. Tempo: ~2 min.",
+    groupBy: "t",
+    groupTotal: 2,
+    groupLabel: "Sotto-scala",
+    groupInfo: {
+      B: {n:"1/2", label:"Brooding (Rimuginio)", domain:"Ruminazione disadattiva",
+          core:"Pensieri ripetitivi del tipo 'perché a me?', 'cosa ho di sbagliato?'",
+          origin:"Modello familiare ansioso-depressivo, esperienze che premiavano l'auto-focalizzazione critica come 'serieta'.",
+          impact:"Mantiene e amplifica la depressione, blocca l'azione, peggiora ansia e sintomi traumatici, distorce la memoria autobiografica in negativo."},
+      R: {n:"2/2", label:"Reflection (Riflessione)", domain:"Ruminazione potenzialmente adattiva",
+          core:"Pensieri analitici del tipo 'cerco di capire cosa provo'",
+          origin:"Predisposizione introspettiva + modelli che valorizzavano la comprensione interiore.",
+          impact:"Adattiva se collegata ad azione e cambiamento; problematica se ristagna o scivola in brooding senza risoluzione."}
+    },
     scaleType: "likert4",
     scale: [
       {v:1, label:"Quasi mai"},
@@ -1235,20 +1449,26 @@ function startTest(id){
 function renderQuestions(){
   const container = document.getElementById('questions');
   let html = '';
-  let lastSchema = null;
+  let lastGroup = null;
+  const gb = currentTest.groupBy;
   currentTest.questions.forEach((q, i) => {
-    // Divisore di gruppo (solo se test ha schemaInfo e q.s definito)
-    if(currentTest.schemaInfo && q.s && q.s !== lastSchema){
-      const info = currentTest.schemaInfo[q.s];
-      if(info){
-        html += `<div class="schema-divider">
-          <div class="num">Schema ${info.n} di 18</div>
-          <h4>${q.s}</h4>
-          <div class="domain">${info.domain}</div>
-          <div class="desc">"${info.core}"</div>
-        </div>`;
+    // Divisore di gruppo (se il test definisce groupBy/groupInfo)
+    if(gb && currentTest.groupInfo){
+      const key = q[gb];
+      if(key !== undefined && key !== lastGroup){
+        const info = currentTest.groupInfo[key];
+        if(info){
+          html += `<div class="schema-divider">
+            ${info.n ? `<div class="num">${currentTest.groupLabel || 'Gruppo'} ${info.n} di ${currentTest.groupTotal || ''}</div>` : ''}
+            <h4>${info.label || key}</h4>
+            ${info.domain ? `<div class="domain">${info.domain}</div>` : ''}
+            ${info.core ? `<div class="desc">"${info.core}"</div>` : ''}
+            ${info.origin ? `<div class="info-block"><span class="info-label">Si forma quando</span> ${info.origin}</div>` : ''}
+            ${info.impact ? `<div class="info-block"><span class="info-label">Agisce cosi</span> ${info.impact}</div>` : ''}
+          </div>`;
+        }
+        lastGroup = key;
       }
-      lastSchema = q.s;
     }
     html += `<div class="question" id="q${i}">
       <div class="q-num">Domanda ${i+1} di ${currentTest.questions.length}</div>
