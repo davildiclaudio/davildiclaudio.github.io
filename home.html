@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 <style>
 :root {
   --bg: #ffffff;
@@ -133,11 +134,24 @@ body {
   100% { transform: translate(-10vw,5vw) scale(.88); opacity: .20; }
 }
 
-/* cosmic animated canvas (ars-realis style) */
-.cosmic-canvas {
+/* cosmic 3D scene (ars-realis style on white) */
+.three-mount {
   position: fixed; inset: 0; z-index: 0;
   pointer-events: none;
   width: 100%; height: 100%;
+  overflow: hidden;
+}
+.three-mount .three-canvas {
+  position: absolute; inset: 0;
+  width: 100% !important; height: 100% !important;
+  display: block;
+}
+.varianti-canvas {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  width: 100%; height: 100%;
+  mix-blend-mode: multiply;
+  opacity: .85;
 }
 
 /* ===== CARD CONTAINER ===== */
@@ -491,7 +505,8 @@ body {
   <div class="orb o2"></div>
   <div class="orb o3"></div>
 </div>
-<canvas class="cosmic-canvas" aria-hidden="true"></canvas>
+<div class="three-mount" aria-hidden="true"></div>
+<canvas class="varianti-canvas" aria-hidden="true"></canvas>
 
 <div class="card-wrap">
 
@@ -669,149 +684,266 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
 });
 
-// Cosmic canvas — stars + orbs + varianti drift (ars-realis style, light mode)
-(function(){
-  const canvas = document.querySelector('.cosmic-canvas');
-  if (!canvas || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const ctx = canvas.getContext('2d');
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  let W = 0, H = 0;
-  const isMobile = matchMedia('(max-width:600px)').matches;
-
-  function resize(){
-    W = window.innerWidth; H = window.innerHeight;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    canvas.width = W * dpr; canvas.height = H * dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+// Cosmic 3D scene — Three.js (ars-realis effect on white base)
+(function startCosmic(){
+  if (typeof window === 'undefined') return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (typeof THREE === 'undefined') {
+    // three.js loads with `defer` — wait for it
+    return setTimeout(startCosmic, 100);
   }
-  resize();
-  addEventListener('resize', resize, {passive:true});
 
-  const palette = [
-    [124,58,237],   // viola
-    [236,72,153],   // magenta
-    [219,169,59],   // oro
-    [64,96,212],    // cobalto
-    [167,139,250],  // viola chiaro
-  ];
-  function pick(){ return palette[(Math.random()*palette.length)|0]; }
+  const reduced = false;
+  const isMobile = window.innerWidth < 768;
+  const starScale = isMobile ? 0.30 : 1;
+  const variantCount = isMobile ? 8 : 22;
 
-  function makeStars(n, depth){
-    const arr = [];
-    for (let i = 0; i < n; i++){
-      arr.push({
-        x: Math.random()*W, y: Math.random()*H,
-        r: (0.4 + Math.random()*1.4) * (1/depth),
-        vx: (Math.random()-.5) * 0.04 * depth,
-        vy: (Math.random()-.5) * 0.04 * depth,
-        c: pick(), depth,
-        twinkle: Math.random()*Math.PI*2,
-        twinkleSpeed: 0.008 + Math.random()*0.025,
+  const host = document.querySelector('.three-mount');
+  if (!host) return;
+
+  const scene = new THREE.Scene();
+  // niente fog (su base bianca renderebbe poco visibile)
+  const camera = new THREE.PerspectiveCamera(68, window.innerWidth / window.innerHeight, 0.1, 2000);
+  camera.position.z = 320;
+
+  const renderer = new THREE.WebGLRenderer({
+    antialias: !isMobile, alpha: true,
+    powerPreference: 'high-performance',
+    failIfMajorPerformanceCaveat: false
+  });
+  const maxDpr = isMobile ? 1.25 : 2;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setClearColor(0x000000, 0); // trasparente: si vede il bianco sotto
+  renderer.domElement.className = 'three-canvas';
+  host.appendChild(renderer.domElement);
+
+  // ---- Starfield (5 strati) — colori SATURI per essere visibili su bianco ----
+  function makeStars(count, spread, size, color, alpha){
+    const geo = new THREE.BufferGeometry();
+    const pos = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++){
+      const r = Math.pow(Math.random(), 0.6) * spread;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      pos[i*3]   = r * Math.sin(phi) * Math.cos(theta);
+      pos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      pos[i*3+2] = r * Math.cos(phi) - spread * 0.2;
+    }
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    const mat = new THREE.PointsMaterial({
+      color, size, sizeAttenuation: true,
+      transparent: true, opacity: alpha,
+      blending: THREE.NormalBlending, // su bianco: blending normale (additive sparirebbe)
+      depthWrite: false
+    });
+    return new THREE.Points(geo, mat);
+  }
+  // Palette saturi visibili su bianco
+  const starsFar    = makeStars(Math.round(1500 * starScale), 900, 1.3, 0x7c3aed, 0.50); // viola
+  const starsMid    = makeStars(Math.round(900  * starScale), 600, 1.8, 0x4060d4, 0.55); // cobalto
+  const starsNear   = makeStars(Math.round(450  * starScale), 380, 2.4, 0x15131c, 0.60); // ink scuro (puntini netti)
+  const starsPink   = makeStars(Math.round(220  * starScale), 520, 2.0, 0xec4899, 0.55); // magenta
+  const starsGold   = makeStars(Math.round(220  * starScale), 520, 2.0, 0xdba93b, 0.55); // oro
+  scene.add(starsFar, starsMid, starsNear, starsPink, starsGold);
+
+  // ---- Geometria sacra: icosaedro + 3 torus rings (portali) ----
+  const sacredGroup = new THREE.Group();
+
+  const icoGeo = new THREE.IcosahedronGeometry(56, 1);
+  const icoEdges = new THREE.EdgesGeometry(icoGeo);
+  const icoMat = new THREE.LineBasicMaterial({
+    color: 0xec4899, transparent: true, opacity: 0.45, blending: THREE.NormalBlending
+  });
+  const ico = new THREE.LineSegments(icoEdges, icoMat);
+  sacredGroup.add(ico);
+
+  const icoGeo2 = new THREE.IcosahedronGeometry(80, 0);
+  const icoEdges2 = new THREE.EdgesGeometry(icoGeo2);
+  const icoMat2 = new THREE.LineBasicMaterial({
+    color: 0x4060d4, transparent: true, opacity: 0.35, blending: THREE.NormalBlending
+  });
+  const ico2 = new THREE.LineSegments(icoEdges2, icoMat2);
+  sacredGroup.add(ico2);
+
+  const torusGeo  = new THREE.TorusGeometry(110, 0.9, 16, 140);
+  const torusMat  = new THREE.MeshBasicMaterial({ color: 0x7c3aed, transparent: true, opacity: 0.50 });
+  const torus1 = new THREE.Mesh(torusGeo, torusMat); sacredGroup.add(torus1);
+
+  const torusGeo2 = new THREE.TorusGeometry(135, 0.6, 12, 140);
+  const torusMat2 = new THREE.MeshBasicMaterial({ color: 0xec4899, transparent: true, opacity: 0.40 });
+  const torus2 = new THREE.Mesh(torusGeo2, torusMat2);
+  torus2.rotation.x = Math.PI / 3; sacredGroup.add(torus2);
+
+  const torusGeo3 = new THREE.TorusGeometry(165, 0.4, 12, 140);
+  const torusMat3 = new THREE.MeshBasicMaterial({ color: 0xdba93b, transparent: true, opacity: 0.32 });
+  const torus3 = new THREE.Mesh(torusGeo3, torusMat3);
+  torus3.rotation.x = -Math.PI / 4; torus3.rotation.z = Math.PI / 5;
+  sacredGroup.add(torus3);
+
+  sacredGroup.position.set(0, 0, -40);
+  scene.add(sacredGroup);
+
+  // ---- Orbs orbitanti ----
+  const orbGeo = new THREE.BufferGeometry();
+  const ORBS = isMobile ? 50 : 130;
+  const orbPos = new Float32Array(ORBS * 3);
+  const orbSeed = [];
+  for (let i = 0; i < ORBS; i++){
+    const r = 180 + Math.random() * 240;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    orbSeed.push({ r, theta, phi, speed: 0.08 + Math.random() * 0.18 });
+    orbPos[i*3]   = r * Math.sin(phi) * Math.cos(theta);
+    orbPos[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+    orbPos[i*3+2] = r * Math.cos(phi);
+  }
+  orbGeo.setAttribute('position', new THREE.BufferAttribute(orbPos, 3));
+  const orbMat = new THREE.PointsMaterial({
+    color: 0xec4899, size: 3.2, transparent: true, opacity: 0.70,
+    blending: THREE.NormalBlending, depthWrite: false
+  });
+  const orbs = new THREE.Points(orbGeo, orbMat);
+  scene.add(orbs);
+
+  // ---- Parallax mouse ----
+  const target = { x: 0, y: 0 }, current = { x: 0, y: 0 };
+  function onMouseMove(e){
+    target.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    target.y = (e.clientY / window.innerHeight - 0.5) * 2;
+  }
+  window.addEventListener('mousemove', onMouseMove);
+
+  function onResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  window.addEventListener('resize', onResize);
+
+  let paused = false, rafId = null;
+  document.addEventListener('visibilitychange', () => {
+    paused = document.hidden;
+    if (!paused && !rafId) tick();
+  });
+
+  const clock = new THREE.Clock();
+  function tick(){
+    if (paused) { rafId = null; return; }
+    const t = clock.getElapsedTime();
+    current.x += (target.x - current.x) * 0.04;
+    current.y += (target.y - current.y) * 0.04;
+    camera.position.x = current.x * 30;
+    camera.position.y = -current.y * 20;
+    camera.lookAt(0, 0, 0);
+
+    starsFar.rotation.y  = t * 0.004;
+    starsMid.rotation.y  = t * 0.008;
+    starsNear.rotation.y = t * 0.014;
+    starsPink.rotation.y = -t * 0.010;
+    starsGold.rotation.y = t * 0.012;
+
+    ico.rotation.x = t * 0.12; ico.rotation.y = t * 0.18;
+    ico2.rotation.x = -t * 0.08; ico2.rotation.y = t * 0.11;
+
+    torus1.rotation.x = t * 0.15; torus1.rotation.y = t * 0.09;
+    torus2.rotation.x = Math.PI/3 + t * 0.07; torus2.rotation.z = t * 0.12;
+    torus3.rotation.x = -Math.PI/4 + t * 0.05; torus3.rotation.y = t * 0.08;
+
+    torus1.material.opacity = 0.40 + Math.sin(t * 1.2) * 0.12;
+    torus2.material.opacity = 0.32 + Math.sin(t * 1.6 + 1.2) * 0.10;
+    torus3.material.opacity = 0.24 + Math.sin(t * 0.9 + 2.3) * 0.08;
+
+    const arr = orbGeo.attributes.position.array;
+    for (let i = 0; i < ORBS; i++){
+      const o = orbSeed[i];
+      o.theta += o.speed * 0.01;
+      arr[i*3]   = o.r * Math.sin(o.phi) * Math.cos(o.theta);
+      arr[i*3+1] = o.r * Math.sin(o.phi) * Math.sin(o.theta) + Math.sin(t * 0.5 + i) * 3;
+      arr[i*3+2] = o.r * Math.cos(o.phi);
+    }
+    orbGeo.attributes.position.needsUpdate = true;
+
+    renderer.render(scene, camera);
+    rafId = requestAnimationFrame(tick);
+  }
+  tick();
+
+  // ---- Canvas 2D varianti soft-glow drifting (signature spazio delle varianti) ----
+  const pcanvas = document.querySelector('.varianti-canvas');
+  if (pcanvas){
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 2);
+    const pctx = pcanvas.getContext('2d');
+    function resizeP(){
+      pcanvas.width  = Math.round(window.innerWidth  * dpr);
+      pcanvas.height = Math.round(window.innerHeight * dpr);
+      pcanvas.style.width  = window.innerWidth  + 'px';
+      pcanvas.style.height = window.innerHeight + 'px';
+      pctx.setTransform(1,0,0,1,0,0);
+      pctx.scale(dpr, dpr);
+    }
+    resizeP();
+    window.addEventListener('resize', resizeP);
+
+    const palette = [
+      'rgba(124,58,237,',  // viola
+      'rgba(236,72,153,',  // magenta
+      'rgba(64,96,212,',   // cobalto
+      'rgba(219,169,59,',  // oro
+      'rgba(167,139,250,', // viola chiaro
+    ];
+    const variants = [];
+    for (let i = 0; i < variantCount; i++){
+      variants.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        r: 50 + Math.random() * 100,
+        color: palette[(Math.random() * palette.length)|0],
+        alpha: 0.10 + Math.random() * 0.18,
+        phase: Math.random() * Math.PI * 2,
       });
     }
-    return arr;
-  }
-  const starsBack = makeStars(isMobile ? 50 : 110, 3);
-  const starsMid  = makeStars(isMobile ? 35 : 70,  2);
-  const starsFront= makeStars(isMobile ? 20 : 45,  1);
 
-  // Orbiting cosmic orbs (energy points)
-  const ORBS = isMobile ? 12 : 24;
-  const orbs = [];
-  for (let i = 0; i < ORBS; i++){
-    orbs.push({
-      r: 60 + Math.random()*Math.min(W,H)*0.55,
-      angle: Math.random()*Math.PI*2,
-      speed: 0.0002 + Math.random()*0.0007,
-      size: 1.0 + Math.random()*2.4,
-      c: pick(),
-      pulse: Math.random()*Math.PI*2,
-      pulseSpeed: 0.015 + Math.random()*0.025,
-    });
-  }
-
-  // Varianti drift (signature ars-realis effect — soft glow rising)
-  const VARIANTI = isMobile ? 5 : 10;
-  const varianti = [];
-  for (let i = 0; i < VARIANTI; i++){
-    varianti.push({
-      x: Math.random()*W, y: Math.random()*H,
-      vx: (Math.random()-.5) * 0.18,
-      vy: -0.10 - Math.random()*0.22,
-      size: 8 + Math.random()*16,
-      c: pick(),
-      life: Math.random(),
-    });
-  }
-
-  let lastT = performance.now();
-  function frame(now){
-    const dt = Math.min(40, now - lastT); lastT = now;
-    ctx.clearRect(0, 0, W, H);
-    ctx.globalCompositeOperation = 'lighter';
-
-    function drawStars(arr){
-      for (const s of arr){
-        s.x += s.vx * dt; s.y += s.vy * dt;
-        if (s.x < -10) s.x = W+10; if (s.x > W+10) s.x = -10;
-        if (s.y < -10) s.y = H+10; if (s.y > H+10) s.y = -10;
-        s.twinkle += s.twinkleSpeed;
-        const a = 0.30 + 0.40 * Math.sin(s.twinkle);
-        const grad = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*4);
-        grad.addColorStop(0, `rgba(${s.c[0]},${s.c[1]},${s.c[2]},${a*0.75})`);
-        grad.addColorStop(1, `rgba(${s.c[0]},${s.c[1]},${s.c[2]},0)`);
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r*4, 0, Math.PI*2);
-        ctx.fill();
+    function pTick(){
+      pctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const now = performance.now() * 0.001;
+      for (const v of variants){
+        v.x += v.vx; v.y += v.vy;
+        if (v.x < -v.r) v.x = window.innerWidth + v.r;
+        if (v.x > window.innerWidth + v.r) v.x = -v.r;
+        if (v.y < -v.r) v.y = window.innerHeight + v.r;
+        if (v.y > window.innerHeight + v.r) v.y = -v.r;
+        const breath = 0.7 + Math.sin(now * 0.6 + v.phase) * 0.3;
+        const grd = pctx.createRadialGradient(v.x, v.y, 0, v.x, v.y, v.r * breath);
+        grd.addColorStop(0, v.color + (v.alpha * breath).toFixed(3) + ')');
+        grd.addColorStop(1, v.color + '0)');
+        pctx.fillStyle = grd;
+        pctx.beginPath();
+        pctx.arc(v.x, v.y, v.r * breath, 0, Math.PI * 2);
+        pctx.fill();
       }
-    }
-    drawStars(starsBack);
-    drawStars(starsMid);
-    drawStars(starsFront);
-
-    // orbiting orbs
-    const cx = W/2, cy = H/2;
-    for (const o of orbs){
-      o.angle += o.speed * dt;
-      o.pulse += o.pulseSpeed;
-      const x = cx + Math.cos(o.angle) * o.r;
-      const y = cy + Math.sin(o.angle) * o.r * 0.55;
-      const sz = o.size * (1 + 0.25*Math.sin(o.pulse));
-      const grad = ctx.createRadialGradient(x,y,0,x,y,sz*8);
-      grad.addColorStop(0, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},.50)`);
-      grad.addColorStop(0.4, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},.16)`);
-      grad.addColorStop(1, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},0)`);
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(x, y, sz*8, 0, Math.PI*2);
-      ctx.fill();
-    }
-
-    // varianti drifting
-    for (const v of varianti){
-      v.x += v.vx; v.y += v.vy;
-      v.life += 0.0025;
-      if (v.y < -50 || v.life > 1){
-        v.x = Math.random()*W; v.y = H + 30;
-        v.life = 0; v.size = 8 + Math.random()*16;
-        v.c = pick();
+      // Linee di connessione tra varianti vicine (spazio delle varianti)
+      for (let i = 0; i < variants.length; i++){
+        for (let j = i + 1; j < variants.length; j++){
+          const dx = variants[i].x - variants[j].x;
+          const dy = variants[i].y - variants[j].y;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < 200){
+            pctx.strokeStyle = 'rgba(236,72,153,' + (0.10 * (1 - d/200)).toFixed(3) + ')';
+            pctx.lineWidth = 0.8;
+            pctx.beginPath();
+            pctx.moveTo(variants[i].x, variants[i].y);
+            pctx.lineTo(variants[j].x, variants[j].y);
+            pctx.stroke();
+          }
+        }
       }
-      const a = Math.sin(v.life * Math.PI) * 0.50;
-      const grad = ctx.createRadialGradient(v.x,v.y,0,v.x,v.y,v.size*6);
-      grad.addColorStop(0, `rgba(${v.c[0]},${v.c[1]},${v.c[2]},${a})`);
-      grad.addColorStop(1, `rgba(${v.c[0]},${v.c[1]},${v.c[2]},0)`);
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(v.x, v.y, v.size*6, 0, Math.PI*2);
-      ctx.fill();
+      requestAnimationFrame(pTick);
     }
-
-    ctx.globalCompositeOperation = 'source-over';
-    requestAnimationFrame(frame);
+    pTick();
   }
-  requestAnimationFrame(frame);
 })();
 </script>
 <script src="dream.js"></script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090b">
+<meta name="theme-color" content="#ffffff">
 <title>Libri Fondamentali · Davil</title>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,30 +11,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #09090b;
-  --bg-2: #0e0e11;
-  --ink: #f2efe9;
-  --ink-soft: #b5b1a8;
-  --ink-dim: #6b6862;
-  --brand: #6d8af7;
-  --brand-2: #9db0ff;
-  --violet: #b08bff;
-  --gold: #d4a864;
-  --gold-soft: #e8c77a;
-  --red: #e06377;
-  --border: rgba(242,239,233,0.09);
-  --border-hover: rgba(242,239,233,0.18);
-  --shadow-sm: 0 2px 12px rgba(0,0,0,.4);
-  --shadow-md: 0 24px 60px rgba(0,0,0,.5);
-  --ff-display: 'Fraunces', serif;
-  --ff-sans: 'Space Grotesk', sans-serif;
-  --ease: cubic-bezier(.77,0,.18,1);
+  --bg: #ffffff;
+  --bg-2: #f4f4f7;
+  --bg-3: #eef0f5;
+  --bg-card: rgba(255,255,255,.85);
+  --ink: #15131c;
+  --ink-soft: #3d3a4a;
+  --ink-dim: #6b6878;
+  --brand: #7c3aed;
+  --brand-light: #a78bfa;
+  --cosmic-violet: #7c3aed;
+  --cosmic-magenta: #ec4899;
+  --cosmic-indigo: #4338ca;
+  --gold: #dba93b;
+  --gold-soft: #e6b94a;
+  --gold-bright: #f0c75a;
+  --gold-deep: #b88a25;
+  --crimson: #c93a7a;
+  --border: rgba(20,15,40,.10);
+  --border-soft: rgba(20,15,40,.05);
+  --border-hover: rgba(236,72,153,.45);
+  --ff-display: 'Fraunces', Georgia, serif;
+  --ff-sans: 'Space Grotesk', system-ui, sans-serif;
+  --ease: cubic-bezier(.22,.61,.36,1);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body {
-  margin: 0; padding: 0;
-  background: var(--bg);
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  background:
+    radial-gradient(1200px 800px at 10% 5%, rgba(124,58,237,.18), transparent 55%),
+    radial-gradient(1000px 700px at 90% 30%, rgba(236,72,153,.14), transparent 55%),
+    radial-gradient(900px 600px at 50% 100%, rgba(244,201,93,.10), transparent 60%),
+    radial-gradient(ellipse at top, #f7f7fa 0%, #ffffff 55%, #eef0f5 100%);
+  background-attachment: fixed;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -47,16 +57,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  color: var(--ink);
   overflow-x: hidden;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 0%, rgba(109,138,247,.12), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 85% 100%, rgba(176,139,255,.08), transparent 60%),
-    linear-gradient(180deg, #09090b 0%, #0e0e11 100%);
 }
+
+::selection { background: rgba(236,72,153,.20); color: var(--ink); }
 
 .page {
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
   margin: 40px 20px;
   display: flex;
   flex-direction: column;
@@ -70,13 +80,14 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: var(--ink-dim);
+  color: var(--cosmic-magenta);
   text-decoration: none;
   letter-spacing: .04em;
-  transition: color .3s;
+  transition: color .3s, transform .3s var(--ease);
   animation: fadeIn .5s var(--ease) both;
+  font-weight: 500;
 }
-.back:hover { color: var(--ink-soft); }
+.back:hover { color: var(--cosmic-violet); transform: translateX(-3px); }
 .back svg { width: 16px; height: 16px; }
 
 .header {
@@ -86,31 +97,32 @@ body {
 .header h1 {
   margin: 0;
   font-family: var(--ff-display);
-  font-weight: 500;
-  font-size: clamp(22px, 5vw, 28px);
-  letter-spacing: .02em;
+  font-weight: 300;
+  font-size: clamp(28px, 6vw, 38px);
+  letter-spacing: -.01em;
+  color: var(--ink);
+  line-height: 1.15;
 }
 .header h1 em {
   font-style: italic;
   color: var(--gold);
-  font-weight: 300;
+  font-weight: 500;
+  text-shadow:
+    0 1px 2px rgba(90,60,10,.30),
+    0 0 1px rgba(140,95,20,.45);
 }
 .header p {
-  margin: 8px 0 0;
-  font-size: 14px;
+  margin: 12px auto 0;
+  font-family: var(--ff-display);
+  font-weight: 300;
+  font-size: 16px;
   color: var(--ink-soft);
-  max-width: 36ch;
-  margin-inline: auto;
+  max-width: 38ch;
+  line-height: 1.5;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
-}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
 .books {
   width: 100%;
@@ -122,32 +134,39 @@ body {
 .book {
   display: flex;
   gap: 16px;
-  padding: 20px;
+  padding: 22px;
   border-radius: 16px;
-  background: rgba(255,255,255,.03);
+  background: linear-gradient(135deg, rgba(255,255,255,.85), rgba(244,244,247,.70));
   border: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   text-decoration: none;
   color: var(--ink);
-  transition: all .35s var(--ease);
+  transition: all .4s var(--ease);
   animation: cardIn .6s var(--ease) both;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.85) inset,
+    0 10px 24px -10px rgba(20,15,40,.12),
+    0 0 50px -12px rgba(64,96,212,.22),
+    0 0 20px -6px rgba(45,45,224,.18),
+    0 0 0 1px rgba(124,58,237,.05);
 }
 .book:nth-child(1) { animation-delay: .2s; }
 .book:nth-child(2) { animation-delay: .3s; }
 .book:nth-child(3) { animation-delay: .4s; }
 .book:nth-child(4) { animation-delay: .5s; }
 
-@keyframes cardIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
-}
+@keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 .book:hover {
-  background: rgba(255,255,255,.06);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-3px);
+  border-color: rgba(236,72,153,.45);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 18px 36px -12px rgba(236,72,153,.18),
+    0 0 60px -14px rgba(64,96,212,.30),
+    0 0 24px -6px rgba(45,45,224,.22),
+    0 0 0 1px rgba(236,72,153,.22);
 }
 
 .book-icon {
@@ -161,12 +180,29 @@ body {
   font-size: 22px;
   font-family: var(--ff-display);
   font-weight: 500;
+  font-style: italic;
 }
 
-.book:nth-child(1) .book-icon { background: rgba(212,168,100,.12); color: var(--gold); }
-.book:nth-child(2) .book-icon { background: rgba(109,138,247,.12); color: var(--brand); }
-.book:nth-child(3) .book-icon { background: rgba(176,139,255,.12); color: var(--violet); }
-.book:nth-child(4) .book-icon { background: rgba(224,99,119,.12); color: var(--red); }
+.book:nth-child(1) .book-icon {
+  background: rgba(219,169,59,.10);
+  color: var(--gold);
+  box-shadow: 0 0 12px rgba(219,169,59,.18), inset 0 0 0 1px rgba(219,169,59,.12);
+}
+.book:nth-child(2) .book-icon {
+  background: rgba(124,58,237,.10);
+  color: var(--cosmic-violet);
+  box-shadow: 0 0 12px rgba(124,58,237,.15), inset 0 0 0 1px rgba(124,58,237,.10);
+}
+.book:nth-child(3) .book-icon {
+  background: rgba(124,58,237,.10);
+  color: var(--brand-light);
+  box-shadow: 0 0 12px rgba(124,58,237,.18), inset 0 0 0 1px rgba(124,58,237,.12);
+}
+.book:nth-child(4) .book-icon {
+  background: rgba(236,72,153,.10);
+  color: var(--cosmic-magenta);
+  box-shadow: 0 0 12px rgba(236,72,153,.15), inset 0 0 0 1px rgba(236,72,153,.10);
+}
 
 .book-info {
   display: flex;
@@ -176,65 +212,86 @@ body {
 }
 .book-info h3 {
   margin: 0;
-  font-size: 15.5px;
-  font-weight: 600;
-  letter-spacing: .01em;
-  line-height: 1.3;
+  font-family: var(--ff-display);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -.005em;
+  line-height: 1.25;
+  color: var(--ink);
 }
 .book-info .author {
-  font-size: 12px;
-  color: var(--ink-dim);
-  letter-spacing: .06em;
+  font-family: var(--ff-sans);
+  font-size: 11px;
+  color: var(--cosmic-magenta);
+  letter-spacing: .18em;
   text-transform: uppercase;
   font-weight: 500;
+  margin-top: 2px;
 }
 .book-info .desc {
-  margin: 2px 0 0;
-  font-size: 13px;
+  margin: 6px 0 0;
+  font-size: 13.5px;
   color: var(--ink-soft);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .book-badge {
   display: inline-flex;
   align-self: flex-start;
-  margin-top: 6px;
-  padding: 3px 10px;
+  margin-top: 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  font-weight: 500;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 .badge-coming {
-  background: rgba(212,168,100,.12);
-  color: var(--gold-soft);
+  background: rgba(219,169,59,.12);
+  color: var(--gold-deep);
+  border: 1px solid rgba(219,169,59,.25);
 }
 .badge-pdf {
-  background: rgba(109,138,247,.12);
-  color: var(--brand-2);
+  background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.10));
+  color: var(--cosmic-violet);
+  border: 1px solid rgba(124,58,237,.20);
 }
 
 .book-disabled {
   pointer-events: none;
-  opacity: .55;
-  filter: grayscale(.3);
+  opacity: .60;
+  filter: saturate(.7);
 }
 
 .note {
   text-align: center;
-  font-size: 13px;
-  color: var(--ink-dim);
+  font-size: 14px;
+  color: var(--ink-soft);
   font-style: italic;
   font-family: var(--ff-display);
-  max-width: 34ch;
+  font-weight: 300;
+  max-width: 38ch;
+  line-height: 1.5;
   animation: fadeUp .6s var(--ease) .6s both;
+}
+.note-disclaimer {
+  margin-top: 8px;
+  font-size: 11px;
+  font-style: normal;
+  font-family: var(--ff-sans);
+  color: var(--ink-dim);
+  opacity: .85;
+  max-width: 42ch;
 }
 
 @media (max-width: 480px) {
   .page { margin: 28px 16px; gap: 20px; }
-  .book { padding: 16px; gap: 14px; }
+  .book { padding: 18px; gap: 14px; }
   .book-icon { width: 42px; height: 42px; font-size: 19px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 </style>
 </head>
@@ -242,9 +299,9 @@ body {
 
 <div class="page">
 
-  <a href="biglietto.html" class="back">
+  <a href="home.html" class="back">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Torna al biglietto
+    Torna alla Home
   </a>
 
   <div class="header">
@@ -297,7 +354,7 @@ body {
   </div>
 
   <p class="note">Lasci nome e mail sul sito per ricevere i PDF. Niente carta, niente vincoli.</p>
-  <p class="note" style="margin-top:12px;font-size:11px;opacity:.7">I PDF di Assagioli e Zeland non sono le opere originali ma compendi riassuntivi realizzati con l'ausilio di modelli avanzati di intelligenza artificiale, a partire dalle migliori fonti pubbliche e ufficiali.</p>
+  <p class="note note-disclaimer">I PDF di Assagioli e Zeland non sono le opere originali ma compendi riassuntivi realizzati con l'ausilio di modelli avanzati di intelligenza artificiale, a partire dalle migliori fonti pubbliche e ufficiali.</p>
 
 </div>
 
