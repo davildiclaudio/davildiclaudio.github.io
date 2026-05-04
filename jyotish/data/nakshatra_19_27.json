@@ -1,0 +1,435 @@
+{
+  "_meta": {
+    "sezione": "Nakshatra 19-27",
+    "range": "Moola → Revati",
+    "lingua": "italiano",
+    "densita": "alta (~450 parole/Nakshatra)",
+    "schema_versione": "1.0",
+    "fonti": [
+      "Brihat Parashara Hora Shastra",
+      "Saravali (Kalyana Varma)",
+      "Hora Sara (Prithuyasas)",
+      "Phaladeepika (Mantreswara)",
+      "Brihat Samhita (Varahamihira)",
+      "Nakshatra Chintamani",
+      "Atharva Veda — Nakshatra Sukta"
+    ]
+  },
+  "nakshatra": [
+    {
+      "id": 19,
+      "name": "Moola",
+      "degrees": "0°00' - 13°20' Dhanu (Sagittario)",
+      "ruler": "Ketu",
+      "deity": "Nirriti — dea della distruzione, della dissoluzione e del karma latente; figlia di Adharma e Himsa, signora dei reami sotterranei e delle radici nascoste della realtà",
+      "symbol": "Fascio di radici legate insieme, pungiglione di leone, asta dell'elefante incatenata. La radice indica ciò che sta sotto la superficie visibile: ciò che alimenta e ciò che, se reciso, libera.",
+      "myth": "Moola sorge nel cuore galattico (Mula significa letteralmente 'radice'): la zona dove la spirale della Via Lattea si concentra, il punto in cui il cosmo affonda le proprie radici nel mistero. Il mito di Nirriti narra di una potenza primordiale che governa la dissoluzione necessaria affinché il nuovo possa nascere; senza la sua opera distruttiva, nessuna trasformazione sarebbe possibile. Ketu, il signore senza testa, agisce qui come liberatore karmico: strappa via tutto ciò che è artificiale, costringendo l'anima a confrontarsi con la verità nuda. Chi nasce sotto Moola spesso vive eventi-spartiacque che recidono in modo netto il passato.",
+      "shakti": "Barhana shakti — il potere di sradicare, di distruggere alle fondamenta. Si esprime attraverso domande radicali (perché esisto? cosa è reale?) e attraverso cesure biografiche che obbligano alla rinascita.",
+      "personality": "Indagatore filosofico, ricercatore della verità ultima, irrequieto fino a quando non tocca il fondamento. Personalità intensa, spesso magnetica, con un'aura di profondità che attrae e talvolta intimidisce. Tende a smontare ogni costruzione mentale altrui per vedere cosa regge davvero. Può essere tagliente nelle parole, brutalmente onesto. Internamente convive con un senso di solitudine cosmica e con una nostalgia per qualcosa che non riesce a nominare.",
+      "karmicTheme": "Imparare a distinguere tra distruzione necessaria e distruttività cieca. Trasformare la paura della perdita in resa cosciente. Trovare la radice spirituale (mula) sotto le rovine biografiche.",
+      "career": "Ricercatore, filosofo, psicoanalista, archeologo, investigatore, farmacologo, erborista (lavora con le radici), chirurgo, esoterista, scrittore di temi profondi, terapeuta del trauma, coach di trasformazione radicale.",
+      "relationships": "Cerca un partner che regga la sua intensità senza scappare. Le relazioni superficiali lo annoiano in fretta. Spesso vive una rottura iniziatica che ridefinisce la sua capacità d'amare. Quando ama, ama dalle radici.",
+      "health": "Punti deboli: anche, sciatica, fegato, sistema nervoso autonomo. Vulnerabile a depressione esistenziale e crisi di senso. Beneficia di pratiche somatiche, contatto con la natura, lavoro sul trauma.",
+      "classifications": {
+        "varna": "Kshatriya (guerriero della verità)",
+        "gana": "Rakshasa",
+        "yoni": "Cane (Shvana), maschile",
+        "nadi": "Adi",
+        "tatva": "Vayu (aria) con sfumatura akashica"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Mesha", "descrizione": "Sradicamento impulsivo, coraggio nel rompere convenzioni, pioniere filosofico. Marte amplifica l'aggressività della ricerca."},
+        {"numero": 2, "navamsa": "Vrishabha", "descrizione": "Cerca di radicarsi nel materiale per non perdersi nell'astratto. Conflitto tra desiderio di stabilità e vocazione alla distruzione."},
+        {"numero": 3, "navamsa": "Mithuna", "descrizione": "Mente analitica acuta, capacità di smontare sistemi di pensiero. Ottimo per filosofia, retorica, semiotica."},
+        {"numero": 4, "navamsa": "Karka", "descrizione": "Dolore profondo come porta di accesso alla saggezza. Pushkara navamsa: pada potente per la guarigione emotiva e la mistica."}
+      ],
+      "remedies": {
+        "mantra": "Om Nirritaye Namah (108x), Ketu beeja: Om Sram Srim Sraum Sah Ketave Namah",
+        "deity": "Nirriti, Ganesha (rimuove ostacoli karmici), Bhairava",
+        "gemstone": "Occhio di gatto (Vaidurya) montato in argento, indossato a destra dopo purificazione",
+        "color": "Marrone scuro, grigio fumo, nero",
+        "donation": "Coperte ai senzatetto, cibo a cani randagi, donazioni a hospice",
+        "fast": "Martedì o durante il transito di Ketu su Moola; digiuno semi-liquido"
+      },
+      "famousFigures": [
+        "Friedrich Nietzsche (filosofo della distruzione dei valori)",
+        "Osho",
+        "Carl Jung (per affinità simbolica con le radici dell'inconscio)",
+        "Marie Curie"
+      ],
+      "citations": [
+        "BPHS, cap. Nakshatra Phala: 'Mulayam jato tikshnah dharmajno mulanasakah' — il nato in Moola è acuto, conosce il dharma, ma può distruggere le proprie fondamenta.",
+        "Saravali 11.19: indica predisposizione alla ricerca filosofica e alla rinuncia."
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Purva Ashadha",
+      "degrees": "13°20' - 26°40' Dhanu (Sagittario)",
+      "ruler": "Shukra (Venere)",
+      "deity": "Apas — le acque cosmiche, principio femminile primordiale; le sorgenti che purificano e che fertilizzano il creato",
+      "symbol": "Ventaglio, vaglio per setacciare il grano, zanna di elefante. Il ventaglio agita l'aria e accende il fuoco; il vaglio separa puro e impuro.",
+      "myth": "Purva Ashadha è chiamata 'la prima invincibile' (ashadha = invincibile). Il mito vedico la collega alle acque dell'oceano cosmico da cui emergono Lakshmi e l'amrita durante il Samudra Manthana. Venere, signore di Purva Ashadha, è il guru degli Asura che conosce il segreto della Sanjivani Vidya — l'arte di resuscitare i caduti. Da qui la qualità di questa Nakshatra: rigenerazione attraverso l'immersione, vittoria conquistata col fervore (tapas) e con la passione (rasa).",
+      "shakti": "Varchograhana shakti — il potere di galvanizzare, di accendere energia e splendore. Chi nasce qui ha la capacità di infiammare folle, ispirare movimenti, accendere fuochi creativi.",
+      "personality": "Ottimista combattivo, oratore persuasivo, idealista che si lancia con fervore in cause grandi. Sicurezza in sé fino all'arroganza, ma anche generosità calorosa. Ama il dibattito filosofico, la performance, la conquista. Difficilmente accetta sconfitte: ricarica e riparte. Ha un fascino magnetico legato alla qualità acquatica di Apas — fluido, seducente, purificante.",
+      "karmicTheme": "Trasformare l'invincibilità dell'ego in invincibilità dello spirito. Imparare che la vera vittoria è la purificazione interiore, non la sopraffazione.",
+      "career": "Politico, avvocato, predicatore, motivatore, attore, musicista, marketing, pubbliche relazioni, esperto di branding, navigatore (acqua), industria delle bevande, terapeuta delle acque (idroterapia), regista.",
+      "relationships": "Romantico fervente, idealizza il partner; gelosie possessive se non integrato. Cerca un amore che sia anche causa, missione, alleanza. Magnetismo erotico forte; rischio di drammi amorosi cinematografici.",
+      "health": "Vulnerabilità: anche, cosce, vene, sistema linfatico, polmoni. Tendenza a eccessi (cibo, alcol, sesso) come fuga dall'intensità. Beneficia di pratiche acquatiche, pranayama, moderazione vedica.",
+      "classifications": {
+        "varna": "Brahmana",
+        "gana": "Manushya",
+        "yoni": "Scimmia (Vanara), maschile",
+        "nadi": "Antya",
+        "tatva": "Jala (acqua) dentro un segno di fuoco — paradosso fertile"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Simha", "descrizione": "Leadership carismatica, vocazione al palcoscenico, orgoglio nobile. Ottimo per regia, politica, performance."},
+        {"numero": 2, "navamsa": "Kanya", "descrizione": "Idealismo applicato al servizio, capacità organizzativa, attenzione al dettaglio nelle cause sociali."},
+        {"numero": 3, "navamsa": "Tula", "descrizione": "Pushkara navamsa: equilibrio, diplomazia, arte e bellezza al servizio della verità. Pada molto fortunato."},
+        {"numero": 4, "navamsa": "Vrischika", "descrizione": "Passione intensa, magnetismo trasformativo, ricerca occulta. Rischio di gelosia ed estremismo emotivo."}
+      ],
+      "remedies": {
+        "mantra": "Om Adbhyah Namah, Shukra beeja: Om Dram Drim Draum Sah Shukraya Namah",
+        "deity": "Lakshmi, Varuna (signore delle acque), Shukra",
+        "gemstone": "Diamante o zaffiro bianco, montato in argento o platino",
+        "color": "Bianco brillante, rosa, azzurro",
+        "donation": "Dolci, fiori bianchi, abiti di seta a giovani donne, offerte ai fiumi",
+        "fast": "Venerdì, con dieta lattea"
+      },
+      "famousFigures": [
+        "Adolf Hitler (Luna in Purva Ashadha — ombra del fervore non integrato)",
+        "Marlon Brando",
+        "Nelson Mandela",
+        "Paramahansa Yogananda"
+      ],
+      "citations": [
+        "Brihat Samhita 98.4: 'aparajita' — non sconfiggibile, dotato di forza persuasiva.",
+        "BPHS: predisposizione al successo attraverso la parola e la persuasione."
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Uttara Ashadha",
+      "degrees": "26°40' Dhanu - 10°00' Makara (Sagittario-Capricorno)",
+      "ruler": "Surya (Sole)",
+      "deity": "Vishvadevas — i dieci dei universali, custodi del dharma collettivo: Vasu, Satya, Kratu, Daksha, Kala, Kama, Dhriti, Kuru, Pururavas, Madravas",
+      "symbol": "Defensa di elefante, piccolo letto, tavola di legno per la meditazione. Stabilità, durata, fondazione.",
+      "myth": "Uttara Ashadha è 'la successiva invincibile', ma diversamente da Purva — qui la vittoria è duratura, non lampo. I Vishvadevas presiedono al dharma cosmico: garantiscono che le azioni giuste si traducano in risultati che reggono nel tempo. Il mito narra che chi compie azioni allineate ai dieci principi universali ottiene una vittoria che attraversa epoche. Il Sole come signore conferisce visione regale, responsabilità di comando, capacità di guidare moltitudini con integrità.",
+      "shakti": "Apradhrishya shakti — il potere di una vittoria che non può essere disfatta, di un risultato definitivo. Chi nasce qui costruisce opere che durano.",
+      "personality": "Persona di principi, integra, leader nato che si afferma per merito e perseveranza più che per carisma rapido. Lentezza apparente, ma profondità di pensiero e capacità di agire sul lungo periodo. Senso del dovere, dignità, riservatezza. Talvolta percepito come rigido o distaccato, ma chi lo conosce ne riconosce la solidità rara. Ha un'innata vocazione al ruolo pubblico responsabile.",
+      "karmicTheme": "Costruire qualcosa che vada oltre il proprio ego. Servire il dharma collettivo. Imparare la pazienza dell'edificatore.",
+      "career": "Statista, magistrato, manager senior, accademico, ricercatore di lungo periodo, ingegnere strutturale, architetto, costruttore, imprenditore con visione decennale, giudice, capo religioso, militare di alto rango.",
+      "relationships": "Fedele, leale, costruttivo. Tarda ad aprirsi ma una volta dentro è roccia. Cerca un partner-alleato per la vita. Difficile separarsi: sente l'impegno come legge sacra. A volte trascura la dimensione passionale per quella del progetto comune.",
+      "health": "Forte costituzione di base; vulnerabilità a stomaco, polmoni, ginocchia (transizione Sagittario-Capricorno). Stress da eccesso di responsabilità, rigidità muscolare. Beneficia di yoga, camminate, regolarità.",
+      "classifications": {
+        "varna": "Kshatriya",
+        "gana": "Manushya",
+        "yoni": "Mangusta (Nakula), femminile — yoni unica senza partner naturale, indica autonomia",
+        "nadi": "Madhya",
+        "tatva": "Agni-Prithvi (fuoco e terra) — calore che si solidifica"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Dhanu", "descrizione": "Visione filosofica, vocazione all'insegnamento, etica forte. Ultimo pada nel segno di Sagittario."},
+        {"numero": 2, "navamsa": "Makara", "descrizione": "Pushkara navamsa parziale: ambizione strutturata, perseveranza ferrea, costruzione di carriera duratura."},
+        {"numero": 3, "navamsa": "Kumbha", "descrizione": "Visione collettiva, impegno per l'umanità, capacità innovativa nel rispetto della tradizione."},
+        {"numero": 4, "navamsa": "Meena", "descrizione": "Compassione regale, spiritualità integrata al ruolo pubblico, eredità che trascende la biografia personale."}
+      ],
+      "remedies": {
+        "mantra": "Om Vishvebhyo Devebhyo Namah, Surya beeja: Om Hram Hrim Hraum Sah Suryaya Namah, Gayatri mantra",
+        "deity": "Surya, Vishvadevas, Vishnu",
+        "gemstone": "Rubino (Manikya) montato in oro, indossato all'anulare destro alla domenica all'alba",
+        "color": "Oro, ramato, rosso scuro",
+        "donation": "Grano, oro a templi, supporto a istituzioni educative durature",
+        "fast": "Domenica fino al tramonto"
+      },
+      "famousFigures": [
+        "Mahatma Gandhi",
+        "Abraham Lincoln",
+        "Sri Aurobindo",
+        "Angela Merkel"
+      ],
+      "citations": [
+        "BPHS: 'sthira karya nirata' — dedito a opere stabili e durature.",
+        "Phaladeepika 4.21: indica successo nell'amministrazione e nella legge."
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Shravana",
+      "degrees": "10°00' - 23°20' Makara (Capricorno)",
+      "ruler": "Chandra (Luna)",
+      "deity": "Vishnu — il preservatore, colui che ascolta le preghiere e mantiene l'ordine cosmico; nelle sue tre falcate (Trivikrama) misura cielo, terra e regni intermedi",
+      "symbol": "Tre orme (le tre falcate di Vishnu), orecchio, freccia. L'orecchio indica la facoltà sacra dell'ascolto.",
+      "myth": "Shravana significa 'ascolto'. È il nakshatra dello shruti — la conoscenza rivelata trasmessa oralmente da maestro a discepolo per millenni. Il mito narra che Vishnu, mentre dorme sull'oceano cosmico tra una creazione e l'altra, ascolta i pensieri di tutti gli esseri e veglia sull'ordine. Le tre orme rappresentano i tre mondi che Vishnu attraversa nella sua incarnazione come Vamana: Bhuh (terra), Bhuvah (atmosfera), Svah (cielo). Chi nasce sotto Shravana è un canale d'ascolto cosmico: capta sfumature che agli altri sfuggono.",
+      "shakti": "Samhanana shakti — il potere di connettere, di mettere insieme parti separate. La capacità d'ascolto è anche capacità di tessere reti, alleanze, comunità.",
+      "personality": "Persona riflessiva, dotata di memoria eccezionale, eccellente ascoltatore. Saggia, talvolta più anziana della propria età anagrafica. Discreta, riservata, profonda. Ama lo studio, le tradizioni, la trasmissione orale, la musica, le lingue. Tende a essere il confidente del gruppo. Ha un'innata religiosità anche quando si dichiara laica: percepisce il sacro nei dettagli.",
+      "karmicTheme": "Imparare ad ascoltare la voce silenziosa dentro di sé tanto quanto quelle esterne. Trasformare la conoscenza accumulata in saggezza incarnata.",
+      "career": "Insegnante, linguista, traduttore, musicista, terapeuta dell'ascolto (psicoterapeuta, counselor), giornalista, podcaster, ricercatore tradizionalista, custode di archivi, audiologo, mediatore, diplomatico, scrittore di tradizioni.",
+      "relationships": "Partner attento, presente, capace di sentire bisogni non detti. Bisogno di un amore stabile e di lunga ascolto reciproco. Soffre se non si sente ascoltato a sua volta. Romanticismo discreto ma profondo.",
+      "health": "Punti deboli: orecchie (mai per caso!), gola, ginocchia, sistema linfatico, problemi uditivi nell'età avanzata. Beneficia di silenzio, suono terapeutico, mantra, ambiente sonoro pulito.",
+      "classifications": {
+        "varna": "Mleccha (oltre il sistema delle caste — universale)",
+        "gana": "Deva",
+        "yoni": "Scimmia (Vanara), femminile",
+        "nadi": "Antya",
+        "tatva": "Prithvi (terra) impregnata di akasha (etere) — la terra che ascolta"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Mesha", "descrizione": "Ascolto attivo, impulso a comunicare ciò che si è udito, leadership pedagogica."},
+        {"numero": 2, "navamsa": "Vrishabha", "descrizione": "Pushkara navamsa: stabilità, voce melodiosa, vocazione musicale, ricchezza attraverso la conoscenza."},
+        {"numero": 3, "navamsa": "Mithuna", "descrizione": "Curiosità intellettuale, abilità linguistiche, giornalismo, comunicazione versatile."},
+        {"numero": 4, "navamsa": "Karka", "descrizione": "Sensibilità emotiva profonda, ascolto empatico, vocazione terapeutica e protettiva."}
+      ],
+      "remedies": {
+        "mantra": "Om Vishnave Namah, Om Namo Narayanaya, Chandra beeja: Om Sram Srim Sraum Sah Chandraya Namah",
+        "deity": "Vishnu, Saraswati (per chi lavora con la parola), Chandra",
+        "gemstone": "Perla (Mukta) montata in argento, indossata al mignolo destro al lunedì sera",
+        "color": "Bianco perla, azzurro chiaro, lavanda",
+        "donation": "Libri sacri, latte, riso bianco, supporto a scuole di musica vedica",
+        "fast": "Lunedì o Ekadashi (sacro a Vishnu)"
+      },
+      "famousFigures": [
+        "Madre Teresa di Calcutta",
+        "Steve Jobs",
+        "Indira Gandhi",
+        "Beethoven (per affinità simbolica con l'ascolto e il suo opposto, la sordità trasformata in sinfonia)"
+      ],
+      "citations": [
+        "BPHS: 'shastra-jnani, dharmika' — conoscitore delle scritture, religioso.",
+        "Hora Sara: indica vocazione all'insegnamento e alla trasmissione orale del sapere."
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Dhanishta",
+      "degrees": "23°20' Makara - 6°40' Kumbha (Capricorno-Acquario)",
+      "ruler": "Mangal (Marte)",
+      "deity": "Vasus — gli otto luminosi: Apa, Dhruva, Soma, Dhara, Anila, Anala, Pratyusha, Prabhasa; signori degli elementi e della prosperità materiale",
+      "symbol": "Tamburo (Mridanga o Damaru), flauto. Lo strumento musicale che scandisce il ritmo cosmico.",
+      "myth": "Dhanishta significa 'la più ricca'. Le sue stelle (Delphinus) formano la costellazione del delfino, ma la tradizione vedica vede uno strumento musicale: il damaru di Shiva, il cui ritmo crea e distrugge i mondi. Gli otto Vasus sono custodi della ricchezza in tutte le sue forme — materiale, ritmica, vibrazionale. Il più famoso degli otto è Bhishma, il grande guerriero del Mahabharata, incarnazione del Vasu Dyaus condannato a vivere come uomo per espiare il furto della vacca Nandini. Bhishma incarna le qualità di Dhanishta: integrità ferrea, voto inflessibile, capacità marziale unita a saggezza.",
+      "shakti": "Khyapayitri shakti — il potere di dare fama e abbondanza, di rendere conosciuti, di amplificare la vibrazione di una persona o causa.",
+      "personality": "Energica, ritmica, ambiziosa, dotata di senso musicale anche quando non fa la musicista. Personalità forte, talvolta dominante, con grande capacità di lavoro e organizzazione. Ama il successo materiale visibile, lo status, ma non come fine in sé: come strumento per esprimere ritmo creativo. Generosa con gli amici fidati, può essere fredda o tagliente con i nemici. Atletica, attiva, raramente sedentaria.",
+      "karmicTheme": "Imparare che la vera ricchezza è il ritmo interiore, non l'accumulo. Bilanciare materiale e spirituale. Evitare la solitudine emotiva che spesso accompagna il successo.",
+      "career": "Musicista, compositore, percussionista, danzatore, atleta professionista, militare, manager finanziario, broker, imprenditore, ingegnere del suono, organizzatore di eventi, dirigente di squadre, marziali, real estate.",
+      "relationships": "Spesso ritardo nel matrimonio o sfide coniugali (Dhanishta è considerata Gandanta-prone se al confine). Capacità di amare profondamente ma difficoltà a esprimere vulnerabilità. Cerca un partner che rispetti la sua autonomia e il suo ritmo. La fedeltà, una volta data, è di tipo Bhishma — incrollabile.",
+      "health": "Vulnerabilità: ginocchia, polpacci, caviglie, sistema circolatorio. Iperattività che porta a stress cardiaco. Beneficia di danza, percussioni terapeutiche, scarico ritmico delle tensioni.",
+      "classifications": {
+        "varna": "Vaishya",
+        "gana": "Rakshasa",
+        "yoni": "Leone (Simha), femminile",
+        "nadi": "Madhya",
+        "tatva": "Akasha (etere) — il vuoto risonante che permette la musica"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Simha", "descrizione": "Leadership carismatica, vocazione al palcoscenico, orgoglio creativo. Ultimo pada in Capricorno."},
+        {"numero": 2, "navamsa": "Kanya", "descrizione": "Disciplina tecnica, perfezione strumentale, capacità di lavoro instancabile."},
+        {"numero": 3, "navamsa": "Tula", "descrizione": "Primo pada in Acquario: bellezza, armonia, partnership creative, arti performative collettive."},
+        {"numero": 4, "navamsa": "Vrischika", "descrizione": "Intensità trasformativa, ritmo iniziatico, capacità marziali e investigative."}
+      ],
+      "remedies": {
+        "mantra": "Om Vasubhyo Namah, Mangal beeja: Om Kram Krim Kraum Sah Bhaumaya Namah",
+        "deity": "Krishna (per il flauto), Shiva (per il damaru), Vasus",
+        "gemstone": "Corallo rosso (Praval) montato in oro o rame, indossato all'anulare destro al martedì",
+        "color": "Rosso, arancione, oro brillante",
+        "donation": "Strumenti musicali a scuole, cibo a sportivi e militari, donazioni a templi di Krishna",
+        "fast": "Martedì o durante Mangala dosha"
+      },
+      "famousFigures": [
+        "Madonna",
+        "Joseph Stalin (ombra del Vasu Bhishma — ferreo voto deviato)",
+        "Bruce Lee",
+        "Maria Callas"
+      ],
+      "citations": [
+        "BPHS: 'dhanavan, gayanapriyah' — ricco, amante del canto.",
+        "Saravali: indica abilità marziale e successo attraverso il ritmo dell'azione."
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Shatabhisha",
+      "degrees": "6°40' - 20°00' Kumbha (Acquario)",
+      "ruler": "Rahu",
+      "deity": "Varuna — signore delle acque cosmiche, dei giuramenti, della legge invisibile (rita); guardiano del cielo notturno e degli enti che operano oltre le apparenze",
+      "symbol": "Cerchio vuoto, mille fiori, mille medici. Il cerchio rappresenta il velo della maya e contemporaneamente il vuoto in cui avviene la guarigione.",
+      "myth": "Shatabhisha significa 'i cento guaritori' o 'i cento veli'. Varuna è una divinità antichissima del Rig Veda, signore delle acque profonde e del cielo stellato — il cosmo come oceano. Il mito narra che Varuna conosce ogni segreto, ogni pensiero nascosto, ogni voto pronunciato. È il giudice invisibile. I mille medici sono le facoltà occulte di guarigione che agiscono attraverso vie non convenzionali: agopuntura, omeopatia, guarigione vibrazionale, sciamanesimo. Rahu come signore aggiunge la dimensione tabu, anticonvenzionale, futurista.",
+      "shakti": "Bheshaja shakti — il potere di guarire, specialmente attraverso vie misteriose o tecnologiche. Capacità di curare ciò che la medicina ordinaria non vede.",
+      "personality": "Originale, eccentrica, indipendente, riservata. Ha un'aura di mistero. Visione sistemica delle cose, capacità di vedere connessioni tra livelli diversi della realtà. Tendenza all'isolamento volontario per ricaricarsi. Mentalmente avanzata, spesso anticipatrice di tendenze. Può essere percepita come distaccata o fredda perché abita simultaneamente il mondo umano e dimensioni più ampie.",
+      "karmicTheme": "Aprire i cento veli dell'illusione. Diventare guaritore attraverso la propria stessa ferita. Coniugare avanguardia tecnologica e saggezza ancestrale.",
+      "career": "Medico (specialmente medicina alternativa, omeopata, agopuntore), astrologo, astronomo, scienziato, ricercatore di confine, programmatore, hacker etico, ingegnere aerospaziale, ricercatore di fisica quantistica, sciamano urbano, guaritore vibrazionale, scrittore di fantascienza, futurologo.",
+      "relationships": "Bisogno di spazio enorme nella relazione. Difficoltà ad aprirsi emotivamente; spesso vive l'amore in modo non convenzionale (relazioni a distanza, poliamore, lunghi periodi di solitudine). Quando si fida è leale, ma il partner deve accettarne il mistero.",
+      "health": "Vulnerabilità: caviglie, sistema circolatorio, sistema nervoso, dipendenze (Rahu), problemi sottili che la medicina classica fatica a diagnosticare. Beneficia di terapie non ortodosse, contatto con l'acqua, isolamento periodico.",
+      "classifications": {
+        "varna": "Mleccha (oltre la casta)",
+        "gana": "Rakshasa",
+        "yoni": "Cavallo (Ashva), femminile",
+        "nadi": "Adi",
+        "tatva": "Akasha-Vayu (etere e aria) — la dimensione invisibile"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Dhanu", "descrizione": "Ricerca filosofica delle leggi nascoste, vocazione all'astrologia e alla medicina spirituale."},
+        {"numero": 2, "navamsa": "Makara", "descrizione": "Disciplina applicata al mistero, scienza rigorosa, ricerca di lungo periodo, saturnismo metodico."},
+        {"numero": 3, "navamsa": "Kumbha", "descrizione": "Vatottama (segno=navamsa): potenza massima del nakshatra. Genio innovativo, visione collettiva del futuro."},
+        {"numero": 4, "navamsa": "Meena", "descrizione": "Mistico, sognatore, capacità di guarigione spirituale, rischio di evasione e dipendenze."}
+      ],
+      "remedies": {
+        "mantra": "Om Varunaya Namah, Rahu beeja: Om Bhram Bhrim Bhraum Sah Rahave Namah",
+        "deity": "Varuna, Shiva (signore del veleno cosmico trasmutato), Rahu",
+        "gemstone": "Gomedh (giacinto) montato in argento, indossato a sinistra dopo purificazione",
+        "color": "Blu elettrico, viola, nero iridescente",
+        "donation": "Coperte azzurre, donazioni anonime a centri di ricerca medica, supporto a guaritori non convenzionali",
+        "fast": "Sabato e durante eclissi (sacre a Rahu)"
+      },
+      "famousFigures": [
+        "Albert Einstein",
+        "Nikola Tesla (per affinità simbolica con tecnologia di confine)",
+        "Mahatma Gandhi (alcune scuole lo collocano qui)",
+        "Bill Gates"
+      ],
+      "citations": [
+        "BPHS: 'rahasya-vidya rata, vaidya' — dedito alle scienze segrete, medico.",
+        "Brihat Samhita: indica vocazione alle conoscenze occulte e alla guarigione."
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Purva Bhadrapada",
+      "degrees": "20°00' Kumbha - 3°20' Meena (Acquario-Pesci)",
+      "ruler": "Brihaspati (Giove)",
+      "deity": "Aja Ekapada — il caprone a una zampa, forma feroce di Rudra/Shiva; pilastro cosmico che sostiene il cielo, fuoco ascendente della trasformazione",
+      "symbol": "Volto di un uomo a due facce, lato anteriore di un letto funebre, spada. La doppia faccia indica la natura ambivalente: santo e diavolo, ascesi e desiderio.",
+      "myth": "Aja Ekapada è una delle forme più misteriose del pantheon vedico: una colonna di fuoco verticale che collega cielo e terra, un caprone (aja = anche 'non-nato', termine per il sé eterno) a una zampa che salta tra i mondi. Rappresenta l'energia kundalini che sale dalla base della spina dorsale al cranio in un balzo. Purva Bhadrapada è chiamata 'la prima fortunata dopo il dolore' o 'i piedi anteriori del letto funebre' — la fase di fuoco purificatorio prima della morte iniziatica. Giove come signore conferisce saggezza ma anche eccesso di idealismo.",
+      "shakti": "Yajamana udyamana shakti — il potere di sollevare l'energia spirituale, di accendere il fuoco sacrificale che brucia le impurità.",
+      "personality": "Intensa, idealista, intellettualmente brillante, con una vena oscura. Capacità di vedere il lato d'ombra di ogni situazione (utile e pericoloso). Spesso ansiosa, soggetta a estremi: o asceta o edonista, raramente vie di mezzo. Eloquente, ironica, talvolta cinica. Ha un fuoco interno che la spinge a riformare il mondo o a denunciare l'ipocrisia. Tendenza all'insonnia, a pensieri notturni profondi.",
+      "karmicTheme": "Trasformare l'inquietudine in fuoco di trasformazione. Integrare le due facce (luce e ombra) senza spaccarsi. Imparare il riposo come pratica spirituale.",
+      "career": "Riformatore sociale, attivista, filosofo radicale, esoterista, mortician, terapeuta del trauma, scrittore di temi oscuri, oratore, predicatore, regista di temi forti, ricercatore alchemico, kundalini yoga teacher, cremation worker.",
+      "relationships": "Amore intenso, raramente tiepido. Tende ad attrarre o respingere fortemente. Difficoltà con la routine domestica. Cerca un partner che possa abitare con lui le profondità dell'animo. Idealizzazione seguita da disillusione: lavoro karmico sulla maturazione.",
+      "health": "Vulnerabilità: addome, fianchi, fegato (Giove), insonnia cronica, ansia, edema agli arti inferiori, problemi cardiaci da stress. Beneficia di pratiche di radicamento, fuoco sacro (havan), riduzione di stimolanti.",
+      "classifications": {
+        "varna": "Brahmana",
+        "gana": "Manushya",
+        "yoni": "Leone (Simha), maschile",
+        "nadi": "Adi",
+        "tatva": "Agni (fuoco) — fiamma verticale ascendente"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Simha", "descrizione": "Idealismo regale, vocazione di leadership riformista, oratoria infiammata."},
+        {"numero": 2, "navamsa": "Kanya", "descrizione": "Critica acuta, capacità analitica al servizio della riforma, attenzione ai dettagli del cambiamento."},
+        {"numero": 3, "navamsa": "Tula", "descrizione": "Diplomazia paradossale: idealismo unito a senso dell'equilibrio. Vocazione legale o filosofica."},
+        {"numero": 4, "navamsa": "Vrischika", "descrizione": "Primo pada in Pesci: misticismo intenso, ricerca occulta, trasformazione attraverso il dolore. Pada potente ma duro."}
+      ],
+      "remedies": {
+        "mantra": "Om Aja Ekapadaya Namah, Brihaspati beeja: Om Gram Grim Graum Sah Gurave Namah",
+        "deity": "Rudra/Shiva nella forma di Aja Ekapada, Brihaspati, Hanuman (per la kundalini)",
+        "gemstone": "Topazio giallo (Pukhraj) montato in oro, indossato all'indice destro al giovedì",
+        "color": "Giallo zafferano, viola scuro, marrone tabacco",
+        "donation": "Curcuma, libri filosofici, supporto a riformatori sociali, donazioni a hospice",
+        "fast": "Giovedì o Maha Shivaratri"
+      },
+      "famousFigures": [
+        "Charles Bukowski",
+        "Sigmund Freud",
+        "Vladimir Putin (Sole in Purva Bhadrapada secondo alcune scuole)",
+        "Jiddu Krishnamurti"
+      ],
+      "citations": [
+        "BPHS: 'krura-karma rata' — talvolta dedito a opere severe, ma con intento purificatorio.",
+        "Saravali: indica eloquenza ma irrequietezza emotiva."
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Uttara Bhadrapada",
+      "degrees": "3°20' - 16°40' Meena (Pesci)",
+      "ruler": "Shani (Saturno)",
+      "deity": "Ahir Budhnya — il serpente delle profondità abissali, kundalini cosmica addormentata sul fondo dell'oceano, custode del tesoro spirituale nascosto sotto le acque",
+      "symbol": "Lato posteriore di un letto funebre, serpente d'acqua, gemelli. Il serpente acquatico è la saggezza che dorme nel profondo dell'inconscio collettivo.",
+      "myth": "Uttara Bhadrapada è 'la successiva fortunata dopo il dolore' — completa la trasformazione iniziata in Purva. Ahir Budhnya è il serpente che dorme avvolto su sé stesso negli abissi cosmici, complementare a Shesha-Ananta su cui riposa Vishnu. Rappresenta la profondità infinita dell'inconscio, la saggezza ancestrale, il tesoro che si raggiunge solo immergendosi. Saturno come signore conferisce pazienza, profondità, capacità di sostenere lunghi processi interiori. È un nakshatra di mistici nascosti, di saggi che operano dietro le quinte.",
+      "shakti": "Varshodyamana shakti — il potere di portare la pioggia, di benedire la terra con grazia che scende dall'alto. Apportatore di prosperità sottile.",
+      "personality": "Profonda, riservata, saggia, calma. Ha un'aura di solidità antica anche da giovane. Mente lenta ma robusta: pensa molto prima di parlare, ma quando parla è sostanza. Tendenza all'introspezione, al sogno significativo, alla solitudine creativa. Compassionevole ma non sentimentale: aiuta dalla profondità, non dalla pelle. Spesso ha vite interiori ricche e mondi esteriori discreti.",
+      "karmicTheme": "Risvegliare il serpente assopito senza esserne sopraffatti. Trasmutare l'inerzia depressiva in contemplazione attiva. Diventare custode della saggezza profonda.",
+      "career": "Mistico, monaco, scrittore introspettivo, psicoanalista, terapeuta junghiano, ricercatore della tradizione, monaco-imprenditore, archeologo dell'anima, sognatore lucido, ipnoterapeuta, oceanografo, ricercatore di confine, saggio dietro le quinte di organizzazioni.",
+      "relationships": "Amore profondo, lento, duraturo. Una volta che si lega, si lega per la vita. Difficoltà a esprimere a parole l'intensità che sente. Bisogno di un partner che sappia abitare il silenzio. Saggia ma anche distante: rischio di non condividere abbastanza.",
+      "health": "Vulnerabilità: piedi, sistema linfatico, depressione, problemi al fegato, edemi. Tendenza a internalizzare lo stress. Beneficia di nuoto, idroterapia, sogno terapeutico, lavoro junghiano sull'ombra.",
+      "classifications": {
+        "varna": "Kshatriya",
+        "gana": "Manushya",
+        "yoni": "Mucca (Gau), femminile — yoni sacra associata a Lakshmi e Kamadhenu",
+        "nadi": "Madhya",
+        "tatva": "Akasha (etere) dentro Jala (acqua) — il vuoto luminoso negli abissi"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Mesha", "descrizione": "Saggezza che si traduce in azione coraggiosa, mistica guerriera, capacità di iniziare grandi processi."},
+        {"numero": 2, "navamsa": "Vrishabha", "descrizione": "Stabilità contemplativa, voce profonda, capacità di radicare la saggezza nel materiale. Pada molto fertile."},
+        {"numero": 3, "navamsa": "Mithuna", "descrizione": "Comunicazione del profondo, vocazione di scrittore o oratore mistico, ponte tra mondi."},
+        {"numero": 4, "navamsa": "Karka", "descrizione": "Pushkara navamsa: massima compassione, sensibilità maternale, vocazione terapeutica e spirituale. Pada altamente benefico."}
+      ],
+      "remedies": {
+        "mantra": "Om Ahirbudhnyaya Namah, Shani beeja: Om Pram Prim Praum Sah Shanaye Namah, Vishnu Sahasranama",
+        "deity": "Ahir Budhnya, Vishnu addormentato su Shesha, Shani",
+        "gemstone": "Zaffiro blu (Neelam) montato in acciaio o oro bianco, indossato al medio destro al sabato (con cautela e dopo test)",
+        "color": "Indaco, blu profondo, viola scuro, nero",
+        "donation": "Olio di sesamo, scarpe, ferro nero, supporto a anziani e monaci",
+        "fast": "Sabato"
+      },
+      "famousFigures": [
+        "Jean-Paul Sartre",
+        "Ramana Maharshi",
+        "Ingmar Bergman",
+        "Carl Gustav Jung"
+      ],
+      "citations": [
+        "BPHS: 'gambhira-buddhi, dharma-tatpara' — di intelletto profondo, dedito al dharma.",
+        "Phaladeepika: indica saggezza nascosta e fortuna che matura tardi."
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Revati",
+      "degrees": "16°40' - 30°00' Meena (Pesci)",
+      "ruler": "Budha (Mercurio)",
+      "deity": "Pushan — il pastore divino, guida delle anime; nutritore di mandrie, viandanti, viaggiatori dell'aldilà; conduce i defunti alla loro destinazione finale",
+      "symbol": "Pesce, tamburo di pelle, viaggio. Il pesce nuota nell'oceano cosmico, il tamburo scandisce il viaggio finale.",
+      "myth": "Revati è l'ultimo dei 27 nakshatra: completa il ciclo zodiacale e prepara il successivo. Significa 'la ricca' o 'la prospera', e indica abbondanza spirituale finale, la pienezza che precede la dissoluzione e la rinascita. Pushan è il dio meno noto ma cruciale: nutre, protegge, guida. È il pastore che non perde nemmeno una pecora, il dio dei crocevia, dei pellegrini, dei viaggi senza ritorno. Si racconta che quando un'anima lascia il corpo, è Pushan ad accompagnarla nei reami sottili. Mercurio come signore dona intelligenza fluida, comunicazione, capacità di adattamento.",
+      "shakti": "Kshiradyapani shakti — il potere di nutrire come il latte materno, di dare nutrimento simbolico e fisico, di accompagnare con dolcezza la transizione.",
+      "personality": "Dolce, gentile, sognatrice, compassionevole, amante degli animali e dei bambini. Ha un'aura di purezza infantile anche in età avanzata. Intelligenza fluida, multitasking naturale, sensibilità artistica. Tendenza all'idealismo, talvolta all'ingenuità. Difficoltà a porre limiti — assorbe le emozioni altrui come una spugna. Vocazione spirituale spesso esplicita: medita, prega, sente. Senso di completamento di un ciclo: chi nasce qui sembra concludere qualcosa di antico.",
+      "karmicTheme": "Completare il viaggio dell'anima con grazia. Imparare a porre limiti senza perdere compassione. Diventare ponte tra dimensioni.",
+      "career": "Insegnante di bambini, veterinario, infermiere, hospice worker, terapeuta di fine vita, psicopompo (figura simbolica: chi accompagna nei passaggi), artista visionario, illustratore, scrittore per l'infanzia, monaco, sacerdote, ostetrica, viaggiatore-scrittore, pellegrino professionale, guide turistiche spirituali.",
+      "relationships": "Amore tenero, romantico, idealizzato. Bisogno di un partner protettivo perché tende a fidarsi troppo. Vulnerabile alla delusione amorosa. Quando ama, ama in modo totale, devozionale. Possibili amori a distanza, lunghe attese, amori che attraversano vite. Maternità/paternità sentite come vocazione sacra.",
+      "health": "Vulnerabilità: piedi (specialmente nei punti di gandanta), sistema immunitario, allergie, sensibilità ai farmaci, problemi linfatici. Tendenza a somatizzare le emozioni altrui. Beneficia di confini energetici, contatto con animali, acqua di mare, pellegrinaggi.",
+      "classifications": {
+        "varna": "Shudra",
+        "gana": "Deva",
+        "yoni": "Elefante (Gaja), femminile — yoni sacra di Ganesha, associata a saggezza e memoria ancestrale",
+        "nadi": "Antya",
+        "tatva": "Jala (acqua) nella sua massima espressione — l'oceano del ritorno"
+      },
+      "padas": [
+        {"numero": 1, "navamsa": "Simha", "descrizione": "Devozione regale, leadership compassionevole, vocazione artistica visibile."},
+        {"numero": 2, "navamsa": "Kanya", "descrizione": "Servizio puro, vocazione infermieristica o pedagogica, attenzione devota al dettaglio."},
+        {"numero": 3, "navamsa": "Tula", "descrizione": "Bellezza, armonia, arti relazionali, capacità di mediazione spirituale tra persone."},
+        {"numero": 4, "navamsa": "Meena", "descrizione": "Vargottama (segno=navamsa) e Pushkara: pada finale di tutto lo zodiaco, massima espressione mistica. Punto Gandanta — soglia tra fine e inizio. Anime molto antiche, vicinanza alla liberazione (moksha)."}
+      ],
+      "remedies": {
+        "mantra": "Om Pushne Namah, Budha beeja: Om Bram Brim Braum Sah Budhaya Namah, Vishnu Sahasranama",
+        "deity": "Pushan, Vishnu nella forma di Matsya (pesce), Saraswati",
+        "gemstone": "Smeraldo (Panna) montato in oro, indossato al mignolo destro al mercoledì",
+        "color": "Verde smeraldo, blu marino, bianco perla",
+        "donation": "Cibo per animali (specialmente pesci e mucche), donazioni a hospice e ospedali pediatrici, supporto a scuole rurali",
+        "fast": "Mercoledì o Ekadashi"
+      },
+      "famousFigures": [
+        "Albert Einstein (alcune fonti collocano la Luna qui)",
+        "Walt Disney",
+        "Madre Teresa di Calcutta",
+        "Sri Ramakrishna Paramahansa"
+      ],
+      "citations": [
+        "BPHS: 'saumya, daya-yukta, sarva-priya' — gentile, dotato di compassione, amato da tutti.",
+        "Brihat Samhita 98.7: indica viaggi, pellegrinaggi e completamento di cicli karmici.",
+        "Atharva Veda — Pushan è invocato come 'guida nei viaggi e protettore delle vie'."
+      ]
+    }
+  ]
+}

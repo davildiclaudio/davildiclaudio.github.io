@@ -1,0 +1,578 @@
+{
+  "_meta": {
+    "sezione": "Nakshatra 10-18 (Magha → Jyeshtha)",
+    "lingua": "italiano",
+    "tradizione": "Jyotish vedico classico — fonti: Brihat Parashara Hora Shastra, Brihat Samhita di Varahamihira, Saravali di Kalyana Varma, Phaladeepika di Mantreswara, Hora Sara, Jaimini Sutras, Krishnamurti Paddhati",
+    "densita": "alta — 400-500 parole per Nakshatra",
+    "note": "I gradi sono espressi nel sistema sayana del cerchio zodiacale in 27 archi di 13°20'. Ogni Nakshatra è suddiviso in 4 pada di 3°20' che corrispondono a un Navamsha specifico."
+  },
+  "nakshatra": [
+    {
+      "id": 10,
+      "name": "Magha",
+      "degrees": "0°00' - 13°20' Simha (Leone)",
+      "ruler": "Ketu",
+      "deity": "Pitris (gli antenati divinizzati, custodi del lignaggio karmico)",
+      "symbol": "Trono regale, palanchino reale, sala del trono",
+      "myth": "Magha è il regno dei Pitris, gli spiriti ancestrali che dimorano nel Pitri-loka. Nei Veda i Pitris sono i primi padri, coloro che hanno aperto il sentiero della morte e ora benedicono i discendenti che onorano la stirpe attraverso lo Shraddha. La leggenda di Yama, primo mortale e signore degli antenati, abita questa Nakshatra: chi nasce qui porta nel sangue il peso e la gloria del lignaggio. Il regno di Magha è quello in cui Indra siede sul trono dopo aver ricevuto la corona dai padri celesti, ma anche quello in cui il karma familiare bussa alla porta della carne.",
+      "shakti": "Tyaga kshepani shakti — il potere di abbandonare il corpo e lasciare un'eredità. È la forza che permette di trasmettere ai posteri ciò che si è stati, e di liberarsi delle catene del passato attraverso il riconoscimento.",
+      "personality": "Aristocratici nell'anima, i Magha portano una dignità innata che non si apprende ma si eredita. Sono spesso seri, formali, attenti alle gerarchie e ai protocolli; amano la tradizione, il decoro, gli emblemi. Hanno un senso quasi sacrale della responsabilità verso famiglia e stirpe. Possono sembrare distanti o orgogliosi, ma sotto la maschera regale custodiscono una profonda lealtà. Sentono spesso il peso di antenati irrisolti — sogni di morti, déjà-vu, vocazione a riparare ferite ancestrali. Il loro carisma è solenne, mai gridato.",
+      "karmicTheme": "Riconciliare il lignaggio. Magha porta in dote i debiti e le grazie degli avi: chi nasce qui è chiamato a redimere ciò che la stirpe non ha completato e a trasformare l'eredità ricevuta in un atto di servizio. La trappola è l'orgoglio sterile, l'identificazione con un trono che non si è meritato; il varco è l'umiltà del re che serve il regno e onora i padri.",
+      "career": "Magistratura, politica, dirigenza, archeologia, genealogia, storia, antropologia, gestione patrimoniale, hospitality di alta gamma, regie cerimoniali, nobiltà filantropica, professioni legate al funerario o alla memoria (musei, archivi, restauro). Eccelle dove serve gravitas e rappresentanza.",
+      "relationships": "In coppia cerca un partner che riconosca il suo rango interiore e con cui costruire una casa-tempio. Tende a riprodurre dinamiche familiari ereditate; il lavoro di coppia è spesso quello di sciogliere copioni transgenerazionali. Padre o madre presente come figura cardinale.",
+      "health": "Punti deboli: cuore, colonna vertebrale alta, milza. Il cuore è metafora oltre che organo: stress da responsabilità e orgoglio ferito si scaricano lì. Beneficia di pranayama dolce, camminate al sole nascente, dieta sattvica con ghee.",
+      "classifications": {
+        "varna": "Kshatriya",
+        "gana": "Rakshasa",
+        "yoni": "Mushaka (topo) — maschile",
+        "nadi": "Antya"
+      },
+      "tatva": "Acqua (Jala)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (Leone)",
+          "descrizione": "Pada di pura regalità solare: orgoglio luminoso, ambizione di guidare, forte identificazione con il padre o con figure paterne archetipiche. Rischio di arroganza."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (Vergine)",
+          "descrizione": "Il re che serve. Ambizione canalizzata in disciplina, dovere, perfezionismo al servizio del lignaggio. Spesso amministratori, ricercatori, eredi che lavorano sodo."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (Bilancia)",
+          "descrizione": "Eleganza, diplomazia, rapporto profondo con cultura e arti. Cerca alleanze nobili. Buoni mediatori, curatori, giudici."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (Scorpione)",
+          "descrizione": "Pada più intenso e karmico: emersione di traumi familiari, vocazione iniziatica, magnetismo oscuro. Qui il lavoro sui Pitris diventa esplicito."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Pitribhyo Namah / Om Ketave Namah — 108 ripetizioni durante l'amavasya (luna nuova)",
+        "deity": "Pitris, Ganesha (per sciogliere blocchi ancestrali), Yama",
+        "gemstone": "Occhio di gatto (cymophane) montato in argento, indossato all'anulare destro dopo purificazione lunare",
+        "color": "Avorio, marrone scuro, bordeaux",
+        "donation": "Riso bianco, sesamo nero, coperte ai vecchi, contributi a ospizi, restauri di tombe di famiglia",
+        "fast": "Amavasya (luna nuova), specialmente Mahalaya Amavasya. Pratica dello Shraddha rituale annuale."
+      },
+      "famousFigures": [
+        "John F. Kennedy (Luna in Magha)",
+        "Madonna",
+        "Bill Clinton",
+        "Osho (asc. Magha secondo alcune scuole)"
+      ],
+      "citations": [
+        "Brihat Samhita XCVIII — sui Pitris come governatori di Magha",
+        "Phaladeepika III.6 — sulla regalità karmica del nakshatra",
+        "Hora Sara — sulle indicazioni professionali"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Purva Phalguni",
+      "degrees": "13°20' - 26°40' Simha (Leone)",
+      "ruler": "Shukra (Venere)",
+      "deity": "Bhaga, l'aditya della prosperità, della felicità coniugale e della fortuna",
+      "symbol": "Le gambe anteriori di un letto matrimoniale, amaca, fico (palco)",
+      "myth": "Bhaga è uno dei dodici Aditya, figli di Aditi, e presiede alla buona sorte, all'eredità, alla dolcezza dei beni condivisi nel talamo nuziale. Il mito vedico narra che Shiva, nel furore del sacrificio di Daksha, accecò Bhaga, il quale da allora vede attraverso lo sguardo degli altri: per questo Purva Phalguni rende fortunati attraverso le relazioni e i compagni. Il letto matrimoniale come simbolo è il luogo della creazione, del piacere, del riposo dopo l'opera del giorno.",
+      "shakti": "Prajanana shakti — il potere della procreazione, della creatività generativa, del concepire (figli, opere d'arte, idee).",
+      "personality": "Nati per il piacere e la celebrazione, i Purva Phalguni sono carismatici, calorosi, generosi, naturalmente teatrali. Amano il bello, il lusso accessibile, le feste, la moda, il cibo raffinato. Magnetici nelle relazioni, sanno far sentire speciale chi li circonda. Tendono al riposo e all'auto-indulgenza; il loro talento è trasformare l'ozio in arte. Cuore grande, vanità leggera, gusto innato per il design e la bellezza. Sotto il sole leonino brilla la dolcezza venusiana.",
+      "karmicTheme": "Imparare la gioia matura. Il dono è la capacità di godere; la trappola è la pigrizia, il narcisismo estetico, l'addiction al piacere. Il varco è creare bellezza che benefici la comunità, trasformare il talamo in altare e il piacere in offerta.",
+      "career": "Spettacolo, moda, cosmetica, design, hospitality di lusso, wedding planning, ristorazione, arti performative, musica, eventi, intrattenimento, public relations, sessuologia, terapia di coppia.",
+      "relationships": "Cuore caldo, romantico, sensuale. La coppia è centro vitale: cerca un partner bello, generoso, che condivida il gusto per la dolce vita. Possibili sfide su gelosia o tradimento, ma fondo profondamente affettuoso. Bravissimi genitori giocosi.",
+      "health": "Zone delicate: schiena bassa, organi riproduttivi, gola. Tendenza a eccessi alimentari e zuccheri. Beneficia di danza, yoga sensuale, terapia con oli aromatici.",
+      "classifications": {
+        "varna": "Brahmana",
+        "gana": "Manushya",
+        "yoni": "Mushaka (topo) — femminile",
+        "nadi": "Madhya"
+      },
+      "tatva": "Acqua (Jala)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (Sagittario)",
+          "descrizione": "Espansione gioiosa, viaggi, filosofia leggera del piacere. Insegnanti carismatici, oratori, performer."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (Capricorno)",
+          "descrizione": "Piacere strutturato in business: industrie del lusso, brand di moda, imprenditoria della bellezza."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (Acquario)",
+          "descrizione": "Bellezza non convenzionale, arte d'avanguardia, comunità creative, scena alternativa, design innovativo."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (Pesci)",
+          "descrizione": "Il pada più mistico-romantico: musica, poesia, sensualità sognante, idealismo amoroso, talvolta dipendenze."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Bhagaya Namah / Om Shukraya Namah — 108 al venerdì all'alba",
+        "deity": "Bhaga, Lakshmi, Radha-Krishna",
+        "gemstone": "Diamante o zircone bianco, montato in oro, indossato all'anulare o al medio destro",
+        "color": "Rosa antico, oro chiaro, bianco perla",
+        "donation": "Vesti femminili, dolci di latte, fiori bianchi a giovani spose, sostegno ad artisti",
+        "fast": "Venerdì dedicato a Lakshmi"
+      },
+      "famousFigures": [
+        "Steve Jobs",
+        "Marilyn Monroe (cluster venusiano)",
+        "Whitney Houston",
+        "Prince"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra — sezione nakshatra phala",
+        "Saravali XII — su Shukra come signore",
+        "Brihat Samhita — Bhaga come Aditya"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Uttara Phalguni",
+      "degrees": "26°40' Simha - 10°00' Kanya (Leone-Vergine)",
+      "ruler": "Surya (Sole)",
+      "deity": "Aryaman, l'aditya dei contratti, dell'amicizia nobile e dell'ospitalità",
+      "symbol": "Le gambe posteriori del letto matrimoniale, amaca a quattro pali, mani giunte in patto",
+      "myth": "Aryaman, fratello di Bhaga e Mitra, presiede ai legami sacri: amicizia, alleanze, ospitalità. È il custode del Via Lattea (Aryamapatha) e degli antenati nel sentiero solare. Mentre Purva Phalguni è la prima notte di nozze, Uttara è il giorno dopo: gli accordi sociali, i contratti, la condivisione del pane. Il mito di Aryaman è il mito dell'ospite divino: chi accoglie un ospite accoglie un dio.",
+      "shakti": "Chayani shakti — il potere di accumulare ricchezza attraverso l'unione e il patto. È la forza che cementa contratti, eredità, accordi che durano.",
+      "personality": "Nobili, affidabili, gentili, leali fino al midollo. Ottimi amici, professionisti integri, persone di parola. Amano l'ordine, la giustizia equa, la cortesia. Hanno una compassione attiva: aiutano concretamente chi è in difficoltà. Talvolta troppo generosi, possono lasciarsi sfruttare. Conservatori illuminati, custodiscono valori senza fanatismo. Charme solare e affidabilità terrigna in un sol corpo.",
+      "karmicTheme": "Trasformare l'ego in patto. Imparare il servizio nella reciprocità: dare senza svuotarsi, ricevere senza vergogna. Il varco è la generosità saggia; la trappola è il salvatore esausto.",
+      "career": "Diritto, notariato, consulenza, mediazione, diplomazia, banca etica, hospitality di alto livello, wedding business, settore matrimoniale e patrimoniale, ONG, charity di prestigio, consulenza familiare, giudice, mentore.",
+      "relationships": "Matrimonio come contratto sacro: fedele, presente, dedito. Cerca partner che rispetti gli accordi e condivida valori. Ottimo genitore strutturato.",
+      "health": "Intestino, sistema digerente (zona Vergine), cuore, occhi (zona Sole). Pulizia alimentare e routine sono medicine.",
+      "classifications": {
+        "varna": "Kshatriya",
+        "gana": "Manushya",
+        "yoni": "Govrisha (toro) — maschile",
+        "nadi": "Adi"
+      },
+      "tatva": "Fuoco (Agni)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (Leone)",
+          "descrizione": "Leadership generosa, paternalismo benevolo, figure che organizzano comunità."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (Vergine)",
+          "descrizione": "Pada più Vergine: precisione, servizio, professionisti scrupolosi, medici, contabili."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (Bilancia)",
+          "descrizione": "Diplomazia, contratti, alleanze, vita sociale ricca, mediatori naturali."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (Scorpione)",
+          "descrizione": "Patti scritti col sangue: investigatori, avvocati penali, manager di crisi."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Aryamne Namah / Om Suryaya Namah — 108 alla domenica all'alba rivolti al sole",
+        "deity": "Aryaman, Surya, Vishnu",
+        "gemstone": "Rubino in oro, anulare destro, lunedì all'alba",
+        "color": "Oro, arancio caldo, bianco crema",
+        "donation": "Grano, ghee, ramati al tempio, abiti rossi a brahmana, sostegno a coppie sposate",
+        "fast": "Domenica dedicata a Surya, Sankashti Chaturthi"
+      },
+      "famousFigures": [
+        "Gandhi (Sole in Uttara Phalguni)",
+        "Diana Spencer",
+        "Kim Kardashian",
+        "Bruce Lee"
+      ],
+      "citations": [
+        "Brihat Samhita XCVIII",
+        "Phaladeepika sui nakshatra solari",
+        "Rig Veda VII.38 — inni ad Aryaman"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Hasta",
+      "degrees": "10°00' - 23°20' Kanya (Vergine)",
+      "ruler": "Chandra (Luna)",
+      "deity": "Savitar, l'aspetto luminoso e creatore del Sole, colui che impartisce energia all'alba",
+      "symbol": "Mano aperta, palmo, pugno chiuso, cinque dita",
+      "myth": "Savitar è il dio che ispira il movimento, il Sole prima del sorgere, la luce che dà inizio all'azione. La mano è l'organo del fare: nelle cinque dita risiedono i cinque elementi, e nella destrezza il riflesso della saggezza. Il celebre Gayatri Mantra è dedicato a Savitar: 'che la sua luce illumini la nostra mente'. Hasta è la nakshatra dell'artigiano divino, del medico-mago, del guaritore che impone le mani.",
+      "shakti": "Hasta sthapaniya agama shakti — il potere di mettere ciò che si cerca nelle proprie mani. Manifestazione concreta dei desideri.",
+      "personality": "Abili, intelligenti, dotati di humor sottile e mente affilata. Hanno mani magiche: artigiani, chirurghi, massaggiatori, musicisti, illusionisti. Amano la precisione, la pulizia, l'ordine elegante. Sanno cogliere i dettagli ma anche scherzare con leggerezza. Possono essere critici, sarcastici, ipocondriaci se sotto stress. Praticità lunare in chiave Vergine: nutrono attraverso il fare bene.",
+      "karmicTheme": "Manifestare con purezza. Le mani hanno potere, e con il potere viene la responsabilità: usare il talento per servire, non per manipolare. Il varco è la grazia tecnica al servizio della guarigione; la trappola è il prestidigitatore disonesto, il chirurgo arrogante.",
+      "career": "Medicina (specialmente chirurgia, dermatologia, fisioterapia), artigianato di precisione, orologeria, scrittura, illusionismo, palmistria, astrologia, agricoltura biologica, guarigione energetica, massaggio, terapie manuali, programmazione, scultura.",
+      "relationships": "Affetto pratico più che romantico: dimostra amore attraverso il fare. Cerca partner intelligente, comunicativo, ordinato. Bravi genitori-mentori.",
+      "health": "Mani e polsi (tunnel carpale), intestino, sistema nervoso. Tendenze a ipocondria e ansia. Beneficia di hatha yoga, mudra, lavoro manuale meditativo.",
+      "classifications": {
+        "varna": "Vaishya",
+        "gana": "Deva",
+        "yoni": "Mahisha (bufalo) — femminile",
+        "nadi": "Antya"
+      },
+      "tatva": "Fuoco (Agni)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (Sagittario)",
+          "descrizione": "Filosofo-artigiano, insegnante pratico, viaggiatore curioso. Ottimo per editoria e divulgazione."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (Capricorno)",
+          "descrizione": "Pada del professionista preciso: imprenditori artigiani, chirurghi, contabili eccellenti."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (Acquario)",
+          "descrizione": "Innovatori, programmatori, inventori, terapeuti di nuove modalità."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (Pesci)",
+          "descrizione": "Pada più mistico: guaritori energetici, massaggiatori intuitivi, artisti spirituali."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Savitre Namah / Gayatri Mantra completo — 108 all'alba",
+        "deity": "Savitar, Surya, Hanuman",
+        "gemstone": "Perla o pietra di luna in argento, mignolo o anulare, lunedì sera",
+        "color": "Verde foglia, bianco panna, giallo chiaro",
+        "donation": "Strumenti artigianali a giovani lavoratori, libri di medicina, massaggi gratuiti, aiuto a guaritori",
+        "fast": "Lunedì, Pradosha"
+      },
+      "famousFigures": [
+        "Mahatma Gandhi (Luna in Hasta)",
+        "Charlie Chaplin",
+        "Bill Gates",
+        "Robin Williams"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra — capitolo nakshatra",
+        "Rig Veda III.62.10 — Gayatri",
+        "Saravali XII"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Chitra",
+      "degrees": "23°20' Kanya - 6°40' Tula (Vergine-Bilancia)",
+      "ruler": "Mangala (Marte)",
+      "deity": "Vishwakarma / Tvashtar, l'architetto divino, artefice cosmico, costruttore degli dei",
+      "symbol": "Perla luminosa, gioiello, mosaico, palazzo splendente",
+      "myth": "Vishwakarma è l'architetto del cosmo: ha forgiato il vajra di Indra, il tridente di Shiva, il chakra di Vishnu, e ha costruito le città degli dei (Lanka d'oro, Dwaraka, Indraprastha). Ogni forma manifesta porta la sua firma. Chitra significa 'brillante, variopinto, sgargiante' — è la nakshatra del design cosmico, del gioiello che cattura la luce, dell'opera d'arte vivente. Tvashtar, suo aspetto, è il padre di Vritra e di Saranyu, custode delle forme.",
+      "shakti": "Punya chayani shakti — il potere di accumulare meriti attraverso opere belle e durevoli.",
+      "personality": "Magnetici, scenografici, amanti dell'apparire al meglio. Cura del corpo, dello stile, della scena. Hanno gusto raffinato, occhio fotografico, capacità di creare ambienti seducenti. Possono essere vanitosi, competitivi, ossessionati dall'estetica. Sotto la lucentezza, però, c'è un'intelligenza creativa rara: sanno comporre il caos in forma. Marziali nella spinta, venusiani nel risultato (se Tula).",
+      "karmicTheme": "Bellezza come servizio o come trappola. Imparare a creare forme che elevino, non a costruire palazzi vuoti per il proprio orgoglio. Il varco è l'arte sacra; la trappola, la superficialità ostentata.",
+      "career": "Architettura, interior design, gioielleria, fashion, fotografia, regia, cinema, computer grafica, urbanistica, produzione di gemme, artigianato di lusso, scenografia, branding visivo, makeup, chirurgia estetica.",
+      "relationships": "Attrae partner belli, amanti dell'estetica condivisa. Tendenza a innamorarsi della superficie; cresce quando scopre l'anima sotto la forma.",
+      "health": "Reni e basso ventre (zona Bilancia), zona pelvica, sangue, ferite chirurgiche. Marte può portare febbri o incidenti. Beneficia di sport equilibrati, dieta pura.",
+      "classifications": {
+        "varna": "Mleccha (al di fuori delle caste, artigiano divino)",
+        "gana": "Rakshasa",
+        "yoni": "Vyaghra (tigre) — femminile",
+        "nadi": "Madhya"
+      },
+      "tatva": "Fuoco (Agni)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (Leone)",
+          "descrizione": "Bellezza regale, designer di lusso, creatori di brand iconici."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (Vergine)",
+          "descrizione": "Artigianato di precisione: orafi, restauratori, miniaturisti, tecnici delle forme."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (Bilancia)",
+          "descrizione": "Pada più armonico: design d'interni, moda, art direction, fotografia di scena."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (Scorpione)",
+          "descrizione": "Bellezza intensa, dark, sensuale: tatuaggi, body modification, fotografia provocatoria, chirurgia estetica."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Vishwakarmane Namah / Om Bhaumaya Namah — 108 al martedì",
+        "deity": "Vishwakarma, Hanuman, Subrahmanya",
+        "gemstone": "Corallo rosso in oro, anulare destro",
+        "color": "Rosso ciliegia, oro brillante, nero lucido",
+        "donation": "Strumenti agli artigiani, lampade rosse al tempio, restauri di edifici sacri",
+        "fast": "Martedì, Vishwakarma Puja (17 settembre)"
+      },
+      "famousFigures": [
+        "Steven Spielberg",
+        "Beyoncé",
+        "Frank Lloyd Wright (architetto archetipo)",
+        "Salvador Dalì"
+      ],
+      "citations": [
+        "Brihat Samhita — Vishwakarma come architetto",
+        "Mahabharata, Adi Parva — origini di Tvashtar",
+        "Phaladeepika III.7"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Swati",
+      "degrees": "6°40' - 20°00' Tula (Bilancia)",
+      "ruler": "Rahu",
+      "deity": "Vayu, dio del vento, signore del prana, padre di Hanuman e Bhima",
+      "symbol": "Germoglio mosso dal vento, corallo, lama curva, spada",
+      "myth": "Vayu è il respiro del mondo: invisibile, ovunque, indispensabile. Padre di Hanuman (la devozione che vola) e di Bhima (la forza), Vayu è ciò che muove senza essere visto. Swati significa 'indipendente, autonomo': come il vento, chi nasce qui non si lega facilmente. Una leggenda narra che le perle nascono da gocce di pioggia cadute durante il transito della Luna in Swati: la rarità della perla riflette la rarità di chi sa essere libero senza diventare freddo.",
+      "shakti": "Pradhvamsa shakti — il potere di disperdere, di scattering, di muovere via ciò che non serve. Il vento che pulisce.",
+      "personality": "Indipendenti fino al midollo, diplomatici, curiosi, inquieti. Hanno bisogno di spazio, di nuove idee, di mobilità. Affabili e socievoli ma riservati nel profondo. Spesso autodidatti, viaggiatori, imprenditori solitari. Sanno mediare e legare, ma non si lasciano legare. Possono apparire mutevoli, indecisi (Rahu in Bilancia genera oscillazioni); maturando trovano un loro centro mobile. Tipici espatriati, nomadi digitali, guru di idee fresche.",
+      "karmicTheme": "Libertà autentica. Il dono è l'autonomia; la trappola è la fuga, il rifiuto dell'impegno, l'instabilità. Il varco è imparare a restare quando serve, e a partire quando occorre, con discernimento.",
+      "career": "Commercio internazionale, import-export, aviazione, energie rinnovabili (vento), business indipendente, tech, startup, yoga e pranayama, meditazione, diplomazia, mediazione, consulenza freelance, cripto, trading.",
+      "relationships": "Allergico al possesso. Cerca partner che rispetti la sua libertà. In coppia matura impara la fedeltà come scelta consapevole, non come gabbia.",
+      "health": "Apparato respiratorio (Vayu), reni (Bilancia), sistema nervoso, ansia. Beneficia enormemente di pranayama, camminate all'aperto, viaggi.",
+      "classifications": {
+        "varna": "Shudra (in alcune scuole Vaishya)",
+        "gana": "Deva",
+        "yoni": "Mahisha (bufalo) — maschile",
+        "nadi": "Antya"
+      },
+      "tatva": "Fuoco (Agni)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (Sagittario)",
+          "descrizione": "Espansione filosofica, viaggi, insegnamenti, scoperte interculturali."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (Capricorno)",
+          "descrizione": "Imprenditori indipendenti, business mobili, pada del self-made man."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (Acquario)",
+          "descrizione": "Pada più Rahu: tecnologia, social, idee disruptive, comunità globali."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (Pesci)",
+          "descrizione": "Mistica del vento: yogi del pranayama, musicisti del fiato, artisti errabondi."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Vayave Namah / Om Rahave Namah — 108 al sabato sera",
+        "deity": "Vayu, Hanuman, Saraswati",
+        "gemstone": "Gomedha (granato hessonite) in argento, medio destro",
+        "color": "Nero, blu fumo, marrone scuro",
+        "donation": "Coperte ai viandanti, sostegno a rifugiati, fagioli neri, oli da pranayama",
+        "fast": "Sabato, durante eclissi (per Rahu)"
+      },
+      "famousFigures": [
+        "Mahatma Gandhi (Asc. Swati per alcuni)",
+        "Steve Jobs (Asc.)",
+        "Mark Zuckerberg",
+        "Akshay Kumar"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra — Rahu nakshatra",
+        "Atharva Veda — inni a Vayu",
+        "Saravali su Rahu"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Vishakha",
+      "degrees": "20°00' Tula - 3°20' Vrischika (Bilancia-Scorpione)",
+      "ruler": "Brihaspati (Giove)",
+      "deity": "Indragni — coppia divina di Indra (re degli dei) e Agni (fuoco sacrificale)",
+      "symbol": "Albero biforcuto, arco di trionfo, torchio, vasaio al lavoro",
+      "myth": "Indragni rappresenta l'unione delle polarità: potere e fuoco, cielo e altare, azione e trasformazione. Vishakha significa 'a due rami': è la nakshatra della scelta cruciale, della determinazione che non si ferma. La leggenda di Indra che riconquista il trono dopo l'esilio è il copione di Vishakha: cadere, riprendersi, vincere. Agni come fuoco rituale è la determinazione che brucia gli ostacoli.",
+      "shakti": "Vyapani shakti — il potere di raggiungere molteplici fini, di espandersi su più fronti contemporaneamente.",
+      "personality": "Determinati, ambiziosi, orientati allo scopo. Non mollano. Hanno spesso una doppia natura: socievoli e solitari, idealisti e calcolatori. Visione strategica, capacità di sacrificare il presente per il futuro. Possono essere ossessivi, gelosi, impazienti. Quando trovano la causa giusta sono forze inarrestabili. Carismatici, persuasivi, leader spirituali o politici naturali.",
+      "karmicTheme": "Determinazione consacrata. Il dono è la perseveranza; la trappola è l'ambizione cieca, l'invidia, la frustrazione del 'non ancora'. Il varco è offrire la vittoria al divino e celebrare i progressi.",
+      "career": "Imprenditoria, politica, attivismo, diritto, leadership corporate, marketing, vendite di alta gamma, vino e distillati, religione organizzata, ricerca scientifica, sport agonistici.",
+      "relationships": "Passionali, possessivi, leali. Cercano partner che condivida la missione. Maturando imparano a non confondere amore e proprietà.",
+      "health": "Reni (Bilancia), basso addome, riproduttivi (Scorpione), tensione muscolare. Stress da iper-controllo. Beneficia di meditazione, sport, ritiro periodico.",
+      "classifications": {
+        "varna": "Mleccha",
+        "gana": "Rakshasa",
+        "yoni": "Vyaghra (tigre) — maschile",
+        "nadi": "Adi"
+      },
+      "tatva": "Fuoco (Agni)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Mesha (Ariete)",
+          "descrizione": "Pada di pura azione: pionieri, atleti, militari, imprenditori aggressivi."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Vrishabha (Toro)",
+          "descrizione": "Determinazione applicata a costruzione di patrimonio, banca, beni durevoli."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Mithuna (Gemelli)",
+          "descrizione": "Comunicatori strategici, marketing, politici di campagna, oratori."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Karka (Cancro)",
+          "descrizione": "Pada più emotivo, sul confine con Anuradha: famiglia, religione, leader emotivi."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Indragnibhyam Namah / Om Brihaspataye Namah — 108 al giovedì all'alba",
+        "deity": "Indra, Agni, Brihaspati, Vishnu",
+        "gemstone": "Topazio giallo in oro, indice destro, giovedì all'alba",
+        "color": "Giallo oro, rosso fuoco",
+        "donation": "Libri sacri, ghee per yajna, piante a templi, sostegno a studenti",
+        "fast": "Giovedì, Guru Purnima"
+      },
+      "famousFigures": [
+        "Indira Gandhi",
+        "Margaret Thatcher",
+        "Donald Trump (cluster vicino)",
+        "Sri Aurobindo"
+      ],
+      "citations": [
+        "Brihat Samhita XCVIII — Indragni",
+        "Rig Veda I.108 — Indragni Sukta",
+        "Phaladeepika"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Anuradha",
+      "degrees": "3°20' - 16°40' Vrischika (Scorpione)",
+      "ruler": "Shani (Saturno)",
+      "deity": "Mitra, l'aditya dell'amicizia, dei contratti sacri, della luce diurna che lega",
+      "symbol": "Fiore di loto, arcata trionfale, fila di offerte rituali",
+      "myth": "Mitra è il complemento di Varuna: dove Varuna è la legge cosmica severa, Mitra è la legge dell'amicizia, l'alleanza che rispetta la libertà. Anuradha significa 'che segue Radha' (Vishakha): è la devozione che segue la determinazione, la dolcezza che segue la lotta. Radha, in altre letture, è l'amante di Krishna: Anuradha porta dunque il sigillo del bhakti più profondo. Loto in acqua scorpionica: bellezza che fiorisce nel fango.",
+      "shakti": "Radhana shakti — il potere del culto, dell'adorazione, dell'onorare ciò che si ama.",
+      "personality": "Devoti, leali, capaci di profondità relazionali rare. Sanno costruire amicizie che durano una vita. Disciplinati saturnini, ma con il cuore caldo. Adorano viaggiare, conoscere culture, partecipare a comunità spirituali. Possono soffrire di malinconia, gelosia segreta, rancori lunghi. La loro grande forza è la perseveranza nel legame. Mistici nascosti dietro maschere convenzionali.",
+      "karmicTheme": "Devozione matura. Imparare a onorare senza idolatrare, a legarsi senza fondersi. Il varco è il bhakti consapevole; la trappola è la dipendenza affettiva, l'idealizzazione del partner o del guru.",
+      "career": "Diplomazia internazionale, ONG, ricerca antropologica, lavoro in gruppi e comunità, ingegneria (Saturno), miniere, occulto, astrologia, psicologia del profondo, devozione religiosa professionale, coordinamento eventi spirituali.",
+      "relationships": "Cuore profondo, fedele. Spesso un grande amore della vita o un grande maestro. Capacità di trasformare le crisi in alchimia di coppia.",
+      "health": "Organi riproduttivi, intestino crasso, cellule (Saturno-Scorpione), depressione. Beneficia di terapie di gruppo, bhakti yoga, ritmi regolari.",
+      "classifications": {
+        "varna": "Shudra",
+        "gana": "Deva",
+        "yoni": "Mriga (cervo) — femminile",
+        "nadi": "Madhya"
+      },
+      "tatva": "Acqua (Jala)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (Leone)",
+          "descrizione": "Devozione regale: leader spirituali, presidenti di confraternite, pada del re-monaco."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (Vergine)",
+          "descrizione": "Servizio devozionale preciso: monaci, ricercatori, brahmacharya colti."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (Bilancia)",
+          "descrizione": "Pada più amichevole: diplomatici, mediatori, animatori di sangha."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (Scorpione)",
+          "descrizione": "Pada più tantrico: occultisti, mistici della via lunare, terapeuti del profondo."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Mitraya Namah / Om Shanaye Namah — 108 al sabato",
+        "deity": "Mitra, Krishna-Radha, Shani",
+        "gemstone": "Zaffiro blu in argento, medio destro, sabato dopo prova di compatibilità",
+        "color": "Blu profondo, rosso scuro, oro antico",
+        "donation": "Olio di sesamo a Shani, sostegno a comunità di devoti, alimentazione di lavoratori",
+        "fast": "Sabato, Ekadashi"
+      },
+      "famousFigures": [
+        "Madre Teresa di Calcutta",
+        "Carl Gustav Jung (cluster Scorpione)",
+        "Hillary Clinton",
+        "Bill Gates (alcune fonti)"
+      ],
+      "citations": [
+        "Rig Veda III.59 — inno a Mitra",
+        "Brihat Parashara Hora Shastra",
+        "Saravali su Shani come signore"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Jyeshtha",
+      "degrees": "16°40' - 30°00' Vrischika (Scorpione)",
+      "ruler": "Budha (Mercurio)",
+      "deity": "Indra, re degli dei, signore del fulmine, eroe celeste",
+      "symbol": "Ombrello, talismano regale, orecchino, pendente di potere",
+      "myth": "Indra, il più grande tra gli dei vedici, è il guerriero che uccide Vritra liberando le acque cosmiche, il re del Devaloka, ma anche colui che fu spodestato e dovette riconquistare il trono. Jyeshtha significa 'la più anziana, la primogenita': porta in sé la responsabilità del primo, del leader, ma anche il prezzo dell'invidia altrui e della solitudine al vertice. La leggenda della caduta di Indra (per il peccato di brahmahatya) è centrale: Jyeshtha sa cosa significa cadere e risalire.",
+      "shakti": "Arohana shakti — il potere di salire, di elevarsi, di conquistare vette. Anche di passare oltre.",
+      "personality": "Maturi anche da giovani, responsabili, spesso primogeniti reali o simbolici. Carisma sotterraneo, intelligenza penetrante (Budha in Vrischika), capacità di leggere le persone. Possono essere segreti, sospettosi, vendicativi se feriti. Hanno un senso acuto della giustizia. Spesso vivono solitudini esistenziali nonostante il successo. Potere occulto, capacità di influenza non visibile.",
+      "karmicTheme": "Leadership solitaria. Il dono è l'autorità; la trappola è l'isolamento, il senso di tradimento, la corruzione del potere. Il varco è guidare con compassione e accettare il prezzo del primato.",
+      "career": "Top management, politica, intelligence, investigazione, psicoanalisi, occultismo, astrologia avanzata, chirurgia, ricerca scientifica, militare di alto rango, religione esoterica, finanza ad alto rischio, ricerche genetiche.",
+      "relationships": "Profondi, intensi, magnetici. Possono attrarre dinamiche karmiche pesanti. Crescono imparando vulnerabilità.",
+      "health": "Riproduttivi, ano, colon, sistema nervoso (Budha), depressione e paranoie. Beneficia di terapia profonda, kriya yoga, ritiri.",
+      "classifications": {
+        "varna": "Mleccha (in alcune scuole Vaishya)",
+        "gana": "Rakshasa",
+        "yoni": "Mriga (cervo) — maschile",
+        "nadi": "Antya"
+      },
+      "tatva": "Vento (Vayu)",
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (Sagittario)",
+          "descrizione": "Leadership filosofica, guru con autorità, professori capi-scuola."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (Capricorno)",
+          "descrizione": "Pada del CEO: top management, politica, business familiare ereditato."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (Acquario)",
+          "descrizione": "Leader visionari, scienziati, occultisti, padri di movimenti innovativi."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (Pesci)",
+          "descrizione": "Pada più mistico-tragico: leader sacrificali, mistici dell'ombra, salvatori solitari."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Indraya Namah / Om Budhaya Namah — 108 al mercoledì all'alba",
+        "deity": "Indra, Vishnu, Hanuman (per protezione)",
+        "gemstone": "Smeraldo in oro, mignolo destro, mercoledì all'alba",
+        "color": "Verde smeraldo, rosso scuro, crema",
+        "donation": "Sostegno a fratelli minori, ombrelli a brahmana anziani, libri di scienza, oli per templi",
+        "fast": "Mercoledì, Vrischika Sankranti"
+      },
+      "famousFigures": [
+        "Joe Biden",
+        "Charles Manson (lato oscuro)",
+        "Walt Disney",
+        "Indira Gandhi (alcune scuole)"
+      ],
+      "citations": [
+        "Rig Veda I.32 — Indra uccide Vritra",
+        "Brihat Samhita XCVIII",
+        "Phaladeepika III.8 — Jyeshtha phala"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "_meta": {
+    "section": "Sezione 7 — Rimedi Vedici (Upaya)",
+    "fonti": ["Brihat Parashara Hora Shastra (cap. 88-91, sui rimedi)", "Lal Kitab", "Mantra Mahodadhi", "Yantra Cintamani", "tradizione popolare codificata", "K.N. Rao - Astrologia karmica e rimedi", "Sanjay Rath - Tradizione Pulippani"],
+    "note": "I rimedi vedici (upaya) si basano sul principio che i pianeti sono devata viventi: onorandoli con la modalità appropriata si attivano flussi karmici favorevoli. Le sette categorie classiche sono: gemme (ratna), mantra, yantra, donazioni (dana), digiuni (vrata), templi (mandira), pratiche quotidiane (nitya karma). I rimedi vanno scelti in base al tema natale: NON tutti i pianeti vanno rinforzati per tutti, e usare la gemma sbagliata può peggiorare la situazione. Idealmente, un astrologo qualificato prescrive il rimedio."
+  },
+  "gemstones": {
+    "intro": "Le nove gemme primarie (Navaratna) sono il rimedio più potente — e più rischioso — della Jyotish. Una gemma vera, energizzata correttamente e indossata sulla pelle, attiva la frequenza del pianeta corrispondente. Va sempre testata per 7 giorni prima di adottarla definitivamente: se in quei giorni emergono difficoltà inattese, va rimossa. Le gemme false o sintetiche non funzionano e possono nuocere. Comprare da gioiellieri vedici certificati. Energizzazione: lavare con latte e acqua del Gange, pronunciare 108 volte il mantra del pianeta, accendere lampada di ghee, indossare nel giorno del pianeta all'alba.",
+    "Sole": {
+      "primary": "Manik / Rubino (Padmaraga Manikya)",
+      "alternativa_economica": "Granato rosso (Garnet) o Spinello rosso",
+      "weight": "3-6 carati (minimo 2 carati per essere efficace)",
+      "finger": "Anulare destro",
+      "metal": "Oro (preferibile) o rame",
+      "day_to_wear": "Domenica all'alba",
+      "energizzazione": "Bagno in latte di mucca, miele, ghee, acqua del Gange e tulsi (acqua santa), recitare 108 volte 'Om Hram Hreem Hraum Sah Suryaya Namah', accendere lampada di ghee, offrire fiori rossi, indossare al sorgere del sole",
+      "mantra_attivazione": "Om Hraam Hreem Hraum Sah Suryaya Namah | Japakusuma sankasham kashyapeyam mahadyutim, Tamoarim sarvapapaghnam pranatosmi divakaram",
+      "controindicazioni": "Non per Tula Lagna o Vrishabha Lagna senza analisi; non se Sole è signore della 6, 8, 12; sconsigliato in Mahadasha del Sole quando il Sole è debilitato",
+      "effetti": "Rinforza fiducia, leadership, posizione paterna, salute cardiaca, vitalità, riconoscimento pubblico, dharma. Cura: emicranie, problemi cardiaci, calo di vitalità."
+    },
+    "Luna": {
+      "primary": "Moti / Perla naturale (Mukta)",
+      "alternativa_economica": "Pietra di luna (Moonstone) bianca",
+      "weight": "4-7 carati (idealmente in numero pari di carati)",
+      "finger": "Mignolo destro",
+      "metal": "Argento",
+      "day_to_wear": "Lunedì sera dopo il sorgere della luna, oppure lunedì all'alba",
+      "energizzazione": "Bagno in latte fresco non bollito, acqua di rosa, acqua del Gange, recitare 108 volte 'Om Shraam Shreem Shraum Sah Chandraya Namah', offrire fiori bianchi (gelsomino, loto bianco), indossare durante una notte di luna piena",
+      "mantra_attivazione": "Om Shraam Shreem Shraum Sah Chandraya Namah | Dadhi shankha tusharabham kshirodarnava sambhavam, Namami shashinam somam shambhormukuta bhushanam",
+      "controindicazioni": "Non se Luna è in Vrischika debilitata; attenzione se Luna è signore della 6, 8, 12; le perle naturali sono fragili, evitare contatto con prodotti chimici",
+      "effetti": "Stabilizza la mente, calma le emozioni, supporta la maternità, la creatività, la popolarità, il sonno. Cura: ansia, insonnia, depressione, problemi materni, infertilità femminile."
+    },
+    "Marte": {
+      "primary": "Moonga / Corallo rosso (Praval)",
+      "alternativa_economica": "Diaspro rosso (Red Jasper)",
+      "weight": "5-9 carati (numero dispari)",
+      "finger": "Anulare destro o mignolo destro",
+      "metal": "Rame o oro",
+      "day_to_wear": "Martedì all'alba",
+      "energizzazione": "Bagno in acqua del Gange, latte di mucca rossa se possibile, miele, recitare 108 volte 'Om Kram Kreem Kraum Sah Bhaumaya Namah', offrire fiori rossi (rosa, ibisco), accendere lampada di ghee con stoppino rosso",
+      "mantra_attivazione": "Om Kram Kreem Kraum Sah Bhaumaya Namah | Dharani garbha sambhutam vidyut kanti samaprabham, Kumaram shakti hastam ca mangalam pranamamy aham",
+      "controindicazioni": "Non per Vrishabha Lagna, Tula Lagna, Karka Lagna senza analisi; pericoloso se Marte è in 6, 8, 12 senza supporto; attenzione in Mahadasha di Marte se è male posizionato",
+      "effetti": "Rinforza coraggio, energia, vittoria su nemici, salute del sangue, immunità marziale. Cura: anemia, problemi di sangue, debolezza muscolare, paure, indecisione."
+    },
+    "Mercurio": {
+      "primary": "Panna / Smeraldo (Marakata)",
+      "alternativa_economica": "Peridoto verde o Onice verde",
+      "weight": "3-7 carati",
+      "finger": "Mignolo destro",
+      "metal": "Oro o argento",
+      "day_to_wear": "Mercoledì all'alba",
+      "energizzazione": "Bagno in latte fresco, acqua del Gange, miele, recitare 108 volte 'Om Bram Breem Braum Sah Budhaya Namah', offrire fiori verdi o foglie di tulsi, indossare la mattina di un mercoledì in luna crescente",
+      "mantra_attivazione": "Om Bram Breem Braum Sah Budhaya Namah | Priyangu kalikashyamam rupena pratimam budham, Saumyam saumyagunopetam tam budham pranamamyaham",
+      "controindicazioni": "Non se Mercurio è severamente combusto o debilitato senza cancellazione; attenzione per Meena Lagna",
+      "effetti": "Rinforza intelligenza, comunicazione, business, salute nervosa, contratti, rete relazionale. Cura: difficoltà di parola, ansia, problemi della pelle, disturbi nervosi."
+    },
+    "Giove": {
+      "primary": "Pukhraj / Zaffiro giallo (Pushyaraga)",
+      "alternativa_economica": "Topazio giallo o Citrino",
+      "weight": "5-9 carati",
+      "finger": "Indice destro",
+      "metal": "Oro",
+      "day_to_wear": "Giovedì all'alba",
+      "energizzazione": "Bagno in latte di mucca, miele, curcuma in polvere, acqua del Gange, recitare 108 volte 'Om Gram Greem Graum Sah Gurave Namah', offrire fiori gialli (calendula, girasole), accendere lampada di ghee",
+      "mantra_attivazione": "Om Gram Greem Graum Sah Gurave Namah | Devanam ca rishinam ca gurum kanchana sannibham, Buddhibhutam trilokesham tam namami brihaspatim",
+      "controindicazioni": "Generalmente sicuro per la maggior parte dei nati; sconsigliato per Vrishabha Lagna e Tula Lagna in cui Giove governa case dusthana 8 e 6; verificare prima di Mahadasha di Giove debilitato",
+      "effetti": "Rinforza saggezza, dharma, espansione finanziaria, fertilità (specie femminile per il marito), figli, salute del fegato, fortuna in viaggi e studi. Cura: problemi del fegato, sterilità, conflitti spirituali, blocchi finanziari."
+    },
+    "Venere": {
+      "primary": "Heera / Diamante (Vajra) o Zaffiro bianco (Sphatik Neelam)",
+      "alternativa_economica": "Zircone bianco o Topazio bianco",
+      "weight": "1-2 carati per il diamante (è denso); 5-7 carati per lo zaffiro bianco",
+      "finger": "Medio destro",
+      "metal": "Platino, oro bianco o argento",
+      "day_to_wear": "Venerdì all'alba",
+      "energizzazione": "Bagno in latte di mucca, acqua di rosa, ghee, acqua del Gange, recitare 108 volte 'Om Dram Dreem Draum Sah Shukraya Namah', offrire fiori bianchi e profumati (gelsomino, rosa bianca, tuberosa), accendere lampada di ghee",
+      "mantra_attivazione": "Om Dram Dreem Draum Sah Shukraya Namah | Hima kunda mrinalabham daityanam paramam gurum, Sarvashastra pravaktaram bhargavam pranamamy aham",
+      "controindicazioni": "Non per Mesha Lagna, Vrischika Lagna, Karka Lagna senza analisi (Venere governa case maleficiate); attenzione per Simha Lagna",
+      "effetti": "Rinforza amore, bellezza, lusso, vita coniugale, arte, fertilità, salute riproduttiva. Cura: problemi coniugali, infertilità, problemi alla pelle, depressione affettiva."
+    },
+    "Saturno": {
+      "primary": "Neelam / Zaffiro blu (Indranila)",
+      "alternativa_economica": "Ametista blu scuro o Lapislazzuli",
+      "weight": "5-7 carati",
+      "finger": "Medio destro",
+      "metal": "Argento, ferro, panchadhatu (lega di 5 metalli)",
+      "day_to_wear": "Sabato sera all'imbrunire o sabato all'alba",
+      "energizzazione": "Bagno in latte di mucca, acqua del Gange, olio di sesamo nero, recitare 108 volte 'Om Sham Shaneishcharaya Namah', offrire fiori blu (loto blu, iris) e semi di sesamo nero, accendere lampada di olio di sesamo",
+      "mantra_attivazione": "Om Sham Shaneishcharaya Namah | Nilanjana samabhasam ravi putram yamagrajam, Chayamartanda sambhutam tam namami shanaishcharam",
+      "controindicazioni": "GEMMA PIÙ POTENTE E PIÙ RISCHIOSA. Va testata 3-7 giorni: se porta sogni inquietanti, perdite, ansia, va RIMOSSA immediatamente. Sconsigliata in Mahadasha di Saturno debilitato; mai senza prescrizione di astrologo qualificato",
+      "effetti": "Rinforza disciplina, longevità, ricchezza accumulata, posizione professionale duratura, distacco spirituale. Cura: ostacoli cronici, malattie ossee, depressione, povertà, problemi karmici saturnini. Quando funziona, lo zaffiro blu può portare una svolta entro 3 giorni."
+    },
+    "Rahu": {
+      "primary": "Gomed / Giacinto (Gomedaka, varietà di hessonite/granato giallo-marrone)",
+      "alternativa_economica": "Granato spessartite o Topazio fumè",
+      "weight": "5-7 carati",
+      "finger": "Medio destro",
+      "metal": "Argento, panchadhatu, oro bianco",
+      "day_to_wear": "Sabato sera o domenica/mercoledì alla luna crescente",
+      "energizzazione": "Bagno in acqua del Gange, latte di mucca, miele, recitare 108 volte 'Om Bhram Bhreem Bhraum Sah Rahave Namah', offrire fiori blu scuri o neri, accendere lampada con olio di senape",
+      "mantra_attivazione": "Om Bhram Bhreem Bhraum Sah Rahave Namah | Ardhakayam mahaviryam chandraditya vimardanam, Simhika garbha sambhutam tam rahum pranamamy aham",
+      "controindicazioni": "Pericoloso in case dusthana o se Rahu è esaltato e malefico; attenzione durante eclissi reali (energia nodale potenziata)",
+      "effetti": "Rinforza ambizione, successo materiale, fortuna nei territori stranieri, protezione da inganni, vittoria sui nemici nascosti. Cura: ansia, paranoia, problemi misteriosi, dipendenze, blocchi karmici nodali."
+    },
+    "Ketu": {
+      "primary": "Lehsunia / Occhio di gatto (Vaidurya — chrysoberyl cat's eye)",
+      "alternativa_economica": "Quarzo occhio di tigre o Crisoberillo non-cat's-eye",
+      "weight": "3-7 carati",
+      "finger": "Anulare destro o mignolo destro",
+      "metal": "Argento o panchadhatu",
+      "day_to_wear": "Martedì sera o sabato sera",
+      "energizzazione": "Bagno in acqua del Gange, latte di mucca, miele, recitare 108 volte 'Om Sram Sreem Sraum Sah Ketave Namah', offrire fiori multicolori, accendere lampada di olio di sesamo",
+      "mantra_attivazione": "Om Sram Sreem Sraum Sah Ketave Namah | Palasha pushpa sankasham tarakagraha mastakam, Raudram raudratmakam ghoram tam ketum pranamamy aham",
+      "controindicazioni": "Pericoloso senza analisi: Ketu è il pianeta più sottile e l'occhio di gatto può aprire dimensioni psichiche difficili da gestire; sconsigliato in fase di crisi spirituale acuta",
+      "effetti": "Rinforza intuizione, distacco spirituale, vittoria sui nemici sottili, protezione da maledizioni e magia nera, liberazione da karma vecchi. Cura: malattie misteriose, depressione spirituale, perdite di memoria, problemi della pelle migranti."
+    }
+  },
+  "mantras": {
+    "intro": "I mantra sono la tecnologia sonora vedica per attivare le frequenze planetarie. Ogni pianeta ha un Beej Mantra (mantra-seme, sillabica essenziale) e un Vedic Mantra (mantra dei testi vedici, più lungo e descrittivo). Si recitano idealmente in numero di mala (108 ripetizioni con il rosario di Rudraksha o sandalo) il giorno del pianeta, all'alba o al tramonto. La pronuncia è cruciale: meglio imparare da un acharya o da una registrazione autentica.",
+    "Sole": {
+      "beej_mantra": "Om Hraam Hreem Hraum Sah Suryaya Namah",
+      "vedic_mantra": "Om Aim Hreem Shrim Suryaya Namah | Japakusuma sankasham kashyapeyam mahadyutim, Tamoarim sarvapapaghnam pranatosmi divakaram | Om Bhur Bhuva Svah Tat Savitur Varenyam, Bhargo Devasya Dheemahi, Dhiyo Yo Nah Prachodayat (Gayatri Mantra, supremo mantra solare)",
+      "pronuncia_traslitterata": "OM HRAH-AHM HREE-EHM HRAH-OM SAH-AH SOOR-YAH-YAH NAH-MAH-HA",
+      "ripetizioni": "7000 totali (di solito si fanno 108 al giorno per circa 65 giorni); minimo giornaliero la domenica: 108",
+      "momento": "All'alba (Brahma Muhurta, 4:30-6:00) la domenica, rivolto verso est, dopo bagno"
+    },
+    "Luna": {
+      "beej_mantra": "Om Shraam Shreem Shraum Sah Chandraya Namah",
+      "vedic_mantra": "Om Shraam Shreem Shraum Sah Chandraya Namah | Dadhi shankha tusharabham kshirodarnava sambhavam, Namami shashinam somam shambhormukuta bhushanam | Om Padmadhwajaya Vidmahe Hema Roopaya Dheemahi Tanno Soma Prachodayat (Chandra Gayatri)",
+      "pronuncia_traslitterata": "OM SHRAH-AHM SHREE-EHM SHRAH-OM SAH-AH CHAN-DRAH-YAH NAH-MAH-HA",
+      "ripetizioni": "11000 totali; 108 quotidiani il lunedì",
+      "momento": "Al tramonto del lunedì o alla luna piena, rivolto verso nord-ovest"
+    },
+    "Marte": {
+      "beej_mantra": "Om Kram Kreem Kraum Sah Bhaumaya Namah",
+      "vedic_mantra": "Om Angarakaya Vidmahe Bhumi Putraya Dheemahi Tanno Bhauma Prachodayat | Dharani garbha sambhutam vidyut kanti samaprabham, Kumaram shakti hastam ca mangalam pranamamy aham",
+      "pronuncia_traslitterata": "OM KRAHM KREE-EHM KRAH-OOM SAH-AH BHOW-MAH-YAH NAH-MAH-HA",
+      "ripetizioni": "10000 totali; 108 quotidiani il martedì",
+      "momento": "All'alba del martedì, rivolto verso sud, dopo bagno con poco olio di sesamo"
+    },
+    "Mercurio": {
+      "beej_mantra": "Om Bram Breem Braum Sah Budhaya Namah",
+      "vedic_mantra": "Om Saumyaroopaya Vidmahe Bhanu Putraya Dheemahi Tanno Buddhi Prachodayat | Priyangu kalikashyamam rupena pratimam budham, Saumyam saumyagunopetam tam budham pranamamyaham",
+      "pronuncia_traslitterata": "OM BRAHM BREE-EHM BRAH-OOM SAH-AH BOO-DHAH-YAH NAH-MAH-HA",
+      "ripetizioni": "9000 totali; 108 quotidiani il mercoledì",
+      "momento": "Al sorgere del sole il mercoledì, rivolto verso nord"
+    },
+    "Giove": {
+      "beej_mantra": "Om Gram Greem Graum Sah Gurave Namah",
+      "vedic_mantra": "Om Vrishabhadhwajaya Vidmahe Karunya Hastaya Dheemahi Tanno Guru Prachodayat | Devanam ca rishinam ca gurum kanchana sannibham, Buddhibhutam trilokesham tam namami brihaspatim",
+      "pronuncia_traslitterata": "OM GRAHM GREE-EHM GRAH-OOM SAH-AH GOO-RAH-VEH NAH-MAH-HA",
+      "ripetizioni": "19000 totali; 108 quotidiani il giovedì",
+      "momento": "All'alba del giovedì, rivolto verso nord-est, dopo bagno e con vesti gialle"
+    },
+    "Venere": {
+      "beej_mantra": "Om Dram Dreem Draum Sah Shukraya Namah",
+      "vedic_mantra": "Om Aswadhwajaya Vidmahe Dhanur Hastaya Dheemahi Tanno Shukra Prachodayat | Hima kunda mrinalabham daityanam paramam gurum, Sarvashastra pravaktaram bhargavam pranamamy aham",
+      "pronuncia_traslitterata": "OM DRAHM DREE-EHM DRAH-OOM SAH-AH SHOO-KRAH-YAH NAH-MAH-HA",
+      "ripetizioni": "16000 totali; 108 quotidiani il venerdì",
+      "momento": "All'alba del venerdì, rivolto verso sud-est, dopo bagno profumato"
+    },
+    "Saturno": {
+      "beej_mantra": "Om Sham Shaneishcharaya Namah (oppure Om Praam Preem Praum Sah Shanaishcharaya Namah)",
+      "vedic_mantra": "Om Kakadhwajaya Vidmahe Khadga Hastaya Dheemahi Tanno Mandah Prachodayat | Nilanjana samabhasam ravi putram yamagrajam, Chayamartanda sambhutam tam namami shanaishcharam",
+      "pronuncia_traslitterata": "OM SHAHM SHAN-AISH-CHAH-RAH-YAH NAH-MAH-HA",
+      "ripetizioni": "23000 totali; 108 quotidiani il sabato",
+      "momento": "Al tramonto del sabato o all'alba, rivolto verso ovest, con vesti scure"
+    },
+    "Rahu": {
+      "beej_mantra": "Om Bhram Bhreem Bhraum Sah Rahave Namah (oppure Om Raam Rahave Namah)",
+      "vedic_mantra": "Om Naakadhwajaya Vidmahe Padma Hastaya Dheemahi Tanno Rahuh Prachodayat | Ardhakayam mahaviryam chandraditya vimardanam, Simhika garbha sambhutam tam rahum pranamamy aham",
+      "pronuncia_traslitterata": "OM BHRAHM BHREE-EHM BHRAH-OOM SAH-AH RAH-HAH-VEH NAH-MAH-HA",
+      "ripetizioni": "18000 totali; 108 quotidiani il sabato",
+      "momento": "Sera del sabato durante eclissi e in fase calante della luna; mai a mezzogiorno"
+    },
+    "Ketu": {
+      "beej_mantra": "Om Sram Sreem Sraum Sah Ketave Namah (oppure Om Kem Ketave Namah)",
+      "vedic_mantra": "Om Ashvadhwajaya Vidmahe Shoola Hastaya Dheemahi Tanno Ketuh Prachodayat | Palasha pushpa sankasham tarakagraha mastakam, Raudram raudratmakam ghoram tam ketum pranamamy aham",
+      "pronuncia_traslitterata": "OM SRAHM SREE-EHM SRAH-OOM SAH-AH KEH-TAH-VEH NAH-MAH-HA",
+      "ripetizioni": "7000 totali; 108 quotidiani il martedì o sabato",
+      "momento": "Notte di luna nuova o sera del martedì; in luogo di silenzio"
+    }
+  },
+  "yantras": {
+    "intro": "Gli Yantra sono diagrammi geometrici sacri che incarnano la frequenza planetaria in forma visiva. Si incidono tradizionalmente su lastre di rame, argento o oro (panchadhatu) o si disegnano su carta di betel. Vanno energizzati con mantra del pianeta, esposti durante puja, e tenuti in casa o nel tempio domestico. Lo yantra è 'attivo' quando viene visto, toccato e mentalmente meditato regolarmente.",
+    "tipologie": [
+      {
+        "nome": "Surya Yantra",
+        "pianeta": "Sole",
+        "descrizione": "Quadrato magico 3x3 con i numeri da 1 a 9 disposti in modo che ogni linea sommi a 15. Inciso su lastra di rame o oro. Posizionato verso est nel tempio domestico. Energizzato con 108 ripetizioni del Surya Beej Mantra. Effetti: rinforzo della leadership, della salute cardiaca, della reputazione pubblica, della relazione col padre, del dharma esterno."
+      },
+      {
+        "nome": "Chandra Yantra",
+        "pianeta": "Luna",
+        "descrizione": "Quadrato magico con somma 18, dedicato a Chandra. Inciso su lastra d'argento. Posizionato verso nord-ovest. Energizzato con 108 mantra lunari. Effetti: stabilità mentale, calma emotiva, supporto materno, fertilità femminile, guarigione delle ferite emotive."
+      },
+      {
+        "nome": "Mangal Yantra",
+        "pianeta": "Marte",
+        "descrizione": "Quadrato magico con somma 21. Inciso su rame. Posizionato verso sud. Effetti: coraggio, vittoria sui nemici, salute del sangue, fortuna nel business immobiliare e nelle proprietà, protezione marziale."
+      },
+      {
+        "nome": "Budha Yantra",
+        "pianeta": "Mercurio",
+        "descrizione": "Quadrato magico con somma 24. Inciso su rame o argento. Posizionato verso nord. Effetti: brillantezza intellettuale, capacità di parola, successo commerciale, salute nervosa, eloquenza."
+      },
+      {
+        "nome": "Brihaspati Yantra (Guru Yantra)",
+        "pianeta": "Giove",
+        "descrizione": "Quadrato magico con somma 27. Inciso su oro o lastra dorata. Posizionato verso nord-est. Effetti: saggezza, espansione finanziaria, fertilità (specie per concepimento), salute del fegato, accesso a maestri spirituali, fortuna nei viaggi e negli studi."
+      },
+      {
+        "nome": "Shukra Yantra",
+        "pianeta": "Venere",
+        "descrizione": "Quadrato magico con somma 30. Inciso su argento o platino. Posizionato verso sud-est. Effetti: amore, matrimonio felice, bellezza, lusso, salute riproduttiva, successo artistico."
+      },
+      {
+        "nome": "Shani Yantra",
+        "pianeta": "Saturno",
+        "descrizione": "Quadrato magico con somma 33. Inciso su lastra di ferro o panchadhatu. Posizionato verso ovest. Effetti: longevità, riduzione degli ostacoli karmici, stabilità professionale, vittoria sulle prove di Saturno (Sade Sati), salute ossea, distacco spirituale."
+      },
+      {
+        "nome": "Rahu Yantra",
+        "pianeta": "Rahu",
+        "descrizione": "Quadrato magico con somma 36 e simbolo del serpente. Inciso su lega panchadhatu. Posizionato in luogo discreto. Effetti: protezione da nemici nascosti, vittoria nelle controversie, riduzione di Kaal Sarp Dosha, fortuna in territori stranieri."
+      },
+      {
+        "nome": "Ketu Yantra",
+        "pianeta": "Ketu",
+        "descrizione": "Quadrato magico con somma 39 e simbolo della bandiera senza testa. Inciso su argento o panchadhatu. Effetti: liberazione da maledizioni e magia nera, intuizione spirituale, vittoria sui nemici sottili, riduzione delle malattie misteriose."
+      },
+      {
+        "nome": "Sri Yantra",
+        "pianeta": "Multi-planetario / Lakshmi",
+        "descrizione": "Il più potente di tutti gli yantra: 9 triangoli intrecciati che formano 43 triangoli minori, simbolo dell'unità di Shiva-Shakti e fonte di prosperità totale. Inciso su oro, argento, rame o sphatik (cristallo di rocca). Posizionato nel tempio domestico, idealmente nel nord-est. Energizzato con Sri Suktam, Lalita Sahasranama, Khadgamala Stotra. Effetti: prosperità, benessere, salute, harmonia familiare, accesso al divino femminile, manifestazione dei desideri legittimi."
+      },
+      {
+        "nome": "Ganesh Yantra",
+        "pianeta": "Rimuovi-ostacoli generale",
+        "descrizione": "Yantra di Ganesha, signore degli inizi e rimuovi-ostacoli karmici. Particolarmente utile per Ketu, blocchi di vita, ostacoli misteriosi. Energizzato con Ganapati Atharvashirsha."
+      },
+      {
+        "nome": "Maha Mrityunjaya Yantra",
+        "pianeta": "Pacificazione di tutti i pianeti",
+        "descrizione": "Yantra dedicato a Shiva nella forma del Vincitore della Morte. Usato per malattie gravi, longevità, pacificazione di malefici, uscita da Sade Sati o crisi karmiche. Inciso su rame, energizzato con il Maha Mrityunjaya Mantra (108000 ripetizioni)."
+      }
+    ]
+  },
+  "donations": {
+    "intro": "Il Dāna (donazione) è considerato il rimedio più puro perché trasforma il karma direttamente: dare ciò che il pianeta governa equivale a 'pagare il debito karmico' a quel principio cosmico. Il dono va fatto con consapevolezza, senza aspettativa, alla persona giusta, nel giorno giusto, con mantra interiore. Il valore non sta nella quantità ma nell'intenzione e nella corrispondenza simbolica.",
+    "Sole": {
+      "oggetti": "Grano, jaggery (zucchero di palma non raffinato), miele, oggetti di rame, vesti rosse o color zafferano, mucche (specie rosse), oro",
+      "destinatario": "Brahmini, padri di famiglia, anziani saggi, autorità spirituali",
+      "quando": "Domenica all'alba, durante eclissi solari, durante il transito del Sole nel proprio segno"
+    },
+    "Luna": {
+      "oggetti": "Latte fresco, riso bianco, ghee, perle, argento, vesti bianche, zucchero, fiori di gelsomino, acqua del Gange",
+      "destinatario": "Madri, donne anziane, giovani sposi, brahmini, persone bisognose della propria comunità",
+      "quando": "Lunedì sera, luna piena, durante eclissi lunari"
+    },
+    "Marte": {
+      "oggetti": "Lenticchie rosse (masoor dal), miele, jaggery, rame, oggetti di rame, vesti rosse, dolci di sesamo rosso, terra (simbolicamente)",
+      "destinatario": "Giovani uomini di umile estrazione, militari, atleti, sacerdoti di Hanuman, persone con difficoltà di sangue",
+      "quando": "Martedì all'alba, durante il transito di Marte in Scorpione, in giorni di fuoco"
+    },
+    "Mercurio": {
+      "oggetti": "Smeraldi, lenticchie verdi (mung dal), foglie di tulsi, libri sacri, vesti verdi, oro, frutta verde",
+      "destinatario": "Giovani studenti, scrittori, sacerdoti, brahmini studiosi, fanciulle non sposate",
+      "quando": "Mercoledì all'alba, durante il transito di Mercurio in Vergine"
+    },
+    "Giove": {
+      "oggetti": "Oro, vesti gialle, ghee, dolci di jaggery, banane, libri sacri (Bhagavad Gita, Vedas, Upanishad), curcuma, sandalo giallo",
+      "destinatario": "Brahmini, guru, maestri spirituali, bambini, donne in gravidanza, accademici",
+      "quando": "Giovedì all'alba, durante Guru Purnima (luglio), durante eclissi giupiteriane di transito"
+    },
+    "Venere": {
+      "oggetti": "Argento, perle, diamanti (anche piccoli), riso, latte, ghee, vesti di seta bianca, profumi, fiori, miele, zucchero candito, gioielli",
+      "destinatario": "Giovani donne, sposi novelli, danzatrici, artisti, brahmini, vedove",
+      "quando": "Venerdì all'alba, durante la Diwali, durante feste della Madre Divina"
+    },
+    "Saturno": {
+      "oggetti": "Olio di sesamo nero, semi di sesamo nero, ferro, oggetti neri, scarpe vecchie ma in buono stato, coperte blu o nere, lenticchie nere (urad dal), vesti nere",
+      "destinatario": "Lavoratori manuali, anziani, lebbrosi, persone disabili, mendicanti, vedove, persone di casta bassa nella tradizione",
+      "quando": "Sabato sera al tramonto, durante Sade Sati, durante il transito di Saturno in dusthana"
+    },
+    "Rahu": {
+      "oggetti": "Olio di senape, semi neri, coperte multicolori, oggetti di stagno, oggetti del sud-ovest (mahogany), idoli di serpente d'argento, cocco",
+      "destinatario": "Stranieri, immigrati, lebbrosi, persone marginalizzate, fakir, sadhu non convenzionali",
+      "quando": "Sabato sera, durante eclissi, durante Naga Panchami"
+    },
+    "Ketu": {
+      "oggetti": "Coperte multicolori, sesamo nero, banane, cocchi, fiori multicolori, olio di sesamo, oggetti spirituali, idoli di Ganesha",
+      "destinatario": "Sadhu, monaci, mendicanti spirituali, ragazzi orfani, persone con malattie misteriose",
+      "quando": "Martedì sera o sabato sera, durante Naga Panchami, durante eclissi"
+    }
+  },
+  "fasts": {
+    "intro": "Il digiuno (vrata) è una potente pratica di tapas che pacifica i pianeti afflitti. Non è solo astensione dal cibo: è devozione totale al pianeta del giorno attraverso mantra, puja, lettura di testi sacri, donazioni. Il digiuno classico prevede un solo pasto serale (eka-bhakta), evitando sale, cipolla, aglio, e mangiando cibi del colore del pianeta.",
+    "Sole_Domenica": {
+      "modalita": "Eka-bhakta (un solo pasto serale dopo il tramonto), niente sale, niente carne, niente alcol",
+      "cibi_permessi": "Grano integrale, frutta, latte, ghee, jaggery, dolci di colore arancio/rosso (carote, zucca, papaia)",
+      "ripetizioni_consigliate": "Per 12 domeniche consecutive (3 mesi) come ciclo classico; oppure ogni domenica per anni come pratica di vita",
+      "rituali_associati": "Aditya Hridayam, 108 mantra solari, donazione di grano, esposizione al sole nascente",
+      "indicazioni_specifiche": "Quando il Sole è afflitto, debilitato, o durante Surya Mahadasha difficile; per problemi col padre, di reputazione, di leadership"
+    },
+    "Luna_Lunedi": {
+      "modalita": "Eka-bhakta serale, evitando sale; puja di Shiva (lo sposo della Luna)",
+      "cibi_permessi": "Riso bianco, latte, ghee, dolci bianchi, frutta bianca (banana, cocco, mela bianca), acqua del Gange",
+      "ripetizioni_consigliate": "16 lunedì consecutivi (Solah Somvar Vrat — 4 mesi) — ciclo classico per richiedere matrimonio felice o concepimento",
+      "rituali_associati": "Abhishekam di Shiva con latte, mantra lunari, donazioni di latte e perle",
+      "indicazioni_specifiche": "Per problemi mentali, ansia, infertilità femminile, conflitti materni, durante Chandra Mahadasha o Sade Sati di picco"
+    },
+    "Marte_Martedi": {
+      "modalita": "Eka-bhakta serale, niente sale, niente cibi piccanti, niente carne",
+      "cibi_permessi": "Lenticchie rosse, dolci di jaggery, banane rosse, melagrana, miele, frutta rossa",
+      "ripetizioni_consigliate": "21 martedì consecutivi per Mangal Dosha; ogni martedì per Mahadasha di Marte",
+      "rituali_associati": "Hanuman Chalisa 7 volte (o 11 o 21), donazione a giovani uomini in difficoltà, visita al tempio di Hanuman",
+      "indicazioni_specifiche": "Per Mangal Dosha, per problemi di sangue, per coraggio, per vittoria su nemici, per Mahadasha di Marte difficile"
+    },
+    "Mercurio_Mercoledi": {
+      "modalita": "Eka-bhakta serale, niente sale, dieta sattvica",
+      "cibi_permessi": "Foglie verdi, lenticchie verdi (mung), zucchine, cocomero, frutta verde, dolci con foglie di tulsi",
+      "ripetizioni_consigliate": "21 mercoledì consecutivi; per studi: tutto un anno scolastico",
+      "rituali_associati": "Studio di un testo sacro (Bhagavad Gita, Upanishad), donazione di libri sacri, mantra di Mercurio, visita al tempio di Vishnu",
+      "indicazioni_specifiche": "Per problemi di parola, di studio, di business, di salute nervosa, prima di esami importanti"
+    },
+    "Giove_Giovedi": {
+      "modalita": "Eka-bhakta serale, niente sale, vesti gialle",
+      "cibi_permessi": "Banane, dolci di jaggery, riso giallo (con curcuma), ghee, mango, ananas, dolci di farina di ceci, lenticchie gialle (chana dal)",
+      "ripetizioni_consigliate": "16 giovedì consecutivi per matrimonio felice o per concepimento; ogni giovedì per Mahadasha di Giove",
+      "rituali_associati": "Vishnu Sahasranama, donazione di curcuma e oro a brahmini, visita al tempio di Vishnu",
+      "indicazioni_specifiche": "Per fertilità, per matrimonio (donne), per espansione finanziaria, per studi superiori, per ricerca spirituale"
+    },
+    "Venere_Venerdi": {
+      "modalita": "Eka-bhakta serale, dolce e raffinato; vesti bianche o rosa",
+      "cibi_permessi": "Riso bianco, latte, dolci di latte, frutta dolce, fiori commestibili, ghee, candito, kheer",
+      "ripetizioni_consigliate": "16 venerdì consecutivi per amore o matrimonio (Santoshi Mata Vrat); ogni venerdì per Lakshmi",
+      "rituali_associati": "Sri Suktam, Lakshmi Ashtottara, donazione di argento e profumi, accensione di lampada di ghee",
+      "indicazioni_specifiche": "Per amore, matrimonio, prosperità, bellezza, fertilità, problemi coniugali, durante Mahadasha di Venere"
+    },
+    "Saturno_Sabato": {
+      "modalita": "Eka-bhakta serale, niente sale, niente cipolla, niente aglio, vesti scure",
+      "cibi_permessi": "Lenticchie nere (urad), riso integrale, semi di sesamo nero, melanzane, oggetti scuri, the o caffè non zuccherato",
+      "ripetizioni_consigliate": "Ogni sabato per tutta la durata di Sade Sati o di Mahadasha di Saturno",
+      "rituali_associati": "Hanuman Chalisa, Shani Stotram, donazione di olio di sesamo e ferro, servizio ai poveri",
+      "indicazioni_specifiche": "Per Sade Sati, Shani Mahadasha, ostacoli cronici, malattie ossee, depressione saturnina"
+    },
+    "Rahu_Sabato_pomeriggio": {
+      "modalita": "Digiuno parziale o eka-bhakta serale, evitando sale e carni",
+      "cibi_permessi": "Cibi semplici sattvici, frutta, latte",
+      "ripetizioni_consigliate": "Sabato durante Rahu Mahadasha; durante eclissi",
+      "rituali_associati": "Mantra di Rahu, Durga Saptashati, donazioni di olio di senape e oggetti scuri",
+      "indicazioni_specifiche": "Per Kaal Sarp Dosha, Rahu Mahadasha, dipendenze, paranoia"
+    },
+    "Ketu_Martedi_o_Sabato": {
+      "modalita": "Eka-bhakta o digiuno parziale, dieta sattvica",
+      "cibi_permessi": "Frutta, latte, cibi semplici",
+      "ripetizioni_consigliate": "Durante Ketu Mahadasha o Naga Panchami",
+      "rituali_associati": "Ganesh Atharvashirsha, mantra di Ketu, donazioni a sadhu",
+      "indicazioni_specifiche": "Per malattie misteriose, blocchi spirituali, Ketu Mahadasha"
+    }
+  },
+  "temples": {
+    "intro": "Visitare templi specifici dei pianeti è uno dei rimedi più potenti perché si entra in contatto con il prana del luogo, accumulato attraverso secoli di rituali. Il darshan (visione) della divinità del pianeta apre una connessione diretta che può sciogliere karma rapidamente.",
+    "Sole": "Templi di Surya (Sole): Konark Sun Temple (Odisha) — il più famoso del mondo, capolavoro architettonico del XIII secolo; Modhera Sun Temple (Gujarat); Suryanar Koil (Tamil Nadu, uno dei Navagraha Temples); Martand Sun Temple (Kashmir, in rovine ma sacro); Sun Temple di Arasavalli (Andhra Pradesh). Templi di Vishnu come Rama (forma solare): Rameshwaram, Ayodhya, Tirupati.",
+    "Luna": "Templi di Chandra: Somnath (Gujarat) — uno dei 12 Jyotirlinga, dedicato a Shiva come signore della Luna; Chandra Pushkarani temple (Tamil Nadu); Tingal-ur Chandran Temple (Tamil Nadu, Navagraha); templi di Shiva sul fiume sacro durante le notti di luna piena. Templi della Madre Divina: Vaishno Devi (J&K), Kamakhya (Assam), Meenakshi Temple (Madurai), Kanyakumari Temple.",
+    "Marte": "Templi di Mangal/Hanuman: Mangaleshwar Mahadev Temple (Madhya Pradesh, dedicato a Marte); Vaitheeswaran Koil (Tamil Nadu, Navagraha di Marte); Hanuman Temple di Salasar (Rajasthan); Hanuman Garhi (Ayodhya); Sankat Mochan Hanuman Temple (Varanasi). Templi di Subrahmanya/Kartikeya: Tiruchendur, Palani, Tiruparankundram (i 6 Padaiveedu del Tamil Nadu).",
+    "Mercurio": "Templi di Budha: Tiruvenkadu Temple (Tamil Nadu, Navagraha di Mercurio); templi di Vishnu come Krishna giovane: Vrindavan, Mathura, Dwarka, Udipi; templi di Saraswati: Sharada Peeth (in rovine in Pakistan), Basar Saraswati (Telangana), Mookambika (Karnataka).",
+    "Giove": "Templi di Brihaspati/Guru: Alangudi Temple (Tamil Nadu, Navagraha di Giove); templi di Vishnu: Tirupati Balaji (Andhra Pradesh — uno dei più visitati al mondo), Badrinath (Uttarakhand), Jagannath Puri (Odisha), Padmanabhaswamy (Kerala). Templi di Dakshinamurti (Shiva come Guru): vari templi in Tamil Nadu.",
+    "Venere": "Templi di Shukra: Kanjanur Temple (Tamil Nadu, Navagraha di Venere); templi di Lakshmi: Mahalakshmi Temple di Mumbai, Padmavathi Temple di Tiruchanur (Andhra Pradesh), Ashtalakshmi Temple di Chennai. Templi di Krishna-Radha: Vrindavan, Mathura, ISKCON temples in tutto il mondo.",
+    "Saturno": "Templi di Shani: Tirunallar Temple (Tamil Nadu, il più potente di tutti per Sade Sati e Shani Dasha); Shani Shingnapur (Maharashtra, dove si dice non servano porte di casa per la protezione di Shani); Shani Dham (Delhi); Shanaishchara Temple di Kuchanur (Tamil Nadu). Templi di Hanuman per pacificare Shani.",
+    "Rahu": "Templi di Rahu: Thirunageswaram Temple (Tamil Nadu, Navagraha di Rahu — qui Rahu è benefico, distribuisce 'milk darshan' miracoloso); Kalahasti Temple (Andhra Pradesh — Rahu-Ketu Pooja per Kaal Sarp Dosha); Naganatha Temple (Karnataka).",
+    "Ketu": "Templi di Ketu: Keezhperumpallam Temple (Tamil Nadu, Navagraha di Ketu); Kalahasti Temple (per Rahu-Ketu); templi di Ganesha (Ganesha è il rimuovi-ostacoli per Ketu): Siddhivinayak Temple (Mumbai), Ashtavinayak (8 templi del Maharashtra), Kanipakam Vinayaka Temple (Andhra Pradesh)."
+  },
+  "navagrahaTemples": {
+    "intro": "I 9 Navagraha Temples del Tamil Nadu sono un circuito di pellegrinaggio sacro situato nel distretto di Thanjavur, ognuno dedicato a uno dei 9 pianeti. Visitarli tutti in un giorno (o nell'arco di un pellegrinaggio dedicato) è considerato uno dei rimedi planetari più potenti per pacificare l'intero tema natale.",
+    "templi": [
+      {
+        "nome": "Suryanar Koil",
+        "pianeta": "Sole (Surya)",
+        "luogo": "Aaduthurai, vicino Kumbakonam, Tamil Nadu",
+        "divinita_principale": "Surya con le sue consorti Usha e Pratyusha",
+        "specialita": "Unico tempio dedicato esplicitamente al Sole nel circuito; visitato all'alba per ricevere la prima luce; particolarmente potente la domenica; rituale di Suryanamaskara compiuto dai pellegrini.",
+        "rimedio": "Donazione di grano, jaggery e oggetti di rame; recitazione di Aditya Hridayam"
+      },
+      {
+        "nome": "Tingaloor (Thingalur Chandran Temple)",
+        "pianeta": "Luna (Chandra)",
+        "luogo": "Tingaloor, Tamil Nadu",
+        "divinita_principale": "Kailasanathar (Shiva); Chandra è venerato come deva di guardia",
+        "specialita": "La storia di Kalikamba e Kalikamban: una donna saggia che attraverso la pratica spirituale ha pacificato Chandra Dosha; particolarmente potente il lunedì.",
+        "rimedio": "Offerta di latte, riso bianco, perle d'argento; recitazione del Chandra Mantra"
+      },
+      {
+        "nome": "Vaitheeswaran Koil",
+        "pianeta": "Marte (Angaraka/Mangala)",
+        "luogo": "Vaitheeswaran Koil, distretto di Mayiladuthurai, Tamil Nadu",
+        "divinita_principale": "Vaitheeswaran (Shiva come 'medico cosmico') con consort Thaiyalnayaki",
+        "specialita": "Tempio famoso anche per la guarigione delle malattie e per i Nadi Granthas (foglie di palma con previsioni di vite passate); martedì è il giorno di massima energia.",
+        "rimedio": "Bagno nella vasca sacra (siddhamrita teertham), donazione a poveri di lenticchie rosse, miele, jaggery; Hanuman Chalisa"
+      },
+      {
+        "nome": "Tiruvenkadu",
+        "pianeta": "Mercurio (Budha)",
+        "luogo": "Tiruvenkadu, distretto di Mayiladuthurai, Tamil Nadu",
+        "divinita_principale": "Sweta-aranyeswarar (Shiva nella foresta bianca) con consort Brahmavidyambika",
+        "specialita": "Uno dei templi più antichi e ricchi di mitologia; mercoledì è il giorno principale; Budha è raffigurato in postura grand-fatherly come signore dell'intelligenza dolce.",
+        "rimedio": "Donazione di lenticchie verdi, foglie di tulsi, libri sacri; recitazione del Budha Mantra"
+      },
+      {
+        "nome": "Alangudi",
+        "pianeta": "Giove (Brihaspati/Guru)",
+        "luogo": "Alangudi, distretto di Tiruvarur, Tamil Nadu",
+        "divinita_principale": "Apatsahayar (Shiva come 'colui che protegge nei pericoli') con consort Elavarkuzhali",
+        "specialita": "Tempio principale per il Guru Mahadasha e per ottenere figli, matrimonio, espansione finanziaria; giovedì è il giorno di pellegrinaggio massiccio.",
+        "rimedio": "Donazione di curcuma, dolci di jaggery, banane, vesti gialle a brahmini; recitazione del Brihaspati Mantra"
+      },
+      {
+        "nome": "Kanjanur",
+        "pianeta": "Venere (Shukra)",
+        "luogo": "Kanjanur, distretto di Mayiladuthurai, Tamil Nadu",
+        "divinita_principale": "Agneeswarar (Shiva del fuoco) con consort Karpagambal",
+        "specialita": "Specifico per amore, matrimonio, fertilità; venerdì è il giorno principale; le donne in cerca di matrimonio o di concepimento vi pellegrinano.",
+        "rimedio": "Donazione di argento, riso bianco, ghee, vesti bianche o rosa a giovani donne; Sri Suktam"
+      },
+      {
+        "nome": "Tirunallar",
+        "pianeta": "Saturno (Shani)",
+        "luogo": "Tirunallar, territorio di Puducherry (vicino al Tamil Nadu)",
+        "divinita_principale": "Dharbaranyeswarar (Shiva); Shani è la deità di guardia",
+        "specialita": "Il tempio più potente al mondo per Sade Sati e Shani Mahadasha; pellegrinaggio massiccio durante le transizioni di Saturno; ogni 2.5 anni quando Saturno cambia segno, milioni di pellegrini convergono qui; bagno nel teertha sacro è ritenuto rimuovere immediatamente i karma di Saturno.",
+        "rimedio": "Bagno nel Nala Theertha, offerta di olio di sesamo, ferro, vesti scure; Shani Stotram di Dasaratha"
+      },
+      {
+        "nome": "Thirunageswaram",
+        "pianeta": "Rahu",
+        "luogo": "Thirunageswaram, distretto di Thanjavur, Tamil Nadu",
+        "divinita_principale": "Naganathaswamy (Shiva come signore dei serpenti) con consort Girigujambal",
+        "specialita": "Famoso per il 'milk abhishekam miracle': il latte versato sull'idolo di Rahu cambia colore (da bianco a blu) durante il puja delle 11:30-13:30 — fenomeno scientificamente non spiegato che attira milioni di pellegrini; specifico per Kaal Sarp Dosha.",
+        "rimedio": "Rahu Pooja completo durante l'orario speciale, donazione di idoli di serpente d'argento; Mahamrityunjaya Mantra"
+      },
+      {
+        "nome": "Keezhperumpallam",
+        "pianeta": "Ketu",
+        "luogo": "Keezhperumpallam, distretto di Mayiladuthurai, Tamil Nadu",
+        "divinita_principale": "Naganathar (Shiva); Ketu è la divinità di guardia",
+        "specialita": "Specifico per Ketu Mahadasha, per malattie misteriose, per liberazione spirituale; il martedì sera e il sabato sera sono particolarmente potenti.",
+        "rimedio": "Donazione di coperte multicolori, sesamo, banane; mantra di Ketu e Ganesha"
+      }
+    ],
+    "consigli_pellegrinaggio": "Idealmente si visita l'intero circuito in un giorno o due, partendo da Suryanar Koil all'alba e terminando a Keezhperumpallam al tramonto. La sequenza tradizionale segue l'ordine settimanale: Sole-Luna-Marte-Mercurio-Giove-Venere-Saturno-Rahu-Ketu. È disponibile un servizio organizzato di Navagraha Yatra da Kumbakonam con autista esperto. Il momento migliore è durante un transito difficile di Saturno o di Rahu-Ketu, durante una Mahadasha critica, o come pratica preventiva prima di un grande progetto di vita."
+  },
+  "dailyPractices": {
+    "intro": "La pratica quotidiana (nitya karma) è il rimedio più potente nel lungo termine perché lavora ogni giorno sui nove pianeti in modo equilibrato. Una routine di 30-60 minuti al mattino può trasformare nel giro di alcuni anni l'intero campo karmico del nato.",
+    "alba_4_30_6_00_brahma_muhurta": [
+      "Risveglio prima dell'alba (Brahma Muhurta)",
+      "Bagno completo (snana) con acqua fresca",
+      "Sandhya Vandana: saluto al Sole nascente con il Gayatri Mantra (108 ripetizioni)",
+      "Surya Namaskar 12 cicli (saluto al sole fisico, attiva Sole)",
+      "Pranayama (Anuloma Viloma, Bhramari, Kapalabhati) 15 minuti",
+      "Meditazione 20-30 minuti (attiva Luna in modo equilibrante)",
+      "Lettura di un capitolo dei testi sacri (Bhagavad Gita, Upanishad — attiva Giove)"
+    ],
+    "mantine_6_00_8_00": [
+      "Puja domestica con accensione di lampada di ghee (deepa-aradhana)",
+      "Recitazione del mantra del giorno: Sole/Domenica, Luna/Lunedì, Marte/Martedì, Mercurio/Mercoledì, Giove/Giovedì, Venere/Venerdì, Saturno/Sabato",
+      "Donazione del giorno: piccola donazione (anche 1 euro o un atto di gentilezza) all'oggetto/persona del pianeta del giorno",
+      "Saluto e benedizione ai genitori (vivente o foto): attiva Sole-Luna-Giove",
+      "Colazione sattvica: frutta, latte, dolci di jaggery, ghee"
+    ],
+    "giornata": [
+      "Lavoro come karma yoga: dedicare ogni atto al divino",
+      "Parola consapevole: evitare pettegolezzi, bugie, parole inutili (cura Mercurio)",
+      "Ricordo del mantra ogni ora come ancora di consapevolezza",
+      "Servizio (seva) di almeno una persona al giorno: attiva Saturno e Giove insieme",
+      "Pasto principale a mezzogiorno (massima forza solare digestiva)",
+      "Riposo breve (15-20 minuti) dopo pranzo se possibile"
+    ],
+    "tramonto_18_00_19_30": [
+      "Sandhya Vandana del tramonto: saluto al sole calante",
+      "Lampada nel tempio di casa (deepa) all'imbrunire — fondamentale per Lakshmi e Saraswati",
+      "Recitazione di Hanuman Chalisa (40 versi, 8-10 minuti) — pacifica Saturno e Marte"
+    ],
+    "sera_19_30_22_00": [
+      "Pasto serale leggero, idealmente entro 2 ore dal tramonto",
+      "Ascolto di musica devozionale o canto di kirtan (apre il cuore — Venere)",
+      "Studio dei testi spirituali per 30-60 minuti",
+      "Diario serale: cosa ho fatto bene, cosa devo correggere, gratitudine per ogni piccola benedizione",
+      "Mantra prima di dormire: Mahamrityunjaya o Om Namo Narayanaya (108 ripetizioni mentali)",
+      "Dormire entro le 22:30 con la testa verso est o sud"
+    ],
+    "settimanale": [
+      "Domenica: digiuno solare leggero, visita al tempio di Vishnu/Surya",
+      "Lunedì: digiuno lunare per chi ha problemi mentali o coniugali, abhishekam di Shiva",
+      "Martedì: Hanuman Chalisa intensiva, donazione a giovani in difficoltà",
+      "Mercoledì: studio approfondito di un testo, donazione di libri sacri",
+      "Giovedì: visita al tempio di Vishnu o di Guru, ascolto di pravachan (lettura sacra)",
+      "Venerdì: rituale a Lakshmi, accensione di lampade extra in casa, cibo dolce",
+      "Sabato: servizio ai poveri, donazione di olio di sesamo, Hanuman Chalisa per pacificare Saturno"
+    ],
+    "mensile": [
+      "Amavasya (luna nuova): tarpan agli antenati, pratica sottile, evitare iniziative materiali",
+      "Pradosha (la 13ª tithi prima della luna nuova e della luna piena): puja a Shiva e Parvati al tramonto",
+      "Ekadashi (l'11ª tithi due volte al mese): digiuno completo o parziale, devozione a Vishnu",
+      "Sankashti Chaturthi (il 4° giorno dopo la luna piena): digiuno e devozione a Ganesha"
+    ],
+    "annuale": [
+      "Maha Shivaratri (febbraio-marzo): veglia notturna a Shiva, digiuno totale",
+      "Navaratri (settembre-ottobre): 9 notti di devozione alla Madre Divina (Durga, Lakshmi, Saraswati)",
+      "Diwali (ottobre-novembre): puja completo a Lakshmi-Ganesha per la prosperità",
+      "Guru Purnima (luglio): celebrazione del proprio guru, visita a un maestro",
+      "Krishna Janmashtami (agosto): celebrazione della nascita di Krishna",
+      "Pitru Paksha (settembre): 15 giorni di tarpan agli antenati"
+    ],
+    "principio_guida": "Il rimedio più potente non è la quantità ma la costanza. Una pratica semplice fatta ogni giorno per 12 anni trasforma più di una pratica complessa fatta saltuariamente. La Jyotish è un'arte della consapevolezza incarnata: ogni gesto rituale è un ponte fra l'individuo e il cosmo, e ogni gesto ripetuto con devozione apre flussi karmici favorevoli che nel lungo termine possono cambiare anche le configurazioni planetarie più difficili. Come dice il Bhagavata Purana: 'Anche un pianeta malefico diventa amico quando l'anima si volge sinceramente verso il divino'."
+  }
+}

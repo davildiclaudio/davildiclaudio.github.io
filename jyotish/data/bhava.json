@@ -1,0 +1,938 @@
+{
+  "_meta": {
+    "section": "Sezione 3 — Le 12 Bhava (case del Kundli)",
+    "fonti": ["Brihat Parashara Hora Shastra (cap. XI-XXVII sui Bhava)", "Phaladeepika di Mantreswara (cap. IX-X)", "Saravali di Kalyana Varma", "Jataka Parijata di Vaidyanatha", "Hora Sara di Prithuyasas", "Uttara Kalamrita di Kalidasa", "Bhavartha Ratnakara di Ramanuja"],
+    "note": "Ogni Bhava è descritta come campo di esperienza karmica, non come settore meccanico della vita. Le interpretazioni del 'signore della Bhava nelle altre case' (Bhava-lord placement) seguono Parashara con integrazioni di K.N. Rao, B.V. Raman, Sanjay Rath, P.V.R. Narasimha Rao. La densità è pensata per uno strumento di consultazione professionale: ogni voce è progettata per essere letta come paragrafo autonomo durante la lettura di una carta natale."
+  },
+  "bhava": [
+    {
+      "number": 1,
+      "sanskrit": "Tanu Bhava / Lagna",
+      "name": "Casa del Sé / del Corpo / Ascendente",
+      "western": "First House / Ascendant",
+      "primaryMeanings": [
+        "Sé fisico, corpo, costituzione",
+        "Personalità manifesta, prima impressione",
+        "Testa, cranio, viso, carnagione",
+        "Vitalità, longevità di base, forza vitale (ojas)",
+        "Inizio della vita, infanzia, primissimi anni",
+        "Tendenze caratteriali innate",
+        "Direzione complessiva dell'esistenza (Lagna come timone)",
+        "Capacità di auto-affermazione e di identità individuale"
+      ],
+      "secondaryMeanings": [
+        "Reputazione personale (in distinzione dalla reputazione professionale che è 10ª)",
+        "Onore e dignità del soggetto",
+        "Aspetto, bellezza, presenza scenica",
+        "Coraggio costituzionale (in dialogo con la 3ª)",
+        "Karma del corpo presente come eredità di vite passate",
+        "Senso del 'chi sono io' pre-riflessivo",
+        "Felicità di base, benessere generale (sukha radicato)",
+        "Punto di partenza karmico — la Bhava da cui si conta tutto il resto"
+      ],
+      "karaka": "Surya (Sole) come karaka del Sé e dell'anima individuale; secondariamente Lagnesha — il signore stesso del Lagna — funge da co-significatore. Il Sole rappresenta l'Ahamkara, il principio dell'io, e quindi è naturale significatore di ciò che la 1ª casa custodisce. In alcune scuole anche Mercurio è considerato karaka secondario per la corporeità sottile e per la pelle.",
+      "bodyParts": [
+        "Testa intera, cranio",
+        "Cervello (involucro generale, mentre il dettaglio cerebrale è 5ª)",
+        "Cuoio capelluto e capelli",
+        "Viso, lineamenti complessivi",
+        "Carnagione e tono della pelle d'insieme",
+        "Costituzione fisica generale e tono muscolare di base",
+        "Sistema immunitario di prima linea (ojas)"
+      ],
+      "naturalSign": "Mesha (Ariete) — la 1ª casa porta naturalmente la qualità marziale del primo segno: spinta a esistere, a manifestarsi, a tagliare il velo del non-essere. Implicazione pratica: chi ha pianeti benefici nella 1ª guadagna comunque un'impronta arietina di iniziativa, mentre malefici qui possono dare la stessa irruenza di Marte malposto, con tendenza a traumi cranici, cicatrici sul volto, scelte impulsive e identità costruita per opposizione. Il Sole nel suo segno di esaltazione (Ariete) ricorda che il Sé più alto trova la propria espressione attraverso un atto di coraggio individuante.",
+      "beneficsHere": "Giove in 1ª casa è una delle posizioni più auspiciose dell'intero zodiaco: dona corpo proporzionato e tendenzialmente robusto, viso luminoso, espressione benevola, saggezza precoce, fortuna costituzionale, protezione divina avvertita come presenza, ottimismo strutturale, ottima reputazione spontanea, longevità e prosperità — è un Hamsa Yoga se Giove è anche in segno proprio o esaltato. Venere in 1ª dona bellezza fisica notevole, charme, carnagione luminosa, occhi grandi e magnetici, talento estetico, vita relazionale precoce e ricca, amore per il lusso e per le arti, costituzione equilibrata; può rendere il nativo eccessivamente attaccato all'apparenza. Mercurio in 1ª dona aspetto giovanile durevole, intelligenza brillante, capacità linguistiche, voce piacevole, mente curiosa, talento per scrittura e commercio, salute mentale agile; il rischio è una certa volatilità nervosa. Luna piena in 1ª dona viso lunare, carnagione chiara, sensibilità marcata, popolarità, intuito, qualità materne; Luna nuova o ferita può dare instabilità emotiva.",
+      "maleficsHere": "Sole in 1ª (sebbene sia karaka della casa e quindi non puramente malefico) tende a indebolire l'ojas se non ben disposto: dona personalità autoritaria, tendenza al comando, ego marcato, calvizie precoce, problemi cardiaci, padre come figura forte ma talvolta distante. Marte in 1ª — se non in segno proprio o esaltato — dà cicatrici sul volto o sul cranio, traumi infantili, temperamento collerico, tendenza incidenti, infiammazioni croniche, sangue caldo (Pitta), ma se ben disposto produce Ruchaka Mahapurusha Yoga e fa di chi nasce un guerriero, atleta o leader. Saturno in 1ª dona corpo magro, ossuto, alto, espressione austera o malinconica, infanzia segnata da privazioni o gravità precoce, tendenza alla depressione, longevità ma con sofferenze, salute fragile fino ai 35 anni e poi forte (Saturno matura tardi); produce anche Shasha Yoga se in segno proprio. Rahu in 1ª dà aspetto insolito, magnetismo strano, ambizioni smisurate, identità instabile o confusa, attrazione verso ciò che è straniero o tabù, possibile dipendenza da sostanze, infanzia con figura paterna ambigua. Ketu in 1ª dà distacco precoce dal corpo, senso di non appartenere, talenti spirituali innati ma identità fragile, tendenza alla solitudine.",
+      "lordInOtherHouses": {
+        "1": "Lagnesha nella 1ª casa stessa è una posizione di grande forza: il signore è 'a casa propria' e governa il proprio dominio direttamente. Dona vitalità robusta, identità chiara, salute solida, carattere autonomo, capacità di auto-determinazione, longevità tendenzialmente lunga. Il nativo conosce sé stesso, ha confini interni saldi e un timone interiore affidabile. È raro il senso di smarrimento esistenziale, perché il principio del Sé risiede nella propria sede naturale. Va valutato insieme alla forza per dignità del pianeta.",
+        "2": "Lagnesha in 2ª lega il Sé alla parola, alla famiglia d'origine e alla ricchezza accumulata: il nativo trova la propria identità attraverso ciò che dice, ciò che possiede e i valori della famiglia. Buona accumulazione di risorse, voce comunicativa, talento per il commercio, attaccamento alla casa natale. Tendenza a definirsi in base al patrimonio o alla genealogia. Ottimo per artisti vocali, finanzieri, restauratori della memoria familiare. Salute generale legata anche all'apparato digerente e alla bocca.",
+        "3": "Lagnesha in 3ª dona coraggio personale come asse identitario: il nativo si realizza attraverso lo sforzo proprio (parakrama), iniziative coraggiose, sport, scrittura, viaggi brevi, comunicazione attiva. Buon rapporto con i fratelli minori o conflittuale-formativo. Capacità di auto-promozione. Tendenza ad agire prima di pensare. Carriera che premia l'iniziativa diretta e il rischio personale; benefica per imprenditori, atleti, militari, giornalisti, scrittori di non-fiction.",
+        "4": "Lagnesha in 4ª radica il Sé nella casa, nella madre, nel territorio: il nativo costruisce la propria identità attorno al focolare domestico, alla terra natale, al patrimonio immobiliare, al rapporto con la madre. Ottimo per real estate, agricoltura, psicoterapia, settori della cura. Felicità interiore solida quando la dimora è stabile; nostalgia profonda se sradicato. Possibile vita prolungata nella casa d'origine o forte ricerca di una casa propria che diventi rifugio dell'anima.",
+        "5": "Lagnesha in 5ª lega il Sé alla creatività, ai figli, all'intelligenza e al purva punya (meriti karmici): il nativo è naturalmente creativo, intelligente, fortunato per nascita, devoto, capace di esprimere sé stesso attraverso opere, figli, insegnamento. Buon rapporto con la prole. Inclinazione filosofica o spirituale precoce. Carriera in arti, educazione, finanza speculativa, consulenza. Una delle posizioni più benefiche perché trine, dona flusso e prosperità con poca fatica.",
+        "6": "Lagnesha in 6ª lega il Sé alla lotta, al lavoro, alla guarigione, ai nemici e ai debiti: posizione faticosa ma rendente. Il nativo cresce attraverso conflitti, malattie superate, contenziosi vinti. Eccellente per medici, avvocati, militari, terapeuti, investigatori. Tendenza a essere sotto stress, ad ammalarsi, ad avere debiti — ma anche capacità rara di trasformare difficoltà in carriera. Vipareeta Raja Yoga possibile se ben disposto. La salute richiede attenzione: il Sé è in casa di malattia.",
+        "7": "Lagnesha in 7ª trasferisce il centro identitario nel partner: il nativo si scopre attraverso le relazioni, il matrimonio, le partnership professionali. Vita matrimoniale centrale, possibili viaggi e residenza all'estero. Carriera in mediazione, diplomazia, business in coppia, settori del pubblico. Tendenza a perdere sé stessi nell'altro o a scegliere partner dominanti. Possibile vita pubblica notevole. La 7ª come marana karaka per Lagnesha può ridurre la longevità se afflitta.",
+        "8": "Lagnesha in 8ª è posizione delicata: il Sé si lega a trasformazioni, occulto, eredità, longevità (paradossalmente sia ridotta sia indagata profondamente), ricerca, sessualità profonda. Il nativo affronta crisi iniziatiche, possibili problemi cronici di salute, incidenti, ma anche straordinaria capacità di rigenerazione. Eccellente per ricercatori, occultisti, psicoanalisti, chirurghi, investigatori. Vipareeta Raja Yoga possibile. Vita segnata da una grande trasformazione (intorno ai 28-32 anni di solito).",
+        "9": "Lagnesha in 9ª è una delle posizioni più auspiciose: il Sé si lega al dharma, al padre, ai maestri, alla fortuna, alla filosofia, ai viaggi lunghi. Vita protetta da bhagya (fortuna karmica), carriera dignitosa, possibile vita all'estero o in ambienti accademici/spirituali. Devozione naturale. Buon rapporto con il padre o con figura paterna sostitutiva. Saggezza precoce. Possibile insegnamento, sacerdozio, scrittura filosofica, diritto, alta dirigenza.",
+        "10": "Lagnesha in 10ª è eccellente per la carriera: il nativo costruisce la propria identità attraverso il lavoro, la reputazione pubblica, il ruolo nel mondo. Karma yoga marcato. Successo professionale, autorità riconosciuta, possibile fama. Ottimo per leader, manager, politici, professionisti di alto profilo. Padre figura significativa nella scelta di carriera. La vita ha un asse pubblico forte. Una delle quattro grandi posizioni angolari per il signore del Lagna.",
+        "11": "Lagnesha in 11ª lega il Sé al guadagno, agli amici, alle reti sociali, alla realizzazione dei desideri: il nativo prospera attraverso le connessioni, i gruppi, le grandi organizzazioni. Reddito sostanzioso, molti amici influenti, capacità di accumulo, fratello maggiore figura significativa. Carriera in network, vendite, social media, organizzazioni internazionali, finanza. Realizza i desideri ma deve guardarsi dall'avidità. Posizione molto benefica per prosperità materiale.",
+        "12": "Lagnesha in 12ª è la più delicata: il Sé si lega a perdite, esilio, spese, stranieri, monasteri, sogni, liberazione. Il nativo può vivere all'estero, dedicarsi a vita spirituale, ritirarsi dal mondo, soffrire perdite. Marana karaka per il Lagnesha — riduce vitalità e può segnare salute. Tuttavia, eccellente per spiritualità profonda, mistica, lavoro nei retroscena (intelligence, ricerca, ospedali, ashram), arte cinematografica. Karma di moksha attivo: questa vita può essere quella della liberazione."
+      },
+      "yogasAndCombinations": [
+        "Lagna fortificato da Giove o Venere in 1ª = Mahapurusha Yoga (Hamsa, Malavya) potenziale",
+        "Lagnesha in kendra (1, 4, 7, 10) o trikona (1, 5, 9) = Raja Yoga di base",
+        "Lagnesha forte + Sole forte = personalità integra, leader naturale",
+        "Lagnesha in 6/8/12 = Dussthana, indebolisce vitalità a meno di Vipareeta Raja Yoga",
+        "Pianeti benefici nei kendra dal Lagna (Kendradhipati Yoga) = vita protetta",
+        "Subha Kartari Yoga = benefici nella 12ª e nella 2ª attorno alla 1ª, dona aura protettiva",
+        "Papa Kartari Yoga = malefici attorno alla 1ª, opprime la personalità",
+        "Lagnesha + 9° signore in scambio o congiunti = Dharma-Karmadhipati Yoga (massima fortuna)"
+      ],
+      "remedies": [
+        "Rafforzare il Sole con Surya Namaskar al sorgere",
+        "Aditya Hridaya Stotra recitato all'alba",
+        "Indossare rubino (manik) montato su oro, anulare destro, dopo verifica del Sole nella carta",
+        "Bagno con acqua di rame al risveglio",
+        "Donazioni di grano e jaggery di domenica",
+        "Cura del corpo come pratica yogica (abhyanga, hatha yoga)",
+        "Mantra del Lagnesha specifico (varia per ogni segno ascendente)",
+        "Servizio al padre o a figure paterne anziane",
+        "Evitare cibi tamasici se Lagna è afflitto da Saturno o Rahu"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XI: 'Tanusthane shubhe drishte shubhayukte balanvitam — Sharira sukhinam vidyat ayushmanto bhavanti hi' (Quando la 1ª è aspetta da benefici, congiunta a benefici e forte, il nativo gode di salute e longa vita)",
+        "Phaladeepika IX.2: 'Lagnam dehasvarupam syat' (Il Lagna è la forma stessa del corpo)",
+        "Saravali XXIX.1: descrive il Lagna come 'kalam' (il timone) della vita",
+        "Jataka Parijata: 'Lagnadhipe baliyase nare deha-sukha-bhag bhavet' (Quando il signore del Lagna è forte, il nativo gode salute e felicità del corpo)"
+      ]
+    },
+    {
+      "number": 2,
+      "sanskrit": "Dhana Bhava",
+      "name": "Casa della Ricchezza, della Parola e della Famiglia",
+      "western": "Second House",
+      "primaryMeanings": [
+        "Ricchezza accumulata, patrimonio liquido, denaro guadagnato",
+        "Parola (vak), voce, linguaggio, capacità oratoria",
+        "Famiglia d'origine (kutumba), nucleo familiare nel quale si è nati",
+        "Cibo, alimentazione, gusto",
+        "Bocca, lingua, denti, palato",
+        "Occhio destro (specie nelle donne)",
+        "Valori morali e personali (ciò a cui si dà valore)",
+        "Capacità di accumulo materiale e di gestione del denaro"
+      ],
+      "secondaryMeanings": [
+        "Educazione primaria e cultura familiare ricevuta",
+        "Memoria (smriti) e capacità di trattenere",
+        "Volto inferiore, mascella, gola superiore",
+        "Beni mobili (gioielli, contante, oggetti preziosi domestici)",
+        "Modo di parlare (dolce, aspro, lento, veloce)",
+        "Verità o menzogna nella parola (Saturno in 2ª può rendere muti o lenti, Mercurio dona eloquenza)",
+        "Morte (Maraka Bhava — la 2ª e l'8ª come sostegni della longevità)",
+        "Patrimonio ereditato dalla famiglia paterna immediata"
+      ],
+      "karaka": "Brihaspati (Giove) come karaka della ricchezza saggia e dell'abbondanza dharmica; Shukra (Venere) come karaka della ricchezza sensibile, dei beni di lusso, della voce melodiosa; Mercurio (Budha) per la parola in quanto facoltà discorsiva. La triade Giove-Venere-Mercurio in 2ª, anche solo per aspetto, dona Dhana Yoga potenziale. Sole come karaka secondario per il volto e la dignità del proprio nome di famiglia.",
+      "bodyParts": [
+        "Bocca, labbra, lingua",
+        "Denti, gengive, mascella inferiore",
+        "Palato, ugola",
+        "Gola superiore (la gola profonda è 5ª secondo alcuni)",
+        "Occhio destro (per le donne; per gli uomini è la 12ª secondo Parashara)",
+        "Naso (parzialmente, condiviso con la 1ª)",
+        "Apparato fonatorio"
+      ],
+      "naturalSign": "Vrishabha (Toro) — la 2ª casa porta naturalmente la qualità venusiana del Toro: bellezza dei beni, dolcezza della voce, sensualità del cibo, attaccamento al possesso, valore dato alla stabilità materiale. Implicazione: chi ha pianeti benefici qui guadagna l'impronta toriana di accumulo lento ma solido; malefici qui agiscono come Venere afflitta in Toro, generando o avidità o difficoltà economiche cicliche. Il segno governa la voce — Vrishabha è il segno dei grandi cantanti, e questo collega la 2ª casa al canto e alla parola formata.",
+      "beneficsHere": "Giove in 2ª casa è una delle migliori posizioni per la ricchezza: dona accumulo costante, prosperità famigliare, voce autorevole e benevola, alimentazione equilibrata, sapienza che si trasmette in famiglia, capacità di insegnamento, denti generalmente buoni, fortuna nelle banche e negli investimenti dharmici. Forma uno dei classici Dhana Yoga. Venere in 2ª dona voce melodiosa (molti cantanti famosi hanno questa posizione), bellezza del volto inferiore, denti perfetti, ricchezza attraverso le arti, il lusso, la moda, la cosmetica, la finanza estetica; vita familiare armoniosa, attaccamento al cibo raffinato. Mercurio in 2ª dona eloquenza, abilità commerciale, voce chiara e veloce, talento per le lingue, ricchezza attraverso scrittura/parola/commercio, mente analitica applicata al denaro; ottimo per traduttori, contabili, broker. Luna in 2ª dona voce dolce e morbida, viso lunare, supporto materno, ricchezza fluida (entra e esce), legame con il cibo materno e la cucina di casa.",
+      "maleficsHere": "Sole in 2ª può ridurre la ricchezza familiare o generare conflitti con il padre per questioni di denaro; voce autoritaria ma talvolta tagliente, problemi agli occhi, calore in bocca (afte, gengiviti), dignità del nome di famiglia importante per il nativo. Marte in 2ª produce voce tagliente, parole aggressive, denti problematici, conflitti familiari, possibili spese improvvise, gengive che sanguinano, lingua sciolta o tagliente; può causare litigi in famiglia per eredità. Saturno in 2ª dona parola lenta o impacciata (balbuzie possibile se severamente afflitto), denti deboli o in disordine, ricchezza che arriva tardi ma duratura, famiglia povera o severa, voce profonda ma fredda, possibile distacco dal nucleo originario; in compenso disciplina finanziaria notevole. Rahu in 2ª produce ricchezza ottenuta in modi non ortodossi, parola manipolatoria o seducente, famiglia non convenzionale o assente, attaccamento al cibo straniero, possibili dipendenze orali (alcol, fumo, cibo); voce magnetica ma non sempre veritiera. Ketu in 2ª dà distacco dalla ricchezza, dalla famiglia e dal cibo, possibile esperienza di scarsità, parola scarna ma penetrante, voce tagliata o affievolita, problematiche dentali precoci.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 2ª nella 1ª casa porta la ricchezza e la famiglia direttamente nel Sé: il nativo è economicamente autonomo, parla bene di sé, costruisce la propria identità attorno al denaro o al patrimonio familiare. Buon accumulo personale, attaccamento ai beni propri, voce identitaria forte. Possibile attaccamento eccessivo a denaro o cibo. La famiglia d'origine influenza profondamente la personalità.",
+        "2": "Il signore della 2ª nella 2ª (in casa propria) è una posizione molto stabile per la ricchezza: il nativo accumula in modo solido e duraturo, ha voce autorevole, famiglia ben funzionante, alimentazione adeguata. Vakulamrit Yoga possibile (signore della 2ª forte in 2ª = ricchezza permanente). Attaccamento ai valori familiari ricevuti, conservatorismo finanziario, eredità presente.",
+        "3": "Il signore della 2ª nella 3ª lega ricchezza e parola al coraggio, ai fratelli, alla scrittura, ai viaggi brevi: il nativo guadagna attraverso il proprio sforzo, le proprie iniziative, la propria capacità comunicativa. Possibile ricchezza dei fratelli o conflitti per denaro con loro. Carriera nell'editoria, giornalismo, vendite. La voce viene usata professionalmente.",
+        "4": "Il signore della 2ª nella 4ª lega ricchezza e famiglia alla casa, alla madre, alla terra: prosperità domestica, eredità immobiliare, alimentazione abbondante, voce che sostiene gli affetti. Ottimo per real estate, agricoltura, settore alimentare. La famiglia d'origine sostiene economicamente il nativo. Possibile ereditare la casa familiare. La madre influenza i valori economici.",
+        "5": "Il signore della 2ª nella 5ª è ottimo Dhana Yoga: ricchezza attraverso creatività, figli, speculazione fortunata, insegnamento, consulenza. Voce usata per esprimere arte. I figli possono essere fonte di prosperità. Investimenti speculativi tendenzialmente fortunati. Famiglia legata a creatività o spiritualità. Buon mantra-shakti (potere della parola sacra).",
+        "6": "Il signore della 2ª nella 6ª è posizione difficile per la ricchezza: denaro guadagnato attraverso conflitti, processi, lavoro duro, settore medico/legale. Possibili debiti, controversie familiari, problemi alla bocca o alla voce, alimentazione disordinata. Tuttavia, possibile Vipareeta Raja Yoga: difficoltà che si trasformano in fonte di reddito. Attenzione ai nemici per questioni economiche.",
+        "7": "Il signore della 2ª nella 7ª lega ricchezza e famiglia al partner, al matrimonio, agli affari: il nativo guadagna attraverso il coniuge, le partnership, la vita pubblica. Voce usata in mediazione o davanti a pubblico. Famiglia del partner significativa. Ricchezza che cresce dopo il matrimonio. Possibile residenza all'estero per ragioni economiche.",
+        "8": "Il signore della 2ª nella 8ª è delicato: ricchezza attraverso eredità, assicurazioni, ricerca, occulto, sessualità, partner, ma con instabilità. Possibili perdite improvvise alternate a guadagni inattesi. La famiglia può subire trasformazioni dolorose. Voce che indaga il profondo. Salute della bocca attenzione. Buona posizione per ricercatori, psicoanalisti, occultisti, eredieri di patrimoni.",
+        "9": "Il signore della 2ª nella 9ª è eccellente Dhana Yoga e Bhagya Yoga insieme: ricchezza dharmica, famiglia spirituale, eredità da padre, prosperità attraverso insegnamento o viaggi. Voce che pronuncia verità. Famiglia connessa a guru o tradizioni sacre. Possibili guadagni dall'estero. Posizione molto auspiciosa.",
+        "10": "Il signore della 2ª nella 10ª lega ricchezza e famiglia alla carriera: il nativo costruisce patrimonio attraverso la professione, eredita lo status sociale dalla famiglia, usa la voce nel lavoro. Carriera che produce accumulo solido. Reputazione del cognome importante. Padre influenzante sulla scelta professionale. Dhana-Karma Yoga.",
+        "11": "Il signore della 2ª nella 11ª è il classico Dhana Yoga maggiore: enorme accumulo di ricchezza attraverso amici, network, organizzazioni, guadagni multipli. Famiglia connessa a circoli sociali influenti. Voce che attrae moltitudini. Reddito molto alto. Una delle migliori posizioni per la prosperità materiale di tutto il Kundli.",
+        "12": "Il signore della 2ª nella 12ª è posizione difficile: tendenza a spendere ciò che si guadagna, perdite economiche, possibile vita all'estero per ragioni economiche, distacco dalla famiglia d'origine, voce sussurrata o usata in contesti meditativi. Possibile spiritualizzazione del rapporto con il denaro. Attenzione a investimenti perdenti. Marana karaka tendenziale per i karaka della 2ª (Giove)."
+      },
+      "yogasAndCombinations": [
+        "Dhana Yoga: signore della 2ª e signore dell'11ª in mutuo scambio o aspetto",
+        "Lakshmi Yoga: signore della 9ª nella 2ª con Venere forte",
+        "Vakulamrit Yoga: signore della 2ª in casa propria",
+        "Mukha Yoga: Mercurio in 2ª in segno proprio o esaltato (eloquenza divina)",
+        "Sarpa Yoga (negativo): solo malefici nei kendra senza benefici nella 2ª = povertà",
+        "Daridra Yoga: signore dell'11ª in 6/8/12 con signore della 2ª afflitto",
+        "Maraka effetto: la 2ª e la 7ª come Maraka Sthana — i loro signori possono attivare maraka dasha"
+      ],
+      "remedies": [
+        "Recitazione del Lakshmi Ashtottara o Sri Suktam",
+        "Donazione di cibo (annadana) — uno dei rimedi più potenti per la 2ª",
+        "Mantra del karaka (Giove o Venere) secondo necessità",
+        "Mantenere veridicità nella parola (Satya — la 2ª guarisce con la verità detta)",
+        "Pulizia accurata del cavo orale come pratica spirituale",
+        "Servire la famiglia d'origine senza calcolo",
+        "Non parlare male di nessuno specie a stomaco vuoto",
+        "Recitare Gayatri Mantra all'alba",
+        "Indossare topazio giallo se Giove è il rimedio o diamante se Venere"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XII: 'Dhanasthane shubhe drishte shubhayukte balanvite — Dhanavan vidyavan kantah satyabhakto bhavet narah'",
+        "Phaladeepika IX.4: 'Dhanam vidyam mukham nayanam dakshinam dhanasthanam'",
+        "Saravali XXX: descrive la 2ª come custode di kutumba (famiglia) e annapana (cibo e bevanda)",
+        "Uttara Kalamrita: definisce la 2ª anche come 'maraka' — porta della morte assieme alla 7ª"
+      ]
+    },
+    {
+      "number": 3,
+      "sanskrit": "Sahaja Bhava / Vikrama Bhava",
+      "name": "Casa dei Fratelli, del Coraggio e dello Sforzo",
+      "western": "Third House",
+      "primaryMeanings": [
+        "Fratelli e sorelle (specie i minori, mentre i maggiori sono 11ª)",
+        "Coraggio personale (parakrama), valore, audacia",
+        "Sforzo proprio, iniziativa individuale (vikrama)",
+        "Comunicazione, scrittura, espressione",
+        "Viaggi brevi, spostamenti quotidiani",
+        "Mani, braccia, spalle",
+        "Vicini, contesto immediato, comunità prossima",
+        "Hobby, abilità manuali, talenti artigianali"
+      ],
+      "secondaryMeanings": [
+        "Capacità motoria fine e manualità",
+        "Sistema nervoso periferico",
+        "Pubblicazioni, articoli, post, contenuti brevi",
+        "Apparecchi di comunicazione (telefono, computer, social)",
+        "Polmoni superiori, gola inferiore",
+        "Forza di volontà come muscolo (la 3ª come 'ricchezza' del coraggio)",
+        "Servitori personali, assistenti, collaboratori subordinati immediati",
+        "Orecchio destro"
+      ],
+      "karaka": "Mangala (Marte) come karaka del coraggio, della forza dei fratelli, dell'azione individuale, dell'arma; Mercurio (Budha) come karaka secondario per la comunicazione, la scrittura e l'espressione veloce. Marte forte aspetta o nella 3ª produce coraggio leonino e fratelli forti; Mercurio in 3ª dona scrittura e parola ritmica.",
+      "bodyParts": [
+        "Spalle, scapole",
+        "Braccia, gomiti, avambracci",
+        "Mani, dita, polsi",
+        "Polmoni superiori e bronchi",
+        "Gola inferiore",
+        "Orecchio destro",
+        "Sistema nervoso periferico (mani-braccia)"
+      ],
+      "naturalSign": "Mithuna (Gemelli) — la 3ª casa porta naturalmente la qualità mercuriale dei Gemelli: comunicazione, dualità, mano-pensiero, scambio veloce, fratellanza simbolica. Implicazione: chi ha pianeti qui sente il bisogno di esprimersi, di muoversi, di essere in rete; il fissarsi in un solo luogo o in una sola idea diventa difficile. Marte qui (segno opposto al suo dharma profondo) deve trovare il modo di tradurre l'aggressività in iniziativa fine, gesto preciso, scrittura tagliente.",
+      "beneficsHere": "Marte in 3ª (sebbene tecnicamente non-benefico) è una delle migliori posizioni dello zodiaco per la 3ª casa: dona enorme coraggio, fratelli forti e protettivi, energia indomabile, capacità di leadership militare o sportiva, talento per la chirurgia, mani forti e abili; produce uno dei più potenti yoga per parakrama. Giove in 3ª — anche se considerato 'non al meglio' qui da Parashara perché Giove preferisce contemplare anziché agire — dona comunque fratelli benevoli, ottimismo, scrittura saggia, voce comunicativa autorevole, capacità di insegnare con esempi pratici. Venere in 3ª dona fratelli/sorelle belli e amati, mani gentili, talento musicale (specialmente strumenti a corde e fiati), comunicazione persuasiva, scrittura artistica. Mercurio in 3ª (in casa propria) dona parola brillantissima, scrittura veloce e copiosa, fratelli intelligenti, talento per editoria e giornalismo. Sole in 3ª (considerato favorevole per la 3ª da Parashara) dona coraggio reale, fratelli autorevoli, leadership, voce che si fa ascoltare, vita protetta.",
+      "maleficsHere": "Saturno in 3ª — paradossalmente — è considerato uno dei rimedi naturali per la 3ª: dona perseveranza, disciplina, scrittura lunga e profonda, fratelli più anziani come figure-guida, coraggio strutturato (non impulsivo come Marte ma duraturo). Le posizioni 'difficili' qui sono altre. Luna in 3ª può rendere il coraggio incostante, l'umore variabile, i rapporti con i fratelli basati su emozioni instabili; voce dolce ma talvolta lamentosa. Rahu in 3ª dona straordinaria capacità di iniziativa, ambizione spinta, comunicazione magnetica, ma fratelli problematici, conflitti, possibili figure ambigue come collaboratori; ottima posizione per giornalisti d'inchiesta, social media manager, scrittori di tendenza, sportivi famosi. Ketu in 3ª dona distacco dai fratelli (possibile lontananza fisica o spirituale), comunicazione laconica e tagliente come una spada, possibili problemi alle braccia/mani, ma anche talento spirituale per scrittura iniziatica.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 3ª nella 1ª porta coraggio e iniziativa direttamente nel Sé: il nativo è autoaffermativo, intraprendente, spesso atletico o sportivo, scrive su sé stesso, usa la propria voce con audacia. Buon rapporto con i fratelli che influenzano l'identità. Vita orientata all'azione personale.",
+        "2": "Il signore della 3ª nella 2ª lega coraggio e fratelli alla ricchezza familiare: il nativo guadagna attraverso il proprio sforzo e la comunicazione, possibile lavoro insieme ai fratelli o ricchezza condivisa con loro. Voce coraggiosa, talento per la finanza attiva, vendite, scrittura redditizia.",
+        "3": "Il signore della 3ª nella 3ª (in casa propria) è eccellente per coraggio, fratelli, comunicazione: il nativo realizza grandi imprese attraverso il proprio sforzo, ha fratelli forti e protettivi, scrive copiosamente, viaggia molto in zona prossima. Posizione molto valorizzante per la 3ª.",
+        "4": "Il signore della 3ª nella 4ª lega lo sforzo alla casa, alla madre, al territorio: il nativo agisce per la famiglia, costruisce attorno alla casa, può vivere insieme ai fratelli o vicini. Possibile lavoro nel real estate locale, agricoltura, automotive. Madre figura coraggiosa.",
+        "5": "Il signore della 3ª nella 5ª lega coraggio e creatività: il nativo si esprime attraverso arte, scrittura creativa, sport, insegnamento. I fratelli possono essere creativi o significativi nel processo educativo. Buona fortuna per imprese coraggiose. Eccellente per atleti, performer, scrittori di fiction.",
+        "6": "Il signore della 3ª nella 6ª è posizione potente per chi combatte: il nativo eccelle nelle lotte, nei processi, nello sport competitivo, nella medicina, nel servizio militare. I fratelli possono essere motivo di conflitto o di servizio. Vipareeta Raja Yoga possibile. Coraggio nella malattia.",
+        "7": "Il signore della 3ª nella 7ª lega coraggio e fratelli al partner, al matrimonio, agli affari: il nativo agisce attraverso il coniuge, può sposarsi con qualcuno conosciuto attraverso un fratello o nel proprio quartiere, ha fratelli che si sposano prima o influenzano le scelte matrimoniali. Buona posizione per partnership coraggiose, business in coppia.",
+        "8": "Il signore della 3ª nella 8ª è delicato: il coraggio si esprime nel campo della trasformazione, dell'occulto, della ricerca, ma con possibili pericoli. Possibili problemi con i fratelli, incidenti, eredità contestate. Tuttavia, ottima posizione per investigatori, ricercatori, chirurghi, militari di forze speciali.",
+        "9": "Il signore della 3ª nella 9ª lega coraggio e fratelli al dharma, al padre, ai viaggi lunghi: il nativo agisce con valori etici, ha fratelli connessi alla spiritualità o all'estero, viaggia in pellegrinaggio o per studio, scrive di filosofia. Eccellente posizione per insegnanti coraggiosi, scrittori spirituali, viaggiatori.",
+        "10": "Il signore della 3ª nella 10ª è ottimo: il coraggio costruisce la carriera, il nativo eccelle attraverso il proprio sforzo, comunica professionalmente, possibile lavoro pubblico (giornalismo, oratoria, editoria, marketing). I fratelli possono essere collaboratori professionali. Karma Yoga marcato.",
+        "11": "Il signore della 3ª nella 11ª è eccellente: il coraggio porta guadagni, i fratelli possono diventare amici-network, il lavoro comunicativo produce reddito, la realizzazione dei desideri richiede iniziativa. Ottimo per imprenditori, social media, vendite, organizzazioni.",
+        "12": "Il signore della 3ª nella 12ª può indicare lontananza dai fratelli, possibile residenza all'estero, comunicazione in contesti spirituali, scrittura nel silenzio (libri, ricerca solitaria), perdita di coraggio in alcune fasi, ma anche talento per pratiche meditative attive (mantra, kirtan). I fratelli possono vivere lontano."
+      },
+      "yogasAndCombinations": [
+        "Vikrama Yoga: Marte forte nella 3ª = grande coraggio",
+        "Bharati Yoga: Mercurio forte in 3ª = oratore o scrittore notevole",
+        "Combinazione fratelli: 3° signore in trine + Marte forte = fratelli protettivi e numerosi",
+        "Saturno in 3ª: Yoga della perseveranza (paradosso classico)",
+        "3° signore in 6/8/12: difficoltà nei rapporti con fratelli, possibili lontananze",
+        "Sole in 3ª: Yoga della voce reale (re-oratori)"
+      ],
+      "remedies": [
+        "Hanuman Chalisa quotidiano (rimedio principe per la 3ª)",
+        "Mantra di Marte: Om Angarakaya Namah",
+        "Servire i fratelli senza aspettative",
+        "Esercizio fisico regolare (Marte chiede movimento)",
+        "Donare oggetti rossi e di rame il martedì",
+        "Pratica di scrittura quotidiana (journaling)",
+        "Praticare un'arte marziale o uno sport",
+        "Nutrire un bambino orfano se la 3ª è gravemente afflitta"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XIII: 'Sahajasthane shubhe drishte shubhayukte balanvite — Bhratrubhir labhate sukham vikramam dhanam eva ca'",
+        "Phaladeepika IX.5: 'Vikramo bhratrah sevaka shrotram'",
+        "Saravali: descrive la 3ª come parakrama-sthana (luogo del valore individuale)"
+      ]
+    },
+    {
+      "number": 4,
+      "sanskrit": "Sukha Bhava / Bandhu Bhava / Matri Bhava",
+      "name": "Casa della Madre, della Casa, della Felicità Interiore",
+      "western": "Fourth House / Imum Coeli",
+      "primaryMeanings": [
+        "Madre, figura materna primaria",
+        "Casa fisica, abitazione, dimora",
+        "Patria, terra natale, paese d'origine",
+        "Felicità interiore (sukha), pace dell'anima",
+        "Veicoli, mezzi di trasporto privati",
+        "Beni immobili, terre, proprietà",
+        "Educazione formale ricevuta (specie scuola dell'obbligo)",
+        "Cuore inteso come centro emotivo (in distinzione dal cuore-organo che è 5ª)"
+      ],
+      "secondaryMeanings": [
+        "Bestiame domestico, animali della casa",
+        "Pozzi, sorgenti, acque domestiche",
+        "Gioielli ereditati dalla famiglia (specialmente dalla madre)",
+        "Capacità di stabilirsi, di fare radici",
+        "Petto, parte alta dell'addome, polmoni inferiori",
+        "Patrimonio ancestrale (in dialogo con la 8ª che è eredità)",
+        "Fine della vita (poiché la 4ª è opposta alla 10ª, la fine del giorno è opposta al meridiano)",
+        "Vehicula = veicoli ma anche 'tutto ciò che ti porta', incluso il proprio corpo come veicolo"
+      ],
+      "karaka": "Chandra (Luna) come karaka della madre e della felicità interiore; Mercurio (Budha) come karaka secondario dell'educazione e dello studio; Marte come karaka della casa fisica e della terra (proprietà); Venere come karaka dei veicoli e del comfort. La Luna ben posizionata o aspettante la 4ª dona pace interiore profonda.",
+      "bodyParts": [
+        "Petto, sterno",
+        "Polmoni inferiori",
+        "Cuore (zona pericardica, mentre il muscolo cardiaco è 5ª secondo alcuni)",
+        "Apparato respiratorio inferiore",
+        "Mammelle (per le donne)",
+        "Stomaco superiore (in connessione con la 4ª come Karka)",
+        "Sangue (parzialmente, in connessione con la madre)"
+      ],
+      "naturalSign": "Karka (Cancro) — la 4ª casa porta naturalmente la qualità lunare del Cancro: nutrimento, grembo, casa interiore, memoria emotiva, radicamento, sentire profondo. Implicazione: la 4ª è il santuario della psiche; pianeti benefici qui creano un nucleo emotivo solido che sostiene tutta la vita, mentre malefici creano fratture che il nativo passerà la vita a riparare. Giove esaltato in Cancro porta i suoi frutti migliori se nella 4ª.",
+      "beneficsHere": "Giove in 4ª (esaltato in Cancro) è considerato Hamsa Yoga e una delle migliori posizioni dell'intero Kundli: dona madre saggia e benevola, casa luminosa e accogliente, felicità interiore profonda, educazione superiore, terre e proprietà, veicoli di valore, devozione naturale, protezione divina avvertita come presenza domestica; salute robusta, longevità, dharma stabile. Venere in 4ª dona casa bellissima, madre amorevole, comfort materiale, veicoli di lusso, talento estetico applicato alla dimora, vita domestica armoniosa, possibili eredità di gioielli. Luna in 4ª (in casa propria) è eccellente: madre fortemente protettiva, felicità interiore, sensibilità sviluppata, vita domestica al centro, popolarità, intuizione. Mercurio in 4ª dona buona educazione, scrittura legata alla casa o alla madre, capacità intellettuale applicata al benessere domestico, voce gentile in famiglia.",
+      "maleficsHere": "Sole in 4ª può rendere la madre figura forte ma talvolta distante o autoritaria, casa segnata dal padre più che dalla madre, possibili tensioni domestiche, allontanamento dalla terra natale per ragioni di onore o carriera; calore al petto, problemi cardiaci. Marte in 4ª può creare ambiente domestico conflittuale, rabbia legata alla madre, possibili incidenti in casa o con veicoli, trasferimenti improvvisi, infiammazioni al petto; tuttavia, Bhauma in 4ª produce anche grande capacità di costruzione e proprietà multiple. Saturno in 4ª è considerato pesante: madre severa o fredda, infanzia difficile, casa modesta o lontana, ritardi nell'avere una propria dimora, malinconia che parte dalla 4ª e contagia tutto, possibili problemi al petto e ai polmoni; in compenso, dona beni immobili duraturi e disciplina domestica. Rahu in 4ª produce madre non convenzionale o assente, casa lontana o straniera, instabilità domestica, possibili residenze multiple, attaccamento a oggetti esotici, vita all'estero; spesso indica trasloco internazionale. Ketu in 4ª dà distacco dalla madre (possibile perdita precoce o lontananza spirituale), casa come luogo di solitudine, possibile ritiro monastico, problemi al petto, ma anche grande pace interiore se ben aspettato.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 4ª nella 1ª porta la madre, la casa e la felicità interiore direttamente nel Sé: il nativo è radicato, sereno, attaccato alla casa, identificato con la propria origine, possibilmente assomiglia alla madre. Buona vita domestica come pilastro identitario. Pace interiore percepibile. Rapporto privilegiato con la terra natale.",
+        "2": "Il signore della 4ª nella 2ª lega casa e madre alla ricchezza familiare: il nativo accumula attraverso la casa (real estate), riceve sostegno economico dalla madre, valori familiari fortemente legati al patrimonio. Voce della casa, ricchezza derivata da terre o proprietà. Eredità materna probabile.",
+        "3": "Il signore della 4ª nella 3ª lega casa e madre a coraggio e fratelli: il nativo trae forza dalla casa per agire, possibile lavoro insieme ai fratelli legato al settore casa, madre coraggiosa e attiva. Spostamenti nei dintorni della casa, scrittura legata alle origini.",
+        "4": "Il signore della 4ª nella 4ª (in casa propria) è eccellente per felicità interiore, casa, madre, terre: il nativo possiede beni immobili stabili, ha madre presente e protettiva, gode di pace domestica, lunga vita nella stessa casa. Una delle posizioni più benefiche per il sukha. Emozioni stabili.",
+        "5": "Il signore della 4ª nella 5ª lega casa e madre a creatività e figli: il nativo trasmette i valori della casa ai figli, possibile insegnamento dalla madre, casa come spazio creativo, felicità attraverso prole. Eccellente posizione per educatori, designer d'interni, scrittori di memoir.",
+        "6": "Il signore della 4ª nella 6ª può indicare conflitti in casa, problemi con la madre (salute o caratteriali), liti familiari, casa come luogo di lavoro duro, possibili problemi immobiliari, debiti legati alla casa. Vipareeta Raja Yoga possibile: casa come fonte di reddito attraverso difficoltà.",
+        "7": "Il signore della 4ª nella 7ª lega casa e madre al partner: il nativo si sposa con qualcuno che porta una nuova casa, può vivere a casa del partner, la madre influenza la scelta del coniuge. Possibile residenza all'estero per matrimonio, business legato a casa-real estate insieme al partner.",
+        "8": "Il signore della 4ª nella 8ª è delicato: la casa subisce trasformazioni (traslochi multipli, perdite immobiliari), la madre può avere problemi di salute o segreti, possibili incidenti domestici. Tuttavia, eredità immobiliare possibile. Questa posizione segna momenti karmici legati alla casa madre.",
+        "9": "Il signore della 4ª nella 9ª è ottimo: casa connessa a dharma, madre spirituale o saggia, casa come tempio, possibile vita all'estero per ragioni dharmiche, padre e madre entrambi figure positive. Eredità di valori spirituali. Casa accogliente per ospiti spirituali.",
+        "10": "Il signore della 4ª nella 10ª lega casa e madre alla carriera: il nativo lavora da casa, fa carriera nel settore real estate, agricoltura, hôtellerie, settore alimentare, automotive, settore privato. La madre influenza la professione. Reputazione legata alla famiglia d'origine. Karma Yoga domestico.",
+        "11": "Il signore della 4ª nella 11ª è eccellente: la casa produce guadagni (affitti, immobili), la madre ha amici influenti, network connesso alla famiglia, realizzazione di desideri legati a casa. Ottimo per investitori immobiliari, agricoltori commerciali, settore della cura su scala.",
+        "12": "Il signore della 4ª nella 12ª può indicare casa lontana (estero), distacco dalla madre, perdite immobiliari, vendita della casa familiare, vita in monastero o in luoghi isolati, ma anche casa come luogo di pratica spirituale. Madre con vita spirituale. Sukha trasferito sulla dimensione interiore."
+      },
+      "yogasAndCombinations": [
+        "Hamsa Mahapurusha Yoga: Giove in 4ª in Cancro, Sagittario o Pesci",
+        "Chandra-Mangala Yoga: Luna e Marte in 4ª = ricchezza attraverso real estate",
+        "Sukha Yoga: signore della 4ª esaltato + Venere forte = felicità domestica abbondante",
+        "Mahabhagya Yoga (parziale): Luna piena in 4ª",
+        "Dur-Yoga: Saturno o Rahu in 4ª non aspettato da benefici = malinconia e instabilità domestica",
+        "Vehicle Yoga: Venere forte nella 4ª o nel suo signore = veicoli di lusso"
+      ],
+      "remedies": [
+        "Servire la madre come pratica spirituale",
+        "Mantra della Luna: Om Som Somaya Namah",
+        "Bere acqua dalla coppa d'argento (rimedio classico per Luna)",
+        "Donare riso, latte, vestiti bianchi il lunedì",
+        "Tenere la casa pulita come pratica yogica",
+        "Adornare il punto cardinale Nord della casa con immagini sacre",
+        "Pratica di pranayama lunare (Chandra Bhedana)",
+        "Visitare templi della Madre Divina (Durga, Lakshmi, Parvati)",
+        "Indossare perla se Luna è il rimedio"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XIV: 'Sukhasthane shubhe drishte shubhayukte balanvite — Matrubhratrugriha-ksheme bandhuvaha-sukhanvitam'",
+        "Phaladeepika IX.6: 'Sukham bandhugriham yanam matrumitram cha turyake'",
+        "Saravali: descrive la 4ª come 'matri-sthana' e 'griha-sthana' (casa della madre e della dimora)"
+      ]
+    },
+    {
+      "number": 5,
+      "sanskrit": "Putra Bhava / Vidya Bhava / Mantra Bhava",
+      "name": "Casa dei Figli, dell'Intelligenza, del Purva Punya",
+      "western": "Fifth House",
+      "primaryMeanings": [
+        "Figli (santati) e capacità procreativa",
+        "Intelligenza (buddhi), specie quella creativa e discriminante",
+        "Purva Punya — meriti karmici delle vite passate",
+        "Mantra, devozione, pratica spirituale come ripetizione",
+        "Creatività, espressione artistica, performance",
+        "Romanticismo, innamoramento (in distinzione dal matrimonio che è 7ª)",
+        "Speculazione, scommesse, investimenti rischiosi",
+        "Ministri e consiglieri (in tradizione classica)"
+      ],
+      "secondaryMeanings": [
+        "Educazione superiore (specie post-laurea, tantriche, esoteriche)",
+        "Insegnamento e capacità di trasmettere",
+        "Cuore come muscolo organico",
+        "Stomaco e plesso solare",
+        "Talento attoriale e drammaturgico",
+        "Saggezza ricevuta dalla nascita (intelligenza precedente lo studio)",
+        "Capacità di consigliare e ispirare",
+        "Luna nel suo aspetto materno (figli) e Giove nel suo aspetto saggio si incontrano qui"
+      ],
+      "karaka": "Brihaspati (Giove) come karaka principale dei figli, dell'intelligenza dharmica e del purva punya; Surya (Sole) come karaka secondario dei figli (specie del primogenito) e dell'intelligenza brillante; Mercurio (Budha) come karaka della buddhi analitica.",
+      "bodyParts": [
+        "Cuore (muscolo cardiaco)",
+        "Stomaco superiore",
+        "Plesso solare",
+        "Dorso superiore",
+        "Cervello come organo dell'intelligenza (in distinzione dal cranio che è 1ª)",
+        "Sistema riproduttivo nelle sue funzioni intellettive (capacità procreativa creativa)"
+      ],
+      "naturalSign": "Simha (Leone) — la 5ª casa porta naturalmente la qualità solare del Leone: creatività, autorità intellettuale, regalità, espressione luminosa, paternità (il Sole come padre). Implicazione: chi ha pianeti benefici qui guadagna l'impronta solare di luminosità individuale, capacità creativa, leadership intellettuale; malefici qui impongono test sull'ego creativo. Sole in 5ª è particolarmente potente: dona figli regali, intelligenza acuta, posizione di consigliere o ministro.",
+      "beneficsHere": "Giove in 5ª è una delle migliori posizioni per i figli e per l'intelligenza dharmica: dona prole numerosa o di alta qualità, intelligenza saggia e benevola, devozione naturale, talento per insegnamento e filosofia, fortuna nelle speculazioni etiche, capacità di consigliare con saggezza, mantra-shakti potente. Venere in 5ª dona figli belli e amati, talento artistico (musica, teatro, cinema), romanticismo elegante, capacità di intrattenere, intelligenza estetica, fortuna nei giochi (specie d'ingegno). Mercurio in 5ª dona intelligenza analitica brillantissima, talento per scienze, scrittura creativa, comicità, lingue, possibili figli intellettuali, fortuna nel commercio speculativo. Luna piena in 5ª dona intelligenza intuitiva, prole affettuosa, popolarità come performer, mente creativa, possibile fama come artista o scrittore. Sole in 5ª (segno proprio o esaltato) dona figlio primogenito di valore, intelligenza regale, possibile ruolo di consigliere o ministro, autorità intellettuale.",
+      "maleficsHere": "Marte in 5ª può ridurre il numero dei figli o causare problemi nel concepimento, aborti spontanei, conflitti con i figli, intelligenza tagliente ma talvolta impulsiva, perdite nelle speculazioni; tuttavia, dona coraggio creativo e talento per sport. Saturno in 5ª è classicamente considerato problematico per i figli: ritardi nel concepimento, possibili difficoltà del primogenito, intelligenza profonda ma lenta, distacco emotivo dai figli, malinconia creativa; in compenso, dona disciplina mentale e capacità di concentrazione yogica. Rahu in 5ª produce intelligenza non convenzionale o magnetica, possibili figli da relazioni non tradizionali o adottati, attaccamento a credenze esotiche, mantra-shakti potente ma talvolta deviata, fortuna alterna nelle speculazioni. Ketu in 5ª dà distacco dai figli (perdita possibile o lontananza spirituale), intelligenza penetrante ma spesso solitaria, talento mistico, vocazione monastica possibile, mantra-siddhi profonda; possibili problemi di concepimento.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 5ª nella 1ª porta intelligenza, creatività e purva punya direttamente nel Sé: il nativo è naturalmente intelligente, creativo, fortunato per nascita, devoto, identificato con il proprio talento. I figli influenzano l'identità. Possibile carriera precoce in arte o spiritualità.",
+        "2": "Il signore della 5ª nella 2ª lega intelligenza ai valori familiari e alla parola: il nativo accumula ricchezza attraverso la creatività, ha figli che portano prosperità, voce dolce e mantra-shakti, alimentazione sattvica. Famiglia connessa a tradizioni spirituali o creative.",
+        "3": "Il signore della 5ª nella 3ª lega intelligenza al coraggio e alla scrittura: il nativo è scrittore creativo, comunicatore brillante, possibile lavoro nei media, fratelli intelligenti o creativi. Talento per editoria, giornalismo creativo, scrittura di fiction.",
+        "4": "Il signore della 5ª nella 4ª lega intelligenza e figli alla casa e alla madre: il nativo educato dalla madre con cura, casa come luogo creativo o spirituale, figli legati alla casa, talento per insegnamento domestico, scrittura di memoir o letteratura legata alla terra natale.",
+        "5": "Il signore della 5ª nella 5ª (in casa propria) è eccellente: intelligenza luminosa, figli protetti, purva punya forte, devozione naturale, fortuna nelle speculazioni, mantra-siddhi possibile. Una delle posizioni migliori per la creatività e il dharma intellettuale.",
+        "6": "Il signore della 5ª nella 6ª è delicato: difficoltà con i figli (salute, conflitti), intelligenza usata in lotte e processi, possibili problemi di concepimento, perdite nelle speculazioni. Tuttavia, eccellente per medici, avvocati che usano l'intelligenza in difesa, terapeuti.",
+        "7": "Il signore della 5ª nella 7ª lega intelligenza e figli al partner: il nativo si innamora attraverso l'intelletto, possibile incontro romantico con persona conosciuta in contesti creativi/educativi, business in coppia legato a creatività, figli che vivono con il partner separato. Buon matrimonio se ben aspettato.",
+        "8": "Il signore della 5ª nella 8ª è posizione delicata: il purva punya entra nella sfera della trasformazione, possibili difficoltà con i figli, intelligenza investigativa, possibile mantra-siddhi tantrica, talento per occulto e ricerca profonda. Eredità di figli o di patrimonio spirituale.",
+        "9": "Il signore della 5ª nella 9ª è eccellente Dharma-Karmadhipati Yoga: intelligenza e dharma si rafforzano, figli benedetti, padre saggio, viaggi spirituali, devozione potente, possibile insegnamento religioso, fortuna karmica massima. Una delle posizioni più auspiciose dello zodiaco.",
+        "10": "Il signore della 5ª nella 10ª lega intelligenza alla carriera: il nativo costruisce la professione attraverso creatività e mente, possibile fama come artista o consulente, figli che influenzano la carriera, ruolo di leadership intellettuale, possibile insegnamento universitario.",
+        "11": "Il signore della 5ª nella 11ª è ottimo Dhana Yoga: intelligenza che produce reddito, figli che portano prosperità, fortuna nelle speculazioni, network di intellettuali o artisti, realizzazione dei desideri creativi. Reddito alto attraverso talento.",
+        "12": "Il signore della 5ª nella 12ª può indicare distacco dai figli, possibile vita all'estero per studi avanzati, mantra-siddhi in solitudine, perdita nelle speculazioni, ma anche talento mistico profondo, possibile vita monastica, scrittura di opere visionarie. Purva punya speso in moksha."
+      },
+      "yogasAndCombinations": [
+        "Saraswati Yoga: Mercurio, Venere, Giove tutti in kendra/trikona, uno in 5ª",
+        "Putra Yoga: Giove forte in 5ª = figli benedetti",
+        "Mantra-Siddhi Yoga: Ketu o Rahu in 5ª aspettati da Giove = potere del mantra",
+        "Speculation Yoga: Mercurio o Giove in 5ª aspettati da signore della 11ª = guadagni speculativi",
+        "Bandhya Yoga (negativo): malefici in 5ª senza benefici = problemi di concepimento",
+        "Apatya Yoga: Giove e Sole congiunti in 5ª = primogenito di valore"
+      ],
+      "remedies": [
+        "Mantra del karaka Giove: Om Gum Gurave Namah",
+        "Recitazione del Vishnu Sahasranama",
+        "Servire bambini orfani o studenti poveri",
+        "Donazioni di libri e materiale didattico",
+        "Praticare un mantra giapa quotidiano (108 ripetizioni minimo)",
+        "Insegnare a chi non sa, gratuitamente",
+        "Indossare topazio giallo se Giove è il rimedio",
+        "Visitare templi di Krishna bambino o Saraswati",
+        "Per problemi di concepimento: Santan Gopal Mantra"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XV: 'Putrasthane shubhe drishte shubhayukte balanvite — Putra-pautra-yutam vidyam mantra-shastra-vishesha-vit'",
+        "Phaladeepika IX.7: 'Putra-mantraha-vidya-buddhayah pancami sthitah'",
+        "Jataka Parijata: definisce la 5ª come 'purva punya sthana' (luogo dei meriti karmici precedenti)"
+      ]
+    },
+    {
+      "number": 6,
+      "sanskrit": "Ripu Bhava / Roga Bhava / Shatru Bhava",
+      "name": "Casa dei Nemici, delle Malattie, dei Debiti",
+      "western": "Sixth House",
+      "primaryMeanings": [
+        "Nemici aperti (shatru), oppositori, rivali",
+        "Malattie acute (roga), infezioni, condizioni curabili",
+        "Debiti (rina), prestiti, obblighi finanziari",
+        "Lavoro quotidiano e servizio (in distinzione dalla carriera che è 10ª)",
+        "Servitori, dipendenti, subordinati al lavoro",
+        "Animali domestici e bestiame minore",
+        "Litigi, processi legali, contenziosi",
+        "Zii materni (mama)"
+      ],
+      "secondaryMeanings": [
+        "Capacità di guarigione e di lotta",
+        "Stomaco basso, intestino, addome",
+        "Sistema digerente intermedio",
+        "Lavoro umile, lavoro manuale, servizio sanitario",
+        "Forze armate, polizia, difesa",
+        "Veleni e tossine (e quindi anche medicine come anti-veleni)",
+        "Karma negativo in via di esaurimento (rina-anubandha)",
+        "Capacità di servire (seva) come purificazione"
+      ],
+      "karaka": "Mangala (Marte) come karaka dei nemici e delle ferite; Shani (Saturno) come karaka delle malattie croniche, del servizio e del karma da lavoro; Mercurio (Budha) come karaka degli zii materni e dei contenziosi legali. La presenza di malefici nella 6ª, paradossalmente, è considerata buona perché 'lavora' la casa stessa: i malefici nei dussthana (6, 8, 12) tendono a distruggere ciò che la casa rappresenta — quindi distruggono nemici, debiti, malattie.",
+      "bodyParts": [
+        "Stomaco basso",
+        "Intestino tenue (duodeno, digiuno, ileo)",
+        "Addome",
+        "Reni superiori (parzialmente)",
+        "Sistema linfatico addominale",
+        "Pancia (muscoli addominali)"
+      ],
+      "naturalSign": "Kanya (Vergine) — la 6ª casa porta naturalmente la qualità mercuriale della Vergine: analisi, servizio, perfezionismo, capacità di guarire, attenzione al dettaglio, igiene. Implicazione: la 6ª guarisce attraverso il discernimento e il servizio. Mercurio qui è in segno proprio (se in Vergine) e produce eccellenza analitica applicata a medicina, legge, contabilità. Saturno qui (esaltato in Bilancia, ma comunque buono in 6ª) trova il suo dharma di servizio.",
+      "beneficsHere": "Giove in 6ª è meno auspicato (perché Giove nei dussthana perde dignità) ma protegge dai nemici e dona integrità nei contenziosi, dona capacità di guarire, talento per insegnamento medico/legale, possibile ruolo di giudice o consulente; tuttavia, può ridurre il numero di zii materni o renderli problematici. Venere in 6ª può indicare relazioni extra-coniugali (la 6ª è 12ª dalla 7ª = perdita del partner ufficiale), ma anche talento per medicina estetica, musica terapeutica, vita sessuale segreta o libera. Mercurio in 6ª (se in segno proprio) è eccellente: dona straordinaria capacità diagnostica, talento per medicina, contabilità, legge, scrittura tecnica, possibile carriera in settore sanitario o legale, vittoria nelle dispute. Luna in 6ª può rendere il nativo emotivamente vulnerabile a malattie psicosomatiche, ipersensibile ai conflitti, ma anche ottimo psicoterapeuta.",
+      "maleficsHere": "Sole in 6ª è considerato benefico per la 6ª: vince i nemici, protegge da malattie acute, dona forza vitale che brucia le tossine, posizione di autorità nel servizio (medico, militare, magistrato), possibile lavoro in settore pubblico; gli zii materni possono essere autoritari. Marte in 6ª è una delle migliori posizioni dello zodiaco per la 6ª: distrugge i nemici prima che attacchino, dona straordinaria capacità di lotta, eccellente per chirurghi, militari, atleti competitivi, immunologi; produce Vipareeta Raja Yoga. Saturno in 6ª è altrettanto eccellente: dona capacità di portare avanti lavoro lungo e duro, vince i nemici per durata, dona disciplina nel servizio, eccellente per medici, avvocati, giudici, ricercatori; produce Vipareeta Raja Yoga. Rahu in 6ª è considerato eccellente: vince i nemici stranieri o invisibili, dona magnetismo nelle lotte, ricchezza attraverso settori non convenzionali (epidemie, sanità globale, settore farmaceutico), possibile fama come guaritore o investigatore. Ketu in 6ª dona capacità mistica di guarigione, possibile ruolo di sciamano o terapeuta non convenzionale, vittoria nei contenziosi attraverso silenzio.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 6ª nella 1ª porta nemici, malattie e lotte direttamente nel Sé: il nativo è una persona che combatte, possibili problemi di salute precoci, identità costruita attraverso la lotta, possibile carriera in medicina, legge, sport, militare. Forte capacità di servizio. Possibile nascita in famiglia con conflitti.",
+        "2": "Il signore della 6ª nella 2ª lega nemici e debiti alla famiglia e alla ricchezza: possibili debiti familiari, conflitti per denaro, parola tagliente, possibile lavoro in settore finanziario lottatorio (recupero crediti, contenziosi finanziari), problemi alla bocca e ai denti. Famiglia con conflitti.",
+        "3": "Il signore della 6ª nella 3ª lega nemici e malattie a coraggio e fratelli: possibili conflitti con fratelli o vicini, ma anche grande coraggio nella lotta, capacità di scrivere su temi medici/legali, talento per giornalismo d'inchiesta, eccellente per atleti, militari, scrittori di guerra.",
+        "4": "Il signore della 6ª nella 4ª può indicare conflitti in casa, problemi con la madre (salute o caratteriali), casa come luogo di malattia o lavoro, possibili problemi immobiliari (debiti sulla casa, contenziosi), ma anche possibile ruolo di guaritore domestico o lavoro da casa in settore sanitario.",
+        "5": "Il signore della 6ª nella 5ª è delicato per i figli: possibili problemi di salute della prole, conflitti con i figli, intelligenza usata in lotte, perdite nelle speculazioni; tuttavia, eccellente per medici pediatrici, terapeuti infantili, avvocati specializzati in diritto di famiglia, insegnanti che lavorano con bambini difficili.",
+        "6": "Il signore della 6ª nella 6ª (in casa propria) è eccellente: il nativo distrugge i nemici, vince le malattie, paga i debiti rapidamente, eccelle nel servizio. Vipareeta Harsha Yoga (uno dei tre Vipareeta Raja Yoga, il più forte). Carriera potente in medicina, legge, sport, militare. Forza nei conflitti.",
+        "7": "Il signore della 6ª nella 7ª può indicare conflitti nel matrimonio, malattie del partner, possibili contenziosi con il coniuge, business legato a settore di servizio (medico, legale), vita pubblica come avvocato o medico. Possibile matrimonio con persona conosciuta in contesto di lavoro/servizio.",
+        "8": "Il signore della 6ª nella 8ª è eccellente Vipareeta Raja Yoga (Vipareeta Sarala Yoga): la malattia diventa fonte di profonda trasformazione, le difficoltà producono Raja Yoga, possibile carriera in occulto, ricerca medica, chirurgia trasformativa, psicoanalisi, longevità.",
+        "9": "Il signore della 6ª nella 9ª può indicare conflitti con il padre o con figure di guru, possibili difficoltà nei viaggi (problemi legali all'estero), malattia del padre; tuttavia, possibile dharma del servizio, carriera in medicina/legge ispirata da valori etici, insegnamento di temi medici o legali.",
+        "10": "Il signore della 6ª nella 10ª lega nemici e malattie alla carriera: il nativo costruisce la professione attraverso la lotta o il servizio, carriera in medicina, legge, militare, sport competitivo, settore sanitario. Possibili nemici professionali, ma vittoria su di loro. Karma Yoga del lavoro duro.",
+        "11": "Il signore della 6ª nella 11ª è eccellente Vipareeta Raja Yoga (Vipareeta Vimala Yoga): le difficoltà producono guadagni, gli zii materni portano fortuna, network di medici/avvocati, ricchezza dal settore di servizio, vittoria sui nemici che diventa profitto.",
+        "12": "Il signore della 6ª nella 12ª è eccellente Vipareeta Raja Yoga (uno dei migliori): nemici lontani che si dissolvono, malattie che si trasformano in liberazione, debiti che vengono cancellati, possibile vita all'estero come servitore o medico, carriera in settore monastico/spirituale di guarigione, possibile lavoro in ospedale/ashram."
+      },
+      "yogasAndCombinations": [
+        "Vipareeta Raja Yoga: signori di 6/8/12 nei rispettivi 6/8/12 senza essere collegati a benefici",
+        "Vipareeta Harsha Yoga: signore della 6ª in 6ª, 8ª o 12ª",
+        "Vipareeta Sarala Yoga: signore dell'8ª in 6ª, 8ª o 12ª",
+        "Vipareeta Vimala Yoga: signore della 12ª in 6ª, 8ª o 12ª",
+        "Roga Yoga: malefici afflitti nella 6ª = malattie multiple",
+        "Marte/Saturno/Rahu in 6ª = potenti distruttori di nemici",
+        "Mahatma Yoga: Saturno o Marte in 6ª aspettato da Giove = giustizia"
+      ],
+      "remedies": [
+        "Servire i malati come pratica spirituale (seva ospedaliera)",
+        "Mantra di Hanuman per vittoria sui nemici",
+        "Donare medicine ai poveri",
+        "Pagare i debiti regolarmente come pratica yogica",
+        "Praticare digiuni regolari (purifica la 6ª)",
+        "Mantra del karaka secondo la natura del problema (Marte o Saturno)",
+        "Servire animali (cani in particolare per Saturno/Ketu)",
+        "Recitare Maha Mrityunjaya Mantra per malattie",
+        "Donare a guerrieri o vedove di guerra"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XVI: 'Ripusthane shubhe drishte shubhayukte balanvite — Shatru-rogadi-bhayam nasyet matuh-pakshe sukha-pradah'",
+        "Phaladeepika IX.8: 'Roga rina ari-mama yatas tata cha shashthamam'",
+        "Saravali: descrive la 6ª come 'shatru-roga-rina sthana' (luogo di nemici, malattie e debiti)"
+      ]
+    },
+    {
+      "number": 7,
+      "sanskrit": "Kalatra Bhava / Jaya Bhava",
+      "name": "Casa del Coniuge, della Partnership, del Matrimonio",
+      "western": "Seventh House / Descendant",
+      "primaryMeanings": [
+        "Coniuge, partner di vita, sposo/a",
+        "Matrimonio (vivaha) e relazioni stabili",
+        "Partnership di affari (vyavasaya)",
+        "Vita pubblica e contatti con il pubblico",
+        "Sessualità nella sua dimensione relazionale",
+        "Apertura al mondo, capacità di stare in società",
+        "Viaggi all'estero (specie quelli orientati a relazioni o affari)",
+        "Mercato, commercio, scambio"
+      ],
+      "secondaryMeanings": [
+        "Nemici aperti (in dialogo con la 6ª)",
+        "Tribunali e udienze pubbliche",
+        "Luogo dove si muore (insieme alla 2ª come maraka)",
+        "Reni, ovaie, parte bassa dell'addome",
+        "Apparato urinario",
+        "Zona pelvica",
+        "Diplomazia, arte del compromesso",
+        "Karma relazionale di vite passate (ciò che si è seminato torna nel partner)"
+      ],
+      "karaka": "Shukra (Venere) come karaka principale del coniuge per gli uomini e delle relazioni d'amore in generale; Brihaspati (Giove) come karaka del marito per le donne (sposo come guru, guida); Mercurio come karaka degli affari e delle partnership commerciali. Venere ben posizionata in 7ª o aspettante è uno dei migliori indicatori di vita matrimoniale armoniosa.",
+      "bodyParts": [
+        "Reni (entrambi)",
+        "Ovaie nelle donne, prostata negli uomini",
+        "Vescica",
+        "Parte bassa dell'addome",
+        "Pelvi e zona pelvica",
+        "Apparato genitale esterno (parzialmente, in dialogo con la 8ª)",
+        "Apparato urinario inferiore"
+      ],
+      "naturalSign": "Tula (Bilancia) — la 7ª casa porta naturalmente la qualità venusiana della Bilancia: equilibrio, scambio, diplomazia, bellezza relazionale, contratto, alleanza. Implicazione: la 7ª richiede sempre di scendere a patti, di ascoltare l'altro, di trovare il punto medio. Saturno esaltato in Bilancia in 7ª è eccezionale per la stabilità del matrimonio (sebbene possa ritardarlo). Sole debilitato in Bilancia in 7ª può rendere il matrimonio difficile per ego.",
+      "beneficsHere": "Giove in 7ª è una delle migliori posizioni per il matrimonio: dona coniuge saggio, dharmico, benevolo, possibile partner straniero o di livello sociale alto, vita matrimoniale armoniosa, possibili figli benedetti, partnership di affari fortunate; per le donne, marito quasi-guru. Venere in 7ª (in casa propria se in Bilancia) dona coniuge bello, amorevole, sensuale, vita matrimoniale ricca di piacere e cultura, possibile fortuna nella moda/lusso/arte, multiple relazioni se afflitta. Mercurio in 7ª dona coniuge intelligente e giovanile, possibile incontro con il partner attraverso comunicazione/scrittura, partnership commerciali fortunate, vita matrimoniale scorrevole. Luna piena in 7ª dona partner sensibile e nutriente, popolarità pubblica, possibile fama, ma anche possibili partner instabili emotivamente se Luna è ferita.",
+      "maleficsHere": "Sole in 7ª è considerato problematico per il matrimonio (Sole debilitato in Bilancia, segno naturale della 7ª): può ridurre la felicità matrimoniale, rendere il coniuge autoritario o assente, possibili separazioni o vita pubblica intensa che riduce intimità; tuttavia, può dare fama. Marte in 7ª produce il classico Mangal Dosha (Kuja Dosha): possibili conflitti coniugali, matrimoni precoci falliti, ardore sessuale, possibile coniuge militare o atletico; deve essere bilanciato con altri Mangal Dosha del partner. Saturno in 7ª ritarda il matrimonio (spesso oltre i 30 anni) ma se non afflitto produce matrimonio durevole con partner più anziano, serio, dharmico; se afflitto può dare freddezza coniugale o solitudine. Rahu in 7ª produce matrimonio non convenzionale (intercaste, internazionale, con grande differenza d'età), possibili infedeltà, partner straniero, magnetismo sessuale potente, ma anche instabilità. Ketu in 7ª dona distacco dal coniuge, possibile celibato per scelta o vocazione spirituale, partner di natura mistica, matrimonio che si dissolve karmicamente.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 7ª nella 1ª porta il coniuge direttamente nel Sé: il nativo è fortemente orientato alle relazioni, può sposarsi presto, identità costruita attorno alla partnership, possibile coniuge che assomiglia al nativo. Vita pubblica importante. Possibile carriera in mediazione/diplomazia.",
+        "2": "Il signore della 7ª nella 2ª lega coniuge a famiglia e ricchezza: il nativo guadagna attraverso il matrimonio (sia economicamente sia in termini di rete sociale), il coniuge porta valore alla famiglia d'origine, vita matrimoniale legata alla casa natale. Famiglia del coniuge significativa.",
+        "3": "Il signore della 7ª nella 3ª lega coniuge a fratelli e coraggio: il nativo conosce il partner attraverso fratelli o nella propria zona, possibile partner-fratello (psicologicamente), possibile lavoro insieme al coniuge in scrittura/comunicazione, coraggio condiviso. Viaggi brevi insieme.",
+        "4": "Il signore della 7ª nella 4ª lega coniuge a casa e madre: il coniuge porta una nuova casa o si trasferisce nella casa del nativo, la madre influenza la scelta matrimoniale, vita domestica condivisa. Possibile residenza all'estero per matrimonio. Real estate insieme al coniuge.",
+        "5": "Il signore della 7ª nella 5ª lega coniuge a figli e creatività: matrimonio attraverso amore romantico precoce, possibili figli amati, attività creative insieme al partner, possibile incontro in contesti artistici/educativi. Buono per relazioni durevoli a partire da innamoramento.",
+        "6": "Il signore della 7ª nella 6ª è delicato: possibili conflitti coniugali, contenziosi con il partner, malattie del coniuge, possibile divorzio, partner conosciuto in contesti di lavoro/servizio (collega, paziente, cliente). Marana karaka tendenziale.",
+        "7": "Il signore della 7ª nella 7ª (in casa propria) è eccellente per il matrimonio: coniuge stabile, vita matrimoniale armoniosa, partnership di affari fortunate, possibile fama pubblica, vita relazionale al centro dell'esistenza. Una delle migliori posizioni per la 7ª.",
+        "8": "Il signore della 7ª nella 8ª è delicato: il matrimonio entra in zona di trasformazione, possibili crisi coniugali profonde, eredità dal partner, vita sessuale intensa, possibile coniuge con segreti, longevità del coniuge questione delicata. Tuttavia, eredità possibile.",
+        "9": "Il signore della 7ª nella 9ª è eccellente: coniuge dharmico, possibile incontro all'estero o in contesti spirituali, partner come guru o insegnante, viaggi insieme, fortuna karmica nel matrimonio. Una delle posizioni più auspiciose. Possibile padre del coniuge come figura significativa.",
+        "10": "Il signore della 7ª nella 10ª lega coniuge a carriera: possibile incontro al lavoro, partnership professionale insieme al coniuge, vita pubblica condivisa, fama come coppia, coniuge che influenza la scelta professionale. Karma Yoga relazionale.",
+        "11": "Il signore della 7ª nella 11ª è eccellente Dhana Yoga: coniuge porta ricchezza, network di amici condivisi con il partner, realizzazione dei desideri attraverso il matrimonio, business con il coniuge che produce reddito alto. Buon matrimonio per prosperità materiale.",
+        "12": "Il signore della 7ª nella 12ª può indicare distacco dal coniuge (vita all'estero, separazione fisica, possibile divorzio), oppure matrimonio con persona straniera, vita matrimoniale spirituale (entrambi monaci o praticanti), perdite legate al partner. Karma di moksha attraverso le relazioni."
+      },
+      "yogasAndCombinations": [
+        "Vivaha Yoga: 7° signore in kendra/trikona = matrimonio favorevole",
+        "Mangal Dosha (Kuja Dosha): Marte in 1ª, 2ª, 4ª, 7ª, 8ª o 12ª = problemi matrimoniali",
+        "Sundara Yoga: Venere in 7ª = coniuge bello",
+        "Karaka in 7ª: Venere in 7ª (sebbene Venere come karaka in 7ª sia controversa)",
+        "Marriage timing yogas: dasha del 7° signore o di Venere/Giove",
+        "Cancellazione di Mangal Dosha: presenza di Giove forte o aspetto su Marte"
+      ],
+      "remedies": [
+        "Mantra di Venere: Om Shum Shukraya Namah",
+        "Servire la moglie/marito come pratica yogica",
+        "Donare a coppie sposate povere",
+        "Indossare diamante o zircone bianco se Venere è il rimedio",
+        "Recitare Sundara Kanda di Hanuman per matrimoni in difficoltà",
+        "Uma-Maheshvara Vrata (per donne, per buon matrimonio)",
+        "Praticare la non-violenza nelle relazioni",
+        "Per Mangal Dosha: Mangal Shanti Puja",
+        "Mantenere armonia con i suoceri come karma yoga"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XVII: 'Saptamasthane shubhe drishte shubhayukte balanvite — Kalatram saubhagyam priti vyaparah saphalo bhavet'",
+        "Phaladeepika IX.9: 'Saptame jaya kamadi vyapara mama-pita-mritih'",
+        "Saravali: descrive la 7ª anche come 'maraka sthana' assieme alla 2ª"
+      ]
+    },
+    {
+      "number": 8,
+      "sanskrit": "Ayu Bhava / Randhra Bhava / Mrityu Bhava",
+      "name": "Casa della Longevità, dell'Occulto, della Trasformazione",
+      "western": "Eighth House",
+      "primaryMeanings": [
+        "Longevità (ayushya), durata della vita",
+        "Trasformazioni profonde, crisi iniziatiche, morti simboliche",
+        "Occulto, esoterismo, misteri, ricerca profonda",
+        "Eredità (daya) e patrimonio ricevuto inaspettato",
+        "Sessualità nella sua dimensione tantrica e profonda",
+        "Soldi del partner (in dialogo con la 7ª)",
+        "Causa della morte e modo del trapasso",
+        "Karma latente non ancora manifestato"
+      ],
+      "secondaryMeanings": [
+        "Vergogna, segreti, ciò che si nasconde",
+        "Apparato genitale interno, organi riproduttivi",
+        "Ano, retto, parte finale dell'apparato digerente",
+        "Veleni, tossine, droghe",
+        "Assicurazioni, denaro recuperato",
+        "Tasse, debiti del partner",
+        "Astrologia, scienze occulte, mistica",
+        "Yoga e tantra (la 8ª come kundalini sthana per alcuni autori)"
+      ],
+      "karaka": "Shani (Saturno) come karaka della longevità e del karma profondo; Mangala (Marte) come karaka della causa della morte e degli incidenti; Rahu come karaka secondario dell'occulto e delle trasformazioni improvvise. Saturno forte aspettante l'8ª dona longevità.",
+      "bodyParts": [
+        "Apparato genitale interno",
+        "Utero nelle donne, testicoli negli uomini",
+        "Ano, retto",
+        "Colon distale",
+        "Sistema riproduttivo profondo",
+        "Liquidi profondi del corpo (sangue venoso, linfa profonda)",
+        "Organi escretori (parzialmente)"
+      ],
+      "naturalSign": "Vrischika (Scorpione) — la 8ª casa porta naturalmente la qualità marziale-plutoniana dello Scorpione: profondità, segreto, trasformazione, sessualità, morte e rinascita, occulto. Implicazione: la 8ª è la casa dell'iniziazione: ciò che il nativo deve attraversare per rinascere. Marte ben disposto in Scorpione/8ª produce poteri tantrici e capacità di rigenerazione. Luna debilitata in Scorpione/8ª segna una psiche che deve attraversare la propria ombra.",
+      "beneficsHere": "Giove in 8ª è considerato delicato (dussthana per Giove) ma protegge dai pericoli, dona longevità, talento per occulto e ricerca, possibile eredità, saggezza che emerge da crisi profonde, capacità di rigenerazione spirituale. Venere in 8ª può indicare relazioni segrete, vita sessuale profonda e trasformativa, eredità dal partner, talento per medicina occulta o psicoterapia, ma anche possibili tradimenti. Mercurio in 8ª dona straordinaria capacità di ricerca, intelligenza investigativa, talento per scienze occulte, scrittura su temi profondi, capacità di indagare il nascosto. Luna in 8ª può rendere la psiche estremamente sensibile al lato oscuro, possibile depressione, ma anche grande capacità medianica e psicoterapeutica.",
+      "maleficsHere": "Sole in 8ª può ridurre la longevità del padre, debolezza ossea, possibili problemi cardiaci, vita segnata da crisi pubbliche, ego che attraversa morti simboliche; tuttavia, dona ricerca della verità profonda. Marte in 8ª produce vita di trasformazioni intense, possibili incidenti, sessualità ardente, capacità chirurgica, talento per ricerca scientifica o militare; produce Vipareeta Raja Yoga ma anche pericoli fisici. Saturno in 8ª è considerato favorevole per la longevità (Saturno protegge ciò di cui è karaka): dona vita lunga ma con sofferenze, capacità di ricerca paziente, possibile eredità tarda, vita segnata da gravità. Rahu in 8ª produce ossessioni profonde, magnetismo occulto, capacità medianica, possibili dipendenze sessuali o da sostanze, eredità da fonti non convenzionali; possibile fama come ricercatore o occultista. Ketu in 8ª dona straordinaria capacità mistica, distacco dal corpo, possibile vocazione monastica, talento per kundalini yoga, possibile esperienza di pre-morte o memoria di vite passate.",
+      "lordInOtherHouses": {
+        "1": "Il signore dell'8ª nella 1ª porta trasformazioni profonde direttamente nel Sé: il nativo attraversa morti simboliche multiple, identità costruita attraverso crisi iniziatiche, possibile interesse precoce per occulto e misteri, salute con possibili problemi cronici, ma anche grande capacità di rigenerazione.",
+        "2": "Il signore dell'8ª nella 2ª lega trasformazione a famiglia e ricchezza: possibili crisi finanziarie, eredità inaspettate, segreti familiari, voce profonda e magnetica, possibile lavoro in finanza occulta o ricerca, problemi alla bocca/denti possibili. Famiglia con segreti.",
+        "3": "Il signore dell'8ª nella 3ª lega trasformazione a fratelli e coraggio: possibili problemi con i fratelli (incidenti, perdite), coraggio nato dalle crisi, talento per scrittura su temi profondi, giornalismo investigativo, viaggi in luoghi pericolosi. Comunicazione che svela il nascosto.",
+        "4": "Il signore dell'8ª nella 4ª può indicare problemi alla casa (incidenti domestici, perdite immobiliari), salute della madre questione delicata, casa come luogo di trasformazione (lutti, crisi), possibile interesse per case storiche o luoghi karmici, terra natale che deve essere lasciata.",
+        "5": "Il signore dell'8ª nella 5ª è delicato per i figli: possibili problemi di concepimento, salute della prole, intelligenza occulta, talento per mantra tantrici, mantra-siddhi profonda, fortuna alterna nelle speculazioni, possibile interesse per astrologia/occulto/spiritualità trasformativa.",
+        "6": "Il signore dell'8ª nella 6ª è eccellente Vipareeta Raja Yoga (Vipareeta Sarala Yoga): le trasformazioni producono guadagni, capacità di guarire dalle crisi, eccellente per medici, ricercatori, chirurghi, psicoanalisti, criminologi. Vittoria sui nemici attraverso conoscenza occulta.",
+        "7": "Il signore dell'8ª nella 7ª lega trasformazione al coniuge: possibili crisi matrimoniali profonde, longevità del partner questione delicata, eredità dal coniuge, vita sessuale tantrica, possibile coniuge con interessi occulti. Marriage che trasforma profondamente. Marana karaka possibile.",
+        "8": "Il signore dell'8ª nell'8ª (in casa propria) è una delle posizioni più potenti per la longevità: vita lunga, capacità di superare ogni crisi, eccellente Vipareeta Raja Yoga, talento occulto naturale, eredità possibile, salute con cicli di malattia e rinascita.",
+        "9": "Il signore dell'8ª nella 9ª è delicato: possibile crisi del padre, problemi nei viaggi lunghi, dharma che richiede attraversamento di morte simbolica, ma anche possibile carriera in studi religiosi profondi, tantra, ricerca filosofica sul senso della vita.",
+        "10": "Il signore dell'8ª nella 10ª lega trasformazione a carriera: possibili crisi professionali multiple seguite da rinascite, carriera in settore occulto/ricerca/chirurgia/psicoanalisi, fama possibile attraverso temi profondi, padre con cui rapporto trasformativo.",
+        "11": "Il signore dell'8ª nella 11ª è eccellente Vipareeta Raja Yoga: le crisi producono guadagni, eredità che diventa fonte di reddito, network di occultisti o ricercatori, fortuna inaspettata, realizzazione di desideri profondi attraverso trasformazione.",
+        "12": "Il signore dell'8ª nella 12ª è eccellente Vipareeta Raja Yoga (Vipareeta Vimala Yoga combinato): possibile vita all'estero come ricercatore o praticante spirituale profondo, talento per kundalini yoga, vita monastica trasformativa, moksha possibile in questa vita."
+      },
+      "yogasAndCombinations": [
+        "Vipareeta Sarala Yoga: signore dell'8ª in 6ª, 8ª o 12ª",
+        "Saturno in 8ª = longevità",
+        "Marte e Saturno congiunti in 8ª = pericolo o straordinaria capacità di lotta",
+        "Rahu in 8ª = magnetismo occulto e ossessioni",
+        "Combinazioni di Ayur-yoga: 1°, 8° e 10° signore valutati insieme",
+        "Balarishta yoga: 8ª gravemente afflitta in nascita = mortalità infantile classica",
+        "Tantra-siddhi yoga: Marte/Ketu in 8ª aspettati da Giove = poteri spirituali"
+      ],
+      "remedies": [
+        "Maha Mrityunjaya Mantra (rimedio principe per l'8ª)",
+        "Pratiche di kundalini yoga sotto guida",
+        "Recitazione del Bhairav Tantra o Kali Stotra (per le ombre)",
+        "Donazioni in occasione di funerali o per anime in transito",
+        "Mantra di Saturno: Om Sham Shanaischaraya Namah",
+        "Pratica del giapa segreto (mantra non rivelato a nessuno)",
+        "Visitare smashana (luoghi di cremazione) come pratica avanzata di non-attaccamento",
+        "Studio dei testi sull'impermanenza",
+        "Servire i moribondi in hospice"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XVIII: 'Ashtamasthane shubhe drishte shubhayukte balanvite — Ayur deergham bhavet labham randhra-rogad vimuchyate'",
+        "Phaladeepika IX.10: 'Ashtame randhram ayur mritih cha gupta-vidya'",
+        "Saravali: descrive l'8ª come 'mrityu-sthana' e 'gupta-rogasthana' (luogo della morte e delle malattie nascoste)"
+      ]
+    },
+    {
+      "number": 9,
+      "sanskrit": "Dharma Bhava / Bhagya Bhava / Pitri Bhava",
+      "name": "Casa del Dharma, della Fortuna, del Padre",
+      "western": "Ninth House",
+      "primaryMeanings": [
+        "Dharma personale, scopo di vita, vocazione",
+        "Padre (pitri), figura paterna",
+        "Fortuna karmica (bhagya), grazia",
+        "Maestri spirituali (guru), insegnanti superiori",
+        "Filosofia, religione, studi superiori",
+        "Viaggi lunghi, pellegrinaggi, esperienze all'estero",
+        "Università, dottorati, studi avanzati",
+        "Diritto, legge superiore, etica"
+      ],
+      "secondaryMeanings": [
+        "Cosce, fianchi superiori",
+        "Pubblicazioni accademiche, libri di livello superiore",
+        "Yajna, riti sacri, cerimonie religiose",
+        "Karma virtuoso accumulato di vite passate (in dialogo con la 5ª)",
+        "Capacità di ricevere benedizioni e di sentirle",
+        "Visione del mondo, weltanschauung",
+        "Saggezza dei nonni paterni",
+        "Etica e onestà profonda"
+      ],
+      "karaka": "Surya (Sole) come karaka del padre; Brihaspati (Giove) come karaka del dharma, del guru e della fortuna karmica; secondariamente, Saturno come karaka di un certo tipo di dharma del lavoro (karma yoga). Giove forte aspettante o nella 9ª è uno dei più potenti indicatori di vita protetta e dharmica.",
+      "bodyParts": [
+        "Cosce (entrambe)",
+        "Fianchi superiori",
+        "Coxofemorale (articolazione dell'anca)",
+        "Femori",
+        "Sistema arterioso delle cosce",
+        "Polpacci (parzialmente, in dialogo con la 11ª)"
+      ],
+      "naturalSign": "Dhanu (Sagittario) — la 9ª casa porta naturalmente la qualità gioviana del Sagittario: filosofia, viaggio, espansione, fede, etica, saggezza. Implicazione: la 9ª è la casa per eccellenza di Giove. Giove in 9ª è considerato eccezionale; Sole esaltato in Ariete (parente del 9° aspetto di Marte) qui è raro ma potente. La 9ª cresce con la fede e con i grandi viaggi della vita.",
+      "beneficsHere": "Giove in 9ª (in segno proprio se in Sagittario) è una delle migliori posizioni dell'intero Kundli: dona padre saggio e benevolo, dharma chiaro, fortuna karmica massima, guru autentico, viaggi protetti, studi superiori brillanti, etica naturale, saggezza che attira maestri. Hamsa Yoga potenziale. Sole in 9ª dona padre autorevole e protettivo, dharma legato a leadership, possibile carriera in legge/governo/politica, identità etica forte, possibile fama, yajna e rituali sacri parte della vita. Venere in 9ª dona padre amorevole, dharma legato ad arte/bellezza/cultura, fortuna nei viaggi, vita protetta da grazia femminile, possibile fama come artista o intellettuale culturale. Mercurio in 9ª dona intelligenza filosofica brillante, talento per scrittura accademica, possibile carriera universitaria, padre intellettuale, capacità di insegnare temi superiori. Luna in 9ª dona devozione naturale, intuizione spirituale, popolarità nei contesti religiosi, possibile pellegrinaggio formativo, madre figura quasi-spirituale.",
+      "maleficsHere": "Marte in 9ª può rendere il padre figura conflittuale o assente, difficoltà nei viaggi lunghi, conflitti con i guru, dharma del guerriero (carriera militare/sportiva), possibili incidenti durante pellegrinaggi; tuttavia, dona coraggio etico. Saturno in 9ª può ritardare la realizzazione del dharma, padre severo o lontano, fortuna karmica che arriva tardi (dopo i 36 anni di solito), studi avanzati con sacrifici, ma anche dharma del karma yoga (servizio lungo). Rahu in 9ª produce dharma non convenzionale, possibili guru ambigui, fascinazione per filosofie straniere, viaggi all'estero karmici, padre figura non tradizionale; può confondere il dharma se non guidato. Ketu in 9ª dona distacco dal padre (possibile perdita precoce o lontananza), dharma di moksha, possibile vocazione monastica precoce, talento mistico naturale, cammino spirituale solitario.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 9ª nella 1ª porta dharma e fortuna direttamente nel Sé: il nativo è dharmico per natura, fortunato karmicamente, padre figura significativa nell'identità, possibile vocazione precoce, vita protetta. Una delle posizioni più auspiciose. Bhagya che irradia dalla persona stessa.",
+        "2": "Il signore della 9ª nella 2ª è eccellente: dharma legato a famiglia e ricchezza, eredità del padre, voce dharmica, valori familiari spirituali, accumulo benedetto. Bhagya yoga forte. Famiglia connessa a tradizione spirituale o accademica.",
+        "3": "Il signore della 9ª nella 3ª lega dharma a coraggio e fratelli: il nativo agisce per il dharma, scrive di filosofia/spiritualità, fratelli connessi a guru o vita religiosa, viaggi brevi con scopo dharmico. Possibile carriera in editoria spirituale.",
+        "4": "Il signore della 9ª nella 4ª è eccellente: dharma legato a casa e madre, casa come tempio, madre spirituale o saggia, possibile vita all'estero in contesto dharmico, eredità materna che porta fortuna. Una delle posizioni più auspiciose.",
+        "5": "Il signore della 9ª nella 5ª è massimo Dharma-Karmadhipati Yoga (con la 9ª anziché la 10ª, ma comunque eccellente Bhagya): figli benedetti, intelligenza dharmica, mantra-siddhi forte, talento creativo connesso al sacro, fortuna massima. Posizione di grande grazia.",
+        "6": "Il signore della 9ª nella 6ª è delicato: dharma che si esprime in lotta o servizio, possibile padre malato o in conflitto, guru ambiguo, possibile carriera in legge come dharma, possibile perdita di fortuna karmica per azioni non etiche. Vipareeta Raja Yoga possibile.",
+        "7": "Il signore della 9ª nella 7ª è eccellente: dharma legato al coniuge (partner come guru), possibile incontro all'estero o in contesti spirituali, business etico in coppia, vita pubblica dharmica. Bhagya che fluisce attraverso le relazioni.",
+        "8": "Il signore della 9ª nella 8ª è delicato: dharma che richiede trasformazione profonda, possibili crisi del padre, fortuna karmica che si manifesta attraverso eredità o crisi, possibile carriera in tantra/occulto/ricerca profonda. Bhagya nascosto che emerge da crisi.",
+        "9": "Il signore della 9ª nella 9ª (in casa propria) è massimo Bhagya Yoga: vita totalmente protetta, padre dharmico, guru autentico, fortuna karmica massima, viaggi spirituali, possibile carriera in religione/filosofia/università. Una delle migliori posizioni dell'intero Kundli.",
+        "10": "Il signore della 9ª nella 10ª è massimo Dharma-Karmadhipati Yoga: la fortuna karmica si manifesta nella carriera, vita pubblica dharmica, possibile leadership etica, padre influenzante sulla professione, fama possibile attraverso lavoro etico. La combinazione più auspiciosa per il successo karmico-professionale.",
+        "11": "Il signore della 9ª nella 11ª è eccellente: dharma che produce reddito, network di persone dharmiche, realizzazione di desideri etici, fortuna massima nei guadagni, possibile filantropia. Bhagya che si traduce in ricchezza condivisa.",
+        "12": "Il signore della 9ª nella 12ª è delicato ma può portare moksha: dharma che richiede ritiro o esilio, possibile vita all'estero come monaco/ricercatore/missionario, perdita del padre o lontananza, possibile vocazione monastica, bhagya che si manifesta nella liberazione finale."
+      },
+      "yogasAndCombinations": [
+        "Bhagya Yoga: 9° signore forte in kendra/trikona = grande fortuna",
+        "Dharma-Karmadhipati Yoga: 9° e 10° signori in scambio o congiunti = massima fortuna karmica e professionale",
+        "Hamsa Yoga: Giove in 9ª in segno proprio o esaltato",
+        "Guru-Mangala Yoga: Giove e Marte congiunti in 9ª",
+        "Pitru Yoga: Sole forte in 9ª = padre auspicioso",
+        "Pitru Dosha: malefici in 9ª senza benefici = problemi karmici con padre/antenati",
+        "Tirth Yoga: malefici in 9ª aspettati da Giove = pellegrinaggi karmici"
+      ],
+      "remedies": [
+        "Servire il padre come pratica yogica (Pitri seva)",
+        "Cerimonia di Pitri Tarpana per gli antenati",
+        "Mantra di Giove: Om Gum Gurave Namah",
+        "Indossare topazio giallo se Giove è il rimedio",
+        "Pellegrinaggi sacri (almeno uno significativo nella vita)",
+        "Donare a Brahmana e a guru autentici",
+        "Studiare i testi sacri (Bhagavad Gita, Yoga Vasishtha, ecc.)",
+        "Recitazione del Vishnu Sahasranama o del Guru Stotra",
+        "Servire un guru reale, non virtuale"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XIX: 'Navamasthane shubhe drishte shubhayukte balanvite — Bhagyam dharmam pita-shuddhi guru-deva-prasannata'",
+        "Phaladeepika IX.11: 'Pita dharmas tapo bhagyam navame paramatmavit'",
+        "Saravali: descrive la 9ª come 'bhagya-sthana' e 'pitri-sthana' (luogo della fortuna e del padre)"
+      ]
+    },
+    {
+      "number": 10,
+      "sanskrit": "Karma Bhava / Rajya Bhava",
+      "name": "Casa della Carriera, della Reputazione, dell'Azione nel Mondo",
+      "western": "Tenth House / Midheaven",
+      "primaryMeanings": [
+        "Carriera (vyavasaya), professione",
+        "Reputazione pubblica (kirti), fama",
+        "Azione nel mondo (karma) e contributo sociale",
+        "Status sociale, posizione",
+        "Capo, datore di lavoro, autorità superiore",
+        "Governo, istituzioni, settore pubblico",
+        "Padre come figura sociale (in dialogo con la 9ª che è padre come dharma)",
+        "Posizione di leadership e autorità"
+      ],
+      "secondaryMeanings": [
+        "Onore, dignità professionale",
+        "Riconoscimenti, premi, decorazioni",
+        "Cielo (akasha) come luogo del meriggio della vita",
+        "Ginocchia, articolazioni delle gambe",
+        "Mestiere (vritti) come stile di vita",
+        "Comportamento esterno, immagine pubblica",
+        "Capacità di governare e dirigere",
+        "Potere visibile, influenza sociale"
+      ],
+      "karaka": "Surya (Sole) come karaka della carriera, dell'autorità e della reputazione regale; Mercurio (Budha) come karaka degli affari e del commercio; Giove (Brihaspati) come karaka della carriera dharmica e dell'insegnamento; Saturno (Shani) come karaka del lavoro come servizio. Quattro karaka per la 10ª = casa di massima importanza professionale.",
+      "bodyParts": [
+        "Ginocchia (entrambe)",
+        "Rotule",
+        "Articolazioni delle gambe",
+        "Parte alta della schiena (zona dorsale, in dialogo con la 5ª)",
+        "Sistema scheletrico (parzialmente)"
+      ],
+      "naturalSign": "Makara (Capricorno) — la 10ª casa porta naturalmente la qualità saturnina del Capricorno: ambizione, struttura, autorità, costruzione lenta e duratura, leadership matura. Implicazione: la 10ª richiede disciplina, perseveranza, capacità di salire la scala. Marte esaltato in Capricorno qui produce uno dei migliori Mahapurusha Yoga (Ruchaka). Saturno in casa propria qui dona Shasha Yoga, autorità duratura.",
+      "beneficsHere": "Giove in 10ª è eccellente per dharma professionale: dona carriera dharmica, possibile insegnamento universitario, ruolo di consulente saggio, fama come maestro o filosofo, padre influenzante in modo positivo, etica nel lavoro. Sole in 10ª (esaltato in Ariete o in segno proprio) è eccezionale: dona autorità reale, possibile carriera politica/governativa, leadership naturale, padre come figura pubblica, fama, reputazione luminosa. Una delle posizioni più potenti per il successo. Venere in 10ª dona carriera in arte/bellezza/lusso/diplomazia, possibile fama come artista o personaggio mediatico, capacità di intrattenere, immagine pubblica raffinata, partnership professionali fortunate. Mercurio in 10ª dona carriera in commercio/scrittura/comunicazione/informatica, intelligenza professionale brillante, capacità di adattamento, possibile imprenditoria di successo. Luna in 10ª dona carriera legata al pubblico, possibile fama, popolarità, lavoro nel settore della cura/alimentare/marittimo, madre influenzante sulla professione.",
+      "maleficsHere": "Marte in 10ª (esaltato in Capricorno) produce Ruchaka Mahapurusha Yoga: leader nato, possibile carriera militare/chirurgica/atletica/imprenditoriale, coraggio professionale, fama possibile come pioniere; se afflitto, può dare conflitti con autorità. Saturno in 10ª (in casa propria se in Capricorno o esaltato in Bilancia in 10ª) produce Shasha Mahapurusha Yoga: carriera lunga e solida, possibile ruolo di patriarca o autorità, lavoro duro che porta successo dopo i 36 anni, padre rigoroso. Rahu in 10ª produce ambizione smisurata, fama possibile in settori non convenzionali (tecnologia, internet, intrattenimento, politica), magnetismo professionale, possibile lavoro all'estero, ma anche rischio di scandali. Una delle posizioni storicamente associate a personaggi famosi. Ketu in 10ª dona distacco dalla carriera (possibile abbandono di ruolo prestigioso per ricerca interiore), capacità mistica applicata al lavoro, possibile vocazione spirituale che subentra a metà carriera.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 10ª nella 1ª porta la carriera direttamente nel Sé: il nativo è identificato con la propria professione, possibile vocazione precoce, leadership naturale, costruzione del personal brand, possibile fama. Identità professionale forte. Karma yoga del Sé.",
+        "2": "Il signore della 10ª nella 2ª lega carriera a famiglia e ricchezza: il nativo guadagna molto attraverso la carriera, possibile lavoro nel business familiare, voce professionale potente, accumulo solido, eredità del cognome professionale. Dhana-Karma Yoga.",
+        "3": "Il signore della 10ª nella 3ª lega carriera a coraggio e comunicazione: il nativo costruisce la professione attraverso scrittura, media, vendite, viaggi brevi, sport, fratelli che possono essere collaboratori. Eccellente per giornalisti, scrittori, marketers, atleti.",
+        "4": "Il signore della 10ª nella 4ª lega carriera a casa e madre: il nativo lavora da casa, real estate, agricoltura, settore alimentare, hôtellerie, settore privato. Karma yoga domestico. Possibile lavoro insieme alla madre o nella terra natale.",
+        "5": "Il signore della 10ª nella 5ª è eccellente: la carriera fluisce dalla creatività e dal purva punya, possibile fama come artista/insegnante/consulente, figli che influenzano la professione, fortuna nelle speculazioni di carriera. Karma Yoga creativo.",
+        "6": "Il signore della 10ª nella 6ª lega carriera a lotta e servizio: il nativo costruisce la professione attraverso il duro lavoro, possibile carriera in medicina/legge/militare/sport, vittoria sui rivali professionali. Karma Yoga del servizio.",
+        "7": "Il signore della 10ª nella 7ª lega carriera al partner: possibile lavoro insieme al coniuge, partnership professionale stabile, business in coppia, vita pubblica condivisa, possibile residenza all'estero per lavoro. Karma yoga relazionale.",
+        "8": "Il signore della 10ª nella 8ª può indicare crisi di carriera multiple seguite da rinascite, carriera in settore occulto/ricerca/chirurgia/psicoanalisi/finanza occulta, possibile fama attraverso temi profondi. Vipareeta Raja Yoga possibile.",
+        "9": "Il signore della 10ª nella 9ª è massimo Dharma-Karmadhipati Yoga: la carriera è il dharma stesso, possibile insegnamento universitario, leadership etica, possibile fama come maestro/filosofo/giudice. Una delle combinazioni più auspiciose dello zodiaco.",
+        "10": "Il signore della 10ª nella 10ª (in casa propria) è massimo Karma Yoga: carriera potente, autorità riconosciuta, possibile fama, leadership naturale, possibile ruolo di amministratore/CEO/dirigente. Una delle migliori posizioni per il successo professionale.",
+        "11": "Il signore della 10ª nella 11ª è eccellente: la carriera produce reddito alto, network di persone professionalmente connesse, fama che si traduce in guadagno, realizzazione di desideri attraverso lavoro. Dhana-Karma Yoga di alto livello.",
+        "12": "Il signore della 10ª nella 12ª può indicare carriera all'estero, lavoro nei retroscena (intelligence, ricerca, ospedali, ashram, monasteri), possibile abbandono di carriera per vita spirituale, lavoro in settori della liberazione (cinema, sogno, mistica). Karma Yoga del distacco."
+      },
+      "yogasAndCombinations": [
+        "Ruchaka Mahapurusha Yoga: Marte in 10ª in Ariete/Scorpione/Capricorno",
+        "Shasha Mahapurusha Yoga: Saturno in 10ª in Capricorno/Acquario/Bilancia",
+        "Hamsa Mahapurusha Yoga: Giove in 10ª in Cancro/Sagittario/Pesci",
+        "Bhadra Mahapurusha Yoga: Mercurio in 10ª in Gemelli/Vergine",
+        "Malavya Mahapurusha Yoga: Venere in 10ª in Toro/Bilancia/Pesci",
+        "Amala Yoga: pianeta benefico in 10ª senza congiunzione con malefici = reputazione immacolata",
+        "Dharma-Karmadhipati Yoga: 9° e 10° signori connessi"
+      ],
+      "remedies": [
+        "Mantra del Sole all'alba (Aditya Hridaya Stotra)",
+        "Servire il padre o figure di autorità",
+        "Donazioni di domenica (grano, jaggery, rame)",
+        "Indossare rubino se Sole è il rimedio",
+        "Karma Yoga: lavorare senza attaccamento al frutto",
+        "Studio della Bhagavad Gita capitolo 3 (Karma Yoga)",
+        "Mantra di Saturno se la carriera è bloccata",
+        "Servire il proprio capo con integrità (anche se ingiusto)",
+        "Pratica della verità nel lavoro (satya in karma)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XX: 'Dasamasthane shubhe drishte shubhayukte balanvite — Vyaparam karma rajatvam pita-kirti vivardhinam'",
+        "Phaladeepika IX.12: 'Karma jiva yashah pita rajya manam dasame sthitam'",
+        "Bhagavad Gita III.19: 'Tasmad asaktah satatam karyam karma samacara' (citato sempre per la 10ª come karma sthana)"
+      ]
+    },
+    {
+      "number": 11,
+      "sanskrit": "Labha Bhava / Aya Bhava",
+      "name": "Casa dei Guadagni, degli Amici, della Realizzazione dei Desideri",
+      "western": "Eleventh House",
+      "primaryMeanings": [
+        "Guadagni (labha), reddito, profitti",
+        "Amici (mitra), conoscenze, network sociale",
+        "Realizzazione dei desideri (kama-puurti)",
+        "Fratello maggiore (in distinzione dalla 3ª che è fratello minore)",
+        "Speranze, aspirazioni, sogni a lungo termine",
+        "Gruppi, associazioni, organizzazioni",
+        "Fortuna negli affari, accumulo da molteplici fonti",
+        "Riconoscimenti dalla società"
+      ],
+      "secondaryMeanings": [
+        "Polpacci, parte bassa delle gambe, caviglie",
+        "Orecchio sinistro",
+        "Capacità di trasformare desideri in realtà",
+        "Comunità di appartenenza",
+        "Risultati delle iniziative (la 11ª come 2ª della 10ª = ricchezza dalla carriera)",
+        "Premi, riconoscimenti, bonus",
+        "Capacità sociale, popolarità",
+        "Settori dell'innovazione e della tecnologia"
+      ],
+      "karaka": "Brihaspati (Giove) come karaka principale dei guadagni dharmici e dell'espansione; Mercurio (Budha) come karaka degli affari e degli amici; Surya (Sole) come karaka del fratello maggiore. La 11ª è considerata sempre buona perché casa di Upachaya (case che migliorano col tempo) — anche malefici qui producono frutti.",
+      "bodyParts": [
+        "Polpacci (entrambi)",
+        "Tibia, perone",
+        "Caviglie",
+        "Orecchio sinistro",
+        "Sistema circolatorio delle gambe basse"
+      ],
+      "naturalSign": "Kumbha (Acquario) — la 11ª casa porta naturalmente la qualità saturnino-uraniana dell'Acquario: amicizia, network, innovazione, idealismo collettivo, gruppi, distacco emotivo. Implicazione: la 11ª prospera attraverso le connessioni, la collaborazione, le grandi visioni di gruppo. Saturno in casa propria qui (se in Acquario) dona network solidi e duraturi. Sole debilitato in Acquario qui può rendere il nativo idealista ma talvolta poco realista.",
+      "beneficsHere": "Giove in 11ª è una delle migliori posizioni per la prosperità: dona guadagni multipli e dharmici, amici saggi e benefici, fratello maggiore protettivo, realizzazione dei desideri etici, possibile filantropia, accumulo costante, network di persone elevate. Venere in 11ª dona guadagni attraverso arte/bellezza/lusso, amici eleganti e influenti, possibile fama nei settori artistici/della moda, vita sociale ricca, network internazionale. Mercurio in 11ª dona guadagni attraverso commercio/scrittura/comunicazione, amici intelligenti, possibile imprenditoria di successo, network in settori tecnologici/editoriali. Luna in 11ª dona popolarità, amici sensibili, fama legata al pubblico, guadagni che fluiscono come maree (instabili ma rinnovabili), madre come connettore sociale.",
+      "maleficsHere": "Sole in 11ª (debilitato in Acquario, segno naturale della 11ª) può ridurre il fratello maggiore o renderlo distante, ma comunque dona guadagni attraverso autorità, possibile fama come leader, network di persone potenti, riconoscimenti pubblici. La 11ª 'cura' Sole debilitato fino a un certo punto. Marte in 11ª (sebbene tecnicamente non-benefico) è eccellente nella 11ª: dona guadagni attraverso sport/militare/imprenditoria coraggiosa, amici forti, network di guerrieri/atleti, possibili fratelli maggiori protettivi. Saturno in 11ª (in casa propria se in Acquario) è eccellente: dona guadagni costanti dopo i 36 anni, network duraturo, amici dharmici e maturi, accumulo solido, possibile carriera in organizzazioni grandi. Rahu in 11ª è considerato eccellente: dona guadagni straordinari, possibile fama, amici stranieri o non convenzionali, magnetismo sociale, possibile carriera in tecnologia/internet/intrattenimento; una delle posizioni storicamente associate a personaggi famosi. Ketu in 11ª può ridurre i guadagni o renderli imprevedibili, distacco dagli amici, possibile vita ascetica, ma anche guadagni inattesi attraverso talento mistico.",
+      "lordInOtherHouses": {
+        "1": "Il signore dell'11ª nella 1ª porta guadagni e amici direttamente nel Sé: il nativo è naturalmente connesso socialmente, costruisce identità attraverso il network, possibile imprenditoria precoce, fratello maggiore figura significativa. Magnetismo sociale.",
+        "2": "Il signore dell'11ª nella 2ª è massimo Dhana Yoga: i guadagni si accumulano nel patrimonio familiare, voce che attira ricchezza, network connesso a famiglia, eredità possibile dal fratello maggiore. Una delle migliori posizioni per la prosperità.",
+        "3": "Il signore dell'11ª nella 3ª lega guadagni a coraggio e fratelli: il nativo guadagna attraverso scrittura/media/vendite/sport, fratello maggiore come collaboratore, viaggi brevi profittevoli. Buono per imprenditori comunicativi.",
+        "4": "Il signore dell'11ª nella 4ª lega guadagni a casa e madre: il nativo guadagna attraverso real estate/agricoltura/settore alimentare, madre come connettore sociale, casa come centro di network, possibile attività familiare profittevole.",
+        "5": "Il signore dell'11ª nella 5ª è eccellente Dhana Yoga: guadagni attraverso creatività/figli/speculazione/insegnamento, possibili figli ricchi, network di artisti/intellettuali, fortuna nelle speculazioni. Combinazione molto auspiciosa.",
+        "6": "Il signore dell'11ª nella 6ª può indicare guadagni attraverso conflitti/processi/lavoro duro/medicina/legge, amici problematici o persi, possibile lavoro in settore di servizio per guadagno. Tuttavia, Vipareeta Raja Yoga possibile.",
+        "7": "Il signore dell'11ª nella 7ª lega guadagni al coniuge: il partner porta ricchezza, business in coppia profittevole, network condiviso con il partner, possibile vita pubblica per guadagno. Dhana Yoga relazionale.",
+        "8": "Il signore dell'11ª nella 8ª può indicare guadagni attraverso eredità/assicurazioni/ricerca/occulto, amici con segreti o ambigui, possibili guadagni inaspettati ma con instabilità. Vipareeta Raja Yoga possibile.",
+        "9": "Il signore dell'11ª nella 9ª è eccellente: guadagni dharmici, amici saggi e spirituali, possibile carriera in settore religioso/accademico/etico, viaggi profittevoli, padre come connettore sociale. Dhana-Bhagya Yoga.",
+        "10": "Il signore dell'11ª nella 10ª è eccellente: guadagni attraverso carriera, fama che produce reddito, network professionale forte, possibile leadership in grandi organizzazioni. Dhana-Karma Yoga di alto livello.",
+        "11": "Il signore dell'11ª nell'11ª (in casa propria) è massimo Dhana Yoga: guadagni multipli e abbondanti, network potente, fratello maggiore protettivo, realizzazione di tutti i desideri, possibile filantropia. Una delle migliori posizioni dello zodiaco per ricchezza materiale.",
+        "12": "Il signore dell'11ª nella 12ª è delicato per i guadagni: possibili perdite, spese alte rispetto ai guadagni, possibile vita all'estero per ragioni di lavoro, perdita di amici, ma anche possibile filantropia spirituale, donazioni karmicamente significative. Karma di moksha attraverso ricchezza spesa per dharma."
+      },
+      "yogasAndCombinations": [
+        "Maha Dhana Yoga: 2°, 5°, 9° e 11° signori tutti forti e collegati",
+        "Lakshmi Yoga: 11° signore in trine + Venere forte",
+        "Saturno o Rahu in 11ª = guadagni straordinari (Upachaya)",
+        "Marte in 11ª = guadagni attraverso azione/sport/militare/imprenditoria",
+        "Pancha Mahapurusha + 11ª attiva = ricchezza fama",
+        "Adhi Yoga: pianeti benefici nella 6ª, 7ª, 8ª dalla Luna",
+        "Combinazioni di Bhagya: 9° e 11° signori connessi"
+      ],
+      "remedies": [
+        "Mantra di Giove per guadagni dharmici",
+        "Servire il fratello maggiore",
+        "Donare in modo regolare (10% del reddito come dharma classico)",
+        "Praticare amicizie etiche, non utilitaristiche",
+        "Onorare il network sociale con gratitudine",
+        "Indossare topazio giallo se Giove è il rimedio",
+        "Recitazione del Lakshmi Ashtottara",
+        "Donare a istituzioni che servono molti (templi, scuole, ospedali)",
+        "Praticare la realizzazione del desiderio dharmico (kama come parte dei purushartha)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XXI: 'Labhasthane shubhe drishte shubhayukte balanvite — Aya-prapti-yashah-sukha-sarva-kama-samriddhita'",
+        "Phaladeepika IX.13: 'Aya labha jyestha bhratuh kama-siddhi labhalaye'",
+        "Saravali: descrive l'11ª come 'aya-sthana' e 'kama-sthana' (luogo dei guadagni e della realizzazione del desiderio)"
+      ]
+    },
+    {
+      "number": 12,
+      "sanskrit": "Vyaya Bhava / Moksha Bhava",
+      "name": "Casa delle Perdite, della Liberazione, dell'Estero",
+      "western": "Twelfth House",
+      "primaryMeanings": [
+        "Perdite (vyaya), spese, dispendio",
+        "Moksha (liberazione finale), spiritualità profonda",
+        "Estero, paesi lontani, vita all'estero",
+        "Letto, sonno, riposo, sogni",
+        "Piaceri sessuali (in distinzione dalla 7ª che è coniuge)",
+        "Solitudine, isolamento, monastero, ashram, ospedale, prigione",
+        "Spese in beni di lusso, donazioni, charity",
+        "Karma di vite passate non ancora esaurito"
+      ],
+      "secondaryMeanings": [
+        "Piedi, parte bassa dei piedi, alluci",
+        "Occhio sinistro (per gli uomini, occhio destro per le donne)",
+        "Apparato linfatico profondo, sistema immunitario nascosto",
+        "Vita interiore segreta, sogni profondi",
+        "Nemici nascosti (in distinzione dalla 6ª che sono nemici aperti)",
+        "Inconscio, mondi sottili, mediumità",
+        "Mahaprasthana (il grande viaggio finale, la morte come liberazione)",
+        "Servizio invisibile, anonimo (seva senza ricompensa)"
+      ],
+      "karaka": "Shani (Saturno) come karaka principale di moksha (insieme a Ketu); Ketu come karaka della liberazione finale e del distacco; Venere come karaka secondario del piacere del letto (shayya-sukha) e dei lussi nascosti. La 12ª è considerata la casa più paradossale: simultaneamente perdita e liberazione.",
+      "bodyParts": [
+        "Piedi (entrambi)",
+        "Pianta dei piedi, tallone",
+        "Alluci, dita dei piedi",
+        "Caviglie (parzialmente, in dialogo con 11ª)",
+        "Occhio sinistro",
+        "Sistema linfatico profondo",
+        "Cervello in connessione con i sogni (parzialmente)"
+      ],
+      "naturalSign": "Meena (Pesci) — la 12ª casa porta naturalmente la qualità gioviana-nettuniana dei Pesci: dissoluzione, mistica, oceano dell'inconscio, compassione universale, sogno, perdita dei confini. Implicazione: la 12ª richiede di lasciar andare. Venere esaltata in Pesci nella 12ª produce uno dei più potenti yoga di sukha-yoga (piacere segreto e fortuna nascosta). Mercurio debilitato in Pesci/12ª può rendere la mente confusa o intuitiva.",
+      "beneficsHere": "Giove in 12ª (in segno proprio se in Pesci) è eccellente per il moksha: dona vita spirituale profonda, possibile vocazione monastica, viaggi all'estero per ragioni dharmiche, donazioni generose, vita protetta da grazia divina anche nelle perdite, possibile insegnamento all'estero. Hamsa Yoga potenziale. Venere in 12ª (esaltata in Pesci) è eccellente: dona piacere del letto raffinato, possibile fama nel settore artistico/cinematografico, vita all'estero in luoghi belli, amori segreti possibili ma anche talento per arte mistica. Malavya Yoga. Mercurio in 12ª (debilitato in Pesci) può rendere la mente intuitiva ma confusa, possibile carriera in settori invisibili (ricerca, intelligence, ricerca medica), scrittura su sogni/inconscio. Luna in 12ª può rendere il nativo psichicamente sensibile, possibile depressione o medianità, vita interiore profonda, sogni significativi, possibile vita all'estero per ragioni materne.",
+      "maleficsHere": "Sole in 12ª (marana karaka) è considerato problematico: possibile riduzione della vitalità, perdita del padre o lontananza, possibile vita all'estero per ragioni di onore o esilio, ego che deve dissolversi, possibili problemi agli occhi. Marte in 12ª produce vita di possibili conflitti nascosti, perdite improvvise, possibili interventi chirurgici, energia che si esprime nei sogni o in pratiche tantriche, possibili nemici segreti, ma anche talento per medicina o ricerca militare segreta. Saturno in 12ª (karaka per la 12ª) è eccellente per moksha: dona vita lunga in monastero/ashram/ospedale come servizio, possibile vita all'estero, perdite che diventano lezioni karmiche, capacità di sopportazione, vocazione spirituale tarda ma duratura. Rahu in 12ª produce attrazione per mondi stranieri/esoterici, possibili vite all'estero, segreti, attaccamento ai sogni e alle dipendenze possibile, ma anche straordinaria capacità medianica e talento per occulto. Ketu in 12ª (in casa propria spiritualmente) è una delle migliori posizioni per moksha: distacco naturale dal mondo, vocazione monastica, capacità mistica innata, possibile vita di samadhi, talento per kundalini yoga, kaivalya (liberazione finale) possibile in questa vita.",
+      "lordInOtherHouses": {
+        "1": "Il signore della 12ª nella 1ª porta perdita e liberazione direttamente nel Sé: il nativo ha tendenza alla solitudine, possibile interesse spirituale precoce, identità marcata da distacco, possibile vita all'estero, costituzione fisica delicata, vita interiore ricca. Talento per arte mistica.",
+        "2": "Il signore della 12ª nella 2ª può indicare spese alte (la 2ª è ricchezza, la 12ª è perdita), possibile lavoro all'estero per ragioni economiche, voce sussurrata o usata in contesti meditativi, famiglia con membri all'estero, donazioni generose. Possibile filantropia.",
+        "3": "Il signore della 12ª nella 3ª può indicare lontananza dai fratelli (vivono all'estero), scrittura nel silenzio (libri, ricerca solitaria), comunicazione spirituale, viaggi brevi in luoghi mistici, possibile carriera in editoria/cinema/musica.",
+        "4": "Il signore della 12ª nella 4ª può indicare casa lontana (estero), possibile vendita della casa familiare, vita in monastero/ashram, distacco dalla madre, ma anche casa come luogo di pratica spirituale, possibile residenza in luogo isolato per scelta.",
+        "5": "Il signore della 12ª nella 5ª lega perdita e liberazione a creatività e figli: possibile distacco dai figli (vivono all'estero), mantra-siddhi in solitudine, talento mistico profondo, possibile vita monastica, scrittura di opere visionarie. Purva punya speso in moksha.",
+        "6": "Il signore della 12ª nella 6ª è eccellente Vipareeta Raja Yoga (Vipareeta Vimala Yoga): le perdite producono guadagni, lavoro in settore di servizio invisibile (ospedali, ashram), possibile carriera in medicina/legge all'estero, vittoria sui nemici nascosti.",
+        "7": "Il signore della 12ª nella 7ª può indicare matrimonio con persona straniera, vita matrimoniale all'estero, possibili separazioni, partner di natura mistica, business all'estero, vita pubblica spirituale.",
+        "8": "Il signore della 12ª nell'8ª è eccellente Vipareeta Raja Yoga: le perdite producono trasformazioni profonde, possibile vita all'estero come ricercatore/occultista, talento per kundalini yoga, moksha possibile in questa vita.",
+        "9": "Il signore della 12ª nella 9ª è eccellente per moksha-dharma: vita all'estero per ragioni dharmiche, possibile vocazione monastica, padre con vita spirituale, viaggi sacri, possibile insegnamento all'estero. Dharma di liberazione.",
+        "10": "Il signore della 12ª nella 10ª può indicare carriera all'estero, lavoro nei retroscena (intelligence, ricerca, ospedali, ashram), possibile abbandono di carriera per vita spirituale, lavoro in settori di moksha (cinema, sogno, mistica). Karma Yoga del distacco.",
+        "11": "Il signore della 12ª nell'11ª può indicare guadagni dall'estero, network internazionale, amici di paesi lontani, possibile filantropia, donazioni che producono karma futuro positivo, network di persone spirituali.",
+        "12": "Il signore della 12ª nella 12ª (in casa propria) è eccellente per moksha: vita totalmente dedicata alla liberazione, possibile vocazione monastica precoce, capacità mistica massima, vita all'estero in luogo sacro, samadhi possibile, kaivalya in questa vita. Una delle migliori posizioni per il dharma di moksha."
+      },
+      "yogasAndCombinations": [
+        "Moksha Yoga: signore della 12ª e Ketu connessi a Giove forte = liberazione",
+        "Vipareeta Raja Yoga (Vimala): signore della 12ª in 6ª, 8ª o 12ª",
+        "Hamsa Yoga: Giove in 12ª in segno proprio o esaltato",
+        "Malavya Yoga: Venere in 12ª in segno proprio o esaltato",
+        "Sukha-Shayya Yoga: Venere forte in 12ª = piaceri segreti",
+        "Pravas Yoga: signore della 12ª connesso al Lagna = vita all'estero",
+        "Bandhana Yoga: malefici in 12ª senza benefici = possibile reclusione/ospedalizzazione",
+        "Sannyasa Yoga: 4 o più pianeti in segni di moksha (Cancro, Scorpione, Pesci) o nella 12ª = vocazione monastica"
+      ],
+      "remedies": [
+        "Pratica spirituale quotidiana (sadhana minimo 1 ora al giorno)",
+        "Servire i moribondi, gli orfani, i monaci",
+        "Donazioni anonime (la 12ª guarisce con il dare senza essere visti)",
+        "Mantra di Ketu: Om Ketave Namah",
+        "Meditazione yoga nidra (sonno yogico) per la 12ª",
+        "Pellegrinaggio in luoghi di moksha (Varanasi, Rishikesh, Tiruvannamalai)",
+        "Studio dei testi di moksha (Yoga Vasishtha, Ashtavakra Gita, Mandukya Upanishad)",
+        "Tenere un diario dei sogni (i sogni sono dharma della 12ª)",
+        "Lasciar andare almeno un attaccamento maggiore consciamente"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra, cap. XXII: 'Vyayasthane shubhe drishte shubhayukte balanvite — Vyayam shayya sukham mokshah videsha gamanam shubham'",
+        "Phaladeepika IX.14: 'Vyayo nidra videsho moksha shayya-sukham dvadashe sthitam'",
+        "Saravali: descrive la 12ª come 'moksha-sthana' e 'vyaya-sthana' (luogo della liberazione e delle spese)",
+        "Bhagavad Gita VIII.5: 'Antakale ca mam eva smaran muktva kalevaram' — citato per il dharma della 12ª come passaggio finale"
+      ]
+    }
+  ]
+}

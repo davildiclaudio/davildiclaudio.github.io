@@ -1,173 +1,106 @@
-/* ==========================================================================
-   Jyotish Vidya — LIGHT MODE (Davil Design System)
-   Palette viola/magenta/oro su bianco · Fraunces + Space Grotesk
-   Glow firma cobalto/elettrico su elementi sollevati
-   ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@300;400;500;600&display=swap');
-
+/* === RESET & BASE === */
 *, *::before, *::after {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-    /* === LIGHT MODE BACKGROUNDS === */
-    --bg-0: #ffffff;
-    --bg-1: #fafafb;
-    --bg-2: #f4f4f7;
-    --bg-3: #eef0f5;
-
-    /* === INK / TESTI === */
-    --ink: #15131c;
-    --ink-soft: #2c2740;
-    --ink-mute: #5b556e;
-    --ink-faint: #8a8499;
-    --text-bright: #15131c; /* compat: ex --text-bright */
-    --text-dim: #5b556e;    /* compat: ex --text-dim */
-
-    /* === ACCENTI BRAND === */
-    --violet: #7c3aed;
-    --violet-soft: rgba(124, 58, 237, 0.10);
-    --violet-strong: #6d28d9;
-    --magenta: #ec4899;
-    --magenta-soft: rgba(236, 72, 153, 0.10);
-    --indigo: #4338ca;
-
-    /* === ORO (firma testi italic) === */
-    --gold: #dba93b;
+    /* ARS REALIS palette */
+    --bg-0: #05030f;
+    --bg-1: rgba(18, 12, 40, 0.72);
+    --bg-2: rgba(28, 20, 58, 0.48);
+    --bg-3: rgba(60, 40, 110, 0.32);
+    --gold: #f4c95d;
     --gold-light: #f4c95d;
-    --gold-deep: #a87f1e;
+    --gold-dark: #d4a93d;
+    --crimson: #c93a7a;
+    --crimson-bright: #ec5aa0;
+    --cosmic-violet: #7c3aed;
+    --cosmic-cyan: #22d3ee;
+    --cosmic-magenta: #ec4899;
+    --cosmic-indigo: #4338ca;
+    --line: rgba(180, 150, 240, 0.18);
 
-    /* === ELETTRICO / COBALTO (solo glow) === */
-    --cobalt-1: rgba(64, 96, 212, 0.22);
-    --cobalt-2: rgba(45, 45, 224, 0.18);
-    --cobalt-1-strong: rgba(64, 96, 212, 0.30);
-    --cobalt-2-strong: rgba(45, 45, 224, 0.22);
-
-    /* === BORDI / CARDS === */
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-bg-strong: rgba(255, 255, 255, 0.92);
-    --card-border: rgba(20, 15, 40, 0.10);
-    --card-border-hover: rgba(236, 72, 153, 0.45);
-
-    /* === STATI === */
-    --success: #16a34a;
-    --danger: #dc2626;
-    --warning: #d97706;
-
-    /* === RAGGIO / OMBRE === */
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-
-    /* Stack ombre armoniche */
-    --shadow-card:
-        0 1px 0 rgba(255, 255, 255, 0.6) inset,
-        0 12px 28px -14px rgba(20, 15, 40, 0.12),
-        0 8px 24px -12px rgba(124, 58, 237, 0.08),
-        0 0 50px -12px rgba(64, 96, 212, 0.22),
-        0 0 20px -6px rgba(45, 45, 224, 0.18);
-
-    --shadow-card-hover:
-        0 1px 0 rgba(255, 255, 255, 0.7) inset,
-        0 18px 38px -16px rgba(20, 15, 40, 0.16),
-        0 12px 30px -12px rgba(236, 72, 153, 0.14),
-        0 0 60px -12px rgba(64, 96, 212, 0.26),
-        0 0 24px -6px rgba(45, 45, 224, 0.22);
-
-    --shadow-hero:
-        0 1px 0 rgba(255, 255, 255, 0.7) inset,
-        0 24px 60px -20px rgba(20, 15, 40, 0.18),
-        0 16px 40px -16px rgba(124, 58, 237, 0.14),
-        0 0 70px -14px rgba(64, 96, 212, 0.30),
-        0 0 28px -8px rgba(45, 45, 224, 0.22);
-
-    --shadow-soft: 0 6px 18px -10px rgba(20, 15, 40, 0.18);
+    /* Backwards-compat aliases */
+    --deep-blue: var(--bg-0);
+    --navy: rgba(18, 12, 40, 0.95);
+    --indigo: var(--cosmic-indigo);
+    --purple: var(--cosmic-violet);
+    --card-bg: linear-gradient(135deg, rgba(30,20,60,0.55), rgba(20,14,50,0.45));
+    --card-border: rgba(180, 150, 240, 0.18);
+    --text: #ece6fb;
+    --text-dim: #b8afd6;
+    --text-bright: #ffffff;
+    --accent: #a78bfa;
+    --success: #22d3ee;
+    --warning: var(--gold);
+    --danger: var(--crimson-bright);
+    --radius: 12px;
+    --radius-sm: 8px;
 }
 
 html {
     scroll-behavior: smooth;
-    background: #ffffff;
 }
 
 html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
+    background: radial-gradient(ellipse at top, #0e0628 0%, #05030f 60%, #020108 100%);
 }
 
 body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.65;
-    background: #ffffff;
-    background-image:
-        radial-gradient(ellipse 1100px 700px at 12% -8%, rgba(124, 58, 237, 0.10), transparent 60%),
-        radial-gradient(ellipse 900px 600px at 92% 0%, rgba(236, 72, 153, 0.08), transparent 65%),
-        radial-gradient(ellipse 1000px 700px at 50% 105%, rgba(219, 169, 59, 0.08), transparent 65%),
-        radial-gradient(ellipse 700px 500px at 95% 65%, rgba(67, 56, 202, 0.06), transparent 70%);
-    background-attachment: fixed;
+    font-family: 'Inter', 'IBM Plex Sans', -apple-system, sans-serif;
+    color: var(--text);
+    line-height: 1.7;
     min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
-/* ==========================================================================
-   BACKGROUND AMBIENT (sostituisce stars-bg + cosmic-overlay scuri)
-   ========================================================================== */
-
+/* === BACKGROUND EFFECTS === */
 .stars-bg {
     position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background:
-        radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.06), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.05), transparent 45%),
-        radial-gradient(circle at 50% 90%, rgba(219, 169, 59, 0.05), transparent 40%);
-    animation: ambientDrift 28s ease-in-out infinite alternate;
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 200px 60px, rgba(255,255,255,0.5), transparent);
+    background-size: 200px 100px;
+    z-index: -2;
+    animation: twinkle 4s ease-in-out infinite alternate;
 }
 
 .cosmic-overlay {
     position: fixed;
-    inset: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+        radial-gradient(ellipse at 22% 18%, rgba(124,58,237,0.18), transparent 60%),
+        radial-gradient(ellipse at 85% 85%, rgba(34,211,238,0.10), transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(236,72,153,0.07), transparent 70%);
     z-index: -1;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 65% 20%, rgba(67, 56, 202, 0.04), transparent 55%),
-        radial-gradient(circle at 15% 80%, rgba(244, 201, 93, 0.04), transparent 55%);
-    mix-blend-mode: multiply;
-}
-
-@keyframes ambientDrift {
-    0%   { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-20px, 12px, 0); }
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.7; }
-    50%      { opacity: 1; }
+    from { opacity: 0.5; }
+    to { opacity: 1; }
 }
 
-/* ==========================================================================
-   NAVBAR
-   ========================================================================== */
-
+/* === NAVIGATION === */
 .main-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: saturate(160%) blur(18px);
-    -webkit-backdrop-filter: saturate(160%) blur(18px);
-    border-bottom: 1px solid rgba(20, 15, 40, 0.06);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 24px -16px rgba(20, 15, 40, 0.08);
+    background: rgba(10, 14, 26, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .nav-brand {
@@ -177,67 +110,49 @@ body {
 }
 
 .nav-symbol {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--gold);
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.30), 0 0 18px rgba(244, 201, 93, 0.40);
 }
 
 .nav-title {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 1.15rem;
-    color: var(--ink);
-    letter-spacing: 0.01em;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.75rem;
+    gap: 0.25rem;
 }
 
 .nav-links a {
-    color: var(--ink-soft);
+    color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
     font-weight: 500;
-    transition: color 0.25s ease, opacity 0.25s ease;
-    position: relative;
-    padding: 0.25rem 0;
+    transition: all 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--magenta);
-}
-
+.nav-links a:hover,
 .nav-links a.active {
-    color: var(--violet);
-}
-
-.nav-links a.active::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -4px;
-    height: 2px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--violet), var(--magenta));
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 .nav-toggle {
     display: none;
     background: none;
     border: none;
-    color: var(--ink);
+    color: var(--gold);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.25rem 0.5rem;
 }
 
-/* ==========================================================================
-   LAYOUT GENERALE
-   ========================================================================== */
-
+/* === LAYOUT === */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -245,341 +160,266 @@ body {
 }
 
 .section {
-    padding: clamp(70px, 11vh, 140px) 0;
-    position: relative;
+    padding: 6rem 0;
 }
 
 .section-dark {
-    background: linear-gradient(180deg, #f7f6fb 0%, #f1eef8 100%);
-    border-top: 1px solid rgba(20, 15, 40, 0.05);
-    border-bottom: 1px solid rgba(20, 15, 40, 0.05);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(2rem, 4vw, 2.85rem);
-    line-height: 1.15;
-    color: var(--ink);
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
     text-align: center;
     margin-bottom: 1rem;
-    letter-spacing: -0.005em;
-}
-
-.section-title em,
-.section-title i {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--gold);
-    text-shadow:
-        0 1px 0 rgba(90, 60, 10, 0.30),
-        0 0 22px rgba(244, 201, 93, 0.35);
 }
 
 .section-intro {
     text-align: center;
-    color: var(--ink-mute);
-    max-width: 720px;
+    max-width: 700px;
     margin: 0 auto 3rem;
+    color: var(--text-dim);
     font-size: 1.05rem;
-    line-height: 1.7;
 }
 
-/* Sect-eyebrow utility (firma sezioni) */
-.sect-eyebrow {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.32em;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--magenta);
-    margin-bottom: 0.75rem;
-}
-
-/* ==========================================================================
-   HERO
-   ========================================================================== */
-
+/* === HERO === */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem 4rem;
-    position: relative;
+    padding: 6rem 2rem;
     text-align: center;
+    position: relative;
 }
 
 .hero-content {
-    max-width: 880px;
-    z-index: 2;
+    max-width: 750px;
+    z-index: 1;
 }
 
 .hero-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 300;
-    font-size: clamp(3rem, 8vw, 5.2rem);
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-    letter-spacing: -0.01em;
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.20), 0 0 26px rgba(124, 58, 237, 0.10);
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
 }
 
 .hero-subtitle {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(1.2rem, 2.4vw, 1.7rem);
-    color: var(--gold);
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.30), 0 0 18px rgba(244, 201, 93, 0.30);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    color: var(--text-bright);
     margin-bottom: 1.5rem;
-    letter-spacing: 0.005em;
+    font-weight: 300;
 }
 
 .hero-desc {
-    font-size: 1.08rem;
-    color: var(--ink-mute);
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    line-height: 1.75;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
 }
 
 .hero-quote {
-    font-family: 'Fraunces', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-weight: 300;
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    background: var(--card-bg);
+    font-size: 1.2rem;
+    color: var(--text);
     border-left: 3px solid var(--gold);
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    padding: 1.25rem 1.75rem;
-    margin: 0 auto 2.25rem;
-    max-width: 640px;
-    line-height: 1.6;
+    padding: 1rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
     text-align: left;
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-card);
-    border-top: 1px solid var(--card-border);
-    border-right: 1px solid var(--card-border);
-    border-bottom: 1px solid var(--card-border);
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .hero-quote cite {
     display: block;
-    margin-top: 0.85rem;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--gold);
     font-style: normal;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.85rem;
-    color: var(--ink-faint);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
 }
 
 .hero-chart {
     position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
-    opacity: 0.55;
-    pointer-events: none;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    animation: rotate 120s linear infinite;
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .zodiac-wheel {
-    width: min(620px, 80vw);
-    height: auto;
-    animation: rotate 90s linear infinite;
-    filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.15));
+    width: 500px;
+    height: 500px;
 }
 
-.zodiac-wheel circle {
-    stroke: rgba(219, 169, 59, 0.45) !important;
-}
-
-/* ==========================================================================
-   BOTTONI
-   ========================================================================== */
-
+/* === BUTTONS === */
 .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem 2.25rem;
-    background: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 100%);
-    color: #ffffff;
-    border: none;
-    border-radius: 999px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    cursor: pointer;
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--cosmic-violet) 0%, var(--cosmic-magenta) 100%);
+    color: #fff;
+    font-weight: 600;
     text-decoration: none;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.25) inset,
-        0 12px 28px -10px rgba(124, 58, 237, 0.45),
-        0 8px 22px -10px rgba(236, 72, 153, 0.35),
-        0 0 40px -12px rgba(64, 96, 212, 0.30);
+    border-radius: var(--radius);
+    border: 1px solid rgba(236, 90, 160, 0.5);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    filter: saturate(1.05) brightness(1.04);
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.30) inset,
-        0 18px 38px -10px rgba(124, 58, 237, 0.55),
-        0 12px 28px -10px rgba(236, 72, 153, 0.42),
-        0 0 50px -12px rgba(64, 96, 212, 0.38);
+    background: linear-gradient(135deg, #8b5cf6 0%, #f472b6 100%);
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.45);
 }
 
 .btn-gold {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    color: #2a1d05;
-    border: 1px solid rgba(168, 127, 30, 0.35);
-    border-radius: 999px;
-    font-family: 'Space Grotesk', sans-serif;
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--bg-0);
     font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
     text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.55) inset,
-        0 10px 24px -10px rgba(168, 127, 30, 0.45),
-        0 0 32px -12px rgba(244, 201, 93, 0.55);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 18px rgba(244, 201, 93, 0.28);
+    border: 1px solid rgba(244, 201, 93, 0.5);
+    white-space: nowrap;
 }
 
 .btn-gold:hover {
     transform: translateY(-2px);
-    filter: brightness(1.05);
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.6) inset,
-        0 16px 32px -10px rgba(168, 127, 30, 0.55),
-        0 0 40px -10px rgba(244, 201, 93, 0.65);
+    box-shadow: 0 8px 26px rgba(244, 201, 93, 0.45);
 }
 
 .btn-ticket {
-    /* compat: stesso look del btn-gold, aggancio nav */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .btn-calculate {
     width: 100%;
-    margin-top: 0.75rem;
-    padding: 1.1rem;
-    font-size: 1rem;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    padding: 1.2rem;
 }
 
-/* ==========================================================================
-   CALCULATOR — FORM
-   ========================================================================== */
-
+/* === CALCULATOR === */
 .calculator-section {
-    /* eredita .section */
+    padding-top: 8rem;
 }
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
-    gap: 2rem;
-    align-items: flex-start;
-    margin-top: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+    width: 100%;
+    min-width: 0;
 }
 
 .calc-form {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.85rem;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
+    border-radius: var(--radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    min-width: 0;
+    max-width: 100%;
 }
 
+.calc-form *,
 .calc-results * {
-    color: var(--ink);
+    min-width: 0;
+    max-width: 100%;
 }
 
+.calc-form input,
+.calc-form select,
 .calc-form button {
-    align-self: stretch;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+    position: relative;
 }
 
 .form-group label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.78rem;
+    display: block;
+    font-size: 0.85rem;
     font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink-mute);
+    letter-spacing: 0.05em;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 0.85rem 1rem;
-    background: #ffffff;
-    border: 1px solid rgba(20, 15, 40, 0.14);
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: var(--radius-sm);
-    color: var(--ink);
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.95rem;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 1px 2px rgba(20, 15, 40, 0.04);
+    color: var(--text-bright);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--magenta);
-    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12), 0 1px 2px rgba(20, 15, 40, 0.04);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
 .form-group small {
-    font-size: 0.78rem;
-    color: var(--ink-faint);
-    line-height: 1.45;
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
 }
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-group {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .suggestions-dropdown {
-    display: none;
-    position: relative;
-    background: #ffffff;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--navy);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-sm);
-    margin-top: 0.35rem;
-    max-height: 220px;
+    max-height: 200px;
     overflow-y: auto;
-    box-shadow: 0 12px 28px -10px rgba(20, 15, 40, 0.18);
-    z-index: 5;
+    z-index: 100;
+    display: none;
 }
 
 .suggestions-dropdown.active {
@@ -587,32 +427,63 @@ body {
 }
 
 .suggestion-item {
-    padding: 0.7rem 0.9rem;
+    padding: 0.6rem 1rem;
     cursor: pointer;
     font-size: 0.9rem;
-    color: var(--ink-soft);
-    border-bottom: 1px solid rgba(20, 15, 40, 0.05);
-    transition: background 0.18s ease, color 0.18s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .suggestion-item:hover {
-    background: var(--violet-soft);
-    color: var(--violet-strong);
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
 }
 
-/* ==========================================================================
-   CALCULATOR — RESULTS / TABS
-   ========================================================================== */
-
+/* === RESULTS === */
 .calc-results {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.85rem;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: var(--shadow-card);
-    min-height: 300px;
+    border-radius: var(--radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.tab-content {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.result-tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--text);
+}
+
+.tab-btn.active {
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold);
 }
 
 .tab-content {
@@ -621,292 +492,282 @@ body {
 
 .tab-content.active {
     display: block;
-    animation: fadeIn 0.4s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.result-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--card-border);
-}
-
-.tab-btn {
-    padding: 0.55rem 0.95rem;
-    background: rgba(124, 58, 237, 0.06);
-    color: var(--ink-soft);
-    border: 1px solid rgba(124, 58, 237, 0.14);
-    border-radius: 999px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.82rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.tab-btn:hover {
-    border-color: var(--magenta);
-    color: var(--magenta);
-}
-
-.tab-btn.active {
-    background: linear-gradient(135deg, var(--violet) 0%, var(--magenta) 100%);
-    color: #ffffff;
-    border-color: transparent;
-    box-shadow: 0 8px 18px -8px rgba(124, 58, 237, 0.42);
-}
-
+/* Chart Box */
 .chart-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    min-height: 320px;
+    aspect-ratio: 1;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-/* ==========================================================================
-   TABELLE DATI
-   ========================================================================== */
-
+/* Data Tables */
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.88rem;
-    color: var(--ink);
+    font-size: 0.85rem;
 }
 
 .data-table thead {
-    background: rgba(124, 58, 237, 0.08);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 .data-table th {
-    padding: 0.85rem 0.85rem;
+    padding: 0.6rem 0.75rem;
     text-align: left;
-    font-family: 'Space Grotesk', sans-serif;
+    color: var(--gold);
     font-weight: 600;
-    font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--violet-strong);
-    border-bottom: 2px solid rgba(124, 58, 237, 0.18);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
 }
 
 .data-table td {
-    padding: 0.7rem 0.85rem;
-    border-bottom: 1px solid rgba(20, 15, 40, 0.06);
-    color: var(--ink-soft);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .data-table tr:hover td {
-    background: rgba(236, 72, 153, 0.04);
+    background: rgba(212, 175, 55, 0.05);
 }
 
-/* === NAKSHATRA CARD (tab) === */
+/* Nakshatra Card */
 .nakshatra-card {
     padding: 1.5rem;
-    background: var(--bg-2);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--card-border);
+    background: rgba(0,0,0,0.3);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--gold);
 }
 
 .nakshatra-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
 }
 
-/* === DASHA TIMELINE (results) === */
+/* Dasha Timeline */
 #dasha-timeline {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.5rem;
 }
 
 .dasha-bar {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
-    padding: 0.5rem 0;
+    gap: 0.75rem;
 }
 
 .dasha-bar-label {
-    width: 90px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--violet-strong);
+    width: 80px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: right;
+    color: var(--text-dim);
 }
 
 .dasha-bar-track {
     flex: 1;
-    height: 12px;
-    background: rgba(20, 15, 40, 0.06);
-    border-radius: 999px;
+    height: 24px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 4px;
     overflow: hidden;
     position: relative;
-    box-shadow: inset 0 1px 2px rgba(20, 15, 40, 0.06);
 }
 
 .dasha-bar-fill {
     height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--violet), var(--magenta));
-    box-shadow:
-        0 0 16px -4px rgba(124, 58, 237, 0.35),
-        0 0 22px -8px rgba(64, 96, 212, 0.30);
-    transition: width 0.6s ease;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--deep-blue);
+    transition: width 0.5s ease;
 }
 
 .dasha-bar-dates {
-    width: 170px;
-    text-align: right;
-    font-size: 0.78rem;
-    color: var(--ink-mute);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    width: 160px;
 }
 
-/* === API INFO === */
 .api-info {
-    margin-top: 2rem;
-    padding: 1rem 1.25rem;
-    background: rgba(67, 56, 202, 0.06);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid var(--indigo);
-    font-size: 0.85rem;
-    color: var(--ink-mute);
     text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--card-border);
 }
 
-.api-info strong {
-    color: var(--indigo);
-}
-
-/* === READING (tab "Lettura") === */
 .tab-reading {
-    background: linear-gradient(135deg, rgba(244, 201, 93, 0.18) 0%, rgba(219, 169, 59, 0.10) 100%);
-    border-color: rgba(168, 127, 30, 0.35);
-    color: var(--gold-deep);
-}
-
-.tab-reading.active {
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    color: #2a1d05;
-    box-shadow: 0 8px 18px -8px rgba(168, 127, 30, 0.45);
+    background: rgba(244, 201, 93, 0.15) !important;
+    color: var(--gold) !important;
+    border: 1px solid rgba(244, 201, 93, 0.3);
 }
 
 .reading-box {
-    padding: 0.5rem 0;
+    line-height: 1.8;
 }
 
 .reading-section {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-left: 3px solid var(--gold);
-    border-radius: var(--radius-md);
-    padding: 1.4rem 1.6rem;
-    margin-bottom: 1.1rem;
-    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background: rgba(124, 58, 237, 0.06);
+    border-left: 3px solid var(--cosmic-violet);
+    border-radius: var(--radius-sm);
 }
 
 .reading-section h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet-strong);
-    font-size: 1.2rem;
-    margin-bottom: 0.85rem;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.5rem;
 }
 
 .reading-section h4 .icon {
-    font-size: 1.25rem;
-    filter: drop-shadow(0 0 8px rgba(244, 201, 93, 0.35));
+    font-size: 1.4rem;
 }
 
 .reading-section p {
-    color: var(--ink-soft);
-    line-height: 1.75;
-    margin-bottom: 0.7rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.reading-section h5 {
+    color: var(--gold-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+}
+
+.reading-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+}
+
+.reading-section ul li {
+    padding: 0.3rem 0 0.3rem 1.4rem;
+    position: relative;
+    color: var(--text);
+}
+
+.reading-section ul li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 0.55rem;
+}
+
+.reading-section .planet-block {
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-left: 2px solid var(--cosmic-magenta);
+    border-radius: var(--radius-sm);
+}
+
+.reading-section .planet-block.warning {
+    border-left-color: var(--warning);
+}
+
+.reading-section .planet-block strong {
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.reading-section .planet-block h5 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--gold);
+}
+
+.reading-section table {
+    margin: 0.5rem 0;
+}
+
+.reading-section table td {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
 }
 
 .reading-section .key {
-    color: var(--magenta);
-    font-weight: 600;
+    color: var(--gold-light);
+    font-weight: 500;
 }
 
 .reading-section .highlight {
-    background: linear-gradient(180deg, transparent 60%, rgba(244, 201, 93, 0.35) 60%);
-    color: var(--ink);
-    font-weight: 500;
-    padding: 0 2px;
+    background: rgba(244, 201, 93, 0.1);
+    padding: 0 0.3rem;
+    border-radius: 3px;
+    color: var(--gold-light);
 }
 
 .reading-intro {
     text-align: center;
-    margin-bottom: 1.5rem;
-    padding: 1.25rem;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(236, 72, 153, 0.05));
-    border-radius: var(--radius-md);
-    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(236,72,153,0.05));
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
 }
 
 .reading-intro h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    font-size: 1.5rem;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
 
 .reading-intro p {
-    color: var(--ink-mute);
+    color: var(--text-dim);
+    font-style: italic;
     font-size: 0.95rem;
 }
 
 .pdf-export {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
     text-align: center;
 }
 
 .btn-pdf {
-    /* eredita .btn-gold */
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
 }
 
-/* ==========================================================================
-   FONDAMENTI / KNOWLEDGE GRID
-   ========================================================================== */
-
+/* === KNOWLEDGE GRID === */
 .knowledge-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 2rem;
 }
 
 .knowledge-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.85rem;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-card);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border-radius: var(--radius);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.3s;
 }
 
 .knowledge-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--card-border-hover);
-    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(212, 175, 55, 0.4);
 }
 
 .knowledge-card.full-width {
@@ -914,295 +775,215 @@ body {
 }
 
 .knowledge-card h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    margin-bottom: 0.85rem;
-    font-size: 1.4rem;
-    line-height: 1.25;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .mini-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0.85rem;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
 }
 
 .mini-table td {
-    padding: 0.45rem 0.55rem;
-    border-bottom: 1px solid rgba(20, 15, 40, 0.05);
-    color: var(--ink-soft);
+    padding: 0.4rem 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: top;
 }
 
 .mini-table td:first-child {
-    font-weight: 600;
-    color: var(--violet-strong);
+    color: var(--gold-light);
+    font-weight: 500;
     white-space: nowrap;
 }
 
 .note {
-    margin-top: 1rem;
-    padding: 0.85rem 1rem;
-    background: rgba(67, 56, 202, 0.05);
-    border-left: 3px solid var(--indigo);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 0.86rem;
-    color: var(--ink-mute);
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
     font-style: italic;
 }
 
 .info-box {
-    margin-top: 1rem;
-    padding: 1.1rem 1.25rem;
-    background: rgba(124, 58, 237, 0.06);
-    border: 1px solid rgba(124, 58, 237, 0.14);
-    border-radius: var(--radius-md);
-    color: var(--ink-soft);
-    font-size: 0.92rem;
-    line-height: 1.7;
-}
-
-.info-box strong {
-    color: var(--violet-strong);
-}
-
-.info-box h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
 }
 
 .info-box a {
-    color: var(--magenta);
-    text-decoration: none;
-    border-bottom: 1px dotted rgba(236, 72, 153, 0.45);
-    transition: color 0.2s ease;
-}
-
-.info-box a:hover {
-    color: var(--violet-strong);
+    color: var(--gold);
 }
 
 .yoga-list, .dosha-list {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
-    margin-top: 0.85rem;
+    gap: 0.75rem;
 }
 
 .yoga-item, .dosha-item {
-    padding: 0.85rem 1rem;
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid var(--card-border);
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.2);
     border-radius: var(--radius-sm);
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    line-height: 1.55;
+    border-left: 3px solid var(--gold);
 }
 
-.yoga-item strong,
 .dosha-item strong {
-    color: var(--magenta);
-    font-weight: 600;
+    color: var(--warning);
 }
 
 .dosha-item p {
-    margin-top: 0.35rem;
-    color: var(--ink-mute);
-    font-size: 0.86rem;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
 }
 
-/* ==========================================================================
-   NAKSHATRA GRID (sezione)
-   ========================================================================== */
-
+/* === NAKSHATRA GRID === */
 .nakshatra-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
-    margin-top: 1.5rem;
 }
 
 .nakshatra-item {
-    padding: 1.25rem;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-md);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: var(--shadow-card);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    transition: all 0.3s;
+    cursor: default;
 }
 
 .nakshatra-item:hover {
-    transform: translateY(-3px);
-    border-color: var(--card-border-hover);
-    box-shadow: var(--shadow-card-hover);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
 }
 
 .nakshatra-item .nak-num {
-    position: absolute;
-    top: 0.85rem;
-    right: 1rem;
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    color: var(--gold);
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.30), 0 0 12px rgba(244, 201, 93, 0.35);
-    opacity: 0.7;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 .nakshatra-item .nak-name {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    color: var(--violet);
-    font-size: 1.15rem;
-    margin-bottom: 0.45rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin: 0.2rem 0;
 }
 
 .nakshatra-item .nak-details {
-    font-size: 0.85rem;
-    color: var(--ink-mute);
-    line-height: 1.5;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.6;
 }
 
 .nakshatra-item .nak-ruler {
     display: inline-block;
-    margin-top: 0.55rem;
-    padding: 0.18rem 0.6rem;
-    background: rgba(236, 72, 153, 0.10);
-    color: var(--magenta);
-    border-radius: 999px;
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    margin-top: 0.4rem;
+    padding: 0.15rem 0.6rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--gold);
 }
 
-/* ==========================================================================
-   DASHA SECTION
-   ========================================================================== */
-
+/* === DASHA SECTION === */
 .dasha-visual {
-    margin: 2rem 0 3rem;
-    display: flex;
-    justify-content: center;
+    margin: 2rem 0;
 }
 
 .dasha-cycle {
-    width: 100%;
-    max-width: 960px;
     display: flex;
-    border-radius: 999px;
+    height: 50px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    background: var(--bg-2);
     border: 1px solid var(--card-border);
-    box-shadow: var(--shadow-card);
-    height: 70px;
 }
 
 .dasha-planet {
-    width: var(--size);
+    flex: var(--size);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem 0.25rem;
-    color: var(--ink);
-    font-size: 0.82rem;
-    text-align: center;
-    transition: filter 0.2s ease;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.25rem;
+    border-right: 1px solid rgba(0,0,0,0.3);
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s;
 }
 
-.dasha-planet:hover {
-    filter: brightness(1.06) saturate(1.1);
-}
-
-.dasha-planet[data-planet="Ketu"]    { background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(139, 92, 246, 0.40)); }
-.dasha-planet[data-planet="Venus"]   { background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(236, 72, 153, 0.40)); }
-.dasha-planet[data-planet="Sun"]     { background: linear-gradient(135deg, rgba(245, 158, 11, 0.30), rgba(245, 158, 11, 0.45)); }
-.dasha-planet[data-planet="Moon"]    { background: linear-gradient(135deg, rgba(203, 213, 225, 0.40), rgba(148, 163, 184, 0.55)); }
-.dasha-planet[data-planet="Mars"]    { background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(239, 68, 68, 0.40)); }
-.dasha-planet[data-planet="Rahu"]    { background: linear-gradient(135deg, rgba(75, 85, 99, 0.25), rgba(75, 85, 99, 0.42)); }
-.dasha-planet[data-planet="Jupiter"] { background: linear-gradient(135deg, rgba(251, 191, 36, 0.32), rgba(251, 191, 36, 0.48)); }
-.dasha-planet[data-planet="Saturn"]  { background: linear-gradient(135deg, rgba(64, 96, 212, 0.25), rgba(45, 45, 224, 0.38)); }
-.dasha-planet[data-planet="Mercury"] { background: linear-gradient(135deg, rgba(52, 211, 153, 0.28), rgba(52, 211, 153, 0.42)); }
+.dasha-planet[data-planet="Ketu"] { background: rgba(139, 92, 246, 0.5); }
+.dasha-planet[data-planet="Venus"] { background: rgba(236, 72, 153, 0.5); }
+.dasha-planet[data-planet="Sun"] { background: rgba(245, 158, 11, 0.5); }
+.dasha-planet[data-planet="Moon"] { background: rgba(226, 232, 240, 0.3); }
+.dasha-planet[data-planet="Mars"] { background: rgba(239, 68, 68, 0.5); }
+.dasha-planet[data-planet="Rahu"] { background: rgba(75, 85, 99, 0.5); }
+.dasha-planet[data-planet="Jupiter"] { background: rgba(251, 191, 36, 0.5); }
+.dasha-planet[data-planet="Saturn"] { background: rgba(59, 130, 246, 0.4); }
+.dasha-planet[data-planet="Mercury"] { background: rgba(52, 211, 153, 0.5); }
 
 .dasha-planet span {
+    font-size: 0.65rem;
     font-weight: 600;
-    color: var(--ink);
-    font-size: 0.82rem;
 }
 
 .dasha-planet small {
-    color: var(--ink-mute);
-    font-size: 0.7rem;
-    margin-top: 0.1rem;
+    font-size: 0.6rem;
+    opacity: 0.8;
 }
 
 .dasha-explanation {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.85rem 2rem;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-card);
-    max-width: 960px;
-    margin: 0 auto;
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-top: 2rem;
 }
 
 .dasha-explanation h3 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    font-size: 1.4rem;
-    margin-bottom: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-family: 'Cinzel', serif;
 }
 
 .dasha-explanation ol {
     padding-left: 1.5rem;
-    color: var(--ink-soft);
-    line-height: 1.85;
+    line-height: 2;
+    color: var(--text-dim);
 }
 
 .dasha-explanation li {
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.5rem;
 }
 
-.dasha-explanation strong {
-    color: var(--violet-strong);
-}
-
-/* ==========================================================================
-   MAESTRI
-   ========================================================================== */
-
+/* === MASTERS === */
 .masters-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .category-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: var(--violet);
-    margin-bottom: 1.25rem;
-    text-align: center;
-    letter-spacing: 0.005em;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .master-category {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .master-category .category-title {
@@ -1212,326 +993,150 @@ body {
 .master-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 1.65rem;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-card);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.3s;
 }
 
 .master-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--card-border-hover);
-    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(212, 175, 55, 0.4);
 }
 
 .master-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    color: var(--ink);
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
+    color: var(--text-bright);
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
 }
 
 .master-role {
-    font-size: 0.82rem;
-    color: var(--magenta);
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
     font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.85rem;
 }
 
 .master-card p:last-child {
-    color: var(--ink-soft);
-    line-height: 1.65;
-    font-size: 0.93rem;
+    color: var(--text-dim);
+    font-size: 0.9rem;
 }
 
-.master-card em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--gold);
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.30), 0 0 14px rgba(244, 201, 93, 0.30);
-}
-
-/* ==========================================================================
-   TESTI SACRI
-   ========================================================================== */
-
+/* === TEXTS === */
 .texts-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
 }
 
 .text-card {
-    position: relative;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: var(--radius-lg);
-    padding: 1.65rem 1.75rem 1.65rem 4.25rem;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: var(--shadow-card);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s;
 }
 
 .text-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--card-border-hover);
-    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
 }
 
 .text-card.primary {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(244, 201, 93, 0.10), rgba(124, 58, 237, 0.06));
-    border-color: rgba(168, 127, 30, 0.30);
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.05);
 }
 
 .text-number {
     position: absolute;
-    top: 1.4rem;
-    left: 1.4rem;
-    width: 2.4rem;
-    height: 2.4rem;
+    top: 1rem; right: 1rem;
+    width: 28px; height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(212, 175, 55, 0.15);
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-light), var(--gold));
-    color: #2a1d05;
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 1.05rem;
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.55) inset,
-        0 8px 18px -8px rgba(168, 127, 30, 0.45),
-        0 0 22px -8px rgba(244, 201, 93, 0.55);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gold);
 }
 
 .text-card h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--violet);
-    font-size: 1.25rem;
+    color: var(--text-bright);
+    font-size: 1.05rem;
     margin-bottom: 0.25rem;
-    line-height: 1.25;
+    padding-right: 2rem;
 }
 
 .text-author {
-    font-size: 0.82rem;
-    color: var(--magenta);
-    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--gold);
     margin-bottom: 0.75rem;
 }
 
 .text-card p:last-child {
-    color: var(--ink-soft);
-    line-height: 1.65;
-    font-size: 0.92rem;
+    color: var(--text-dim);
+    font-size: 0.875rem;
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
+/* === FOOTER === */
 .main-footer {
-    margin-top: 3rem;
-    padding: 3.5rem 0 1.5rem;
-    background: linear-gradient(180deg, #f4f4f7 0%, #ecebf3 100%);
+    background: rgba(0, 0, 0, 0.5);
     border-top: 1px solid var(--card-border);
+    padding: 3rem 0 1.5rem;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr;
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .footer-brand h3 {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--ink);
-    font-size: 1.4rem;
-    margin-bottom: 0.45rem;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    margin-bottom: 0.5rem;
 }
 
-.footer-brand p {
-    color: var(--ink-mute);
-    font-style: italic;
-    font-family: 'Fraunces', serif;
-}
-
-.footer-note h4,
-.footer-links h4 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--magenta);
-    margin-bottom: 0.85rem;
+.footer-links h4,
+.footer-note h4 {
+    color: var(--text-bright);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
 }
 
 .footer-links ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
 }
 
 .footer-links a {
-    color: var(--ink-soft);
+    color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.92rem;
-    transition: color 0.2s ease;
-    border-bottom: 1px dotted transparent;
+    font-size: 0.85rem;
+    line-height: 2;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
-    color: var(--magenta);
-    border-bottom-color: rgba(236, 72, 153, 0.45);
+    color: var(--gold);
 }
 
 .footer-note p {
-    color: var(--ink-mute);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
     line-height: 1.6;
 }
 
 .footer-bottom {
+    text-align: center;
     padding-top: 1.5rem;
     border-top: 1px solid var(--card-border);
-    text-align: center;
-    color: var(--ink-faint);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
 }
 
-/* ==========================================================================
-   YOGAS LIST (results tab)
-   ========================================================================== */
-
-#yogas-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.yoga-result-item {
-    padding: 1rem 1.15rem;
-    background: rgba(124, 58, 237, 0.05);
-    border: 1px solid rgba(124, 58, 237, 0.12);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid var(--success);
-}
-
-.yoga-result-item.negative {
-    background: rgba(220, 38, 38, 0.04);
-    border-color: rgba(220, 38, 38, 0.15);
-    border-left-color: var(--danger);
-}
-
-.yoga-result-item h5 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-.yoga-result-item p {
-    font-size: 0.88rem;
-    color: var(--ink-mute);
-    line-height: 1.55;
-}
-
-/* ==========================================================================
-   LOADING
-   ========================================================================== */
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50%      { opacity: 1; }
-}
-
-.loading {
-    animation: pulse 1.5s ease-in-out infinite;
-    color: var(--violet);
-}
-
-/* ==========================================================================
-   SOUTH INDIAN CHART (.si-chart)
-   ========================================================================== */
-
-.si-chart {
-    width: 100%;
-    aspect-ratio: 1;
-    max-width: 380px;
-    margin: 0 auto;
-}
-
-.si-chart table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    border: 2px solid var(--gold);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow:
-        0 12px 28px -14px rgba(20, 15, 40, 0.14),
-        0 0 30px -10px rgba(244, 201, 93, 0.30),
-        0 0 40px -16px rgba(64, 96, 212, 0.22);
-}
-
-.si-chart td {
-    width: 25%;
-    height: 25%;
-    border: 1px solid rgba(219, 169, 59, 0.45);
-    padding: 4px;
-    font-size: 0.7rem;
-    vertical-align: top;
-    color: var(--ink-soft);
-    position: relative;
-    background: rgba(255, 255, 255, 0.55);
-}
-
-.si-chart td .rashi-label {
-    position: absolute;
-    bottom: 2px;
-    right: 4px;
-    font-size: 0.58rem;
-    color: var(--gold-deep);
-    font-weight: 500;
-}
-
-.si-chart td .planet-in-house {
-    color: var(--violet-strong);
-    font-weight: 600;
-    font-size: 0.74rem;
-}
-
-.si-chart td.center-cell {
-    border: none;
-    text-align: center;
-    vertical-align: middle;
-    font-family: 'Fraunces', serif;
-    font-weight: 400;
-    color: var(--gold);
-    font-size: 0.85rem;
-    background: linear-gradient(135deg, rgba(244, 201, 93, 0.10), rgba(124, 58, 237, 0.06));
-    text-shadow: 0 1px 0 rgba(90, 60, 10, 0.30), 0 0 14px rgba(244, 201, 93, 0.35);
-}
-
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-
+/* === RESPONSIVE === */
 @media (max-width: 1024px) {
     .calculator-grid {
         grid-template-columns: 1fr;
@@ -1542,10 +1147,6 @@ body {
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .texts-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -1575,12 +1176,10 @@ body {
         display: none;
         position: absolute;
         top: 100%; left: 0; right: 0;
-        background: rgba(255, 255, 255, 0.97);
-        backdrop-filter: saturate(160%) blur(18px);
+        background: rgba(5, 3, 15, 0.98);
         flex-direction: column;
-        padding: 1rem 1.25rem;
+        padding: 1rem;
         border-bottom: 1px solid var(--card-border);
-        box-shadow: 0 16px 30px -14px rgba(20, 15, 40, 0.12);
     }
 
     .nav-links.active {
@@ -1611,20 +1210,20 @@ body {
     }
 
     .hero-title {
-        font-size: 2.6rem;
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 
     .hero-quote {
-        padding: 0.95rem 1.1rem;
-        font-size: 1rem;
+        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
     }
 
     .section-title {
-        font-size: 1.85rem;
+        font-size: 1.8rem;
     }
 
     .calc-form,
@@ -1651,11 +1250,11 @@ body {
     }
 
     .data-table {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
     }
 
     .data-table th, .data-table td {
-        padding: 0.45rem 0.45rem;
+        padding: 0.4rem 0.4rem;
     }
 
     .texts-grid {
@@ -1692,8 +1291,91 @@ body {
     .btn-gold.btn-ticket {
         padding: 0.45rem 0.7rem;
     }
+}
 
-    .hero-title {
-        font-size: 2.1rem;
-    }
+/* === YOGAS LIST === */
+#yogas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.yoga-result-item {
+    padding: 1rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--success);
+}
+
+.yoga-result-item.negative {
+    border-left-color: var(--danger);
+}
+
+.yoga-result-item h5 {
+    color: var(--text-bright);
+    margin-bottom: 0.25rem;
+}
+
+.yoga-result-item p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+/* === LOADING === */
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* === SOUTH INDIAN CHART === */
+.si-chart {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.si-chart table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    border: 2px solid var(--gold);
+}
+
+.si-chart td {
+    width: 25%;
+    height: 25%;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 4px;
+    font-size: 0.65rem;
+    vertical-align: top;
+    color: var(--text-dim);
+    position: relative;
+}
+
+.si-chart td .rashi-label {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 0.55rem;
+    color: rgba(212, 175, 55, 0.5);
+}
+
+.si-chart td .planet-in-house {
+    color: var(--text-bright);
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+.si-chart td.center-cell {
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.75rem;
 }

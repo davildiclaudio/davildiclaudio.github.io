@@ -1,0 +1,605 @@
+{
+  "_meta": {
+    "section": "Sezione 2A — Nakshatra 1-9 (da Ashwini ad Ashlesha)",
+    "fonti": [
+      "Brihat Parashara Hora Shastra",
+      "Saravali di Kalyana Varma",
+      "Phaladeepika di Mantreswara",
+      "Brihat Jataka di Varahamihira",
+      "Hora Sara di Prithuyasas",
+      "Jataka Parijata di Vaidyanatha",
+      "Nakshatra Vidya (Komilla Sutton)",
+      "27 Celestial Portals (Prash Trivedi)",
+      "Tradizione Tamil-Siddha (Tirumantiram, testi di astrologia Tamil sulla classificazione padami)"
+    ],
+    "note": "Le 27 Nakshatra sono i 'mansion lunari' che dividono lo zodiaco in archi di 13°20'. Ogni Nakshatra è ulteriormente suddivisa in 4 pada di 3°20' che corrispondono ai 12 segni del Navamsa (D9), modulando l'espressione del nakshatra base. La Janma Nakshatra (Nakshatra della Luna natale) è il fondamento della Vimshottari Dasha e descrive il colore karmico dell'incarnazione."
+  },
+  "nakshatra": [
+    {
+      "id": 1,
+      "nome": "Ashwini",
+      "gradi": "0°00' - 13°20' Mesha",
+      "signore_pianetario": "Ketu",
+      "divinita_governante": "Ashwini Kumara — i due gemelli celesti, medici degli dei, figli di Surya e della giumenta Saranyu",
+      "simbolo": "Testa di cavallo (Ashva-mukha)",
+      "shakti": "Shidhra-vyapani-shakti — il potere di raggiungere rapidamente le cose, di guarire d'urgenza, di iniziare ciò che ancora non esiste. La shakti si manifesta come capacità di portare luce e cura nei momenti critici, come istinto del primo soccorritore, come miracolo lampo che precede ogni metodo lento.",
+      "mito": "I Ashwini Kumara, Nasatya e Dasra, sono i medici-cavalieri del pantheon vedico. Surya, il Sole, aveva sposato Saranyu, figlia di Tvashtri; ma il calore del marito era talmente abbagliante da divenire insopportabile. Saranyu fuggì, lasciando al suo posto un'ombra di sé (Chhaya) e trasformandosi in giumenta per nascondersi nella foresta. Surya, scoperto l'inganno, la cercò trasformandosi a sua volta in stallone; dalla loro unione equina nacquero i due Ashwini Kumara, eternamente giovani, splendenti, dotati di un carro trainato da cavalli alati che attraversa il cielo all'alba e al tramonto. Nei Veda essi appaiono per primi nel cielo, prima del Sole, come la luce dell'aurora che precede il giorno. Sono coloro che restituirono la giovinezza al saggio Chyavana invecchiato, salvarono Bhujyu dall'annegamento, sostituirono la testa di Dadhichi con quella di un cavallo perché potesse rivelare il segreto del Madhu-vidya: ovunque ci sia un'urgenza vitale, gli Ashwini arrivano per primi.",
+      "personality": "Chi nasce con la Luna in Ashwini porta nell'anima la firma del primo respiro: vivace, impaziente, animato da un'energia di partenza che lo rende il pioniere naturale di ogni gruppo. Ha un'intelligenza fulminea, un istinto curativo spontaneo (non a caso molti medici, paramedici, infermieri e guaritori energetici nascono qui), un fascino infantile che disarma. Sotto l'apparente leggerezza opera un nucleo karmico irrequieto: l'anima non si sente mai del tutto a casa nella materia, perché Ketu — il signore della Nakshatra — è il pianeta della liberazione, della scia karmica, del 'già fatto in altre vite'. Da qui la sensazione ricorrente di dover ripartire da zero, di non saper completare ciò che inizia, di essere troppo veloce per il mondo lento. Tendenze emotive: impulsività generosa, scatti d'ira che svaniscono in pochi minuti, profonda intolleranza alla noia e alla routine, idealismo cavalleresco che porta a voler salvare gli altri prima di curare le proprie ferite. Saravali descrive il nato Ashwini come 'shighra-karma' (rapido nell'azione), 'sucharitra' (di buona condotta), 'medha-vi' (intelligente), 'priyamvada' (di parola gradevole).",
+      "karmicTheme": "Ashwini è la prima Nakshatra dello zodiaco e quindi marca l'inizio del ciclo karmico: l'anima qui è chiamata a iniziare, a osare la prima mossa anche senza garanzie. Il tema karmico centrale è l'incarnazione del coraggio incondizionato — entrare nella vita senza il paracadute della sicurezza, fidarsi del proprio istinto vitale. La lezione spirituale è duplice: imparare a portare a termine ciò che si comincia (Ketu spinge a mollare), e scoprire che il dono della velocità è inutile se non viene messo al servizio della guarigione altrui. Molti nativi attraversano in giovinezza esperienze di incidenti, urgenze mediche o crisi improvvise: sono iniziazioni che ricordano all'anima la sua vocazione di Ashwini Kumara — colui che arriva quando tutti gli altri sono in ritardo.",
+      "career": "Medicina d'urgenza, chirurgia, paramedicina, veterinaria (specie equina), sport (atleti, allenatori, podisti, fantini), ricerca scientifica di frontiera, fondazione di startup, esplorazione, viaggio, guida turistica, lavoro con cavalli e animali, ayurveda, agopuntura, pronto soccorso energetico, reiki, healing rapido. Il modo di lavorare è a sprint: Ashwini ama l'inizio fulminante e la conclusione impeccabile, fatica nelle fasi mediane di consolidamento. Eccelle dove conta la prima impressione e l'intuito immediato.",
+      "relationships": "In amore Ashwini è cavaliere prima che amante: corteggia con slancio, regala momenti memorabili, ma teme l'intimità prolungata che richiede sostare. Si innamora di chi rappresenta una sfida o un mistero da risolvere; appena la quotidianità subentra può sentirsi soffocato. La sessualità è giocosa, ardente, mai morbosa. Karmicamente attrae partner che lo invitano a fermarsi — spesso più anziani, più stabili, più 'terreni' — e in questo specchio impara la maturità affettiva. La fedeltà non è naturale ma diventa una conquista preziosa quando l'anima riconosce nel legame stabile la propria medicina.",
+      "health": "Zone del corpo: testa, cervello, ghiandola pineale, occhi, parte alta del cranio, ginocchia (per il movimento equino). Predisposizioni: cefalee improvvise, traumi cranici da sport o incidenti (specie a due ruote), insonnia da sovreccitazione mentale, problemi neurologici lampo, episodi infiammatori acuti. Dosha ayurvedico: Vata dominante con Pitta secondaria. La velocità interna divora le riserve nervose: pranayama lunari, abhyanga con olio di sesamo caldo, alimentazione regolare e calda sono fondamentali. Ottime risposte all'agopuntura, alle terapie energetiche, all'ipnosi rapida.",
+      "classifications": {
+        "varna": "Vaishya (mercantile)",
+        "gana": "Deva (divino, luminoso)",
+        "yoni": "Ashva (cavallo) — maschile",
+        "nadi": "Vata (aria/movimento)",
+        "tatva": "Prithvi (terra, paradossalmente: l'inizio è radicato)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Mesha (signore Marte)",
+          "descrizione": "Pada vargottama: Ashwini in Ariete amplifica al massimo la natura pioniera, marziale, esplosiva. Qui nascono i veri leader d'azione, gli atleti di vertice, i chirurghi-guerrieri, i fondatori di imprese rischiose. L'energia è pura, diretta, talvolta brutale nella sua sincerità. Punti di forza: coraggio fisico, capacità di decisione lampo, magnetismo del condottiero. Ombre: aggressività, impazienza patologica, incidenti da sovrastima delle proprie forze. Marte qui ben posizionato dà successo militare, sportivo o chirurgico."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Vrishabha (signore Venere)",
+          "descrizione": "Il fuoco di Ashwini incontra la terra venusiana: l'impulso pioniere si concretizza in attività materiali, artistiche o di cura del corpo. Qui troviamo medici estetici, fisioterapisti, terapeuti del corpo, imprenditori del settore wellness, artisti che lavorano con la rapidità ma cercano la bellezza durevole. La sensualità è più presente, l'intelligenza somatica raffinata. Tendenza a investire nella casa, nella terra, nella stabilità materiale come antidoto all'irrequietezza ketuiana. Venere ben posizionata regala matrimonio precoce e armonioso."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Mithuna (signore Mercurio)",
+          "descrizione": "L'aria di Mithuna alleggerisce Ashwini: nasce il comunicatore rapido, il giornalista d'inchiesta, il divulgatore scientifico, il copywriter, l'insegnante carismatico, il viaggiatore-scrittore. Mente velocissima, parola efficace, capacità di sintesi. Il rischio è la dispersione mentale e la difficoltà a portare a compimento progetti lunghi. Mercurio ben posizionato dona successo nelle professioni intellettuali e nei business basati sull'informazione. Gli Ashwini Kumara qui parlano attraverso le parole."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Karka (signore Luna)",
+          "descrizione": "Il pada più vulnerabile e più interessante: il fuoco-aria di Ashwini si tuffa nelle acque emotive del Cancro. Nascono i guaritori autentici — quelli che curano per sentire-con, non solo per sapere. Qui troviamo psicoterapeuti, ostetriche, infermieri di vocazione, medici di famiglia, monaci-medici. La sensibilità emotiva è acuta, talvolta dolorosa; il nativo deve imparare a non assorbire i traumi altrui. Forte legame con la madre e con la patria-radice. Luna ben posizionata dona popolarità, intuito psichico e capacità di portare conforto."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Ashvini Kumarabhyam Namah / Beeja Ketu: Om Sram Sreem Sraum Sah Ketave Namah",
+        "deity": "Ashwini Kumara, Ganesha (per superare ostacoli), Hanuman (per disciplinare la velocità marziale)",
+        "gemstone": "Occhio di gatto (Cat's eye / Vaidurya) per Ketu, montato su argento, mercoledì sera o martedì",
+        "color": "Rosso sangue, arancione fuoco",
+        "donation": "Coperte e medicine a strutture di pronto soccorso o canili-rifugi; cibo per cavalli e cani",
+        "fast": "Martedì (giorno di Marte, signore di Mesha) o Saturdi sera per Ketu; digiuno intermittente compatibile con la natura Vata"
+      },
+      "famousFigures": [
+        "Mahatma Gandhi (Luna in Ashwini secondo numerose carte vediche tradizionali)",
+        "George W. Bush (Luna in Ashwini)",
+        "Cher (Luna in Ashwini)",
+        "Justin Bieber (Luna in Ashwini)",
+        "Scarlett Johansson (Luna in Ashwini)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Ashvinyam jato bhavet sundara-rupah, vinita-vesha, kushalo, dhana-yukta' — chi nasce in Ashwini è di bell'aspetto, ben vestito, abile e dotato di ricchezza.",
+        "Saravali (cap. XXX): l'individuo è 'kushala-shilpi' (artigiano abile), 'sukhi' (felice), 'medhavi' (intelligente).",
+        "Phaladeepika: 'Ashvinyam pravasa-sheelo' — incline al viaggio e al cambiamento di luogo.",
+        "Tradizione Tamil: gli Ashwini sono detti 'Aswini-devar', portatori del rasayana, l'elisir di lunga vita."
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Bharani",
+      "gradi": "13°20' - 26°40' Mesha",
+      "signore_pianetario": "Shukra (Venere)",
+      "divinita_governante": "Yama — il dio della morte, signore del Dharma e giudice delle anime",
+      "simbolo": "Yoni (organo riproduttivo femminile, grembo), talvolta rappresentato come vagina-portale o triangolo-gestazione",
+      "shakti": "Apaharana-shakti — il potere di rimuovere ciò che è morto, di traghettare tra le soglie, di far passare attraverso la trasformazione. È la shakti del grembo che accoglie e della tomba che riceve: due volti dello stesso archetipo della soglia.",
+      "mito": "Yama, signore di Bharani, è il primo mortale che attraversò la soglia della morte e divenne re del regno dei defunti. Figlio di Surya e fratello gemello di Yami (la prima donna), Yama incarna il principio del Dharma: ogni anima, dopo la morte, viene condotta al suo cospetto e qui Chitragupta — il suo scriba — legge il libro delle azioni. Yama non è un dio crudele: è il giudice che restituisce a ciascuno ciò che ha seminato. Nel Katha Upanishad è Yama stesso a istruire il giovane Nachiketa sui misteri dell'Atman, rivelando che ciò che teme la morte non è l'anima ma l'ego. Bharani porta dunque due volti del femminile sacro: il grembo che gestisce la vita (la yoni come simbolo) e il grembo della terra che riaccoglie il corpo. Le donne nate in Bharani sono chiamate, nella tradizione, 'Bharani-stree' — colei che porta il peso, colei che custodisce la fertilità e il mistero della morte. Nei Purana Yama è anche detto Dharma-raja: la sua giustizia è la legge cosmica del karma.",
+      "personality": "Chi nasce con la Luna in Bharani porta una forza interna fuori dal comune: capacità di sostenere ciò che gli altri non reggono, resistenza ai dolori e alle prove, magnetismo erotico potente, senso etico molto sviluppato pur dentro un'apparenza sensuale e libera. Il nativo è spesso una persona che attraversa esperienze trasformative precoci — perdite, lutti, gravidanze importanti, ruoli di cura — e ne esce con una saggezza somatica densa. Sotto la superficie venusiana opera Yama: una serietà profonda, un senso del giusto e dell'ingiusto quasi inflessibile, una capacità di assumersi pesi morali. Tendenze emotive: passionalità intensa, gelosia possibile, lealtà titanica verso chi viene riconosciuto come 'tribù', durezza con chi viola il patto. Saravali parla del nativo come 'satya-vakta' (parola veritiera), 'arogi' (sano), 'sukhi' e 'kritajnah' (riconoscente). Bharani non è leggera: è densa, fertile, viscerale.",
+      "karmicTheme": "Bharani è la Nakshatra del passaggio attraverso la soglia. Il tema karmico è imparare a portare il peso (Bharana = portare, sostenere) — peso del corpo, peso delle relazioni, peso della responsabilità etica. L'anima qui è chiamata a integrare la polarità vita-morte come unico processo, ad affrontare tabù, a entrare in contatto con la propria sessualità sacra senza esserne dominata. Spesso i nativi attraversano un'iniziazione attraverso il dolore: lutto precoce, separazione, malattia, gravidanza difficile, ruolo di caregiving. Sopravvivere a queste prove apre la maturità Bharani: la persona diventa una rocca per gli altri, capace di stare dove gli altri scappano.",
+      "career": "Ostetricia, ginecologia, professioni legate alla nascita (doule, consulenti perinatali), tanatologia, hospice, cure palliative, medicina forense, magistratura, giurisprudenza, psicologia clinica del trauma, sessuologia, arti del femminile sacro, agricoltura, allevamento, ristorazione di alto livello, gestione patrimoniale, settore funerario. Il modo di lavorare di Bharani è stratificato: lento, denso, etico, solidissimo nella delivery. Eccelle dove serve presenza in situazioni-soglia.",
+      "relationships": "L'amore di Bharani è totale, sensuale, viscerale. Il nativo non concede facilmente la propria fiducia, ma quando lo fa è per sempre — o fino al tradimento del patto, dopo il quale non c'è ritorno. La sessualità è centrale, esplorata in profondità, mai banale; nelle persone evolute diventa pratica sacra (tantra, sessualità coscienza). Karmicamente attrae partner intensi, spesso più giovani o più 'leggeri', che cercano nel nativo la sua densità terrena. Il tema della fedeltà è cruciale: Bharani sente i tradimenti come violazioni del Dharma, non come incidenti. Forte fertilità, frequente esperienza diretta della maternità/paternità come iniziazione.",
+      "health": "Zone del corpo: organi riproduttivi, utero, ovaie, prostata, perineo, vescica, parte bassa dell'addome. Predisposizioni: problematiche ginecologiche o urologiche, fibromi, endometriosi, cisti, irregolarità mestruali pesanti, gravidanze impegnative, somatizzazioni a livello pelvico dei traumi sessuali o relazionali. Dosha: Pitta dominante con Kapha secondaria. Il nativo deve apprendere a non trattenere troppo a livello pelvico: yoga del bacino, danza primitiva, terapia somatica, tantra terapeutico sono potenti alleati. Predisposizione a sovrappeso emotivo dopo i 35 anni se l'aspetto venusiano-Kapha non è equilibrato.",
+      "classifications": {
+        "varna": "Mleccha (al di fuori del sistema delle caste — letteralmente 'barbaro' nel senso di non-classificabile, vicino al sacro liminale)",
+        "gana": "Manushya (umano, mortale)",
+        "yoni": "Gaja (elefante) — maschile, ma molto femminile in profondità",
+        "nadi": "Pitta (fuoco/trasformazione)",
+        "tatva": "Prithvi (terra)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (signore Sole)",
+          "descrizione": "Bharani in Leone: la capacità di sostenere si unisce all'orgoglio regale. Nascono leader carismatici, attori di grande presenza, registi, performer che sanno tenere il palco. Forte ambizione, bisogno di riconoscimento, propensione al ruolo pubblico. La sessualità è teatrale, performativa nella sua intensità. Ombre possibili: arroganza, vanità, gelosia da prima donna. Sole ben posizionato regala fama e autorità."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (signore Mercurio)",
+          "descrizione": "Il pada più 'lavorativo' di Bharani: l'energia trasformativa si organizza in metodo, servizio, dettaglio. Qui troviamo medici, infermieri, terapeuti del corpo, ostetriche, contabili etici, artigiani della precisione. Forte critica interna, tendenza al perfezionismo, capacità di gestione di processi complessi. La sessualità è meno teatrale, più intima e curata. Mercurio ben posizionato dona successo nelle professioni di servizio e analitiche."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (signore Venere)",
+          "descrizione": "Pada vargottama venusiano: Bharani ritorna nel suo signore Venere all'interno di Tula. Nasce il maestro dell'eros raffinato, il diplomatico delle relazioni intense, l'artista della bellezza adulta. Forte capacità di mediazione tra mondi opposti, vocazione alla giustizia (Tula è la bilancia) integrata alla capacità Bharani di sostenere il peso etico. Eccellenza in legge, diplomazia, arti, design. Venere ben posizionata regala matrimonio profondo e ricchezza estetica."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (signore Marte)",
+          "descrizione": "Il pada più intenso e iniziatico: Bharani in Scorpione amplifica al massimo la dimensione viscerale, sessuale, trasformativa, occulta. Nascono sciamani, guaritori del trauma profondo, psicoterapeuti del rimosso, sessuologi, ricercatori dell'occulto, investigatori. Il nativo attraversa morti simboliche frequenti e ne emerge sempre più forte. Marte ben posizionato dà coraggio sovrumano; mal posizionato genera ossessioni e compulsioni da gestire."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Yamaya Namah / Beeja Venere: Om Shum Shukraya Namah",
+        "deity": "Yama (Dharmaraja), Kali (la Madre nera che attraversa la morte), Lakshmi (per il versante venusiano)",
+        "gemstone": "Diamante (Hira) per Venere, montato su platino o oro bianco, venerdì all'alba",
+        "color": "Rosso sangue, magenta, nero",
+        "donation": "Sostegno a hospice, case-famiglia per donne sole, centri per madri in difficoltà; donazioni anonime ai poveri",
+        "fast": "Venerdì (per Venere); pratica del digiuno consapevole come allenamento alla soglia"
+      },
+      "famousFigures": [
+        "Charles Darwin (Luna in Bharani)",
+        "Walt Disney (Luna in Bharani)",
+        "Eva Peron (Luna in Bharani secondo varie ricostruzioni vediche)",
+        "Marlon Brando (Luna in Bharani)",
+        "Ravi Shankar (Luna in Bharani)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Bharanyam satya-vakta, dridha, sukhi, arogi' — di parola vera, fermo, felice, sano.",
+        "Saravali: il nativo è 'sthira-buddhi' (mente ferma) e 'dhana-vant' (ricco).",
+        "Phaladeepika: 'Bharanyam jato bhavet bhogi' — incline al godimento e ai piaceri.",
+        "Yama-dharma è citato in Katha Upanishad come maestro del dharma supremo: chi nasce in Bharani porta nel proprio destino una piccola scia di questo magistero."
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Krittika",
+      "gradi": "26°40' Mesha - 10°00' Vrishabha",
+      "signore_pianetario": "Surya (Sole)",
+      "divinita_governante": "Agni — il dio del fuoco sacrificale, mediatore tra umani e dei",
+      "simbolo": "Lama (rasoio), fiamma, asse di taglio. Talvolta rappresentato come pugnale o coltello sacrificale",
+      "shakti": "Dahana-shakti — il potere di bruciare, di purificare attraverso il fuoco, di consumare ciò che è impuro. È il potere dell'arrosto cosmico che separa il vero dal falso, il duraturo dal transitorio.",
+      "mito": "Krittika sono le sei (talvolta sette) madri-nutrici che allattarono Skanda-Kartikeya, il dio-bambino della guerra, generato da Shiva per uccidere il demone Tarakasura. Kartikeya, nato dal seme di Shiva caduto nel Gange e poi nel canneto Sharavana, fu allevato da queste sei stelle (le Pleiadi nella mitologia greca, Krittika nella vedica): per non far litigare le madri, il bambino divino sviluppò sei teste, una per ogni nutrice. Da qui il suo nome Shanmukha (sei volti) e Karttikeya (figlio delle Krittika). Agni, signore della Nakshatra, è il dio del fuoco vedico: ogni offerta agli dei passa attraverso le sue fiamme, che traducono la materia in fumo e portano i mantra al cielo. Agni ha sette lingue di fuoco, ciascuna con un nome (Kali, Karali, Manojava, Sulohita, Sudhumravarna, Sphulingini, Vishvaruchi), che corrispondono alle qualità del fuoco — calore, bagliore, velocità, ecc. Krittika è dunque il fuoco che taglia, brucia, purifica, e nello stesso tempo allatta e nutre l'eroe.",
+      "personality": "Chi nasce con la Luna in Krittika porta in sé l'archetipo della lama luminosa: tagliente, leale, schietto, con una capacità di distinguere il vero dal falso quasi infallibile. Sotto un'apparente compostezza c'è un'anima guerriera con vocazione protettiva — Krittika difende ciò che ama come una madre-leonessa, ma non risparmia critiche affilate quando vede ipocrisia o pigrizia. Tratti dominanti: orgoglio sano, senso dell'onore, determinazione, capacità di leadership morale, intolleranza alla mediocrità, talvolta arroganza intellettuale. Il pattern karmico è quello dell'anima che ha già 'visto' molto in altre vite (forse come saggio, sacerdote o stratega) e ora torna con la responsabilità di tagliare l'illusione collettiva: spesso i Krittika sono persone che 'dicono ciò che gli altri non osano dire'. Saravali descrive il nativo come 'shoorah' (eroico), 'satya-vadi' (veritiero), 'kritajnah' (grato), 'mantri-dhuryah' (capace di consigliare re).",
+      "karmicTheme": "Krittika è la Nakshatra del fuoco purificante. Il tema karmico è imparare a usare la lama interiore come strumento di chiarezza e non di ferita: il dono naturale del taglio (psicologico, intellettuale, etico) deve essere disciplinato dall'amore, altrimenti diventa giudizio sterile. La lezione spirituale è duplice: bruciare le proprie illusioni (Krittika brucia prima di tutto sé stessa) e proteggere i deboli senza diventare loro tiranni. Molti nativi sono chiamati nella vita a separarsi da contesti, famiglie o amicizie tossiche con un atto netto, e a portare avanti progetti di bonifica — moralmente, professionalmente, energeticamente.",
+      "career": "Forze armate, polizia, magistratura, chirurgia, dentistica (la lama!), giornalismo investigativo, critica letteraria/artistica, insegnamento di alto livello, sacerdozio (vedico, cristiano, qualsiasi), cucina (specie alta cucina e arrostitura), metallurgia, oreficeria, professioni con il fuoco e la fiamma, militanza politica, attivismo, regia cinematografica, archeologia, ricerca storica. Modalità di lavoro: precisa, esigente con sé e con gli altri, orientata al risultato qualitativo. Krittika non sopporta la sciatteria.",
+      "relationships": "In amore Krittika è leale e protettivo, ma esige il rispetto del codice. Il nativo non tollera bugie, ambiguità, mancanza di parola; in amore vuole un partner che sia anche compagno d'armi, alleato dei propri valori. La sessualità è ardente, focosa, talvolta dominante. Karmicamente attrae partner che gli chiedono di ammorbidirsi — più sensibili, più poetici, più 'venusiani'. Il tema centrale è imparare la tenerezza senza perdere la struttura. Gelosia possibile, scoppi d'ira a difesa del legame, ma anche grande capacità di proteggere e stabilizzare. La fedeltà è considerata sacra.",
+      "health": "Zone del corpo: testa (parte di Mesha) e gola/collo/spalle (parte di Vrishabha — Krittika è a cavallo tra i due segni). Predisposizioni: problemi infiammatori (stomaco, fegato, sangue), cefalee, ipertensione, problemi alla tiroide, infezioni con febbre alta. Dosha: Pitta dominante. Il fuoco interno è potente: tende a 'cuocere' troppo le emozioni, generando acidità di stomaco, ulcere, irritabilità cronica. Rimedi: alimentazione rinfrescante (cocco, ghee, latte, dolci puri), pranayama Shitali e Chandra Bhedana, evitare l'alcol e i cibi piccanti in eccesso, tempo con la natura acquatica. Il sole intenso può essere un problema: meditazione lunare bilanciante.",
+      "classifications": {
+        "varna": "Brahmin (sacerdotale, in virtù di Agni)",
+        "gana": "Rakshasa (demoniaco/intenso — perché taglia e brucia)",
+        "yoni": "Mesha (pecora-ariete) — femminile",
+        "nadi": "Kapha (acqua/struttura)",
+        "tatva": "Prithvi (terra)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (signore Giove)",
+          "descrizione": "L'unico pada di Krittika che cade in Mesha (26°40'-30°): qui il fuoco è puro, esplosivo, gioviano-marziale. Nascono guerrieri-saggi, sacerdoti-stratega, professori carismatici, magistrati riformatori, leader spirituali con coraggio politico. Forte vocazione al dharma, alla difesa dei valori, alla docenza con autorità. Giove ben posizionato regala status, riconoscimento accademico o spirituale, ricchezza dharmica."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (signore Saturno)",
+          "descrizione": "Krittika entra in Vrishabha: il fuoco si raffredda nella terra di Saturno-Capricorno. Nascono persone di altissima struttura — manager d'azienda, funzionari, ingegneri, architetti, chirurghi metodici, militari di carriera. Disciplina ferrea, capacità di costruire in tempi lunghi, ambizione strutturata. Tendenza alla durezza emotiva: il calore Krittika va coltivato consapevolmente. Saturno ben posizionato dona longevità professionale e status."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (signore Saturno/Rahu)",
+          "descrizione": "Il pada più 'visionario' di Krittika: il fuoco si umanizza nell'aria dell'Acquario. Nascono riformatori, scienziati, attivisti, innovatori sociali, persone con visione di lungo periodo per il bene collettivo. Capacità di mettere la lama Krittika al servizio di cause umanitarie, scientifiche, politiche progressiste. Saturno qui ben posizionato rende l'individuo un benefattore, anche se spesso sottostimato in vita e riconosciuto dopo."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (signore Giove)",
+          "descrizione": "Pada paradossale: il fuoco-lama Krittika si scioglie nelle acque dei Pesci. Nascono mistici-guerrieri, terapeuti spirituali con franchezza chirurgica, sacerdoti dell'estasi, artisti del sacro, monaci-amministratori. Capacità di tagliare l'illusione spirituale (la lama Krittika smaschera anche il falso guru). Giove ben posizionato regala saggezza, viaggi spirituali, vocazione dharmica al servizio. Ottimo per orari di insegnamento spirituale autentico."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Agnaye Namah / Beeja Sole: Om Hram Hreem Hraum Sah Suryaya Namah",
+        "deity": "Agni, Kartikeya/Skanda (il figlio di Krittika), Surya, Durga (per il versante materno-leonino)",
+        "gemstone": "Rubino (Manikya) per il Sole, montato su oro, anulare destro, domenica all'alba",
+        "color": "Rosso, bianco, dorato",
+        "donation": "Cibo cucinato a sacerdoti e bramini, oro a monaci di vocazione, sostegno a templi del fuoco (yajna)",
+        "fast": "Domenica (per il Sole); evitare il cibo dopo il tramonto in fasi di purificazione"
+      },
+      "famousFigures": [
+        "Friedrich Nietzsche (Luna in Krittika)",
+        "Mata Hari (Luna in Krittika)",
+        "Indira Gandhi (Lagna o Luna in Krittika secondo varie carte)",
+        "Beyoncé (Luna in Krittika)",
+        "Sai Baba di Shirdi (Luna in Krittika secondo la tradizione)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Krittikayam shoorah, satya-vadi, krura-karma, paranna-bhojana' — coraggioso, veritiero, capace di azioni dure, mangia spesso fuori casa (viaggiatore).",
+        "Saravali: il nativo è 'mantri-dhuryah' (degno consigliere di re), 'pradhana-purusha' (uomo di rilievo).",
+        "Phaladeepika associa Krittika al 'tejas' (splendore, autorevolezza).",
+        "Tradizione Tamil-Siddha: Krittika è chiamata 'Karthikai' e celebrata con la festa Karthikai Deepam — accensione di lampade per ricordare Agni e Kartikeya."
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "Rohini",
+      "gradi": "10°00' - 23°20' Vrishabha",
+      "signore_pianetario": "Chandra (Luna)",
+      "divinita_governante": "Brahma — il creatore, prima dei Trimurti; in alcuni testi anche Prajapati, signore della procreazione",
+      "simbolo": "Carro tirato da buoi, oppure albero di banyan in fiore, o tempio. Simbolo profondo: il vaso colmo (kalasha)",
+      "shakti": "Rohana-shakti — il potere di crescita, di salire, di far germogliare. Letteralmente 'rohana' significa 'salita, ascensione, fioritura'. È la shakti della linfa che sale nell'albero, del feto che cresce nel grembo, della ricchezza che si accumula nei magazzini.",
+      "mito": "Rohini è la più amata delle 27 mogli (le Nakshatra) di Chandra (la Luna), tutte figlie di Daksha Prajapati. Chandra, infatuato della bellezza di Rohini, trascurava le altre ventisei mogli e passava con lei tutto il tempo. Le sorelle si lamentarono col padre Daksha, il quale lanciò sulla Luna la maledizione del kshaya (consunzione): da qui il ciclo lunare, in cui la Luna decresce e poi cresce di nuovo, salvata dalla preghiera a Shiva. Rohini è quindi la 'preferita della Luna': dove la Luna è in Rohini è esaltata (tradizione vedica colloca l'esaltazione lunare proprio qui, attorno a 3° Toro). Brahma, signore del Nakshatra, è il creatore stesso: dalla sua mente sono nati i sette Rishi, dai suoi occhi i pianeti, dalla sua bocca i Veda. Brahma rappresenta la potenza creativa che fa fiorire l'esistenza dal nulla. Rohini è dunque il punto del cielo dove la Luna trova il suo grembo perfetto e dove l'energia creativa si manifesta come bellezza, fertilità, abbondanza.",
+      "personality": "Chi nasce con la Luna in Rohini porta in sé un magnetismo naturale di rara potenza: bellezza, sensualità, gusto raffinato, capacità di attrarre persone, opportunità e risorse senza sforzo apparente. C'è una qualità 'reale' in queste persone — un'eleganza interiore che non ha bisogno di urlare. Sono spesso individui creativi (artisti, musicisti, designer, scrittori), profondamente legati alla natura, ai sensi, al piacere come dimensione sacra. Sotto la dolcezza apparente opera però una forte volontà: Rohini ottiene ciò che desidera con pazienza strategica e persistenza titanica. Tendenze emotive: sensualità accentuata, tendenza alla possessività e gelosia (il mito stesso lo rivela), forte attaccamento agli affetti e ai beni, gusto del benessere, predisposizione al lusso. Saravali descrive il nativo come 'priya-vakta' (parola gradevole), 'satya-bhashi' (verace), 'sthira-mati' (mente ferma), 'shubha-darshanah' (di bell'aspetto), 'manaswi' (di carattere).",
+      "karmicTheme": "Rohini è la Nakshatra del fiorire pieno. Il tema karmico è imparare a creare bellezza e abbondanza nel mondo materiale senza identificarsi con esse. L'anima qui ha già attraversato vite di scarsità e ora ha il dono dell'abbondanza naturale: la lezione consiste nel non confondere il dono con il proprietario, e nel saper condividere ciò che fluisce attraverso di sé. Rohini deve guardarsi dalla seduzione narcisistica (la Luna che si specchia in sé stessa) e dalla possessività affettiva. Il compito spirituale più alto è diventare 'kalpa-vriksha' — l'albero che esaudisce i desideri, che dà frutti a tutti senza chiedere nulla in cambio. Quando questo accade, Rohini è l'incarnazione vivente di Lakshmi-Sri.",
+      "career": "Arti (musica, danza, canto, pittura, scultura, recitazione, cinema), moda, design, profumeria, cosmetica, ristorazione raffinata, agricoltura biologica, viticoltura, allevamento, gioielleria, antiquariato, real estate di pregio, hospitality di lusso, professioni della cura del corpo (estetica, massaggio terapeutico), maternità professionalizzata (pedagogia, ostetricia, doula), gestione patrimoniale. Modalità di lavoro: paziente, di stratificazione, attenta alla qualità sensoriale del prodotto. Rohini costruisce in vent'anni ciò che dura cento.",
+      "relationships": "L'amore per Rohini è sacro come Brahma: profondo, sensuale, monogamo nella natura più autentica. Il nativo è un partner caldo, generoso, intensamente fisico, con grande capacità di nutrire la relazione anche nei dettagli quotidiani (cucina, casa, gesti di cura). Karmicamente attrae partner intensi, talvolta più giovani o più 'lunari', che cercano in Rohini l'abbondanza e la stabilità. Le ombre sono possessività, gelosia (il mito di Chandra che trascura le altre mogli ricorda anche al nativo Rohini la tentazione di esclusività), idealizzazione del partner, difficoltà a chiudere relazioni anche quando sono finite. La sessualità è centrale, raffinata, mai volgare. Forte desiderio di famiglia e maternità/paternità.",
+      "health": "Zone del corpo: gola, laringe, corde vocali, bocca, palato, parte alta della colonna, sistema linfatico. Predisposizioni: problemi alla gola (faringiti, tonsilliti, noduli), tiroide, problemi al cavo orale, gengive, sovrappeso lento (Kapha), diabete tipo 2, problemi al sistema riproduttivo (fertilità in eccesso o difetto), allergie alimentari. Dosha: Kapha dominante con Pitta secondaria. Tendenza alla sedentarietà piacevole — il movimento va programmato. La Luna esaltata qui regala spesso longevità ma anche sensibilità emotiva accentuata: depressioni stagionali, malinconie venusiane.",
+      "classifications": {
+        "varna": "Shudra (servizio, contadino — perché Rohini lavora la terra)",
+        "gana": "Manushya (umano)",
+        "yoni": "Sarpa (serpente) — maschile, ma con qualità femminili profonde",
+        "nadi": "Kapha",
+        "tatva": "Prithvi (terra)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Mesha (signore Marte)",
+          "descrizione": "Rohini in Ariete: la fertilità e la bellezza si uniscono al fuoco pioniere. Nascono artisti audaci, imprenditori del settore creativo, leader del lusso, pionieri del wellness o della gastronomia. Forte ambizione mascherata da dolcezza, capacità di lanciare progetti creativi che diventano imperi. Marte ben posizionato dona iniziativa coraggiosa e successo precoce nel proprio campo creativo."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Vrishabha (signore Venere) — vargottama",
+          "descrizione": "Pada vargottama: Rohini in Toro raddoppia la sua qualità venusiana-terrestre. Il pada più 'puro' di Rohini, dove la bellezza, la sensualità, la stabilità materiale, l'abbondanza e l'arte raggiungono il massimo splendore. Nascono cantanti dalla voce d'oro, attori magnetici, modelli/e iconici, gastronomi-imprenditori, custodi della terra. Venere ben posizionata regala matrimonio dolce, fortuna materiale duratura, fama estetica."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Mithuna (signore Mercurio)",
+          "descrizione": "Rohini incontra l'aria di Mercurio: nasce il comunicatore della bellezza — pubblicitario d'alto livello, copywriter di lusso, scrittore-poeta sensuale, conduttore radiofonico/TV, insegnante di arti, divulgatore culturale. La sensualità Rohini si traduce in parola, voce, racconto. Forte successo nelle professioni intellettuali legate al gusto. Mercurio ben posizionato dona ricchezza tramite parola e idee."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Karka (signore Luna)",
+          "descrizione": "Pada profondamente lunare: Rohini in Cancro porta la Luna esaltata (in segno) nel suo segno proprio del navamsa. Sensibilità emotiva massima, vocazione materna potentissima, attaccamento alla famiglia, alla casa, alla tradizione. Nascono madri archetipiche, pedagogisti, terapeuti del bambino interiore, custodi della memoria familiare, scrittori della terra natale. Luna ben posizionata regala popolarità, intuito psichico, longevità affettiva. Tendenza alla nostalgia e al malinconico se la Luna è afflitta."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Brahmane Namah / Beeja Luna: Om Shram Shreem Shraum Sah Chandramase Namah",
+        "deity": "Brahma, Lakshmi, Krishna (nato sotto Rohini secondo la tradizione vedica), Saraswati",
+        "gemstone": "Perla bianca (Mukta) per la Luna, montata su argento, anulare destro, lunedì all'alba",
+        "color": "Bianco, crema, rosa pallido, verde tenero",
+        "donation": "Latte e riso a giovani madri, vestiti bianchi a sacerdoti, sostegno alla cura delle mucche (gaushala)",
+        "fast": "Lunedì (per la Luna); pratica di moderazione nel cibo nei giorni di Luna piena"
+      },
+      "famousFigures": [
+        "Krishna (nato sotto Rohini secondo i Purana)",
+        "Salvador Dalí (Luna in Rohini secondo varie ricostruzioni vediche)",
+        "Diana di Galles (Luna in Rohini)",
+        "Madonna (Luna in Rohini)",
+        "Indira Gandhi (Luna in Rohini secondo alcuni autori)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Rohinyam satya-vadi, sundara-rupah, sthira-mati, dhana-vant' — verace, di bell'aspetto, mente stabile, ricco.",
+        "Saravali: il nativo è 'shubhadarshanah' (di aspetto fortunato), 'priyamvada' (parola dolce), 'manaswi' (di carattere).",
+        "Phaladeepika: 'Rohinyam jato bhavet rajatulya-bhogi' — gode di piaceri pari a quelli di un re.",
+        "Bhagavata Purana: Krishna nasce con Luna in Rohini — la Nakshatra è considerata la più sacra per le incarnazioni divine."
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Mrigashira",
+      "gradi": "23°20' Vrishabha - 6°40' Mithuna",
+      "signore_pianetario": "Mangala (Marte)",
+      "divinita_governante": "Soma — la divinità del nettare lunare, dell'estasi sacrificale, del succo di immortalità (in alcuni testi anche identificato con Chandra)",
+      "simbolo": "Testa di cervo (mriga-shira = testa di cervo), oppure cervo che fugge — simbolo della ricerca eterna",
+      "shakti": "Prinana-shakti — il potere di dare gioia e soddisfazione, il potere dell'appagamento. È la shakti che invita all'estasi sottile, alla scoperta, all'esplorazione gioiosa del nuovo.",
+      "mito": "Soma è il succo sacro estratto dalla pianta omonima nei rituali vedici: bevuto dai sacerdoti e offerto agli dei, induceva stati estatici e visioni profetiche. Soma è anche identificato con la Luna stessa, il vaso del nettare cosmico. Il mito centrale di Mrigashira è quello della 'caccia eterna': il cervo (mriga) è ciò che è inseguito ma mai del tutto raggiunto. Nel Rigveda Prajapati, ardendo di desiderio per la propria figlia Rohini (un'incarnazione della stella), si trasforma in cervo per rincorrerla; gli dei, scandalizzati, chiedono a Rudra-Shiva di intervenire: Shiva scaglia una freccia che colpisce il cervo-Prajapati alla testa, da cui il nome 'mrigashira' — la testa del cervo. Quella freccia è ancora visibile nel cielo come la stella Sirio, e la testa del cervo come le tre stelle della cintura di Orione (in mitologia indiana = Mrigashira). Il mito è denso: Mrigashira è la Nakshatra dell'eros che cerca, dell'inseguimento del bello, ma anche del rischio della trasgressione e della necessità del freno divino (la freccia di Rudra). Soma rappresenta la promessa di ciò che soddisfa veramente: non l'oggetto inseguito, ma l'estasi della ricerca stessa.",
+      "personality": "Chi nasce con la Luna in Mrigashira è un cercatore eterno: curioso, mobile, brillante, in continuo movimento mentale e spesso anche fisico. C'è qualcosa di adolescenziale nella sua vivacità — un'inquietudine simpatica che non si placa facilmente. Sono individui dal sorriso aperto, intelligenti, ricchi di interessi, pronti a saltare dal libro al viaggio, dall'incontro alla nuova passione. Sotto la leggerezza opera però un'inquietudine profonda: l'anima Mrigashira non si ferma mai del tutto, perché il cervo dentro è sempre teso verso un altrove. Tendenze emotive: ipersensibilità nervosa, paura della noia (più che della solitudine), tendenza al flirt e alla seduzione gentile, gentilezza ma anche capacità di sparire quando il legame diventa troppo pesante. Saravali parla del nativo come 'chanchala-chitta' (mente instabile), 'samyak-bhashi' (di parola misurata), 'sundara' (bello), 'utsahi' (entusiasta). C'è in Mrigashira una qualità 'fawn-like' (come di cerbiatto): grazia, paura, eleganza, scatto.",
+      "karmicTheme": "Mrigashira è la Nakshatra della ricerca cosciente. Il tema karmico è imparare a inseguire ciò che vale davvero, distinguendo la fame autentica dell'anima dalla curiosità superficiale. L'anima qui ha un dono d'esplorazione raffinato e una spinta naturale alla scoperta — di luoghi, di persone, di idee — ma rischia di disperdersi se non scopre il proprio 'soma' interno: l'estasi che non viene da fuori. La lezione spirituale è quella indicata dal mito: il cervo deve essere fermato non da una freccia esterna ma dal proprio risveglio interiore. Quando questo accade, Mrigashira diventa un esploratore-saggio, un viaggiatore-mistico, un ricercatore che ha trovato la propria pace nell'attraversare.",
+      "career": "Viaggio, esplorazione, scrittura (giornalismo, narrativa, blogging), ricerca scientifica e accademica, insegnamento, traduzione, marketing, pubblicità, design, fotografia, cinema documentaristico, antropologia, etnobotanica, ricerca farmacologica (cercare la 'pianta soma'), guida turistica, lavori che richiedono mobilità geografica, freelance multipotenziale. Modalità di lavoro: brillante a sprint, fatica nelle routine, ha bisogno di stimoli costanti e di varietà. Eccelle dove serve curiosità, capacità di sintesi rapida, charme nel comunicare.",
+      "relationships": "In amore Mrigashira è seduttore gentile e inafferrabile: sa corteggiare con grazia, sa raccontarsi con sensibilità, ma non ama essere messo in gabbia. Tendenza all'idealizzazione del partner — il cervo cerca sempre 'il prato perfetto altrove'. La sessualità è giocosa, esplorativa, raffinata, mai aggressiva; ama il gioco di sguardi e parole più della prestazione. Karmicamente attrae partner stabili, talvolta più 'venusiani' o più 'saturnini', che invitano l'anima Mrigashira a fermarsi senza spegnerla. Forte affinità con persone intellettualmente vivaci. Il rischio è la fuga al primo segno di noia o di pesantezza.",
+      "health": "Zone del corpo: parte bassa del collo (per la sezione in Vrishabha) e spalle/braccia/parte alta dei polmoni (per la sezione in Mithuna). Predisposizioni: problemi nervosi, ansia, insonnia mentale, asma e bronchiti, allergie respiratorie, irrequietezza intestinale, somatizzazioni nervose alle spalle. Dosha: Vata dominante con Pitta secondaria. Il sistema nervoso è il punto debole: pranayama lenti (Nadi Shodhana, Bhramari), abhyanga regolare con olio di sesamo caldo, ritmi alimentari stabili, riduzione di caffè e stimolanti. Mrigashira ha bisogno di una 'tana' come il cervo — un luogo di ritiro per ricaricarsi.",
+      "classifications": {
+        "varna": "Servo (Shudra) o agricoltore",
+        "gana": "Deva (divino, gentile)",
+        "yoni": "Sarpa (serpente) — femminile",
+        "nadi": "Vata",
+        "tatva": "Prithvi (terra) per la prima parte, Vayu per la seconda"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (signore Sole)",
+          "descrizione": "L'unico pada di Mrigashira che cade in Vrishabha (23°20'-26°40'): la curiosità Mrigashira si veste di orgoglio leonino. Nascono performer, attori, registi, leader carismatici nel settore creativo, esploratori che sanno raccontarsi (alla National Geographic). Forte vocazione a stare sul palco, anche metaforicamente. Sole ben posizionato dona fama, riconoscimento creativo, talento da showman."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (signore Mercurio)",
+          "descrizione": "Mrigashira entra in Vrishabha (26°40'-30°): l'energia esplorativa si organizza in metodo. Nascono ricercatori meticolosi, scienziati, scrittori dal lavoro lento, giornalisti d'inchiesta, traduttori, archivisti. La capacità mercuriana di analisi si unisce alla pazienza venusiana. Mercurio ben posizionato dona successo intellettuale e capacità di trasformare la curiosità in opera."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (signore Venere)",
+          "descrizione": "Pada in Mithuna (0°-3°20'): l'aria mercuriale si raffina in eleganza venusiana. Nascono diplomatici, mediatori culturali, artisti della parola, designer, esteti, persone capaci di tenere insieme mondi opposti. La seduzione Mrigashira raggiunge qui la sua forma più aggraziata. Venere ben posizionata regala matrimonio armonioso e successo nelle arti relazionali."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (signore Marte)",
+          "descrizione": "Pada in Mithuna (3°20'-6°40'): la curiosità Mrigashira incontra le acque profonde dello Scorpione. Nascono ricercatori dell'occulto, psicologi del profondo, investigatori, terapeuti del trauma, scienziati che esplorano i confini (genetica, fisica quantistica, neuroscienze). La leggerezza Mrigashira si fa intensa, magnetica, talvolta inquieta. Marte ben posizionato dona forza investigativa e successo in ambiti di trasformazione."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Somaya Namah / Beeja Marte: Om Kram Kreem Kraum Sah Bhaumaya Namah",
+        "deity": "Soma, Chandra, Saraswati (per il versante intellettuale), Krishna-Govinda",
+        "gemstone": "Corallo rosso (Moonga) per Marte, montato su rame o oro, anulare destro, martedì all'alba",
+        "color": "Verde tenero, argento, bianco-luminoso",
+        "donation": "Libri a studenti poveri, sostegno a riserve naturali e protezione cervi, alimenti vegetariani a viaggiatori",
+        "fast": "Martedì o digiuno parziale nei giorni di luna piena per onorare Soma"
+      },
+      "famousFigures": [
+        "Steve Jobs (Luna in Mrigashira)",
+        "Marilyn Monroe (Luna in Mrigashira secondo varie carte vediche)",
+        "Vincent Van Gogh (Luna in Mrigashira)",
+        "Jim Carrey (Luna in Mrigashira)",
+        "Salvador Dalí (Luna in Mrigashira secondo altre fonti)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Mrigashirshe sundara-rupo, chanchala, kavih, kushala-bhashi' — di bell'aspetto, mobile, poeta, di parola abile.",
+        "Saravali: il nativo è 'priyamvada' (parola gradevole), 'utsahi' (entusiasta), 'kavi' (poeta).",
+        "Phaladeepika: 'Mrigashirshe jato bhavet sundara-priya-vakta' — di bell'aspetto e parola amabile.",
+        "Tradizione Tamil-Siddha: Mrigashira è chiamata 'Mrigasirisham' e associata alla pianta soma e al saggio Atharvan."
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "Ardra",
+      "gradi": "6°40' - 20°00' Mithuna",
+      "signore_pianetario": "Rahu",
+      "divinita_governante": "Rudra — la forma feroce e ululante di Shiva, signore delle tempeste, delle lacrime, della distruzione catartica",
+      "simbolo": "Goccia, lacrima, oppure testa umana o gemma scintillante. Simbolo profondo: la lacrima della tempesta",
+      "shakti": "Yatna-shakti — il potere dello sforzo intenso, della trasformazione attraverso la crisi, del lavoro che brucia il vecchio per portare il nuovo. È la shakti del temporale che pulisce l'aria stagnante.",
+      "mito": "Rudra, signore di Ardra, è la forma più temibile di Shiva: dio delle tempeste, della distruzione, della catarsi sacra. Nei Veda Rudra è 'Tryambaka' (dai tre occhi), 'Shitikantha' (gola blu — perché bevve il veleno cosmico), 'Kapardin' (con i capelli legati). Il suo nome deriva dalla radice 'rud' = piangere, ululare: Rudra è colui che fa piangere e che piange. Il mito centrale di Ardra è quello di Prajapati e Rohini visto dal lato di Rudra: quando il padre cosmico Prajapati incestuosamente inseguì la propria figlia, gli dei chiesero a Rudra di intervenire; Rudra scagliò la freccia che ferì Prajapati alla testa (la testa del cervo, Mrigashira), e dalla ferita gocciolò il sangue cosmico — quella goccia (Ardra) è la lacrima divina che inaugura il Tempo della responsabilità. Rudra è anche legato al pianto di Shiva quando Sati morì nel sacrificio di Daksha: dal suo dolore nacquero le lacrime del mondo. Ardra è dunque il punto del cielo dove la sofferenza diventa trasformazione, dove la tempesta lava il vecchio ordine per far nascere il nuovo.",
+      "personality": "Chi nasce con la Luna in Ardra porta nell'anima la goccia della tempesta: una sensibilità acutissima, una mente brillante e tagliente, una capacità di cogliere ciò che gli altri non vedono. Sono individui spesso geniali, profondamente curiosi, animati da un fuoco inquieto che li porta a indagare le crepe del reale: scienziati, ricercatori, attivisti, terapeuti del trauma, artisti del dolore. Sotto la lucidità intellettuale opera un'oscillazione emotiva potente — Rahu, signore della Nakshatra, amplifica le emozioni e crea hunger insaziabili. Tendenze emotive: malinconia profonda alternata a entusiasmi accesi, capacità di empatia col dolore altrui, ricerca quasi compulsiva della verità, intolleranza alla mediocrità e all'ipocrisia, propensione alle crisi-salto (la crisi non come collasso ma come rilancio). Saravali descrive il nativo come 'krura-karma' (capace di azioni dure), 'krita-ghna' (a volte ingrato, perché Ardra distrugge ciò che è stato per fare spazio al nuovo), 'sthira-mati' (mente determinata), 'asat-vakta' (talvolta dice ciò che non andrebbe detto — la lingua di Rudra). Ma anche 'medhavi' (intelligente) e 'kushala' (abile). Ardra è densa, mai banale.",
+      "karmicTheme": "Ardra è la Nakshatra della trasformazione attraverso la crisi. Il tema karmico è imparare a navigare le tempeste interiori senza esserne distrutti — anzi, usandole come carburante per la metamorfosi. L'anima qui ha sperimentato in vite passate o nell'infanzia un dolore profondo, e ora porta nel proprio destino la vocazione di trasmutare quel dolore in saggezza. Spesso i nativi attraversano una 'morte iniziatica' tra i 28 e i 42 anni: una crisi totale (lavoro, salute, relazione, identità) che fa crollare ogni struttura. Sopravvivere a quella crisi apre la maturità Ardra: la persona diventa un guaritore-tempesta, capace di stare nelle situazioni più difficili senza scappare. La lezione spirituale è che la sofferenza non è un errore ma un portale: chi accetta di piangere le lacrime di Rudra accede al cuore.",
+      "career": "Ricerca scientifica (specie fisica, chimica, neuroscienze), informatica e programmazione (Rahu ama la tecnologia), psicoterapia del trauma, attivismo politico-sociale, giornalismo investigativo, criminologia, occultismo, astrologia, sciamanesimo, arti performative oscure (cinema, teatro del dolore), medicina d'urgenza, chirurgia di trapianto, ingegneria, lavoro con elettricità e tempeste, meteorologia, lavoro con l'acqua e gli oceani. Modalità di lavoro: intensa, instancabile, capace di immersioni totali in un progetto per mesi e poi di crisi-rinascita. Ardra è geniale dove altri si stancano.",
+      "relationships": "L'amore per Ardra è intenso, sismico, mai mediocre. Il nativo si innamora come un temporale: tutto, subito, totalmente — e con la stessa potenza può anche disinnamorarsi. Karmicamente attrae partner che fungono da specchio del proprio dolore o da catalizzatori di trasformazioni. Le relazioni sono spesso veicoli di iniziazione: il partner è insieme alleato e antagonista, e il rapporto trasforma entrambi. Ombre: gelosia possibile, oscillazioni emotive, tendenza alla critica tagliente nei momenti di disagio, fuga da intimità troppo dolce (Ardra teme la stagnazione). Forte sessualità, talvolta legata al desiderio di fusione totale o di rottura totale. La fedeltà non è scontata ma diventa profonda quando l'anima riconosce nel legame un terreno di crescita.",
+      "health": "Zone del corpo: spalle, braccia, polmoni, sistema nervoso (Mithuna), gola superiore. Predisposizioni: asma e bronchiti croniche, ansia, attacchi di panico, depressione ricorrente, problemi neurologici, somatizzazioni elettriche (palpitazioni, tachicardie da stress), allergie respiratorie, problemi alle articolazioni delle spalle. Dosha: Vata dominante con Kapha secondaria. Il sistema nervoso simpatico è iperattivo: meditazione, pranayama lunari, yoga restorativo, terapie somatiche del trauma (TRE, Somatic Experiencing), nuoto, contatto con la pioggia e l'acqua, sono fondamentali. Ardra ha bisogno di scaricare l'elettricità interna nel corpo prima che si trasformi in malattia.",
+      "classifications": {
+        "varna": "Macellaio/Cacciatore (Mleccha) — fuori dal sistema delle caste, vicino al sacro liminale",
+        "gana": "Manushya (umano)",
+        "yoni": "Shvana (cane) — femminile, ma con qualità lupina",
+        "nadi": "Vata",
+        "tatva": "Vayu (aria) — la Nakshatra della tempesta"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (signore Giove)",
+          "descrizione": "Ardra in Sagittario: la tempesta incontra la saggezza gioviana. Nascono filosofi-tempesta, professori carismatici, attivisti politici di alto livello, leader spirituali con vocazione di rottura, viaggiatori mistici, esploratori del sacro. Forte ricerca della verità, vocazione al servizio del dharma anche a costo di rompere le convenzioni. Giove ben posizionato regala saggezza dolorosa e influenza ampia."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (signore Saturno)",
+          "descrizione": "Pada strutturale: Ardra in Capricorno disciplina la tempesta. Nascono manager di crisi, ingegneri, scienziati di alto livello, magistrati, militari di carriera in contesti difficili, costruttori d'azienda che attraversano crisi e ne escono più forti. Forte capacità di resistenza al lungo termine, ambizione disciplinata, autorità conquistata col dolore. Saturno ben posizionato dona longevità professionale e successo dopo crisi."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (signore Saturno-Rahu) — vargottama",
+          "descrizione": "Pada vargottama: Ardra-Rahu nel suo segno preferito Acquario. Massima espressione del genio innovativo, della vocazione umanitaria, della capacità di vedere il futuro prima degli altri. Nascono inventori, futurologi, attivisti rivoluzionari, scienziati di frontiera, hacker dell'esistente, persone con visione collettiva ampia. Rahu ben posizionato qui regala fama anomala, successo nel campo tecnologico-sociale, capacità di influenzare il futuro."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (signore Giove)",
+          "descrizione": "Ardra in Pesci: la tempesta si scioglie nelle acque mistiche. Nascono guaritori del trauma collettivo, mistici visionari, artisti del sacro doloroso, terapeuti spirituali, monaci-attivisti. La capacità di sentire il dolore del mondo è acutissima: il nativo deve imparare a non assorbirlo. Giove ben posizionato dona vocazione spirituale autentica e capacità di guarire attraverso la presenza compassionevole."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Rudraya Namah / Beeja Rahu: Om Bhram Bhreem Bhraum Sah Rahave Namah / Maha Mrityunjaya Mantra (Tryambakam Yajamahe)",
+        "deity": "Rudra-Shiva (specie nella forma di Mrityunjaya), Kali, Bhairava",
+        "gemstone": "Gomedha (granato hessonite) per Rahu, montato su argento, mignolo destro, sabato sera",
+        "color": "Verde scuro, viola tempesta, blu elettrico",
+        "donation": "Sostegno a vittime di disastri naturali, ai senzatetto, alle persone in crisi acuta; cibo nei templi di Shiva",
+        "fast": "Lunedì (per Shiva-Rudra); pratica del Mahamrityunjaya japa nei momenti di crisi"
+      },
+      "famousFigures": [
+        "Albert Einstein (Luna in Ardra — celebre attribuzione vedica)",
+        "Sigmund Freud (Luna in Ardra secondo varie ricostruzioni)",
+        "John Lennon (Luna in Ardra)",
+        "Princess Diana (Luna in Ardra secondo alcune carte)",
+        "Edgar Allan Poe (Luna in Ardra)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Ardrayam asat-vadi, krita-ghna, papa-karma, krura-shila' — talvolta dice il falso, può essere ingrato, capace di azioni dure. Ma è una lettura tradizionale severa: la Nakshatra è densa.",
+        "Saravali: il nativo è 'sthira-mati' (mente determinata), 'medhavi' (intelligente), 'shastra-priya' (amante delle scritture).",
+        "Phaladeepika: 'Ardrayam jato bhavet panchatantra-vidah' — conoscitore di scienze e arti complesse.",
+        "Maha Mrityunjaya Mantra è la pratica di elezione: 'Tryambakam yajamahe sugandhim pushtivardhanam, urvarukamiva bandhanan mrityor mukshiya mamritat' — onoriamo il tre-occhi profumato che nutre la vita; come il cetriolo si stacca dal suo gambo, possiamo essere liberati dalla morte ma non dall'immortalità."
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Punarvasu",
+      "gradi": "20°00' Mithuna - 3°20' Karka",
+      "signore_pianetario": "Brihaspati (Giove)",
+      "divinita_governante": "Aditi — la madre cosmica infinita, madre dei dodici Aditya (forme del Sole), grembo dello spazio illimitato",
+      "simbolo": "Faretra di frecce, casa, oppure arco — talvolta rappresentato come casa-rifugio. Significato profondo: il ritorno al riparo dopo l'esplorazione",
+      "shakti": "Vasutva-prapana-shakti — il potere di restituire la ricchezza, di tornare alla casa, di ricominciare dopo la perdita. È la shakti che riporta a casa l'esule, che rinnova la vita dopo la stanchezza, che ridà fiducia dopo la prova.",
+      "mito": "Aditi, signora di Punarvasu, è la madre primordiale: figlia di Daksha Prajapati, sposa del saggio Kashyapa, da lei nascono i dodici Aditya (le dodici forme del Sole — uno per ogni mese), tra cui Vishnu, Indra, Mitra, Varuna, Aryaman, Bhaga. Il suo nome significa 'illimitata, indivisa, libera': è lo spazio cosmico, il grembo che contiene tutti i mondi. Aditi è invocata nei Veda come 'colei che libera dai legami', dalla malattia, dalla colpa, dalla morte. Il mito centrale di Punarvasu è quello del ritorno: 'punar' = di nuovo, 'vasu' = ricchezza/dimora — letteralmente 'colui che torna a essere ricco, alla dimora'. È la Nakshatra di Rama secondo i Purana: Rama nasce in Punarvasu, e la sua intera storia è quella del ritorno (l'esilio nella foresta, il superamento delle prove, il ritorno ad Ayodhya). Aditi rappresenta dunque la fede che si rinnova, la maternità cosmica che riaccoglie sempre, lo spazio infinito in cui non si è mai veramente perduti.",
+      "personality": "Chi nasce con la Luna in Punarvasu porta nell'anima una qualità di fiducia primordiale: ottimismo profondo, capacità di rinascere dopo le perdite, calore umano contagioso, generosità naturale. Sono individui spesso saggi senza pretendere di esserlo, viaggiatori interiori ed esteriori, insegnanti per vocazione, persone che diffondono fiducia attorno a sé. Sotto la dolcezza opera una determinazione gioviana solida: Punarvasu non si arrende, ma riparte sempre — anche dopo crolli importanti — con una sorta di innocenza ritrovata. Tendenze emotive: idealismo, fede nella bontà del reale, generosità a volte ingenua, attaccamento alla casa e alla famiglia come 'porto sicuro', tendenza a nutrire gli altri (cibo, parole, attenzione). Saravali parla del nativo come 'satya-bhashi' (verace), 'punya-shila' (di buona condotta), 'dhana-vant' (ricco), 'kshama-shila' (paziente/perdonante), 'sukha-priya' (amante della felicità). C'è in Punarvasu una qualità materna che opera anche negli uomini: capacità di accudire, di rassicurare, di portare conforto.",
+      "karmicTheme": "Punarvasu è la Nakshatra del ritorno e della rinascita. Il tema karmico è imparare a riconoscere che la vita è un eterno ritornare a casa — alla propria essenza, al proprio dharma, all'amore — anche dopo le perdite. L'anima qui ha già attraversato il dolore in vite passate o nell'infanzia, e ora porta il dono dell'ottimismo come grazia conquistata, non come ingenuità di partenza. La lezione spirituale è duplice: imparare a non aggrapparsi (perché ciò che è vero ritorna sempre) e imparare a essere casa per gli altri (Aditi non chiude mai le porte). Spesso i nativi sono chiamati a essere 'porto' per persone in crisi: figure di riferimento, mentori, madri/padri spirituali, insegnanti. Il rischio è quello di farsi carico troppo degli altri e dimenticare la propria casa interiore.",
+      "career": "Insegnamento (a tutti i livelli, dalla scuola all'università), filosofia, teologia, psicologia umanistica, counseling, life coaching, scrittura e divulgazione, giornalismo culturale, viaggio (guida turistica, ospitalità, settore travel), ristorazione (cibo come cura), gestione di B&B e case-vacanze, real estate, settore immobiliare, professione legale (avvocatura etica), medicina di famiglia, pediatria, materno-infantile, lavoro con la spiritualità (yoga, meditazione, terapie olistiche). Modalità di lavoro: paziente, formativa, orientata alla relazione di lungo termine. Punarvasu costruisce reti, non transazioni.",
+      "relationships": "L'amore per Punarvasu è caldo, fedele, costruttivo. Il nativo cerca un partner-compagno con cui costruire una casa reale e simbolica; la relazione è vista come un viaggio di crescita reciproca. Karmicamente attrae partner che hanno bisogno di radicamento e fiducia, e in cambio riceve il dono della profondità emotiva. Le ombre sono possibili: tendenza a idealizzare il partner, fatica nel dire 'no' o nel chiudere relazioni anche quando non funzionano, eccesso di accudimento che può scivolare in dipendenza. La sessualità è calda, affettuosa, mai aggressiva. Forte desiderio di famiglia, frequente esperienza di genitorialità come compimento. La fedeltà è naturale.",
+      "health": "Zone del corpo: braccia, mani, polmoni superiori (parte di Mithuna), e parte alta del torace/petto/seni (parte di Karka). Predisposizioni: problemi respiratori (asma, bronchiti, allergie), problemi al sistema linfatico, gonfiori (ritenzione idrica), problemi al fegato (Giove governa), tendenza al sovrappeso lento dopo i 40 anni, sensibilità emotiva che somatizza. Dosha: Kapha-Vata. Il fegato è il punto chiave: alimentazione equilibrata, ridurre dolci e grassi, periodi di disintossicazione, yoga, camminate nella natura. Punarvasu prospera con la natura: alberi, mare, parchi.",
+      "classifications": {
+        "varna": "Vaishya (mercantile, ma con qualità sacerdotali)",
+        "gana": "Deva (divino)",
+        "yoni": "Marjari (gatto) — femminile",
+        "nadi": "Vata",
+        "tatva": "Vayu (aria) per la prima parte, Jala (acqua) per la seconda"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Mesha (signore Marte)",
+          "descrizione": "Punarvasu in Mithuna (20°-23°20'), pada in Ariete: la fede gioviana incontra il fuoco pioniere. Nascono insegnanti carismatici, leader spirituali con coraggio, attivisti del dharma, viaggiatori-pionieri. Forte vocazione a partire, esplorare, fondare nuove iniziative formative o spirituali. Marte ben posizionato dona iniziativa nobile e successo nel campo educativo-spirituale."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Vrishabha (signore Venere)",
+          "descrizione": "Punarvasu in Mithuna (23°20'-26°40'), pada in Toro: la saggezza si concretizza in bellezza e abbondanza materiale. Nascono artisti-saggi, ristoratori d'eccellenza, designer con visione filosofica, imprenditori del benessere. Capacità di costruire imprese che durano, basate su valori e qualità. Venere ben posizionata dona ricchezza dolce e relazioni stabili."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Mithuna (signore Mercurio) — vargottama",
+          "descrizione": "Pada vargottama: Punarvasu nel cuore di Mithuna (26°40'-30°), navamsa in Mithuna. Massima espressione dell'intelligenza comunicativa al servizio della saggezza. Nascono grandi divulgatori, scrittori-filosofi, giornalisti culturali, traduttori di testi sacri, conduttori radiofonici/TV con vocazione formativa. Mercurio ben posizionato qui regala fama intellettuale e ricchezza tramite la parola."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Karka (signore Luna)",
+          "descrizione": "L'unico pada di Punarvasu in Karka (0°-3°20' Cancro): la saggezza Aditi nel suo elemento materno proprio. Nascono madri-archetipiche, terapeuti familiari, custodi della memoria collettiva, scrittori della patria interiore, pedagogisti d'eccellenza, mistici della casa. Sensibilità emotiva profonda, vocazione di accudimento, longevità affettiva. Luna ben posizionata regala popolarità, intuito, capacità di portare conforto."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Adityai Namah / Beeja Giove: Om Gram Greem Graum Sah Brihaspataye Namah",
+        "deity": "Aditi, Vishnu (uno dei suoi figli Aditya), Rama (nato sotto Punarvasu), Krishna",
+        "gemstone": "Topazio giallo (Pukhraj) per Giove, montato su oro, indice destro, giovedì all'alba",
+        "color": "Giallo, oro, bianco-azzurro",
+        "donation": "Cibo a viaggiatori, sostegno a scuole e biblioteche, libri sacri a studenti, ospitalità a pellegrini",
+        "fast": "Giovedì (per Giove); pratica della Satyanarayan Katha mensile"
+      },
+      "famousFigures": [
+        "Rama (avatar di Vishnu, nato in Punarvasu secondo Valmiki Ramayana)",
+        "Mahatma Gandhi (Luna in Punarvasu secondo alcune carte vediche tradizionali)",
+        "Bob Dylan (Luna in Punarvasu)",
+        "Steven Spielberg (Luna in Punarvasu secondo varie ricostruzioni)",
+        "Madre Teresa di Calcutta (Luna in Punarvasu secondo alcune fonti)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Punarvasau satya-vadi, dharma-shilo, sukhi, dhana-yukta' — verace, di buona condotta, felice, ricco.",
+        "Saravali: il nativo è 'punya-karma' (di azioni meritorie), 'kshama-shila' (paziente), 'sad-buddhi' (mente buona).",
+        "Phaladeepika: 'Punarvasau jato bhavet kshama-shilo dharma-tatparah' — paziente e devoto al dharma.",
+        "Valmiki Ramayana: 'Karkate Punarvasau jato Ramah' — Rama nacque con Luna in Punarvasu nel segno del Cancro: questa configurazione è considerata la più dharmica del cielo."
+      ]
+    },
+    {
+      "id": 8,
+      "nome": "Pushya",
+      "gradi": "3°20' - 16°40' Karka",
+      "signore_pianetario": "Shani (Saturno)",
+      "divinita_governante": "Brihaspati — il guru degli dei, signore della saggezza, della preghiera, del consiglio sacro",
+      "simbolo": "Mammella di vacca (per il nutrimento), oppure fiore di loto, oppure freccia. Significato profondo: il vaso che nutre senza esaurirsi",
+      "shakti": "Brahma-varchasa-shakti — il potere di creare l'aura sacra, lo splendore spirituale, l'energia che protegge e benedice. È la shakti che rende un luogo, una persona, un'azione 'sacri' — investiti di significato superiore.",
+      "mito": "Brihaspati, signore di Pushya, è il guru degli dei nel pantheon vedico: figlio del saggio Angiras, sposo di Tara (la dea-stella, anche se rapita per un periodo da Chandra — mito centrale della genesi delle Nakshatra), maestro spirituale di Indra e di tutti i Deva. Brihaspati è 'Vachaspati' (signore della parola sacra), 'Devacharya' (precettore degli dei), 'Sura-guru' (guru divino). Nei Veda è invocato come colui che porta saggezza, vittoria nelle lotte spirituali, prosperità dharmica, protezione dai nemici sottili. Il mito centrale di Pushya: quando i deva e gli asura combattevano, Brihaspati era il consigliere strategico dei deva — la sua saggezza era più potente delle armi. Il nome Pushya viene dalla radice 'push' = nutrire, far prosperare: è la Nakshatra del nutrimento sacro, della crescita protetta. È considerata la più auspiciosa di tutte le 27 Nakshatra: nei Muhurta (timing astrologico), Pushya è il 'Re dei Nakshatra' — il momento ideale per iniziare imprese importanti (eccetto matrimonio, paradossalmente, perché Saturno-signore introduce una qualità austera).",
+      "personality": "Chi nasce con la Luna in Pushya porta nell'anima la qualità del custode-saggio: serietà, profondità, vocazione protettiva, devozione, capacità di consigliare gli altri con saggezza calma. Sono individui spesso percepiti come 'rocce' su cui appoggiarsi: solidi, leali, riservati, dotati di un'integrità rara. Sotto la compostezza opera una sensibilità emotiva profonda (Karka è il segno della Luna): il nativo sente molto, ma protegge ciò che sente con un guscio saturnino. Tendenze emotive: serietà precoce, senso del dovere accentuato, devozione alla famiglia e ai propri 'protetti', tendenza alla riservatezza, talvolta malinconia profonda quando il senso di vocazione viene tradito. Saravali descrive il nativo come 'shanta' (calmo), 'dharma-pravritta' (incline al dharma), 'satya-vadi' (verace), 'shubha-karma' (di azioni nobili), 'guru-priya' (caro al guru). C'è in Pushya un'aura sacra che gli altri percepiscono anche senza sapere perché: questa è la 'Brahma-varchasa-shakti' all'opera.",
+      "karmicTheme": "Pushya è la Nakshatra della cura sacra. Il tema karmico è imparare a essere 'pushya' — colui che nutre senza esaurirsi, che dà senza svuotarsi, che protegge senza possedere. L'anima qui ha già accumulato molto karma positivo in vite passate (sacerdoti, insegnanti, guaritori, custodi di tradizioni) e ora porta il dono della 'gravità sacra': la sua presenza stessa benedice. La lezione spirituale è duplice: imparare a non essere troppo serio (Saturno tende a indurire), e imparare che il vero nutrimento è dato da chi è radicato nel proprio centro, non da chi si affanna a soddisfare gli altri. Spesso i nativi attraversano fasi di profonda austerità — fisica, economica, emotiva — che li portano alla scoperta del vero nutrimento interiore. Quando questo accade, Pushya diventa una sorgente vivente di benedizione.",
+      "career": "Sacerdozio (qualsiasi tradizione), insegnamento (specie filosofia, religione, etica), counseling, psicoterapia, medicina (specie pediatria, geriatria, medicina di famiglia), professioni legali (giudice, avvocato etico), politica (di alto profilo morale), gestione patrimoniale, banking etico, ristorazione (Pushya = nutrimento), agricoltura biologica, allevamento di mucche (sacro per Pushya), settore alimentare biologico, lavoro nel sociale e nel terzo settore, gestione di templi e centri spirituali, scrittura sapienziale. Modalità di lavoro: paziente, etica, di lungo termine, orientata al servizio. Pushya non cerca il profitto rapido ma la solidità durevole.",
+      "relationships": "L'amore per Pushya è devozionale, fedele, protettivo. Il nativo cerca un partner serio, profondo, con cui costruire un legame che abbia il sapore della consacrazione. Karmicamente attrae partner che cercano stabilità e cura, e in cambio riceve la dolcezza emotiva del Cancro che addolcisce la severità saturnina. Ombre: difficoltà a esprimere apertamente i sentimenti (riservatezza esagerata), tendenza al controllo paterno/materno nella relazione, durezza nei momenti di stress, difficoltà ad accogliere la spontaneità del partner. La sessualità è profonda ma riservata, mai esibita. Forte desiderio di famiglia stabile, devozione ai figli e ai genitori. La fedeltà è sacra. Curiosità: la tradizione vedica sconsiglia il matrimonio celebrato sotto Pushya — Saturno introduce austerità.",
+      "health": "Zone del corpo: torace, seni (specie nelle donne), polmoni, stomaco, parte superiore dell'addome. Predisposizioni: problemi al torace (bronchiti, polmoniti), problemi gastrici (gastrite, ulcere, reflusso — somatizzazione di emozioni trattenute), problemi alla colecisti, problemi al sistema linfatico, sovrappeso lento da emozioni non espresse, depressione cronica se l'aspetto saturnino è afflitto. Dosha: Kapha dominante con Vata secondaria. Il segreto della salute Pushya è imparare a esprimere le emozioni invece di trattenerle: terapia, scrittura, danza emotiva, canto. Lo stomaco e il torace sono il barometro emotivo del nativo.",
+      "classifications": {
+        "varna": "Kshatriya (guerriero — perché protegge il dharma)",
+        "gana": "Deva (divino)",
+        "yoni": "Mesha (pecora-ariete) — maschile",
+        "nadi": "Pitta",
+        "tatva": "Jala (acqua)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Simha (signore Sole)",
+          "descrizione": "Pushya in Cancro (3°20'-6°40'), pada in Leone: la saggezza protettiva incontra l'orgoglio regale. Nascono leader spirituali con presenza solare, sacerdoti carismatici, professori autorevoli, magistrati, manager etici di alto livello. Forte vocazione al ruolo pubblico al servizio del dharma. Sole ben posizionato regala fama dignitosa e autorità morale."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Kanya (signore Mercurio)",
+          "descrizione": "Pushya in Cancro (6°40'-10°), pada in Vergine: la cura sacra si organizza in metodo e servizio. Nascono medici-saggi, infermieri di vocazione, terapeuti, scienziati con etica profonda, contabili etici, consulenti finanziari di fiducia, scrittori metodici. Mercurio ben posizionato dona successo nelle professioni di servizio analitico e di cura."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Tula (signore Venere)",
+          "descrizione": "Pushya in Cancro (10°-13°20'), pada in Bilancia: la saggezza si raffina in arte della relazione. Nascono diplomatici, mediatori, giudici di pace, consulenti matrimoniali, terapeuti di coppia, artisti del sacro, designer con vocazione spirituale. Venere ben posizionata regala matrimonio armonioso e successo nelle arti relazionali e mediative."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Vrischika (signore Marte)",
+          "descrizione": "Pushya in Cancro (13°20'-16°40'), pada in Scorpione: la cura sacra incontra le acque trasformative. Nascono sciamani-sacerdoti, guaritori del trauma profondo, psicoterapeuti del rimosso, medici d'urgenza con vocazione sacra, ricercatori dell'occulto sacro. Marte ben posizionato dona forza terapeutica intensa e capacità di portare luce nelle zone d'ombra altrui."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Brihaspataye Namah / Beeja Saturno: Om Pram Preem Praum Sah Shanaye Namah / Om Gurave Namah",
+        "deity": "Brihaspati, Vishnu (Pushya è anche detto 'Vishnu-nakshatra'), Lakshmi-Narayana",
+        "gemstone": "Zaffiro blu (Neelam) per Saturno, montato su argento o ferro, medio destro, sabato all'alba — solo dopo prova di compatibilità; alternativa: topazio per Giove",
+        "color": "Giallo dorato, blu scuro, marrone-terra",
+        "donation": "Cibo cucinato a sacerdoti e poveri, latte e ghee a templi, libri sacri, sostegno a vacche (gaushala)",
+        "fast": "Sabato (per Saturno) o giovedì (per Giove); pratica della Guru-puja mensile"
+      },
+      "famousFigures": [
+        "Buddha (Luna in Pushya secondo la tradizione vedica)",
+        "Karl Marx (Luna in Pushya secondo varie carte)",
+        "Bertrand Russell (Luna in Pushya)",
+        "Madre Teresa (Luna in Pushya secondo alcune ricostruzioni)",
+        "Madonna (Luna in Pushya secondo varie carte vediche)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Pushyam shanto, dharma-shilo, satya-vadi, dhana-vant' — calmo, di buona condotta, verace, ricco.",
+        "Saravali: il nativo è 'guru-priya' (caro al maestro), 'shubhakarma' (di azioni nobili), 'mantri' (consigliere).",
+        "Phaladeepika: 'Pushyam jato bhavet shanto medhavi dharma-tatparah' — calmo, intelligente, devoto al dharma.",
+        "Muhurta Chintamani: 'Pushyam nakshatra-rajah' — Pushya è il re dei nakshatra, ottimo per ogni inizio (eccetto matrimonio)."
+      ]
+    },
+    {
+      "id": 9,
+      "nome": "Ashlesha",
+      "gradi": "16°40' - 30°00' Karka",
+      "signore_pianetario": "Budha (Mercurio)",
+      "divinita_governante": "Naga — i serpenti cosmici, custodi della saggezza occulta, signori delle acque profonde e dei tesori sotterranei",
+      "simbolo": "Serpente avvolto a spirale (ashlesha = abbraccio, avvolgimento). Talvolta rappresentato come serpente che mangia la propria coda (uroboro)",
+      "shakti": "Vyapashraya-shakti — il potere di abbracciare e avvolgere, di portare a sé attraverso la suggestione, l'incanto, l'abbraccio sottile. È la shakti dell'ipnosi e dell'attrazione magnetica, della capacità di influenzare attraverso la presenza più che attraverso le parole.",
+      "mito": "I Naga, signori di Ashlesha, sono i serpenti cosmici della mitologia vedica e tantrica: custodi della terra, dei tesori sotterranei, delle acque profonde, della saggezza esoterica. Tra di essi spiccano Vasuki (utilizzato come fune nel mito della zangolatura dell'oceano cosmico), Shesha-Ananta (su cui Vishnu riposa nelle acque cosmiche), Takshaka (re dei Naga, citato nel Mahabharata), Karkotaka (che morse il re Nala). I Naga rappresentano la kundalini stessa — l'energia serpentina arrotolata alla base della colonna che, quando risvegliata, sale lungo la sushumna fino a Sahasrara generando l'illuminazione. Il mito di Krishna danzante su Kaliya (il Naga velenoso che inquinava le acque della Yamuna) è centrale: Krishna doma il serpente, danza sulle sue teste e gli dice 'Vai nel mare, e ricorda chi sei' — è il mito della trasformazione dell'energia velenosa in energia sapienziale. Ashlesha è dunque la Nakshatra dell'avvolgimento: ti abbraccia e ti trasforma. Può essere abbraccio mortale (il serpente che soffoca) o abbraccio iniziatico (il guru che ti porta nella conoscenza profonda).",
+      "personality": "Chi nasce con la Luna in Ashlesha porta nell'anima una potenza magnetica fuori dal comune: occhi penetranti, capacità di leggere le persone in profondità, intuito psichico marcato, intelligenza sottile e strategica. Sono individui spesso percepiti come 'misteriosi' — non perché si nascondano, ma perché contengono molti livelli che non vengono mostrati subito. Sotto un'apparenza calma opera un mondo emotivo intenso e talvolta turbolento: Karka è acqua emotiva, Mercurio è mente, Naga è kundalini — Ashlesha mescola tre forze potenti. Tendenze emotive: profondità, riserbo, capacità di ipnotizzare gli altri quando lo desiderano (sguardo, parola, presenza), attaccamento profondo ai propri cari ma con una qualità possessiva da serpente, capacità di essere taglienti quando si sentono traditi (il morso di Ashlesha). Ombre note: manipolazione possibile, doppiezza (il serpente cambia pelle), gelosia profonda, ossessioni, pattern di dipendenza emotiva, fascino che può scivolare in seduzione tossica. Saravali parla del nativo come 'krura-karma' (capace di azioni dure), 'kuta-bhashi' (di parola ambigua), ma anche 'medhavi' (intelligente), 'dhana-vant' (ricco), 'mantra-shastra-vid' (conoscitore di mantra e scienze sacre). È una Nakshatra densa, doppia, iniziatica.",
+      "karmicTheme": "Ashlesha è la Nakshatra della trasformazione del veleno in nettare. Il tema karmico è imparare ad abbracciare (Ashlesha = abbraccio) ciò che è proprio — la propria oscurità, la propria potenza sessuale, la propria capacità manipolativa, il proprio dolore — senza esserne posseduti. L'anima qui ha attraversato vite intense, talvolta legate a magia, sciamanesimo, manipolazione, intrighi: ora è chiamata a usare quel sapere antico al servizio della guarigione. La lezione spirituale più alta è quella di Krishna su Kaliya: trasformare il veleno in danza, l'energia tossica in arte, la potenza ipnotica in capacità terapeutica. Spesso i nativi attraversano un'iniziazione attraverso una crisi di intensità (relazionale, sessuale, energetica) che li porta a scoprire il proprio potere. Quando questo accade, Ashlesha diventa un guaritore-serpente, un mistico, un terapeuta del profondo. Quando non accade, l'anima rimane intrappolata nei propri pattern.",
+      "career": "Psicoterapia (specie del profondo, gestaltico, junghiano), psicologia clinica, ipnosi, ipnoterapia, psicoanalisi, sessuologia, ricerca biomedica, biochimica, farmacologia, tossicologia, medicina (specie della digestione, gastroenterologia), ostetricia, ginecologia, occultismo, astrologia, tantra, yoga della kundalini, sciamanesimo, magia rituale, criminologia, intelligence, investigazione, professioni che richiedono leggere le persone (negoziatori, profilatori), arte performativa intensa (attori, danzatori, musicisti d'impatto), letteratura del profondo. Modalità di lavoro: intensa, strategica, paziente come un serpente in agguato. Ashlesha eccelle dove serve perspicacia.",
+      "relationships": "L'amore per Ashlesha è un abbraccio totale: profondo, fusionale, magnetico, talvolta soffocante. Il nativo si lega in modo viscerale e fatica a lasciar andare; quando ama, ama in modo completo, e quando viene tradito può portare rancore a lungo (il morso del serpente). Karmicamente attrae partner intensi, talvolta tormentati, con cui costruisce relazioni iniziatiche dove tutti e due si trasformano. Ombre frequenti: gelosia possessiva, manipolazione affettiva (anche inconsapevole), pattern di seduzione-rifiuto, dipendenza emotiva, difficoltà a chiudere relazioni anche quando finite. La sessualità è centrale, tantrica, talvolta ossessiva — il nativo deve integrare la propria energia sessuale come potere sacro per evitare ombre. Forte capacità di intimità profonda quando l'anima è matura. La fedeltà è possibile ma non scontata.",
+      "health": "Zone del corpo: stomaco, intestino tenue, pancreas, sistema digestivo profondo, articolazioni delle ginocchia (i serpenti strisciano), sistema nervoso periferico. Predisposizioni: problemi digestivi (gastrite, ulcera, sindrome dell'intestino irritabile, intolleranze alimentari), problemi al pancreas, diabete, somatizzazioni viscerali profonde, problemi articolari (specie ginocchia), tossicità da farmaci o sostanze (Ashlesha può avere relazione complessa con sostanze), depressioni cicliche, addictions di vario tipo. Dosha: Kapha-Pitta-Vata in oscillazione (è la Nakshatra dei tre dosha mescolati). La cura più importante è la 'detox' — fisica ed emotiva: digiuni periodici, panchakarma ayurvedico, terapia del trauma, danza primitiva, kundalini yoga sotto guida.",
+      "classifications": {
+        "varna": "Mleccha (al di fuori delle caste, vicino al sacro liminale)",
+        "gana": "Rakshasa (intenso, demonico, trasformativo)",
+        "yoni": "Marjari (gatto) — maschile",
+        "nadi": "Kapha",
+        "tatva": "Jala (acqua)"
+      },
+      "padas": [
+        {
+          "numero": 1,
+          "navamsa": "Dhanu (signore Giove)",
+          "descrizione": "Ashlesha in Cancro (16°40'-20°), pada in Sagittario: la potenza serpentina incontra la saggezza gioviana. Nascono filosofi del profondo, professori di scienze esoteriche, guaritori spirituali, viaggiatori-mistici, scrittori di letteratura iniziatica, terapeuti con vocazione sacra. Forte capacità di trasformare la potenza Naga in saggezza condivisa. Giove ben posizionato regala maestria e influenza ampia."
+        },
+        {
+          "numero": 2,
+          "navamsa": "Makara (signore Saturno)",
+          "descrizione": "Ashlesha in Cancro (20°-23°20'), pada in Capricorno: la potenza serpentina si struttura. Nascono manager strategici, politici di lungo respiro, militari di intelligence, magistrati, scienziati metodici, persone capaci di navigare situazioni complesse con pazienza saturnina. Forte ambizione disciplinata, capacità di leggere giochi di potere. Saturno ben posizionato dona longevità professionale e successo dopo prove."
+        },
+        {
+          "numero": 3,
+          "navamsa": "Kumbha (signore Saturno-Rahu)",
+          "descrizione": "Ashlesha in Cancro (23°20'-26°40'), pada in Acquario: la potenza Naga si umanizza in visione collettiva. Nascono scienziati di frontiera, ricercatori della coscienza, attivisti del cambiamento sociale, futurologi, hacker della realtà, persone con visione anomala e potente. Capacità di portare la kundalini collettiva al risveglio. Rahu o Saturno ben posizionati danno fama anomala e influenza umanitaria."
+        },
+        {
+          "numero": 4,
+          "navamsa": "Meena (signore Giove)",
+          "descrizione": "Pada finale, in Cancro (26°40'-30°), pada in Pesci — uno dei pada più intensi e mistici dell'intero zodiaco (è anche un Gandanta-pada, soglia tra acqua e fuoco). Nascono mistici profondi, sciamani autentici, guaritori del trauma transgenerazionale, monaci tantrici, artisti del sacro estremo. Sensibilità psichica massima, vocazione spirituale potente, ma anche rischio di dispersione, dipendenze, depressioni. Giove ben posizionato regala vocazione spirituale autentica; mal posizionato richiede grande lavoro interiore. Il Gandanta richiede rituale di passaggio e cura."
+        }
+      ],
+      "remedies": {
+        "mantra": "Om Nagebhyo Namah / Beeja Mercurio: Om Bram Breem Braum Sah Budhaya Namah / Om Namah Shivaya (per la kundalini)",
+        "deity": "Naga-devata, Shesha-Ananta, Krishna (su Kaliya), Subrahmanya, Shiva-Nageshwara",
+        "gemstone": "Smeraldo (Panna) per Mercurio, montato su oro, mignolo destro, mercoledì all'alba",
+        "color": "Verde scuro, nero serpente, blu profondo",
+        "donation": "Latte ai serpenti (rituale Naga-puja), sostegno a riserve di rettili, ghee a templi di Shiva, libri esoterici a ricercatori",
+        "fast": "Mercoledì (per Mercurio); pratica del Naga-puja durante Naga Panchami; lavoro con kundalini sotto guida"
+      },
+      "famousFigures": [
+        "Mahatma Gandhi (Luna in Ashlesha secondo varie ricostruzioni vediche)",
+        "Steve Jobs (Luna in Ashlesha secondo alcune carte)",
+        "Bill Gates (Luna in Ashlesha secondo varie fonti)",
+        "Princess Diana (Luna in Ashlesha secondo alcune ricostruzioni)",
+        "Whitney Houston (Luna in Ashlesha)"
+      ],
+      "citations": [
+        "Brihat Parashara Hora Shastra: 'Ashleshayam krura-karma, kuta-bhashi, krita-ghna, papa-shila' — capace di azioni dure, di parola ambigua, talvolta ingrato. Lettura severa: la Nakshatra è iniziatica.",
+        "Saravali: il nativo è 'mantra-shastra-vid' (conoscitore di mantra e scienze sacre), 'medhavi' (intelligente), 'dhana-vant' (ricco).",
+        "Phaladeepika: 'Ashleshayam jato bhavet vyabhicari kapatah' — può essere incline al doppio gioco: lettura tradizionale severa che invita all'integrazione dell'ombra.",
+        "Tradizione tantrica: Ashlesha è la sede della kundalini-shakti nel cielo. Chi nasce qui ha il dono della trasformazione e la responsabilità di usarlo bene.",
+        "Bhagavata Purana: la danza di Krishna su Kaliya è il mito centrale per Ashlesha — trasformare il veleno in nettare, l'ipnosi in danza sacra."
+      ]
+    }
+  ]
+}

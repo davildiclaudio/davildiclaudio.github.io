@@ -654,6 +654,82 @@ function parsePlanetData(payload) {
     return planets;
 }
 
+// --- DATA LOADER ---
+const JYOTISH_DATA = {
+    rashi: null, nakshatra: null, bhava: null, graha: null,
+    dasha: null, yoga: null, remedies: null,
+    loaded: false
+};
+
+async function loadJyotishData() {
+    try {
+        const [rashi, n1, n2, n3, bhava, graha, dasha, yoga, remedies] = await Promise.all([
+            fetch('data/rashi.json').then(r => r.json()),
+            fetch('data/nakshatra_01_09.json').then(r => r.json()),
+            fetch('data/nakshatra_10_18.json').then(r => r.json()),
+            fetch('data/nakshatra_19_27.json').then(r => r.json()),
+            fetch('data/bhava.json').then(r => r.json()),
+            fetch('data/graha.json').then(r => r.json()),
+            fetch('data/dasha.json').then(r => r.json()),
+            fetch('data/yoga.json').then(r => r.json()),
+            fetch('data/remedies.json').then(r => r.json())
+        ]);
+        JYOTISH_DATA.rashi = rashi.rashi || rashi.rashis || [];
+        JYOTISH_DATA.nakshatra = [...(n1.nakshatra||n1.nakshatras||[]), ...(n2.nakshatra||n2.nakshatras||[]), ...(n3.nakshatra||n3.nakshatras||[])];
+        JYOTISH_DATA.bhava = bhava.bhava || bhava.bhavas || [];
+        JYOTISH_DATA.graha = graha.graha || graha.grahas || [];
+        JYOTISH_DATA.dasha = dasha.mahadasha || dasha.dashas || [];
+        JYOTISH_DATA.yoga = yoga.yoga || [];
+        JYOTISH_DATA.dosha = yoga.dosha || {};
+        JYOTISH_DATA.remedies = remedies;
+        JYOTISH_DATA.loaded = true;
+        console.log('Jyotish data loaded:', {
+            rashi: JYOTISH_DATA.rashi.length,
+            nakshatra: JYOTISH_DATA.nakshatra.length,
+            bhava: JYOTISH_DATA.bhava.length,
+            graha: JYOTISH_DATA.graha.length,
+            dasha: JYOTISH_DATA.dasha.length
+        });
+    } catch (e) {
+        console.warn('Could not load deep data, using fallbacks:', e);
+        JYOTISH_DATA.loaded = false;
+    }
+}
+
+// Helper: find data item by index/name
+function findRashi(idx) {
+    if (!JYOTISH_DATA.loaded || !JYOTISH_DATA.rashi.length) return null;
+    return JYOTISH_DATA.rashi.find(r => r.id === idx + 1 || r.id === idx) || JYOTISH_DATA.rashi[idx] || null;
+}
+function findNakshatra(idx) {
+    if (!JYOTISH_DATA.loaded || !JYOTISH_DATA.nakshatra.length) return null;
+    return JYOTISH_DATA.nakshatra.find(n => n.id === idx + 1 || n.id === idx) || JYOTISH_DATA.nakshatra[idx] || null;
+}
+function findBhava(num) {
+    if (!JYOTISH_DATA.loaded || !JYOTISH_DATA.bhava.length) return null;
+    return JYOTISH_DATA.bhava.find(b => b.number === num) || JYOTISH_DATA.bhava[num - 1] || null;
+}
+function findGraha(name) {
+    if (!JYOTISH_DATA.loaded || !JYOTISH_DATA.graha.length) return null;
+    const variants = {
+        'Sun': ['Surya', 'Sun', 'Sole'], 'Moon': ['Chandra', 'Moon', 'Luna'],
+        'Mars': ['Mangala', 'Mangal', 'Mars', 'Marte'], 'Mercury': ['Budha', 'Mercury', 'Mercurio'],
+        'Jupiter': ['Guru', 'Brihaspati', 'Jupiter', 'Giove'], 'Venus': ['Shukra', 'Venus', 'Venere'],
+        'Saturn': ['Shani', 'Saturn', 'Saturno'], 'Rahu': ['Rahu'], 'Ketu': ['Ketu']
+    };
+    const candidates = variants[name] || [name];
+    return JYOTISH_DATA.graha.find(g =>
+        candidates.includes(g.name) || candidates.includes(g.sanskrit) || candidates.includes(g.english)
+    ) || null;
+}
+function findDasha(name) {
+    if (!JYOTISH_DATA.loaded || !JYOTISH_DATA.dasha.length) return null;
+    return JYOTISH_DATA.dasha.find(d =>
+        d.planet === name || d.pianeta === name ||
+        (d.planet && d.planet.toLowerCase().includes(name.toLowerCase()))
+    ) || null;
+}
+
 // --- INTERPRETIVE READING ENGINE ---
 
 const RASHI_INTERPRETATIONS = {
@@ -741,6 +817,14 @@ const DASHA_INTERPRETATIONS = {
 };
 
 function generateReading(result, birthData) {
+    // If deep data is loaded, use the rich generator
+    if (JYOTISH_DATA.loaded) {
+        return generateDeepReading(result, birthData);
+    }
+    return generateBasicReading(result, birthData);
+}
+
+function generateBasicReading(result, birthData) {
     const ascRashi = result.ascendantRashi;
     const moon = result.planets.find(p => p.name === 'Moon');
     const sun = result.planets.find(p => p.name === 'Sun');
@@ -877,6 +961,329 @@ function generateReading(result, birthData) {
     sections.push({
         type: 'closing',
         content: `Ricorda: <em>"Un uomo saggio domina le stelle"</em> — ogni configurazione planetaria è un'opportunità di crescita. La pratica spirituale (meditazione, kriya yoga, mantra, donazioni, servizio) può modulare anche i transiti più difficili. Per un'analisi professionale completa, consulta un Jyotishi qualificato.`
+    });
+
+    return sections;
+}
+
+// === DEEP READING (uses rich JSON data) ===
+function generateDeepReading(result, birthData) {
+    const sections = [];
+    const ascRashi = result.ascendantRashi;
+    const moon = result.planets.find(p => p.name === 'Moon');
+    const sun = result.planets.find(p => p.name === 'Sun');
+    const moonRashi = getRashi(moon.longitude);
+    const sunRashi = getRashi(sun.longitude);
+    const moonNakIdx = result.moonNak.index;
+
+    const ascData = findRashi(ascRashi);
+    const moonRashiData = findRashi(moonRashi);
+    const sunRashiData = findRashi(sunRashi);
+    const nakData = findNakshatra(moonNakIdx);
+
+    // 1. INTRODUZIONE
+    sections.push({
+        type: 'intro',
+        content: `Questa è una lettura vedica approfondita della tua carta natale. Il Jyotish — la "scienza della luce" — interpreta il momento esatto della nascita come una mappa delle tendenze karmiche che ti accompagnano. Non è destino fisso: è il terreno su cui crescerai. Le scelte consapevoli, la pratica spirituale (mantra, meditazione, kriya), le donazioni e le gemme possono modulare ogni influenza planetaria. Come insegnano Sri Yukteswar e Yogananda nell'Autobiografia di uno Yogi, i pianeti sono <em>indicatori</em> del karma accumulato, non sue cause assolute. La lettura che segue integra le fonti classiche (Brihat Parashara Hora Shastra, Saravali, Phaladeepika) con la psicologia moderna e la prospettiva ayurvedica.`
+    });
+
+    // 2. LAGNA — APPROFONDIMENTO
+    if (ascData) {
+        const text = `<h5>Il segno che sorgeva all'orizzonte al tuo primo respiro</h5>
+<p><span class="key">Elemento:</span> ${ascData.elemento || ascData.element || '-'} | <span class="key">Modalità:</span> ${ascData.modalita || '-'} | <span class="key">Signore:</span> ${ascData.signore || '-'}</p>
+
+<h5>Psicologia profonda</h5>
+<p>${ascData.psicologia_profonda || ascData.psychology || ''}</p>
+
+<h5>Aspetto fisico</h5>
+<p>${ascData.aspetto_fisico || ascData.physicalAppearance || ''}</p>
+
+<h5>Forza nascosta</h5>
+<p>${ascData.forza_nascosta || ascData.hiddenStrength || ''}</p>
+
+<h5>Ombra da integrare</h5>
+<p>${ascData.ombra_da_integrare || ascData.shadowToIntegrate || ''}</p>
+
+<h5>Lezione spirituale</h5>
+<p>${ascData.lezione_spirituale || ascData.spiritualLesson || ''}</p>`;
+
+        sections.push({
+            icon: "🌅",
+            title: `Lagna (Ascendente) — ${ascData.nome || RASHIS[ascRashi].name} / ${ascData.italiano || RASHIS[ascRashi].western}`,
+            text
+        });
+    }
+
+    // 3. LUNA IN RASHI — APPROFONDIMENTO
+    if (moonRashiData) {
+        const text = `<h5>La tua mente, le tue emozioni, il tuo rapporto con la madre</h5>
+<p>Nel Jyotish la Luna è considerata spesso più importante del Sole per descrivere chi sei davvero, perché governa la <em>manas</em> (mente emotiva) e la natura più intima.</p>
+
+<h5>Psicologia lunare</h5>
+<p>${moonRashiData.psicologia_profonda || moonRashiData.psychology || ''}</p>
+
+<h5>Vita relazionale</h5>
+<p>${moonRashiData.vita_relazionale || moonRashiData.relationships || ''}</p>
+
+<h5>Salute (zone del corpo, dosha ayurvedico)</h5>
+<p>${moonRashiData.salute || moonRashiData.health || ''}</p>`;
+
+        sections.push({
+            icon: "🌙",
+            title: `Luna in ${moonRashiData.nome || RASHIS[moonRashi].name} — Janma Rashi`,
+            text
+        });
+    }
+
+    // 4. NAKSHATRA — APPROFONDIMENTO
+    if (nakData) {
+        const padaInfo = nakData.padas && nakData.padas[result.moonNak.pada - 1];
+        const padaText = padaInfo ?
+            `<h5>Pada ${result.moonNak.pada} (il quarto specifico della Nakshatra in cui è la tua Luna)</h5>
+<p>${padaInfo.descrizione || padaInfo.description || padaInfo.testo || JSON.stringify(padaInfo)}</p>` : '';
+
+        const classifications = nakData.classifications || nakData.classificazioni || {};
+        const classText = Object.keys(classifications).length > 0 ?
+            `<h5>Classificazioni vediche</h5><p>` +
+            Object.entries(classifications).map(([k, v]) =>
+                `<span class="key">${k.charAt(0).toUpperCase() + k.slice(1)}:</span> ${v}`
+            ).join(' | ') + `</p>` : '';
+
+        const text = `<h5>Mito vedico</h5>
+<p>${nakData.mito || nakData.myth || ''}</p>
+
+<h5>Shakti — il potere specifico</h5>
+<p>${nakData.shakti || ''}</p>
+
+<h5>La tua personalità lunare profonda</h5>
+<p>${nakData.personality || nakData.personalita || ''}</p>
+
+<h5>Tema karmico centrale</h5>
+<p>${nakData.karmicTheme || nakData.tema_karmico || ''}</p>
+
+${padaText}
+
+${classText}
+
+<h5>Carriera e dharma</h5>
+<p>${nakData.career || nakData.carriera || ''}</p>
+
+<h5>Relazioni</h5>
+<p>${nakData.relationships || nakData.relazioni || ''}</p>
+
+<h5>Salute</h5>
+<p>${nakData.health || nakData.salute || ''}</p>`;
+
+        sections.push({
+            icon: "✨",
+            title: `Janma Nakshatra — ${nakData.nome || nakData.name || NAKSHATRAS[moonNakIdx].name}`,
+            text
+        });
+    }
+
+    // 5. SOLE — più conciso
+    if (sunRashiData) {
+        const text = `<h5>L'anima (atman), l'autorità, il rapporto con il padre</h5>
+<p>${sunRashiData.psicologia_profonda?.substring(0, 600) + '...' || sunRashiData.psychology || ''}</p>
+
+<h5>Carriera (espressione solare)</h5>
+<p>${sunRashiData.carriera_dharma?.substring(0, 500) + '...' || sunRashiData.career || ''}</p>`;
+
+        sections.push({
+            icon: "☉",
+            title: `Sole in ${sunRashiData.nome || RASHIS[sunRashi].name}`,
+            text
+        });
+    }
+
+    // 6. PIANETI NELLE CASE (analisi pianeta per pianeta)
+    const planetSections = [];
+    result.planets.forEach(p => {
+        const grahaData = findGraha(p.name);
+        if (!grahaData) return;
+        const houseFromAsc = ((getRashi(p.longitude) - ascRashi) + 12) % 12 + 1; // 1-12
+        const inHouseDesc = grahaData.inHouses?.[String(houseFromAsc)] || grahaData.in_houses?.[String(houseFromAsc)];
+        if (!inHouseDesc) return;
+
+        const planetName = PLANET_NAMES_IT[p.name] || p.name;
+        const symbol = PLANET_SYMBOLS[p.name] || '';
+        const rashiName = RASHIS[getRashi(p.longitude)].name;
+
+        planetSections.push(`<div class="planet-block">
+            <h5>${symbol} ${planetName} in ${houseFromAsc}ª casa (${rashiName})${p.retro ? ' — ℞' : ''}</h5>
+            <p>${inHouseDesc}</p>
+        </div>`);
+    });
+
+    if (planetSections.length > 0) {
+        sections.push({
+            icon: "🪐",
+            title: "Pianeti nelle Case del tuo Kundli",
+            text: `<p>Ogni pianeta, secondo la casa in cui si trova al momento della nascita, attiva specifiche aree della vita. Ecco come ciascun Graha si manifesta nella tua mappa:</p>` +
+                planetSections.join('')
+        });
+    }
+
+    // 7. MAHADASHA ATTIVA — APPROFONDIMENTO
+    const now = new Date();
+    const activeDasha = result.dashas.find(d => now >= d.start && now < d.end);
+    if (activeDasha) {
+        const dashaData = findDasha(activeDasha.planet);
+        const yearsLeft = ((activeDasha.end - now) / (365.25 * 24 * 60 * 60 * 1000)).toFixed(1);
+
+        let text = `<p>Stai attraversando il <span class="highlight">Mahadasha di ${activeDasha.planet}</span>, iniziato il ${activeDasha.start.toLocaleDateString('it-IT')} e che terminerà il ${activeDasha.end.toLocaleDateString('it-IT')} (mancano circa ${yearsLeft} anni).</p>`;
+
+        if (dashaData) {
+            text += `<h5>Panoramica del periodo</h5>
+<p>${dashaData.overview || dashaData.descrizione || ''}</p>`;
+
+            if (dashaData.lifeAreasActive || dashaData.aree_vita_attive) {
+                const areas = dashaData.lifeAreasActive || dashaData.aree_vita_attive;
+                text += `<h5>Aree della vita attive ora</h5>
+<p>${Array.isArray(areas) ? areas.join(' • ') : areas}</p>`;
+            }
+
+            if (dashaData.karmicTest || dashaData.test_karmico) {
+                text += `<h5>Test karmico tipico</h5>
+<p>${dashaData.karmicTest || dashaData.test_karmico}</p>`;
+            }
+
+            if (dashaData.doList || dashaData.fare) {
+                const list = dashaData.doList || dashaData.fare;
+                text += `<h5>Cosa coltivare</h5>
+<ul>` + (Array.isArray(list) ? list : [list]).map(i => `<li>${i}</li>`).join('') + `</ul>`;
+            }
+
+            if (dashaData.avoidList || dashaData.evitare) {
+                const list = dashaData.avoidList || dashaData.evitare;
+                text += `<h5>Cosa evitare</h5>
+<ul>` + (Array.isArray(list) ? list : [list]).map(i => `<li>${i}</li>`).join('') + `</ul>`;
+            }
+
+            if (dashaData.spiritualPractices || dashaData.pratiche_spirituali) {
+                text += `<h5>Pratiche spirituali consigliate</h5>
+<p>${dashaData.spiritualPractices || dashaData.pratiche_spirituali}</p>`;
+            }
+        }
+
+        sections.push({
+            icon: "⏳",
+            title: `Mahadasha Attiva — ${activeDasha.planet}`,
+            text
+        });
+    }
+
+    // 8. CASE PIÙ ATTIVE
+    const planetCounts = {};
+    result.planets.forEach(p => {
+        const houseFromAsc = ((getRashi(p.longitude) - ascRashi) + 12) % 12 + 1;
+        planetCounts[houseFromAsc] = (planetCounts[houseFromAsc] || 0) + 1;
+    });
+    const strongHouses = Object.entries(planetCounts).sort((a,b) => b[1] - a[1]).filter(([_,c]) => c >= 2).slice(0, 4);
+
+    if (strongHouses.length > 0) {
+        let text = `<p>Le aree della vita più "popolate" da pianeti — quindi più attive nel tuo karma:</p>`;
+        strongHouses.forEach(([h, count]) => {
+            const num = parseInt(h);
+            const bhavaData = findBhava(num);
+            if (bhavaData) {
+                text += `<div class="planet-block">
+                    <h5>${num}ª — ${bhavaData.sanskrit} / ${bhavaData.name} (${count} pianeti)</h5>
+                    <p><span class="key">Significazioni primarie:</span> ${Array.isArray(bhavaData.primaryMeanings) ? bhavaData.primaryMeanings.join(', ') : bhavaData.primaryMeanings}</p>
+                    <p><span class="key">Karaka (significatore):</span> ${typeof bhavaData.karaka === 'object' ? bhavaData.karaka.pianeta || bhavaData.karaka.planet : bhavaData.karaka}</p>
+                    <p>${bhavaData.secondaryMeanings ? (Array.isArray(bhavaData.secondaryMeanings) ? bhavaData.secondaryMeanings.join('. ') : bhavaData.secondaryMeanings) : ''}</p>
+                </div>`;
+            }
+        });
+        sections.push({
+            icon: "🏠",
+            title: "Case Karmicamente Attive",
+            text
+        });
+    }
+
+    // 9. YOGA E DOSHA
+    if (result.yogas.length > 0) {
+        const positive = result.yogas.filter(y => y.positive);
+        const challenges = result.yogas.filter(y => !y.positive);
+        let text = '';
+        if (positive.length > 0) {
+            text += `<h5>Combinazioni favorevoli rilevate</h5>`;
+            positive.forEach(y => {
+                text += `<div class="planet-block"><strong>${y.name}</strong><p>${y.description}</p></div>`;
+            });
+        }
+        if (challenges.length > 0) {
+            text += `<h5 style="margin-top:1rem;">Aree di attenzione</h5>`;
+            challenges.forEach(y => {
+                text += `<div class="planet-block warning"><strong>${y.name}</strong><p>${y.description}</p></div>`;
+            });
+            text += `<p><em>I dosha non sono "maledizioni": sono tensioni karmiche che richiedono consapevolezza. Mantra, puja, gemme, donazioni e disciplina spirituale modulano il loro effetto. Il libero arbitrio resta sovrano.</em></p>`;
+        }
+
+        sections.push({
+            icon: "🔗",
+            title: "Yoga e Combinazioni Significative",
+            text
+        });
+    }
+
+    // 10. RIMEDI CONSOLIDATI
+    if (ascData?.rimedi) {
+        const r = ascData.rimedi;
+        let text = `<p>I rimedi vedici tradizionali per il tuo Lagna (${ascData.nome || RASHIS[ascRashi].name}):</p>
+<table style="width:100%; border-collapse:collapse; margin-top:0.5rem;">
+<tr><td style="padding:6px; color:var(--gold-light); width:140px;">Mantra</td><td style="padding:6px;">${r.mantra || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Divinità</td><td style="padding:6px;">${r.divinita || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Gemma</td><td style="padding:6px;">${r.gemma || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Yantra</td><td style="padding:6px;">${r.yantra || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Colore</td><td style="padding:6px;">${r.colore || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Giorno</td><td style="padding:6px;">${r.giorno || ''}</td></tr>
+<tr><td style="padding:6px; color:var(--gold-light);">Donazione</td><td style="padding:6px;">${r.donazione || ''}</td></tr>
+</table>`;
+
+        if (nakData?.remedies) {
+            const nr = nakData.remedies;
+            text += `<h5 style="margin-top:1.5rem;">Rimedi specifici per la tua Janma Nakshatra (${nakData.nome || nakData.name})</h5>
+<p><span class="key">Mantra:</span> ${nr.mantra || ''}<br>
+<span class="key">Divinità:</span> ${nr.deity || nr.divinita || ''}<br>
+<span class="key">Gemma:</span> ${nr.gemstone || nr.gemma || ''}<br>
+<span class="key">Donazione:</span> ${nr.donation || nr.donazione || ''}</p>`;
+        }
+
+        sections.push({
+            icon: "🕉",
+            title: "Rimedi Vedici Personalizzati",
+            text
+        });
+    }
+
+    // 11. PERSONAGGI FAMOSI
+    if (ascData?.personaggi_famosi || ascData?.famousFigures || nakData?.famousFigures) {
+        const ascF = ascData?.personaggi_famosi || ascData?.famousFigures || [];
+        const nakF = nakData?.famousFigures || [];
+
+        let text = `<p>Persone note nate con configurazioni simili alla tua:</p>`;
+        if (ascF.length > 0) {
+            text += `<h5>Lagna ${ascData.nome || RASHIS[ascRashi].name}</h5>
+<p>${(Array.isArray(ascF) ? ascF : [ascF]).join(' · ')}</p>`;
+        }
+        if (nakF.length > 0) {
+            text += `<h5>Janma Nakshatra ${nakData.nome || nakData.name}</h5>
+<p>${(Array.isArray(nakF) ? nakF : [nakF]).join(' · ')}</p>`;
+        }
+
+        sections.push({
+            icon: "🌟",
+            title: "Persone con Configurazioni Simili",
+            text
+        });
+    }
+
+    // CONCLUSIONE
+    sections.push({
+        type: 'closing',
+        content: `<em>"Un uomo saggio domina le stelle"</em>: ogni configurazione planetaria è un'opportunità di crescita. La pratica spirituale — meditazione, Kriya Yoga, mantra, donazioni, servizio (seva) — può modulare anche i transiti più severi. Per un'analisi completa di transiti, divisional charts (Navamsa, Dasamsa) e antardasha specifiche, consulta un Jyotishi qualificato. Questa lettura è uno specchio: usalo per vedere meglio, non per inchiodarti a un'immagine fissa.`
     });
 
     return sections;
@@ -1226,18 +1633,12 @@ function generatePDF() {
 
     sections.forEach(s => {
         const titleText = s.type === 'intro' ? 'Introduzione' : (s.type === 'closing' ? 'Conclusione' : `${s.icon} ${s.title}`);
-        const bodyText = stripHtml(s.content || s.text);
+        const rawText = s.content || s.text;
 
-        // Estimate space needed
-        const wrapped = doc.splitTextToSize(bodyText, pageW - 2*margin - 8);
-        const neededSpace = 14 + wrapped.length * 4.5;
+        // Page break check before title
+        if (y > pageH - 30) { doc.addPage(); y = margin; }
 
-        if (y + neededSpace > pageH - 20) {
-            doc.addPage();
-            y = margin;
-        }
-
-        // Title
+        // Title bar
         doc.setFillColor(245, 240, 255);
         doc.rect(margin, y - 4, pageW - 2*margin, 9, 'F');
         doc.setDrawColor(...VIOLET);
@@ -1251,12 +1652,40 @@ function generatePDF() {
 
         y += 10;
 
-        // Body
-        doc.setFontSize(9.5);
-        doc.setTextColor(...TEXT);
-        doc.setFont('helvetica', 'normal');
-        doc.text(wrapped, margin + 4, y);
-        y += wrapped.length * 4.5 + 6;
+        // Parse HTML structure for rich PDF rendering
+        // Replace tags with markers
+        const blocks = rawText.split(/<h5[^>]*>(.*?)<\/h5>/gi);
+        // blocks alternates between text and h5-content
+
+        for (let bi = 0; bi < blocks.length; bi++) {
+            const isHeader = bi % 2 === 1;
+            const txt = stripHtml(blocks[bi]).replace(/\s+/g, ' ').trim();
+            if (!txt) continue;
+
+            if (isHeader) {
+                // Render as bold sub-heading
+                if (y > pageH - 20) { doc.addPage(); y = margin; }
+                doc.setFontSize(10);
+                doc.setTextColor(...DARK);
+                doc.setFont('helvetica', 'bold');
+                const wrapped = doc.splitTextToSize(txt, pageW - 2*margin - 8);
+                doc.text(wrapped, margin + 4, y);
+                y += wrapped.length * 4.5 + 2;
+            } else {
+                doc.setFontSize(9.5);
+                doc.setTextColor(...TEXT);
+                doc.setFont('helvetica', 'normal');
+                const wrapped = doc.splitTextToSize(txt, pageW - 2*margin - 8);
+                // Render line by line with page-break check
+                wrapped.forEach(line => {
+                    if (y > pageH - 15) { doc.addPage(); y = margin; }
+                    doc.text(line, margin + 4, y);
+                    y += 4.5;
+                });
+                y += 3;
+            }
+        }
+        y += 5;
     });
 
     // === FOOTER on every page ===
@@ -1279,6 +1708,7 @@ function generatePDF() {
 
 // --- EVENT HANDLERS ---
 document.addEventListener('DOMContentLoaded', () => {
+    loadJyotishData(); // async, non blocca
     renderNakshatraGrid();
     setupNavigation();
     setupCitySuggestions();

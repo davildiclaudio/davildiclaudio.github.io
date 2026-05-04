@@ -1,0 +1,589 @@
+{
+  "_meta": {
+    "section": "Sezione 5 — Vimshottari Dasha (i 9 Mahadasha planetari)",
+    "fonti": ["Brihat Parashara Hora Shastra (cap. 46-50)", "Phaladeepika (cap. XIX)", "Jataka Parijata", "Saravali", "Vimshottari Dasha Phala (K.N. Rao)", "Predictive Techniques (B.V. Raman)"],
+    "note": "Il sistema Vimshottari distribuisce 120 anni della vita umana fra i 9 Graha secondo l'asse del Nakshatra lunare di nascita. Ogni Mahadasha imprime un colore karmico dominante; l'esperienza concreta è poi modulata dagli Antardasha (sotto-periodi), Pratyantardasha e dalla forza/posizione del pianeta nel tema natale. Le indicazioni che seguono integrano la tradizione classica con la lettura psicologica moderna (Sanjay Rath, Komilla Sutton, James Braha)."
+  },
+  "vimshottari_sequence": ["Ketu", "Venere", "Sole", "Luna", "Marte", "Rahu", "Giove", "Saturno", "Mercurio"],
+  "totale_anni": 120,
+  "mahadasha": [
+    {
+      "planet": "Sole",
+      "sanskrit": "Surya Mahadasha",
+      "years": 6,
+      "overview": "Il Mahadasha del Sole è un periodo breve ma intenso, una sorta di iniziazione al principio dell'autorità interiore. Sei anni in cui l'anima viene chiamata a definire chi è, cosa rappresenta e quale fuoco intende portare nel mondo. Surya è l'Atmakaraka archetipico, il significatore dell'Io, del padre, del re, del potere visibile, della reputazione e della colonna vertebrale della personalità. Quando il Sole prende il timone come Mahadasha, la psiche si organizza attorno a una domanda silenziosa ma incessante: 'Sono io davvero il sovrano della mia vita o sto solo recitando un copione altrui?'. Il sapore karmico è quello di un esame regale: tutto ciò che è autentico viene consolidato, tutto ciò che è imitazione cade. Parashara descrive questo Dasha come un periodo in cui il nato 'ottiene il favore di re e di uomini di potere' se Surya è ben posizionato, oppure 'soffre di malattie alla testa, perdita di status e conflitti con superiori' se debilitato o afflitto. Sul piano collettivo questo Mahadasha tende a portare visibilità, riconoscimenti pubblici, posizioni di responsabilità, ma anche tensioni con figure autoritarie (padre, capo, governo). È un periodo che brucia il superfluo: relazioni, lavori, identità che non corrispondono al dharma vengono dismessi, talvolta brutalmente. Sul piano psicologico è il tempo in cui la persona impara a smettere di chiedere permesso. L'energia solare richiede un atto di affermazione consapevole: chi resta nell'ombra subisce il Dasha come ferita narcisistica, chi lo cavalca lo trasforma in coronazione. Spiritualmente è la fase in cui il sadhaka è invitato ad accendere il fuoco interiore (Atma-jyoti) e a riconoscere il Sé come scintilla del Brahman. La qualità Sattva-Rajas del Sole spinge verso l'ordine, la disciplina, la verticalità; chi vive questo Dasha in chiave bassa diventa rigido, arrogante, autoritario; chi lo vive alto diventa nobile, generoso, irradiante.",
+      "lifeAreasActive": [
+        "Identità personale e definizione del Sé pubblico",
+        "Carriera, posizione sociale, riconoscimenti istituzionali",
+        "Rapporto con il padre, con figure paterne e con l'autorità in genere",
+        "Salute della colonna vertebrale, del cuore, degli occhi (specie il destro nell'uomo)",
+        "Politica, governo, rapporti con lo Stato, posizioni dirigenziali",
+        "Vitalità fisica, ojas, sistema immunitario",
+        "Reputazione, visibilità, esposizione mediatica",
+        "Relazione con il figlio primogenito (in alcuni testi)"
+      ],
+      "karmicTest": "Il Sole viene a chiedere: 'Hai il coraggio di essere chi sei davvero, anche se questo significa deludere chi ti ha addestrato a essere altro?'. È un test sulla sovranità interiore. Chi durante il Dasha continua a vivere la vita di qualcun altro — del padre, del partner, del sistema — sperimenta crisi di identità, depressioni autunnali, problemi cardiaci o vertebrali (il Sole governa la colonna). Chi accetta la chiamata vede emergere una versione più centrata, dignitosa, regale di sé. Il test secondario riguarda l'ego: il Sole purifica attraverso il fuoco dell'esposizione, e ogni residuo di vanità, presunzione o falsa umiltà viene messo a nudo.",
+      "favorableAntardashas": [
+        "Sole-Giove: il più nobile in assoluto. Espansione del dharma, riconoscimenti, figli, viaggi spirituali, contatti con maestri. Giove come 5° amico naturale del Sole apre saggezza e fortuna.",
+        "Sole-Marte: alleati di fuoco. Ottimo per progetti coraggiosi, iniziative imprenditoriali, vittorie su rivali, miglioramenti fisici. Energia esecutiva al picco.",
+        "Sole-Luna: equilibrio yin-yang. Buono per famiglia, casa, riconoscimento popolare. Se Luna è forte porta supporto femminile e successo pubblico.",
+        "Sole-Mercurio: Budhaditya Yoga in azione — intelligenza brillante, contratti, comunicazione strategica, successi accademici."
+      ],
+      "challengingAntardashas": [
+        "Sole-Saturno: lo scontro padre-tempo. Conflitti con superiori, ostacoli istituzionali, lentezza, rischio di umiliazioni pubbliche. È l'antardasha della prova del re.",
+        "Sole-Venere: Venere e Sole sono nemici naturali. Tensioni coniugali, dilemmi fra dovere pubblico e desiderio privato, rischio di scandali sentimentali.",
+        "Sole-Rahu: eclissi simbolica. Confusione identitaria, ambizioni distorte, esposizione a inganni, problemi reputazionali se Rahu è in case malefiche.",
+        "Sole-Ketu: Surya-Grahan Dosha. Senso di invisibilità, perdita di motivazione, distacco improvviso dal lavoro, crisi spirituale o fisica."
+      ],
+      "doList": [
+        "Definire con chiarezza la propria visione professionale e perseguirla senza compromessi",
+        "Coltivare il rapporto con il padre o, se assente, fare un lavoro simbolico sul padre interiore",
+        "Esporsi pubblicamente, parlare in pubblico, candidarsi, prendere posizione",
+        "Praticare Surya Namaskar al sorgere del sole ogni giorno",
+        "Bere acqua da un recipiente di rame caricato al sole (Surya Arghya)",
+        "Indossare colori solari (oro, ocra, arancio, rosso) nei momenti chiave",
+        "Sostenere figure più giovani come un re sostiene il proprio successore",
+        "Sviluppare la postura: testa alta, spalle aperte, sterno esposto",
+        "Curare la salute cardiovascolare con esercizio regolare e respirazione",
+        "Onorare Vishnu, Rama, Surya Bhagavan attraverso rituali domenicali"
+      ],
+      "avoidList": [
+        "Servilismo, sottomissione cronica, accettazione di ruoli umilianti",
+        "Conflitti diretti con il governo, lo Stato, le istituzioni (perdite probabili)",
+        "Eccessi di carne rossa, alcolici e cibi che surriscaldano il fegato",
+        "Presunzione, arroganza, atteggiamenti dittatoriali in famiglia o al lavoro",
+        "Esposizione solare eccessiva senza protezione (rischio infiammazioni)",
+        "Bugie pubbliche o nascondere informazioni cruciali (vengono smascherate)",
+        "Trascurare il cuore — sia organicamente che simbolicamente"
+      ],
+      "spiritualPractices": [
+        "Aditya Hridayam Stotram (l'inno che Agastya insegnò a Rama prima dello scontro con Ravana) ogni mattina",
+        "Mantra: 'Om Hram Hreem Hraum Sah Suryaya Namah' — 7000 ripetizioni nel ciclo del Dasha, almeno 108 al giorno la domenica",
+        "Gayatri Mantra all'alba (sandhya-vandana), che è il mantra solare per eccellenza",
+        "Donazioni di domenica: grano, jaggery, rame, vesti rosse, miele a brahmini o anziani",
+        "Digiuno solare la domenica (un solo pasto prima del tramonto)",
+        "Visualizzazione del Sole d'oro nel chakra Anahata (cuore) durante la meditazione",
+        "Pellegrinaggio al tempio di Konark (Odisha) o a Suryanar Koil (Tamil Nadu) almeno una volta nel Dasha"
+      ],
+      "healthFocus": "Cuore, sistema circolatorio, colonna vertebrale (specie cervicale e lombare), occhi, stomaco superiore, ossa in generale, sistema immunitario. Predisposizione a ipertensione, aritmie, problemi alla vista, mal di schiena, calo di vitalità, calvizia precoce nei maschi. È fondamentale curare il fegato (organo solare per Ayurveda) e il pranamaya kosha attraverso il pranayama. Pitta tende ad aumentare: dieta rinfrescante, evitare cibi piccanti, idratarsi abbondantemente. Esercizio cardiovascolare regolare e esposizione solare moderata al mattino sono terapeutici.",
+      "careerImplications": "È il Dasha della consacrazione professionale o, all'opposto, della grande caduta. Possibili promozioni a ruoli dirigenziali, fondazione di aziende proprie, ingresso in politica, riconoscimenti pubblici, premi. Per artisti e performer: visibilità mediatica significativa. Per imprenditori: il momento di assumere la leadership senza più nascondersi. Rischio: se Surya è debilitato, combusto o in dusthana (6/8/12), il periodo porta licenziamenti, perdita di reputazione, conflitti con il capo, problemi legali con istituzioni. Strategia: agire da re, non da suddito; chiedere ciò che si merita; non temere l'esposizione.",
+      "relationshipImplications": "Il Sole non è un pianeta gentile per le relazioni. Tende a portare in primo piano la dimensione del dovere, della responsabilità verso la famiglia d'origine, della reputazione coniugale. Possibili tensioni con il partner se uno dei due ha bisogno di brillare a scapito dell'altro. Per le donne: confronto importante con la figura paterna, anche simbolica (capo, marito autoritario, padre). Per gli uomini: il Dasha può coincidere con la nascita del primo figlio o con un confronto generazionale con il proprio padre. Le amicizie subiscono una selezione: chi non rispetta la sovranità del nato si allontana naturalmente.",
+      "famousExample": "Narendra Modi ha vissuto il proprio Mahadasha del Sole in un periodo di consolidamento politico decisivo, culminato con l'ascesa a Primo Ministro dell'India. Il suo Surya esaltato in casa angolare ha trasformato il Dasha solare in una vera e propria coronazione politica, mostrando come questo periodo, quando il Sole è ben posizionato, possa elevare il nato a posizioni di potere supremo."
+    },
+    {
+      "planet": "Luna",
+      "sanskrit": "Chandra Mahadasha",
+      "years": 10,
+      "overview": "Il Mahadasha della Luna è il periodo dell'anima sentimentale, della casa, della madre, dell'acqua, del femminile profondo. Dieci anni in cui la psiche si reimpasta, il mondo emotivo diventa il vero protagonista della vita e il nato è chiamato a sviluppare un rapporto maturo con i propri stati d'animo. Chandra è il significatore della mente (manas), del cuore emotivo, della madre biologica e archetipica, del pubblico, del nutrimento, del riflesso. Quando la Luna prende il governo, ogni esperienza viene filtrata attraverso il sentire prima che attraverso il pensare. Parashara afferma che il Dasha della Luna ben posizionata porta 'gioia, prosperità, nascita di figli, acquisizione di beni, fama presso il popolo, viaggi vicino all'acqua e devozione verso la madre'. Se la Luna è debole, scura (Krishna Paksha vicino al novilunio), debilitata (Vrischika) o afflitta da Saturno/Rahu/Ketu, il periodo può manifestarsi come depressione, instabilità emotiva, oscillazioni di umore, problemi materni, difficoltà finanziarie legate al pubblico. Sul piano archetipico è il Dasha che riapre tutte le ferite legate al nutrimento primario: chi ha avuto una madre assente, intrusiva o ferita, durante questo periodo rivive le dinamiche di attaccamento con partner, datori di lavoro, figli. È anche il tempo in cui il femminile interiore (Anima junghiana) chiede integrazione, sia nell'uomo che nella donna. Sul piano materiale, la Luna governa i fluidi (denaro liquido, sangue, latte), i prodotti agricoli, l'arte, la poesia, la psicologia, il mare. Molti scrittori, artisti, terapeuti e cuochi vivono i propri salti professionali in Chandra Dasha. Sul piano spirituale è la fase del Bhakti puro: devozione, lacrime, abbandono, ritualità domestica. La pratica chiave è imparare a stare con le emozioni senza esserne travolti — a contemplarle come la luna contempla l'oceano, partecipe ma non sommersa.",
+      "lifeAreasActive": [
+        "Vita emotiva, sentimenti, sensibilità, intuizione",
+        "Casa, dimora, immobili, spostamenti residenziali",
+        "Rapporto con la madre e con il femminile interiore",
+        "Salute mentale, sonno, sistema linfatico e fluidi corporei",
+        "Maternità, gravidanza, allattamento, relazione con i figli piccoli",
+        "Pubblico di massa, popolarità, social media, fan base",
+        "Ambiti artistici e creativi (poesia, musica, danza, cucina)",
+        "Acque, viaggi via mare, attività in zone costiere",
+        "Vita psichica, sogni, mondo onirico, immaginazione"
+      ],
+      "karmicTest": "La Luna chiede: 'Sai nutrirti emotivamente o dipendi dal nutrimento altrui per esistere?'. È il test della maturità affettiva. Chi entra nel Dasha lunare con un Io emotivamente fragile sperimenta crolli, ansia, attacchi di panico, dipendenze affettive. Chi ha lavorato sulla propria interiorità riceve una decuplicazione della sensibilità intuitiva, del magnetismo personale, della capacità di toccare i cuori. Test secondario: il rapporto con la madre. Tutte le ferite materne irrisolte tornano a galla — spesso attraverso il partner, il capo, i figli. La Luna non punisce: rivela. Ciò che era nascosto nell'inconscio viene a galla come acqua di marea, e chiede di essere visto, sentito, attraversato.",
+      "favorableAntardashas": [
+        "Luna-Giove: Gajakesari Yoga attivato. Il sotto-periodo più benefico. Espansione, fortuna, figli, saggezza, prosperità materna, riconoscimenti.",
+        "Luna-Venere: amore, matrimonio, bellezza, lusso, arte, viaggi romantici. Magnetismo erotico al massimo.",
+        "Luna-Marte: Chandra-Mangala Yoga — denaro, immobili, energia emotiva costruttiva, vittorie su nemici nascosti.",
+        "Luna-Mercurio: intelligenza emotiva fluida, scrittura, contratti, comunicazione efficace, successi commerciali."
+      ],
+      "challengingAntardashas": [
+        "Luna-Saturno: Vish Yoga (combinazione velenosa). Depressione, isolamento, freddo emotivo, lutti, problemi materni, malinconia profonda.",
+        "Luna-Rahu: Grahan Yoga emotivo. Confusione mentale, sogni inquietanti, dipendenze, ossessioni amorose, paranoia.",
+        "Luna-Ketu: distacchi improvvisi, perdita di riferimenti emotivi, crisi spirituali, sensazione di vuoto.",
+        "Luna-Sole: tensione fra ruolo pubblico e bisogni emotivi, problemi con il padre, calo di vitalità."
+      ],
+      "doList": [
+        "Lavorare sulle ferite materne con terapia, costellazioni familiari o ritualità di guarigione",
+        "Costruire o ristrutturare la propria casa: è il momento dell'incarnazione del nido",
+        "Coltivare un'arte espressiva (scrittura, canto, danza, pittura, cucina)",
+        "Bere acqua pura a sufficienza, fare bagni di luna piena, frequentare specchi d'acqua",
+        "Pregare la Madre Divina (Lakshmi, Parvati, Durga, Madre Maria) ogni lunedì",
+        "Tenere un diario dei sogni: la Luna parla attraverso il sonno",
+        "Indossare perle naturali o argento, specie a contatto con la pelle",
+        "Onorare la madre biologica (anche se il rapporto è ferito) con piccoli gesti regolari",
+        "Praticare Chandra Bhedana pranayama per equilibrare il sistema nervoso",
+        "Aprire la sensibilità alle persone vulnerabili, ai bambini, agli animali"
+      ],
+      "avoidList": [
+        "Isolarsi in stati emotivi cupi senza chiedere aiuto",
+        "Cibi vecchi, conservati, freddi (depotenziano l'energia lunare)",
+        "Alcol e sostanze psicotrope (la Luna è già porosa, l'eccesso destabilizza)",
+        "Litigare con la madre o con figure femminili importanti",
+        "Trasferimenti impulsivi di residenza senza riflessione",
+        "Esposizione eccessiva ai social media e alla negatività di massa",
+        "Trascurare il sonno: la Luna governa il riposo riparatore"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Shraam Shreem Shraum Sah Chandraya Namah' — 11000 ripetizioni nel Dasha, 108 al giorno il lunedì",
+        "Chandra Gayatri: 'Om Padmadhwajaya Vidmahe, Hema Roopaya Dheemahi, Tanno Soma Prachodayat'",
+        "Devi Mahatmyam (Durga Saptashati) durante Navaratri",
+        "Bhakti yoga: kirtan, canti devozionali alla Madre Divina, mantra di Krishna bambino",
+        "Digiuno del lunedì dedicato a Shiva (lo sposo della Luna), con un solo pasto serale",
+        "Donazioni: riso bianco, latte, perle, vestiti bianchi, zucchero a donne anziane il lunedì",
+        "Meditazione sulla luce lunare riflessa nell'acqua come simbolo della coscienza pura"
+      ],
+      "healthFocus": "Mente, sistema nervoso, sonno, fluidi corporei (sangue, linfa, plasma cerebrospinale), seno, stomaco, polmoni (parte fluida), reni. Predisposizione a depressione, ansia, disturbi del sonno, problemi mestruali, ritenzione idrica, edemi, allergie, anemia. Per le donne: cicli mestruali irregolari, fertilità altalenante. Ayurveda: Kapha tende ad aumentare se la Luna è in segni d'acqua/terra, Vata se è afflitta da Saturno o Rahu. Cura: tisane di basilico santo (tulsi), latte caldo con curcuma, abhyanga con olio di cocco, esposizione alla luna piena, passeggiate in riva all'acqua.",
+      "careerImplications": "Periodo eccellente per professioni legate al pubblico, alle masse, al femminile, all'acqua: politica popolare, marketing, comunicazione, psicologia, terapia, infermieristica, ostetricia, gastronomia, hôtellerie, settore immobiliare residenziale, scrittura narrativa, musica, cosmetica, prodotti per l'infanzia, agricoltura, allevamento. Spesso porta cambi di sede lavorativa, trasferimenti, lavori da casa. Se la Luna è forte: popolarità crescente, fanbase, viralità. Se è debole: instabilità professionale, frequenti cambi di lavoro, sensazione di non trovare il proprio posto.",
+      "relationshipImplications": "Il Dasha più importante per la vita affettiva. Possibili: matrimonio, nascita di figli, costruzione della famiglia, profonda connessione emotiva con il partner. Le relazioni si misurano sulla capacità di accogliere e farsi accogliere a livello emotivo profondo. Rischio: scegliere partner basandosi sul bisogno di nutrimento materno irrisolto, ricreando dinamiche infantili. La maturazione richiesta è quella di passare dalla dipendenza affettiva all'interdipendenza adulta. Per chi è in coppia da tempo: il Dasha rivela se la relazione regge la profondità o se è basata su una superficialità che non basta più.",
+      "famousExample": "Rabindranath Tagore, premio Nobel per la letteratura, ha vissuto buona parte della propria fioritura poetica e spirituale durante il Mahadasha della Luna. La sua Luna esaltata in Vrishabha ha alimentato una sensibilità lirica, una connessione con la Madre Divina e una popolarità di massa che hanno reso la sua opera un ponte fra Oriente e Occidente. Il Dasha lunare ha trasformato la sua vita in poesia incarnata."
+    },
+    {
+      "planet": "Marte",
+      "sanskrit": "Mangala Mahadasha",
+      "years": 7,
+      "overview": "Il Mahadasha di Marte è un periodo di sangue, fuoco, azione e rottura. Sette anni in cui la kundalini marziale risveglia il guerriero interiore e costringe l'anima a confrontarsi con la propria capacità di affermarsi, lottare e prendere terreno. Mangala è il significatore del coraggio, dei fratelli (specie minori), della terra, della proprietà immobiliare, dello sport, del sangue, del sistema muscolare, dell'energia sessuale maschile, dei chirurghi, dei militari, dei poliziotti. Quando Marte governa, ogni latente conflitto irrisolto sale in superficie e chiede risoluzione attraverso l'azione. Parashara descrive il Dasha di Marte ben posizionato come portatore di 'vittoria sui nemici, acquisizione di terra, ricchezza, coraggio, posizione di comando'. Se Marte è debilitato (Cancro), combusto, in dusthana o afflitto da Saturno, il periodo porta 'incidenti, ferite da arma o fuoco, cause legali, conflitti familiari, perdite di sangue, operazioni chirurgiche'. Sul piano psicologico è il tempo della verità sulla propria aggressività: chi ha rimosso il Marte interiore esplode in modi disfunzionali (rabbia improvvisa, incidenti, malattie infiammatorie); chi ha integrato il guerriero diventa magneticamente decisivo. Il sapore karmico è quello del campo di battaglia di Kurukshetra: ogni attaccamento sentimentale che ostacola il dharma viene tagliato come Arjuna taglia i propri dubbi sotto la guida di Krishna. È il Dasha delle scelte radicali: divorzi, dimissioni, trasferimenti, fondazioni di imprese, separazioni nette dal passato. Spiritualmente è la fase del tapas: il fuoco asceta che brucia gli avanzi del karma. Hanuman, Kartikeya/Subrahmanya e Durga sono le divinità chiave. Chi attraversa questo Dasha con consapevolezza emerge purificato, focalizzato, pronto al passo successivo dell'evoluzione. Chi lo attraversa nell'incoscienza ne esce con cicatrici, debiti emotivi, conflitti aperti.",
+      "lifeAreasActive": [
+        "Coraggio, iniziativa personale, atti di rottura",
+        "Sport, allenamento fisico, energia muscolare, prestazioni",
+        "Fratelli, specialmente minori, e amicizie maschili",
+        "Proprietà immobiliari, terra, agricoltura, costruzioni",
+        "Imprenditorialità, fondazione di aziende, leadership operativa",
+        "Conflitti, contenziosi legali, dispute, competizioni",
+        "Sessualità maschile, libido, virilità, fertilità",
+        "Forze armate, polizia, chirurgia, professioni col fuoco o le armi",
+        "Salute del sangue, del fegato, dei muscoli, del sistema riproduttivo"
+      ],
+      "karmicTest": "Marte chiede: 'Sai usare la tua aggressività al servizio del dharma o la lasci esplodere caoticamente?'. È il test del guerriero. La domanda profonda è se il nato sa dire un 'no' chiaro, se sa proteggere ciò che ama, se sa lottare senza diventare il nemico che combatte. Chi reprime il proprio Marte sviluppa malattie infiammatorie, ipertensione, attacchi di rabbia improvvisi, incidenti. Chi lo agisce senza coscienza diventa violento, conflittuale, distruttivo. La via di mezzo è il guerriero illuminato: forte ma non aggressivo, deciso ma non dittatoriale, capace di tagliare quando serve e di carezzare quando serve. Test secondario: i fratelli e i partner di lavoro. Spesso emergono tradimenti, dispute ereditarie, separazioni di soci.",
+      "favorableAntardashas": [
+        "Marte-Giove: il guerriero saggio. Vittorie giuste, espansione coraggiosa, riconoscimenti, viaggi di pellegrinaggio, figli, dharma in azione.",
+        "Marte-Sole: alleanza di fuoco. Promozioni, leadership, vittorie politiche, salute robusta, posizioni di comando.",
+        "Marte-Luna: Chandra-Mangala Yoga. Acquisizione di proprietà, denaro liquido, costruzione della casa, forza emotiva.",
+        "Marte-Venere: passioni intense, matrimoni romantici, vittorie artistiche, energia sessuale magnetica."
+      ],
+      "challengingAntardashas": [
+        "Marte-Saturno: scontro frontale tra fuoco e ghiaccio. Incidenti, fratture, conflitti con anziani, ostacoli, frustrazioni accumulate, possibili interventi chirurgici.",
+        "Marte-Rahu: Angarak Yoga. Esplosioni di rabbia, comportamenti rischiosi, dipendenze, conflitti con stranieri, problemi legali.",
+        "Marte-Ketu: ferite improvvise, separazioni nette, perdita di fratelli o amici, crisi di senso.",
+        "Marte-Mercurio: tensioni nervose, polemiche, contenziosi, disturbi della pelle, problemi di comunicazione."
+      ],
+      "doList": [
+        "Allenarsi fisicamente in modo intenso e regolare (arti marziali, pesi, corsa, yoga dinamico)",
+        "Affrontare un grande progetto imprenditoriale o una sfida che richiede coraggio",
+        "Investire in proprietà immobiliari o in terra (con cautela astrologica)",
+        "Fare un percorso terapeutico sulla rabbia: imparare a sentirla, nominarla, dirigerla",
+        "Praticare Hanuman Chalisa il martedì, almeno 7 volte (ottimale 108)",
+        "Indossare corallo rosso (moonga) energizzato per Marte",
+        "Onorare i fratelli e le amicizie maschili profonde",
+        "Imparare a dire 'no' senza sensi di colpa",
+        "Donare sangue regolarmente (rilascia simbolicamente l'eccesso marziale)",
+        "Sviluppare una causa per cui combattere — il guerriero ha bisogno di un dharma"
+      ],
+      "avoidList": [
+        "Litigi impulsivi, conflitti accesi, decisioni prese sotto rabbia",
+        "Guida pericolosa, sport estremi senza preparazione, esposizione al fuoco e ad armi",
+        "Eccesso di carne rossa, alcol, cibi piccanti (aumentano Pitta marziale)",
+        "Dispute ereditarie con fratelli senza mediazione legale",
+        "Soppressione cronica della rabbia (esplode in malattia)",
+        "Investimenti speculativi rischiosi guidati dall'eccitazione",
+        "Tradimenti sessuali impulsivi (il Marte non integrato è cieco)",
+        "Tatuaggi o interventi corporei in giorni inauspicati"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Kram Kreem Kraum Sah Bhaumaya Namah' — 10000 ripetizioni nel Dasha, 108 al giorno il martedì",
+        "Hanuman Chalisa quotidiano (40 versi che invocano il devoto guerriero)",
+        "Subrahmanya Bhujangam o Skanda Shashti Kavacham per Kartikeya",
+        "Durga Saptashati durante Navaratri",
+        "Digiuno del martedì con un solo pasto serale, evitando sale",
+        "Donazioni: lenticchie rosse (masoor dal), miele, rame, dolci di jaggery, vestiti rossi a militari, atleti, brahmini",
+        "Tapas fisico: praticare un'austerità (alzarsi all'alba, freddo, silenzio) per coltivare il fuoco interiore"
+      ],
+      "healthFocus": "Sangue, midollo osseo, muscoli, fegato, cistifellea, pelle (eruzioni infiammatorie), sistema riproduttivo, testa (emicranie), midollo spinale. Predisposizione a ipertensione, infiammazioni acute, ferite, fratture, ustioni, infezioni febbrili, foruncoli, acne severa, ulcere, emorragie. Per gli uomini: rischio di problemi prostatici e di calo della libido se Marte è afflitto. Ayurveda: Pitta in eccesso. Cura: dieta rinfrescante (cocco, cetriolo, coriandolo, ghee), evitare cibi piccanti e fermentati, pranayama lunari (Sheetali, Chandra Bhedana), abhyanga con olio di cocco o di brahmi, evitare esposizione solare di mezzogiorno.",
+      "careerImplications": "Periodo ideale per intraprendere, dirigere operazioni, lanciare aziende, acquisire posizioni di comando. Ottimo per: forze armate, polizia, chirurgia, ingegneria, edilizia, sport professionistico, atletica, agricoltura intensiva, gestione di proprietà, vendite aggressive, settore tecnologico hard, mining. Spesso porta cambiamenti radicali: dimissioni improvvise, fondazione di nuove società, acquisizioni ostili, dispute legali commerciali. Rischio: conflitti con soci, cause legali, perdite per scelte impulsive. Strategia: agire con coraggio ma con strategia (Marte-Mercurio integrati), avere un consulente Saturnino (un anziano saggio) che freni gli impulsi distruttivi.",
+      "relationshipImplications": "Periodo intenso e talvolta brutale. Possibili: passioni travolgenti, matrimoni urgenti, gravidanze rapide, ma anche separazioni nette, divorzi, tradimenti, conflitti familiari accesi. La sessualità è in primo piano: chi era in stallo erotico si risveglia, chi era in eccesso può deragliare. Per le donne con Mangal Dosha: questo Dasha è particolarmente sensibile per la vita coniugale (necessari rimedi). Per gli uomini: riemergono questioni di virilità, paternità, rivalità. Il principio guida: la passione va onorata ma incanalata nel dharma; l'aggressività va nominata ma non agita.",
+      "famousExample": "Bruce Lee ha vissuto la propria esplosione mondiale nel suo Mahadasha di Marte, manifestando appieno il guerriero illuminato che fonde tapas, disciplina e spiritualità. Il suo Marte forte ha portato fama planetaria, rivoluzione delle arti marziali, ma anche la morte improvvisa che spesso accompagna i Dasha di Marte intensamente espressi. Un esempio archetipico del fuoco che illumina e brucia."
+    },
+    {
+      "planet": "Rahu",
+      "sanskrit": "Rahu Mahadasha",
+      "years": 18,
+      "overview": "Il Mahadasha di Rahu è il più lungo dopo quello di Venere e Saturno: diciotto anni in cui l'anima viene gettata nell'oceano dell'illusione, dell'ambizione, della trasgressione e del desiderio. Rahu, il nodo lunare nord, è la 'testa del drago', il pianeta-ombra che amplifica, distorce, ossessiona, materializza ciò che cerca con fame insaziabile. Non ha corpo, dunque non ha limite: è desiderio puro che si proietta sul mondo e cerca esperienze nuove, esotiche, tabù, mai sperimentate prima. Il Dasha di Rahu è quasi sempre il più trasformativo della vita perché spinge il nato fuori dalla zona di comfort tribale, lontano da ciò che la famiglia d'origine considera normale, verso ciò che è straniero, moderno, tecnologico, spirituale-non-convenzionale. Parashara avverte che il Dasha di Rahu ben posizionato porta 'ricchezza improvvisa, fama, viaggi all'estero, contatti con stranieri, posizioni di potere illusorio'; se Rahu è male posizionato, porta 'malattie misteriose, inganni, dipendenze, problemi legali, scandali, perdita di status'. Sul piano psicologico è il Dasha della Shadow junghiana: tutto ciò che il nato ha rifiutato, rimosso, proiettato sull'altro, torna come destino. Rahu non rispetta le regole ereditate: rompe caste, rompe famiglie, rompe matrimoni, rompe identità professionali, per costringere l'anima a trovare una versione di sé più ampia e contemporanea. È il pianeta del karma collettivo, della globalizzazione, di internet, dell'aviazione, della politica di massa, delle fake news, delle illusioni mediatiche, ma anche dell'innovazione tecnologica e dei salti evolutivi. Spiritualmente è la fase più ambigua: può portare verso pratiche esoteriche autentiche (tantra, sciamanesimo, kundalini) o verso false guru e settarismi. La chiave è la discriminazione (viveka): non tutto ciò che luccica nel Dasha di Rahu è oro, ma ciò che è autentico in questo periodo apre porte irreversibili.",
+      "lifeAreasActive": [
+        "Ambizione, desideri di status, fama, riconoscimento internazionale",
+        "Viaggi all'estero, espatrio, vita fra culture diverse",
+        "Tecnologia, internet, social media, intelligenza artificiale",
+        "Politica, movimenti di massa, populismo",
+        "Spiritualità non convenzionale, occultismo, tantra, sciamanesimo",
+        "Cinema, pubblicità, moda, mondo dell'apparenza",
+        "Dipendenze (sostanze, sesso, gioco, schermo) e disintossicazioni",
+        "Affari con stranieri, importazioni-esportazioni, criptovalute",
+        "Innovazione disruptive, rottura di paradigmi, salti generazionali"
+      ],
+      "karmicTest": "Rahu chiede: 'Sai distinguere il desiderio autentico della tua anima dal desiderio collettivo che ti hanno iniettato?'. È il test della consapevolezza nell'illusione. La maggior parte delle persone in Rahu Dasha insegue ferocemente qualcosa per poi scoprire, una volta ottenuto, che non era ciò che voleva davvero. È un'iniziazione amara ma necessaria. Test secondario: la dipendenza. Rahu cerca sempre 'di più', e questo 'di più' può diventare droga, sesso compulsivo, lavoro ossessivo, schermo, fama. Chi attraversa il Dasha senza cadere in qualche forma di dipendenza è raro. Test profondo: lasciare il villaggio. Rahu costringe a uscire dalla tribù d'origine — letteralmente o simbolicamente — per scoprire chi si è quando nessuno guarda con gli occhi della famiglia.",
+      "favorableAntardashas": [
+        "Rahu-Venere: il sotto-periodo più lussuoso. Successi materiali, fama, lusso, amori esotici, fortuna nei business legati al femminile o all'estero.",
+        "Rahu-Mercurio: intelligenza tecnologica, scrittura virale, business online, contratti internazionali, marketing innovativo.",
+        "Rahu-Saturno: combinazione potente per imprese di lungo termine, politica, masse, settore minerario o industriale (richiede disciplina).",
+        "Rahu-Giove: solo se Giove è forte. Apre saggezza dietro l'illusione, viaggi spirituali significativi, mentori stranieri."
+      ],
+      "challengingAntardashas": [
+        "Rahu-Sole: Surya Grahan. Confusione identitaria, problemi reputazionali, conflitti con autorità, padre, governo. Rischio di scandali.",
+        "Rahu-Luna: Chandra Grahan emotivo. Depressione, paranoia, attacchi di panico, problemi materni, ossessioni amorose.",
+        "Rahu-Marte: Angarak Yoga. Incidenti, conflitti improvvisi, comportamenti rischiosi, dipendenze attive, problemi legali.",
+        "Rahu-Ketu: l'asse dei nodi attivato. Crisi spirituali profonde, rotture identitarie, esperienze paranormali destabilizzanti."
+      ],
+      "doList": [
+        "Esplorare consapevolmente l'estero, viaggiare, imparare lingue, vivere in altre culture",
+        "Investire in formazione tecnologica avanzata (AI, blockchain, cybersecurity)",
+        "Lavorare la propria ombra con un terapeuta junghiano o un percorso tantrico autentico",
+        "Coltivare discernimento: leggere prima di credere, verificare prima di firmare",
+        "Praticare la meditazione vipassana o un'altra pratica che stabilizzi la mente nell'illusione",
+        "Onorare la dea Durga (la cavalcatrice del leone che doma i demoni)",
+        "Recitare il mantra di Rahu il sabato pomeriggio o nelle eclissi",
+        "Sviluppare un rapporto sano con la tecnologia e i social (digital detox periodici)",
+        "Cercare maestri autentici e diffidare di guru carismatici troppo perfetti",
+        "Documentare il proprio percorso (diario): Rahu confonde la memoria, scrivere è un ancoraggio"
+      ],
+      "avoidList": [
+        "Dipendenze di ogni tipo (sostanze, gioco, sesso compulsivo, schermo)",
+        "Investimenti speculativi guidati dalla fomo o dal panico",
+        "Sette religiose, false guru, gruppi che chiedono denaro o sottomissione totale",
+        "Chirurgie estetiche eccessive, alterazioni identitarie radicali nel breve termine",
+        "Frequentazioni con persone in evidente disequilibrio o con karma criminale",
+        "Eclissi solari/lunari per decisioni importanti o cerimonie",
+        "Fumo, alcol pesante, sostanze sintetiche (Rahu è sensibile)"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Bhram Bhreem Bhraum Sah Rahave Namah' — 18000 ripetizioni nel Dasha",
+        "Rahu Beej Mantra: 'Om Raam Rahave Namah' al sabato",
+        "Durga Saptashati durante Navaratri (Durga è la divinità che doma Rahu)",
+        "Bhairava Stotram: il fiero aspetto di Shiva che governa i nodi",
+        "Donazioni: olio di sesamo, semi neri, coperte blu, oggetti di stagno, ai bisognosi e agli stranieri",
+        "Bagni nei fiumi sacri, specie durante le eclissi",
+        "Practica di Tantra autentico (Sri Vidya, Kashmiri Shaivism) sotto guida qualificata",
+        "Visita a Kalahasti (Tamil Nadu) o ad altri templi di Rahu/Ketu"
+      ],
+      "healthFocus": "Sistema nervoso, malattie misteriose o difficili da diagnosticare, problemi della pelle (eczemi, psoriasi, allergie strane), disturbi mentali (paranoie, ossessioni, attacchi di panico), avvelenamenti, dipendenze, problemi gastrointestinali cronici, parassiti, malattie autoimmuni. Spesso porta diagnosi tardive o sbagliate, malattie occulte, condizioni che richiedono specialisti rari. Vata in eccesso. Cura: alimentazione regolare e nutritiva, oli ayurvedici (sesamo, mandorla), abhyanga, routine ferrea (Rahu ama il caos, la struttura lo doma), meditazione, esposizione regolare alla natura, riduzione drastica degli schermi.",
+      "careerImplications": "Diciotto anni che possono cambiare per sempre la traiettoria professionale. Ottimo per: tecnologia, programmazione, AI, cybersecurity, marketing digitale, social media, cinema, fotografia, aviazione, viaggi internazionali, importazioni-esportazioni, criptovalute, politica di massa, medicina alternativa, parapsicologia, archeologia, antropologia, lavori con stranieri o all'estero. Spesso porta successo improvviso seguito da declino se Rahu non è ben supportato. Strategia: cavalcare l'onda ma mantenere salde le fondamenta (Saturno integrato), diversificare, non identificarsi mai completamente con il successo del momento perché Rahu prima o poi si ritrae.",
+      "relationshipImplications": "Relazioni non convenzionali, fra culture, fra età molto diverse, segrete, esotiche, online, a distanza. Rahu rompe i tabù: matrimoni interrazziali, relazioni poliamorose, partner di religioni diverse, amori virtuali. Magnetismo intenso ma spesso illusorio: il partner sembra perfetto fino a quando l'illusione si dissolve. Test profondo: l'anima cerca un partner che la specchi nella sua ombra inesplorata. Rischio: tradimenti, triangolazioni, ossessioni amorose, dipendenza affettiva. Crescita: imparare ad amare l'altro reale, non la proiezione fantastica.",
+      "famousExample": "Steve Jobs ha vissuto il proprio Mahadasha di Rahu durante il periodo di esilio dalla Apple, l'esperienza con Pixar, l'incontro con la tecnologia rivoluzionaria del Macintosh e poi il ritorno trionfale che ha rifondato l'azienda. Rahu ha incarnato in lui l'innovazione disruptive, il magnetismo carismatico, l'ossessione per il design e la perfezione, ma anche le ombre del controllo e della rigidità. Un esempio puro di come Rahu trasformi la vita in mito quando incanalato nel dharma giusto."
+    },
+    {
+      "planet": "Giove",
+      "sanskrit": "Guru Mahadasha",
+      "years": 16,
+      "overview": "Il Mahadasha di Giove è il più benefico dei nove Dasha quando Brihaspati è ben posizionato. Sedici anni di espansione, saggezza, dharma, abbondanza materiale e spirituale, riconoscimenti, figli, viaggi sacri, contatti con maestri. Giove è il Guru per eccellenza: il significatore della saggezza, della religione, della filosofia, della legge, della verità, della ricchezza giusta, dei figli (specie il primo), del marito (per le donne nella Jyotish tradizionale), del fegato, del pancreas e della grasso corporeo. Quando Guru governa il Dasha, l'anima entra in una fase di maturazione filosofica: si pone domande sul senso, sulla vita oltre la vita, sul dharma personale, sul lascito da consegnare ai posteri. Parashara è entusiasta nel descriverlo: 'Durante il Dasha di Guru ben posizionato il nato ottiene la nascita di figli, l'acquisizione di ricchezza, il favore del re, il successo nei rituali, il pellegrinaggio nei luoghi sacri, la conoscenza dei Veda, la gloria e il riconoscimento'. Se Giove è debilitato (Capricorno), combusto, in dusthana o afflitto, il Dasha può portare 'figli problematici, perdita di fede, problemi al fegato, eccesso di peso, decisioni morali sbagliate, conflitti religiosi'. Sul piano psicologico è il tempo della formazione del Sé saggio, della ricerca del proprio dharma, del pellegrinaggio interiore. È il periodo in cui molti incontrano il loro guru, scrivono libri, fondano scuole o tradizioni, hanno figli che diventano centrali nella loro vita. Spiritualmente è la fase più dolce: bhakti, jnana e karma yoga si integrano. La fede ritorna, anche per chi era diventato cinico. Materialmente è il Dasha più favorevole alla ricchezza giusta — quella che arriva attraverso il dharma, non a sue spese. Chi vive Guru Dasha con consapevolezza emerge più umano, generoso, ottimista, fiducioso nella vita.",
+      "lifeAreasActive": [
+        "Saggezza, filosofia, ricerca spirituale, religione",
+        "Figli, paternità/maternità, eredità trasmessa",
+        "Ricchezza giusta, espansione finanziaria, investimenti a lungo termine",
+        "Insegnamento, scrittura, pubblicazione, fondazione di scuole",
+        "Viaggi sacri, pellegrinaggi, contatti con maestri spirituali",
+        "Diritto, etica, posizioni di consulenza morale",
+        "Salute del fegato, pancreas, sistema endocrino, fertilità",
+        "Matrimonio (specie per le donne) e armonia coniugale",
+        "Riconoscimenti accademici, dottorati, lauree honoris causa"
+      ],
+      "karmicTest": "Giove chiede: 'Hai trovato il tuo dharma o stai ancora cercando di compiacere il dharma di altri?'. È il test del senso. Chi attraversa Guru Dasha senza chiarire il proprio scopo profondo si ritrova, alla fine dei sedici anni, con molti successi ma con un vago senso di vuoto. Chi invece coglie la chiamata si allinea alla propria missione e vede tutto fluire con grazia. Test secondario: la generosità. Giove dà a chi sa dare. La ricchezza giupiteriana arriva quando il nato impara a essere mecenate di sé e degli altri. Test profondo: la fede. Anche per i razionalisti più induriti, questo Dasha porta esperienze di sincronicità, grazia, intervento del divino, che chiedono di essere riconosciute.",
+      "favorableAntardashas": [
+        "Giove-Sole: nobiltà incarnata. Riconoscimenti pubblici, posizioni dharmiche, viaggi importanti, riconoscimento del padre.",
+        "Giove-Luna: Gajakesari supremo. Espansione emotiva, fama presso il popolo, ricchezza, figli, devozione.",
+        "Giove-Marte: dharma in azione. Vittorie giuste, espansione coraggiosa, costruzione di proprietà, leadership etica.",
+        "Giove-Mercurio: intelligenza saggia. Scrittura, pubblicazione, contratti d'oro, business in espansione, comunicazione efficace."
+      ],
+      "challengingAntardashas": [
+        "Giove-Saturno: il dialogo fra espansione e contrazione. Lentezza, frustrazione, prove di pazienza, conflitti generazionali, ma alla fine consolidamento.",
+        "Giove-Rahu: Guru Chandala Yoga (se in stretto contatto). Dilemmi morali, false guru, scandali religiosi, confusione filosofica.",
+        "Giove-Ketu: distacco dalla fede tradizionale, rotture con maestri, crisi spirituale, ma possibile apertura a saggezza nuova.",
+        "Giove-Venere: tensione fra dharma (rinuncia) e kama (piacere). Dilemmi coniugali, scelte difficili fra amore e dovere."
+      ],
+      "doList": [
+        "Studiare un testo sacro o filosofico fondamentale (Bhagavad Gita, Upanishad, Yoga Sutra)",
+        "Cercare attivamente un maestro vivente di valore e iniziare un percorso strutturato",
+        "Avere figli, se è il momento dharmico, oppure prendersi cura dei figli esistenti con presenza",
+        "Investire in conoscenza: master, dottorati, formazioni qualificanti, libri",
+        "Insegnare ciò che si è imparato: tenere corsi, scrivere, condividere",
+        "Fare donazioni significative a cause spirituali o educative",
+        "Visitare luoghi sacri (Varanasi, Rishikesh, Tirupati, Kailash, ma anche luoghi sacri locali)",
+        "Indossare zaffiro giallo o topazio dorato energizzato per Giove",
+        "Onorare il proprio guru, anche internamente",
+        "Praticare karma yoga: servizio disinteressato come forma di crescita"
+      ],
+      "avoidList": [
+        "Eccessi alimentari, specie di dolci e grassi (Giove governa il fegato)",
+        "Compromessi morali per denaro o successo: Giove non perdona",
+        "Arroganza intellettuale, dogmatismo religioso, fanatismo",
+        "Trascurare i figli per ambizione personale",
+        "Ignorare le sincronicità e le chiamate spirituali",
+        "Pigrizia e accumulo di grasso fisico e spirituale",
+        "Promesse non mantenute (Giove governa la parola data)"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Gram Greem Graum Sah Gurave Namah' — 19000 ripetizioni nel Dasha, 108 al giorno il giovedì",
+        "Vishnu Sahasranama (i 1000 nomi di Vishnu) o Hanuman Chalisa quotidianamente",
+        "Bhagavad Gita studio capitolo per capitolo durante il Dasha",
+        "Digiuno del giovedì con un solo pasto giallo (curcuma, jaggery, banane)",
+        "Donazioni: oro, vesti gialle, ghee, dolci di jaggery, libri sacri, a brahmini, maestri, bambini",
+        "Satsang: frequentazione di compagnia spirituale qualificata",
+        "Guru Purnima (luna piena di luglio): celebrazione speciale del proprio guru"
+      ],
+      "healthFocus": "Fegato, pancreas, cistifellea, sistema endocrino (specie tiroide e surrenali), fianchi, cosce, sistema linfatico, tessuto adiposo. Predisposizione a obesità, diabete tipo 2, problemi epatici, colesterolo alto, ipotiroidismo, ernie, ritenzione idrica. Kapha tende ad aumentare. Cura: dieta moderata, evitare eccessi (specie di dolci e fritti), camminate, yoga dolce, pulizie del fegato (panchakarma), consumo regolare di curcuma, zenzero, triphala. Per le donne: attenzione alla fertilità e al ciclo se Giove è afflitto.",
+      "careerImplications": "Periodo dorato per: insegnamento, accademia, ricerca, scrittura, editoria, diritto, consulenza, finanza etica, banche, settore religioso, medicina (specie internistica), terapia, counseling, filantropia, fondazioni, organizzazioni internazionali, diplomazia. Spesso porta promozioni a ruoli di responsabilità etica, fondazione di scuole o studi professionali, pubblicazione di libri di successo, riconoscimenti accademici. La ricchezza arriva attraverso il dharma: chi serve un fine più alto vede prosperare anche il piano materiale.",
+      "relationshipImplications": "Per le donne è classicamente il Dasha del matrimonio felice, della maternità, dell'incontro con un partner saggio. Per gli uomini è il periodo della paternità, della costruzione di una famiglia spiritualmente nutriente. Le relazioni esistenti si approfondiscono: il partner diventa anche compagno di evoluzione, guida, complemento dharmico. Possibili ostacoli: se Giove è afflitto, il Dasha può portare partner moralisti, dogmatici, controllanti, oppure dilemmi fra dovere familiare e libertà personale. La maturazione richiesta è quella della saggezza condivisa: imparare a crescere insieme, non solo a stare insieme.",
+      "famousExample": "Mahatma Gandhi ha vissuto il proprio Mahadasha di Giove durante gli anni cruciali della Satyagraha e della costruzione del movimento per l'indipendenza indiana. Il suo Giove esaltato in Cancro ha incarnato il dharma puro, la non-violenza come saggezza in azione, la guida morale di una nazione, la fede incrollabile nella verità. Un esempio supremo di come Guru Dasha possa trasformare un avvocato qualunque in un Mahatma, un'anima grande riconosciuta dall'umanità."
+    },
+    {
+      "planet": "Saturno",
+      "sanskrit": "Shani Mahadasha",
+      "years": 19,
+      "overview": "Il Mahadasha di Saturno è il più lungo, il più temuto, il più trasformativo. Diciannove anni in cui Shani — il signore del karma, del tempo, della disciplina, della sofferenza purificatrice, della vecchiaia, della verità nuda — si siede sul trono del destino e chiede all'anima di pagare ogni debito karmico in sospeso e di costruire ogni promessa karmica meritata. Saturno è il giudice supremo, il maestro più severo, il guardiano della soglia fra il mondo umano e quello spirituale. Quando Shani governa, ogni illusione costruita nei Dasha precedenti si sgretola: le case di carta cadono, le relazioni superficiali finiscono, i lavori non allineati al dharma si dissolvono. Parashara descrive il Dasha di Saturno ben posizionato come portatore di 'longevità, ricchezza accumulata lentamente, posizioni di responsabilità, riconoscimenti delle masse, autorità sui servi, terra, vecchi alberi, miniere'. Se Saturno è male posizionato, debilitato (Ariete), in dusthana o afflitto, porta 'malattie croniche, povertà, perdita di status, depressione, isolamento, ostacoli incessanti, lutti'. Sul piano psicologico è il Dasha della maturazione adulta: chi entra ragazzo esce uomo, chi entra uomo esce saggio. Saturno costringe a confrontarsi con il limite — del tempo, del corpo, delle risorse, delle persone — e in questo confronto forgia il carattere. È il Dasha che separa i bambini cosmici dagli adulti cosmici. Il sapore karmico è quello del lavoro lento, della pazienza, della solitudine accettata, della responsabilità presa fino in fondo. Sul piano materiale, Saturno costruisce ricchezza durevole — non improvvisa come Rahu, ma accumulata mattone su mattone come una cattedrale gotica. Spiritualmente è il Dasha del vairagya (distacco), della disciplina ferrea, della conoscenza della morte, della preparazione al passaggio finale. Chi attraversa Shani Dasha con consapevolezza emerge come un albero secolare: lento, profondo, vero, capace di sostenere il peso del mondo senza spezzarsi.",
+      "lifeAreasActive": [
+        "Karma duro, debiti karmici, prove di pazienza",
+        "Lavoro, professione strutturata, carriera lunga, impegni istituzionali",
+        "Vecchiaia (propria o altrui), cura degli anziani, eredità",
+        "Ricchezza accumulata lentamente, immobili, risparmi a lungo termine",
+        "Solitudine, ritiro, vita interiore profonda",
+        "Servitori, lavoratori, masse povere, responsabilità sociale",
+        "Salute delle ossa, articolazioni, sistema nervoso, longevità",
+        "Disciplina spirituale severa, austerità, vairagya",
+        "Confronto con la morte, lutti, eredità trasmesse"
+      ],
+      "karmicTest": "Saturno chiede: 'Sei disposto a fare il lavoro vero, lento, ingrato, che nessuno vede, per costruire qualcosa che dura?'. È il test della perseveranza. Chi entra in Shani Dasha cercando scorciatoie viene umiliato; chi accetta il lavoro lento viene premiato in modi inattesi. Test secondario: la solitudine. Saturno isola per maturare. Tutti i nati in questo Dasha attraversano periodi di solitudine apparente, in cui devono imparare a stare con sé senza fuggire nei contatti superficiali. Test profondo: il limite. Saturno rivela che siamo mortali, finiti, fragili, e proprio in questa accettazione del limite si nasconde la libertà spirituale più profonda. Chi nega la morte non vive davvero; chi la guarda in faccia diventa libero.",
+      "favorableAntardashas": [
+        "Saturno-Mercurio: il sotto-periodo migliore. Intelligenza disciplinata, lavoro intellettuale fruttuoso, contratti stabili, business a lungo termine.",
+        "Saturno-Venere: amore maturo, matrimoni stabili, costruzione di patrimonio, lusso meritato, arte di valore.",
+        "Saturno-Rahu: combinazione potente per imprese di massa, politica, settore industriale o tecnologico (richiede lavoro duro).",
+        "Saturno-Giove: lentezza con saggezza. Risultati duraturi, riconoscimenti dharmici, mentori anziani, eredità spirituali."
+      ],
+      "challengingAntardashas": [
+        "Saturno-Sole: scontro padre-tempo. Conflitti con autorità, problemi reputazionali, calo di vitalità, problemi di salute, separazioni dal padre.",
+        "Saturno-Luna: Vish Yoga emotivo. Depressione profonda, isolamento, problemi materni, freddo affettivo, lutti.",
+        "Saturno-Marte: scontro frontale. Incidenti, frustrazioni accumulate che esplodono, conflitti legali, problemi muscolo-scheletrici.",
+        "Saturno-Ketu: rinunce forzate, perdite, crisi spirituali, malattie croniche, distacchi dolorosi."
+      ],
+      "doList": [
+        "Lavorare ogni giorno sul proprio mestiere come un artigiano: lentamente, profondamente, senza fretta",
+        "Costruire qualcosa che duri: una casa, un'azienda, un'opera, una pratica spirituale",
+        "Servire gli anziani, i poveri, i marginali (è il dharma saturnino per eccellenza)",
+        "Praticare un'austerità (digiuno, silenzio, alzarsi all'alba, freddo) per coltivare il tapas",
+        "Indossare zaffiro blu solo dopo prova di sette giorni (è la gemma più potente, ma rischiosa)",
+        "Onorare Hanuman e Shiva, le divinità che placano Shani",
+        "Recitare lo Shani Stotram il sabato mattina",
+        "Camminare a piedi nudi sulla terra ogni giorno (radicamento)",
+        "Tenere un diario karmico: cosa sto costruendo? Cosa sto dissolvendo? Cosa è davvero mio?",
+        "Accettare la solitudine come maestra, non fuggirla con distrazioni"
+      ],
+      "avoidList": [
+        "Scorciatoie, scelte affrettate, frodi, evasioni: Saturno punisce duramente",
+        "Conflitti con anziani, capi, autorità tradizionali",
+        "Trascurare la salute (specie ossa, articolazioni, denti)",
+        "Isolamento patologico in depressione senza chiedere aiuto",
+        "Decisioni importanti il sabato sera o nelle eclissi",
+        "Eccesso di lavoro che brucia il corpo (Saturno lavora ma non distrugge)",
+        "Negare la propria mortalità: è il momento di guardarla in faccia"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Sham Shaneishcharaya Namah' — 23000 ripetizioni nel Dasha, 108 al giorno il sabato",
+        "Shani Beej Mantra: 'Om Praam Preem Praum Sah Shanaishcharaya Namah'",
+        "Hanuman Chalisa quotidiano (Hanuman è il pacificatore di Shani)",
+        "Lettura di Shani Stotram di Dasaratha o Pippalada",
+        "Digiuno del sabato con un solo pasto serale, evitando sale e dolci",
+        "Donazioni: olio di sesamo, semi neri, ferro, scarpe vecchie, coperte blu, ai poveri, anziani, lavoratori",
+        "Servire i lebbrosi, i senzatetto, i carcerati: è il vero rimedio saturnino",
+        "Visita al tempio di Tirunallar (Tamil Nadu, dedicato a Shani)"
+      ],
+      "healthFocus": "Ossa, articolazioni, denti, ginocchia, pelle (specie cronica), sistema nervoso, intestino crasso, organi della senilità, longevità in generale. Predisposizione a artrite, artrosi, osteoporosi, problemi ortopedici cronici, malattie autoimmuni, depressione cronica, malattie neurodegenerative, problemi dentali, costipazione cronica, malattie della pelle. Vata in eccesso. Cura: oli ayurvedici (sesamo, mahanarayan, dhanwantharam), abhyanga regolare, alimentazione calda e nutriente, evitare cibi freddi e secchi, yoga dolce per le articolazioni, integrazione di vitamina D e calcio, esposizione solare moderata, routine ferrea per il sonno.",
+      "careerImplications": "Periodo di carriera profonda e duratura. Ottimo per: lavori istituzionali (statali, pubblici, accademici), professioni che richiedono studio lungo (medicina, ingegneria, ricerca, magistratura), imprenditoria a lungo termine (industriale, mineraria, immobiliare, agricola), servizio sociale, lavoro con anziani, gestione di patrimoni, investimenti tradizionali. Spesso porta promozioni dopo lunghi anni di lavoro silenzioso, fondazione di imprese che durano decenni, riconoscimento postumo. Strategia: lavorare lentamente ma senza interruzioni, costruire reputazione di affidabilità totale, evitare ogni scorciatoia. La ricchezza saturnina è quella che rimane.",
+      "relationshipImplications": "Saturno non è gentile per le relazioni romantiche, ma è eccellente per quelle durature. Possibili: matrimoni con persone più grandi o più mature, relazioni che maturano lentamente, fedeltà profonda, ma anche separazioni, vedovanze, periodi di celibato/nubilato, freddezza coniugale. Test profondo: amare al di là del piacere. Saturno chiede di restare quando il romanticismo è finito, di prendersi cura del partner anziano o malato, di costruire un legame che dura nel tempo lungo. Per chi è solo: il Dasha può portare matrimonio tardivo (35-40-50 anni) ma molto stabile. Per chi ha relazioni superficiali: queste finiscono inevitabilmente.",
+      "famousExample": "Nelson Mandela ha vissuto i suoi 27 anni di prigionia attraversando il Mahadasha di Saturno, trasformando la cella in tapas, l'isolamento in maturazione spirituale, l'oppressione in saggezza politica. Quando uscì di prigione era un uomo nuovo, capace di guidare una nazione attraverso la riconciliazione invece che la vendetta. Un esempio supremo di come Shani Dasha, attraversato con consapevolezza, possa trasformare anche la sofferenza più estrema in nobiltà d'animo riconosciuta dal mondo intero."
+    },
+    {
+      "planet": "Mercurio",
+      "sanskrit": "Budha Mahadasha",
+      "years": 17,
+      "overview": "Il Mahadasha di Mercurio è il periodo dell'intelligenza, della comunicazione, del commercio, dell'apprendimento, della rete relazionale, dell'agilità mentale. Diciassette anni in cui la mente diventa lo strumento principale di evoluzione, e il nato è chiamato a sviluppare versatilità, curiosità, capacità di connettere mondi diversi. Budha è il significatore della parola, della scrittura, dei contratti, dei nervi, della pelle, dell'intestino, dei giovani, degli zii materni, del business, dei viaggi brevi, dei media, della tecnologia di comunicazione. Quando Mercurio governa, la vita si moltiplica in mille direzioni: viaggi, contatti, libri letti, libri scritti, contratti firmati, partnership, idee, progetti. Parashara descrive il Dasha di Budha ben posizionato come portatore di 'apprendimento, eloquenza, ricchezza attraverso il commercio, fama come scrittore o oratore, riconoscimento intellettuale, contratti vantaggiosi, viaggi fruttuosi'. Se Mercurio è debole, combusto, in dusthana o afflitto, porta 'problemi nervosi, ansia, difficoltà di parola, contratti falliti, contenziosi, instabilità mentale, frodi, problemi di pelle'. Sul piano psicologico è il Dasha del Puer junghiano: vivacità, gioco, apprendimento continuo, ma anche rischio di superficialità, dispersione, infantilismo. Mercurio non sceglie facilmente: vuole tutto, prova tutto, esplora tutto. La maturazione richiesta è imparare a focalizzarsi senza spegnere la curiosità. Sul piano materiale è il Dasha eccellente per chi lavora con la mente: scrittori, giornalisti, programmatori, mediatori, commercianti, insegnanti, oratori. La ricchezza arriva attraverso le idee, le parole, le connessioni. Spiritualmente è la fase del jnana yoga: studio, riflessione, dialogo filosofico, lettura di testi sacri. Vishnu nella forma di Krishna giovane (il flautista che canta, danza, parla con tutti) è la divinità chiave.",
+      "lifeAreasActive": [
+        "Comunicazione, scrittura, oratoria, media",
+        "Studio, formazione continua, università, master",
+        "Commercio, business, contratti, partnership",
+        "Tecnologia, programmazione, internet, marketing digitale",
+        "Viaggi brevi e frequenti, mobilità, networking",
+        "Salute del sistema nervoso, dell'intestino, della pelle",
+        "Rapporto con i giovani, con gli zii materni, con i fratelli",
+        "Mediazione, diplomazia, traduzione, interpretariato",
+        "Mente analitica, problem solving, intelligenza laterale"
+      ],
+      "karmicTest": "Mercurio chiede: 'Sai pensare in modo autonomo o ripeti quello che hai sentito?'. È il test del discernimento intellettuale. Mercurio porta enormi quantità di informazione: chi non sa filtrare diventa confuso, ansioso, disperso. Test secondario: la parola data. Mercurio governa i contratti e gli accordi. Chi promette troppo e mantiene poco crolla. Chi onora la propria parola costruisce reputazione di affidabilità. Test profondo: l'integrazione. Mercurio è il pianeta che connette i mondi (commercia con tutti, parla con dei e demoni, naviga fra Yama e Indra). Chi attraversa il Dasha con consapevolezza diventa un ponte fra tradizione e modernità, fra Oriente e Occidente, fra discipline diverse.",
+      "favorableAntardashas": [
+        "Mercurio-Venere: il sotto-periodo più dolce. Successo nel business, contratti d'oro, amori, viaggi piacevoli, arte e bellezza monetizzate.",
+        "Mercurio-Giove: intelligenza saggia. Pubblicazioni, riconoscimenti accademici, espansione del business, viaggi formativi.",
+        "Mercurio-Saturno: lavoro intellettuale duraturo, contratti a lungo termine, business solidi, riconoscimenti istituzionali.",
+        "Mercurio-Sole: Budha-Aditya Yoga in azione. Brillantezza intellettuale, riconoscimento pubblico, leadership con intelligenza."
+      ],
+      "challengingAntardashas": [
+        "Mercurio-Marte: nervi tesi, polemiche, contenziosi, conflitti commerciali, problemi della pelle infiammatori, contratti rotti.",
+        "Mercurio-Rahu: confusione mentale, frodi, contratti ingannevoli, dipendenze comunicative (social media), ansia.",
+        "Mercurio-Ketu: distrazioni, perdite di memoria, contratti annullati, isolamento intellettuale, crisi di senso.",
+        "Mercurio-Luna: tensioni emotive che disturbano la mente, scrittura troppo soggettiva, comunicazioni confuse."
+      ],
+      "doList": [
+        "Investire in formazione continua: corsi, libri, certificazioni, lingue straniere",
+        "Scrivere quotidianamente: diario, blog, libri, articoli",
+        "Sviluppare un network professionale di qualità (LinkedIn, eventi, associazioni)",
+        "Imparare almeno una lingua nuova durante il Dasha",
+        "Praticare l'oratoria, la presentazione pubblica, la conversazione raffinata",
+        "Curare il sistema nervoso con pranayama, meditazione, sonno regolare",
+        "Indossare smeraldo o peridoto energizzato per Mercurio",
+        "Onorare Vishnu nella forma di Krishna, e Ganesha (signore degli inizi e degli ostacoli)",
+        "Coltivare amicizie con persone più giovani o intellettualmente vivaci",
+        "Tenere ordine mentale: liste, agende, sistemi di produttività"
+      ],
+      "avoidList": [
+        "Bugie, mezze verità, contratti ambigui (Mercurio governa la trasparenza)",
+        "Sovraccarico informativo: limitare news, social, schermi",
+        "Decisioni prese in stato di agitazione nervosa",
+        "Multitasking estremo che dissipa l'energia mentale",
+        "Pettegolezzi, gossip, parole sprecate (Mercurio cura la parola)",
+        "Sostanze che alterano il sistema nervoso (caffè in eccesso, eccitanti)",
+        "Frode commerciale, evasione fiscale, contratti capziosi"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Bram Breem Braum Sah Budhaya Namah' — 17000 ripetizioni nel Dasha, 108 al giorno il mercoledì",
+        "Vishnu Sahasranama o Ganesha Atharvashirsha quotidianamente",
+        "Studio sistematico di un testo sacro (Upanishad, Yoga Sutra, Bhagavad Gita)",
+        "Digiuno del mercoledì con cibi verdi (foglie, verdure, lenticchie verdi)",
+        "Donazioni: smeraldi, libri sacri, vesti verdi, lenticchie mung, a giovani studenti, scrittori, brahmini",
+        "Pratica di nada yoga: ascolto del suono interiore, mantra cantati",
+        "Visita al tempio di Tiruvenkadu (Tamil Nadu, dedicato a Budha)"
+      ],
+      "healthFocus": "Sistema nervoso (centrale e periferico), pelle, intestino tenue, polmoni (parte aerea), gola/lingua, mani e braccia, sistema linfatico. Predisposizione a ansia, disturbi nervosi, eczemi, allergie cutanee, sindrome dell'intestino irritabile, balbuzie, problemi della parola, insonnia da iperattività mentale, emicranie da tensione. Vata in eccesso. Cura: routine regolare, pranayama (Anuloma Viloma, Bhramari), abhyanga, dieta facilmente digeribile, riduzione caffeina, meditazione mindfulness, passeggiate nella natura, oli essenziali calmanti (lavanda, sandalo, brahmi).",
+      "careerImplications": "Periodo eccellente per professioni intellettuali e commerciali. Ottimo per: scrittura, giornalismo, editoria, traduzione, interpretariato, programmazione, marketing digitale, social media management, commercio (specie internazionale), import-export, mediazione, brokeraggio, mediazione finanziaria, formazione, insegnamento, oratoria pubblica, podcast, YouTube, content creation, consulenza, diplomazia. Spesso porta successi attraverso più progetti paralleli, partnership multiple, fondazione di studi professionali. Strategia: focalizzarsi su 2-3 aree complementari, costruire reputazione come comunicatore di qualità, monetizzare la propria intelligenza con strutture chiare.",
+      "relationshipImplications": "Relazioni vivaci, mentalmente stimolanti, con partner affini intellettualmente. Possibili: matrimoni con persone conosciute attraverso il lavoro o lo studio, partner più giovani, relazioni nate online o in viaggio. Lo scambio verbale è centrale: chi non sa parlare al partner perde l'intimità. Rischio: troppe parole e poca presenza emotiva, infedeltà mentali (flirt continui), instabilità affettiva, indecisione fra più opzioni romantiche. Maturazione: imparare l'intimità del silenzio e dell'incarnazione, non solo della conversazione brillante.",
+      "famousExample": "Albert Einstein ha vissuto la propria fioritura scientifica massima durante il Mahadasha di Mercurio, anni in cui formulò la teoria della relatività generale, ricevette il Nobel, e divenne icona pubblica della genialità. Il suo Mercurio brillante ha incarnato il pensiero laterale, la capacità di connettere campi diversi (fisica, filosofia, musica), la comunicazione divulgativa accessibile al grande pubblico. Un esempio puro di come Budha Dasha, ben supportato, possa trasformare un funzionario di un ufficio brevetti in una mente che ridefinisce il cosmo."
+    },
+    {
+      "planet": "Ketu",
+      "sanskrit": "Ketu Mahadasha",
+      "years": 7,
+      "overview": "Il Mahadasha di Ketu è il periodo del distacco, della spiritualità radicale, della liberazione, ma anche delle perdite improvvise e delle crisi di senso. Sette anni in cui Ketu — il nodo lunare sud, la 'coda del drago', il pianeta-ombra senza testa — taglia ciò che non serve all'evoluzione dell'anima e spinge il nato verso una verticalità spirituale che spesso prescinde dalle convenzioni mondane. Ketu è il significatore della moksha (liberazione finale), del distacco, della spiritualità senza forma, della fine, della coda di tutte le cose, dei vecchi karma chiusi, della morte come passaggio, della maledizione e del dono ricevuti dalla tradizione, dei nonni paterni, dei monaci, degli eremiti. Quando Ketu governa, l'anima vive una sorta di esilio sacro: ciò che funzionava prima smette di funzionare, ciò che dava senso lo perde, ciò che si possedeva si dissolve, e il nato è costretto a cercare altrove — nel silenzio, nella spiritualità, nell'ascesi, nella natura. Parashara descrive il Dasha di Ketu ben posizionato come portatore di 'conoscenza spirituale, distacco dai legami, fine dei conflitti, vittoria sui nemici sottili, possibili poteri occulti, maturazione mistica'. Se Ketu è male posizionato, in dusthana, afflitto, porta 'malattie misteriose, perdite improvvise, lutti, crisi di senso, isolamento doloroso, problemi col padre, traumi residui di vite passate'. Sul piano psicologico è il Dasha della disidentificazione: tutte le maschere costruite cadono, e l'anima è costretta a chiedere 'chi sono io senza tutto questo?'. È il pianeta più yogico in assoluto: spinge verso la meditazione profonda, verso ritiri, verso esperienze al confine fra mondi. Spiritualmente, è il Dasha che può portare risvegli autentici se affrontato con consapevolezza, o crolli depressivi se vissuto nell'identificazione con la perdita. Ganesha, Hanuman e le forme di Shiva eremita (Dakshinamurti, Kala Bhairava) sono le divinità chiave.",
+      "lifeAreasActive": [
+        "Spiritualità radicale, moksha, ricerca della liberazione",
+        "Distacco da legami, possessi, identità superate",
+        "Solitudine, ritiri spirituali, ascesi",
+        "Perdite improvvise (denaro, persone, posizioni)",
+        "Karma residuo, lavorare le ombre delle vite passate",
+        "Salute: malattie misteriose, sintomi che migliorano con la spiritualità",
+        "Conoscenze occulte, parapsicologia, esperienze al confine",
+        "Distacco dal padre o da figure paterne",
+        "Fine di cicli, chiusure, lasciar andare"
+      ],
+      "karmicTest": "Ketu chiede: 'Sai lasciar andare ciò che credevi essere te?'. È il test della disidentificazione. La maggior parte delle persone in Ketu Dasha attraversa una sorta di morte simbolica: muore l'identità professionale, muore una relazione fondante, muore una credenza pilastro. Chi accetta la morte di ciò che era, rinasce su un piano più sottile. Chi resiste, sperimenta la perdita come amputazione. Test secondario: la solitudine spirituale. Ketu isola per individuare. Tutti i nati attraversano periodi di profondo ritiro, in cui la vita sociale si dirada e quella interiore esplode. Test profondo: il senso della morte. Ketu è il pianeta che ricorda all'anima la propria mortalità. Chi accetta il messaggio diventa libero; chi lo respinge, sviluppa angosce esistenziali croniche.",
+      "favorableAntardashas": [
+        "Ketu-Giove: liberazione saggia. Risvegli spirituali, incontro con maestri autentici, viaggi sacri, comprensioni profonde.",
+        "Ketu-Venere: arte spirituale, amori che terminano in pace, bellezza nel distacco, raffinatezza spirituale.",
+        "Ketu-Marte: tapas potente, vittorie su nemici sottili, energia spirituale focalizzata.",
+        "Ketu-Saturno: meditazione profonda, ritiri prolungati, vairagya autentico, maturazione spirituale lenta."
+      ],
+      "challengingAntardashas": [
+        "Ketu-Sole: Surya Grahan. Crisi identitaria, problemi con il padre, calo di vitalità, perdita di status.",
+        "Ketu-Luna: Chandra Grahan. Depressione spirituale, solitudine emotiva, lutti materni, perdita di connessione affettiva.",
+        "Ketu-Rahu: l'asse dei nodi attivato in pieno. Crisi spirituali estreme, esperienze paranormali destabilizzanti, dilemmi karmici acuti.",
+        "Ketu-Mercurio: confusione mentale, contratti annullati, distrazioni spirituali, difficoltà di parola."
+      ],
+      "doList": [
+        "Iniziare o approfondire una pratica meditativa seria (vipassana, zazen, kriya yoga)",
+        "Fare ritiri spirituali, anche lunghi, in luoghi sacri o naturali",
+        "Studiare i testi della liberazione (Yoga Vasistha, Ashtavakra Gita, Ribhu Gita)",
+        "Cercare un maestro autentico di tradizione viva e affidarsi",
+        "Praticare il dāna (donazione) spogliandosi periodicamente di possessi",
+        "Onorare Ganesha (rimuove gli ostacoli karmici di Ketu) e Bhairava",
+        "Lavorare le memorie delle vite passate con regressioni o terapie transgenerazionali",
+        "Indossare occhio di gatto (chrysoberyl) o pietra di luna energizzati per Ketu",
+        "Stare nella natura selvaggia: foreste, montagne, deserti",
+        "Tenere un diario spirituale: ciò che muore, ciò che nasce, ciò che resta"
+      ],
+      "avoidList": [
+        "Aggrapparsi a ciò che la vita sta togliendo (intensifica la sofferenza)",
+        "Nuovi inizi su grande scala (matrimoni, fondazioni di aziende) — non è il momento",
+        "Sostanze psicotrope per cercare esperienze spirituali (Ketu è già aperto al sottile)",
+        "Sette spirituali, false guru, esperienze occulte non protette",
+        "Investimenti rischiosi (Ketu disperde il denaro)",
+        "Ignorare i segnali del corpo (Ketu somatizza i karma sottili)",
+        "Decisioni importanti durante le eclissi"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Sram Sreem Sraum Sah Ketave Namah' — 7000 ripetizioni nel Dasha",
+        "Ketu Beej Mantra: 'Om Kem Ketave Namah'",
+        "Ganapati Atharvashirsha o Ganesha Sahasranama (Ganesha è il rimuovi-ostacoli per Ketu)",
+        "Mahamrityunjaya Mantra (mantra che vince la morte e i karma sottili)",
+        "Donazioni: coperte multicolori, sesamo, banane, cocco, oggetti spirituali, ai sadhu, monaci, mendicanti",
+        "Pellegrinaggi a luoghi di Ketu: Kalahasti (Tamil Nadu), Tiruchendur, monti sacri",
+        "Ritiri di silenzio (mauna) di almeno 3-7-21 giorni durante il Dasha"
+      ],
+      "healthFocus": "Sistema nervoso sottile, ghiandola pineale, sistema immunitario (specie autoimmune), problemi misteriosi, malattie psicosomatiche, disturbi della pelle (specie cronici e migranti), problemi del sangue (parassiti, infezioni croniche), problemi muscolari (fibromialgia, sindromi dolorose diffuse), problemi di radicamento. Ketu somatizza i karma residui: sintomi spesso non diagnosticabili che migliorano con pratiche spirituali, yoga, ritiri. Vata in forte eccesso. Cura: oli pesanti (sesamo, mahanarayan), abhyanga regolare, alimentazione calda e nutriente, basta ascesi alimentari, radicamento corporeo (camminare a piedi nudi, hatha yoga, tai chi), meditazione mindfulness, terapie energetiche.",
+      "careerImplications": "Periodo non favorevole per nuove iniziative materiali su grande scala. Ottimo invece per: spiritualità professionale (insegnamento yoga, meditazione, terapia transpersonale), ricerca scientifica avanzata, parapsicologia, archeologia, settore funerario o legato al lutto, lavori in solitudine (ricerca, scrittura solitaria, monaci), tecnologia di nicchia. Spesso porta dimissioni inattese, ritiri sabbatici, cambi di carriera radicali verso aree spirituali o di ricerca. Strategia: non lottare contro la corrente, accettare le perdite professionali come potature, prepararsi a un nuovo capitolo che emergerà dopo il Dasha. Il vero lavoro di Ketu Dasha è interiore.",
+      "relationshipImplications": "Periodo difficile per le relazioni romantiche convenzionali. Possibili: separazioni, divorzi, vedovanze, periodi di celibato spirituale, relazioni che diventano amicizie spirituali, partner che si trovano per percorsi karmici brevi e intensi. Per chi è in coppia: la relazione si trasforma — o si approfondisce in dimensione spirituale, o si dissolve perché era basata su attaccamenti superati. La sessualità tende a calare o a trasformarsi in tantra. Per i single: spesso il Dasha è di solitudine consapevole, di celibato meritato. Maturazione: imparare ad amare senza possedere, a stare in coppia senza dipendere, oppure a stare soli senza isolarsi.",
+      "famousExample": "Ramana Maharshi entrò nel proprio percorso di realizzazione durante una fase fortemente segnata da Ketu, quando a sedici anni sperimentò la 'morte' simbolica che lo portò all'illuminazione e al ritiro sul monte Arunachala. Il suo Ketu potente ha incarnato la liberazione radicale, il distacco totale dall'identificazione con il corpo e la mente, l'esperienza diretta del Sé. Un esempio archetipico di come Ketu Dasha, attraversato in piena consapevolezza, possa trasformare un ragazzo qualsiasi in un saggio universalmente riconosciuto come una delle voci più pure della tradizione vedanta moderna."
+    },
+    {
+      "planet": "Venere",
+      "sanskrit": "Shukra Mahadasha",
+      "years": 20,
+      "overview": "Il Mahadasha di Venere è il più lungo dei nove e il più dolce. Vent'anni in cui Shukra — il guru degli asura, il pianeta del piacere, dell'amore, della bellezza, dell'arte, del lusso, della seduzione, della sensualità, della ricchezza raffinata — apre l'anima al godimento di tutto ciò che è incarnato, sensuale, esteticamente meraviglioso. Venere è il significatore della moglie (per gli uomini), del partner romantico in genere, dell'amore erotico, del matrimonio, della bellezza, dell'arte, della musica, della danza, della poesia, dei profumi, dei gioielli, dei tessuti pregiati, della cucina raffinata, del lusso, del denaro liquido, dei veicoli, della fertilità femminile. Quando Shukra governa, la vita si riempie di colori, di musica, di amori, di viaggi piacevoli, di acquisti raffinati, di esperienze estetiche memorabili. Parashara descrive il Dasha di Venere ben posizionata come portatore di 'matrimonio felice, nascita di figli, ricchezza, gioielli, vesti pregiate, viaggi, fama come artista o uomo di cultura, fortuna in tutti i piaceri'. Se Venere è debilitata (Vergine), combusta, in dusthana o afflitta, porta 'matrimoni infelici, scandali sentimentali, debilitazioni del sistema riproduttivo, sprechi finanziari, dipendenze dal piacere, problemi di pelle, perdita di reputazione'. Sul piano psicologico è il Dasha dell'Anima nel senso junghiano: il femminile interiore — sia nell'uomo che nella donna — chiede di essere onorato, espresso, integrato. È il tempo in cui si scopre che la bellezza non è frivolezza ma una via spirituale (sundaram = bellezza è una delle qualità del divino, accanto a sat-cit-ananda). Sul piano materiale è il Dasha della ricchezza godibile: non quella accumulata e mai goduta (saturnina), ma quella spesa in esperienze, arte, casa, viaggi, formazione estetica. Spiritualmente è la fase del bhakti yoga raffinato: la devozione attraverso la bellezza (Krishna che danza, Lakshmi che siede sul loto, Saraswati che suona la veena). Lakshmi, Krishna, Radha, Saraswati sono le divinità chiave.",
+      "lifeAreasActive": [
+        "Amore romantico, matrimonio, vita sentimentale",
+        "Arte, musica, danza, poesia, espressione estetica",
+        "Bellezza personale, cura del corpo, eleganza, moda",
+        "Lusso, casa raffinata, oggetti d'arte, gioielli",
+        "Denaro liquido, acquisti, esperienze costose",
+        "Sessualità, sensualità, fertilità, piacere",
+        "Viaggi piacevoli, vacanze, esperienze culturali",
+        "Salute riproduttiva, pelle, reni, ghiandole sessuali",
+        "Diplomazia, arte di conciliare, charme, persuasione"
+      ],
+      "karmicTest": "Venere chiede: 'Sai amare la bellezza senza esserne schiavo?'. È il test del godimento consapevole. Chi entra nel Dasha con un'anima ferita nell'amore proprio o nel valore di sé sviluppa dipendenze (amore patologico, shopping compulsivo, sessualità compulsiva, dipendenza dall'apparenza). Chi entra integrato vive l'abbondanza come benedizione condivisa. Test secondario: la fedeltà. Venere è il pianeta della passione, e la tentazione di tradire, di volere sempre 'altra bellezza', è forte. Test profondo: l'arte. Venere chiama all'espressione estetica. Chi soffoca questa chiamata sviluppa malinconie sottili, sensazione di vita non vissuta. Chi la onora trova un canale dharmico inaspettato.",
+      "favorableAntardashas": [
+        "Venere-Mercurio: il sotto-periodo più magico per business e creatività. Successi commerciali, contratti d'oro, pubblicazioni, viaggi fruttuosi.",
+        "Venere-Saturno: amore maturo, matrimoni stabili, costruzione di patrimonio raffinato, arte di valore duraturo.",
+        "Venere-Giove: dharma di bellezza. Riconoscimenti artistici, viaggi sacri, espansione del cuore, figli, prosperità etica.",
+        "Venere-Luna: emozioni dolci, casa armoniosa, popolarità, piaceri condivisi con la famiglia."
+      ],
+      "challengingAntardashas": [
+        "Venere-Sole: Sole e Venere sono nemici. Tensioni coniugali, dilemmi pubblico/privato, possibili scandali sentimentali, calo di reputazione.",
+        "Venere-Marte: passioni esplosive, conflitti coniugali, tradimenti, gravidanze inaspettate, gelosie acute.",
+        "Venere-Rahu: dipendenze sensoriali, tradimenti, scandali, ossessioni amorose, viaggi disorientanti.",
+        "Venere-Ketu: distacco improvviso da relazioni o piaceri, perdita di interesse per il mondo materiale, crisi del matrimonio."
+      ],
+      "doList": [
+        "Coltivare un'arte (musica, danza, scrittura, pittura, cucina, ceramica) come pratica regolare",
+        "Curare la propria bellezza interiore ed esteriore senza vanità (skincare, abbigliamento, postura)",
+        "Vivere una storia d'amore profonda o approfondire quella esistente con attenzione",
+        "Investire in casa, arredamento, oggetti che durano e nutrono la sensibilità estetica",
+        "Viaggiare in luoghi di grande bellezza (Italia, Giappone, Francia, India del sud)",
+        "Indossare diamante, zircone bianco, opale energizzati per Venere",
+        "Onorare Lakshmi il venerdì con arghya di latte, fiori bianchi, profumi",
+        "Frequentare ambienti raffinati: concerti, gallerie, teatri, cene eleganti",
+        "Studiare un'arte tradizionale (kalari, bharatanatyam, calligrafia, tea ceremony)",
+        "Praticare la generosità raffinata: fare regali curati, ospitare con cura"
+      ],
+      "avoidList": [
+        "Eccessi sensoriali che diventano dipendenza (cibo, sesso, alcol, lusso)",
+        "Tradimenti coniugali (Venere è il pianeta della fedeltà raffinata, e tradisce chi tradisce)",
+        "Spreco compulsivo, debiti per acquisti emozionali",
+        "Vanità, comparazione costante con la bellezza altrui",
+        "Trascurare la propria fertilità o salute riproduttiva",
+        "Compromessi etici per denaro o piacere",
+        "Banalizzare l'amore in collezione di conquiste"
+      ],
+      "spiritualPractices": [
+        "Mantra: 'Om Dram Dreem Draum Sah Shukraya Namah' — 16000 ripetizioni nel Dasha, 108 al giorno il venerdì",
+        "Shukra Beej Mantra: 'Om Shum Shukraya Namah'",
+        "Lakshmi Ashtottara Shata Namavali (108 nomi di Lakshmi) ogni venerdì",
+        "Sri Suktam o Mahalakshmi Stotram per la prosperità raffinata",
+        "Digiuno del venerdì con cibi bianchi e dolci (latte, riso, frutta dolce)",
+        "Donazioni: argento, perle, diamanti, riso, latte, ghee, vesti bianche, profumi, a giovani donne, sposi, brahmini",
+        "Pratica dell'arte come yoga: bhakti attraverso il fare bello"
+      ],
+      "healthFocus": "Sistema riproduttivo (per entrambi i sessi), reni, vescica, pelle (specie viso e collo), gola e corde vocali (specie nelle donne), ghiandole endocrine sessuali, occhi (estetica), grasso corporeo, sistema venoso. Predisposizione a infezioni urinarie, problemi alla prostata (uomini), problemi mestruali e ovarici (donne), pelle disidratata o seborroica, problemi venosi, calcoli renali, diabete legato a eccessi alimentari dolci. Kapha-Pitta. Cura: alimentazione raffinata ma moderata, idratazione abbondante, skincare regolare, esercizio dolce (yoga, danza, nuoto), oli ayurvedici per la pelle (mandorla, jojoba, brahmi), evitare eccessi sessuali che indeboliscono Shukra dhatu, abhyanga.",
+      "careerImplications": "Vent'anni di splendide opportunità per professioni legate alla bellezza, all'arte, al femminile, al lusso. Ottimo per: arte (musica, danza, cinema, teatro, pittura), moda, design, architettura d'interni, gioielleria, cosmetica, profumeria, alta cucina, hôtellerie di lusso, settore wedding, industria del benessere, terapia di coppia, sessuologia, fotografia, settore matrimoniale, diplomazia, relazioni pubbliche, marketing, vendite di prodotti raffinati, gestione di alberghi e ristoranti. La ricchezza arriva attraverso ciò che si ama: chi monetizza la propria sensibilità estetica fiorisce. Strategia: non scendere a compromessi sulla qualità, costruire un brand personale raffinato, lavorare in ambienti belli.",
+      "relationshipImplications": "Il Dasha più potente per la vita sentimentale. Possibili: incontro con il grande amore, matrimonio felice, gravidanze desiderate, costruzione della famiglia ideale, vita coniugale magnetica e creativa. Per chi è già sposato: il matrimonio si rinnova, si approfondisce, diventa più sensuale e creativo. Per i single: incontri romantici di alta qualità, possibili anche tardivi. Rischio: se Venere è afflitta, il Dasha porta tradimenti, divorzi, scandali, dipendenze affettive. La maturazione richiesta è amare senza idealizzare e senza possedere, riconoscendo nel partner il riflesso del divino femminile o maschile.",
+      "famousExample": "Elizabeth Taylor ha vissuto la propria fase di massimo splendore artistico e personale durante il Mahadasha di Venere, anni di film leggendari, matrimoni leggendari, gioielli leggendari, bellezza che ha definito un'epoca. La sua Venere potente ha incarnato l'archetipo della dea Lakshmi-Aphrodite incarnata: amore, lusso, magnetismo, dramma sentimentale, ma anche profonda umanità (le sue battaglie filantropiche per l'AIDS). Un esempio archetipico di come Shukra Dasha trasformi la vita in opera d'arte vivente quando il pianeta è ben supportato dal tema natale."
+    }
+  ]
+}

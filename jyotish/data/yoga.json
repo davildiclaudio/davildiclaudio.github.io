@@ -1,0 +1,498 @@
+{
+  "_meta": {
+    "section": "Sezione 6 — Yoga, Raja Yoga, Dhana Yoga e Dosha",
+    "fonti": ["Brihat Parashara Hora Shastra (cap. 35-42)", "Brihat Jataka di Varahamihira", "Phaladeepika (cap. VI-VII)", "Saravali (cap. 38-43)", "Jataka Parijata", "Yoga Sara di Mantreswara", "Lal Kitab (per i rimedi popolari)"],
+    "note": "Gli Yoga in Jyotish sono combinazioni planetarie specifiche che producono effetti predittivi. Si dividono in benefici (subha), malefici (asubha), Raja Yoga (di potere), Dhana Yoga (di ricchezza), Sannyasa Yoga (di rinuncia). I Dosha sono squilibri karmici che richiedono rimedi specifici. Le interpretazioni integrano la tradizione classica con la prassi moderna (B.V. Raman, K.N. Rao, Sanjay Rath)."
+  },
+  "yoga": [
+    {
+      "category": "Pancha Mahapurusha Yoga",
+      "description": "I cinque Yoga della Grande Persona — formati quando uno dei cinque pianeti tara (Marte, Mercurio, Giove, Venere, Saturno) si trova in un segno proprio o di esaltazione, in una Kendra (case 1, 4, 7, 10) dal Lagna o dalla Luna. Producono individui di grande qualità, riconoscibili nel mondo per la propria specifica eccellenza.",
+      "items": [
+        {
+          "name": "Ruchaka Yoga",
+          "sanskrit": "रुचक योग",
+          "formation": "Marte in Mesha (Ariete), Vrischika (Scorpione) o Makara (Capricorno — esaltazione) in casa angolare (1, 4, 7, 10) dal Lagna o dalla Luna. La forza dello yoga è massima quando Marte è esaltato in Capricorno nella decima casa.",
+          "effects": "Il nato sotto Ruchaka Yoga manifesta un fisico atletico e marziale, fronte ampia, sopracciglia folte, sguardo di leone, voce profonda e autorevole. Diventa un capo naturale: comandante militare, generale, chirurgo di fama, atleta professionista, fondatore di imprese coraggiose, ufficiale di polizia di alto rango. La psicologia è quella del kshatriya autentico: coraggio sotto pressione, capacità decisionale fulminea, lealtà ferrea verso la propria causa, magnetismo carismatico che ispira gli uomini a seguirlo nella battaglia. Ottiene fama (yashas), ricchezza acquisita con valore (parakrama), proprietà terriere (bhumi-labha), longevità di guerriero. Phaladeepika afferma che 'colui che ha Ruchaka Yoga ottiene il favore dei re, distrugge i nemici, vive lungamente e raggiunge alti gradi militari'. Il rovescio della medaglia: tendenza all'autoritarismo, alla violenza, alle ferite da arma o fuoco, conflitti coniugali se Marte è il significatore della 7ª casa. La sessualità è potente, talvolta indomata.",
+          "remedies": "Per amplificare il bene: Hanuman Chalisa quotidiano, mantra di Marte, donazioni di lenticchie rosse e miele il martedì, indossare corallo rosso. Per mitigare l'ombra: lavoro sulla rabbia, ahimsa nelle relazioni, donazioni a chi ha subito violenza.",
+          "citations": "BPHS XXXVII.1-2; Brihat Jataka XII.1; Phaladeepika VI.1",
+          "famousExamples": "Vladimir Putin (Marte in Capricorno potente), Bruce Lee, generale Patton."
+        },
+        {
+          "name": "Bhadra Yoga",
+          "sanskrit": "भद्र योग",
+          "formation": "Mercurio in Mithuna (Gemelli) o Kanya (Vergine — esaltazione) in casa angolare (1, 4, 7, 10) dal Lagna o dalla Luna. Massima potenza quando Mercurio è in Kanya in 10ª casa.",
+          "effects": "Bhadra produce intelligenza superiore, eloquenza brillante, capacità di apprendere qualsiasi cosa, agilità mentale, longevità (i nati Bhadra invecchiano bene perché la mente resta giovane). Fisicamente: corporatura proporzionata, viso giovanile anche in età avanzata, occhi vivaci, mani agili. Carriera in: scrittura, accademia, business, commercio internazionale, diplomazia, programmazione, oratoria pubblica, editoria, traduzione, mediazione. La psicologia è quella del polimata: curiosità infinita, capacità di connettere domini diversi, sense of humor sottile, abilità di persuasione raffinata. Il nato Bhadra ottiene 'vidya' (conoscenza), 'kalakushala' (abilità in arti e scienze), 'rajya-priya' (favore dei potenti), 'putra-poutra-vibhushita' (figli e nipoti). Ombra: rischio di superficialità da troppi interessi, manipolazione verbale, infedeltà mentale.",
+          "remedies": "Per amplificare: Vishnu Sahasranama, mantra di Mercurio, donazioni di smeraldi e libri sacri al mercoledì. Per mitigare l'ombra: pratica della parola vera (satya), focalizzazione su un solo dominio per approfondirlo.",
+          "citations": "BPHS XXXVII.3-4; Saravali 41.5",
+          "famousExamples": "J.K. Rowling, Bill Clinton (oratore brillante), Sundar Pichai."
+        },
+        {
+          "name": "Hamsa Yoga",
+          "sanskrit": "हंस योग",
+          "formation": "Giove in Dhanu (Sagittario), Meena (Pesci) o Karka (Cancro — esaltazione) in casa angolare (1, 4, 7, 10) dal Lagna o dalla Luna. Massima potenza con Giove esaltato in Karka in 4ª.",
+          "effects": "Hamsa significa 'cigno', simbolo del puro discernimento (il cigno mitologico che separa il latte dall'acqua). Il nato Hamsa è un'anima nobile, di portamento regale, viso luminoso e sereno, sguardo profondo, sorriso saggio. Fisicamente: tendenza a essere ben proporzionato, talvolta con leggera robustezza; pelle chiara, marche sui piedi (segni di buon karma). La carriera è dharmica: insegnante, guru, sacerdote, giudice, filosofo, medico, ministro, scrittore di testi spirituali, fondatore di scuole o tradizioni. Riceve onori dalle istituzioni religiose e accademiche, viaggia in luoghi sacri, è amato dalle donne (per gli uomini), dai bambini, dagli anziani. Possiede 'dharma-buddhi' (intelligenza etica), 'shastra-jnana' (conoscenza dei testi sacri), 'bandhu-praja' (famiglia e seguaci numerosi), 'putra-vibhushita' (figli che onorano). Ombra: rischio di moralismo, dogmatismo, arroganza intellettuale, eccesso di peso fisico.",
+          "remedies": "Per amplificare: Vishnu Sahasranama, Hanuman Chalisa, mantra di Giove, donazioni di oro e curcuma al giovedì, servizio ai brahmini. Per mitigare l'ombra: umiltà, ascolto, dieta moderata.",
+          "citations": "BPHS XXXVII.5-6; Brihat Jataka XII.4",
+          "famousExamples": "Dalai Lama, Mahatma Gandhi (Giove esaltato), Carl Jung."
+        },
+        {
+          "name": "Malavya Yoga",
+          "sanskrit": "मालव्य योग",
+          "formation": "Venere in Vrishabha (Toro), Tula (Bilancia) o Meena (Pesci — esaltazione) in casa angolare (1, 4, 7, 10) dal Lagna o dalla Luna. Massima potenza con Venere esaltata in Meena in 4ª o 10ª.",
+          "effects": "Il nato Malavya è dotato di bellezza naturale magnetica, lineamenti armoniosi, voce dolce, sorriso luminoso, gestualità raffinata. Fisicamente: corporatura proporzionata, capelli folti, occhi grandi e liquidi, pelle luminosa. Vive in lusso e raffinatezza, sposa un partner di alta qualità, possiede gioielli, vesti pregiate, casa elegante, veicoli di valore. La carriera tipica è in: arte, cinema, moda, design, musica, danza, profumeria, gioielleria, settore wedding, hotel di lusso, gastronomia raffinata, diplomazia, settore beauty. Magnetismo erotico potente, popolarità con il sesso opposto, vita coniugale appagante. Possiede 'kalakushala' (abilità nelle arti), 'sundara' (bellezza), 'priya-vacana' (parola dolce), 'bhoga-yukta' (godimento dei piaceri), 'putra-yukta' (figli). Ombra: rischio di vanità, sensualità eccessiva, dipendenza dal lusso, infedeltà coniugale, compromessi etici per denaro.",
+          "remedies": "Per amplificare: Lakshmi Ashtottara, Sri Suktam, mantra di Venere, donazioni di argento e profumi al venerdì. Per mitigare l'ombra: pratica della fedeltà, sublimazione artistica della sensualità.",
+          "citations": "BPHS XXXVII.7-8; Phaladeepika VI.4",
+          "famousExamples": "Marilyn Monroe, Aishwarya Rai, Audrey Hepburn."
+        },
+        {
+          "name": "Sasa Yoga",
+          "sanskrit": "शश योग",
+          "formation": "Saturno in Makara (Capricorno), Kumbha (Acquario) o Tula (Bilancia — esaltazione) in casa angolare (1, 4, 7, 10) dal Lagna o dalla Luna. Massima potenza con Saturno esaltato in Tula in 7ª o 10ª.",
+          "effects": "Sasa significa 'lepre' (riferito al simbolo lunare), ma in chiave astrologica indica chi domina nascostamente, lentamente, con strategia e disciplina. Il nato Sasa appare riservato, austero, di lineamenti scolpiti, fisico robusto, occhi profondi, voce grave. Diventa leader di masse: politico, magistrato, capo industriale, generale, manager di grandi organizzazioni, sindacalista, leader spirituale di tradizione antica. Ottiene potere su ampie popolazioni, controllo di proprietà terriere e minerarie, longevità, reputazione di affidabilità totale. La psicologia è quella del giudice severo ma giusto: pazienza titanica, etica del lavoro estrema, attenzione ai dettagli, capacità di vedere il lungo termine, freddezza emotiva apparente che nasconde profondità. Possiede 'mahaja' (autorità sui lavoratori), 'gramadhipa' (signoria su villaggi/territori), 'ayus' (longevità), 'sthira-buddhi' (intelligenza stabile). Ombra: rischio di durezza, isolamento, depressione, autoritarismo, sospettosità.",
+          "remedies": "Per amplificare: Hanuman Chalisa, Shani Stotram, mantra di Saturno, donazioni di olio di sesamo e ferro al sabato, servizio ai poveri. Per mitigare l'ombra: pratica della tenerezza, apertura emotiva.",
+          "citations": "BPHS XXXVII.9-10; Saravali 41.13",
+          "famousExamples": "Angela Merkel (lunga leadership disciplinata), Warren Buffett, Vladimir Lenin."
+        }
+      ]
+    },
+    {
+      "category": "Yoga Benefici",
+      "description": "Combinazioni che producono effetti positivi specifici nella vita: intelligenza, fortuna, riconoscimento, ricchezza, popolarità.",
+      "items": [
+        {
+          "name": "Gajakesari Yoga",
+          "sanskrit": "गजकेसरी योग",
+          "formation": "Giove in casa angolare (1, 4, 7, 10) dalla Luna, oppure Giove e Luna in mutuo aspetto, oppure Giove e Luna in congiunzione in casa angolare dal Lagna. Più potente quando entrambi sono forti e non afflitti.",
+          "effects": "Gajakesari significa 'elefante e leone' — la combinazione di forza maestosa (elefante = Giove) e regalità coraggiosa (leone = Luna). È uno degli yoga più celebri e benefici. Produce un nato di grande dignità, intelligenza brillante, popolarità duratura, ricchezza, longevità, fama che persiste oltre la morte. Il nato Gajakesari ottiene riconoscimento del re/governo, posizioni di responsabilità, supporto materno e familiare profondo, figli di valore, ricchezza accumulata con etica. Mentalmente è dotato di equilibrio fra cuore e saggezza, fra intuizione e ragione, fra empatia e discernimento. Carriera tipica: leader politico amato dal popolo, scrittore di fama, insegnante venerato, medico stimato, imprenditore etico riconosciuto. Phaladeepika afferma che 'il nato sotto Gajakesari diventa famoso, ricco, intelligente, longevo, e i suoi nomi continuano a essere pronunciati anche dopo la sua morte'.",
+          "remedies": "Per amplificarlo: rituali del giovedì e del lunedì combinati, donazioni di latte, ghee, oro al giovedì, mantra di Giove e Luna, devozione a Vishnu e alla Madre Divina.",
+          "citations": "BPHS XL.10-11; Saravali 38.6; Phaladeepika VI.13",
+          "famousExamples": "Bill Gates, Sachin Tendulkar, Mata Amritanandamayi."
+        },
+        {
+          "name": "Budha-Aditya Yoga",
+          "sanskrit": "बुधादित्य योग",
+          "formation": "Mercurio e Sole in congiunzione nello stesso segno, idealmente nelle case 1, 5, 9, 10 (case dharmiche e di leadership). Mercurio non deve essere troppo combusto (entro 14° dal Sole è considerato accettabile per produrre lo yoga; sotto i 6° è combusto).",
+          "effects": "Yoga della 'intelligenza solare' o 'genialità riconosciuta'. Produce un nato di intelligenza superiore, eloquenza brillante, capacità di leadership con visione, riconoscimento pubblico per i propri talenti intellettuali. Tipicamente: scrittore famoso, oratore politico carismatico, scienziato di fama, manager di successo, accademico riconosciuto, comunicatore di massa. La mente unisce la luce del Sole (chiarezza, autorità, dharma) con l'intelligenza di Mercurio (analisi, parola, calcolo). Il nato sa farsi capire, sa convincere, sa guidare attraverso la parola. Ottiene 'vidya-buddhi' (intelligenza colta), 'rajya-priya' (favore istituzionale), 'kirti' (fama), 'arthavan' (ricchezza). Ombra: rischio di arroganza intellettuale, dogmatismo, eccesso di razionalità che soffoca l'emotività.",
+          "remedies": "Per amplificarlo: Aditya Hridayam, Vishnu Sahasranama, mantra del Sole e di Mercurio, donazioni di grano e smeraldi.",
+          "citations": "BPHS XL.6; Saravali 38.10",
+          "famousExamples": "Barack Obama (oratore brillante), Steve Jobs, Sigmund Freud."
+        },
+        {
+          "name": "Chandra-Mangala Yoga",
+          "sanskrit": "चन्द्र-मङ्गल योग",
+          "formation": "Luna e Marte in congiunzione nello stesso segno, oppure in mutuo aspetto (1°-7°). Più potente nelle case 2, 4, 11.",
+          "effects": "Yoga del denaro liquido e delle proprietà. Il nato accumula ricchezza attraverso commerci, immobili, agricoltura, prodotti di base. Ha capacità di trasformare la fluidità lunare (pubblico, popolarità, prodotti di consumo) con l'azione marziale (iniziativa, costruzione, lotta competitiva). Tipicamente è imprenditore di successo nel settore immobiliare, agricoltura, commercio di prodotti per la massa, settore minerario, banche, finanza. Mentalmente: passione decisionale, magnetismo emotivo competitivo, capacità di chiudere affari con cuore e fuoco insieme. Ombra: tendenza a passioni intense e talvolta distruttive, conflitti familiari, gelosie, problemi materni, sangue caldo, guadagni con un velo eticamente discutibile (il classico 'denaro che brucia le mani').",
+          "remedies": "Pratica di fedeltà finanziaria, donazioni di sangue, servizio alla madre, mantra di Hanuman e della Madre Divina.",
+          "citations": "BPHS XL.12; Phaladeepika VI.21",
+          "famousExamples": "Donald Trump (immobili), Mukesh Ambani."
+        },
+        {
+          "name": "Lakshmi Yoga",
+          "sanskrit": "लक्ष्मी योग",
+          "formation": "Il signore della 9ª casa (Bhagya, fortuna) forte (in segno proprio o di esaltazione) in casa angolare o trinale, e Venere forte (in segno proprio o di esaltazione) anch'essa in casa angolare o trinale. Il signore del Lagna deve essere potente.",
+          "effects": "Yoga della 'Dea della Fortuna' incarnata. Produce ricchezza abbondante, lusso, bellezza, popolarità, matrimonio felice, figli di qualità, casa magnifica, viaggi piacevoli, fama duratura. Il nato è benedetto da fortuna apparentemente immeritata: opportunità che cadono dal cielo, eredità inattese, partnership che fioriscono, riconoscimenti spontanei. Vive nella grazia di Lakshmi: ciò che tocca prospera, ciò che inizia fiorisce. La carriera è in: lusso, arte, finanza, banche, settore matrimoniale, hotel di alta gamma, gioielleria, real estate di pregio. Possiede 'shri' (splendore), 'sampada' (prosperità), 'putra-pautra' (figli e nipoti), 'sukha' (felicità). Ombra: rischio di adagiarsi sulla fortuna senza coltivare il dharma, dipendenza dal lusso.",
+          "remedies": "Sri Suktam, Lakshmi Ashtottara, devozione a Lakshmi e Vishnu il venerdì, donazioni di riso, latte, oro.",
+          "citations": "BPHS XL.5; Phaladeepika VI.15",
+          "famousExamples": "regina Elisabetta II, Beyoncé, sultano del Brunei."
+        },
+        {
+          "name": "Vipareeta Raja Yoga",
+          "sanskrit": "विपरीत राजयोग",
+          "formation": "I signori delle case dusthana (6, 8, 12) si trovano fra di loro in dusthana (es: signore della 6 in 8, o in 12; signore dell'8 in 6 o 12; signore della 12 in 6 o 8). Tre varianti: Harsha (signore della 6 in dusthana), Sarala (signore dell'8 in dusthana), Vimala (signore della 12 in dusthana).",
+          "effects": "Yoga del 'potere paradossale': la negazione della negazione produce affermazione. Il nato attraversa difficoltà nella prima parte della vita (perdite, malattie, conflitti, debiti, isolamento) ma da queste stesse difficoltà nascono inaspettatamente ricchezza, potere e fama. È il classico yoga del 'self-made man che ha sofferto e poi è riemerso'. Politici che hanno conosciuto la prigione, imprenditori falliti diverse volte prima del successo, artisti rifiutati prima della fama. Le situazioni che dovrebbero distruggere il nato lo rafforzano e lo elevano. Phaladeepika lo paragona alla fenice che rinasce dalle ceneri. Il sapore è quello del karma yoga maturato attraverso il dolore: chi ha perso tutto e ha continuato a operare con dharma riceve un dono inaspettato dal destino.",
+          "remedies": "Pratica spirituale costante, accettazione delle difficoltà come gradini, servizio ai sofferenti, Hanuman Chalisa.",
+          "citations": "BPHS XLII; Phaladeepika VI.27",
+          "famousExamples": "Nelson Mandela (27 anni di prigione), Steve Jobs (cacciato dalla sua azienda), Abraham Lincoln."
+        },
+        {
+          "name": "Neecha Bhanga Raja Yoga",
+          "sanskrit": "नीच भङ्ग राजयोग",
+          "formation": "Un pianeta debilitato (neecha) la cui debilitazione viene 'cancellata' (bhanga) attraverso una di queste condizioni classiche: (1) il signore del segno di debilitazione è in casa angolare dal Lagna o dalla Luna; (2) il pianeta che si esalterebbe in quel segno è in casa angolare dal Lagna o dalla Luna; (3) il pianeta debilitato è aspettato dal proprio signore di esaltazione; (4) il pianeta debilitato e il pianeta che si esalterebbe in quel segno sono in mutuo scambio.",
+          "effects": "Yoga della 'redenzione del debole'. Il pianeta che era debilitato non solo perde i suoi effetti negativi, ma diventa portatore di Raja Yoga, di potere e di fortuna. Il nato spesso parte da posizioni di svantaggio (familiare, economico, sociale, psicologico) e riesce a elevarsi a posizioni di grande dignità proprio perché ha attraversato la debolezza con consapevolezza. Mentalmente è caratterizzato da resilienza profonda, comprensione del dolore altrui, leadership empatica. La carriera spesso include un ribaltamento drammatico fra inizio difficile e maturità trionfante.",
+          "remedies": "Devozione al pianeta debilitato e al suo signore di esaltazione, lavoro sulle ferite originarie, accettazione della propria storia.",
+          "citations": "BPHS XL.1-3; Saravali 39.30",
+          "famousExamples": "Oprah Winfrey (Marte debilitato in Cancro con cancellazione, infanzia traumatica e ascesa mediatica)."
+        },
+        {
+          "name": "Adhi Yoga",
+          "sanskrit": "अधि योग",
+          "formation": "I tre pianeti benefici naturali (Giove, Venere, Mercurio) si trovano nelle case 6, 7, 8 dalla Luna (Adhi Yoga lunare) oppure dal Lagna (Adhi Yoga ascendentale). Variante più forte: i tre benefici nelle case 6, 7, 8 dalla Luna senza congiunzioni con malefici.",
+          "effects": "Yoga del 'sovrano illuminato'. Il nato sotto Adhi Yoga ottiene posizioni di leadership riconosciuta, ricchezza notevole, fama benefica, longevità, aiuto da molti seguaci e collaboratori, vita lunga e onorata, riconoscimenti pubblici. La psicologia è quella del re-saggio: capacità di guidare con dharma, di costruire alleanze, di proteggere i propri sudditi (collaboratori, famiglia, popolazione). La carriera è tipicamente in posizioni di responsabilità collettiva: politica, alta dirigenza, leadership religiosa, fondazioni filantropiche, organizzazioni internazionali. Phaladeepika afferma che 'il nato Adhi Yoga è ricco, longevo, vittorioso sui nemici, fortunato nella famiglia, e i suoi sudditi lo adorano'.",
+          "remedies": "Pratica del karma yoga (servizio ai propri seguaci), devozione a Vishnu come Rama (re-dharma), mantra dei tre benefici.",
+          "citations": "BPHS XL.4; Saravali 38.20",
+          "famousExamples": "Jawaharlal Nehru, Angela Merkel, Helmut Kohl."
+        },
+        {
+          "name": "Sunapha, Anapha, Durudhura",
+          "sanskrit": "सुनफा, अनफा, दुरुधरा",
+          "formation": "Tre yoga lunari classici: SUNAPHA = pianeti (escluso il Sole) nella casa successiva alla Luna (2ª dalla Luna); ANAPHA = pianeti nella casa precedente alla Luna (12ª dalla Luna); DURUDHURA = pianeti sia nella 2ª che nella 12ª dalla Luna (la Luna è 'circondata' da pianeti).",
+          "effects": "SUNAPHA: il nato è autosufficiente economicamente, ottiene ricchezza attraverso il proprio sforzo, è intelligente, eloquente, godibile. ANAPHA: bellezza fisica, salute robusta, popolarità, generosità, fama come oratore o capo. DURUDHURA: il più potente dei tre — il nato è circondato da prosperità, ottiene ricchezza, servitori, veicoli, lusso, comfort. La Luna 'protetta' fra due pianeti dona stabilità mentale e magnetismo. La qualità specifica dipende dai pianeti coinvolti: se sono benefici (Giove, Venere, Mercurio non afflitto) i risultati sono pieni; se sono malefici (Marte, Saturno, Rahu) gli effetti sono mescolati con difficoltà. Phaladeepika descrive Durudhura come yoga che 'porta il nato fra i grandi del regno'.",
+          "remedies": "Devozione lunare il lunedì, mantra di Chandra, donazioni di latte e perle.",
+          "citations": "BPHS XL.7-9; Brihat Jataka XIII.1-3",
+          "famousExamples": "molti CEO di Fortune 500 mostrano una di queste configurazioni; Warren Buffett ha Durudhura."
+        }
+      ]
+    },
+    {
+      "category": "Raja Yogas (Yoga di Potere)",
+      "description": "Combinazioni che elevano il nato a posizioni di potere, autorità, comando, riconoscimento sociale. Si formano principalmente attraverso l'incontro fra signori di case angolari (Kendra: 1, 4, 7, 10) e signori di case trinali (Trikona: 1, 5, 9).",
+      "items": [
+        {
+          "name": "Dharmakarmadhipati Yoga",
+          "sanskrit": "धर्मकर्माधिपति योग",
+          "formation": "Il signore della 9ª casa (Dharma) e il signore della 10ª casa (Karma) si combinano: in congiunzione, in mutuo aspetto, o in mutuo scambio (Parivartana). È considerato il Raja Yoga supremo perché unisce dharma (la chiamata profonda) e karma (l'azione professionale).",
+          "effects": "Il nato vive una professione che è anche la sua vocazione spirituale, riceve riconoscimento istituzionale per il proprio dharma, accumula ricchezza dharmica, viaggia in luoghi sacri per ragioni professionali, diventa una figura di autorità etica nel proprio campo. Esempi tipici: medico-guru, leader politico riformatore, imprenditore filantropo, scrittore di testi che cambiano la cultura. La carriera diventa il sentiero spirituale e viceversa.",
+          "remedies": "Pratica del karma yoga, dedicazione del proprio lavoro al divino, servizio ai più sfortunati.",
+          "citations": "BPHS XLI.4; Phaladeepika VI.31",
+          "famousExamples": "Mother Teresa, Mahatma Gandhi, Nelson Mandela."
+        },
+        {
+          "name": "Kendra-Trikona Raja Yoga",
+          "sanskrit": "केंद्र-त्रिकोण राजयोग",
+          "formation": "Il signore di una casa angolare (Kendra: 1, 4, 7, 10) si combina con il signore di una casa trinale (Trikona: 1, 5, 9): congiunzione, mutuo aspetto, o scambio. È il Raja Yoga 'classico' e fondamentale.",
+          "effects": "Produce posizioni di autorità, ricchezza, riconoscimento, longevità, supporto familiare, figli di valore. Il nato emerge naturalmente come leader nel proprio ambito. La specifica qualità del successo dipende dalle case coinvolte: 1-5 (auto-realizzazione e figli), 4-9 (casa, fortuna, madre), 7-9 (matrimonio fortunato e dharma), 10-5 (carriera con creatività), ecc.",
+          "remedies": "Devozione ai pianeti coinvolti, sviluppo delle aree di vita governate dalle case partecipanti.",
+          "citations": "BPHS XLI.1-3",
+          "famousExamples": "moltissimi leader e CEO mostrano questa combinazione."
+        },
+        {
+          "name": "Parivartana Yoga (di scambio)",
+          "sanskrit": "परिवर्तन योग",
+          "formation": "Due pianeti si scambiano i segni: il pianeta A è nel segno governato da B, e B è nel segno governato da A. Esempio: Marte in Tula e Venere in Mesha. Tre varianti: Maha (fra signori di Kendra/Trikona), Khala (fra signori di dusthana e altre case), Dainya (fra signori di dusthana che peggiora).",
+          "effects": "Maha Parivartana è uno degli yoga più potenti: i due pianeti diventano amplificatori reciproci di benefici. Produce ricchezza, riconoscimento, successo nelle aree governate dalle case coinvolte. Dainya Parivartana invece amplifica difficoltà nelle aree dusthana (perdite, malattie, ostacoli). Khala è misto. Il sapore karmico di Parivartana è quello del 'destino intrecciato': le aree di vita governate dai due segni sono indissolubilmente legate, nel bene o nel male.",
+          "remedies": "Equilibrio fra le aree di vita coinvolte, devozione ai pianeti coinvolti.",
+          "citations": "BPHS XLI.7-10",
+          "famousExamples": "Steve Jobs (Mercurio-Venere in scambio favorevole)."
+        },
+        {
+          "name": "Sankha Yoga",
+          "sanskrit": "शङ्ख योग",
+          "formation": "Il signore del Lagna è forte e il signore della 9ª e il signore della 10ª sono in aspetto reciproco o in scambio. Variante: signori della 5 e della 6 in mutuo aspetto, con il signore del Lagna forte.",
+          "effects": "Yoga della 'conchiglia sacra'. Il nato è devoto, dotato di buon carattere, longevo, ricco di terra e proprietà, ha moglie/marito di qualità, figli, conoscenza dei testi. Lo yoga è particolarmente associato a vita lunga e dignitosa, riconoscimento sociale, prosperità famigliare.",
+          "remedies": "Vishnu Sahasranama, devozione a Vishnu (la conchiglia è il suo attributo).",
+          "citations": "BPHS XL.18; Phaladeepika VI.34",
+          "famousExamples": "molti leader spirituali e accademici."
+        },
+        {
+          "name": "Bheri Yoga",
+          "sanskrit": "भेरी योग",
+          "formation": "Pianeti potenti nelle case 1, 2, 7, 10 dal Lagna o dalla Luna; il signore della 9ª deve essere forte.",
+          "effects": "Yoga del 'tamburo da battaglia'. Il nato ottiene ricchezza, fama, longevità, figli, carattere virile, posizione di comando. È classicamente associato a leadership militare o imprenditoriale, capacità di galvanizzare folle, magnetismo carismatico.",
+          "remedies": "Hanuman Chalisa, mantra dei pianeti coinvolti.",
+          "citations": "BPHS XL.19",
+          "famousExamples": "Winston Churchill, generali storici."
+        },
+        {
+          "name": "Mridanga Yoga",
+          "sanskrit": "मृदङ्ग योग",
+          "formation": "Pianeti forti in case angolari mentre il signore del Lagna è in casa trinale ben supportato.",
+          "effects": "Yoga del 'tamburo melodioso'. Produce un nato amato dalle masse, ricco, sano, longevo, fortunato, di posizione elevata. La sfumatura specifica è la 'dolcezza del successo': il riconoscimento arriva con armonia e popolarità, non con conflitto.",
+          "remedies": "Bhakti yoga, mantra delle divinità benefiche.",
+          "citations": "BPHS XL.20",
+          "famousExamples": "leader carismatici amati dal popolo."
+        },
+        {
+          "name": "Saraswati Yoga",
+          "sanskrit": "सरस्वती योग",
+          "formation": "Giove, Venere e Mercurio si trovano in case angolari (1, 4, 7, 10) o trinali (5, 9), o nella 2ª casa, e Giove deve essere in segno proprio o di esaltazione.",
+          "effects": "Yoga della Dea della Sapienza. Produce un nato eccellente in arti, scienze, scrittura, oratoria, musica, danza. Diventa scrittore famoso, accademico riconosciuto, artista celebrato, oratore potente. La mente è dotata di intelligenza, memoria, creatività, eloquenza. Il nato è devoto, benedetto da figli, ricchezza, riconoscimento per le proprie opere intellettuali.",
+          "remedies": "Saraswati Stotram, devozione a Saraswati (specie nel mese di Magha), studio dei testi sacri.",
+          "citations": "Phaladeepika VI.36",
+          "famousExamples": "Rabindranath Tagore, Sri Aurobindo."
+        }
+      ]
+    },
+    {
+      "category": "Dhana Yogas (Yoga di Ricchezza)",
+      "description": "Combinazioni che producono accumulo di ricchezza materiale, attraverso le case 2 (denaro accumulato), 5 (guadagni speculativi/intelligenza), 9 (fortuna), 11 (guadagni dal lavoro), e i loro signori.",
+      "items": [
+        {
+          "name": "Dhana Yoga primario (2-11)",
+          "sanskrit": "धन योग",
+          "formation": "Combinazione (congiunzione, aspetto, scambio) fra il signore della 2ª (Dhana — ricchezza accumulata) e il signore dell'11ª (Labha — guadagni). Più potente se entrambi sono in case angolari, trinali, o nella 11ª stessa.",
+          "effects": "Il nato accumula ricchezza costante e duratura attraverso il proprio lavoro o business. È lo yoga più affidabile per la prosperità materiale. La ricchezza arriva con consistenza, attraverso più fonti, e si accumula nel tempo. Tipicamente: imprenditore di successo, manager con stipendio importante, professionista affermato, investitore prudente. Il nato è bravo a guadagnare e a conservare ciò che guadagna.",
+          "remedies": "Pratica del Lakshmi Sadhana il venerdì, mantra dei pianeti signori coinvolti, donazioni regolari.",
+          "citations": "BPHS XLII.5",
+          "famousExamples": "molti imprenditori di successo."
+        },
+        {
+          "name": "Dhana Yoga della 5ª e 9ª",
+          "sanskrit": "त्रिकोण धन योग",
+          "formation": "Combinazione fra signori della 5ª (Putra — figli, intelligenza, speculazione) e della 9ª (Bhagya — fortuna, dharma). Più potente se entrambi sono ben posizionati.",
+          "effects": "Ricchezza attraverso intelligenza, speculazione fortunata, eredità karmica, attività dharmiche, figli che portano benessere, viaggi fortunati. Il nato è benedetto da fortuna 'meritata da vite passate': opportunità che cadono dal cielo, eredità inattese, successi senza eccessivo sforzo. La carriera è spesso in: investimenti, finanza, accademia, settore religioso, viaggi, editoria, settore creativo.",
+          "remedies": "Vishnu Sahasranama, devozione a Lakshmi-Narayana, donazioni dharmiche.",
+          "citations": "BPHS XLII.7",
+          "famousExamples": "investitori di successo, eredi che amplificano i patrimoni."
+        },
+        {
+          "name": "Lagna-Dhana Yoga",
+          "sanskrit": "लग्न-धन योग",
+          "formation": "Il signore del Lagna (1ª casa, identità) e il signore della 2ª casa (ricchezza) si combinano. Variante potente con il signore del Lagna nella 2ª.",
+          "effects": "Yoga del 'self-made'. Il nato accumula ricchezza attraverso la propria identità, brand personale, talento individuale. Tipicamente: artisti famosi, imprenditori che monetizzano il proprio nome, professionisti che diventano un brand. La ricchezza è strettamente legata a chi il nato è, non a un'eredità o a una posizione casuale.",
+          "remedies": "Sviluppo della propria autenticità, mantra del pianeta del Lagna, costruzione del proprio dharma personale.",
+          "citations": "BPHS XLII.4",
+          "famousExamples": "Beyoncé, Cristiano Ronaldo, brand-personali di successo."
+        },
+        {
+          "name": "Yoga del 9° e 11°",
+          "sanskrit": "भाग्य-लाभ धन योग",
+          "formation": "Combinazione fra signori della 9ª (Bhagya) e dell'11ª (Labha). Particolarmente potente se entrambi sono in 11ª, 2ª, o in case angolari.",
+          "effects": "Ricchezza attraverso fortuna sostenuta, contatti influenti, mentori facoltosi, viaggi internazionali, attività con stranieri, settori dharmici e legali. Il nato spesso prospera grazie a contatti di alto livello, network di amici/colleghi, network professionale potente, contatti politici o accademici. Carriera in: diplomazia, settore internazionale, finanza, banche, accademia, editoria, settore religioso.",
+          "remedies": "Devozione a Giove e ai pianeti dell'11ª, networking dharmico, generosità con i giovani.",
+          "citations": "BPHS XLII.8",
+          "famousExamples": "diplomatici, banchieri internazionali."
+        },
+        {
+          "name": "Chandra Mangala Dhana Yoga",
+          "sanskrit": "चन्द्र-मङ्गल धन योग",
+          "formation": "Luna e Marte in congiunzione o mutuo aspetto, specialmente nelle case 2, 4, 11.",
+          "effects": "Già descritto sopra fra gli Yoga benefici, è anche un classico Dhana Yoga. Produce ricchezza attraverso commercio di prodotti di base, immobili, agricoltura, prodotti per il pubblico di massa. Il nato è bravo a 'fare denaro liquido' attraverso transazioni veloci, affari ripetuti, business scalabile. Ombra: la ricchezza ha sapore 'caldo', associata a competizione, talvolta a controversie.",
+          "remedies": "Pratica della fedeltà finanziaria, donazioni, servizio alla madre.",
+          "citations": "BPHS XL.12",
+          "famousExamples": "Donald Trump, Mukesh Ambani."
+        }
+      ]
+    },
+    {
+      "category": "Yoga Difficili (Aristha e Daridra)",
+      "description": "Combinazioni che producono effetti difficili: povertà, ostacoli cronici, isolamento, perdite, sofferenze. Vanno conosciuti per riconoscerli e per applicare i rimedi appropriati.",
+      "items": [
+        {
+          "name": "Kemadruma Yoga",
+          "sanskrit": "केमद्रुम योग",
+          "formation": "La Luna è isolata: nessun pianeta (escluso il Sole, i nodi e talvolta nei testi più rigorosi anche Mercurio combusto) si trova nella casa precedente (12ª dalla Luna), nella casa successiva (2ª dalla Luna), o in congiunzione con la Luna stessa. La Luna è 'sola' nello zodiaco. Cancellazioni: Luna in casa angolare, Luna piena, Luna aspettata da Giove forte, oppure Luna con tutti i pianeti aspettanti.",
+          "effects": "Yoga della 'solitudine emotiva e materiale'. Il nato sperimenta isolamento, povertà, instabilità mentale, depressione, mancanza di supporto familiare, difficoltà coniugali, ostacoli al riconoscimento sociale. La psiche tende a sentirsi sempre 'fuori posto', non capita, non sostenuta. Sul piano materiale, gli sforzi non producono i risultati attesi, le opportunità si chiudono inaspettatamente, le relazioni di supporto svaniscono. Phaladeepika descrive Kemadruma come 'lo yoga del mendicante anche se nato in famiglia reale'. Tuttavia molte cancellazioni esistono e devono essere verificate prima di concludere su questo yoga: spesso ciò che appare Kemadruma in superficie è in realtà cancellato da configurazioni più sottili.",
+          "remedies": "Devozione lunare intensa, Chandra Mantra, donazioni di latte e bianco al lunedì, costruzione di legami spirituali profondi, terapia psicologica, lavoro sulle ferite materne, vita comunitaria (ashram, sanga).",
+          "citations": "BPHS XL.13; Phaladeepika VI.18; Saravali 39.20",
+          "famousExamples": "Vincent Van Gogh (sofferenza emotiva), alcuni artisti maledetti dalla solitudine."
+        },
+        {
+          "name": "Daridra Yoga",
+          "sanskrit": "दरिद्र योग",
+          "formation": "Il signore dell'11ª casa (Labha — guadagni) si trova in dusthana (6, 8, 12), e/o il signore della 2ª (Dhana) è debilitato/combusto/in dusthana, e/o malefici afflittono pesantemente la 2ª e l'11ª casa senza supporto benefico.",
+          "effects": "Yoga della povertà cronica. Il nato lavora duramente ma fatica ad accumulare ricchezza, i guadagni si dissolvono in spese forzate (medicali, debiti, perdite), il denaro 'sfugge tra le mani'. La psicologia è quella della scarsità interiorizzata: paura cronica di non avere abbastanza, difficoltà a sentirsi degni di abbondanza. Sul piano oggettivo: lavori molteplici, debiti, problemi di salute costosi, perdite finanziarie ricorrenti.",
+          "remedies": "Lakshmi Sadhana intensiva, Sri Suktam quotidiano, lavoro sulle credenze di scarsità, donazioni regolari (anche piccole) per attivare il flusso.",
+          "citations": "Phaladeepika VI.40",
+          "famousExamples": "molti casi non famosi (la povertà raramente porta fama)."
+        },
+        {
+          "name": "Shakata Yoga",
+          "sanskrit": "शकट योग",
+          "formation": "Giove e Luna sono in opposizione (1°-7°) oppure separati di 6 case, senza essere in case angolari dal Lagna. Cancellazione: se uno dei due è in casa angolare, lo yoga non si forma.",
+          "effects": "Yoga della 'ruota del carro' — la vita del nato sale e scende come la ruota di un carro: prosperità seguita da caduta, riconoscimento seguito da oblio, ricchezza seguita da perdita. La psicologia oscilla fra fasi di entusiasmo e fasi di depressione. Tipicamente la vita è scandita da grandi alti e grandi bassi, raramente stabile in mezzo. Phaladeepika descrive il nato Shakata come 'colui che vive in altalena fra splendore e miseria'.",
+          "remedies": "Stabilizzazione attraverso pratica spirituale costante, Vishnu-Lakshmi devozione combinata, costruzione di basi solide ignorando le oscillazioni esterne.",
+          "citations": "BPHS XL.14; Phaladeepika VI.19",
+          "famousExamples": "molti artisti con carriere altalenanti."
+        },
+        {
+          "name": "Guru Chandala Yoga",
+          "sanskrit": "गुरु चाण्डाल योग",
+          "formation": "Giove (Guru) e Rahu (Chandala) in stretta congiunzione nello stesso segno e specialmente nello stesso grado, oppure in mutuo aspetto.",
+          "effects": "Yoga del 'maestro contaminato dall'illusione'. Il nato sperimenta dilemmi morali, attrazione per false guru, confusione spirituale, scandali religiosi (subiti o agiti), filosofie distorte, dipendenze travestite da spiritualità. La saggezza giupiteriana è 'ombrata' dalla distorsione di Rahu: ciò che dovrebbe portare al dharma porta all'inganno o all'auto-inganno. Possibili scandali sessuali in contesti religiosi, furti di idee, plagi, false credenziali, conversioni controverse. Sul piano positivo (raro), può produrre maestri non-convenzionali che integrano tradizione e modernità in modo sorprendente.",
+          "remedies": "Studio rigoroso dei testi classici, discernimento (viveka), devozione al guru tradizionale autentico, pratica di Ganesha (rimuove l'oscurità), evitare false guru carismatiche.",
+          "citations": "Phaladeepika VI.42",
+          "famousExamples": "diversi guru contemporanei caduti in scandali."
+        }
+      ]
+    }
+  ],
+  "dosha": [
+    {
+      "name": "Mangal Dosha",
+      "sanskrit": "मङ्गल दोष",
+      "altri_nomi": ["Kuja Dosha", "Bhauma Dosha", "Manglik Dosha"],
+      "formation": "Marte si trova nelle case 1, 2 (in alcune scuole), 4, 7, 8, o 12 dal Lagna, dalla Luna o da Venere. Le scuole più severe contano 6 case (1, 2, 4, 7, 8, 12); quelle moderate solo 5 (escludendo la 2). Si calcola tradizionalmente sia dal Lagna sia dalla Luna sia da Venere; il dosha è 'pieno' se compare in tutti e tre i riferimenti.",
+      "effects_dettagliati": "Mangal Dosha è il dosha più discusso nella matrimonialistica indiana. Produce energia marziale (rabbia, possessività, dominanza, sessualità intensa, conflittualità) che può destabilizzare il matrimonio. Il nato Manglik tende a: discussioni accese con il partner, gelosie, separazioni emotive, talvolta divorzi, rischio di vedovanza precoce nei casi più severi (specie se Marte è in 8ª dal Lagna o dalla Luna). Sessualmente è intenso ma esigente, talvolta possessivo. Sul piano fisico: tendenza a incidenti, ferite, problemi al sangue, problemi al sistema riproduttivo. La gravità del dosha dipende dalla forza di Marte (esaltato/debilitato), dalle aspetti benefici (Giove e Venere mitigano), dalla casa specifica e dal segno. Marte in segno proprio (Ariete, Scorpione) o di esaltazione (Capricorno) produce un Manglik 'potente ma costruttivo'; Marte debilitato in Cancro produce un Manglik 'debilitato ma tossico'.",
+      "cancellazioni_classiche": [
+        "Marte in segno proprio (Mesha, Vrischika) o di esaltazione (Makara): il dosha è significativamente ridotto",
+        "Marte aspettato da Giove forte: dosha cancellato o ridotto",
+        "Entrambi i partner sono Manglik di pari forza: si neutralizzano reciprocamente (regola classica fondamentale per il matchmaking)",
+        "Marte in 2ª casa è considerato benefico (Dhana) in molte scuole moderne",
+        "Marte in casa propria (es: in 4ª per Ariete-Lagna) cancella il dosha",
+        "Età avanzata: dopo i 28 anni il dosha si attenua naturalmente",
+        "Marte in Karka (debilitato): alcune scuole considerano il dosha 'morto' anche se la posizione è in casa Manglik"
+      ],
+      "remedies_specifici": [
+        "Indossare corallo rosso (Moonga) di 5-7 carati su rame, mignolo destro, energizzato il martedì all'alba",
+        "Mantra di Marte: 'Om Kram Kreem Kraum Sah Bhaumaya Namah' — 108 ripetizioni quotidiane, idealmente al martedì",
+        "Hanuman Chalisa quotidiano (Hanuman è il pacificatore di Marte)",
+        "Donazioni il martedì: lenticchie rosse, miele, jaggery, oggetti di rame, vesti rosse a giovani uomini di umile estrazione",
+        "Digiuno del martedì: un solo pasto serale, evitando sale, mangiando rosso (carote, pomodori — vegetariani)",
+        "Pellegrinaggio a templi di Hanuman e di Subrahmanya/Kartikeya",
+        "Kumbha Vivaha: matrimonio simbolico con un vaso d'acqua o con un albero di banano prima del matrimonio reale (rimedio classico per Manglik gravi)",
+        "Vishnu Vivaha: matrimonio simbolico con la statua di Vishnu prima del matrimonio reale",
+        "Recitazione del Mangal Stotram"
+      ],
+      "match_con_partner": "Nel matchmaking vedico, due Manglik di pari forza si bilanciano e possono sposarsi felicemente. Un Manglik con un non-Manglik è considerato rischioso senza rimedi. Le scuole moderne mitigano molto la rigidità del concetto, considerando l'intero quadro del Kundli Milan (Ashtakoot) e non solo Mangal Dosha isolato. È un dosha da prendere sul serio ma da non drammatizzare oltremodo: la maggior parte dei matrimoni Manglik non finisce in tragedia, e molti sono profondi e passionali.",
+      "citations": "BPHS, Brihat Jataka, prassi popolare nordindiana"
+    },
+    {
+      "name": "Kaal Sarp Dosha",
+      "sanskrit": "काल सर्प दोष",
+      "formation": "Tutti i sette pianeti tradizionali (Sole, Luna, Marte, Mercurio, Giove, Venere, Saturno) sono inclusi nell'arco fra Rahu e Ketu (i nodi lunari, sempre opposti a 180°). Se anche un solo pianeta cade fuori dall'asse Rahu-Ketu, il dosha è 'parziale' o cancellato. Esistono 12 varianti a seconda di quali case del Kundli ospitano Rahu.",
+      "effects_generali": "Kaal Sarp ('serpente del tempo') è uno dei dosha più temuti nella tradizione popolare. Produce sensazione di essere 'incatenati' karmicamente, vita di sforzi che non sembrano mai produrre risultati pieni, ostacoli misteriosi, sogni di serpenti, paure inspiegabili, ritardi cronici nei progetti, conflitti familiari nascosti, problemi con figli (specie maschi), instabilità coniugale, malattie misteriose, dipendenze. Il nato spesso sente di vivere sotto una 'cappa karmica' che richiede di essere lavorata. Tuttavia molti astrologi moderni (specie Sanjay Rath e K.N. Rao) ridimensionano molto la portata di questo dosha, sottolineando che molti grandi personaggi (incluso Jawaharlal Nehru) hanno avuto Kaal Sarp e ne hanno trasformato il karma in destino glorioso. Il dosha non è una maledizione: è un campo karmico denso che chiede consapevolezza.",
+      "varianti_12_tipi": [
+        {
+          "nome": "Anant Kaal Sarp",
+          "rahu_in_casa": 1,
+          "descrizione": "Rahu in 1ª, Ketu in 7ª. Il nato sperimenta confusione identitaria, ansia di esistere, difficoltà coniugali (il partner è 'segnato' dal karma del nato), tentazione di vivere identità multiple. Test: trovare la propria identità autentica al di là delle proiezioni esterne. Carriera spesso in settori innovativi, internazionali, tecnologici."
+        },
+        {
+          "nome": "Kulik Kaal Sarp",
+          "rahu_in_casa": 2,
+          "descrizione": "Rahu in 2ª, Ketu in 8ª. Tensioni famigliari, problemi finanziari oscillanti, difficoltà nella parola e nella memoria, problemi col denaro famigliare. Spesso porta affari occulti, eredità contestate, denaro che 'sparisce'. Test: rapporto sano con denaro e famiglia d'origine. La carriera può essere in finanza, ricerca, occultismo."
+        },
+        {
+          "nome": "Vasuki Kaal Sarp",
+          "rahu_in_casa": 3,
+          "descrizione": "Rahu in 3ª, Ketu in 9ª. Conflitti con fratelli, viaggi pieni di ostacoli, coraggio oscillante, difficoltà di comunicazione, perdita di fede paterna. Test: sviluppare coraggio e comunicazione autentici, riconciliarsi con il padre. Carriera in scrittura, viaggi, comunicazione, settore editoriale."
+        },
+        {
+          "nome": "Shankhpal Kaal Sarp",
+          "rahu_in_casa": 4,
+          "descrizione": "Rahu in 4ª, Ketu in 10ª. Instabilità domestica, conflitti materni, difficoltà a 'sentirsi a casa', insoddisfazione professionale, cambi di carriera. Test: trovare radici interiori indipendentemente dal luogo geografico. Spesso porta vita all'estero, carriere internazionali, espatri."
+        },
+        {
+          "nome": "Padam Kaal Sarp",
+          "rahu_in_casa": 5,
+          "descrizione": "Rahu in 5ª, Ketu in 11ª. Difficoltà ad avere figli o figli problematici, perdite speculative, amori complicati, talenti creativi non riconosciuti, perdita di amici. Test: creatività autentica e sana paternità/maternità. Carriera spesso in arte, intrattenimento, speculazione."
+        },
+        {
+          "nome": "Maha Padam Kaal Sarp",
+          "rahu_in_casa": 6,
+          "descrizione": "Rahu in 6ª, Ketu in 12ª. Considerato uno dei più favorevoli! Vittoria sui nemici, salute robusta dopo iniziali difficoltà, capacità di sconfiggere debiti e malattie. Test: usare le difficoltà come trampolino. Carriera in medicina, legge, lavori al servizio degli sfortunati."
+        },
+        {
+          "nome": "Takshak Kaal Sarp",
+          "rahu_in_casa": 7,
+          "descrizione": "Rahu in 7ª, Ketu in 1ª. Difficoltà coniugali profonde, attrazione per partner stranieri o non convenzionali, tradimenti, divorzi, partnership commerciali instabili. Test: integrare l'altro come parte del Sé. Carriera spesso con stranieri, in diplomazia, in import-export."
+        },
+        {
+          "nome": "Karkotat Kaal Sarp",
+          "rahu_in_casa": 8,
+          "descrizione": "Rahu in 8ª, Ketu in 2ª. Esperienze di morte simbolica, traumi profondi, ereditarietà difficile, longevità incerta, ma anche capacità di trasformazione e accesso a saperi occulti. Test: integrare la dimensione della morte e della rinascita. Carriera in psicologia profonda, occultismo, ricerca, chirurgia."
+        },
+        {
+          "nome": "Shankhnaad Kaal Sarp",
+          "rahu_in_casa": 9,
+          "descrizione": "Rahu in 9ª, Ketu in 3ª. Conflitti con il padre, perdita di fede tradizionale, attrazione per filosofie non convenzionali, viaggi all'estero, difficoltà nei pellegrinaggi. Test: trovare un dharma autentico oltre la tradizione di nascita. Carriera spesso in filosofia, religioni comparate, viaggi, lavori interculturali."
+        },
+        {
+          "nome": "Ghatak Kaal Sarp",
+          "rahu_in_casa": 10,
+          "descrizione": "Rahu in 10ª, Ketu in 4ª. Carriera oscillante, conflitti con il governo o le autorità, fama instabile, difficoltà a trovare il proprio dharma professionale, problemi con la madre o con la casa. Test: costruire una carriera dharmica al di là delle ambizioni materiali. Spesso porta carriere politiche o pubbliche turbolente."
+        },
+        {
+          "nome": "Vishdhar Kaal Sarp",
+          "rahu_in_casa": 11,
+          "descrizione": "Rahu in 11ª, Ketu in 5ª. Guadagni attraverso vie non convenzionali, amici stranieri o influenti, perdita di figli o difficoltà coi figli, network internazionali. Test: gestire bene amicizie e guadagni senza perdere autenticità creativa. Carriera in tecnologia, network, business internazionali."
+        },
+        {
+          "nome": "Sheshnaag Kaal Sarp",
+          "rahu_in_casa": 12,
+          "descrizione": "Rahu in 12ª, Ketu in 6ª. Considerato anch'esso fra i più trasformativi (positivamente). Inclinazione spirituale forte, viaggi all'estero, ritiri, perdite materiali compensate da guadagni spirituali. Vittoria sui nemici nascosti. Test: trasformare le perdite in liberazione. Carriera in spiritualità, ricerca, lavori in luoghi remoti, ospedali, monasteri."
+        }
+      ],
+      "remedies_specifici": [
+        "Pellegrinaggio a Trimbakeshwar (Maharashtra), Kalahasti (Tamil Nadu), Naganatha (Karnataka) — i luoghi sacri per la Kaal Sarp Shanti Puja",
+        "Kaal Sarp Shanti Puja: rituale specifico condotto da pandit qualificati, idealmente nei giorni Naga Panchami, Maha Shivaratri, eclissi",
+        "Mantra: 'Om Namah Shivaya' (108 mila ripetizioni nel corso degli anni) — Shiva è il signore dei serpenti",
+        "Mantra: 'Om Bhram Bhreem Bhraum Sah Rahave Namah' e 'Om Sram Sreem Sraum Sah Ketave Namah' al sabato",
+        "Donazioni di olio di sesamo, idoli di serpenti d'argento, fiori di loto neri, ai templi di Shiva e Naga",
+        "Digiuno il giorno di Naga Panchami (durante Shravan Mahina, agosto)",
+        "Mahamrityunjaya Mantra quotidiano (mantra di vittoria sulla morte)",
+        "Tarpan ai pitru (antenati) nei giorni di Shraddha (settembre): Kaal Sarp è spesso legato a karma ancestrale irrisolto",
+        "Donazione di una coppia di serpenti d'argento al fiume Ganga"
+      ],
+      "citations": "Tradizione popolare codificata in molti testi moderni; le scuole classiche (BPHS, Saravali) non menzionano direttamente Kaal Sarp con questo nome ma trattano configurazioni simili."
+    },
+    {
+      "name": "Pitru Dosha",
+      "sanskrit": "पितृ दोष",
+      "formation": "Sole afflitto da Rahu (Surya-Rahu) o da Saturno nel Lagna o nella 9ª casa; Sole debilitato in 9ª; signore della 9ª in dusthana e afflitto; Saturno in 9ª senza supporto benefico. Indicatori multipli devono concorrere.",
+      "effects_dettagliati": "Pitru Dosha è la 'maledizione degli antenati' — un campo karmico irrisolto trasmesso dalla linea paterna. Indica che gli antenati (pitru) non hanno ricevuto adeguate offerte funebri (Shraddha) o sono morti in modi violenti/inaspettati lasciando karma sospeso. Il nato sperimenta: difficoltà cronica con il padre o con la figura paterna (assente, malato, conflittuale, morto presto), problemi nella concezione/nascita di figli (specie maschi), aborti spontanei ricorrenti, malattie infantili difficili, ostacoli professionali nonostante gli sforzi, problemi con autorità (governo, capi), sensazione di portare un peso non proprio. La psicologia spesso include depressione transgenerazionale, sensi di colpa irrazionali, sogni con antenati che chiedono pace, sensazione che 'qualcosa' impedisca la fioritura della vita.",
+      "remedies_specifici": [
+        "Pitru Tarpan: offerta di acqua, sesamo nero, riso e fiori bianchi agli antenati, idealmente fatta da un pandit qualificato durante il Pitru Paksha (15 giorni di settembre, prima del Navaratri)",
+        "Shraddha annuale: rituale formale nel giorno di morte degli antenati diretti",
+        "Pellegrinaggio a Gaya (Bihar) — il luogo più sacro per il Pitru Tarpan; Lord Rama stesso vi compì il rito per il padre Dasaratha",
+        "Donazioni di cibo, vesti, denaro a brahmini e poveri il giorno di Amavasya (luna nuova)",
+        "Mantra: Pitru Gayatri Mantra, Pitru Stotram",
+        "Servire e onorare i propri genitori viventi (specie il padre): è il Pitru Tarpan vivente",
+        "Piantare alberi (specie banano, Peepal, Ashvattha) in onore degli antenati",
+        "Adozione di un cane (animale sacro a Yama, signore degli antenati)",
+        "Offrire cibo a cani, corvi e mucche il giorno di Amavasya (rappresentano gli antenati)"
+      ],
+      "citations": "Garuda Purana, Pitru Stotra, tradizione vedica del Shraddha"
+    },
+    {
+      "name": "Grahan Dosha",
+      "sanskrit": "ग्रहण दोष",
+      "formation": "Sole o Luna in stretta congiunzione con Rahu o Ketu (entro pochi gradi). Surya Grahan Dosha = Sole + Rahu/Ketu. Chandra Grahan Dosha = Luna + Rahu/Ketu. Più stretta la congiunzione, più potente il dosha. La condizione è amplificata se avviene in dusthana o nelle case 1, 5, 9, 10.",
+      "effects_dettagliati": "Grahan ('eclissi') Dosha indica che i due luminari karmici principali — Sole (anima, padre, identità, dharma esterno) o Luna (mente, madre, emozioni, dharma interno) — sono 'oscurati' dai nodi. Il nato vive un'eclissi simbolica permanente in quell'area di vita. SURYA GRAHAN: identità incerta, problemi col padre, difficoltà di riconoscimento sociale, conflitti con autorità, calo di vitalità, problemi al cuore, alla colonna vertebrale, agli occhi, possibili scandali di reputazione, dilemmi morali. CHANDRA GRAHAN: instabilità emotiva, depressione, problemi materni, ansia cronica, dipendenze, sogni inquietanti, problemi mentali, conflitti col pubblico, popolarità altalenante, problemi di sonno. La psiche del nato attraversa cicli di buio e luce, di lucidità e confusione.",
+      "remedies_specifici": [
+        "Mahamrityunjaya Mantra quotidiano (108 ripetizioni minimo)",
+        "Per Surya Grahan: Aditya Hridayam Stotram, mantra di Surya, donazioni di grano e oro al domenica, devozione a Vishnu",
+        "Per Chandra Grahan: mantra di Chandra, donazioni di latte e perle al lunedì, devozione alla Madre Divina (Durga, Lakshmi), Devi Mahatmyam",
+        "Bagni in acqua santa durante le eclissi reali, seguiti da donazioni",
+        "Evitare attività importanti durante le eclissi reali (matrimoni, contratti, viaggi)",
+        "Indossare gemstone del Sole (rubino) o della Luna (perla) in modo prescritto",
+        "Pellegrinaggio a Kalahasti (Tamil Nadu) per Rahu-Ketu pacification",
+        "Mantra di Rahu e Ketu il sabato"
+      ],
+      "citations": "BPHS, Phaladeepika, prassi tradizionale dei rimedi nodali"
+    },
+    {
+      "name": "Sade Sati di Saturno",
+      "sanskrit": "साढ़े साती",
+      "altri_nomi": ["Saturn's Seven and a Half Years", "Shani Sade Sati"],
+      "formation": "Periodo di 7 anni e mezzo durante il quale Saturno transita nei tre segni: il segno precedente alla Luna natale (12° dalla Luna), il segno della Luna natale (1° dalla Luna), e il segno successivo (2° dalla Luna). Saturno transita ogni segno per circa 2.5 anni, totale 7.5 anni. Si verifica in media due volte nella vita di una persona (intorno ai 30 anni e intorno ai 60 anni, con micro-Sade Sati ogni 30 anni circa).",
+      "phases": [
+        {
+          "name": "Ascending Phase / Prima Fase / Pratyantar Phase",
+          "duration": "2.5 anni",
+          "saturn_position": "12° casa dalla Luna natale",
+          "description": "La fase 'ascendente' è quella in cui Saturno entra nel segno precedente la Luna natale. È spesso percepita come un periodo di perdite, dispersioni, isolamento, trasferimenti, distacchi, riduzione delle risorse esterne. Il nato sperimenta una sorta di ritiro forzato: relazioni che si dissolvono, posizioni che si chiudono, amicizie che si allontanano, energie che si abbassano. Sul piano psicologico: emerge ciò che è stato rimosso, l'inconscio bussa, sogni intensi, crisi spirituali. Sul piano fisico: stanchezza, calo immunitario, problemi del sonno. È una fase di pulizia e preparazione: tutto ciò che non serve all'evoluzione viene rimosso, talvolta brutalmente. Chi accetta questa pulizia ne emerge alleggerito; chi resiste sperimenta dolore acuto."
+        },
+        {
+          "name": "Peak Phase / Seconda Fase / Janma Phase",
+          "duration": "2.5 anni",
+          "saturn_position": "1° casa dalla Luna natale (Saturno transita la Luna stessa)",
+          "description": "La fase 'di picco' è la più intensa: Saturno transita esattamente sopra la Luna natale, congelando la psiche emotiva. Il nato sperimenta crisi di identità profonda, depressione, lentezza mentale, oscurità interiore, senso di solitudine cosmica, prove karmiche dirette legate alla madre, alla casa, alla salute mentale. È una sorta di 'notte oscura dell'anima' in chiave saturnina. Le amicizie si diradano ulteriormente, il sostegno familiare può venir meno (problemi materni in particolare), la mente fatica a trovare gioia. Sul piano fisico: problemi di salute cronici, articolazioni, freddo nelle ossa, problemi di sangue e linfa. Spiritualmente è la fase più trasformativa: chi pratica meditazione, ritiri, lavoro interiore, riceve insight profondi sulla propria vera natura. È il tempo del 'tapas' obbligato: la realtà costringe alla maturazione."
+        },
+        {
+          "name": "Descending Phase / Terza Fase / Anuradha Phase",
+          "duration": "2.5 anni",
+          "saturn_position": "2° casa dalla Luna natale",
+          "description": "La fase 'discendente' è quella in cui Saturno transita il segno successivo alla Luna natale, toccando le tematiche di denaro, parola, famiglia d'origine, valori. Il peggio è alle spalle, ma il nato deve ora ricostruire le proprie basi materiali e familiari. Possibili: problemi finanziari, conflitti familiari, perdite materiali, problemi con la parola/voce, difficoltà comunicative. Tuttavia c'è una sensazione di 'graduale risalita': l'energia ritorna, la chiarezza mentale si recupera, le opportunità riemergono. Chi ha attraversato consapevolmente le prime due fasi ne esce con saggezza, maturità, una nuova posizione di vita basata su fondamenta autentiche. La carriera, la famiglia, il dharma vengono ricostruiti su basi più solide, anche se diverse da prima."
+        }
+      ],
+      "effects_globali": "Sade Sati è uno dei transiti più temuti ma anche più trasformativi della vita. Non è una maledizione: è il 'tempo di Saturno' che chiede maturazione totale. Le persone che attraversano Sade Sati con consapevolezza emergono come adulti karmici autentici. Le persone che lo subiscono nell'incoscienza ne escono con cicatrici emotive, malattie croniche, perdite irrecuperabili. La gravità dipende da: forza di Saturno nel tema natale, forza della Luna natale, presenza di benefici che mitigano, età del nato (più giovane = più difficile, più maturo = più gestibile), pratiche spirituali in atto.",
+      "remedies_specifici": [
+        "Hanuman Chalisa quotidiano (Hanuman è il più grande pacificatore di Shani)",
+        "Visita al tempio di Hanuman ogni sabato",
+        "Mantra di Saturno: 'Om Sham Shaneishcharaya Namah' — 108 ripetizioni quotidiane",
+        "Shani Stotram di Dasaratha o di Pippalada",
+        "Digiuno del sabato con un solo pasto serale, evitando sale",
+        "Donazioni il sabato: olio di sesamo, semi neri, ferro, scarpe vecchie, coperte blu/nere, ai poveri, lavoratori, anziani, lebbrosi",
+        "Bagno con olio di sesamo prima del bagno regolare il sabato",
+        "Pellegrinaggio a Tirunallar (Tamil Nadu) — il tempio principale di Shani",
+        "Servire i poveri, gli anziani, i lebbrosi, i lavoratori manuali (è il vero rimedio saturnino)",
+        "Indossare zaffiro blu (Neelam) solo dopo prova di sette giorni e con prescrizione di astrologo qualificato",
+        "Recitare il Maha Mrityunjaya Mantra",
+        "Pratica meditativa intensa: ritiri di vipassana, mauna, sadhana severa",
+        "Onorare gli anziani della propria famiglia, specialmente la madre durante la fase di picco"
+      ],
+      "consigli_pratici": [
+        "Non avviare grandi progetti durante la fase di picco; meglio consolidare ciò che già esiste",
+        "Curare la salute con grande attenzione: routine, sonno, alimentazione regolare",
+        "Tenere un diario della Sade Sati: ciò che si dissolve, ciò che si trasforma, ciò che emerge",
+        "Cercare un mentore spirituale o terapeuta che supporti la traversata",
+        "Accettare la solitudine come maestra, non fuggirla con distrazioni",
+        "Investire in formazione, lettura, studio: Saturno premia il lavoro intellettuale costante",
+        "Evitare conflitti legali, controversie pubbliche, atti impulsivi durante questo transito"
+      ],
+      "citations": "BPHS (parte sui transiti), Phaladeepika, Shani Mahatmya, prassi millenaria dell'astrologia indiana"
+    }
+  ]
+}
