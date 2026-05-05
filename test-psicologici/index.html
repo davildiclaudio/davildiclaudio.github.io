@@ -264,6 +264,96 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   .schema-divider{padding:18px 20px; position:static}
 }
 
+/* Collassabili "Cosa significa" — stile Davil */
+details.expl{
+  margin-top:10px;
+  background:rgba(124,58,237,.04);
+  border:1px solid rgba(124,58,237,.18);
+  border-radius:12px;
+  padding:0;
+  overflow:hidden;
+  transition:all .3s var(--ease);
+}
+details.expl[open]{
+  background:rgba(124,58,237,.07);
+  border-color:rgba(236,72,153,.30);
+  box-shadow:0 4px 14px -6px rgba(124,58,237,.18);
+}
+details.expl summary{
+  cursor:pointer; list-style:none; padding:11px 18px;
+  font-family:var(--ff-sans); font-weight:500; font-size:12px;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:var(--cosmic-violet);
+  display:flex; align-items:center; gap:10px;
+  user-select:none;
+  transition:color .25s var(--ease);
+}
+details.expl summary::-webkit-details-marker{display:none}
+details.expl summary::before{
+  content:"+"; display:inline-flex; align-items:center; justify-content:center;
+  width:22px; height:22px; border-radius:50%;
+  background:linear-gradient(135deg, var(--cosmic-violet), var(--cosmic-magenta));
+  color:#fff; font-size:14px; font-weight:400;
+  transition:transform .35s var(--ease);
+  flex-shrink:0;
+}
+details.expl[open] summary::before{transform:rotate(45deg)}
+details.expl summary:hover{color:var(--cosmic-magenta)}
+details.expl .expl-body{
+  padding:4px 22px 18px 22px;
+  font-family:var(--ff-sans); font-size:14px; line-height:1.6;
+  color:var(--ink-soft); font-weight:400; letter-spacing:0;
+  text-transform:none;
+}
+details.expl .expl-body p{margin-bottom:8px}
+details.expl .expl-body p:last-child{margin-bottom:0}
+details.expl .expl-body strong{color:var(--ink); font-weight:500}
+details.expl .expl-body em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
+details.expl .expl-row{
+  display:flex; gap:14px; padding:8px 0;
+  border-bottom:1px solid rgba(20,15,40,.06);
+}
+details.expl .expl-row:last-child{border-bottom:none}
+details.expl .expl-row .expl-key{
+  flex:0 0 110px; font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--cosmic-magenta); font-weight:500;
+  padding-top:2px;
+}
+details.expl .expl-row .expl-val{flex:1; color:var(--ink-soft)}
+
+/* Pannello "scale meaning" sopra le domande */
+.scale-help{
+  max-width:780px; margin:0 auto 24px; padding:0 var(--pad);
+}
+.scale-help details.expl summary{font-size:11px}
+
+/* Sezione "Le tue risposte" nei risultati */
+.answers-recap{
+  margin-top:24px;
+}
+.answers-recap .ans-group{
+  margin-bottom:18px; padding-bottom:14px;
+  border-bottom:1px solid var(--border-soft);
+}
+.answers-recap .ans-group:last-child{border-bottom:none; margin-bottom:0}
+.answers-recap .ans-group-title{
+  font-family:var(--ff-display); font-style:italic; font-size:16px;
+  color:var(--gold); margin-bottom:10px;
+  text-shadow: 0 1px 2px rgba(90,60,10,.30), 0 0 1px rgba(140,95,20,.45);
+}
+.answers-recap .ans-item{
+  display:grid; grid-template-columns:1fr auto; gap:12px;
+  padding:6px 0; font-size:14px; color:var(--ink-soft); line-height:1.5;
+}
+.answers-recap .ans-item .ans-q{padding-right:14px}
+.answers-recap .ans-item .ans-v{
+  font-family:var(--ff-sans); font-size:12px; font-weight:500;
+  color:var(--ink); padding:3px 12px; border-radius:50px;
+  background:linear-gradient(135deg, rgba(124,58,237,.10), rgba(236,72,153,.08));
+  border:1px solid rgba(236,72,153,.25);
+  white-space:nowrap; height:fit-content;
+}
+
 /* Print / PDF */
 @media print{
   html, body{
@@ -295,6 +385,27 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   }
   h1 em, h2 em, h3 em{color:#b88a25 !important; text-shadow:none !important}
   a{color:#7c3aed !important; text-decoration:none}
+  /* Collassabili: forzare aperti in stampa */
+  details.expl{
+    background:#fff !important; border:1px solid #ccc !important;
+    box-shadow:none !important; page-break-inside:avoid;
+    margin-top:8pt;
+  }
+  details.expl[open], details.expl{display:block}
+  details.expl summary{color:#7c3aed !important; padding:8pt 10pt}
+  details.expl summary::before{display:none}
+  details.expl .expl-body{padding:0 10pt 10pt 10pt}
+  details.expl .expl-row .expl-key{color:#ec4899 !important}
+  /* Forza apertura collassabili in stampa */
+  details:not([open]) > *:not(summary){display:block !important}
+  details > summary{list-style:none}
+  /* Recap risposte stampabile */
+  .answers-recap{page-break-before:auto}
+  .answers-recap .ans-group-title{color:#b88a25 !important; text-shadow:none !important}
+  .answers-recap .ans-item .ans-v{
+    background:#f4f4f7 !important; border:1px solid #ccc !important;
+    color:#15131c !important;
+  }
   /* Header pagina stampata */
   body::before{
     content:"Davil — Assessment Psicologici · davildiclaudio@gmail.com";
@@ -323,7 +434,7 @@ footer em{color:var(--gold); font-family:var(--ff-display); font-style:italic}
   <header class="sect hero">
     <span class="sect-eyebrow">Davil — assessment psicologici</span>
     <h1>Conosci la tua <em>mappa interiore</em></h1>
-    <p class="lead">Otto test validati nella ricerca clinica — personalita, schemi, traumi, dissociazione e ruminazione. Strumenti per <em>esplorare</em>, non per diagnosticare.</p>
+    <p class="lead">Nove test fra strumenti validati nella ricerca clinica e modelli esplorativi — schemi, personalita, ferite primarie, traumi, dissociazione e ruminazione. Strumenti per <em>esplorare</em>, non per diagnosticare.</p>
   </header>
 
   <section class="sect" style="padding-top:0">
@@ -1408,6 +1519,175 @@ const TESTS = {
         </div>`
       };
     }
+  },
+
+  wounds: {
+    title: "Le 5 Ferite dell'Anima",
+    eyebrow: "Ferite primarie e maschere",
+    author: "Modello di Lise Bourbeau (\"Les 5 blessures qui empechent d'etre soi-meme\", Editions ETC, 2000; ed. it. \"Le 5 ferite e come guarirle\", Amrita). Cinque ferite primarie — Rifiuto, Abbandono, Umiliazione, Tradimento, Ingiustizia — e le maschere costruite per non risentirle. Strumento esplorativo non validato in letteratura clinica peer-reviewed: i costrutti sottostanti dialogano comunque con schema therapy (Young), teoria dell'attaccamento e perfezionismo clinico.",
+    info: "35 affermazioni — 7 per ognuna delle 5 ferite. Indica quanto ti riconosci nella frase. Le ferite con punteggio piu alto indicano pattern piu attivi nella tua vita adulta. Tempo: ~6 min.",
+    scaleExplain: "Scala 1-5. Pensa al tuo modo di essere abituale, non a un episodio singolo. Bourbeau sostiene che tutti portiamo almeno 2 ferite: e normale ottenere punteggi alti su piu di una. La ferita dominante si riconosce da quanto si attiva il bambino ferito quando i suoi trigger specifici la toccano.",
+    groupBy: "w",
+    groupTotal: 5,
+    groupLabel: "Ferita",
+    groupInfo: {
+      rif: {n:"1/5", label:"Rifiuto", domain:"Maschera del Fuggitivo · 0-1 anno · genitore stesso sesso",
+        core:"Non ho diritto di esistere — sono di troppo",
+        origin:"Si forma molto presto (0-1 anno) quando il bambino sente di non essere desiderato nel suo diritto a esistere: nato in periodo difficile, di sesso 'sbagliato', con madre depressa o assente.",
+        impact:"Si manifesta da adulto come senso cronico di non appartenenza, fuga da corpo e realta nella mente/spiritualita, sabotaggio del successo, relazioni intense ma brevi che si interrompono per sparizione.",
+        mask:"Fuggitivo: si stacca, si fa invisibile, cerca poco spazio fisico e sociale.",
+        high:"Pattern di rifiuto attivo — il bambino ferito reagisce a sguardi, silenzi, esclusioni con sensazione di 'non avrei dovuto esserci'. Maschera del fuggitivo presente.",
+        low:"La ferita di rifiuto non e centrale: ti senti legittimato/a a esistere, occupare spazio, mostrarti.",
+        work:"Lavorare sull'ancoraggio corporeo, sulla legittimita di esistere, sull'esposizione graduale alla visibilita. Schema di Difettosita/Vergogna (Young) e attaccamento evitante in cornice clinica."},
+      abb: {n:"2/5", label:"Abbandono", domain:"Maschera del Dipendente · 1-3 anni · genitore sesso opposto",
+        core:"Da solo/a non ce la faccio — mi lasceranno tutti",
+        origin:"Si forma tra 1 e 3 anni con un'esperienza di interruzione del supporto: nascita di un fratello, ricovero, depressione materna, lavoro assorbente del genitore di sesso opposto, separazione.",
+        impact:"Da adulto: bisogno costante di presenza e conferme, paura del distacco, attaccamento rapido e fusionale, vittimismo come strategia di richiamo, tolleranza di relazioni inadeguate pur di non essere lasciato/a.",
+        mask:"Dipendente: si attacca, drammatizza, cerca cura. Voce piangente, sguardo da cucciolo.",
+        high:"Pattern di abbandono attivo: la solitudine fa male in modo sproporzionato, le relazioni hanno una qualita 'fame di presenza'. Schema Abbandono/Instabilita (Young).",
+        low:"La ferita di abbandono non e centrale: tolleri bene la solitudine e i distacchi, non drammatizzi le assenze.",
+        work:"Sviluppare auto-sostegno, capacita di stare con se stessi, decisione autonoma. Costrutti clinici: schema Abbandono/Instabilita e attaccamento ansioso-preoccupato."},
+      uml: {n:"3/5", label:"Umiliazione", domain:"Maschera del Masochista · 1-3 anni · genitore della madre",
+        core:"Non merito di godere — devo soffrire per essere amato/a",
+        origin:"Si forma tra 1 e 3 anni nella fase del controllo sfinterico e della scoperta sensoriale: madre svergognante, ipercontrollante, che usa pulizia/cibo/sessualita come terreno di vergogna; oppure umiliata in pubblico.",
+        impact:"Da adulto: si carica di pesi e responsabilita altrui per sentirsi degno/a, fatica a dire di no, vergogna corporea, rapporto complicato con cibo e piacere, anticipa l'umiliazione facendone una strategia (auto-ironia, sacrificio nobile).",
+        mask:"Masochista: si carica, si sacrifica, si svaluta. Spesso rotondo/a, denso/a, materno/a.",
+        high:"Pattern di umiliazione attivo: vergogna del corpo, fatica a ricevere piacere/regali/complimenti, sensi di colpa diffusi, sacrificio come modo di amare. Schema Auto-sacrificio e Sottomissione (Young).",
+        low:"La ferita di umiliazione non e centrale: senti di meritare piacere, sai dire di no, il corpo e amico.",
+        work:"Riconoscere i propri bisogni, dire di no, separare 'amore' da 'sacrificio', riabilitare il piacere. Schema Auto-sacrificio/Sottomissione/Punizione (Young), attaccamento invischiato."},
+      tra: {n:"4/5", label:"Tradimento", domain:"Maschera del Controllore · 2-4 anni · genitore sesso opposto",
+        core:"Non posso fidarmi — se non controllo, mi feriranno",
+        origin:"Si forma tra 2 e 4 anni nella fase edipica: bambino sedotto e poi deluso dal genitore di sesso opposto, promesse non mantenute, complicita interrotta, manipolazione affettiva.",
+        impact:"Da adulto: bisogno di avere ragione, fatica a delegare, diffidenza che testa le persone, leadership carismatica, gelosia, intolleranza alla lentezza altrui, rabbia esplosiva quando contraddetto/a.",
+        mask:"Controllore: forte, seduttivo, leader. Anticipa, organizza, domina per non subire piu tradimenti.",
+        high:"Pattern di tradimento attivo: controllo come stile di vita, fatica con la fiducia e con la vulnerabilita, lealta come ossessione. Schema Sfiducia/Abuso e Pretese/Grandiosita (Young).",
+        low:"La ferita di tradimento non e centrale: sai delegare, ti fidi, accetti vulnerabilita.",
+        work:"Riconoscere la vulnerabilita come risorsa, lasciare il controllo a tratti, fidarsi un poco alla volta. Schema Sfiducia/Abuso (Young), tratti narcisistici/istrionici, attaccamento disorganizzato."},
+      ing: {n:"5/5", label:"Ingiustizia", domain:"Maschera del Rigido · 3-5 anni · genitore stesso sesso",
+        core:"Devo essere perfetto/a per essere amato/a — le emozioni sono debolezza",
+        origin:"Si forma tra 3 e 5 anni nella fase di affermazione individuale: genitore dello stesso sesso freddo, perfezionista, autoritario, che blocca l'espressione emotiva e premia solo la performance.",
+        impact:"Da adulto: perfezionismo esigente, postura rigida, fatica a sentire/esprimere emozioni, iper-responsabilita, autocritica feroce, fatica a riposare e ricevere aiuto, tensione muscolare cronica, alessitimia.",
+        mask:"Rigido: dritto, ordinato, controllato. Sopprime le emozioni e cerca giustizia ovunque.",
+        high:"Pattern di ingiustizia attivo: standard severi, autocritica permanente, freddezza apparente che nasconde calore non espresso. Schema Standard severi e Inibizione emotiva (Young).",
+        low:"La ferita di ingiustizia non e centrale: sai essere imperfetto/a, esprimi emozioni, accetti aiuto.",
+        work:"Allentare i criteri, ammettere le emozioni, riconoscere che il valore non si guadagna. Schema Standard severi/Ipercriticismo/Inibizione emotiva (Young), tratti ossessivo-compulsivi, alessitimia, perfezionismo clinico (Frost, Hewitt)."}
+    },
+    scaleType: "likert5",
+    scale: [
+      {v:1, label:"Per niente"},
+      {v:2, label:"Poco"},
+      {v:3, label:"In parte"},
+      {v:4, label:"Abbastanza"},
+      {v:5, label:"Molto"}
+    ],
+    questions: [
+      // RIFIUTO — Fuggitivo
+      {q:"Spesso mi sento di troppo, come se non ci fosse davvero spazio per me dove sono.", w:"rif"},
+      {q:"Una voce dentro di me dice 'non avresti dovuto disturbare', anche quando nessuno me lo fa pesare.", w:"rif"},
+      {q:"In situazioni nuove tendo a sparire — fisicamente o mentalmente — prima ancora di capire cosa sento.", w:"rif"},
+      {q:"Mi e capitato di interrompere relazioni e contatti senza spiegazioni, perche 'meglio prima che dopo'.", w:"rif"},
+      {q:"Cerco istintivamente di occupare poco spazio: voce bassa, corpo raccolto, vestiti che non si notano.", w:"rif"},
+      {q:"Uno sguardo, un silenzio, un commento mi fa sentire 'sbagliato/a' molto piu rapidamente che a una persona media.", w:"rif"},
+      {q:"Quando le cose si fanno intense, mi rifugio nella mente, nella spiritualita, nei libri o in mondi immaginari.", w:"rif"},
+
+      // ABBANDONO — Dipendente
+      {q:"Stare da solo/a per molto tempo mi pesa piu di quanto vorrei ammettere.", w:"abb"},
+      {q:"Ho la sensazione, anche quando non c'e motivo, che chi amo prima o poi mi lascera.", w:"abb"},
+      {q:"Quando una persona importante non risponde, sento dentro di me un piccolo crollo.", w:"abb"},
+      {q:"Tollero piu del giusto pur di non perdere una relazione, anche quando so che mi fa male.", w:"abb"},
+      {q:"Ho bisogno di contatto fisico (abbracci, vicinanza) per sentirmi davvero al sicuro.", w:"abb"},
+      {q:"Distacchi, partenze, fine di una serata mi lasciano spesso una malinconia sproporzionata.", w:"abb"},
+      {q:"Faccio fatica a prendere decisioni da solo/a: cerco un parere, una conferma, una presenza che 'tenga la corda'.", w:"abb"},
+
+      // UMILIAZIONE — Masochista
+      {q:"Mi carico di responsabilita e impegni altrui anche quando sono gia esausto/a.", w:"uml"},
+      {q:"Una parte di me crede che, per essere amato/a, devo mettere prima i bisogni degli altri.", w:"uml"},
+      {q:"Mi vergogno facilmente di alcune mie parti — del corpo, dei desideri, dei piaceri 'troppo miei'.", w:"uml"},
+      {q:"Faccio fatica a dire di no e a chiedere apertamente cio che mi serve.", w:"uml"},
+      {q:"Ho un rapporto complicato con il corpo, il cibo o il piacere fisico — oscillo tra controllo e cedimento.", w:"uml"},
+      {q:"Quando qualcuno mi mette in imbarazzo davanti ad altri, l'umiliazione brucia molto piu del 'normale'.", w:"uml"},
+      {q:"Anticipo lo scherno facendo io l'auto-ironia o il/la 'buffone' — meglio ridere di me prima che lo facciano gli altri.", w:"uml"},
+
+      // TRADIMENTO — Controllore
+      {q:"Tendo a prendere il controllo nelle situazioni: piuttosto che fidarmi, organizzo io.", w:"tra"},
+      {q:"Se mostro debolezza o vulnerabilita mi metto in pericolo — meglio reggere da forte.", w:"tra"},
+      {q:"Quando sento di essere stato/a 'preso/a in giro' la rabbia sale rapidamente e a fondo.", w:"tra"},
+      {q:"Faccio fatica a delegare: dentro di me penso che gli altri non lo faranno bene come me.", w:"tra"},
+      {q:"Uso il mio corpo come strumento di presenza, fascino o impatto — la mia immagine conta molto.", w:"tra"},
+      {q:"Promesse non mantenute, bugie scoperte, persone che 'spariscono' mi feriscono in modo sproporzionato.", w:"tra"},
+      {q:"Sedurre, anticipare, controllare le mosse altrui: lo faccio quasi senza accorgermene.", w:"tra"},
+
+      // INGIUSTIZIA — Rigido
+      {q:"Sono molto esigente con me stesso/a — anche cio che ho fatto bene 'si poteva fare meglio'.", w:"ing"},
+      {q:"Devo dare il massimo per meritare riconoscimento; rilassarmi mi sembra poco serio.", w:"ing"},
+      {q:"Le mie emozioni le tengo a bada con la testa: piangere o lasciarmi andare mi mette a disagio.", w:"ing"},
+      {q:"Quando qualcosa mi sembra ingiusto — anche piccolo — la cosa mi rimane addosso a lungo.", w:"ing"},
+      {q:"Ho una postura controllata, mascella o spalle spesso tese, faccio fatica a 'sciogliermi'.", w:"ing"},
+      {q:"Critiche, valutazioni o confronti con gli altri attivano in me un'autocritica feroce.", w:"ing"},
+      {q:"'Ce la faccio da solo/a': chiedere aiuto e una delle cose che mi viene piu difficile fare.", w:"ing"}
+    ],
+    score(answers){
+      const scores = {rif:0, abb:0, uml:0, tra:0, ing:0};
+      this.questions.forEach((q,i) => { scores[q.w] += answers[i] || 0; });
+      const sorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
+      const totalMax = 35;
+      return {scores, sorted, totalMax};
+    },
+    interpret(r){
+      const NAMES = {
+        rif: {name:"Rifiuto", mask:"Fuggitivo", core:"Non ho diritto di esistere",
+          desc:"Ferita del 'non sono desiderato/a'. Maschera del Fuggitivo: ci si fa invisibili, ci si stacca dal corpo, si fugge nella mente. Trigger: sentirsi non visti o di troppo."},
+        abb: {name:"Abbandono", mask:"Dipendente", core:"Da solo/a non ce la faccio",
+          desc:"Ferita del 'sono stato/a lasciato/a'. Maschera del Dipendente: si chiede presenza, si tollera troppo, si teme la solitudine. Trigger: distacchi, silenzi, partenze."},
+        uml: {name:"Umiliazione", mask:"Masochista", core:"Non merito di godere",
+          desc:"Ferita del 'sono stato/a svergognato/a'. Maschera del Masochista: ci si carica, ci si sacrifica, si nega il piacere. Trigger: imbarazzo pubblico, vergogna corporea."},
+        tra: {name:"Tradimento", mask:"Controllore", core:"Non posso fidarmi",
+          desc:"Ferita del 'sono stato/a tradito/a nelle aspettative'. Maschera del Controllore: si controlla, si seduce, si guida per non subire. Trigger: bugie, promesse rotte, abbandoni di fiducia."},
+        ing: {name:"Ingiustizia", mask:"Rigido", core:"Devo essere perfetto/a per valere",
+          desc:"Ferita del 'sono stato/a valutato/a freddamente'. Maschera del Rigido: si performa, si sopprime, si pretende perfezione. Trigger: critiche, confronti, valutazioni."}
+      };
+      const dom = r.sorted[0];
+      const sec = r.sorted[1];
+      const top = NAMES[dom[0]];
+      const second = NAMES[sec[0]];
+      const dominantPct = dom[1] / r.totalMax;
+      let band;
+      if(dominantPct >= 0.75) band = `Ferita dominante: ${top.name} — pattern molto attivo`;
+      else if(dominantPct >= 0.55) band = `Ferita dominante: ${top.name} — pattern attivo`;
+      else if(dominantPct >= 0.35) band = `${top.name} prevale ma in modo moderato`;
+      else band = "Ferite poco attive — pattern sfumati";
+
+      const allHigh = r.sorted.every(s => s[1] >= 21);
+      const intro = allHigh
+        ? `<p>Tutte le ferite mostrano punteggi elevati. Bourbeau direbbe che il bambino ferito e attivo su piu fronti — spesso e segnale di un periodo difficile o di un trauma complesso che riattiva piu strati. <strong>Strategia clinica</strong>: non lavorare su tutto in una volta. Iniziare dalla piu dolorosa nel corpo, non dalla piu alta sul punteggio.</p>`
+        : `<p>La tua ferita piu attiva e <strong>${top.name}</strong> — maschera del <em>${top.mask}</em>. ${top.desc}</p>
+           <p>A seguire viene <strong>${second.name}</strong> (maschera del <em>${second.mask}</em>): ${second.core}. Bourbeau ricorda che <em>tutti portiamo almeno due ferite</em>, di solito una primaria e una di rinforzo che la sostiene.</p>`;
+
+      const bars = r.sorted.map(([k, v]) => {
+        const pct = (v / r.totalMax) * 100;
+        return `<div class="result-bar">
+          <div class="result-bar-name">${NAMES[k].name} <span style="font-size:11px; color:var(--ink-dim); font-style:italic">· ${NAMES[k].mask}</span></div>
+          <div class="result-bar-track"><div class="result-bar-fill" style="width:${pct}%"></div></div>
+          <div class="result-bar-val">${v}/${r.totalMax}</div>
+        </div>`;
+      }).join('');
+
+      return {
+        headline: `${top.name} <span style="color:var(--ink-dim); font-size:.55em; font-style:italic">· maschera del ${top.mask}</span>`,
+        score: dom[1],
+        scoreMax: r.totalMax,
+        band: band,
+        body: `<div class="result-section">
+          <h3>Il tuo profilo delle 5 ferite</h3>
+          ${bars}
+        </div>
+        <div class="result-section">
+          <h3>Cosa significa</h3>
+          ${intro}
+          <p style="margin-top:14px"><strong>Nota di metodo</strong>: questo modello non e un test clinico validato in letteratura peer-reviewed. E un dispositivo di auto-osservazione che traduce in linguaggio simbolico (ferita, maschera, bambino ferito) costrutti che la clinica nomina diversamente — schema therapy di Young, teoria dell'attaccamento, perfezionismo clinico. Usalo come specchio narrativo, non come diagnosi.</p>
+        </div>`
+      };
+    }
   }
 };
 
@@ -1416,10 +1696,18 @@ let currentTest = null;
 let currentAnswers = [];
 let currentResult = null;
 
+// Ordine di visualizzazione dei test in landing (override key insertion order)
+const TEST_ORDER = ['young', 'bigfive', 'wounds', 'enneagram', 'cattell16pf', 'pcl5', 'ace', 'dest', 'rrs'];
+
 // ========== RENDER LANDING ==========
 function renderLanding(){
   const grid = document.getElementById('testGrid');
-  grid.innerHTML = Object.entries(TESTS).map(([id, t]) => `
+  const ids = TEST_ORDER.filter(id => TESTS[id]);
+  // Aggiungi eventuali test non listati alla fine
+  Object.keys(TESTS).forEach(id => { if(!ids.includes(id)) ids.push(id); });
+  grid.innerHTML = ids.map(id => {
+    const t = TESTS[id];
+    return `
     <div class="card">
       <span class="tag">${t.eyebrow}</span>
       <h3>${t.title}</h3>
@@ -1431,7 +1719,8 @@ function renderLanding(){
       </div>
       <button class="btn btn-primary" onclick="startTest('${id}')" style="margin-top:14px">Inizia →</button>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // ========== START TEST ==========
@@ -1443,11 +1732,92 @@ function startTest(id){
   document.getElementById('testEyebrow').textContent = currentTest.eyebrow;
   document.getElementById('testEyebrow').className = 'sect-eyebrow';
   document.getElementById('testTitle').innerHTML = currentTest.title;
-  document.getElementById('testInfo').innerHTML = `<strong>Cosa misura:</strong> ${currentTest.author}<br><br><strong>Come:</strong> ${currentTest.info}`;
+  document.getElementById('testInfo').innerHTML = `<strong>Cosa misura:</strong> ${currentTest.author}<br><br><strong>Come:</strong> ${currentTest.info}` + buildScaleHelp();
 
   renderQuestions();
   switchView('testView');
   window.scrollTo(0, 0);
+}
+
+// ========== HELPERS ==========
+// Costruisce un collassabile "Cosa significano i valori" per la scala del test corrente
+function buildScaleHelp(){
+  const t = currentTest;
+  if(!t.scale || !t.scale.length) return '';
+  const scaleRows = t.scale.map(s =>
+    `<div class="expl-row"><div class="expl-key">${s.label}</div><div class="expl-val">${scaleValExplain(t, s)}</div></div>`
+  ).join('');
+  const overall = t.scaleExplain || scaleDefaultExplain(t);
+  return `<div style="margin-top:14px"><details class="expl">
+    <summary>Cosa significano i valori della scala</summary>
+    <div class="expl-body">
+      ${overall ? `<p>${overall}</p>` : ''}
+      ${scaleRows}
+    </div>
+  </details></div>`;
+}
+function scaleValExplain(t, s){
+  // Spiegazione contestuale del singolo valore della scala
+  const map = {
+    likert5: {
+      1: "Non ti riconosci affatto: il pattern descritto non ti appartiene.",
+      2: "Lo riconosci poco: occasionale o marginale nella tua esperienza.",
+      3: "Lo riconosci in parte: presente in certi momenti o contesti.",
+      4: "Lo riconosci abbastanza: ricorre in modo significativo nella tua vita.",
+      5: "Ti riconosci pienamente: e un pattern dominante e definente."
+    },
+    likert6: {
+      1: "Non rappresenta affatto come mi vedo o sento.",
+      2: "Mi rappresenta in misura molto limitata.",
+      3: "Lo riconosco solo a tratti.",
+      4: "Lo riconosco abbastanza chiaramente.",
+      5: "Mi rappresenta molto bene.",
+      6: "Mi descrive perfettamente, e centrale nel mio modo di essere."
+    },
+    likert4: {
+      0: "Mai. Non ti e successo.",
+      1: "Raramente. Episodi sporadici.",
+      2: "Spesso. Pattern ricorrente.",
+      3: "Sempre. Modalita costante."
+    },
+    likert5pcl: {
+      0: "Per niente. Il sintomo non e presente.",
+      1: "Un poco. Disagio lieve, gestibile.",
+      2: "Moderatamente. Disagio notevole ma non invalidante.",
+      3: "Parecchio. Compromette il funzionamento quotidiano.",
+      4: "Estremamente. Sintomo grave e pervasivo."
+    },
+    yesno: {
+      0: "No: l'esperienza descritta non ti appartiene (o non ricordi).",
+      1: "Si: hai vissuto cio che la domanda descrive."
+    },
+    percent: {
+      0: "0% — l'esperienza non ti riguarda mai.",
+      10: "Molto raro — episodi sporadici e brevi.",
+      20: "Occasionale.",
+      30: "A tratti — episodi non rari ma non quotidiani.",
+      40: "Periodico.",
+      50: "Frequente — circa meta delle volte.",
+      60: "Molto frequente.",
+      70: "Costante in molte situazioni.",
+      80: "Quasi sempre.",
+      90: "Quasi totale.",
+      100: "100% — l'esperienza descritta e pervasiva."
+    }
+  };
+  const family = map[t.scaleType];
+  return (family && family[s.v] !== undefined) ? family[s.v] : `Valore ${s.v}: ${s.label}.`;
+}
+function scaleDefaultExplain(t){
+  const explains = {
+    likert5: "Scala Likert a 5 punti. Piu il valore e alto, piu il pattern descritto e centrale nella tua esperienza. Rispondi pensando alla tua tendenza generale, non a un episodio singolo.",
+    likert6: "Scala a 6 punti. Non c'e una via di mezzo neutra: scegli da che lato pendi. Piu vai in alto, piu la frase ti rappresenta come pattern stabile.",
+    likert4: "Scala 0-3 sulla frequenza dell'esperienza nel periodo considerato. 0 = mai, 3 = sempre/quasi sempre.",
+    likert5pcl: "Scala 0-4 (DSM-5) sull'intensita del sintomo nell'ultimo mese. Una somma totale ≥33 indica probabile PTSD ma non sostituisce la diagnosi clinica.",
+    yesno: "Risposta dicotomica si/no riferita all'aver vissuto o meno l'esperienza descritta entro i 18 anni di eta.",
+    percent: "Percentuale di tempo in cui hai vissuto l'esperienza descritta. 0 = mai, 100 = sempre."
+  };
+  return explains[t.scaleType] || "";
 }
 
 function renderQuestions(){
@@ -1469,6 +1839,12 @@ function renderQuestions(){
             ${info.core ? `<div class="desc">"${info.core}"</div>` : ''}
             ${info.origin ? `<div class="info-block"><span class="info-label">Si forma quando</span> ${info.origin}</div>` : ''}
             ${info.impact ? `<div class="info-block"><span class="info-label">Agisce cosi</span> ${info.impact}</div>` : ''}
+            ${(info.high || info.low || info.mask) ? `<details class="expl" style="margin-top:14px"><summary>Cosa significa un punteggio alto / basso qui</summary><div class="expl-body">
+              ${info.mask ? `<div class="expl-row"><div class="expl-key">Maschera</div><div class="expl-val">${info.mask}</div></div>` : ''}
+              ${info.high ? `<div class="expl-row"><div class="expl-key">Punteggio alto</div><div class="expl-val">${info.high}</div></div>` : ''}
+              ${info.low ? `<div class="expl-row"><div class="expl-key">Punteggio basso</div><div class="expl-val">${info.low}</div></div>` : ''}
+              ${info.work ? `<div class="expl-row"><div class="expl-key">Su cosa lavorare</div><div class="expl-val">${info.work}</div></div>` : ''}
+            </div></details>` : ''}
           </div>`;
         }
         lastGroup = key;
@@ -1528,10 +1904,81 @@ function submitTest(){
       <span class="result-band">${interp.band}</span>
     </div>
     ${interp.body}
+    ${buildGroupMeaning()}
+    ${buildAnswersRecap()}
   `;
 
   switchView('resultsView');
   window.scrollTo(0, 0);
+}
+
+// Costruisce sezione "Cosa significa ogni gruppo nel tuo profilo"
+// Riusa core/origin/impact (+ high/low/mask/work se presenti) gia in groupInfo.
+function buildGroupMeaning(){
+  const t = currentTest;
+  if(!t.groupInfo) return '';
+  const keys = Object.keys(t.groupInfo);
+  if(!keys.length) return '';
+  const items = keys.map(k => {
+    const g = t.groupInfo[k];
+    const lab = g.label || k;
+    return `<details class="expl" style="margin-top:10px">
+      <summary>${g.n ? g.n + ' · ' : ''}${lab}${g.domain ? ' — ' + g.domain : ''}</summary>
+      <div class="expl-body">
+        ${g.core ? `<p><em>"${g.core}"</em></p>` : ''}
+        ${g.origin ? `<div class="expl-row"><div class="expl-key">Origine</div><div class="expl-val">${g.origin}</div></div>` : ''}
+        ${g.impact ? `<div class="expl-row"><div class="expl-key">Come agisce</div><div class="expl-val">${g.impact}</div></div>` : ''}
+        ${g.mask ? `<div class="expl-row"><div class="expl-key">Maschera</div><div class="expl-val">${g.mask}</div></div>` : ''}
+        ${g.high ? `<div class="expl-row"><div class="expl-key">Punteggio alto</div><div class="expl-val">${g.high}</div></div>` : ''}
+        ${g.low ? `<div class="expl-row"><div class="expl-key">Punteggio basso</div><div class="expl-val">${g.low}</div></div>` : ''}
+        ${g.work ? `<div class="expl-row"><div class="expl-key">Su cosa lavorare</div><div class="expl-val">${g.work}</div></div>` : ''}
+      </div>
+    </details>`;
+  }).join('');
+  return `<div class="result-section">
+    <h3>Significato di ogni ${(t.groupLabel || 'gruppo').toLowerCase()}</h3>
+    <p style="margin-bottom:14px; color:var(--ink-soft)">Apri ogni voce per leggere origine, manifestazione e cosa indica un punteggio alto in quell'area.</p>
+    ${items}
+  </div>`;
+}
+
+// Costruisce la sezione "Le tue risposte" (utile per il PDF)
+function buildAnswersRecap(){
+  const t = currentTest;
+  const ans = currentAnswers;
+  if(!t || !ans) return '';
+  const gb = t.groupBy;
+  const groups = {};
+  const order = [];
+  t.questions.forEach((q,i) => {
+    const key = (gb && q[gb] !== undefined) ? q[gb] : '_all';
+    if(!groups[key]){ groups[key] = []; order.push(key); }
+    groups[key].push({i, q: q.q, val: ans[i]});
+  });
+
+  // Etichetta scala per visualizzazione compatta
+  const valLabel = v => {
+    const s = t.scale.find(s => s.v === v);
+    return s ? `${s.v} · ${s.label}` : v;
+  };
+
+  const blocks = order.map(k => {
+    const info = (gb && t.groupInfo) ? t.groupInfo[k] : null;
+    const title = info ? `${info.n ? info.n + ' · ' : ''}${info.label || k}` : (gb ? k : 'Risposte');
+    const items = groups[k].map(it =>
+      `<div class="ans-item"><div class="ans-q">${it.i+1}. ${it.q}</div><div class="ans-v">${valLabel(it.val)}</div></div>`
+    ).join('');
+    return `<div class="ans-group">
+      ${gb ? `<div class="ans-group-title">${title}</div>` : ''}
+      ${items}
+    </div>`;
+  }).join('');
+
+  return `<div class="result-section answers-recap-wrap">
+    <h3>Le tue risposte</h3>
+    <p style="margin-bottom:14px; color:var(--ink-soft)">Riepilogo completo di cosa hai risposto, raggruppato per ${(t.groupLabel || 'sezione').toLowerCase()}. Compreso nel PDF.</p>
+    <div class="answers-recap">${blocks}</div>
+  </div>`;
 }
 
 // ========== EXPORT ==========
